@@ -8,7 +8,7 @@
         <i class="fa pb-1 fa-list-ul"></i>
         <p class="m-0">Plan Demand</p>
       </div>
-      <div class="item d-flex flex-column align-items-center mt-2">
+      <div class="item d-flex flex-column align-items-center mt-2" data-toggle="modal" data-target="#createPlanModal">
         <i class="fa pb-1 fa-list-ul"></i>
         <p class="m-0">Create Plan</p>
         <p class="m-0">Personalized</p>
@@ -18,8 +18,6 @@
         <p class="m-0">Revisit a Plan</p>
       </div>
     </div>
-
-
     <div class="mb-2">
       <div class="item d-flex flex-column align-items-center mt-2">
         <i class="fa pb-1 fa-cog"></i>
@@ -34,6 +32,50 @@
         <i class="fa pb-1 fa-list-ul"></i>
         <p class="m-0">SKU Volume</p>
         <p class="m-0">Allocation</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="createPlanModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid mt-5 mb-3">
+          <div class="d-flex align-items-center flex-column">
+            <h4 class="mb-3">Select Planning Horizon</h4>
+            <h5 class="mb-4">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</h5>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <div class="d-flex justify-content-center mb-3">
+              <div class="custom-input mr-2">
+                <label for="startWeek">
+                  <span class="sr-only">Start Week</span>
+                </label>
+                <span class="text-white pr-1">From:</span>
+                <input type="week" id="startWeek" [(ngModel)]="startWeek" readonly>
+              </div>
+              <div class="custom-input ml-2">
+                <label for="startWeek">
+                  <span class="sr-only">End Week</span>
+                </label>
+                <span class="text-white pr-1">To:</span>
+                <input type="week" id="endWeek" [(ngModel)]="endWeek" [min]="minEndWeek">
+              </div>
+            </div>
+            <div class="d-flex justify-content-around" style="width: 45%">
+              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(18)">+ 18 weeks</a>
+              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
+              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
+              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(72)">+ 72 weeks</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

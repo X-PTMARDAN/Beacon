@@ -20,3 +20,21 @@
 #sidebar .item:hover {
   background-color: #797F87;
 }
+
+
+/* Modal Styling */
+.modal-footer {
+  display: none;
+}
+
+.modal-header{
+  border: none;
+}
+
+#createPlanModal .modal-dialog{
+  max-width: 80vw;
+}
+
+#createPlanModal .modal-dialog .modal-content{
+  min-height: 90vh;
+}
