@@ -1,5 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import * as CanvasJS from './../../../assets/js/canvasjs.min';
+import {SKUService} from '../../services/sku.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+
+enum STEPS {
+  'SELECT_HORIZON' = 1,
+  'FILTER_SKU' = 2,
+  'SELECT_CPG_AND_PLANT' = 3
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -13,10 +22,26 @@ export class DashboardComponent implements OnInit {
   public startWeek: string;
   public endWeek: string;
 
-  constructor() {
+  // Active Step Order
+  public activeStepOrder: number;
+
+  // Select Sku
+  public brands = [];
+  public segments = [];
+  public packs = [];
+  public SKUs = [];
+  public selectedSKUs = [];
+  public searchFormGroup: FormGroup;
+
+  constructor(
+    private router: Router,
+    private skuService: SKUService,
+    private fb: FormBuilder
+  ) {
   }
 
   ngOnInit() {
+    this.activeStepOrder = STEPS.SELECT_HORIZON;
     const currentDate = new Date();
     this.startWeek = currentDate.getFullYear() + '-W' + DashboardComponent.getCurrentWeek(currentDate);
     currentDate.setDate(currentDate.getDate() + 7);
@@ -35,7 +60,7 @@ export class DashboardComponent implements OnInit {
     this.endWeek = currentDate.getFullYear() + '-W' + DashboardComponent.getCurrentWeek(currentDate);
   }
 
-  public openCalender(){
+  public openCalender() {
     const elem = document.getElementById('endWeek');
     elem.focus();
   }

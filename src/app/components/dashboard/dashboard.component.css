@@ -65,8 +65,12 @@
 .btn-circle {
   width: 40px;
   height: 40px;
-  background-color: #595f67;
+  background-color: #D4DBE3;
   border-radius: 100%;
+}
+
+.btn-circle.active{
+  background-color: #595f67;
 }
 
 .custom-input {

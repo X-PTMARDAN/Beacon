@@ -51,19 +51,19 @@
             <div class="stepwizard-row d-flex justify-content-center">
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
-                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"></a>
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle" [class.active]="activeStepOrder === 1" (click)="activeStepOrder=1"></a>
                 </span>
                 <p class="mb-0 mt-1">Select Planning Horizon</p>
               </div>
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
-                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"></a>
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle" [class.active]="activeStepOrder === 2" (click)="activeStepOrder=2"></a>
                 </span>
                 <p class="mb-0 mt-1">Filter SKUs</p>
               </div>
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
-                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"></a>
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle" [class.active]="activeStepOrder === 3" (click)="activeStepOrder=3"></a>
                 </span>
                 <p class="mb-0 mt-1">Select CPG and Plant</p>
               </div>
@@ -71,7 +71,7 @@
           </div>
         </div>
 
-        <div class="mt-5 d-flex flex-column align-items-center" *ngIf="true">
+        <div *ngIf="activeStepOrder === 1" class="mt-5 d-flex flex-column align-items-center">
           <div>
             <h3 class="text-center">Select Planning Horizon</h3>
             <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
@@ -108,16 +108,21 @@
             <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(72)">+ 72 weeks</a>
           </div>
           <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="!horizonForm.valid"
-                  [disabled]="!horizonForm.valid">Continue to Filter SKUs
+                  [disabled]="!horizonForm.valid" (click)="activeStepOrder=2">Continue to Filter SKUs
           </button>
         </div>
 
-        <div>
+        <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
 
+          <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="false"
+                  [disabled]="false" (click)="activeStepOrder=3">Continue to Select CPG and Plant
+          </button>
         </div>
 
-        <div>
-
+        <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
+          <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="false"
+                  [disabled]="false">Create Plan
+          </button>
         </div>
 
       </div>
