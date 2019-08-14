@@ -34,5 +34,10 @@ export class DashboardComponent implements OnInit {
     currentDate.setDate(currentDate.getDate() + 7 * numOfWeeks);
     this.endWeek = currentDate.getFullYear() + '-W' + DashboardComponent.getCurrentWeek(currentDate);
   }
+
+  public openCalender(){
+    const elem = document.getElementById('endWeek');
+    elem.focus();
+  }
 }
 

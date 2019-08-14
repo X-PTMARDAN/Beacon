@@ -46,36 +46,80 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="container-fluid mt-5 mb-3">
-          <div class="d-flex align-items-center flex-column">
-            <h4 class="mb-3">Select Planning Horizon</h4>
-            <h5 class="mb-4">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</h5>
-          </div>
-          <div class="d-flex flex-column align-items-center">
-            <div class="d-flex justify-content-center mb-3">
-              <div class="custom-input mr-2">
-                <label for="startWeek">
-                  <span class="sr-only">Start Week</span>
-                </label>
-                <span class="text-white pr-1">From:</span>
-                <input type="week" id="startWeek" [(ngModel)]="startWeek" readonly>
+        <div class="container d-flex justify-content-center">
+          <div class="w-50">
+            <div class="stepwizard-row d-flex justify-content-center">
+              <div class="step d-flex flex-column justify-content-center align-items-center">
+                <span class="step-circle">
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"></a>
+                </span>
+                <p class="mb-0 mt-1">Select Planning Horizon</p>
               </div>
-              <div class="custom-input ml-2">
-                <label for="startWeek">
-                  <span class="sr-only">End Week</span>
-                </label>
-                <span class="text-white pr-1">To:</span>
-                <input type="week" id="endWeek" [(ngModel)]="endWeek" [min]="minEndWeek">
+              <div class="step d-flex flex-column justify-content-center align-items-center">
+                <span class="step-circle">
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"></a>
+                </span>
+                <p class="mb-0 mt-1">Filter SKUs</p>
               </div>
-            </div>
-            <div class="d-flex justify-content-around" style="width: 45%">
-              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(18)">+ 18 weeks</a>
-              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
-              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
-              <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(72)">+ 72 weeks</a>
+              <div class="step d-flex flex-column justify-content-center align-items-center">
+                <span class="step-circle">
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"></a>
+                </span>
+                <p class="mb-0 mt-1">Select CPG and Plant</p>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="mt-5 d-flex flex-column align-items-center" *ngIf="true">
+          <div>
+            <h3 class="text-center">Select Planning Horizon</h3>
+            <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
+          </div>
+          <div class="mb-4">
+            <form #horizonForm='ngForm' class="d-flex justify-content-center">
+              <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+                <label for="startWeek" class="d-none">
+                  <span class="sr-only">Start Week</span>
+                </label>
+                <div class="input-group input-append date">
+                  <span class="pr-1">From:</span>
+                  <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>
+                  <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                </div>
+              </div>
+              <div class="custom-input ml-2 pt-1 pb-1 pl-1 pr-2">
+                <label for="startWeek" class="d-none">
+                  <span class="sr-only">End Week</span>
+                </label>
+                <div class="input-group input-append date">
+                  <span class="pr-1">To:</span>
+                  <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek" [min]="minEndWeek" required>
+                  <span class="input-group-addon add-on" (click)="openCalender()"><i class="fa fa-calendar"
+                                                                                     aria-hidden="true"></i></span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="d-flex justify-content-around w-50 mb-5">
+            <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(18)">+ 18 weeks</a>
+            <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
+            <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
+            <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(72)">+ 72 weeks</a>
+          </div>
+          <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="!horizonForm.valid"
+                  [disabled]="!horizonForm.valid">Continue to Filter SKUs
+          </button>
+        </div>
+
+        <div>
+
+        </div>
+
+        <div>
+
+        </div>
+
       </div>
     </div>
   </div>
