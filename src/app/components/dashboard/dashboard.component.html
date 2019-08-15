@@ -92,7 +92,7 @@
                 </div>
               </div>
               <div class="custom-input ml-2 pt-1 pb-1 pl-1 pr-2">
-                <label for="startWeek" class="d-none">
+                <label for="endWeek" class="d-none">
                   <span class="sr-only">End Week</span>
                 </label>
                 <div class="input-group input-append date">
@@ -125,9 +125,11 @@
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" (click)="toggleClass.isBrandExpanded = !toggleClass.isBrandExpanded"
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                             (click)="toggleClass.isBrandExpanded = !toggleClass.isBrandExpanded"
                              aria-expanded="true" aria-controls="collapseOne">
-                            <span class="font-weight-bold">Brand <i class="fa float-right" [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                            <span class="font-weight-bold">Brand <i class="fa float-right"
+                                                                    [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                           </a>
                         </h4>
                       </div>
@@ -137,7 +139,8 @@
                           <div class="brand-selector">
                             <ul>
                               <ng-container *ngFor="let brand of brands; let i=index">
-                                  <li><input type="checkbox" [(ngModel)]="brand.isChecked" [name]="'brand-'+i" (change)="onFilterCheckboxClick($event)">{{ brand.name }}</li>
+                                <li><input type="checkbox" [(ngModel)]="brand.isChecked" [name]="'brand-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ brand.name }}</li>
                               </ng-container>
                             </ul>
                           </div>
@@ -148,8 +151,10 @@
                       <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                             href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
-                            <span class="font-weight-bold">Segment<i class="fa float-right" [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                             href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                             (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
+                            <span class="font-weight-bold">Segment<i class="fa float-right"
+                                                                     [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                           </a>
                         </h4>
                       </div>
@@ -159,7 +164,8 @@
                           <div class="brand-selector">
                             <ul>
                               <ng-container *ngFor="let segment of segments; let i=index">
-                                  <li><input type="checkbox" [(ngModel)]="segment.isChecked" [name]="'segment-'+i" (change)="onFilterCheckboxClick($event)">{{ segment.name }}</li>
+                                <li><input type="checkbox" [(ngModel)]="segment.isChecked" [name]="'segment-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ segment.name }}</li>
                               </ng-container>
                             </ul>
                           </div>
@@ -169,9 +175,11 @@
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
-                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                              href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="font-weight-bold">Packs <i class="fa float-right" [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                            <span class="font-weight-bold">Packs <i class="fa float-right"
+                                                                    [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                           </a>
                         </h4>
                       </div>
@@ -181,7 +189,8 @@
                           <div class="brand-selector">
                             <ul>
                               <ng-container *ngFor="let pack of packs; let i=index">
-                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i" (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
                               </ng-container>
                             </ul>
                           </div>
@@ -214,7 +223,8 @@
                           <div class="brand-selector brand-selector2">
                             <ul>
                               <li *ngFor="let SKU of SKUs;let i=index">
-                                <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(i)" ><i class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU}}
+                                <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(i)"><i
+                                  class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU}}
                               </li>
                             </ul>
                           </div>
@@ -245,7 +255,8 @@
                           <div class="brand-selector brand-selector2">
                             <ul>
                               <li class="d-flex" *ngFor="let selectedSKU of selectedSKUs;let i=index">
-                                <a href="javascript:void(0);" class="text-danger pr-1" (click)="removeItems(i)"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);" class="text-danger pr-1" (click)="removeItems(i)"><i
+                                  class="fa fa-minus-circle" aria-hidden="true"></i></a>
                                 {{ selectedSKU }}
                               </li>
                             </ul>
@@ -267,11 +278,31 @@
         </div>
 
         <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
-          <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="false"
+          <div>
+            <h3 class="text-center">Select CPG and Plant</h3>
+          </div>
+          <div class="d-flex mt-4">
+            <div class="form-group w-50 mr-1">
+              <label for="customerPlanningGroup">Customer Planning Group</label>
+              <select id="customerPlanningGroup" class="minimal">
+                <option>Select</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </div>
+            <div class="form-group w-50 ml-1">
+              <label for="plant">Plant</label>
+              <select id="plant" class="minimal">
+                <option>Select</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary nextBtn p-2 mt-3" type="button" [class.disabled]="false"
                   [disabled]="false">Create Plan
           </button>
         </div>
-
       </div>
     </div>
   </div>
