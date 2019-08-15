@@ -51,19 +51,22 @@
             <div class="stepwizard-row d-flex justify-content-center">
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
-                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle" [class.active]="activeStepOrder === 1" (click)="activeStepOrder=1"></a>
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"
+                     [class.active]="activeStepOrder === 1" (click)="activeStepOrder=1"></a>
                 </span>
                 <p class="mb-0 mt-1">Select Planning Horizon</p>
               </div>
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
-                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle" [class.active]="activeStepOrder === 2" (click)="activeStepOrder=2"></a>
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"
+                     [class.active]="activeStepOrder === 2" (click)="activeStepOrder=2"></a>
                 </span>
                 <p class="mb-0 mt-1">Filter SKUs</p>
               </div>
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
-                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle" [class.active]="activeStepOrder === 3" (click)="activeStepOrder=3"></a>
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"
+                     [class.active]="activeStepOrder === 3" (click)="activeStepOrder=3"></a>
                 </span>
                 <p class="mb-0 mt-1">Select CPG and Plant</p>
               </div>
@@ -112,11 +115,166 @@
           </button>
         </div>
 
-        <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
-
-          <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="false"
-                  [disabled]="false" (click)="activeStepOrder=3">Continue to Select CPG and Plant
-          </button>
+        <div *ngIf="activeStepOrder === 2" class="mt-4 container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="box-main">
+                <span>Filter</span>
+                <div class="last-box p-1">
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                             aria-expanded="true" aria-controls="collapseOne">
+                            Brand
+                          </a>
+                          <i class="fa fa-plus float-right"></i>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                           aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          <div class="brand-selector">
+                            <ul>
+                              <li><input type="checkbox"> Wel</li>
+                              <li><input type="checkbox" checked> Tub</li>
+                              <li><input type="checkbox" checked> Tou</li>
+                              <li><input type="checkbox"> Tub</li>
+                              <li><input type="checkbox"> Tou</li>
+                              <li><input type="checkbox"> Wel</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Segment
+                          </a>
+                          <i class="fa fa-plus float-right"></i>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel"
+                           aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                          <div class="brand-selector">
+                            <ul>
+                              <li><input type="checkbox" checked> Wel</li>
+                              <li><input type="checkbox"> Tub</li>
+                              <li><input type="checkbox" checked> Tou</li>
+                              <li><input type="checkbox"> Tub</li>
+                              <li><input type="checkbox"> Tou</li>
+                              <li><input type="checkbox"> Wel</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Packs
+                          </a>
+                          <i class="fa fa-plus float-right"></i>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                           aria-labelledby="headingThree">
+                        <div class="panel-body">
+                          <ul>
+                            <li><input type="checkbox" checked> Wel</li>
+                            <li><input type="checkbox"> Tub</li>
+                            <li><input type="checkbox" checked> Tou</li>
+                            <li><input type="checkbox"> Tub</li>
+                            <li><input type="checkbox"> Tou</li>
+                            <li><input type="checkbox"> Wel</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btm-url d-flex justify-content-between">
+                  <a href="#">Select All</a>
+                  <a href="#">Clear All</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="box-main">
+                <span>Showing 40 Result</span>
+                <div class="last-box">
+                  <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" style="padding: 15px 0 0 0px;" role="tab">
+                        <h4 class="panel-title">
+                          <div class="form-group has-feedback">
+                            <input type="text" class="form-control search-box-l" placeholder="Search SKU">
+                          </div>
+                        </h4>
+                      </div>
+                      <div class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          <div class="brand-selector brand-selector2">
+                            <ul>
+                              <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-plus-circle"
+                                                                                        aria-hidden="true"></i></a>
+                                Tourtel twOran BOT 4X6X0, 275 Basket
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btm-url"><a href="#">Add All</a></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="box-main">
+                <span>Product Added</span>
+                <div class="last-box">
+                  <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" style="padding: 15px 0 0 0;" role="tab">
+                        <h4 class="panel-title">
+                          <div class="form-group has-feedback">
+                            <input type="text" class="form-control search-box-l" placeholder="Search SKU"
+                                   id="inputWarning2">
+                          </div>
+                        </h4>
+                      </div>
+                      <div class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body" style="border-top: 0px;">
+                          <div class="brand-selector brand-selector2">
+                            <ul>
+                              <li class="d-flex"><a href="javascript:void(0);" class="text-danger pr-1"><i
+                                class="fa fa-minus-circle" aria-hidden="true"></i></a> Tourtel twOran BOT 4X6X0, 275
+                                Basket
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btm-url"><a href="#">Remove All</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 d-flex flex-column align-items-center">
+            <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="false"
+                    [disabled]="false" (click)="activeStepOrder=3">Continue to Select CPG and Plant
+            </button>
+          </div>
         </div>
 
         <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
