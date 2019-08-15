@@ -197,7 +197,6 @@ select.round:focus {
 
 .brand-selector ul li {
   padding: 5px 5px;
-  color: #bcc4cb;
 }
 
 .panel-title {
@@ -222,12 +221,6 @@ select.round:focus {
 
 .brand-selector ul li input {
   margin-right: 5px;
-}
-
-.panel-body {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-  padding: 0px !important;
 }
 
 .search-box-l {
