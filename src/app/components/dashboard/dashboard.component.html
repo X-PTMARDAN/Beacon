@@ -52,21 +52,21 @@
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
                   <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"
-                     [class.active]="activeStepOrder === 1" (click)="activeStepOrder=1"></a>
+                     [class.active]="activeStepOrder >= 1" (click)="activeStepOrder=1"></a>
                 </span>
                 <p class="mb-0 mt-1">Select Planning Horizon</p>
               </div>
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
                   <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"
-                     [class.active]="activeStepOrder === 2" (click)="activeStepOrder=2"></a>
+                     [class.active]="activeStepOrder >= 2" (click)="activeStepOrder=2"></a>
                 </span>
                 <p class="mb-0 mt-1">Filter SKUs</p>
               </div>
               <div class="step d-flex flex-column justify-content-center align-items-center">
                 <span class="step-circle">
                   <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle"
-                     [class.active]="activeStepOrder === 3" (click)="activeStepOrder=3"></a>
+                     [class.active]="activeStepOrder >= 3" (click)="activeStepOrder=3"></a>
                 </span>
                 <p class="mb-0 mt-1">Select CPG and Plant</p>
               </div>
