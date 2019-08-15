@@ -120,14 +120,14 @@
             <div class="col-md-4">
               <div class="box-main">
                 <span>Filter</span>
-                <div class="last-box p-1">
+                <div class="last-box p-1 pt-2">
                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" (click)="toggleClass.isBrandExpanded = !toggleClass.isBrandExpanded"
                              aria-expanded="true" aria-controls="collapseOne">
-                            <span class="font-weight-bold">Brand <i class="fa fa-plus float-right"></i></span>
+                            <span class="font-weight-bold">Brand <i class="fa float-right" [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                           </a>
                         </h4>
                       </div>
@@ -136,12 +136,9 @@
                         <div class="panel-body p-0">
                           <div class="brand-selector">
                             <ul>
-                              <li><input type="checkbox"> Wel</li>
-                              <li><input type="checkbox"> Tub</li>
-                              <li><input type="checkbox"> Tou</li>
-                              <li><input type="checkbox"> Tub</li>
-                              <li><input type="checkbox"> Tou</li>
-                              <li><input type="checkbox"> Wel</li>
+                              <ng-container *ngFor="let brand of brands; let i=index">
+                                  <li><input type="checkbox" [(ngModel)]="brand.isChecked" [name]="'brand-'+i" (change)="onFilterCheckboxClick($event)">{{ brand.name }}</li>
+                              </ng-container>
                             </ul>
                           </div>
                         </div>
@@ -151,22 +148,19 @@
                       <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                             href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="font-weight-bold">Segment<i class="fa fa-plus float-right"></i></span>
+                             href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
+                            <span class="font-weight-bold">Segment<i class="fa float-right" [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                           </a>
                         </h4>
                       </div>
-                      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel"
+                      <div id="collapseTwo" #collapseTwo class="panel-collapse collapse in" role="tabpanel"
                            aria-labelledby="headingTwo">
                         <div class="panel-body p-0">
                           <div class="brand-selector">
                             <ul>
-                              <li><input type="checkbox"> Wel</li>
-                              <li><input type="checkbox"> Tub</li>
-                              <li><input type="checkbox"> Tou</li>
-                              <li><input type="checkbox"> Tub</li>
-                              <li><input type="checkbox"> Tou</li>
-                              <li><input type="checkbox"> Wel</li>
+                              <ng-container *ngFor="let segment of segments; let i=index">
+                                  <li><input type="checkbox" [(ngModel)]="segment.isChecked" [name]="'segment-'+i" (change)="onFilterCheckboxClick($event)">{{ segment.name }}</li>
+                              </ng-container>
                             </ul>
                           </div>
                         </div>
@@ -175,9 +169,9 @@
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
-                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                              href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="font-weight-bold">Packs <i class="fa fa-plus float-right"></i></span>
+                            <span class="font-weight-bold">Packs <i class="fa float-right" [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                           </a>
                         </h4>
                       </div>
@@ -186,12 +180,9 @@
                         <div class="panel-body p-0">
                           <div class="brand-selector">
                             <ul>
-                              <li><input type="checkbox"> Wel</li>
-                              <li><input type="checkbox"> Tub</li>
-                              <li><input type="checkbox"> Tou</li>
-                              <li><input type="checkbox"> Tub</li>
-                              <li><input type="checkbox"> Tou</li>
-                              <li><input type="checkbox"> Wel</li>
+                              <ng-container *ngFor="let pack of packs; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i" (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                              </ng-container>
                             </ul>
                           </div>
                         </div>
@@ -200,14 +191,14 @@
                   </div>
                 </div>
                 <div class="btm-url d-flex justify-content-between">
-                  <a href="#">Select All</a>
-                  <a href="#">Clear All</a>
+                  <a href="javascript:void(0);" (click)="selectOrClearAll()">Select All</a>
+                  <a href="javascript:void(0);" (click)="selectOrClearAll(true)">Clear All</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="box-main">
-                <span>Showing 40 Result</span>
+                <span>Showing {{ SKUs.length }} Result</span>
                 <div class="last-box">
                   <div class="panel-group" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
@@ -222,9 +213,8 @@
                         <div class="panel-body">
                           <div class="brand-selector brand-selector2">
                             <ul>
-                              <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-plus-circle"
-                                                                                        aria-hidden="true"></i></a>
-                                Tourtel twOran BOT 4X6X0, 275 Basket
+                              <li *ngFor="let SKU of SKUs;let i=index">
+                                <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(i)" ><i class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU}}
                               </li>
                             </ul>
                           </div>
@@ -233,7 +223,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="btm-url"><a href="#">Add All</a></div>
+                <div class="btm-url"><a href="javascript:void(0);" (click)="addItemsAll()">Add All</a></div>
               </div>
             </div>
             <div class="col-md-4">
@@ -254,9 +244,9 @@
                         <div class="panel-body" style="border-top: 0px;">
                           <div class="brand-selector brand-selector2">
                             <ul>
-                              <li class="d-flex"><a href="javascript:void(0);" class="text-danger pr-1"><i
-                                class="fa fa-minus-circle" aria-hidden="true"></i></a> Tourtel twOran BOT 4X6X0, 275
-                                Basket
+                              <li class="d-flex" *ngFor="let selectedSKU of selectedSKUs;let i=index">
+                                <a href="javascript:void(0);" class="text-danger pr-1" (click)="removeItems(i)"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                {{ selectedSKU }}
                               </li>
                             </ul>
                           </div>
@@ -265,7 +255,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="btm-url"><a href="#">Remove All</a></div>
+                <div class="btm-url"><a href="javascript:void(0);" (click)="removeItemsAll()">Remove All</a></div>
               </div>
             </div>
           </div>

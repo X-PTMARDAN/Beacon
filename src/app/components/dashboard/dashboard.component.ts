@@ -43,6 +43,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     packs$: null,
   };
 
+  public toggleClass: any = {
+    isBrandExpanded: false,
+    isSegmentExpanded: false,
+    isPackExpanded: false,
+  };
+
   constructor(
     private router: Router,
     private skuService: SKUService,
@@ -101,53 +107,48 @@ export class DashboardComponent implements OnInit, OnDestroy {
     elem.focus();
   }
 
-  public addItems(all = false) {
-    if (all) {
-      for (const item of this.SKUs) {
-        this.selectedSKUs.push(item);
-      }
-      this.SKUs = [];
-    } else {
-      const selectedItemIndexes = $('#SKUs').val();
+  public selectOrClearAll(clearAll = false) {
+    const value = !clearAll;
+    this.brands = this.brands.map((item) => {
+      item.isChecked = value;
+      return item;
+    });
 
-      for (const index of selectedItemIndexes) {
-        this.selectedSKUs.push(this.SKUs[index]);
-      }
+    this.segments = this.segments.map((item) => {
+      item.isChecked = value;
+      return item;
+    });
 
-      const selectedItemValues = selectedItemIndexes.map((index) => this.SKUs[index]);
-
-      for (const value of selectedItemValues) {
-        const index = this.SKUs.findIndex(item => item === value);
-        if (index > -1) {
-          this.SKUs.splice(index, 1);
-        }
-      }
-    }
+    this.packs = this.packs.map((item) => {
+      item.isChecked = value;
+      return item;
+    });
   }
 
-  public removeItems(all = false) {
-    if (all) {
-      for (const item of this.selectedSKUs) {
-        this.SKUs.push(item);
-      }
-      this.selectedSKUs = [];
-    } else {
-      const selectedItemIndexes = $('#selectedSKUs').val();
+  public addItems(itemIndex: number) {
+    this.selectedSKUs.push(this.SKUs[itemIndex]);
+    this.SKUs.splice(itemIndex, 1);
+  }
 
-      for (const index of selectedItemIndexes) {
-        this.SKUs.push(this.selectedSKUs[index]);
-      }
-
-      const selectedItemValues = selectedItemIndexes.map((index) => this.selectedSKUs[index]);
-
-      // Todo: Remove Elements from selectItems
-      for (const value of selectedItemValues) {
-        const index = this.selectedSKUs.findIndex(item => item === value);
-        if (index > -1) {
-          this.selectedSKUs.splice(index, 1);
-        }
-      }
+  public addItemsAll() {
+    for (const item of this.SKUs) {
+      this.selectedSKUs.push(item);
     }
+
+    this.SKUs = [];
+  }
+
+  public removeItems(itemIndex: number) {
+    this.SKUs.push(this.selectedSKUs[itemIndex]);
+    this.selectedSKUs.splice(itemIndex, 1);
+  }
+
+  public removeItemsAll() {
+    for (const item of this.selectedSKUs) {
+      this.SKUs.push(item);
+    }
+
+    this.selectedSKUs = [];
   }
 
   public onFilterCheckboxClick($event) {
