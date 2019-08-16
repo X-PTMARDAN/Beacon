@@ -1,6 +1,7 @@
+/* Sidebar Styling */
 #sidebar {
   position: fixed;
-  min-width: 80px;
+  width: 80px;
   height: 100vh;
   background-color: #5A5F66;
   color: white;
@@ -21,6 +22,54 @@
   background-color: #797F87;
 }
 
+/* Content  Styling*/
+#content {
+  margin-left: 80px;
+  min-height: 100vh;
+  background-color: #E5E6EA;
+}
+
+.filter-col {
+  background-color: #F4F5F9;
+}
+
+.filter-col .data-action {
+  color: white;
+  padding-top: 1px;
+  background-color: #5A5F66;
+  border-radius: 100%;
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.text-muted {
+  font-size: 12px;
+}
+
+.filter-col .panel{
+  margin-bottom: 10px;
+  min-height: 32px;
+}
+
+.filter-col .panel a{
+  color: #33373C;
+}
+
+.filter-col .panel a:hover{
+  text-decoration: none;
+}
+
+.filter-col .panel .panel-body{
+  background-color: white;
+}
+
+.filter-col .panel .panel-body ul{
+  list-style: none;
+  padding: 5px 10px;
+}
+
 
 /* Modal Styling */
 .modal-footer {
@@ -39,7 +88,6 @@
   min-height: 90vh;
 }
 
-
 .stepwizard-row:before {
   top: 38px;
   bottom: 0;
@@ -56,7 +104,7 @@
   z-index: 1;
 }
 
-.step span{
+.step span {
   background-color: #fff;
   text-align: center;
   width: 64px;
@@ -69,7 +117,7 @@
   border-radius: 100%;
 }
 
-.btn-circle.active{
+.btn-circle.active {
   background-color: #595f67;
 }
 
@@ -88,8 +136,8 @@
 }
 
 .nextBtn {
-  background-color: #00ca9b ;
-  border-color: #00ca9b ;
+  background-color: #00ca9b;
+  border-color: #00ca9b;
   font-weight: bold;
   font-size: 14px;
   border-radius: 8px;
@@ -132,7 +180,6 @@ select.minimal:focus {
   border-color: green;
   outline: 0;
 }
-
 
 select:-moz-focusring {
   color: transparent;
