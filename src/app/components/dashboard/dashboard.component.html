@@ -146,14 +146,16 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="filterHeadingThree">
               <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#filterAccordion" href="#filterCollapseThree"
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                   href="#filterCollapseThree"
                    aria-expanded="false" aria-controls="collapseThree">
                   Brands
                   <i class="fa fa-plus float-right"></i>
                 </a>
               </h4>
             </div>
-            <div id="filterCollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div id="filterCollapseThree" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="headingThree">
               <div class="panel-body">
                 <ul class="subcat">
                   <li class="active">
@@ -186,7 +188,8 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="packaging">
               <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#filterAccordion" href="#packagging" aria-expanded="true"
+                <a role="button" data-toggle="collapse" data-parent="#filterAccordion" href="#packagging"
+                   aria-expanded="true"
                    aria-controls="packagging">
                   Packaging
                   <i class="fa fa-plus float-right"></i>
@@ -225,7 +228,8 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="beertype">
               <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#filterAccordion" href="#beer_type" aria-expanded="true"
+                <a role="button" data-toggle="collapse" data-parent="#filterAccordion" href="#beer_type"
+                   aria-expanded="true"
                    aria-controls="beer_type">
                   Beer Type
                   <i class="fa fa-plus float-right"></i>
@@ -301,7 +305,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-create-plan></app-create-plan>
+        <app-create-plan (submit)="createPlan($event)"></app-create-plan>
       </div>
     </div>
   </div>

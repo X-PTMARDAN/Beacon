@@ -65,8 +65,16 @@ export class SKUService {
     // return this.http.get('', {});
   }
 
+  public getPlants() {
+    return this.http.get('https://vmxmz2s8t4.execute-api.eu-west-1.amazonaws.com/sdf');
+  }
+
+  public getCustomerPlanningGroup() {
+    return this.http.get('https://faqgousuyk.execute-api.eu-west-1.amazonaws.com/New');
+  }
+
   public getItems(data = {}) {
-    // return of(['Tub 1660KRO', 'THU 1785', 'KRO TUB 1668', 'Tub 109', 'Tub 101', 'Tub 103', 'RTYT 109', 'KRO ']);
+    // return of(['Tub 1660KRO', 'THU 1785', 'KRO TUB 1668', 'Tub 109', 'Tub 101', 'Tub 103', 'RTYT 109', 'KRO']);
     return this.http.post(this.apiGatewayUrl + `/Stage1`, data);
   }
 }

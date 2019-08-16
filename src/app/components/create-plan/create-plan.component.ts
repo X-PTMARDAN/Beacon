@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
@@ -17,11 +17,16 @@ enum STEPS {
   styleUrls: ['./create-plan.component.css']
 })
 export class CreatePlanComponent implements OnInit, OnDestroy {
+  @Output('submit') outputDateEmitter = new EventEmitter();
   public minEndWeek: string;
 
   // Planning Horizon
   public startWeek: string;
   public endWeek: string;
+
+  // Select CPG and Plant
+  public CPG: string;
+  public plant: string;
 
   // Active Step Order
   public activeStepOrder: number;
@@ -31,6 +36,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public segments = [];
   public packs = [];
   public SKUs = [];
+  public plants = [];
+  public customerPlanningGroups = [];
   public selectedSKUs = [];
   public searchFormGroup: FormGroup;
 
@@ -39,6 +46,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     brands$: null,
     segments$: null,
     packs$: null,
+    customerPlanningGroup$: null,
+    plants$: null,
   };
 
   public toggleClass: any = {
@@ -51,7 +60,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     private router: Router,
     private skuService: SKUService,
     private fb: FormBuilder
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.subs.brands$ = this.skuService.getBrands().subscribe((response: any) => {
@@ -67,6 +77,15 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.subs.items$ = this.skuService.getItems().subscribe((response: any) => {
       this.SKUs = response;
     });
+
+    this.subs.plants$ = this.skuService.getPlants().subscribe((response: any) => {
+      this.plants = response;
+    });
+
+    this.subs.customerPlanningGroup$ = this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
+      this.customerPlanningGroups = response;
+    });
+
 
     this.activeStepOrder = STEPS.SELECT_HORIZON;
     const currentDate = new Date();
@@ -201,5 +220,16 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.SKUs = response;
       this.selectedSKUs = [];
     });
+  }
+
+  public createPlan() {
+    const data = {
+      startWeek: this.startWeek,
+      endWeek: this.endWeek,
+      skus: this.selectedSKUs,
+      customerPlanningGroup: this.CPG,
+      plant: this.plant
+    };
+    this.outputDateEmitter.emit(data);
   }
 }

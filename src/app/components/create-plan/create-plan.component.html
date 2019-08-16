@@ -80,8 +80,8 @@
                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                      (click)="toggleClass.isBrandExpanded = !toggleClass.isBrandExpanded"
                      aria-expanded="true" aria-controls="collapseOne">
-                            <span class="font-weight-bold">Brand <i class="fa float-right"
-                                                                    [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                            <span class="font-weight-bold">Brands <i class="fa float-right"
+                                                                     [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                   </a>
                 </h4>
               </div>
@@ -105,8 +105,8 @@
                   <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                      href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
                      (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
-                            <span class="font-weight-bold">Segment<i class="fa float-right"
-                                                                     [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                            <span class="font-weight-bold">Segments<i class="fa float-right"
+                                                                      [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                   </a>
                 </h4>
               </div>
@@ -223,8 +223,8 @@
     </div>
   </div>
   <div class="mt-5 d-flex flex-column align-items-center">
-    <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="false"
-            [disabled]="false" (click)="activeStepOrder=3">Continue to Select CPG and Plant
+    <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="!this.selectedSKUs.length"
+            [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=3">Continue to Select CPG and Plant
     </button>
   </div>
 </div>
@@ -233,25 +233,27 @@
   <div>
     <h3 class="text-center">Select CPG and Plant</h3>
   </div>
-  <div class="d-flex mt-4">
+  <form #CPGAndPlantForm='ngForm' class="d-flex mt-4">
     <div class="form-group w-50 mr-1">
       <label for="customerPlanningGroup">Customer Planning Group</label>
-      <select id="customerPlanningGroup" class="minimal">
-        <option>Select</option>
-        <option>Option 1</option>
-        <option>Option 2</option>
+      <select id="customerPlanningGroup" class="minimal" name="customerPlanningGroup" [(ngModel)]="CPG" required>
+        <option selected disabled>Select</option>
+        <ng-container *ngFor="let customerPlanningGroup of customerPlanningGroups;">
+          <option [value]="customerPlanningGroup">{{ customerPlanningGroup }}</option>
+        </ng-container>
       </select>
     </div>
     <div class="form-group w-50 ml-1">
       <label for="plant">Plant</label>
-      <select id="plant" class="minimal">
-        <option>Select</option>
-        <option>Option 1</option>
-        <option>Option 2</option>
+      <select id="plant" name="plant" class="minimal" [(ngModel)]="plant" required>
+        <option selected disabled>Select</option>
+        <ng-container *ngFor="let plant of plants;">
+          <option [value]="plant">{{ plant }}</option>
+        </ng-container>
       </select>
     </div>
-  </div>
-  <button class="btn btn-primary nextBtn p-2 mt-3" type="button" [class.disabled]="false"
-          [disabled]="false">Create Plan
+  </form>
+  <button class="btn btn-primary nextBtn p-2 mt-3" style="width: 200px;" type="button" (click)="createPlan()" [class.disabled]="!CPGAndPlantForm.valid"
+          [disabled]="!CPGAndPlantForm.valid">Create Plan
   </button>
 </div>

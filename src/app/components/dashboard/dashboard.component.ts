@@ -23,5 +23,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
 
   }
+
+  public createPlan(data) {
+    console.log(data);
+  }
 }
 
