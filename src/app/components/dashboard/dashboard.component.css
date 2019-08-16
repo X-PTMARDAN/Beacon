@@ -31,6 +31,8 @@
 
 .filter-col {
   background-color: #F4F5F9;
+  height: 100vh;
+  overflow: auto;
 }
 
 .filter-col .data-action {
@@ -49,34 +51,46 @@
 }
 
 .filter-col .panel .panel-title {
-  font-size: 13px ;
+  font-size: 13px;
   font-family: 'Roboto', sans-serif !important;
 }
 
-.filter-col .panel{
+.filter-col .panel {
   margin-bottom: 10px;
   min-height: 32px;
-  width: 94% ;
+  width: 94%;
   border: 0;
 }
 
-.filter-col .panel a{
+.filter-col .panel a {
   color: #33373C;
 }
 
-.filter-col .panel a:hover{
+.filter-col .panel a:hover {
   text-decoration: none;
 }
 
-.filter-col .panel .panel-body{
+.filter-col .panel .panel-body {
   background-color: white;
 }
 
-.filter-col .panel .panel-body ul{
+.filter-col .panel .panel-body ul {
   list-style: none;
   padding: 5px 10px;
 }
 
+
+/* Events Holidays Promo container */
+.events-container {
+  font-size: 15px;
+  border-radius: 5px;
+  height: 98vh;
+  overflow: auto;
+}
+
+.events-container .block{
+  background-color: #F4F5F9;
+}
 
 /* Modal Styling */
 .modal-footer {

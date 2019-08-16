@@ -37,7 +37,7 @@
   </div>
   <div id="content">
     <div class="row m-0">
-      <div class="col-2 filter-col">
+      <div class="col-2 filter-col" data-simplebar>
         <h6 class="mt-3 font-weight-bold">Filter Options</h6>
         <div class="mt-4 d-flex justify-content-around">
           <div class="d-flex flex-column align-items-center">
@@ -289,8 +289,36 @@
       <div class="col-8">
 
       </div>
-      <div class="col-2">
-
+      <div class="col-2" >
+        <div class="events-container m-1 p-2 bg-white" data-simplebar>
+          <div class="mt-2">
+            <h3>Events</h3>
+            <div class="m-1 p-1">
+              <span><input type="checkbox"></span> All Events
+            </div>
+            <div class="block m-1 p-1" *ngFor="let event of events">
+              <span><input type="checkbox"></span> {{ event.name }}
+            </div>
+          </div>
+          <div class="mt-2">
+            <h3>Weather</h3>
+            <div class="m-1 p-1">
+              <span><input type="checkbox"></span> All Weathers
+            </div>
+            <div class="block m-1 p-1" *ngFor="let weather of weathers">
+              <span><input type="checkbox"></span> {{ weather.name }}
+            </div>
+          </div>
+          <div class="mt-2">
+            <h3>Events</h3>
+            <div class="m-1 p-1">
+              <span><input type="checkbox"></span> All Promos
+            </div>
+            <div class="block m-1 p-1" *ngFor="let promo of promos">
+              <span><input type="checkbox"></span> {{ promo.name }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

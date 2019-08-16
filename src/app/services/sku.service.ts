@@ -77,4 +77,74 @@ export class SKUService {
     // return of(['Tub 1660KRO', 'THU 1785', 'KRO TUB 1668', 'Tub 109', 'Tub 101', 'Tub 103', 'RTYT 109', 'KRO']);
     return this.http.post(this.apiGatewayUrl + `/Stage1`, data);
   }
+
+  public getEvents() {
+    return of([
+      {
+        name: 'Holidays',
+        isChecked: false
+      },
+      {
+        name: 'Major Support Event',
+        isChecked: false
+      },
+      {
+        name: 'Festival',
+        isChecked: false
+      },
+      {
+        name: 'Worldcup',
+        isChecked: false
+      },
+      {
+        name: 'Other support Events',
+        isChecked: false
+      },
+    ]);
+    // return this.http.get('', {});
+  }
+
+  public getWeathers() {
+    return of([
+      {
+        name: 'Average Temperature',
+        isChecked: false
+      },
+      {
+        name: 'Seasonality',
+        isChecked: false
+      },
+    ]);
+    // return this.http.get('', {});
+  }
+
+  public getPromos() {
+    return of([
+      {
+        name: 'Promo Uplift',
+        isChecked: false
+      },
+      {
+        name: 'Promo Plan',
+        isChecked: false
+      },
+      {
+        name: 'Shelf Discount',
+        isChecked: false
+      },
+      {
+        name: 'Promo in Brand',
+        isChecked: false
+      },
+      {
+        name: 'Promotion Type',
+        isChecked: false
+      },
+      {
+        name: 'Promo in Unit Per Pack',
+        isChecked: false
+      },
+    ]);
+    // return this.http.get('', {});
+  }
 }

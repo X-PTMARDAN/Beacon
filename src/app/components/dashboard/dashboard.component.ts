@@ -10,9 +10,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
 
   public skus: any = [];
+
+  // Events
+  public promos: any = [];
+  public weathers: any = [];
+  public events: any = [];
 
   constructor(
     private router: Router,
@@ -25,6 +31,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.skuService.getItems().subscribe((res: any) => {
       this.skus = res;
     });
+
+    this.skuService.getEvents().subscribe((res: any) => {
+      this.events = res;
+    });
+
+    this.skuService.getPromos().subscribe((res: any) => {
+      this.promos = res;
+    });
+
+    this.skuService.getWeathers().subscribe((res: any) => {
+      this.weathers = res;
+    });
   }
 
   ngOnDestroy(): void {
@@ -32,6 +50,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public createPlan(data: any) {
+    console.log(data);
     this.createPlanModalCancel.nativeElement.click();
   }
 }
