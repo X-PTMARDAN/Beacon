@@ -6,11 +6,13 @@ import {AppComponent} from './app.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { CreatePlanComponent } from './components/create-plan/create-plan.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreatePlanComponent
   ],
   imports: [
     BrowserModule,
