@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
 
   // Constants
-  public mlDataPointColor = '#E5D0F9';
+  public mlDataPointColor = '#D8B1FD';
   private aopDataPointColor = '#77A5F3';
   private actualDataPointColor = '#09C29B';
   public currentWeek: number;
@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.createPlanModalBtn.nativeElement.click();
+    this.createPlanModalBtn.nativeElement.click();
 
     this.skuService.getSkUList({
       filterBrands: []
@@ -124,7 +124,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             dataPoints: this.actualDataPoints
           },
           {
-            name: 'ML',
+            name: 'ML Fcst',
             showInLegend: true,
             type: 'spline',
             lineDashType: 'dash',
@@ -132,7 +132,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             dataPoints: this.mlDataPoints
           },
           {
-            name: 'APO',
+            name: 'APO Fcst',
             showInLegend: true,
             type: 'spline',
             lineDashType: 'dash',
