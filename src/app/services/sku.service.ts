@@ -157,4 +157,8 @@ export class SKUService {
     ]);
     // return this.http.get('', {});
   }
+
+  public getGraphData(data = {}) {
+    return this.http.post('https://klir54hakf.execute-api.eu-west-1.amazonaws.com/Graph', data);
+  }
 }
