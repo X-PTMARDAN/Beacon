@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public mlDataPointColor = '#E5D0F9';
   private aopDataPointColor = '#77A5F3';
   private actualDataPointColor = '#09C29B';
+  public currentWeek: number;
 
   // Charts
   public chart1;
@@ -46,7 +47,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.createPlanModalBtn.nativeElement.click();
+    // this.createPlanModalBtn.nativeElement.click();
 
     this.skuService.getSkUList({
       filterBrands: []
@@ -90,17 +91,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }]
     });
     this.chart2.render();
+
+    this.currentWeek = DashboardComponent.getCurrentWeek(new Date());
   }
 
   ngOnDestroy(): void {
 
   }
 
-  public createPlan(data: any) {
-    console.log(data);
-    this.skuService.getGraphData(data).subscribe((res: any) => {
-      console.log(this.processGraphData(res));
+  private static getCurrentWeek(date: Date) {
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+  }
 
+  public createPlan(data: any) {
+    this.skuService.getGraphData(data).subscribe((res: any) => {
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
