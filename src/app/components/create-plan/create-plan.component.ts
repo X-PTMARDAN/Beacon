@@ -202,9 +202,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     }
 
     return {
-      filterBrands: brands.join(','),
-      filterSegments: segments.join(','),
-      filterPacks: packs.join(','),
+      filterBrands: brands,
+      filterSegments: segments,
+      filterPacks: packs,
     };
   }
 

@@ -77,7 +77,7 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}sku`, data);
   }
 
-  public getFilters(){
+  public getFilters() {
     return this.http.get(`${this.apiGatewayUrl}filters`);
   }
 
