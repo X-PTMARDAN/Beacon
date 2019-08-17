@@ -18,7 +18,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public chart2;
 
 
+  // Filter Options
   public skus: any = [];
+  public filters: any = [];
 
   // Events
   public promos: any = [];
@@ -33,7 +35,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.skuService.getItems().subscribe((res: any) => {
+    this.skuService.getItems({
+      filterBrands: []
+    }).subscribe((res: any) => {
       this.skus = res;
     });
 
@@ -47,6 +51,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.skuService.getWeathers().subscribe((res: any) => {
       this.weathers = res;
+    });
+
+    this.skuService.getFilters().subscribe((res: any) => {
+      this.filters = res.filters;
+      console.log(res);
     });
 
     this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -105,14 +114,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
         legendMarkerColor: 'grey',
         legendText: 'MMbbl = one million barrels',
         dataPoints: [
-          { y: 300878, label: 'Venezuela' },
-          { y: 266455,  label: 'Saudi' },
-          { y: 169709,  label: 'Canada' },
-          { y: 158400,  label: 'Iran' },
-          { y: 142503,  label: 'Iraq' },
-          { y: 101500, label: 'Kuwait' },
-          { y: 97800,  label: 'UAE' },
-          { y: 80000,  label: 'Russia' }
+          {y: 300878, label: 'Venezuela'},
+          {y: 266455, label: 'Saudi'},
+          {y: 169709, label: 'Canada'},
+          {y: 158400, label: 'Iran'},
+          {y: 142503, label: 'Iraq'},
+          {y: 101500, label: 'Kuwait'},
+          {y: 97800, label: 'UAE'},
+          {y: 80000, label: 'Russia'}
         ]
       }]
     });

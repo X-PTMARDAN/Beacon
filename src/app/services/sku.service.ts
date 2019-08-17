@@ -16,7 +16,7 @@ export class SKUService {
   }
 
   public getBrands() {
-    return this.http.get('https://prxis6bi09.execute-api.eu-west-1.amazonaws.com/Stage1/').pipe(
+    return this.http.get(`${this.apiGatewayUrl}brands`).pipe(
       map((brands: any) => {
         return brands.map((brand) => {
           return {name: brand, isChecked: false};
@@ -74,8 +74,11 @@ export class SKUService {
   }
 
   public getItems(data = {}) {
-    // return of(['Tub 1660KRO', 'THU 1785', 'KRO TUB 1668', 'Tub 109', 'Tub 101', 'Tub 103', 'RTYT 109', 'KRO']);
-    return this.http.post(this.apiGatewayUrl + `/Stage1`, data);
+    return this.http.post(`${this.apiGatewayUrl}sku`, data);
+  }
+
+  public getFilters(){
+    return this.http.get(`${this.apiGatewayUrl}filters`);
   }
 
   public getEvents() {

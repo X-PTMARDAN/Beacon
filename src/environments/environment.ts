@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: 'https://2u7l53ggii.execute-api.eu-west-1.amazonaws.com',
+  apiGatewayUrl: 'http://34.244.0.110:5450/v1/',
 };
 
 /*

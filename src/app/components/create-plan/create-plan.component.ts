@@ -74,7 +74,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.packs = response;
 
     });
-    this.subs.items$ = this.skuService.getItems().subscribe((response: any) => {
+    this.subs.items$ = this.skuService.getItems({
+      filterBrands: []
+    }).subscribe((response: any) => {
       this.SKUs = response;
     });
 
@@ -200,9 +202,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     }
 
     return {
-      brand: brands.join(','),
-      segment: segments.join(','),
-      pack: packs.join(','),
+      filterBrands: brands.join(','),
+      filterSegments: segments.join(','),
+      filterPacks: packs.join(','),
     };
   }
 
