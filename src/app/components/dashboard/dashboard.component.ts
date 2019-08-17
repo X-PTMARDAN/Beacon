@@ -15,6 +15,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // @ts-ignore
   @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
 
+  // Constants
+  public mlDataPointColor = '#E5D0F9';
+  private aopDataPointColor = '#77A5F3';
+  private actualDataPointColor = '#09C29B';
+
   // Charts
   public chart1;
   public chart2;
@@ -99,24 +104,32 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
-
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#E3E4E8',
+        },
         data: [
           {
             name: 'Actual',
             showInLegend: true,
             type: 'spline',
+            lineColor: this.actualDataPointColor,
             dataPoints: this.actualDataPoints
           },
           {
             name: 'ML',
             showInLegend: true,
             type: 'spline',
+            lineDashType: 'dash',
+            lineColor: this.mlDataPointColor,
             dataPoints: this.mlDataPoints
           },
           {
             name: 'APO',
             showInLegend: true,
             type: 'spline',
+            lineDashType: 'dash',
+            lineColor: this.aopDataPointColor,
             dataPoints: this.aopDataPoints
           },
           {
@@ -142,21 +155,24 @@ export class DashboardComponent implements OnInit, OnDestroy {
       if (week.actuals) {
         this.actualDataPoints.push({
           x: key,
-          y: week.actuals
+          y: week.actuals,
+          color: this.actualDataPointColor
         });
       }
 
       if (week.ml) {
         this.mlDataPoints.push({
           x: key,
-          y: week.ml
+          y: week.ml,
+          color: this.mlDataPointColor
         });
       }
 
       if (week.apo) {
         this.aopDataPoints.push({
           x: key,
-          y: week.apo
+          y: week.apo,
+          color: this.aopDataPointColor
         });
       }
     }
