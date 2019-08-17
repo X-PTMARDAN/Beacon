@@ -107,6 +107,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public createPlan(data: any) {
     this.skuService.getGraphData(data).subscribe((res: any) => {
+      this.processGraphData(res);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
