@@ -55,7 +55,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.skuService.getFilters().subscribe((res: any) => {
       this.filters = res.filters;
-      console.log(res);
     });
 
     this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -133,7 +132,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public createPlan(data: any) {
-    console.log(data);
     this.createPlanModalCancel.nativeElement.click();
   }
 }

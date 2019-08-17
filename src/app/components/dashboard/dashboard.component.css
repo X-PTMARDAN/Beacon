@@ -90,7 +90,13 @@
 
 .events-container .block{
   background-color: #F4F5F9;
+  font-size: 14px;
 }
+
+.events-container div{
+  margin-top: 2px;
+}
+
 
 /* Modal Styling */
 .modal-footer {
