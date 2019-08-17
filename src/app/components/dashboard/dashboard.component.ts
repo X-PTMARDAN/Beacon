@@ -13,6 +13,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
 
+  // Charts
+  public chart1;
+  public chart2;
+
+
   public skus: any = [];
 
   // Events
@@ -44,11 +49,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.weathers = res;
     });
 
-    const chart = new CanvasJS.Chart('chartContainer', {
+    this.chart1 = new CanvasJS.Chart('chartContainer1', {
       animationEnabled: true,
       title: {
         text: 'Music Album Sales by Year'
       },
+      backgroundColor: '#FFFFFF',
       axisY: {
         title: 'Units Sold',
         valueFormatString: '#0,,.',
@@ -82,7 +88,35 @@ export class DashboardComponent implements OnInit, OnDestroy {
         ]
       }]
     });
-    chart.render();
+    this.chart1.render();
+
+    this.chart2 = new CanvasJS.Chart('chartContainer2', {
+      animationEnabled: true,
+      theme: 'light2', // "light1", "light2", "dark1", "dark2"
+      title: {
+        text: 'Top Oil Reserves'
+      },
+      axisY: {
+        title: 'Reserves(MMbbl)'
+      },
+      data: [{
+        type: 'column',
+        showInLegend: true,
+        legendMarkerColor: 'grey',
+        legendText: 'MMbbl = one million barrels',
+        dataPoints: [
+          { y: 300878, label: 'Venezuela' },
+          { y: 266455,  label: 'Saudi' },
+          { y: 169709,  label: 'Canada' },
+          { y: 158400,  label: 'Iran' },
+          { y: 142503,  label: 'Iraq' },
+          { y: 101500, label: 'Kuwait' },
+          { y: 97800,  label: 'UAE' },
+          { y: 80000,  label: 'Russia' }
+        ]
+      }]
+    });
+    this.chart2.render();
   }
 
   ngOnDestroy(): void {
