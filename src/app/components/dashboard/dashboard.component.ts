@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.skuService.getItems({
+    this.skuService.getSkUList({
       filterBrands: []
     }).subscribe((res: any) => {
       this.skus = res;

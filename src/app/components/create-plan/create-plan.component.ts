@@ -74,7 +74,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.packs = response;
 
     });
-    this.subs.items$ = this.skuService.getItems({
+    this.subs.items$ = this.skuService.getSkUList({
       filterBrands: []
     }).subscribe((response: any) => {
       this.SKUs = response;
@@ -172,7 +172,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public onFilterCheckboxClick($event) {
     const reqBody = this.getFiltersObject();
 
-    this.subs.items$ = this.skuService.getItems(reqBody).subscribe((response: any) => {
+    this.subs.items$ = this.skuService.getSkUList(reqBody).subscribe((response: any) => {
       this.SKUs = response;
       this.selectedSKUs = [];
     });
@@ -214,7 +214,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         debounceTime(200),
         switchMap((value: string) => {
           const reqBody = this.getFiltersObject();
-          return this.skuService.getItems(Object.assign(reqBody, {search: value.trim()})).pipe(
+          return this.skuService.getSkUList(Object.assign(reqBody, {search: value.trim()})).pipe(
             catchError((error) => of([]))
           );
         })

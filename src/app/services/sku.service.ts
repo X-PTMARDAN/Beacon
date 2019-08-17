@@ -73,12 +73,19 @@ export class SKUService {
     return this.http.get('https://faqgousuyk.execute-api.eu-west-1.amazonaws.com/New');
   }
 
-  public getItems(data = {}) {
+  public getSkUList(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}sku`, data);
   }
 
   public getFilters() {
-    return this.http.get(`${this.apiGatewayUrl}filters`);
+    return this.http.get(`${this.apiGatewayUrl}filters`).pipe(
+      map((data: any) => {
+        for (const filter of data.filters) {
+          filter.isExpanded = false;
+        }
+        return data;
+      })
+    );
   }
 
   public getEvents() {
