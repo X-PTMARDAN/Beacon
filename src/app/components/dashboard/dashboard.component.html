@@ -35,87 +35,90 @@
       </div>
     </div>
   </div>
-  <div id="content">
-    <div class="row m-0">
-      <div class="col-2 filter-col" data-simplebar>
-        <h6 class="mt-3 font-weight-bold">Filter Options</h6>
-        <div class="mt-4 d-flex justify-content-around">
-          <div class="d-flex flex-column align-items-center">
-            <a href="javascript:void(0);" class="data-action"><i class="fa fa-upload"></i></a>
-            <span class="text-muted">Load</span>
-          </div>
-          <div class="d-flex flex-column align-items-center">
-            <a href="javascript:void(0);" class="data-action"><i class="fa fa-download"></i></a>
-            <span class="text-muted">Save</span>
-          </div>
-          <div class="d-flex flex-column align-items-center">
-            <a href="javascript:void(0);" class="data-action"><i class="fa fa-list-ul"></i></a>
-            <span class="text-muted">Organize</span>
+  <div id="content d-flex">
+    <div class="filter-col p-3" data-simplebar>
+      <h6 class="mt-3 font-weight-bold">Filter Options</h6>
+      <div class="mt-4 d-flex justify-content-around">
+        <div class="d-flex flex-column align-items-center">
+          <a href="javascript:void(0);" class="data-action"><i class="fa fa-upload"></i></a>
+          <span class="text-muted">Load</span>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <a href="javascript:void(0);" class="data-action"><i class="fa fa-download"></i></a>
+          <span class="text-muted">Save</span>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <a href="javascript:void(0);" class="data-action"><i class="fa fa-list-ul"></i></a>
+          <span class="text-muted">Organize</span>
+        </div>
+      </div>
+      <hr>
+      <div class="mb-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
           </div>
         </div>
-        <hr>
-        <div class="mb-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-              <span class="input-group-text"><i class="fa fa-search"></i></span>
+        <div class="d-flex justify-content-end">
+          <a class="text-muted" href="javascript:void(0);">clear all filters</a>
+        </div>
+      </div>
+      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                   [href]="'#' + filter.key + 'filter'"
+                   aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                   (click)="filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                </a>
+              </h4>
             </div>
-          </div>
-          <div class="d-flex justify-content-end">
-            <a class="text-muted" href="javascript:void(0);">clear all filters</a>
-          </div>
-        </div>
-        <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
-          <ng-container *ngFor="let filter of filters; let filterIndex=index">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" [id]="filter.key">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#filterAccordion" [href]="'#' + filter.key + 'filter'"
-                     aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'" (click)="filter.isExpanded = !filter.isExpanded">
-                    {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
-                  </a>
-                </h4>
+            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                 [attr.aria-labelledby]="filter.key">
+              <div class="panel-body">
+                <ul class="m-0">
+                  <li class="d-flex" *ngFor="let value of filter.values;">
+                    <div>
+                      <input class="mr-1" type="checkbox">
+                    </div>
+                    <p class="m-0">{{ value }}</p>
+                  </li>
+                </ul>
               </div>
-              <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel" [attr.aria-labelledby]="filter.key">
-                <div class="panel-body">
-                  <ul class="m-0">
-                    <li class="d-flex" *ngFor="let value of filter.values;">
-                      <div>
-                        <input class="mr-1" type="checkbox">
-                      </div>
-                      <p class="m-0">{{ value }}</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-        <hr>
-        <div class="mb-2">
-          <div>
-            SKUs
-            <a class="text-muted float-right" href="javascript:void(0);">clear all skus</a>
-          </div>
-          <div class="input-group mt-2">
-            <input type="text" class="form-control" placeholder="Search SKU">
-            <div class="input-group-append">
-              <span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
           </div>
+        </ng-container>
+      </div>
+      <hr>
+      <div class="mb-2">
+        <div>
+          SKUs
+          <a class="text-muted float-right" href="javascript:void(0);">clear all skus</a>
         </div>
-        <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
-          <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
-            <div style="margin-top: 3px;">
-              <input class="mr-1" type="checkbox">
-            </div>
-            <p class="m-0">{{ sku }}</p>
+        <div class="input-group mt-2">
+          <input type="text" class="form-control" placeholder="Search SKU">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
           </div>
         </div>
       </div>
-      <div class="col-8">
-        <div class="bg-white shadow mt-1">
+      <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
+        <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
+          <div style="margin-top: 3px;">
+            <input class="mr-1" type="checkbox">
+          </div>
+          <p class="m-0">{{ sku }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row content-col">
+      <div class="col-12">
+        <div class="bg-white shadow mt-3">
           <div class="d-flex justify-content-between align-items-center p-1">
             <div class="d-flex justify-content-between align-items-center">
               <h4 class="m-0">Forcast Analysis</h4>
@@ -127,56 +130,105 @@
           </div>
           <div id="chartContainer1" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
         </div>
+
         <div class="bg-white shadow mt-2">
           <div id="chartContainer2" style="height: 150px; width: 100%; margin-left:auto;margin-right:auto;"></div>
         </div>
+
+        <div class="bg-white shadow mt-2" style="font-size: 12px;">
+          <div class="row">
+            <div class="col-2">
+              <div class="row">
+                <div class="col-12">
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  Final Forecast
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  Fcst Value Add
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  ML Forecast
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  APO Forecast
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  Actuals
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  Actuals LY
+                </div>
+              </div>
+            </div>
+            <div class="col-9">
+
+            </div>
+            <div class="col-1">
+
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-2 events-col pl-0" >
-        <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
-          <div class="mt-2">
-            <h4>Events</h4>
-            <div class="m-1 p-1 d-flex">
-              <div>
-                <input class="mr-1" type="checkbox">
-              </div>
-              <p class="m-0">All Events</p>
+    </div>
+    <div class="events-col pt-2 pb-3 pl-2 pr-2">
+      <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
+        <div class="mt-2">
+          <h4>Events</h4>
+          <div class="m-1 p-1 d-flex">
+            <div>
+              <input class="mr-1" type="checkbox">
             </div>
-            <div class="block m-1 p-1 d-flex" *ngFor="let event of events">
-              <div>
-                <input class="mr-1" type="checkbox">
-              </div>
-              <p class="m-0">{{ event.name }}</p>
-            </div>
+            <p class="m-0">All Events</p>
           </div>
-          <div class="mt-2">
-            <h4>Weather</h4>
-            <div class="m-1 p-1 d-flex">
-              <div>
-                <input class="mr-1" type="checkbox">
-              </div>
-              <p class="m-0">All Weathers</p>
+          <div class="block m-1 p-1 d-flex" *ngFor="let event of events">
+            <div>
+              <input class="mr-1" type="checkbox">
             </div>
-            <div class="block m-1 p-1 d-flex" *ngFor="let weather of weathers">
-              <div>
-                <input class="mr-1" type="checkbox">
-              </div>
-              <p class="m-0">{{ weather.name }}</p>
-            </div>
+            <p class="m-0">{{ event.name }}</p>
           </div>
-          <div class="mt-2">
-            <h4>Promos</h4>
-            <div class="m-1 p-1 d-flex">
-              <div>
-                <input class="mr-1" type="checkbox">
-              </div>
-              <p class="m-0">All Promos</p>
+        </div>
+        <div class="mt-2">
+          <h4>Weather</h4>
+          <div class="m-1 p-1 d-flex">
+            <div>
+              <input class="mr-1" type="checkbox">
             </div>
-            <div class="block m-1 p-1 d-flex" *ngFor="let promo of promos">
-              <div>
-                <input class="mr-1" type="checkbox">
-              </div>
-              <p class="m-0">{{ promo.name }}</p>
+            <p class="m-0">All Weathers</p>
+          </div>
+          <div class="block m-1 p-1 d-flex" *ngFor="let weather of weathers">
+            <div>
+              <input class="mr-1" type="checkbox">
             </div>
+            <p class="m-0">{{ weather.name }}</p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <h4>Promos</h4>
+          <div class="m-1 p-1 d-flex">
+            <div>
+              <input class="mr-1" type="checkbox">
+            </div>
+            <p class="m-0">All Promos</p>
+          </div>
+          <div class="block m-1 p-1 d-flex" *ngFor="let promo of promos">
+            <div>
+              <input class="mr-1" type="checkbox">
+            </div>
+            <p class="m-0">{{ promo.name }}</p>
           </div>
         </div>
       </div>
@@ -188,7 +240,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close"  #createPlanModalCancel>
+        <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #createPlanModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

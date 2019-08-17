@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: #5A5F66;
   color: white;
+  z-index: 1;
 }
 
 #sidebar p {
@@ -24,7 +25,6 @@
 
 /* Content  Styling*/
 #content {
-  margin-left: 80px;
   min-height: 100vh;
   background-color: #E5E6EA;
 }
@@ -32,7 +32,24 @@
 .filter-col {
   background-color: #F4F5F9;
   height: 100vh;
+  left: 80px;
+  width: 200px;
+  position: fixed;
   overflow: auto;
+  z-index: 1;
+}
+
+.content-col{
+  margin-right: 200px;
+  margin-left: 280px;
+}
+
+.events-col{
+  position: fixed;
+  right: 0;
+  top:0;
+  width: 200px;
+  z-index: 1;
 }
 
 .filter-col .data-action {
