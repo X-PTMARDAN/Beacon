@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.createPlanModalBtn.nativeElement.click();
+    this.createPlanModalBtn.nativeElement.click();
 
     this.skuService.getSkUList({
       filterBrands: []
