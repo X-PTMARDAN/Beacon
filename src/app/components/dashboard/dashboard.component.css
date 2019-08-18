@@ -104,31 +104,26 @@
   font-size: 12px;
 }
 
-.content-col .footer-col{
+.content-col .footer-col {
   padding: 6px 6px 6px 2px;
   font-weight: 700;
   font-size: 12px;
 }
 
-.header-text{
+.header-text {
   color: #81878E;
 }
 
-.actual-text{
+.actual-text {
   color: #20C9A4;
 }
 
-.ml-text{
+.ml-text {
   color: #D8ACFF;
 }
 
-.aop-text{
+.aop-text {
   color: #6499F2;
-}
-
-td,
-tr{
-  padding: 0;
 }
 
 
@@ -175,13 +170,24 @@ tr{
 }
 
 .content-col .panel {
-  padding: 15px;
+  padding: 10px 0;
 }
 
 .content-col .panel .table {
   width: 100%;
-  font-size: 11px;
+  font-size: 0.6rem;
   margin-bottom: 0;
   max-width: none;
+}
+
+
+.table-inputbox {
+  width: 100%;
+  background-color: #F2F2F2;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid grey;
+  outline: none;
 }
 

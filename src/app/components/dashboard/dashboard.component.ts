@@ -159,7 +159,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.actualDataPoints = [];
     this.graphData = [];
     for (const week of data) {
-      const newPoint: any = {};
+      const newPoint: any = {
+        finalForcast: ''
+      };
       const key: string = week.calenderYear;
       newPoint.week = key.toString().slice(-2);
 
@@ -196,7 +198,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
       this.graphData.push(newPoint);
     }
-    console.log(this.graphData);
   }
 }
 
