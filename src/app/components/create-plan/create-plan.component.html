@@ -175,8 +175,8 @@
                   <div class="brand-selector brand-selector2">
                     <ul>
                       <li *ngFor="let SKU of SKUs| filter: getCallback() ;let i=index">
-                        <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(i)"><i
-                          class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU}}
+                        <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(SKU.id)"><i
+                          class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU.name}}
                       </li>
                     </ul>
                   </div>
@@ -207,9 +207,9 @@
                   <div class="brand-selector brand-selector2">
                     <ul>
                       <li class="d-flex" *ngFor="let selectedSKU of selectedSKUs;let i=index">
-                        <a href="javascript:void(0);" class="text-danger pr-1" (click)="removeItems(i)"><i
+                        <a href="javascript:void(0);" class="text-danger pr-1" (click)="removeItems(selectedSKU.id)"><i
                           class="fa fa-minus-circle" aria-hidden="true"></i></a>
-                        {{ selectedSKU }}
+                        {{ selectedSKU.name }}
                       </li>
                     </ul>
                   </div>

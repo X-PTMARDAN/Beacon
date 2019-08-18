@@ -74,7 +74,16 @@ export class SKUService {
   }
 
   public getSkUList(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}sku`, data);
+    return this.http.post(`${this.apiGatewayUrl}sku`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+          };
+        });
+      })
+    );
   }
 
   public getFilters() {

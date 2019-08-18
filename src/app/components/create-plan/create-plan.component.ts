@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
+import {map} from 'rxjs/operators';
 
 enum STEPS {
   'SELECT_HORIZON' = 1,
@@ -136,7 +137,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     });
   }
 
-  public addItems(itemIndex: number) {
+  public addItems(itemId: number) {
+    const itemIndex = this.SKUs.findIndex((item) => item.id === itemId);
     this.selectedSKUs.push(this.SKUs[itemIndex]);
     this.SKUs.splice(itemIndex, 1);
   }
@@ -149,7 +151,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.SKUs = [];
   }
 
-  public removeItems(itemIndex: number) {
+  public removeItems(itemId: number) {
+    const itemIndex = this.selectedSKUs.findIndex((item) => item.id === itemId);
     this.SKUs.push(this.selectedSKUs[itemIndex]);
     this.selectedSKUs.splice(itemIndex, 1);
   }
@@ -195,7 +198,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     }
 
     return {
-      filterBrands: brands,
+      filterBrands: brands ,
       filterSegments: segments,
       filterPacks: packs,
     };
