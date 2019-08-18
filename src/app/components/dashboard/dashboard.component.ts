@@ -30,6 +30,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private actualDataPoints: any = [];
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
+  private totalData: any = {
+    finalCastTotal: 0,
+    apoTotal: 0,
+    mlTotal: 0,
+    actuals: 0,
+    lastYearTotal: 0,
+  };
 
   // Filter Options
   public skus: any = [];
@@ -172,6 +179,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           y: week.actuals,
           color: this.actualDataPointColor
         });
+        this.totalData.actuals += week.actuals;
       }
 
       if (week.ml) {
@@ -181,6 +189,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           y: week.ml,
           color: this.mlDataPointColor
         });
+        this.totalData.mlTotal += week.ml;
       }
 
       if (week.apo) {
@@ -190,10 +199,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
           y: week.apo,
           color: this.aopDataPointColor
         });
+        this.totalData.apoTotal += week.apo;
       }
 
       if (week.lastyear) {
         newPoint.lastyear = week.lastyear;
+        this.totalData.lastYearTotal += week.lastyear;
       }
 
       this.graphData.push(newPoint);

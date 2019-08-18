@@ -7,12 +7,14 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { CreatePlanComponent } from './components/create-plan/create-plan.component';
+import {FilterPipe} from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CreatePlanComponent
+    CreatePlanComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

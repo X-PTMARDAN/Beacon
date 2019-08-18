@@ -40,6 +40,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public customerPlanningGroups = [];
   public selectedSKUs = [];
   public searchFormGroup: FormGroup;
+  public searchText: string;
 
   public subs: any = {
     items$: null,
@@ -233,5 +234,17 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       plant: this.plant
     };
     this.outputDateEmitter.emit(data);
+  }
+
+  public getCallback() {
+    return this.filterSKUs.bind(this);
+  }
+
+  public filterSKUs(sku: string) {
+    if (!this.searchText) {
+      return true;
+    }
+    const regex = new RegExp(this.searchText, 'ig');
+    return regex.test(sku);
   }
 }

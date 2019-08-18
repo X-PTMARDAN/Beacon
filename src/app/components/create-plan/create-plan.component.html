@@ -163,10 +163,10 @@
         <div class="last-box">
           <div class="panel-group" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
-              <div class="panel-heading" style="padding: 15px 0 0 0px;" role="tab">
+              <div class="panel-heading" style="padding: 15px 0 0 0" role="tab">
                 <h4 class="panel-title">
                   <div class="form-group has-feedback">
-                    <input type="text" class="form-control search-box-l" placeholder="Search SKU">
+                    <input type="text" class="form-control search-box-l" [(ngModel)]="searchText"  placeholder="Search SKU">
                   </div>
                 </h4>
               </div>
@@ -174,7 +174,7 @@
                 <div class="panel-body">
                   <div class="brand-selector brand-selector2">
                     <ul>
-                      <li *ngFor="let SKU of SKUs;let i=index">
+                      <li *ngFor="let SKU of SKUs| filter: getCallback() ;let i=index">
                         <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(i)"><i
                           class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU}}
                       </li>
