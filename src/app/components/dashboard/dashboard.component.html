@@ -102,14 +102,14 @@
           <a class="text-muted float-right" href="javascript:void(0);">clear all skus</a>
         </div>
         <div class="input-group mt-2">
-          <input type="text" class="form-control" placeholder="Search SKU">
+          <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search SKU">
           <div class="input-group-append">
             <span class="input-group-text"><i class="fa fa-search"></i></span>
           </div>
         </div>
       </div>
       <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
-        <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
+        <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index">
           <div style="margin-top: 3px;">
             <input class="mr-1" type="checkbox">
           </div>
@@ -185,7 +185,7 @@
                     <tbody>
                     <tr>
                       <td class="p-2" *ngFor="let data of graphData">
-                         <input type="text" class="table-inputbox" [(ngModel)]="data.finalForcast">
+                        <input type="text" class="table-inputbox" [(ngModel)]="data.finalForcast">
                       </td>
                     </tr>
                     <tr>
@@ -225,7 +225,7 @@
                 </div>
               </div>
               <div class="row m-0 mb-2">
-                <div class="col-12 footer-col">
+                <div class="col-12 footer-col">N
                   {{ totalData.mlTotal }}
                 </div>
               </div>

@@ -178,6 +178,7 @@
   font-size: 0.6rem;
   margin-bottom: 0;
   max-width: none;
+  table-layout: fixed;
 }
 
 
@@ -191,3 +192,8 @@
   outline: none;
 }
 
+
+.content-col .panel .table th,
+.content-col .panel .table tr{
+  width: 65px;
+}

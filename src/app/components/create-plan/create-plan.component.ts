@@ -1,9 +1,7 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
-import {catchError, debounceTime, switchMap} from 'rxjs/operators';
-import {of} from 'rxjs';
 
 enum STEPS {
   'SELECT_HORIZON' = 1,
@@ -39,7 +37,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public plants = [];
   public customerPlanningGroups = [];
   public selectedSKUs = [];
-  public searchFormGroup: FormGroup;
   public searchText: string;
 
   public subs: any = {
@@ -95,11 +92,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.startWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
     currentDate.setDate(currentDate.getDate() + 7);
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
-
-    this.searchFormGroup = this.fb.group({
-      search: this.fb.control('')
-    });
-    this.setValueChangeOfSearchControl(this.searchFormGroup.get('search') as FormControl);
   }
 
   ngOnDestroy(): void {
@@ -209,22 +201,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     };
   }
 
-  public setValueChangeOfSearchControl(searchControl: FormControl) {
-    searchControl.valueChanges
-      .pipe(
-        debounceTime(200),
-        switchMap((value: string) => {
-          const reqBody = this.getFiltersObject();
-          return this.skuService.getSkUList(Object.assign(reqBody, {search: value.trim()})).pipe(
-            catchError((error) => of([]))
-          );
-        })
-      ).subscribe((response: any) => {
-      this.SKUs = response;
-      this.selectedSKUs = [];
-    });
-  }
-
   public createPlan() {
     const data = {
       startWeek: this.startWeek,
@@ -241,10 +217,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   }
 
   public filterSKUs(sku: string) {
-    if (!this.searchText) {
+    if (!this.searchText || !this.searchText.trim()) {
       return true;
     }
-    const regex = new RegExp(this.searchText, 'ig');
+    const regex = new RegExp(this.searchText && this.searchText.trim(), 'ig');
     return regex.test(sku);
   }
 }

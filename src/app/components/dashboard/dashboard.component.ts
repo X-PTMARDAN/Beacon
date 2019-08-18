@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // Filter Options
   public skus: any = [];
   public filters: any = [];
+  public searchText = '';
 
   // Events
   public promos: any = [];
@@ -116,6 +117,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public createPlan(data: any) {
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
+      this.skus = data.leadSkus;
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
@@ -210,5 +212,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.graphData.push(newPoint);
     }
   }
-}
 
+  public getCallback() {
+    return this.filterSKUs.bind(this);
+  }
+
+  public filterSKUs(sku: string) {
+    if (!this.searchText || !this.searchText.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.searchText && this.searchText.trim(), 'ig');
+    return regex.test(sku);
+  }
+}
