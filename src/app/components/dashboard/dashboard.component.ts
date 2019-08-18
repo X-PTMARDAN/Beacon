@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private fb: FormBuilder
   ) {
   }
+
   // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
   // @ts-ignore
@@ -207,7 +208,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.actualDataPoints.push({
           x: key,
           y: week.actuals,
-          color: this.actualDataPointColor
+          color: this.actualDataPointColor,
+          click: this.dataPointClick.bind(this),
         });
         this.totalData.actuals += week.actuals;
       }
@@ -217,7 +219,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.mlDataPoints.push({
           x: key,
           y: week.ml,
-          color: this.mlDataPointColor
+          color: this.mlDataPointColor,
+          click: this.dataPointClick.bind(this),
         });
         this.totalData.mlTotal += week.ml;
       }
@@ -227,7 +230,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.aopDataPoints.push({
           x: key,
           y: week.apo,
-          color: this.aopDataPointColor
+          color: this.aopDataPointColor,
+          click: this.dataPointClick.bind(this),
         });
         this.totalData.apoTotal += week.apo;
       }
@@ -264,9 +268,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.finalForcastDataPoints.push({
         x: calenderYear,
         y: parseInt(this.graphData[index].finalForcast, 10),
-        color: this.finalForcastPointColor
+        color: this.finalForcastPointColor,
+        click: this.dataPointClick.bind(this),
       });
     }
+    this.chart1.render();
+  }
+
+  // Canvas Data points on click
+  public dataPointClick(e) {
+    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].markerType = 'triangle';
     this.chart1.render();
   }
 }
