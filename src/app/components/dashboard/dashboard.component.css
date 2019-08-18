@@ -99,7 +99,13 @@
 
 /* Table Styling */
 .content-col .header-col {
-  padding: 4px 5px;
+  padding: 6px 10px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.content-col .footer-col{
+  padding: 6px 6px 6px 2px;
   font-weight: 700;
   font-size: 12px;
 }
@@ -118,6 +124,11 @@
 
 .aop-text{
   color: #6499F2;
+}
+
+td,
+tr{
+  padding: 0;
 }
 
 
@@ -155,3 +166,22 @@
 #createPlanModal .modal-dialog .modal-content {
   min-height: 90vh;
 }
+
+.fix-width {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-col .panel {
+  padding: 15px;
+}
+
+.content-col .panel .table {
+  width: 100%;
+  font-size: 11px;
+  margin-bottom: 0;
+  max-width: none;
+}
+

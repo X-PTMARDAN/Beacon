@@ -25,10 +25,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public chart1;
   public chart2;
 
-  // Data points
-  private actualDataPoints = [];
-  private mlDataPoints = [];
-  private aopDataPoints = [];
+  // Graph Data Data points
+  public graphData: any = [];
+  private actualDataPoints: any = [];
+  private mlDataPoints: any = [];
+  private aopDataPoints: any = [];
 
   // Filter Options
   public skus: any = [];
@@ -156,10 +157,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.aopDataPoints = [];
     this.mlDataPoints = [];
     this.actualDataPoints = [];
+    this.graphData = [];
     for (const week of data) {
-      const key = week.calenderYear;
+      const newPoint: any = {};
+      const key: string = week.calenderYear;
+      newPoint.week = key.toString().slice(-2);
 
       if (week.actuals) {
+        newPoint.actuals = week.actuals;
         this.actualDataPoints.push({
           x: key,
           y: week.actuals,
@@ -168,6 +173,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
 
       if (week.ml) {
+        newPoint.ml = week.ml;
         this.mlDataPoints.push({
           x: key,
           y: week.ml,
@@ -176,13 +182,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
 
       if (week.apo) {
+        newPoint.apo = week.apo;
         this.aopDataPoints.push({
           x: key,
           y: week.apo,
           color: this.aopDataPointColor
         });
       }
+
+      if (week.lastyear) {
+        newPoint.lastyear = week.lastyear;
+      }
+
+      this.graphData.push(newPoint);
     }
+    console.log(this.graphData);
   }
 }
 

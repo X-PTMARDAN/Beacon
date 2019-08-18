@@ -150,7 +150,7 @@
                   Final Forecast
                 </div>
               </div>
-              <div class="row m-0">
+              <div class="row m-0 mb-2">
                 <div class="col-12 header-col header-text">
                   Fcst Value Add
                 </div>
@@ -177,43 +177,75 @@
               </div>
             </div>
             <div class="col-9 p-0">
-              <table>
-
-              </table>
+              <div class="panel panel-default">
+                <div class="center-block fix-width scroll-inner">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th *ngFor="let data of graphData">
+                        Week {{ data.week }}
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th *ngFor="let data of graphData">
+                        {{ data.ml }}
+                      </th>
+                    </tr>
+                    <tr>
+                      <th *ngFor="let data of graphData">
+                        {{ data.aop }}
+                      </th>
+                    </tr>
+                    <tr>
+                      <th *ngFor="let data of graphData">
+                        {{ data.actuals }}
+                      </th>
+                    </tr>
+                    <tr>
+                      <th *ngFor="let data of graphData">
+                        {{ data.lastyear }}
+                      </th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
             <div class="col-1 p-0">
               <div class="row m-0">
-                <div class="col-12 header-col">
+                <div class="col-12 footer-col">
                   Total
                 </div>
               </div>
               <div class="row m-0">
-                <div class="col-12 header-col">
+                <div class="col-12 footer-col">
+                  5152,785
+                </div>
+              </div>
+              <div class="row m-0 mb-2">
+                <div class="col-12 footer-col">
                   5152,785
                 </div>
               </div>
               <div class="row m-0">
-                <div class="col-12 header-col">
+                <div class="col-12 footer-col">
                   5152,785
                 </div>
               </div>
               <div class="row m-0">
-                <div class="col-12 header-col">
+                <div class="col-12 footer-col">
                   5152,785
                 </div>
               </div>
               <div class="row m-0">
-                <div class="col-12 header-col">
+                <div class="col-12 footer-col">
                   5152,785
                 </div>
               </div>
               <div class="row m-0">
-                <div class="col-12 header-col">
-                  5152,785
-                </div>
-              </div>
-              <div class="row m-0">
-                <div class="col-12 header-col">
+                <div class="col-12 footer-col">
                   5152,785
                 </div>
               </div>
