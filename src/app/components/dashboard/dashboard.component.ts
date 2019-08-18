@@ -127,6 +127,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
           valueFormatString: '######',
           gridColor: '#E3E4E8',
         },
+        toolTip: {
+          content: '{name}: {y}'
+        },
         data: [
           {
             name: 'Actual',
