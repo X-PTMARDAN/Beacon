@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public mlDataPointColor = '#D8B1FD';
   private aopDataPointColor = '#77A5F3';
   private actualDataPointColor = '#09C29B';
+  private finalForcastPointColor = '#000000';
   public currentWeek: number;
 
   // Charts
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private actualDataPoints: any = [];
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
+  private finalForcastDataPoints = [];
   private totalData: any = {
     finalCastTotal: 0,
     apoTotal: 0,
@@ -150,10 +152,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
             dataPoints: this.aopDataPoints
           },
           {
-            name: 'Your',
+            name: 'Final Forcast',
             showInLegend: true,
             type: 'spline',
-            dataPoints: []
+            lineColor: this.finalForcastPointColor,
+            dataPoints: this.finalForcastDataPoints
           }
         ]
       });
@@ -173,6 +176,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       };
       const key: string = week.calenderYear;
       newPoint.week = key.toString().slice(-2);
+      newPoint.calenderYear = key;
 
       if (week.actuals) {
         newPoint.actuals = week.actuals;
@@ -213,6 +217,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Filter SKU Handlers
   public getCallback() {
     return this.filterSKUs.bind(this);
   }
@@ -223,5 +228,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
     const regex = new RegExp(this.searchText && this.searchText.trim(), 'ig');
     return regex.test(sku);
+  }
+
+  // Final Forcast
+  public onValueInput(calenderYear: string, index: number) {
+
+    const dpIndex = this.finalForcastDataPoints.findIndex(item => item.x === calenderYear);
+    if (dpIndex > -1) {
+      this.finalForcastDataPoints[dpIndex].y = parseInt(this.graphData[index].finalForcast, 10);
+    } else {
+      this.finalForcastDataPoints.push({
+        x: calenderYear,
+        y: parseInt(this.graphData[index].finalForcast, 10),
+        color: this.finalForcastPointColor
+      });
+    }
+    this.chart1.render();
   }
 }
