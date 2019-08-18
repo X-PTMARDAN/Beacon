@@ -215,6 +215,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
       this.graphData.push(newPoint);
     }
+    console.log(this.graphData);
   }
 
   // Filter SKU Handlers
