@@ -10,6 +10,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+
+  constructor(
+    private router: Router,
+    private skuService: SKUService,
+    private fb: FormBuilder
+  ) {
+  }
   // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
   // @ts-ignore
@@ -50,11 +57,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public weathers: any = [];
   public events: any = [];
 
-  constructor(
-    private router: Router,
-    private skuService: SKUService,
-    private fb: FormBuilder
-  ) {
+  private static getCurrentWeek(date: Date) {
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
   }
 
   ngOnInit() {
@@ -87,18 +93,39 @@ export class DashboardComponent implements OnInit, OnDestroy {
       theme: 'light2',
       data: [{
         type: 'column',
-        showInLegend: true,
+        color: '#09C29B',
         legendMarkerColor: 'grey',
-        dataPoints: [
-          {y: 300878, label: 'Venezuela'},
-          {y: 266455, label: 'Saudi'},
-          {y: 169709, label: 'Canada'},
-          {y: 158400, label: 'Iran'},
-          {y: 142503, label: 'Iraq'},
-          {y: 101500, label: 'Kuwait'},
-          {y: 97800, label: 'UAE'},
-          {y: 80000, label: 'Russia'}
-        ]
+        dataPoints: [{y: 10, x: 1}, {y: 15, x: 2}, {y: 17, x: 3}, {y: 12, x: 4}, {y: 6, x: 5}, {
+          y: 2,
+          x: 6
+        }, {y: 18, x: 7}, {y: 1, x: 8}, {y: 15, x: 9}, {y: 4, x: 10}, {y: 13, x: 11}, {y: 16, x: 12}, {
+          y: 3,
+          x: 13
+        }, {y: 19, x: 14}, {y: 9, x: 15}, {y: 15, x: 16}, {y: 16, x: 17}, {y: 11, x: 18}, {y: 9, x: 19}, {
+          y: 5,
+          x: 20
+        }, {y: 7, x: 21}, {y: 2, x: 22}, {y: 11, x: 23}, {y: 5, x: 24}, {y: 19, x: 25}, {y: 11, x: 26}, {
+          y: 2,
+          x: 27
+        }, {y: 15, x: 28}, {y: 17, x: 29}, {y: 10, x: 30}, {y: 19, x: 31}, {y: 6, x: 32}, {y: 5, x: 33}, {
+          y: 14,
+          x: 34
+        }, {y: 19, x: 35}, {y: 19, x: 36}, {y: 18, x: 37}, {y: 1, x: 38}, {y: 17, x: 39}, {y: 4, x: 40}, {
+          y: 8,
+          x: 41
+        }, {y: 14, x: 42}, {y: 2, x: 43}, {y: 11, x: 44}, {y: 9, x: 45}, {y: 15, x: 46}, {y: 4, x: 47}, {
+          y: 0,
+          x: 48
+        }, {y: 6, x: 49}, {y: 1, x: 50}, {y: 3, x: 51}, {y: 6, x: 52}, {y: 3, x: 53}, {y: 4, x: 54}, {
+          y: 18,
+          x: 55
+        }, {y: 5, x: 56}, {y: 0, x: 57}, {y: 13, x: 58}, {y: 15, x: 59}, {y: 17, x: 60}, {y: 5, x: 61}, {
+          y: 10,
+          x: 62
+        }, {y: 19, x: 63}, {y: 7, x: 64}, {y: 6, x: 65}, {y: 10, x: 66}, {y: 8, x: 67}, {y: 13, x: 68}, {
+          y: 17,
+          x: 69
+        }, {y: 0, x: 70}, {y: 10, x: 71}]
       }]
     });
     this.chart2.render();
@@ -108,12 +135,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
 
-  }
-
-  private static getCurrentWeek(date: Date) {
-    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-    const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
-    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
   }
 
   public createPlan(data: any) {
@@ -218,7 +239,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
       this.graphData.push(newPoint);
     }
-    console.log(this.graphData);
   }
 
   // Filter SKU Handlers
