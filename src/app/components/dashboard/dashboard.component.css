@@ -1,4 +1,3 @@
-
 /* Sidebar Styling */
 #sidebar {
   position: fixed;
@@ -40,15 +39,15 @@
   z-index: 1;
 }
 
-.content-col{
+.content-col {
   margin-right: 200px;
   margin-left: 280px;
 }
 
-.events-col{
+.events-col {
   position: fixed;
   right: 0;
-  top:0;
+  top: 0;
   width: 200px;
   z-index: 1;
 }
@@ -98,6 +97,30 @@
 }
 
 
+/* Table Styling */
+.content-col .header-col {
+  padding: 4px 5px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.header-text{
+  color: #81878E;
+}
+
+.actual-text{
+  color: #20C9A4;
+}
+
+.ml-text{
+  color: #D8ACFF;
+}
+
+.aop-text{
+  color: #6499F2;
+}
+
+
 /* Events Holidays Promo container */
 .events-container {
   font-size: 15px;
@@ -106,12 +129,12 @@
   overflow: auto;
 }
 
-.events-container .block{
+.events-container .block {
   background-color: #F4F5F9;
   font-size: 14px;
 }
 
-.events-container div{
+.events-container div {
   margin-top: 2px;
 }
 
