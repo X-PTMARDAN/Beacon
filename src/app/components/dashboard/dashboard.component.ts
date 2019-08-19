@@ -17,10 +17,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private fb: FormBuilder
   ) {
   }
+
   // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
   // @ts-ignore
   @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
+  // @ts-ignore
+  @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
+  // @ts-ignore
+  @ViewChild('commentFormModalCancel') commentFormModalCancel: ElementRef;
 
   // Constants
   public mlDataPointColor = '#D8B1FD';
@@ -56,6 +61,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public promos: any = [];
   public weathers: any = [];
   public events: any = [];
+
+  // Selected Data point
+  public selectedDataPoint: any = {};
 
   private static getCurrentWeek(date: Date) {
     const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
@@ -207,7 +215,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.actualDataPoints.push({
           x: key,
           y: week.actuals,
-          color: this.actualDataPointColor
+          color: this.actualDataPointColor,
+          click: this.dataPointClick.bind(this),
         });
         this.totalData.actuals += week.actuals;
       }
@@ -217,7 +226,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.mlDataPoints.push({
           x: key,
           y: week.ml,
-          color: this.mlDataPointColor
+          color: this.mlDataPointColor,
+          click: this.dataPointClick.bind(this),
         });
         this.totalData.mlTotal += week.ml;
       }
@@ -227,7 +237,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.aopDataPoints.push({
           x: key,
           y: week.apo,
-          color: this.aopDataPointColor
+          color: this.aopDataPointColor,
+          click: this.dataPointClick.bind(this),
         });
         this.totalData.apoTotal += week.apo;
       }
@@ -264,9 +275,30 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.finalForcastDataPoints.push({
         x: calenderYear,
         y: parseInt(this.graphData[index].finalForcast, 10),
-        color: this.finalForcastPointColor
+        color: this.finalForcastPointColor,
+        click: this.dataPointClick.bind(this),
       });
     }
     this.chart1.render();
+  }
+
+  // Canvas Data points on click
+  public dataPointClick(e) {
+    if (this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment) {
+      alert(this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment);
+    } else {
+      // Show Comment Form
+      this.selectedDataPoint = e;
+      this.commentFormModalBtn.nativeElement.click();
+    }
+  }
+
+  public onCommentFormSubmit(data: any) {
+    const e = this.selectedDataPoint;
+    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].markerType = 'triangle';
+    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment = data.comment;
+    this.chart1.render();
+    this.commentFormModalCancel.nativeElement.click();
+    this.selectedDataPoint = null;
   }
 }

@@ -145,7 +145,6 @@
   margin-top: 2px;
 }
 
-
 /* Modal Styling */
 .modal-footer {
   display: none;
@@ -168,9 +167,6 @@
   overflow-y: hidden;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-}
-
-.content-col .panel {
 }
 
 .content-col .panel .table {
