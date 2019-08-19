@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as CanvasJS from './../../../assets/js/canvasjs.min';
 import {SKUService} from '../../services/sku.service';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -293,12 +293,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onCommentFormSubmit(data: any) {
+  public onCommentFormSubmit(form: NgForm, data: any) {
     const e = this.selectedDataPoint;
     this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].markerType = 'triangle';
     this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment = data.comment;
     this.chart1.render();
     this.commentFormModalCancel.nativeElement.click();
+    form.resetForm();
     this.selectedDataPoint = null;
   }
 }

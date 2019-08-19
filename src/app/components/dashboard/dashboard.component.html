@@ -247,6 +247,9 @@
               </div>
             </div>
           </div>
+          <div class="row m-0 justify-content-center">
+            <button type="button" class="btn m-3 btn-primary">Save Plan</button>
+          </div>
         </div>
       </div>
     </div>
@@ -337,7 +340,8 @@
             <input type="text" class="form-control" id="comment" name="comment" ngModel required>
           </div>
           <button type="button" class="btn float-right btn-primary" [disabled]="!commentForm.valid"
-                  [ngClass]="{'disabled': !commentForm.valid}" (click)="onCommentFormSubmit(commentForm.value)">Submit
+                  [ngClass]="{'disabled': !commentForm.valid}"
+                  (click)="onCommentFormSubmit(commentForm,commentForm.value)">Submit
           </button>
         </form>
       </div>
