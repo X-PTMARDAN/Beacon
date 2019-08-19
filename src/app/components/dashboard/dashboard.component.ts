@@ -22,6 +22,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
   // @ts-ignore
   @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
+  // @ts-ignore
+  @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
+  // @ts-ignore
+  @ViewChild('commentFormModalCancel') commentFormModalCancel: ElementRef;
 
   // Constants
   public mlDataPointColor = '#D8B1FD';
@@ -57,6 +61,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public promos: any = [];
   public weathers: any = [];
   public events: any = [];
+
+  // Selected Data point
+  public selectedDataPoint: any = {};
 
   private static getCurrentWeek(date: Date) {
     const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
@@ -277,7 +284,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   // Canvas Data points on click
   public dataPointClick(e) {
+    if (this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment) {
+      alert(this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment);
+    } else {
+      // Show Comment Form
+      this.selectedDataPoint = e;
+      this.commentFormModalBtn.nativeElement.click();
+    }
+  }
+
+  public onCommentFormSubmit(data: any) {
+    const e = this.selectedDataPoint;
     this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].markerType = 'triangle';
+    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment = data.comment;
     this.chart1.render();
+    this.commentFormModalCancel.nativeElement.click();
+    this.selectedDataPoint = null;
   }
 }
