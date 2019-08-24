@@ -475,7 +475,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public savePlan() {
     this.savePlanLoader = true;
     const reqBody = {
-      sku: this.skus.map(item => item.name),
+      sku: this.skus.filter(item => item.isChecked).map(item => item.name),
       cpg: this.createPlanRequestData.customerPlanningGroup,
       plant: this.createPlanRequestData.plant,
       data: []
