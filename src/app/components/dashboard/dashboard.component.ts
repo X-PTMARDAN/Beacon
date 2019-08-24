@@ -258,30 +258,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       newPoint.week = key.toString().slice(-2);
       newPoint.calenderYear = key;
 
-      if (week.finalforecast) {
-        newPoint.initialFinalForecast = parseFloat(week.finalforecast.toFixed(2));
-        newPoint.finalForecast = parseFloat(week.finalforecast.toFixed(2));
-        this.finalForecastDataPoints.push({
-          x: key,
-          y: newPoint.finalForecast,
-          color: this.finalForecastPointColor,
-          click: this.dataPointClick.bind(this),
-        });
-        this.totalData.finalCastTotal += newPoint.finalForecast;
-      }
-
-      if (week.actuals) {
-        newPoint.actuals = parseFloat(week.actuals.toFixed(2));
-        this.actualDataPoints.push({
-          x: key,
-          y: week.actuals,
-          color: this.actualDataPointColor,
-          click: this.dataPointClick.bind(this),
-        });
-        this.totalData.actuals += newPoint.actuals;
-      }
-
-      if (week.ml) {
+      if (week.ml !== undefined) {
         newPoint.ml = parseFloat(week.ml.toFixed(2));
         this.mlDataPoints.push({
           x: key,
@@ -292,12 +269,36 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.totalData.mlTotal += newPoint.ml;
       }
 
-      if (week.fva) {
-        newPoint.fcstValueAdd = week.fva;
+      if (week.ml !== undefined) {
+        const value = week.finalforecast === undefined ? week.ml : week.finalforecast;
+        newPoint.initialFinalForecast = parseFloat(value.toFixed(2));
+        newPoint.finalForecast = newPoint.initialFinalForecast;
+        this.finalForecastDataPoints.push({
+          x: key,
+          y: newPoint.finalForecast,
+          color: this.finalForecastPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.finalCastTotal += newPoint.finalForecast;
+      }
+
+      if (week.actuals !== undefined) {
+        newPoint.actuals = parseFloat(week.actuals.toFixed(2));
+        this.actualDataPoints.push({
+          x: key,
+          y: week.actuals,
+          color: this.actualDataPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.actuals += newPoint.actuals;
+      }
+
+      if (week.fva !== undefined) {
+        newPoint.fcstValueAdd = week.fva === 0 ? '' : week.fva.toString();
         this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
       }
 
-      if (week.apo) {
+      if (week.apo !== undefined) {
         newPoint.apo = parseFloat(week.apo.toFixed(2));
         this.aopDataPoints.push({
           x: key,
@@ -308,7 +309,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.totalData.apoTotal += newPoint.apo;
       }
 
-      if (week.actualslastyear) {
+      if (week.actualslastyear !== undefined) {
         newPoint.actualslastyear = parseFloat(week.actualslastyear.toFixed(2));
         this.lastYearDataPoints.push({
           x: key,
@@ -395,14 +396,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
       if (!isNaN(value)) {
         if (this.graphData[index].initialFinalForecast + value < 0) {
           this.finalForecastDataPoints[dpIndex].y = 0;
-          this.graphData[index].finalForecast  = 0;
+          this.graphData[index].finalForecast = 0;
         } else {
           this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast + value;
-          this.graphData[index].finalForecast =  this.graphData[index].initialFinalForecast + value;
+          this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast + value;
         }
       } else {
         this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
-        this.graphData[index].finalForecast =  this.graphData[index].initialFinalForecast;
+        this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast;
+      }
+
+      this.totalData.finalCastTotal = 0;
+      for (const data of this.graphData) {
+        if (data.finalForecast) {
+          this.totalData.finalCastTotal += data.finalForecast;
+        }
       }
     }
     this.chart1.render();
