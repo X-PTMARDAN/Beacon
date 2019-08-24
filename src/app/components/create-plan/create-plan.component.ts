@@ -26,8 +26,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   };
   public dropdownSettings = {
     singleSelection: false,
-    idField: 'item_id',
-    textField: 'item_text',
+    idField: 'id',
+    textField: 'name',
     selectAllText: 'Select All',
     unSelectAllText: 'UnSelect All',
     itemsShowLimit: 2,
@@ -275,8 +275,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       startWeek: this.startWeek,
       endWeek: this.endWeek,
       leadSkus: this.selectedSKUs,
-      customerPlanningGroup: this.customerPlanningGroups,
-      plant: this.plants
+      customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
+      plant: this.selectedPlants.map(item => item.name),
     };
     this.outputDateEmitter.emit(data);
   }

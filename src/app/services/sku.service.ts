@@ -66,11 +66,29 @@ export class SKUService {
   }
 
   public getPlants() {
-    return this.http.get('https://vmxmz2s8t4.execute-api.eu-west-1.amazonaws.com/sdf');
+    return this.http.get('https://vmxmz2s8t4.execute-api.eu-west-1.amazonaws.com/sdf').pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+          };
+        });
+      })
+    );
   }
 
   public getCustomerPlanningGroup() {
-    return this.http.get('https://faqgousuyk.execute-api.eu-west-1.amazonaws.com/New');
+    return this.http.get('https://faqgousuyk.execute-api.eu-west-1.amazonaws.com/New').pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+          };
+        });
+      })
+    );
   }
 
   public getSkUList(data = {}) {
