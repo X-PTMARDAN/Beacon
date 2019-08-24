@@ -53,7 +53,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public packs = [];
   public SKUs = [];
   public selectedSKUs = [];
-  public searchText: string;
+  public searchText = '';
 
   public subs: any = {
     items$: null,
@@ -119,14 +119,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.events.subscribe(() => this.resetState());
   }
 
-  onItemSelect(item: any) {
-    console.log(item);
-  }
-
-  onSelectAll(items: any) {
-    console.log(items);
-  }
-
   ngOnDestroy(): void {
     this.subs.brands$.unsubscribe();
     this.subs.packs$.unsubscribe();
@@ -163,6 +155,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.endWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
   }
 
+  public addYears(numOfYears: number) {
+
+  }
+
   public openCalender() {
     const elem = document.getElementById('endWeek');
     elem.focus();
@@ -188,21 +184,42 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public addItems(itemId: number) {
     const itemIndex = this.SKUs.findIndex((item) => item.id === itemId);
-    this.selectedSKUs.push(this.SKUs[itemIndex]);
+    const item = this.SKUs[itemIndex];
+    item.isFiltered = false;
+    this.selectedSKUs.push(item);
     this.SKUs.splice(itemIndex, 1);
   }
 
   public addItemsAll() {
+    const onlyAddFiltered = this.searchText.trim();
+    const toBeRemovedItemIds = [];
+
     for (const item of this.SKUs) {
-      this.selectedSKUs.push(item);
+      if (onlyAddFiltered) {
+        if (item.isFiltered) {
+          this.selectedSKUs.push(item);
+          toBeRemovedItemIds.push(item.id);
+        }
+      } else {
+        this.selectedSKUs.push(item);
+      }
     }
 
-    this.SKUs = [];
+    if (!onlyAddFiltered) {
+      this.SKUs = [];
+    } else {
+      for (const itemId of toBeRemovedItemIds) {
+        const itemIndex = this.SKUs.findIndex((item) => item.id === itemId);
+        this.SKUs.splice(itemIndex, 1);
+      }
+    }
   }
 
   public removeItems(itemId: number) {
     const itemIndex = this.selectedSKUs.findIndex((item) => item.id === itemId);
-    this.SKUs.push(this.selectedSKUs[itemIndex]);
+    const item = this.selectedSKUs[itemIndex];
+    item.isFiltered = false;
+    this.SKUs.push(item);
     this.selectedSKUs.splice(itemIndex, 1);
   }
 
@@ -266,6 +283,18 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public getCallback() {
     return this.filterSKUs.bind(this);
+  }
+
+  public getFilteredSKUCount(): number {
+    let cnt = 0;
+
+    for (let index = 0; index < this.SKUs.length; index += 1) {
+      if (this.SKUs[index].isFiltered) {
+        cnt += 1;
+      }
+    }
+
+    return cnt;
   }
 
   public filterSKUs(sku: string) {

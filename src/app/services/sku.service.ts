@@ -80,6 +80,7 @@ export class SKUService {
           return {
             id: index,
             name: item,
+            isFiltered: false,
           };
         });
       })
