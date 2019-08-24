@@ -177,6 +177,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
@@ -231,6 +235,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.chart1.render();
       this.createPlanModalCancel.nativeElement.click();
     });
+  }
+
+  private toggleDataSeries(e) {
+    e.dataSeries.visible = !(typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible);
+    this.chart1.render();
   }
 
   public processGraphData(res) {
