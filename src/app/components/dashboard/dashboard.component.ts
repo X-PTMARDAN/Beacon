@@ -16,6 +16,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public createPlanRequestData: any;
 
+  // Loader
+  public savePlanLoader: boolean = false;
+
   constructor(
     private router: Router,
     private skuService: SKUService,
@@ -470,14 +473,34 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public savePlan() {
-    // let plan_name = document.getElementById('plan_name').value;
-    this.setCookie('graphData', JSON.stringify(this.graphData), 30);
+    this.savePlanLoader = true;
+    const reqBody = {
+      sku: this.skus.map(item => item.name),
+      cpg: this.createPlanRequestData.customerPlanningGroup,
+      plant: this.createPlanRequestData.plant,
+      data: []
+    };
 
-    this.setCookie('finalForecast', JSON.stringify(this.finalForecastArray), 30);
-    this.setCookie('finalForecastDataPoint', JSON.stringify(this.finalForecastDataPoints), 30);
+    for (const data of this.graphData) {
+      reqBody.data.push({
+        calenderYearWeek: data.week,
+        finalforecast: data.finalForecast,
+        fva: data.fcstValueAdd,
+        comments: {}
+      });
+    }
 
+    console.log(reqBody);
     this.PlanNameModalBtn.nativeElement.click();
+    this.savePlanLoader = false;
 
+    // this.skuService.savePlan({}).subscribe(() => {
+    //   // let plan_name = document.getElementById('plan_name').value;
+    //   this.setCookie('graphData', JSON.stringify(this.graphData), 30);
+    //   this.setCookie('finalForecast', JSON.stringify(this.finalForecastArray), 30);
+    //   this.setCookie('finalForecastDataPoint', JSON.stringify(this.finalForecastDataPoints), 30);
+    //   this.PlanNameModalBtn.nativeElement.click();
+    // });
   }
 
   public setCookie(cname, cvalue, exdays) {

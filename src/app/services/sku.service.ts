@@ -190,4 +190,8 @@ export class SKUService {
   public getGraphData(data = {}) {
     return this.http.post('https://om0aflhwvj.execute-api.eu-west-1.amazonaws.com/Test', data);
   }
+
+  public savePlan(data = {}) {
+    return this.http.post('', data);
+  }
 }

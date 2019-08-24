@@ -372,14 +372,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Save the Plan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" #PlanNameModalBtn><span
           aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <input type="text" class="form-control" id="plan_name" placeholder="Name of The Plan">
+        <input type="text" class="form-control" id="plan_name" placeholder="Name of the Plan"  required>
 
         <p class="text-center mt-4">
-          <a href="javascript:void(0);" (click)="savePlan()" class="btn btn-primary custom-link btn-xs">Ok</a>
+          <a href="javascript:void(0);" (click)="savePlan()" class="btn btn-primary custom-link btn-xs">Ok
+            <ng-container *ngIf="savePlanLoader">
+              <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            </ng-container>
+          </a>
         </p>
       </div>
     </div>
