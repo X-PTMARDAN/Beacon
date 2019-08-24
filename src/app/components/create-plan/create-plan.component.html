@@ -210,16 +210,16 @@
                 <div class="panel-heading" style="padding: 15px 0 0 0;" role="tab">
                   <h4 class="panel-title">
                     <div class="form-group has-feedback">
-                      <input type="text" class="form-control search-box-l" placeholder="Search SKU"
-                             id="inputWarning2">
+                      <input type="text" class="form-control search-box-l" [(ngModel)]="selectedSearchText"
+                             placeholder="Search Selected SKU">
                     </div>
                   </h4>
                 </div>
                 <div class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body" style="border-top: 0px;">
+                  <div class="panel-body" style="border-top: 0;">
                     <div class="brand-selector brand-selector2">
                       <ul>
-                        <li class="d-flex" *ngFor="let selectedSKU of selectedSKUs;let i=index">
+                        <li class="d-flex" *ngFor="let selectedSKU of selectedSKUs| filter: getCallback(true);let i=index">
                           <a href="javascript:void(0);" class="text-danger pr-1"
                              (click)="removeItems(selectedSKU.id)"><i
                             class="fa fa-minus-circle" aria-hidden="true"></i></a>

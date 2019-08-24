@@ -54,6 +54,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public SKUs = [];
   public selectedSKUs = [];
   public searchText = '';
+  public selectedSearchText = '';
 
   public subs: any = {
     items$: null,
@@ -270,6 +271,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     };
   }
 
+  // Create Plan Handler
   public createPlan() {
     const data = {
       startWeek: this.startWeek,
@@ -281,10 +283,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.outputDateEmitter.emit(data);
   }
 
-  public getCallback() {
-    return this.filterSKUs.bind(this);
-  }
-
+  // Filter SKUs handlers
   public getFilteredSKUCount(): number {
     let cnt = 0;
 
@@ -297,6 +296,13 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     return cnt;
   }
 
+  public getCallback(isSelected = false) {
+    if (isSelected) {
+      return this.filterSelectedSKUs.bind(this);
+    }
+    return this.filterSKUs.bind(this);
+  }
+
   public filterSKUs(sku: string) {
     if (!this.searchText || !this.searchText.trim()) {
       return true;
@@ -305,6 +311,15 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     return regex.test(sku);
   }
 
+  public filterSelectedSKUs(sku: string) {
+    if (!this.selectedSearchText || !this.selectedSearchText.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.selectedSearchText && this.selectedSearchText.trim(), 'ig');
+    return regex.test(sku);
+  }
+
+  // Modal wizard handlers
   private changeActiveStep(step) {
     if (step === 1) {
       this.showPanels.showPlanDemand = false;
