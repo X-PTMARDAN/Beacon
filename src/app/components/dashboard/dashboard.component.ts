@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private aopDataPointColor = '#77A5F3';
   private actualDataPointColor = '#09C29B';
-  private finalForcastPointColor = '#000000';
+  private finalForecastPointColor = '#000000';
   public currentWeek: number;
 
   // Charts
@@ -61,11 +61,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private actualDataPoints: any = [];
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
-  private lastyearDataPoints: any = [];
-  public finalForcastDataPoints = [];
+  private lastYearDataPoints: any = [];
+  public finalForecastDataPoints = [];
   public plan_data = [];
   private totalData: any = {
     finalCastTotal: 0,
+    fsvtValueAdd: 0,
     apoTotal: 0,
     mlTotal: 0,
     actuals: 0,
@@ -166,7 +167,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public createPlan_visit(data: any) {
-
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData_cook(res);
       this.skus = data.leadSkus;
@@ -197,7 +197,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             showInLegend: true,
             type: 'spline',
             lineColor: this.lastyearDataPointColor,
-            dataPoints: this.lastyearDataPoints
+            dataPoints: this.lastYearDataPoints
           },
           {
             name: 'ML Fcst',
@@ -216,11 +216,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
             dataPoints: this.aopDataPoints
           },
           {
-            name: 'Final Forcast',
+            name: 'Final Forecast',
             showInLegend: true,
             type: 'spline',
-            lineColor: this.finalForcastPointColor,
-            dataPoints: this.finalForcastDataPoints
+            lineColor: this.finalForecastPointColor,
+            dataPoints: this.finalForecastDataPoints
           }
         ]
       });
@@ -271,7 +271,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             showInLegend: true,
             type: 'spline',
             lineColor: this.lastyearDataPointColor,
-            dataPoints: this.lastyearDataPoints
+            dataPoints: this.lastYearDataPoints
           },
           {
             name: 'ML Fcst',
@@ -290,11 +290,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
             dataPoints: this.aopDataPoints
           },
           {
-            name: 'Final Forcast',
+            name: 'Final Forecast',
             showInLegend: true,
             type: 'spline',
-            lineColor: this.finalForcastPointColor,
-            dataPoints: this.finalForcastDataPoints
+            lineColor: this.finalForecastPointColor,
+            dataPoints: this.finalForecastDataPoints
           }
         ]
       });
@@ -304,33 +304,44 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public processGraphData(res) {
-    console.log(JSON.stringify(res));
-
     const data = res[1].data;
     this.aopDataPoints = [];
     this.mlDataPoints = [];
     this.actualDataPoints = [];
-    this.lastyearDataPoints = [];
+    this.lastYearDataPoints = [];
     this.graphData = [];
 
-    this.weekArray = [];
-    this.finalForcastArray = [];
-    this.mlForcastArray = [];
-    this.apoForcastArray = [];
-    this.actualsForcastArray = [];
-    this.lastyearForcastArray = [];
+    this.totalData = {
+      finalCastTotal: 0,
+      fsvtValueAdd: 0,
+      apoTotal: 0,
+      mlTotal: 0,
+      actuals: 0,
+      lastYearTotal: 0,
+    };
 
     for (const week of data) {
       const newPoint: any = {
-        finalForcast: '12',
         fcstValueAdd: ''
       };
       const key: string = week.calenderYearWeek;
       newPoint.week = key.toString().slice(-2);
       newPoint.calenderYear = key;
 
+      if (week.finalforecast) {
+        newPoint.initialFinalForecast = parseFloat(week.finalforecast.toFixed(2));
+        newPoint.finalForecast = parseFloat(week.finalforecast.toFixed(2));
+        this.finalForecastDataPoints.push({
+          x: key,
+          y: newPoint.finalForecast,
+          color: this.finalForecastPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.finalCastTotal += newPoint.finalForecast;
+      }
+
       if (week.actuals) {
-        newPoint.actuals = week.actuals;
+        newPoint.actuals = parseFloat(week.actuals.toFixed(2));
         this.actualDataPoints.push({
           x: key,
           y: week.actuals,
@@ -341,7 +352,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
 
       if (week.ml) {
-        newPoint.ml = week.ml;
+        newPoint.ml = parseFloat(week.ml.toFixed(2));
         this.mlDataPoints.push({
           x: key,
           y: week.ml,
@@ -352,14 +363,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
 
       if (week.fva) {
-        newPoint.fva = week.fva;
+        newPoint.fcstValueAdd = week.fva;
+        this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
       }
 
       if (week.apo) {
         newPoint.apo = parseFloat(week.apo.toFixed(2));
         this.aopDataPoints.push({
           x: key,
-          y: week.apo,
+          y: newPoint.apo,
           color: this.aopDataPointColor,
           click: this.dataPointClick.bind(this),
         });
@@ -367,23 +379,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
 
       if (week.actualslastyear) {
-        newPoint.actualslastyear = week.actualslastyear;
-        this.lastyearDataPoints.push({
+        newPoint.actualslastyear = parseFloat(week.actualslastyear.toFixed(2));
+        this.lastYearDataPoints.push({
           x: key,
-          y: week.actualslastyear,
+          y: newPoint.actualslastyear,
           color: this.lastyearDataPointColor,
           click: this.dataPointClick.bind(this),
         });
-        this.totalData.lastYearTotal += week.actualslastyear;
-
-        newPoint.actualslastyear = week.actualslastyear;
         this.totalData.lastYearTotal += newPoint.actualslastyear;
       }
 
       this.graphData.push(newPoint);
     }
-    console.log(JSON.stringify(this.graphData));
-    console.log(JSON.stringify(this.totalData));
   }
 
   public dataPointClick(e) {
@@ -420,14 +427,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
       const finalForDataPoint = this.getCookie('finalForecastDataPoint');
 
       this.finalForcastArray = JSON.parse(finalForArr);
-      this.finalForcastDataPoints = JSON.parse(finalForDataPoint);
+      this.finalForecastDataPoints = JSON.parse(finalForDataPoint);
     }
 
 
     this.aopDataPoints = [];
     this.mlDataPoints = [];
     this.actualDataPoints = [];
-    this.lastyearDataPoints = [];
+    this.lastYearDataPoints = [];
     this.graphData = [];
 
     this.weekArray = [];
@@ -513,7 +520,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       if (week.lastyear) {
 
         newPoint.lastyear = week.lastyear;
-        this.lastyearDataPoints.push({
+        this.lastYearDataPoints.push({
           x: key,
           y: week.lastyear,
           color: this.lastyearDataPointColor,
@@ -579,24 +586,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   // Final Forcast
-  public onValueInput(calenderYear: string, index: number) {
+  public onValueInput(week: string, index: number) {
 
-    const dpIndex = this.finalForcastDataPoints.findIndex(item => item.x === calenderYear);
+    const dpIndex = this.graphData.findIndex(item => item.week === week);
     if (dpIndex > -1) {
-      this.finalForcastDataPoints[dpIndex].y = parseInt(this.graphData[index].finalForcast, 10);
-    } else {
-      this.finalForcastDataPoints.push({
-        x: calenderYear,
-        y: parseInt(this.graphData[index].finalForcast, 10),
-        color: this.finalForcastPointColor
-      });
+      const value = parseInt(this.graphData[index].fcstValueAdd, 10);
+      if (!isNaN(value)) {
+        this.finalForecastDataPoints[dpIndex].y += value;
+      } else {
+        this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
+      }
     }
     this.chart1.render();
   }
 
   public putValueInFinal(val) {
     this.finalForcastArray.length = 0;
-    this.finalForcastDataPoints.length = 0;
+    this.finalForecastDataPoints.length = 0;
     let value_to_insert = '';
     let value_calnder = '';
     for (let i = 0; i < this.graphData.length; i++) {
@@ -604,10 +610,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       if (val === 'ML') {
 
         this.graphData[i].finalForcast = this.graphData[i].ml;
-        this.finalForcastDataPoints.push({
+        this.finalForecastDataPoints.push({
           x: this.graphData[i].calenderYear,
           y: this.graphData[i].ml,
-          color: this.finalForcastPointColor
+          color: this.finalForecastPointColor
         });
         if (this.graphData[i].ml !== undefined) {
           value_to_insert = this.graphData[i].ml;
@@ -618,10 +624,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
       if (val === 'APO') {
         this.graphData[i].finalForcast = this.graphData[i].apo;
-        this.finalForcastDataPoints.push({
+        this.finalForecastDataPoints.push({
           x: this.graphData[i].calenderYear,
           y: this.graphData[i].apo,
-          color: this.finalForcastPointColor
+          color: this.finalForecastPointColor
         });
 
         if (this.graphData[i].ml !== undefined) {
@@ -637,7 +643,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
     this.chart1.render();
 
-    console.log('finalForcastDataPoints : ' + val + JSON.stringify(this.finalForcastDataPoints));
+    console.log('finalForecastDataPoints : ' + val + JSON.stringify(this.finalForecastDataPoints));
 
 
   }
@@ -647,7 +653,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.setCookie('graphData', JSON.stringify(this.graphData), 30);
 
     this.setCookie('finalForecast', JSON.stringify(this.finalForcastArray), 30);
-    this.setCookie('finalForecastDataPoint', JSON.stringify(this.finalForcastDataPoints), 30);
+    this.setCookie('finalForecastDataPoint', JSON.stringify(this.finalForecastDataPoints), 30);
 
     this.PlanNameModalBtn.nativeElement.click();
 

@@ -212,20 +212,20 @@
                   <table class="table table-striped">
                     <thead>
                     <tr>
-                      <th *ngFor="let data of graphData">
+                      <th class="font-weight-bold" *ngFor="let data of graphData">
                         Week {{ data.week }}
                       </th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                      <td *ngFor="let data of graphData; let i=index">
-                        {{ data.finalForcast }}
+                      <td class="font-weight-bold" *ngFor="let data of graphData; let i=index">
+                        {{ data.finalForecast }}
                       </td>
                     </tr>
                     <tr>
                       <td *ngFor="let data of graphData; let i=index">
-                        <input type="text" class="table-inputbox" (input)="onValueInput(data.calenderYear, i)"
+                        <input type="text" class="table-inputbox" (input)="onValueInput(data.week, i)"
                                [(ngModel)]="data.fcstValueAdd">
                       </td>
                     </tr>
@@ -269,11 +269,11 @@
                   {{ totalData.finalCastTotal }}
                 </div>
               </div>
-              <!--<div class="row m-0">
+              <div class="row m-0">
                 <div class="col-12 footer-col">
-                  200
+                  {{ totalData.fcstValueAdd || 0 }}
                 </div>
-              </div>-->
+              </div>
               <div class="row m-0">
                 <div class="col-12 footer-col">
                   {{ totalData.mlTotal }}

@@ -238,10 +238,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const toBeRemovedItemIds = [];
 
     for (const item of this.selectedSKUs) {
-      this.SKUs.push(item);
-    }
-
-    for (const item of this.selectedSKUs) {
       if (onlyRemoveFiltered) {
         if (item.isFiltered) {
           this.SKUs.push(item);
@@ -251,7 +247,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.SKUs.push(item);
       }
     }
-
 
     if (!onlyRemoveFiltered) {
       this.selectedSKUs = [];
