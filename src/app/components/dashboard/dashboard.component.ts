@@ -11,6 +11,10 @@ import {Subject} from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  public activeStepNum: number;
+  public activeStep = 'plan';
+
+  public createPlanRequestData: any;
 
   constructor(
     private router: Router,
@@ -226,16 +230,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public createPlan(data: any) {
-    this.skuService.getGraphData({
+    this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
       leadSkus: data.leadSkus.map(item => item.name),
       customerPlanningGroup: data.customerPlanningGroup,
       plant: data.plant,
-    }).subscribe((res: any) => {
+    };
+    this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next();
       this.processGraphData(res);
-      this.skus = data.leadSkus;
+      this.skus = data.leadSkus.map((item) => {
+        item.isChecked = true;
+        return item;
+      });
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
@@ -295,81 +303,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  public processGraphData_new(data) {
+  public processGraphData(res) {
+    console.log(JSON.stringify(res));
 
-    console.log('DEEPAK DATA : ' + JSON.stringify(data));
-
-
-    this.aopDataPoints = [];
-    this.mlDataPoints = [];
-    this.actualDataPoints = [];
-    this.lastyearDataPoints = [];
-    this.graphData = [];
-    for (const week of data) {
-      const newPoint: any = {
-        finalForcast: ''
-      };
-      const key: string = week.calenderYear;
-      newPoint.week = key.toString().slice(-2);
-      newPoint.calenderYear = key;
-
-      if (week.actuals) {
-        newPoint.actuals = week.actuals;
-        this.actualDataPoints.push({
-          x: key,
-          y: week.actuals,
-          color: this.actualDataPointColor
-        });
-        this.totalData.actuals += week.actuals;
-      }
-
-      if (week.ml) {
-        newPoint.ml = week.ml;
-        this.mlDataPoints.push({
-          x: key,
-          y: week.ml,
-          color: this.mlDataPointColor
-        });
-        this.totalData.mlTotal += week.ml;
-      }
-
-      if (week.apo) {
-        newPoint.apo = week.apo;
-        this.aopDataPoints.push({
-          x: key,
-          y: week.apo,
-          color: this.aopDataPointColor
-        });
-        this.totalData.apoTotal += week.apo;
-      }
-
-      if (week.lastyear) {
-
-        newPoint.lastyear = week.lastyear;
-        this.lastyearDataPoints.push({
-          x: key,
-          y: week.lastyear,
-          color: this.lastyearDataPointColor
-        });
-        this.totalData.lastYearTotal += week.lastyear;
-
-
-        // newPoint.lastyear = week.lastyear;
-        // this.totalData.lastYearTotal += week.lastyear;
-      }
-
-      this.graphData.push(newPoint);
-
-    }
-
-
-  }
-
-  public processGraphData(data) {
-
-    // console.log('DEEPAK DATA : '+JSON.stringify(data));
-
-
+    const data = res[1].data;
     this.aopDataPoints = [];
     this.mlDataPoints = [];
     this.actualDataPoints = [];
@@ -383,43 +320,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.actualsForcastArray = [];
     this.lastyearForcastArray = [];
 
-    let pushobj;
     for (const week of data) {
-
-
-      const year = week.calenderYear;
-      const weeknumber = year.toString().slice(-2);
-
-      if (weeknumber < 41 && weeknumber > 24 && week.lastyear != undefined) {
-        this.weekArray.push({week: weeknumber});
-        this.finalForcastArray.push({calenderYear: '', finalForcast: ''});
-      }
-
-      if (week.ml != undefined) {
-        pushobj = {calenderYear: week.calenderYear, ml: week.ml};
-        this.mlForcastArray.push(pushobj);
-      }
-
-      if (week.apo != undefined) {
-        pushobj = {calenderYear: week.calenderYear, apo: week.apo};
-        this.apoForcastArray.push(pushobj);
-      }
-
-      if (week.actuals != undefined) {
-        pushobj = {calenderYear: week.calenderYear, actuals: week.actuals};
-        this.actualsForcastArray.push(pushobj);
-      }
-
-      if (week.lastyear != undefined) {
-        pushobj = {calenderYear: week.calenderYear, lastyear: week.lastyear};
-        this.lastyearForcastArray.push(pushobj);
-      }
-
-
       const newPoint: any = {
-        finalForcast: ''
+        finalForcast: '12',
+        fcstValueAdd: ''
       };
-      const key: string = week.calenderYear;
+      const key: string = week.calenderYearWeek;
       newPoint.week = key.toString().slice(-2);
       newPoint.calenderYear = key;
 
@@ -431,7 +337,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           color: this.actualDataPointColor,
           click: this.dataPointClick.bind(this),
         });
-        this.totalData.actuals += week.actuals;
+        this.totalData.actuals += newPoint.actuals;
       }
 
       if (week.ml) {
@@ -442,47 +348,42 @@ export class DashboardComponent implements OnInit, OnDestroy {
           color: this.mlDataPointColor,
           click: this.dataPointClick.bind(this),
         });
-        this.totalData.mlTotal += week.ml;
+        this.totalData.mlTotal += newPoint.ml;
+      }
+
+      if (week.fva) {
+        newPoint.fva = week.fva;
       }
 
       if (week.apo) {
-        newPoint.apo = week.apo;
+        newPoint.apo = parseFloat(week.apo.toFixed(2));
         this.aopDataPoints.push({
           x: key,
           y: week.apo,
           color: this.aopDataPointColor,
           click: this.dataPointClick.bind(this),
         });
-        this.totalData.apoTotal += week.apo;
+        this.totalData.apoTotal += newPoint.apo;
       }
 
-      if (week.lastyear) {
-
-        newPoint.lastyear = week.lastyear;
+      if (week.actualslastyear) {
+        newPoint.actualslastyear = week.actualslastyear;
         this.lastyearDataPoints.push({
           x: key,
-          y: week.lastyear,
+          y: week.actualslastyear,
           color: this.lastyearDataPointColor,
           click: this.dataPointClick.bind(this),
         });
-        this.totalData.lastYearTotal += week.lastyear;
+        this.totalData.lastYearTotal += week.actualslastyear;
 
-
-        // newPoint.lastyear = week.lastyear;
-        // this.totalData.lastYearTotal += week.lastyear;
+        newPoint.actualslastyear = week.actualslastyear;
+        this.totalData.lastYearTotal += newPoint.actualslastyear;
       }
 
       this.graphData.push(newPoint);
     }
-
-
-    console.log(' weekArray DATA :  ' + JSON.stringify(this.weekArray));
-    console.log(' mlForcastArray DATA :  ' + JSON.stringify(this.mlForcastArray));
-    console.log(' apoForcastArray DATA :  ' + JSON.stringify(this.apoForcastArray));
-    console.log(' actualsForcastArray DATA :  ' + JSON.stringify(this.actualsForcastArray));
-    console.log(' lastyearForcastArray DATA :  ' + JSON.stringify(this.lastyearForcastArray));
-
-
+    console.log(JSON.stringify(this.graphData));
+    console.log(JSON.stringify(this.totalData));
   }
 
   public dataPointClick(e) {
@@ -646,6 +547,35 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
     const regex = new RegExp(this.searchText && this.searchText.trim(), 'ig');
     return regex.test(sku);
+  }
+
+  public onFilterCheckBoxChange() {
+    const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    data.leadSkus = this.skus.filter(item => item.isChecked).map(item => item.name);
+    this.skuService.getGraphData(data).subscribe((res: any) => {
+      this.processGraphData(res);
+      this.chart1.render();
+    });
+  }
+
+  public clearAllSKUs() {
+    let requestData = false;
+
+    for (const sku of this.skus) {
+      if (sku.isChecked) {
+        sku.isChecked = false;
+        requestData = true;
+      }
+    }
+
+    if (requestData) {
+      const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+      data.leadSkus = [];
+      this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
+        this.processGraphData(res);
+        this.chart1.render();
+      });
+    }
   }
 
   // Final Forcast

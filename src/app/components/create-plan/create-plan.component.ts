@@ -15,6 +15,8 @@ enum STEPS {
 })
 export class CreatePlanComponent implements OnInit, OnDestroy {
   @Input('events') events: Observable<void>;
+  @Input('activeStepNum') activeStepNum: number;
+  @Input('activeStep') activeStep: string;
 
   @Output('submit') outputDateEmitter = new EventEmitter();
   public minEndWeek: string;
@@ -110,7 +112,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     });
 
     // SELECT HORIZON RESET
-    this.activeStepOrder = STEPS.SELECT_OPTION;
+    this.activeStepOrder = this.activeStepNum || STEPS.SELECT_OPTION;
     const currentDate = new Date();
     this.startWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
     currentDate.setDate(currentDate.getDate() + 7);
@@ -139,7 +141,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const week = data[1].substr(1);
     return parseInt(year + week, 10);
   }
-  
+
   private resetState() {
     this.activeStepOrder = STEPS.SELECT_OPTION;
     this.wizardList = [
@@ -249,7 +251,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.SKUs.push(item);
       }
     }
-    
+
 
     if (!onlyRemoveFiltered) {
       this.selectedSKUs = [];

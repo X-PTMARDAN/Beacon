@@ -56,52 +56,52 @@
         </div>
       </div>
       <hr>
-      <!--<div class="mb-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-append">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
-          </div>
-        </div>
-        <div class="d-flex justify-content-end">
-          <a class="text-muted" href="javascript:void(0);">clear all filters</a>
-        </div>
-      </div>
-      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
-        <ng-container *ngFor="let filter of filters; let filterIndex=index">
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" [id]="filter.key">
-              <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
-                   [href]="'#' + filter.key + 'filter'"
-                   aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-                   (click)="filter.isExpanded = !filter.isExpanded">
-                  {{ filter.name }}
-                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
-                </a>
-              </h4>
-            </div>
-            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
-                 [attr.aria-labelledby]="filter.key">
-              <div class="panel-body">
-                <ul class="m-0">
-                  <li class="d-flex" *ngFor="let value of filter.values;">
-                    <div>
-                      <input class="mr-1" type="checkbox">
-                    </div>
-                    <p class="m-0">{{ value }}</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-      <hr>-->
+      <!--      <div class="mb-2">-->
+      <!--        <div class="input-group">-->
+      <!--          <input type="text" class="form-control" placeholder="Search">-->
+      <!--          <div class="input-group-append">-->
+      <!--            <span class="input-group-text"><i class="fa fa-search"></i></span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--        <div class="d-flex justify-content-end">-->
+      <!--          <a class="text-muted" href="javascript:void(0);">clear all filters</a>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">-->
+      <!--        <ng-container *ngFor="let filter of filters; let filterIndex=index">-->
+      <!--          <div class="panel panel-default">-->
+      <!--            <div class="panel-heading" role="tab" [id]="filter.key">-->
+      <!--              <h4 class="panel-title">-->
+      <!--                <a role="button" data-toggle="collapse" data-parent="#filterAccordion"-->
+      <!--                   [href]="'#' + filter.key + 'filter'"-->
+      <!--                   aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"-->
+      <!--                   (click)="filter.isExpanded = !filter.isExpanded">-->
+      <!--                  {{ filter.name }}-->
+      <!--                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>-->
+      <!--                </a>-->
+      <!--              </h4>-->
+      <!--            </div>-->
+      <!--            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"-->
+      <!--                 [attr.aria-labelledby]="filter.key">-->
+      <!--              <div class="panel-body">-->
+      <!--                <ul class="m-0">-->
+      <!--                  <li class="d-flex" *ngFor="let value of filter.values;">-->
+      <!--                    <div>-->
+      <!--                      <input class="mr-1" type="checkbox">-->
+      <!--                    </div>-->
+      <!--                    <p class="m-0">{{ value }}</p>-->
+      <!--                  </li>-->
+      <!--                </ul>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </ng-container>-->
+      <!--      </div>-->
+      <!--      <hr>-->
       <div class="mb-2">
         <div>
           SKUs
-          <a class="text-muted float-right" href="javascript:void(0);">clear all skus</a>
+          <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
         </div>
         <div class="input-group mt-2">
           <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search SKU">
@@ -113,7 +113,7 @@
       <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
         <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index">
           <div style="margin-top: 3px;">
-            <input class="mr-1" type="checkbox">
+            <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="onFilterCheckBoxChange()">
           </div>
           <p class="m-0">{{ sku.name }}</p>
         </div>
@@ -176,14 +176,14 @@
               </div>
               <div class="row m-0">
                 <div class="col-12 header-col header-text">
-                  Final Forecast1
+                  Final Forecast
                 </div>
               </div>
-              <!--<div class="row m-0">
+              <div class="row m-0">
                 <div class="col-12 header-col header-text">
-                  Fact Value Add
+                  Fcst Value Add
                 </div>
-              </div>-->
+              </div>
               <div class="row m-0">
                 <div (click)="putValueInFinal('ML')" class="col-12 header-col ml-text">
                   ML Forecast
@@ -212,47 +212,45 @@
                   <table class="table table-striped">
                     <thead>
                     <tr>
-                      <th *ngFor="let data of weekArray">
+                      <th *ngFor="let data of graphData">
                         Week {{ data.week }}
                       </th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                      <td *ngFor="let data of finalForcastArray; let i=index">
-                        <input type="text" (dblclick)="promptComment()" class="table-inputbox"
-                               (input)="onValueInput(data.calenderYear, i)" [(ngModel)]="data.finalForcast">
+                      <td *ngFor="let data of graphData; let i=index">
+                        {{ data.finalForcast }}
                       </td>
                     </tr>
-                    <!--<tr>
-                      <td *ngFor="let data of graphData">
-                        25
-                      </td>
-                    </tr>-->
                     <tr>
-                      <td *ngFor="let data of mlForcastArray">
+                      <td *ngFor="let data of graphData; let i=index">
+                        <input type="text" class="table-inputbox" (input)="onValueInput(data.calenderYear, i)"
+                               [(ngModel)]="data.fcstValueAdd">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData">
                         {{ data.ml }}
                       </td>
                     </tr>
                     <tr>
-                      <td *ngFor="let data of apoForcastArray">
+                      <td *ngFor="let data of graphData">
                         {{ data.apo }}
                       </td>
                     </tr>
                     <tr>
-                      <td *ngFor="let data of actualsForcastArray">
+                      <td *ngFor="let data of graphData">
                         {{ data.actuals }}
                       </td>
                     </tr>
                     <tr>
-                      <td *ngFor="let data of lastyearForcastArray">
-                        {{ data.lastyear }}
+                      <td *ngFor="let data of graphData">
+                        {{ data.actualslastyear }}
                       </td>
                     </tr>
-
                     </tbody>
                   </table>
-
                 </div>
                 <div class="col-sm-12 text-center m-2">
                   <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal" data-target="#myModal2">Save
@@ -362,7 +360,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-create-plan [events]="eventsSubject.asObservable()" (submit)="createPlan($event)"></app-create-plan>
+        <app-create-plan [events]="eventsSubject.asObservable()" [activeStepNum]="1" [activeStep]="'plan'"
+                         (submit)="createPlan($event)"></app-create-plan>
       </div>
     </div>
   </div>

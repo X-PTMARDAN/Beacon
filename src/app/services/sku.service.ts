@@ -99,6 +99,7 @@ export class SKUService {
             id: index,
             name: item,
             isFiltered: false,
+            isChecked: false,
           };
         });
       })
@@ -187,6 +188,6 @@ export class SKUService {
   }
 
   public getGraphData(data = {}) {
-    return this.http.post('https://klir54hakf.execute-api.eu-west-1.amazonaws.com/Graph', data);
+    return this.http.post('https://om0aflhwvj.execute-api.eu-west-1.amazonaws.com/Test', data);
   }
 }
