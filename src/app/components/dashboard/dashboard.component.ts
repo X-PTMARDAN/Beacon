@@ -226,7 +226,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public createPlan(data: any) {
-    this.skuService.getGraphData(data).subscribe((res: any) => {
+    this.skuService.getGraphData({
+      startWeek: data.startWeek,
+      endWeek: data.endWeek,
+      leadSkus: data.leadSkus.map(item => item.name),
+      customerPlanningGroup: data.customerPlanningGroup,
+      plant: data.plant,
+    }).subscribe((res: any) => {
       this.eventsSubject.next();
       this.processGraphData(res);
       this.skus = data.leadSkus;

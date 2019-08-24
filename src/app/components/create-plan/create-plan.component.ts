@@ -133,6 +133,13 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
   }
 
+  private static transformWeek(weekString: string) {
+    const data = weekString.split('-');
+    const year = data[0];
+    const week = data[1].substr(1);
+    return parseInt(year + week, 10);
+  }
+  
   private resetState() {
     this.activeStepOrder = STEPS.SELECT_OPTION;
     this.wizardList = [
@@ -296,8 +303,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   // Create Plan Handler
   public createPlan() {
     const data = {
-      startWeek: this.startWeek,
-      endWeek: this.endWeek,
+      startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+      endWeek: CreatePlanComponent.transformWeek(this.endWeek),
       leadSkus: this.selectedSKUs,
       customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
       plant: this.selectedPlants.map(item => item.name),
