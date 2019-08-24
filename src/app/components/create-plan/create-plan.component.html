@@ -255,7 +255,7 @@
           [(ngModel)]="selectedCustomerPlanningGroups"
           name="customerPlanningGroups"
           id="customerPlanningGroups"
-          [settings]="dropdownSettings">
+          [settings]="dropdownSettings" required>
         </ng-multiselect-dropdown>
       </div>
       <div class="form-group ml-1" style="width:210px;">
@@ -266,7 +266,7 @@
           id="plants"
           name="plants"
           [(ngModel)]="selectedPlants"
-          [settings]="dropdownSettings">
+          [settings]="dropdownSettings" required>
         </ng-multiselect-dropdown>
       </div>
     </form>
