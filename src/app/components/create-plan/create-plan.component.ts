@@ -225,11 +225,33 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   }
 
   public removeItemsAll() {
+    const onlyRemoveFiltered = this.selectedSearchText.trim();
+    const toBeRemovedItemIds = [];
+
     for (const item of this.selectedSKUs) {
       this.SKUs.push(item);
     }
 
-    this.selectedSKUs = [];
+    for (const item of this.selectedSKUs) {
+      if (onlyRemoveFiltered) {
+        if (item.isFiltered) {
+          this.SKUs.push(item);
+          toBeRemovedItemIds.push(item.id);
+        }
+      } else {
+        this.SKUs.push(item);
+      }
+    }
+    
+
+    if (!onlyRemoveFiltered) {
+      this.selectedSKUs = [];
+    } else {
+      for (const itemId of toBeRemovedItemIds) {
+        const itemIndex = this.selectedSKUs.findIndex((item) => item.id === itemId);
+        this.selectedSKUs.splice(itemIndex, 1);
+      }
+    }
   }
 
   public onFilterCheckboxClick($event) {
