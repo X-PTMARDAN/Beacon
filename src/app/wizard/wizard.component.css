@@ -205,31 +205,36 @@ select.round:focus {
 .brand-selector2 ul li:nth-of-type(2n+1) {
   background: transparent;
 }
+
 .items {
-padding:20px;
-text-align:center;
-margin:10px;
-border:2px solid #e3e3e3;	
-box-shadow: 0 3px 0 #ddd;
-min-width: 265px;
-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-	}
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  border: 2px solid #e3e3e3;
+  box-shadow: 0 3px 0 #ddd;
+  min-width: 265px;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
 .items:hover {
-box-shadow:0 0 15px #ddd;
-border-color:transparent;
-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;	
-	}	
+  box-shadow: 0 0 15px #ddd;
+  border-color: transparent;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
 .items i {
-	font-size:25px;
-	color:#333;
-	margin:15px 0;
-	}
+  font-size: 25px;
+  color: #333;
+  margin: 15px 0;
+}
+
 .items h4 {
-font-weight: bold;
-text-transform: uppercase;
-margin-bottom:20px;
-font-size: 1.3rem;	
-	}
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
 .items a {
-font-size: 0.8rem;
-	}		
+  font-size: 0.8rem;
+}

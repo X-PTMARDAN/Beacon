@@ -1,13 +1,11 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
-import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 enum STEPS {
-  'SELECT_HORIZON' = 1,
-  'FILTER_SKU' = 2,
-  'SELECT_CPG_AND_PLANT' = 3
+  'SELECT_OPTION' = 1,
 }
 
 @Component({
@@ -16,16 +14,35 @@ enum STEPS {
   styleUrls: ['./create-plan.component.css']
 })
 export class CreatePlanComponent implements OnInit, OnDestroy {
+  @Input('events') events: Observable<void>;
+
   @Output('submit') outputDateEmitter = new EventEmitter();
   public minEndWeek: string;
+
+  public showPanels = {
+    showPlanDemand: false,
+    showRevisitPlan: false,
+    showPortfolioMgmt: false
+  };
+  public dropdownSettings = {
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'item_text',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 2,
+    allowSearchFilter: true
+  };
 
   // Planning Horizon
   public startWeek: string;
   public endWeek: string;
 
   // Select CPG and Plant
-  public CPG: string;
-  public plant: string;
+  public plants = [];
+  public customerPlanningGroups = [];
+  public selectedPlants = [];
+  public selectedCustomerPlanningGroups = [];
 
   // Active Step Order
   public activeStepOrder: number;
@@ -35,8 +52,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public segments = [];
   public packs = [];
   public SKUs = [];
-  public plants = [];
-  public customerPlanningGroups = [];
   public selectedSKUs = [];
   public searchText: string;
 
@@ -54,6 +69,12 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     isSegmentExpanded: false,
     isPackExpanded: false,
   };
+
+  public wizardList = [
+    {
+      text: 'Select Option'
+    }
+  ];
 
   constructor(
     private router: Router,
@@ -87,12 +108,23 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.customerPlanningGroups = response;
     });
 
-
-    this.activeStepOrder = STEPS.SELECT_HORIZON;
+    // SELECT HORIZON RESET
+    this.activeStepOrder = STEPS.SELECT_OPTION;
     const currentDate = new Date();
     this.startWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
     currentDate.setDate(currentDate.getDate() + 7);
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
+
+    // Reset Modal Event
+    this.events.subscribe(() => this.resetState());
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
   ngOnDestroy(): void {
@@ -106,6 +138,23 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
     const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
     return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+  }
+
+  private resetState() {
+    this.activeStepOrder = STEPS.SELECT_OPTION;
+    this.wizardList = [
+      {
+        text: 'Select Option'
+      }
+    ];
+    this.showPanels.showPlanDemand = false;
+    this.showPanels.showRevisitPlan = false;
+    this.showPanels.showPortfolioMgmt = false;
+    this.endWeek = '';
+    this.SKUs.concat(this.selectedSKUs);
+    this.selectedSKUs = [];
+    this.selectedPlants = [];
+    this.selectedCustomerPlanningGroups = [];
   }
 
   public addWeeks(numOfWeeks: number) {
@@ -198,7 +247,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     }
 
     return {
-      filterBrands: brands ,
+      filterBrands: brands,
       filterSegments: segments,
       filterPacks: packs,
     };
@@ -209,8 +258,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       startWeek: this.startWeek,
       endWeek: this.endWeek,
       leadSkus: this.selectedSKUs,
-      customerPlanningGroup: this.CPG,
-      plant: this.plant
+      customerPlanningGroup: this.customerPlanningGroups,
+      plant: this.plants
     };
     this.outputDateEmitter.emit(data);
   }
@@ -225,5 +274,77 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     }
     const regex = new RegExp(this.searchText && this.searchText.trim(), 'ig');
     return regex.test(sku);
+  }
+
+  private changeActiveStep(step) {
+    if (step === 1) {
+      this.showPanels.showPlanDemand = false;
+      this.showPanels.showRevisitPlan = false;
+      this.showPanels.showPortfolioMgmt = false;
+      this.wizardList = [
+        {
+          text: 'Select Option'
+        }
+      ];
+    }
+
+    this.activeStepOrder = step;
+  }
+
+  public showPlanDemand() {
+    this.showPanels.showPlanDemand = true;
+    this.activeStepOrder = 2;
+    this.wizardList = [
+      {
+        text: 'Select Option'
+      },
+      {
+        text: 'Select Planning Horizon'
+      },
+      {
+        text: 'Filter SKUs'
+      },
+      {
+        text: 'Select CPG and Plant'
+      }
+    ];
+  }
+
+  public showRevisitPlan() {
+    this.showPanels.showRevisitPlan = true;
+    this.activeStepOrder = 2;
+    this.wizardList = [
+      {
+        text: 'Select Option'
+      },
+      {
+        text: 'RV1'
+      },
+      {
+        text: 'RV2'
+      },
+      {
+        text: 'RV3'
+      }
+    ];
+  }
+
+  public showPortfolioMgmt() {
+    this.showPanels.showPortfolioMgmt = true;
+    this.activeStepOrder = 2;
+    this.wizardList = [
+      {
+        text: 'Select Option'
+      },
+      {
+        text: 'PM1'
+      },
+      {
+        text: 'PM2'
+      },
+      {
+        text: 'PM3'
+      }
+    ];
   }
 }

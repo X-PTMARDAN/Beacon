@@ -14,7 +14,8 @@
         <p class="m-0">Create Plan</p>
         <p class="m-0">Personalized</p>
       </div>
-      <div class="item d-flex flex-column align-items-center mt-2">
+
+      <div (click)="createPlan_visit($event)" class="item d-flex flex-column align-items-center mt-2">
         <i class="fa pb-1 fa-repeat"></i>
         <p class="m-0">Revisit a Plan</p>
       </div>
@@ -24,15 +25,16 @@
         <i class="fa pb-1 fa-cog"></i>
         <p class="m-0">Settings</p>
       </div>
-      <div class="item d-flex flex-column align-items-center mt-2">
+      <!--<div class="item d-flex flex-column align-items-center mt-2">
         <i class="fa pb-1 fa-random"></i>
         <p class="m-0">Phase In</p>
         <p class="m-0">/Phase Out</p>
-      </div>
+      </div>-->
       <div class="item d-flex flex-column align-items-center mt-2">
-        <i class="fa pb-1 fa-list-ul"></i>
-        <p class="m-0">SKU Volume</p>
-        <p class="m-0">Allocation</p>
+        <a routerLink="/portfolio" style="text-align: center; color: #fff;"> <i class="fa pb-1 fa-list-ul"></i>
+          <p class="m-0 text-center">
+            portfolio management</p></a>
+
       </div>
     </div>
   </div>
@@ -54,7 +56,7 @@
         </div>
       </div>
       <hr>
-      <div class="mb-2">
+      <!--<div class="mb-2">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search">
           <div class="input-group-append">
@@ -95,7 +97,7 @@
           </div>
         </ng-container>
       </div>
-      <hr>
+      <hr>-->
       <div class="mb-2">
         <div>
           SKUs
@@ -123,7 +125,8 @@
           <div class="d-flex justify-content-between align-items-center p-1">
             <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
               <p class="font-weight-bold">Forcast Analysis</p>
-              <p class="ml-2 text-muted">Load Week {{currentWeek}}</p>
+              <!--<p class="ml-2 text-muted">Load Week {{currentWeek}}</p>-->
+              <p class="ml-2 text-muted">Load Week 25</p>
             </div>
             <div>
 
@@ -133,8 +136,34 @@
         </div>
 
         <div class="bg-white rounded shadow mt-2">
-          <p class="font-weight-bold ml-2 pt-2">Feature Analysis</p>
-          <div id="chartContainer2" style="height: 150px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+          <p class="font-weight-bold ml-2 pt-2">Feature Analysis
+            <span style="float:right; margin-right:10px;">
+              <div class="form-group w-50 ml-1">
+                <select name="plant" class="minimal" required>
+                  <option selected>Select</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+            </span>
+          </p>
+
+
+          <div id="chartContainer2" style="height: 150px; width: 100%; margin-left:auto;margin-right:auto;">
+
+          </div>
+          <div class="data-strip">
+            <ul>
+              <li>201910</li>
+              <li>201915</li>
+              <li>201920</li>
+              <li>201925</li>
+              <li>201930</li>
+              <li>201935</li>
+              <li>201940</li>
+            </ul>
+          </div>
         </div>
 
         <div class="bg-white shadow mt-2">
@@ -147,16 +176,21 @@
               </div>
               <div class="row m-0">
                 <div class="col-12 header-col header-text">
-                  Final Forecast
+                  Final Forecast1
                 </div>
               </div>
+              <!--<div class="row m-0">
+                <div class="col-12 header-col header-text">
+                  Fact Value Add
+                </div>
+              </div>-->
               <div class="row m-0">
-                <div class="col-12 header-col ml-text">
+                <div (click)="putValueInFinal('ML')" class="col-12 header-col ml-text">
                   ML Forecast
                 </div>
               </div>
               <div class="row m-0">
-                <div class="col-12 header-col aop-text">
+                <div (click)="putValueInFinal('APO')" class="col-12 header-col aop-text">
                   APO Forecast
                 </div>
               </div>
@@ -170,6 +204,7 @@
                   Actuals LY
                 </div>
               </div>
+
             </div>
             <div class="col-9 p-0">
               <div class="panel panel-default">
@@ -177,40 +212,51 @@
                   <table class="table table-striped">
                     <thead>
                     <tr>
-                      <th *ngFor="let data of graphData">
+                      <th *ngFor="let data of weekArray">
                         Week {{ data.week }}
                       </th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                      <td *ngFor="let data of graphData; let i=index">
-                        <input type="text" class="table-inputbox" (input)="onValueInput(data.calenderYear, i)"
-                               [(ngModel)]="data.finalForcast">
+                      <td *ngFor="let data of finalForcastArray; let i=index">
+                        <input type="text" (dblclick)="promptComment()" class="table-inputbox"
+                               (input)="onValueInput(data.calenderYear, i)" [(ngModel)]="data.finalForcast">
                       </td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                       <td *ngFor="let data of graphData">
+                        25
+                      </td>
+                    </tr>-->
+                    <tr>
+                      <td *ngFor="let data of mlForcastArray">
                         {{ data.ml }}
                       </td>
                     </tr>
                     <tr>
-                      <td *ngFor="let data of graphData">
+                      <td *ngFor="let data of apoForcastArray">
                         {{ data.apo }}
                       </td>
                     </tr>
                     <tr>
-                      <td *ngFor="let data of graphData">
+                      <td *ngFor="let data of actualsForcastArray">
                         {{ data.actuals }}
                       </td>
                     </tr>
                     <tr>
-                      <td *ngFor="let data of graphData">
+                      <td *ngFor="let data of lastyearForcastArray">
                         {{ data.lastyear }}
                       </td>
                     </tr>
+
                     </tbody>
                   </table>
+
+                </div>
+                <div class="col-sm-12 text-center m-2">
+                  <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal" data-target="#myModal2">Save
+                    Plan</a>
                 </div>
               </div>
             </div>
@@ -225,6 +271,11 @@
                   {{ totalData.finalCastTotal }}
                 </div>
               </div>
+              <!--<div class="row m-0">
+                <div class="col-12 footer-col">
+                  200
+                </div>
+              </div>-->
               <div class="row m-0">
                 <div class="col-12 footer-col">
                   {{ totalData.mlTotal }}
@@ -246,9 +297,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row m-0 justify-content-center">
-            <button type="button" class="btn m-3 btn-primary">Save Plan</button>
           </div>
         </div>
       </div>
@@ -305,7 +353,7 @@
   </div>
 </div>
 
-<div class="modal create-plan-modal" id="createPlanModal" tabindex="-1" role="dialog">
+<div class="modal" id="createPlanModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -314,11 +362,31 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-create-plan (submit)="createPlan($event)"></app-create-plan>
+        <app-create-plan [events]="eventsSubject.asObservable()" (submit)="createPlan($event)"></app-create-plan>
       </div>
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #PlanNameModalBtn><span
+          aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="plan_name" placeholder="Name of The Plan">
+
+        <p class="text-center mt-4">
+          <a href="javascript:void(0);" (click)="savePlan()" class="btn btn-primary custom-link btn-xs">Ok</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <a href="javascript:void(0);" [hidden]="true" data-target="#commentFormModal" data-toggle="modal" #commentFormModalBtn>Open
   Comment Form

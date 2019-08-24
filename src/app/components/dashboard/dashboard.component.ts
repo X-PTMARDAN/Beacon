@@ -3,6 +3,7 @@ import * as CanvasJS from './../../../assets/js/canvasjs.min';
 import {SKUService} from '../../services/sku.service';
 import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,12 +24,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // @ts-ignore
   @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
   // @ts-ignore
+  @ViewChild('PlanNameModalBtn') PlanNameModalBtn: ElementRef;
+  // @ts-ignore
   @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
   // @ts-ignore
   @ViewChild('commentFormModalCancel') commentFormModalCancel: ElementRef;
 
+  // EventEmitter
+  private eventsSubject: Subject<void> = new Subject<void>();
+
   // Constants
   public mlDataPointColor = '#D8B1FD';
+  public lastyearDataPointColor = '#C0504E';
+
   private aopDataPointColor = '#77A5F3';
   private actualDataPointColor = '#09C29B';
   private finalForcastPointColor = '#000000';
@@ -40,10 +48,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   // Graph Data Data points
   public graphData: any = [];
+  public weekArray: any = [];
+  public finalForcastArray: any = [];
+  public mlForcastArray: any = [];
+  public apoForcastArray: any = [];
+  public actualsForcastArray: any = [];
+  public lastyearForcastArray: any = [];
   private actualDataPoints: any = [];
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
-  private finalForcastDataPoints = [];
+  private lastyearDataPoints: any = [];
+  public finalForcastDataPoints = [];
+  public plan_data = [];
   private totalData: any = {
     finalCastTotal: 0,
     apoTotal: 0,
@@ -106,7 +122,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         dataPoints: [{y: 10, x: 1}, {y: 15, x: 2}, {y: 17, x: 3}, {y: 12, x: 4}, {y: 6, x: 5}, {
           y: 2,
           x: 6
-        }, {y: 18, x: 7}, {y: 1, x: 8}, {y: 15, x: 9}, {y: 4, x: 10}, {y: 13, x: 11}, {y: 16, x: 12}, {
+        }, {y: 18, x: 7}, {y: 1, x: 8}, {y: 15, x: 9}, {y: 4, x: 2}, {y: 13, x: 11}, {y: 16, x: 12}, {
           y: 3,
           x: 13
         }, {y: 19, x: 14}, {y: 9, x: 15}, {y: 15, x: 16}, {y: 16, x: 17}, {y: 11, x: 18}, {y: 9, x: 19}, {
@@ -145,16 +161,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   }
 
-  public createPlan(data: any) {
+  public createPlan_visit(data: any) {
+
     this.skuService.getGraphData(data).subscribe((res: any) => {
-      this.processGraphData(res);
+      this.processGraphData_cook(res);
       this.skus = data.leadSkus;
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         backgroundColor: '#FFFFFF',
         axisX: {
           valueFormatString: '######',
-          gridColor: '#E3E4E8',
+          gridColor: '#ffffff',
+        },
+        axisY: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
         },
         toolTip: {
           content: '{name}: {y}'
@@ -166,6 +187,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
             type: 'spline',
             lineColor: this.actualDataPointColor,
             dataPoints: this.actualDataPoints
+          },
+          {
+            name: 'Actual Last Year',
+            showInLegend: true,
+            type: 'spline',
+            lineColor: this.lastyearDataPointColor,
+            dataPoints: this.lastyearDataPoints
           },
           {
             name: 'ML Fcst',
@@ -197,12 +225,191 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  public processGraphData(data) {
+  public createPlan(data: any) {
+    this.skuService.getGraphData(data).subscribe((res: any) => {
+      this.eventsSubject.next();
+      this.processGraphData(res);
+      this.skus = data.leadSkus;
+      this.chart1 = new CanvasJS.Chart('chartContainer1', {
+        animationEnabled: true,
+        backgroundColor: '#FFFFFF',
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+        axisY: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+        toolTip: {
+          content: '{name}: {y}'
+        },
+        data: [
+          {
+            name: 'Actual',
+            showInLegend: true,
+            type: 'spline',
+            lineColor: this.actualDataPointColor,
+            dataPoints: this.actualDataPoints
+          },
+          {
+            name: 'Actual Last Year',
+            showInLegend: true,
+            type: 'spline',
+            lineColor: this.lastyearDataPointColor,
+            dataPoints: this.lastyearDataPoints
+          },
+          {
+            name: 'ML Fcst',
+            showInLegend: true,
+            type: 'spline',
+            lineDashType: 'dash',
+            lineColor: this.mlDataPointColor,
+            dataPoints: this.mlDataPoints
+          },
+          {
+            name: 'APO Fcst',
+            showInLegend: true,
+            type: 'spline',
+            lineDashType: 'dash',
+            lineColor: this.aopDataPointColor,
+            dataPoints: this.aopDataPoints
+          },
+          {
+            name: 'Final Forcast',
+            showInLegend: true,
+            type: 'spline',
+            lineColor: this.finalForcastPointColor,
+            dataPoints: this.finalForcastDataPoints
+          }
+        ]
+      });
+      this.chart1.render();
+      this.createPlanModalCancel.nativeElement.click();
+    });
+  }
+
+  public processGraphData_new(data) {
+
+    console.log('DEEPAK DATA : ' + JSON.stringify(data));
+
+
     this.aopDataPoints = [];
     this.mlDataPoints = [];
     this.actualDataPoints = [];
+    this.lastyearDataPoints = [];
     this.graphData = [];
     for (const week of data) {
+      const newPoint: any = {
+        finalForcast: ''
+      };
+      const key: string = week.calenderYear;
+      newPoint.week = key.toString().slice(-2);
+      newPoint.calenderYear = key;
+
+      if (week.actuals) {
+        newPoint.actuals = week.actuals;
+        this.actualDataPoints.push({
+          x: key,
+          y: week.actuals,
+          color: this.actualDataPointColor
+        });
+        this.totalData.actuals += week.actuals;
+      }
+
+      if (week.ml) {
+        newPoint.ml = week.ml;
+        this.mlDataPoints.push({
+          x: key,
+          y: week.ml,
+          color: this.mlDataPointColor
+        });
+        this.totalData.mlTotal += week.ml;
+      }
+
+      if (week.apo) {
+        newPoint.apo = week.apo;
+        this.aopDataPoints.push({
+          x: key,
+          y: week.apo,
+          color: this.aopDataPointColor
+        });
+        this.totalData.apoTotal += week.apo;
+      }
+
+      if (week.lastyear) {
+
+        newPoint.lastyear = week.lastyear;
+        this.lastyearDataPoints.push({
+          x: key,
+          y: week.lastyear,
+          color: this.lastyearDataPointColor
+        });
+        this.totalData.lastYearTotal += week.lastyear;
+
+
+        // newPoint.lastyear = week.lastyear;
+        // this.totalData.lastYearTotal += week.lastyear;
+      }
+
+      this.graphData.push(newPoint);
+
+    }
+
+
+  }
+
+  public processGraphData(data) {
+
+    // console.log('DEEPAK DATA : '+JSON.stringify(data));
+
+
+    this.aopDataPoints = [];
+    this.mlDataPoints = [];
+    this.actualDataPoints = [];
+    this.lastyearDataPoints = [];
+    this.graphData = [];
+
+    this.weekArray = [];
+    this.finalForcastArray = [];
+    this.mlForcastArray = [];
+    this.apoForcastArray = [];
+    this.actualsForcastArray = [];
+    this.lastyearForcastArray = [];
+
+    let pushobj;
+    for (const week of data) {
+
+
+      const year = week.calenderYear;
+      const weeknumber = year.toString().slice(-2);
+
+      if (weeknumber < 41 && weeknumber > 24 && week.lastyear != undefined) {
+        this.weekArray.push({week: weeknumber});
+        this.finalForcastArray.push({calenderYear: '', finalForcast: ''});
+      }
+
+      if (week.ml != undefined) {
+        pushobj = {calenderYear: week.calenderYear, ml: week.ml};
+        this.mlForcastArray.push(pushobj);
+      }
+
+      if (week.apo != undefined) {
+        pushobj = {calenderYear: week.calenderYear, apo: week.apo};
+        this.apoForcastArray.push(pushobj);
+      }
+
+      if (week.actuals != undefined) {
+        pushobj = {calenderYear: week.calenderYear, actuals: week.actuals};
+        this.actualsForcastArray.push(pushobj);
+      }
+
+      if (week.lastyear != undefined) {
+        pushobj = {calenderYear: week.calenderYear, lastyear: week.lastyear};
+        this.lastyearForcastArray.push(pushobj);
+      }
+
+
       const newPoint: any = {
         finalForcast: ''
       };
@@ -244,12 +451,182 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
 
       if (week.lastyear) {
+
         newPoint.lastyear = week.lastyear;
+        this.lastyearDataPoints.push({
+          x: key,
+          y: week.lastyear,
+          color: this.lastyearDataPointColor,
+          click: this.dataPointClick.bind(this),
+        });
         this.totalData.lastYearTotal += week.lastyear;
+
+
+        // newPoint.lastyear = week.lastyear;
+        // this.totalData.lastYearTotal += week.lastyear;
       }
 
       this.graphData.push(newPoint);
     }
+
+
+    console.log(' weekArray DATA :  ' + JSON.stringify(this.weekArray));
+    console.log(' mlForcastArray DATA :  ' + JSON.stringify(this.mlForcastArray));
+    console.log(' apoForcastArray DATA :  ' + JSON.stringify(this.apoForcastArray));
+    console.log(' actualsForcastArray DATA :  ' + JSON.stringify(this.actualsForcastArray));
+    console.log(' lastyearForcastArray DATA :  ' + JSON.stringify(this.lastyearForcastArray));
+
+
+  }
+
+  public dataPointClick(e) {
+    if (this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment) {
+      alert(this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment);
+    } else {
+      // Show Comment Form
+      this.selectedDataPoint = e;
+      this.commentFormModalBtn.nativeElement.click();
+    }
+  }
+
+  public onCommentFormSubmit(form: NgForm, data: any) {
+    this.commentFormModalCancel.nativeElement.click();
+    const e = this.selectedDataPoint;
+    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].markerType = 'triangle';
+    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment = data.comment;
+    this.chart1.render();
+
+    form.resetForm();
+    this.selectedDataPoint = null;
+  }
+
+  public processGraphData_cook(data) {
+
+    // console.log('DEEPAK DATA : '+JSON.stringify(data));
+
+    const graphData = this.getCookie('graphData');
+    console.log('COOKIE GRAPH DATA : ' + graphData);
+
+    if (graphData.length != 0) {
+      data = JSON.parse(graphData);
+      const finalForArr = this.getCookie('finalForecast');
+      const finalForDataPoint = this.getCookie('finalForecastDataPoint');
+
+      this.finalForcastArray = JSON.parse(finalForArr);
+      this.finalForcastDataPoints = JSON.parse(finalForDataPoint);
+    }
+
+
+    this.aopDataPoints = [];
+    this.mlDataPoints = [];
+    this.actualDataPoints = [];
+    this.lastyearDataPoints = [];
+    this.graphData = [];
+
+    this.weekArray = [];
+    this.finalForcastArray = [];
+    this.mlForcastArray = [];
+    this.apoForcastArray = [];
+    this.actualsForcastArray = [];
+    this.lastyearForcastArray = [];
+
+    let pushobj;
+    for (const week of data) {
+
+
+      const year = week.calenderYear;
+      const weeknumber = year.toString().slice(-2);
+
+      if (weeknumber < 41 && weeknumber > 24 && week.lastyear != undefined) {
+        this.weekArray.push({week: weeknumber});
+        this.finalForcastArray.push({calenderYear: '', finalForcast: ''});
+      }
+
+      if (week.ml != undefined) {
+        pushobj = {calenderYear: week.calenderYear, ml: week.ml};
+        this.mlForcastArray.push(pushobj);
+      }
+
+      if (week.apo != undefined) {
+        pushobj = {calenderYear: week.calenderYear, apo: week.apo};
+        this.apoForcastArray.push(pushobj);
+      }
+
+      if (week.actuals != undefined) {
+        pushobj = {calenderYear: week.calenderYear, actuals: week.actuals};
+        this.actualsForcastArray.push(pushobj);
+      }
+
+      if (week.lastyear != undefined) {
+        pushobj = {calenderYear: week.calenderYear, lastyear: week.lastyear};
+        this.lastyearForcastArray.push(pushobj);
+      }
+
+
+      const newPoint: any = {
+        finalForcast: ''
+      };
+      const key: string = week.calenderYear;
+      newPoint.week = key.toString().slice(-2);
+      newPoint.calenderYear = key;
+
+      if (week.actuals) {
+        newPoint.actuals = week.actuals;
+        this.actualDataPoints.push({
+          x: key,
+          y: week.actuals,
+          color: this.actualDataPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.actuals += week.actuals;
+      }
+
+      if (week.ml) {
+        newPoint.ml = week.ml;
+        this.mlDataPoints.push({
+          x: key,
+          y: week.ml,
+          color: this.mlDataPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.mlTotal += week.ml;
+      }
+
+      if (week.apo) {
+        newPoint.apo = week.apo;
+        this.aopDataPoints.push({
+          x: key,
+          y: week.apo,
+          color: this.aopDataPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.apoTotal += week.apo;
+      }
+
+      if (week.lastyear) {
+
+        newPoint.lastyear = week.lastyear;
+        this.lastyearDataPoints.push({
+          x: key,
+          y: week.lastyear,
+          color: this.lastyearDataPointColor,
+          click: this.dataPointClick.bind(this),
+        });
+        this.totalData.lastYearTotal += week.lastyear;
+
+
+        // newPoint.lastyear = week.lastyear;
+        // this.totalData.lastYearTotal += week.lastyear;
+      }
+
+      this.graphData.push(newPoint);
+    }
+
+    console.log(' weekArray DATA :  ' + JSON.stringify(this.weekArray));
+    console.log(' mlForcastArray DATA :  ' + JSON.stringify(this.mlForcastArray));
+    console.log(' apoForcastArray DATA :  ' + JSON.stringify(this.apoForcastArray));
+    console.log(' actualsForcastArray DATA :  ' + JSON.stringify(this.actualsForcastArray));
+    console.log(' lastyearForcastArray DATA :  ' + JSON.stringify(this.lastyearForcastArray));
   }
 
   // Filter SKU Handlers
@@ -275,31 +652,96 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.finalForcastDataPoints.push({
         x: calenderYear,
         y: parseInt(this.graphData[index].finalForcast, 10),
-        color: this.finalForcastPointColor,
-        click: this.dataPointClick.bind(this),
+        color: this.finalForcastPointColor
       });
     }
     this.chart1.render();
   }
 
-  // Canvas Data points on click
-  public dataPointClick(e) {
-    if (this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment) {
-      alert(this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment);
-    } else {
-      // Show Comment Form
-      this.selectedDataPoint = e;
-      this.commentFormModalBtn.nativeElement.click();
+  public putValueInFinal(val) {
+    this.finalForcastArray.length = 0;
+    this.finalForcastDataPoints.length = 0;
+    let value_to_insert = '';
+    let value_calnder = '';
+    for (let i = 0; i < this.graphData.length; i++) {
+      this.graphData[i].finalForcast = null;
+      if (val === 'ML') {
+
+        this.graphData[i].finalForcast = this.graphData[i].ml;
+        this.finalForcastDataPoints.push({
+          x: this.graphData[i].calenderYear,
+          y: this.graphData[i].ml,
+          color: this.finalForcastPointColor
+        });
+        if (this.graphData[i].ml !== undefined) {
+          value_to_insert = this.graphData[i].ml;
+          value_calnder = this.graphData[i].calenderYear;
+        }
+
+
+      }
+      if (val === 'APO') {
+        this.graphData[i].finalForcast = this.graphData[i].apo;
+        this.finalForcastDataPoints.push({
+          x: this.graphData[i].calenderYear,
+          y: this.graphData[i].apo,
+          color: this.finalForcastPointColor
+        });
+
+        if (this.graphData[i].ml !== undefined) {
+          value_to_insert = this.graphData[i].apo;
+          value_calnder = this.graphData[i].calenderYear;
+        }
+      }
+
+      if (value_to_insert !== '' && value_calnder !== '') {
+        this.finalForcastArray.push({finalForcast: value_to_insert, calenderYear: value_calnder});
+      }
+
     }
+    this.chart1.render();
+
+    console.log('finalForcastDataPoints : ' + val + JSON.stringify(this.finalForcastDataPoints));
+
+
   }
 
-  public onCommentFormSubmit(form: NgForm, data: any) {
-    const e = this.selectedDataPoint;
-    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].markerType = 'triangle';
-    this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment = data.comment;
-    this.chart1.render();
-    this.commentFormModalCancel.nativeElement.click();
-    form.resetForm();
-    this.selectedDataPoint = null;
+  public savePlan() {
+    // let plan_name = document.getElementById('plan_name').value;
+    this.setCookie('graphData', JSON.stringify(this.graphData), 30);
+
+    this.setCookie('finalForecast', JSON.stringify(this.finalForcastArray), 30);
+    this.setCookie('finalForecastDataPoint', JSON.stringify(this.finalForcastDataPoints), 30);
+
+    this.PlanNameModalBtn.nativeElement.click();
+
+  }
+
+  public setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    const expires = 'expires=' + d.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+
+  }
+
+  public getCookie(cname) {
+    const name = cname + '=';
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
+
+  public promptComment() {
+    this.commentFormModalBtn.nativeElement.click();
   }
 }
