@@ -11,9 +11,6 @@ import {Subject} from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  public activeStepNum: number;
-  public activeStep = 'plan';
-
   public createPlanRequestData: any;
 
   // Loader
@@ -26,9 +23,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   // @ts-ignore
-  @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
+  @ViewChild('selectOptionsModalCancel') selectOptionsModalCancel: ElementRef;
   // @ts-ignore
-  @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
+  @ViewChild('selectOptionsModalBtn') selectOptionsModalBtn: ElementRef;
   // @ts-ignore
   @ViewChild('PlanNameModalBtn') PlanNameModalBtn: ElementRef;
   // @ts-ignore
@@ -89,7 +86,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.createPlanModalBtn.nativeElement.click();
+    this.selectOptionsModalBtn.nativeElement.click();
 
     this.skuService.getSkUList({
       filterBrands: []
@@ -171,7 +168,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       plant: data.plant,
     };
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
-      this.eventsSubject.next();
+      this.eventsSubject.next({
+        page: null,
+        reset: true,
+      });
       this.processGraphData(res);
       this.skus = data.leadSkus.map((item) => {
         item.isChecked = true;
@@ -236,7 +236,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         ]
       });
       this.chart1.render();
-      this.createPlanModalCancel.nativeElement.click();
+      this.selectOptionsModalCancel.nativeElement.click();
     });
   }
 
@@ -267,6 +267,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         fcstValueAdd: ''
       };
       const key: string = week.calenderYearWeek;
+      newPoint.calenderYearWeek = key;
       newPoint.week = key.toString().slice(-2);
       newPoint.calenderYear = key;
 
@@ -399,10 +400,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Open Modal
+  public openModal(page: any) {
+    this.eventsSubject.next({
+      page
+    });
+    this.selectOptionsModalBtn.nativeElement.click();
+  }
+
   // Final Forecast
   public onValueInput(week: string, index: number) {
 
-    const dpIndex = this.graphData.findIndex(item => item.week === week);
+    const dpIndex = this.graphData.findIndex(item => item.calenderYearWeek === week);
     if (dpIndex > -1) {
       const value = parseInt(this.graphData[index].fcstValueAdd, 10);
       if (!isNaN(value)) {

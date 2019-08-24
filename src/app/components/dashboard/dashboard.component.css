@@ -159,12 +159,12 @@ a:focus, a:hover {
   border: none;
 }
 
-#createPlanModal .modal-dialog {
+#selectOptionsModal .modal-dialog {
   max-width: 80vw;
 
 }
 
-#createPlanModal .modal-dialog .modal-content {
+#selectOptionsModal .modal-dialog .modal-content {
   min-height: 90vh;
 }
 

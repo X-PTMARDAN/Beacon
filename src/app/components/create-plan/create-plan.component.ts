@@ -15,8 +15,6 @@ enum STEPS {
 })
 export class CreatePlanComponent implements OnInit, OnDestroy {
   @Input('events') events: Observable<void>;
-  @Input('activeStepNum') activeStepNum: number;
-  @Input('activeStep') activeStep: string;
 
   @Output('submit') outputDateEmitter = new EventEmitter();
   public minEndWeek: string;
@@ -111,15 +109,30 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.customerPlanningGroups = response;
     });
 
-    // SELECT HORIZON RESET
-    this.activeStepOrder = this.activeStepNum || STEPS.SELECT_OPTION;
+    // Active Page
+    this.activeStepOrder = STEPS.SELECT_OPTION;
+
+    // Select Horizon init
     const currentDate = new Date();
     this.startWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
     currentDate.setDate(currentDate.getDate() + 7);
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
 
     // Reset Modal Event
-    this.events.subscribe(() => this.resetState());
+    this.events.subscribe((data: any) => {
+      if (data.page === null && data.reset) {
+        this.resetState();
+        return;
+      }
+
+      this.resetState();
+
+      if (data.page === 'plan') {
+        this.showPlanDemand();
+      } else if (data.page === 'revisit') {
+        this.showRevisitPlan();
+      }
+    });
   }
 
   ngOnDestroy(): void {
