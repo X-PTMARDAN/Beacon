@@ -310,11 +310,11 @@
 <!--Select Options Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#selectOptionsModal" data-toggle="modal"
    #selectOptionsModalBtn>Open Options Modal</a>
-<div class="modal select-options-modal" id="selectOptionsModal" tabindex="-1" role="dialog">
+<div class="modal select-options-modal" id="selectOptionsModal" tabindex="-1" role="dialog" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #selectOptionsModalCancel>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" [class.invisible]="!graphData.length" #selectOptionsModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -450,14 +450,14 @@
   </div>
 </div>
 
-<!--Save Filter Modal-->
+<!--Load Filter Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#loadFilterModal" data-toggle="modal" #loadFilterModal>Open
   Load Filter Modal</a>
 <div class="modal fade load-filter-modal" id="loadFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Save Filter</h5>
+        <h5 class="modal-title">Load Filter</h5>
         <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #loadFilterModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
