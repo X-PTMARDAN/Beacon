@@ -411,6 +411,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public onFilterCheckBoxChange() {
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
     data.leadSkus = this.skus.filter(item => item.isChecked).map(item => item.name);
+    data.plant = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
       this.chart1.render();
