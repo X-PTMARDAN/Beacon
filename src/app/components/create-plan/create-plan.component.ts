@@ -114,6 +114,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     // Select Horizon init
     const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
     this.startWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
     currentDate.setDate(currentDate.getDate() + 7);
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
