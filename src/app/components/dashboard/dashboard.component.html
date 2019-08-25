@@ -188,9 +188,9 @@
                   </tr>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td (dblclick)="onDblClickInput(i)">
+                      <td (dblclick)="data.ml !== undefined && onDblClickInput(i)">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
-                               (input)="onValueInput(data.calenderYearWeek, i)"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined" [class.disabled]="data.ml === undefined"
                                [(ngModel)]="data.fcstValueAdd">
                       </td>
                     </ng-container>
@@ -341,14 +341,16 @@
           aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <input type="text" class="form-control" id="plan_name" placeholder="Name of the Plan" required>
-        <p class="text-center mt-4">
-          <a href="javascript:void(0);" (click)="savePlan()" class="btn btn-secondary custom-link btn-xs">Ok
-            <ng-container *ngIf="savePlanLoader">
-              <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-            </ng-container>
-          </a>
-        </p>
+        <form>
+          <input type="text" class="form-control" id="planName" placeholder="Name of the Plan" #planName required>
+          <p class="text-center mt-4">
+            <button type="submit" [disabled]="!planName.value" (click)="savePlan(planName.value)" class="btn btn-secondary custom-link btn-xs" [class.disabled]="!planName.value">Ok
+              <ng-container *ngIf="savePlanLoader">
+                <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              </ng-container>
+            </button>
+          </p>
+        </form>
       </div>
     </div>
   </div>

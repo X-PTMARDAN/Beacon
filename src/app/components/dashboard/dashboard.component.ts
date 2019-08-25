@@ -291,25 +291,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
-        newPoint.ml = parseFloat(week.ml.toFixed(2));
+        newPoint.ml = DashboardComponent.parseStringToFloat(week.ml);
         this.mlDataPoints.push({
           x: key,
           y: week.ml,
           color: this.mlDataPointColor,
           click: this.dataPointClick.bind(this),
+          calenderYear: key
         });
         this.totalData.mlTotal += newPoint.ml;
       }
 
       if (week.ml !== undefined) {
-        const value = week.finalforecast === undefined ? week.ml : week.finalforecast;
-        newPoint.initialFinalForecast = parseFloat(value.toFixed(2));
+        newPoint.initialFinalForecast = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.finalforecast);
         newPoint.finalForecast = newPoint.initialFinalForecast;
         this.finalForecastDataPoints.push({
           x: key,
           y: newPoint.finalForecast,
           color: this.finalForecastPointColor,
           click: this.dataPointClick.bind(this),
+          calenderYear: key
         });
         this.totalData.finalCastTotal += newPoint.finalForecast;
       }
@@ -318,25 +319,28 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.actualDataPoints.push({
           x: key,
-          y: week.actuals,
+          y: newPoint.actuals,
           color: this.actualDataPointColor,
           click: this.dataPointClick.bind(this),
+          calenderYear: key
         });
         this.totalData.actuals += newPoint.actuals;
       }
 
       if (week.fva !== undefined) {
-        newPoint.fcstValueAdd = week.fva === 0 ? '' : week.fva.toString();
+        const value = DashboardComponent.parseStringToFloat(week.fva);
+        newPoint.fcstValueAdd = value ? '' : value.toString();
         this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
       }
 
       if (week.apo !== undefined) {
-        newPoint.apo = parseFloat(week.apo.toFixed(2));
+        newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
         this.aopDataPoints.push({
           x: key,
           y: newPoint.apo,
           color: this.aopDataPointColor,
           click: this.dataPointClick.bind(this),
+          calenderYear: key,
         });
         this.totalData.apoTotal += newPoint.apo;
       }
@@ -348,6 +352,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           y: newPoint.actualslastyear,
           color: this.lastyearDataPointColor,
           click: this.dataPointClick.bind(this),
+          calenderYear: key
         });
         this.totalData.lastYearTotal += newPoint.actualslastyear;
       }
@@ -359,11 +364,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.graphData.push(newPoint);
     }
 
-    this.totalData.apoTotal = (this.totalData.apoTotal.toFixed(2));
-    this.totalData.lastYearTotal = (this.totalData.lastYearTotal.toFixed(2));
-    this.totalData.actuals = (this.totalData.actuals.toFixed(2));
-    this.totalData.mlTotal = (this.totalData.mlTotal.toFixed(2));
-    this.totalData.finalCastTotal = (this.totalData.finalCastTotal.toFixed(2));
+    this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+    this.totalData.lastYearTotal = parseFloat(this.totalData.lastYearTotal.toFixed(2));
+    this.totalData.actuals = parseFloat(this.totalData.actuals.toFixed(2));
+    this.totalData.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(2));
+    this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
   }
 
   public createFilterObject(res: any) {
@@ -463,10 +468,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   // Final Forecast
-  public onValueInput(week: string, index: number) {
-    const dpIndex = this.graphData.findIndex(item => item.calenderYearWeek === week);
+  public onValueInput(calenderYearWeek: string, index: number) {
+    const dpIndex = this.finalForecastDataPoints.findIndex(item => item.calenderYear === calenderYearWeek);
     if (dpIndex > -1) {
-      const value = parseInt(this.graphData[index].fcstValueAdd, 10);
+      const value = parseFloat(this.graphData[index].fcstValueAdd);
       if (!isNaN(value)) {
         if (this.graphData[index].initialFinalForecast + value < 0) {
           this.finalForecastDataPoints[dpIndex].y = 0;
@@ -494,7 +499,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const dpIndex = this.graphData.findIndex(item => item.calenderYearWeek === week);
     if (dpIndex > -1) {
       let finalValue = -1;
-      const value = parseInt(this.graphData[index].fcstValueAdd, 10);
+      const value = parseFloat(this.graphData[index].fcstValueAdd);
       if (!isNaN(value)) {
         finalValue = this.graphData[index].initialFinalForecast + value < 0 ? 0 : this.graphData[index].initialFinalForecast + value;
       } else {
@@ -571,7 +576,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.chart1.render();
   }
 
-  public savePlan() {
+  public savePlan(planName: string) {
     this.savePlanLoader = true;
     const reqBody = {
       sku: this.skus.filter(item => item.isChecked).map(item => item.name),
