@@ -111,8 +111,6 @@
               </div>
             </span>
         </p>
-
-
         <div id="chartContainer2" style="height: 150px; width: 100%; margin-left:auto;margin-right:auto;">
 
         </div>
@@ -191,7 +189,7 @@
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td (dblclick)="onDblClickInput(i)">
-                        <input type="text" class="table-inputbox" (input)="onValueInput(data.calenderYearWeek, i)"
+                        <input type="text" class="table-inputbox"  (blur)="onValueBlur(data.calenderYearWeek, i)" (input)="onValueInput(data.calenderYearWeek, i)"
                                [(ngModel)]="data.fcstValueAdd">
                       </td>
                     </ng-container>
@@ -220,7 +218,7 @@
                 </table>
               </div>
               <div class="col-sm-12 text-center m-2">
-                <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal" data-target="#myModal2">Save
+                <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal" data-target="#saveAPlansModal">Save
                   Plan</a>
               </div>
             </div>
@@ -472,7 +470,7 @@
         <form #saveFilterModalForm="ngForm">
 
           <ng-container *ngFor="let filter of loadedFilters;let i=index">
-            <div class="filter-item shadow-sm" [class.selected]="filter.isSelected"
+            <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                  (click)="filterItemClick(i)">
               {{ i + 1 }}<span> {{ filter.name }}</span>
             </div>

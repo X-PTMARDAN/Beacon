@@ -315,7 +315,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.actuals !== undefined) {
-        newPoint.actuals = parseFloat(week.actuals).toFixed(2);
+        newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.actualDataPoints.push({
           x: key,
           y: week.actuals,
@@ -342,7 +342,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.actualslastyear !== undefined) {
-        newPoint.actualslastyear = parseFloat(week.actualslastyear).toFixed(2);
+        newPoint.actualslastyear = DashboardComponent.parseStringToFloat(week.actualslastyear);
         this.lastYearDataPoints.push({
           x: key,
           y: newPoint.actualslastyear,
@@ -358,6 +358,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
       this.graphData.push(newPoint);
     }
+
+    this.totalData.apoTotal = (this.totalData.apoTotal.toFixed(2));
+    this.totalData.lastYearTotal = (this.totalData.lastYearTotal.toFixed(2));
+    this.totalData.actuals = (this.totalData.actuals.toFixed(2));
+    this.totalData.mlTotal = (this.totalData.mlTotal.toFixed(2));
+    this.totalData.finalCastTotal = (this.totalData.finalCastTotal.toFixed(2));
   }
 
   public createFilterObject(res: any) {
@@ -384,6 +390,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         return {name: item, isChecked: true};
       })
     });
+  }
+
+  private static parseStringToFloat(text) {
+    return parseFloat(parseFloat(text).toFixed(2));
   }
 
   // Comment on Graph
@@ -480,6 +490,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.chart1.render();
   }
 
+  public onValueBlur(week: string, index: number) {
+    const dpIndex = this.graphData.findIndex(item => item.calenderYearWeek === week);
+    if (dpIndex > -1) {
+      let finalValue = -1;
+      const value = parseInt(this.graphData[index].fcstValueAdd, 10);
+      if (!isNaN(value)) {
+        finalValue = this.graphData[index].initialFinalForecast + value < 0 ? 0 : this.graphData[index].initialFinalForecast + value;
+      } else {
+        finalValue = this.graphData[index].initialFinalForecast;
+      }
+
+      console.log(JSON.stringify({
+        cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+        plants: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
+        sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+        user: 'admin',
+        finalforecast: this.graphData[index].initialFinalForecast + finalValue,
+        fva: finalValue,
+        calenderYearWeek: week,
+        comment1: 'comment1',
+        comment2: 'comment2'
+      }));
+    }
+  }
+
   public onDblClickInput(selectedWeekIndex: number) {
     this.selectedWeekIndex = selectedWeekIndex;
     this.finalForecastCommentModalBtn.nativeElement.click();
@@ -547,52 +582,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     for (const data of this.graphData) {
       reqBody.data.push({
-        calenderYearWeek: data.week,
+        calenderYearWeek: data.calenderYearWeek,
         finalforecast: data.finalForecast,
         fva: data.fcstValueAdd,
-        comments: {}
+        comments: data.comments
       });
     }
 
     console.log(reqBody);
     this.PlanNameModalBtn.nativeElement.click();
     this.savePlanLoader = false;
-
-    // this.skuService.savePlan({}).subscribe(() => {
-    //   // let plan_name = document.getElementById('plan_name').value;
-    //   this.setCookie('graphData', JSON.stringify(this.graphData), 30);
-    //   this.setCookie('finalForecast', JSON.stringify(this.finalForecastArray), 30);
-    //   this.setCookie('finalForecastDataPoint', JSON.stringify(this.finalForecastDataPoints), 30);
-    //   this.PlanNameModalBtn.nativeElement.click();
-    // });
-  }
-
-  public setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    const expires = 'expires=' + d.toUTCString();
-    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
-
-  }
-
-  public getCookie(cname) {
-    const name = cname + '=';
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return '';
-  }
-
-  public promptComment() {
-    this.commentFormModalBtn.nativeElement.click();
   }
 
   // Save and Load Filter
@@ -658,6 +657,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       };
     });
 
+    selectedFilter.isSelected = false;
     this.onFilterCheckBoxChange();
     this.loadFilterModalCancel.nativeElement.click();
   }

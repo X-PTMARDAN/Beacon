@@ -271,8 +271,9 @@
       </div>
     </form>
     <button class="btn btn-primary nextBtn p-2 mt-3" style="width: 200px;" type="button"  (click)="createPlan()"
-            [class.disabled]="!CPGAndPlantForm.valid"
-            [disabled]="!CPGAndPlantForm.valid">Create Plan
+            [class.disabled]="!CPGAndPlantForm.valid || createPlanLoader"
+            [disabled]="!CPGAndPlantForm.valid || createPlanLoader">Create Plan
+      <span *ngIf="createPlanLoader"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> </span>
     </button>
   </div>
 </div>

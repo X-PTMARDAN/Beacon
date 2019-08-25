@@ -15,9 +15,9 @@ enum STEPS {
 })
 export class CreatePlanComponent implements OnInit, OnDestroy {
   @Input('events') events: Observable<void>;
-
   @Output('submit') outputDateEmitter = new EventEmitter();
   public minEndWeek: string;
+  public createPlanLoader = false;
 
   public showPanels = {
     showPlanDemand: false,
@@ -170,6 +170,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.selectedSKUs = [];
     this.selectedPlants = [];
     this.selectedCustomerPlanningGroups = [];
+    this.createPlanLoader = false;
   }
 
   public addWeeks(numOfWeeks: number) {
@@ -312,6 +313,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   // Create Plan Handler
   public createPlan() {
+    this.createPlanLoader = true;
     const data = {
       startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),

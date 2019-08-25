@@ -227,9 +227,13 @@ a:focus, a:hover {
   padding: 5px 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+}
+
+.filter-item:hover{
+  border-color: #0AC39B;
 }
 
 .selected {
-  border-color: #0AC39B;
+  border-color: #27AE60;
 }
