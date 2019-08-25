@@ -491,6 +491,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           this.totalData.finalCastTotal += data.finalForecast;
         }
       }
+
+      this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
     }
     this.chart1.render();
   }
@@ -506,17 +508,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         finalValue = this.graphData[index].initialFinalForecast;
       }
 
-      console.log(JSON.stringify({
+      const reqBody = {
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
-        plants: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
+        plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         sku: this.skus.filter(item => item.isChecked).map(item => item.name),
         user: 'admin',
-        finalforecast: this.graphData[index].initialFinalForecast + finalValue,
+        finalForecast: this.graphData[index].initialFinalForecast + finalValue,
         fva: finalValue,
-        calenderYearWeek: week,
-        comment1: 'comment1',
-        comment2: 'comment2'
-      }));
+        calendarWeek: week,
+        comments1: 'comment1'
+      };
+
+      this.skuService.savePlan(reqBody).subscribe((res: any) => {
+        console.log(res);
+      });
     }
   }
 
@@ -585,25 +590,37 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public savePlan(planName: string) {
     this.savePlanLoader = true;
+    let cnt = 0;
     const reqBody = {
-      sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-      cpg: this.createPlanRequestData.customerPlanningGroup,
-      plant: this.createPlanRequestData.plant,
-      data: []
+      data: {}
     };
 
     for (const data of this.graphData) {
-      reqBody.data.push({
-        calenderYearWeek: data.calenderYearWeek,
-        finalforecast: data.finalForecast,
-        fva: data.fcstValueAdd,
-        comments: data.comments
-      });
+      const commentsObj = {};
+      for (const index in data.comments) {
+        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
+      }
+
+      if (JSON.stringify(commentsObj) !== '{}') {
+        reqBody.data[cnt] = (Object.assign({
+          calendarWeek: data.calenderYearWeek,
+          sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+          cpg: this.createPlanRequestData.customerPlanningGroup,
+          plant: this.createPlanRequestData.plants,
+        }, commentsObj));
+        cnt++;
+      }
     }
 
-    console.log(reqBody);
-    this.PlanNameModalBtn.nativeElement.click();
-    this.savePlanLoader = false;
+    console.log(JSON.stringify(reqBody.data));
+
+    this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+      this.PlanNameModalBtn.nativeElement.click();
+      this.savePlanLoader = false;
+    }, (error) => {
+      console.log(error);
+      this.savePlanLoader = false;
+    });
   }
 
   // Save and Load Filter

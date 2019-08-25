@@ -162,6 +162,10 @@ export class SKUService {
   }
 
   public savePlan(data = {}) {
-    return this.http.post('', data);
+    return this.http.post(`${this.apiGatewayUrl}savePlanData`, data);
+  }
+
+  public confirmPlan(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}confirmPlanData`, data);
   }
 }

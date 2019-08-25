@@ -342,7 +342,7 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="form-control" id="planName" placeholder="Name of the Plan" #planName required>
+          <input type="text" class="form-control" id="planName" placeholder="Name of the Plan" #planName ngModel required>
           <p class="text-center mt-4">
             <button type="submit" [disabled]="!planName.value" (click)="savePlan(planName.value)" class="btn btn-secondary custom-link btn-xs" [class.disabled]="!planName.value">Ok
               <ng-container *ngIf="savePlanLoader">
