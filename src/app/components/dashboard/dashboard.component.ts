@@ -1,40 +1,41 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as CanvasJS from './../../../assets/js/canvasjs.min';
 import {SKUService} from '../../services/sku.service';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subject} from 'rxjs';
+import {SidebarService} from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData: any;
-
+  public selectedWeekIndex: number;
   // Loader
-  public savePlanLoader: boolean = false;
+  public savePlanLoader = false;
 
   constructor(
     private router: Router,
     private skuService: SKUService,
+    private sidebarService: SidebarService
   ) {
   }
 
-  // @ts-ignore
-  @ViewChild('selectOptionsModalCancel') selectOptionsModalCancel: ElementRef;
-  // @ts-ignore
-  @ViewChild('selectOptionsModalBtn') selectOptionsModalBtn: ElementRef;
-  // @ts-ignore
-  @ViewChild('PlanNameModalBtn') PlanNameModalBtn: ElementRef;
-  // @ts-ignore
-  @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
-  // @ts-ignore
-  @ViewChild('commentFormModalCancel') commentFormModalCancel: ElementRef;
+  @ViewChild('selectOptionsModalCancel', {static: false}) selectOptionsModalCancel: ElementRef;
+  @ViewChild('selectOptionsModalBtn', {static: false}) selectOptionsModalBtn: ElementRef;
+  @ViewChild('PlanNameModalBtn', {static: false}) PlanNameModalBtn: ElementRef;
+  // Graph Comment
+  @ViewChild('commentFormModalBtn', {static: false}) commentFormModalBtn: ElementRef;
+  @ViewChild('commentFormModalCancel', {static: false}) commentFormModalCancel: ElementRef;
+  // Final Forecast Comment
+  @ViewChild('finalForecastCommentModalBtn', {static: false}) finalForecastCommentModalBtn: ElementRef;
+  @ViewChild('finalForecastCommentModalCancel', {static: false}) finalForecastCommentModalCancel: ElementRef;
 
   // EventEmitter
-  private eventsSubject: Subject<void> = new Subject<void>();
+  private eventsSubject: Subject<any> = new Subject<any>();
 
   // Constants
   public mlDataPointColor = '#D8B1FD';
@@ -72,12 +73,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public searchText = '';
 
   // Events
-  public promos: any = [];
   public weathers: any = [];
   public events: any = [];
 
   // Selected Data point
   public selectedDataPoint: any = {};
+  public selectedWeekComments: any = [];
 
   private static getCurrentWeek(date: Date) {
     const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
@@ -86,8 +87,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.selectOptionsModalBtn.nativeElement.click();
-
     this.skuService.getSkUList({
       filterBrands: []
     }).subscribe((res: any) => {
@@ -98,16 +97,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.events = res;
     });
 
-    this.skuService.getPromos().subscribe((res: any) => {
-      this.promos = res;
-    });
-
     this.skuService.getWeathers().subscribe((res: any) => {
       this.weathers = res;
-    });
-
-    this.skuService.getFilters().subscribe((res: any) => {
-      this.filters = res.filters;
     });
 
     this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -153,6 +144,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.chart2.render();
 
     this.currentWeek = DashboardComponent.getCurrentWeek(new Date());
+
+    // SideBar Service
+    this.sidebarService.getSideBarClickEvent$().subscribe((page) => {
+      this.eventsSubject.next({
+        page
+      });
+      this.selectOptionsModalBtn.nativeElement.click();
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.selectOptionsModalBtn.nativeElement.click();
   }
 
   ngOnDestroy(): void {
@@ -247,10 +250,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public processGraphData(res) {
     const data = res[1].data;
-    this.aopDataPoints = [];
-    this.mlDataPoints = [];
-    this.actualDataPoints = [];
-    this.lastYearDataPoints = [];
+    this.aopDataPoints.length = 0;
+    this.mlDataPoints.length = 0;
+    this.actualDataPoints.length = 0;
+    this.lastYearDataPoints.length = 0;
+    this.finalForecastDataPoints.length = 0;
     this.graphData = [];
 
     this.totalData = {
@@ -264,7 +268,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     for (const week of data) {
       const newPoint: any = {
-        fcstValueAdd: ''
+        fcstValueAdd: '',
+        comments: [],
       };
       const key: string = week.calenderYearWeek;
       newPoint.calenderYearWeek = key;
@@ -333,10 +338,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.totalData.lastYearTotal += newPoint.actualslastyear;
       }
 
+      if (week.comments) {
+        newPoint.comments = week.comments;
+      }
+
       this.graphData.push(newPoint);
     }
   }
 
+  // Comment on Graph
   public dataPointClick(e) {
     if (this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment) {
       alert(this.chart1.options.data[e.dataSeriesIndex].dataPoints[e.dataPointIndex].comment);
@@ -400,17 +410,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Open Modal
-  public openModal(page: any) {
-    this.eventsSubject.next({
-      page
-    });
-    this.selectOptionsModalBtn.nativeElement.click();
-  }
-
   // Final Forecast
   public onValueInput(week: string, index: number) {
-
     const dpIndex = this.graphData.findIndex(item => item.calenderYearWeek === week);
     if (dpIndex > -1) {
       const value = parseInt(this.graphData[index].fcstValueAdd, 10);
@@ -435,6 +436,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
     }
     this.chart1.render();
+  }
+
+  public onDblClickInput(selectedWeekIndex: number) {
+    this.selectedWeekIndex = selectedWeekIndex;
+    this.finalForecastCommentModalBtn.nativeElement.click();
+  }
+
+  public onFinalForecastCommentSubmit(data: any) {
+    if (this.selectedWeekIndex) {
+      this.graphData[this.selectedWeekIndex].comments.push(data.comment);
+    }
+    this.finalForecastCommentModalCancel.nativeElement.click();
   }
 
   public putValueInFinal(val) {
