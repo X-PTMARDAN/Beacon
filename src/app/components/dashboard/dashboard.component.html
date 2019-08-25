@@ -174,7 +174,7 @@
                   <thead>
                   <tr>
                     <th class="font-weight-bold" *ngFor="let data of graphData">
-                      Week {{ data.week }}
+                      <p class="m-0 week-block" [class.highlight]="data.comments?.length"> Week {{ data.week }}</p>
                     </th>
                   </tr>
                   </thead>
@@ -189,7 +189,8 @@
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td (dblclick)="onDblClickInput(i)">
-                        <input type="text" class="table-inputbox"  (blur)="onValueBlur(data.calenderYearWeek, i)" (input)="onValueInput(data.calenderYearWeek, i)"
+                        <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
+                               (input)="onValueInput(data.calenderYearWeek, i)"
                                [(ngModel)]="data.fcstValueAdd">
                       </td>
                     </ng-container>
@@ -218,7 +219,8 @@
                 </table>
               </div>
               <div class="col-sm-12 text-center m-2">
-                <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal" data-target="#saveAPlansModal">Save
+                <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+                   data-target="#saveAPlansModal">Save
                   Plan</a>
               </div>
             </div>
@@ -373,7 +375,7 @@
             <input type="text" class="form-control" id="comment" name="comment" placeholder="eg. Comment" ngModel
                    required>
           </div>
-          <button type="button" class="btn float-right btn-secondary" [disabled]="!commentForm.valid"
+          <button type="submit" class="btn float-right btn-secondary" [disabled]="!commentForm.valid"
                   [ngClass]="{'disabled': !commentForm.valid}"
                   (click)="onCommentFormSubmit(commentForm,commentForm.value)">Submit
           </button>
@@ -406,7 +408,7 @@
             <input type="text" class="form-control" id="finalForecastComment" name="comment" placeholder="eg. Comment"
                    ngModel required>
           </div>
-          <button type="button" class="btn float-right btn-dark" [disabled]="!finalForecastCommentForm.valid"
+          <button type="submit" class="btn float-right btn-dark" [disabled]="!finalForecastCommentForm.valid"
                   [ngClass]="{'disabled': !finalForecastCommentForm.valid}"
                   (click)="onFinalForecastCommentSubmit(finalForecastCommentForm.value)">Submit
           </button>
@@ -443,7 +445,7 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-dark" [disabled]="!filterName.value"
+            <button type="submit" class="btn btn-dark" [disabled]="!filterName.value"
                     [ngClass]="{'disabled': !filterName.value}"
                     (click)="saveFilter(filterName.value)">Save Changes
             </button>

@@ -164,7 +164,7 @@ a:focus, a:hover {
 
 .table-inputbox {
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #F2F2F2;
   border-left: none;
   border-right: none;
   border-top: none;
@@ -230,10 +230,21 @@ a:focus, a:hover {
   border: 2px solid transparent;
 }
 
-.filter-item:hover{
+.filter-item:hover {
   border-color: #0AC39B;
 }
 
 .selected {
   border-color: #27AE60;
+}
+
+td{
+  background-color: #F2F2F2;
+}
+
+.highlight{
+  padding: 1px;
+  background-color: #34495E;
+  border-radius: 3px;
+  color: white;
 }

@@ -403,13 +403,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         text: 'Select Option'
       },
       {
-        text: 'RV1'
-      },
-      {
-        text: 'RV2'
-      },
-      {
-        text: 'RV3'
+        text: 'Chose Plan'
       }
     ];
   }

@@ -15,7 +15,7 @@
     <div class="items align-items-center">
       <i class="fa fa-eye"></i>
       <h4>Revisit a plan</h4>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" disabled (click)="showRevisitPlan()">Click
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="showRevisitPlan()">Click
         Here</a>
     </div>
     <div class="items align-items-center">
@@ -280,18 +280,31 @@
 
 <div class="revisitPlan" *ngIf="showPanels.showRevisitPlan">
   <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
-    <div>
-      <h3 class="text-center">Sample Text 1</h3>
-    </div>
-  </div>
-  <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
-    <div>
-      <h3 class="text-center">Sample Text 2</h3>
-    </div>
-  </div>
-  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
-    <div>
-      <h3 class="text-center">Sample Text 3</h3>
+    <div class="d-flex flex-wrap justify-content-around">
+      <div class="img-container">
+        <h5 align="center">Scenario 1</h5>
+        <a href="javascript:void(0);" (click)="showPanels.showRevisitPlan=false; showPlanDemand();">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+        </a>
+      </div>
+      <div class="img-container">
+        <h5 align="center">Scenario 2</h5>
+        <a href="javascript:void(0);" class="disabled">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+        </a>
+      </div>
+      <div class="img-container">
+        <h5 align="center">Scenario 3</h5>
+        <a href="javascript:void(0);" class="disabled">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+        </a>
+      </div>
+      <div class="img-container">
+        <h5 align="center">Scenario 4</h5>
+        <a href="javascript:void(0);" class="disabled">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+        </a>
+      </div>
     </div>
   </div>
 </div>
