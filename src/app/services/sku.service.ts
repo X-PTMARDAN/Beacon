@@ -66,7 +66,7 @@ export class SKUService {
   }
 
   public getPlants() {
-    return this.http.get('https://vmxmz2s8t4.execute-api.eu-west-1.amazonaws.com/sdf').pipe(
+    return this.http.get(`${this.apiGatewayUrl}plants`).pipe(
       map((items: any) => {
         return items.map((item, index) => {
           return {
@@ -79,7 +79,7 @@ export class SKUService {
   }
 
   public getCustomerPlanningGroup() {
-    return this.http.get('https://faqgousuyk.execute-api.eu-west-1.amazonaws.com/New').pipe(
+    return this.http.get(`${this.apiGatewayUrl}cpg`).pipe(
       map((items: any) => {
         return items.map((item, index) => {
           return {
@@ -92,7 +92,7 @@ export class SKUService {
   }
 
   public getSkUList(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}sku`, data).pipe(
+    return this.http.post(`${this.apiGatewayUrl}forecastingGroup`, data).pipe(
       map((items: any) => {
         return items.map((item, index) => {
           return {
@@ -157,38 +157,8 @@ export class SKUService {
     // return this.http.get('', {});
   }
 
-  public getPromos() {
-    return of([
-      {
-        name: 'Promo Uplift',
-        isChecked: false
-      },
-      {
-        name: 'Promo Plan',
-        isChecked: false
-      },
-      {
-        name: 'Shelf Discount',
-        isChecked: false
-      },
-      {
-        name: 'Promo in Brand',
-        isChecked: false
-      },
-      {
-        name: 'Promotion Type',
-        isChecked: false
-      },
-      {
-        name: 'Promo in Unit Per Pack',
-        isChecked: false
-      },
-    ]);
-    // return this.http.get('', {});
-  }
-
   public getGraphData(data = {}) {
-    return this.http.post('https://om0aflhwvj.execute-api.eu-west-1.amazonaws.com/Test', data);
+    return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
   }
 
   public savePlan(data = {}) {

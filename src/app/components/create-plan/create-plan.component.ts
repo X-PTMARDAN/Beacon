@@ -315,9 +315,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const data = {
       startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),
-      leadSkus: this.selectedSKUs,
+      forecastingGroups: this.selectedSKUs,
       customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
-      plant: this.selectedPlants.map(item => item.name),
+      plants: this.selectedPlants.map(item => item.name),
     };
     this.outputDateEmitter.emit(data);
   }

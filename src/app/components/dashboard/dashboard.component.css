@@ -219,3 +219,17 @@ a:focus, a:hover {
 /*.shadow mt-2 {*/
 /*  position: relative;*/
 /*}*/
+
+
+/* Load and Save Filter Modal Styling */
+
+.filter-item {
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+}
+
+.selected {
+  border-color: #0AC39B;
+}

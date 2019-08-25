@@ -5,6 +5,7 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subject} from 'rxjs';
 import {SidebarService} from '../../services/sidebar.service';
+import {FilterService} from '../../services/filter.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +15,18 @@ import {SidebarService} from '../../services/sidebar.service';
 export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData: any;
   public selectedWeekIndex: number;
+
+  // Filters
+  public loadedFilters: any = [];
+
   // Loader
   public savePlanLoader = false;
 
   constructor(
     private router: Router,
     private skuService: SKUService,
-    private sidebarService: SidebarService
+    private sidebarService: SidebarService,
+    private filterService: FilterService
   ) {
   }
 
@@ -33,6 +39,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Final Forecast Comment
   @ViewChild('finalForecastCommentModalBtn', {static: false}) finalForecastCommentModalBtn: ElementRef;
   @ViewChild('finalForecastCommentModalCancel', {static: false}) finalForecastCommentModalCancel: ElementRef;
+  // Save and Load Filter
+  @ViewChild('saveFilterModalCancel', {static: false}) saveFilterModalCancel: ElementRef;
+  @ViewChild('loadFilterModalCancel', {static: false}) loadFilterModalCancel: ElementRef;
+
 
   // EventEmitter
   private eventsSubject: Subject<any> = new Subject<any>();
@@ -152,6 +162,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       });
       this.selectOptionsModalBtn.nativeElement.click();
     });
+
+    // Load Filters
+    this.loadFilters();
   }
 
   ngAfterViewInit(): void {
@@ -166,9 +179,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
-      leadSkus: data.leadSkus.map(item => item.name),
+      forecastingGroups: data.forecastingGroups.map(item => item.name),
       customerPlanningGroup: data.customerPlanningGroup,
-      plant: data.plant,
+      plants: data.plants,
     };
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
@@ -177,7 +190,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       });
       this.processGraphData(res);
       this.createFilterObject(res);
-      this.skus = data.leadSkus.map((item) => {
+      this.skus = data.forecastingGroups.map((item) => {
         item.isChecked = true;
         return item;
       });
@@ -250,7 +263,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public processGraphData(res) {
-    const data = res[1].data;
+    const data = res.res;
     this.aopDataPoints.length = 0;
     this.mlDataPoints.length = 0;
     this.actualDataPoints.length = 0;
@@ -302,7 +315,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.actuals !== undefined) {
-        newPoint.actuals = parseFloat(week.actuals.toFixed(2));
+        newPoint.actuals = parseFloat(week.actuals).toFixed(2);
         this.actualDataPoints.push({
           x: key,
           y: week.actuals,
@@ -329,7 +342,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.actualslastyear !== undefined) {
-        newPoint.actualslastyear = parseFloat(week.actualslastyear.toFixed(2));
+        newPoint.actualslastyear = parseFloat(week.actualslastyear).toFixed(2);
         this.lastYearDataPoints.push({
           x: key,
           y: newPoint.actualslastyear,
@@ -362,7 +375,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     // Push plant
-    const plant = this.createPlanRequestData.plant;
+    const plant = this.createPlanRequestData.plants;
     this.filters.push({
       name: 'Plants',
       key: 'plant',
@@ -410,8 +423,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public onFilterCheckBoxChange() {
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
-    data.leadSkus = this.skus.filter(item => item.isChecked).map(item => item.name);
-    data.plant = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+    data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
@@ -580,5 +593,72 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public promptComment() {
     this.commentFormModalBtn.nativeElement.click();
+  }
+
+  // Save and Load Filter
+  public saveFilter(filterName: string) {
+    this.filterService.saveFilter({
+      user: 'admin',
+      filterName,
+      plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
+      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+      forecastingGroups: this.skus.filter(item => item.isChecked).map(item => item.name)
+    }).subscribe((res: any) => {
+      this.loadFilters();
+      this.saveFilterModalCancel.nativeElement.click();
+    });
+  }
+
+  public loadFilters() {
+    this.filterService.getFilters({
+      user: 'admin'
+    }).subscribe((res: any) => {
+      this.loadedFilters = res.map((item) => {
+        item.isSelected = false;
+        return item;
+      });
+    });
+  }
+
+  public filterItemClick(filterIndex: number) {
+    for (const filter of this.loadedFilters) {
+      filter.isSelected = false;
+    }
+
+    this.loadedFilters[filterIndex].isSelected = !this.loadedFilters[filterIndex].isSelected;
+  }
+
+  public loadSelectedFilter() {
+    let selectedFilter;
+    for (const filter of this.loadedFilters) {
+      if (filter.isSelected) {
+        selectedFilter = filter;
+        break;
+      }
+    }
+
+    // Todo: Change keys
+    this.filters[1].values = selectedFilter.plant.map(item => {
+      return {
+        name: item,
+        isChecked: true
+      };
+    });
+    this.filters[0].values = selectedFilter.cpg.map(item => {
+      return {
+        name: item,
+        isChecked: true
+      };
+    });
+
+    this.skus = selectedFilter.sku.map(item => {
+      return {
+        name: item,
+        isChecked: true
+      };
+    });
+
+    this.onFilterCheckBoxChange();
+    this.loadFilterModalCancel.nativeElement.click();
   }
 }

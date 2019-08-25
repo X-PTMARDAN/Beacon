@@ -49,7 +49,8 @@
               <ul class="m-0">
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
-                    <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked" (change)="onFilterCheckBoxChange()">
+                    <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                           (change)="onFilterCheckBoxChange()">
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -314,7 +315,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" [class.invisible]="!graphData.length" #selectOptionsModalCancel>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                [class.invisible]="!graphData.length" #selectOptionsModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -370,7 +372,8 @@
             <label class="d-none" for="comment">
               Comment
             </label>
-            <input type="text" class="form-control" id="comment" name="comment"  placeholder="eg. Comment" ngModel required>
+            <input type="text" class="form-control" id="comment" name="comment" placeholder="eg. Comment" ngModel
+                   required>
           </div>
           <button type="button" class="btn float-right btn-secondary" [disabled]="!commentForm.valid"
                   [ngClass]="{'disabled': !commentForm.valid}"
@@ -385,7 +388,8 @@
 <!--Final Forecast Comment Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#finalForecastCommentModal" data-toggle="modal"
    #finalForecastCommentModalBtn>Open Graph Comment Form Modal</a>
-<div class="modal fade final-comment-modal" id="finalForecastCommentModal" tabindex="-1" role="dialog" data-backdrop="static">
+<div class="modal fade final-comment-modal" id="finalForecastCommentModal" tabindex="-1" role="dialog"
+     data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -401,7 +405,8 @@
             <label class="d-none" for="finalForecastComment">
               Comment
             </label>
-            <input type="text" class="form-control" id="finalForecastComment" name="comment" placeholder="eg. Comment" ngModel required>
+            <input type="text" class="form-control" id="finalForecastComment" name="comment" placeholder="eg. Comment"
+                   ngModel required>
           </div>
           <button type="button" class="btn float-right btn-dark" [disabled]="!finalForecastCommentForm.valid"
                   [ngClass]="{'disabled': !finalForecastCommentForm.valid}"
@@ -430,18 +435,19 @@
           <div>
             <div class="form-group">
               <label for="filterName">
-                  <span>Filter Name</span>
+                <span>Filter Name</span>
               </label>
-              <input type="text" class="form-control" id="filterName"  placeholder="eg. Green Bottles" required>
+              <input type="text" class="form-control" id="filterName" name="filterName" #filterName
+                     placeholder="eg. Green Bottles" required>
             </div>
           </div>
           <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-dark" [disabled]="!saveFilterModalForm.valid"
-                    [ngClass]="{'disabled': !saveFilterModalForm.valid}"
-                    (click)="onCommentFormSubmit(saveFilterModalForm,saveFilterModalForm.value)">Save Changes
+            <button type="button" class="btn btn-dark" [disabled]="!filterName.value"
+                    [ngClass]="{'disabled': !filterName.value}"
+                    (click)="saveFilter(filterName.value)">Save Changes
             </button>
           </div>
         </form>
@@ -457,7 +463,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Load Filter</h5>
+        <h5 class="modal-title">Organize your Filters</h5>
         <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #loadFilterModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
@@ -465,9 +471,16 @@
       <div class="modal-body">
         <form #saveFilterModalForm="ngForm">
 
+          <ng-container *ngFor="let filter of loadedFilters;let i=index">
+            <div class="filter-item shadow-sm" [class.selected]="filter.isSelected"
+                 (click)="filterItemClick(i)">
+              {{ i + 1 }}<span> {{ filter.name }}</span>
+            </div>
+          </ng-container>
+
           <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-dark">Load Selected</button>
+            <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Load Selected</button>
           </div>
         </form>
       </div>
