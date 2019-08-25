@@ -357,8 +357,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.totalData.lastYearTotal += newPoint.actualslastyear;
       }
 
-      if (week.comments) {
-        newPoint.comments = week.comments;
+      if (week.comment) {
+        newPoint.comments = week.comment;
       }
 
       this.graphData.push(newPoint);
@@ -527,7 +527,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public onFinalForecastCommentSubmit(data: any) {
     if (this.selectedWeekIndex) {
-      this.graphData[this.selectedWeekIndex].comments.push(data.comment);
+      if (this.graphData[this.selectedWeekIndex].comments.length >= 1) {
+        this.graphData[this.selectedWeekIndex].comments[0] = data.comment;
+        while (this.graphData[this.selectedWeekIndex].comments.length > 1) {
+          this.graphData[this.selectedWeekIndex].comments.pop();
+        }
+      } else {
+        this.graphData[this.selectedWeekIndex].comments.push(data.comment);
+      }
     }
     this.finalForecastCommentModalCancel.nativeElement.click();
   }

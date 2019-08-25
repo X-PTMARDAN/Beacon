@@ -166,7 +166,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.showPanels.showRevisitPlan = false;
     this.showPanels.showPortfolioMgmt = false;
     this.endWeek = '';
-    this.SKUs.concat(this.selectedSKUs);
+    this.SKUs = this.SKUs.concat(this.selectedSKUs);
     this.selectedSKUs = [];
     this.selectedPlants = [];
     this.selectedCustomerPlanningGroups = [];
@@ -317,7 +317,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const data = {
       startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),
-      forecastingGroups: this.selectedSKUs,
+      forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
       customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
       plants: this.selectedPlants.map(item => item.name),
     };
