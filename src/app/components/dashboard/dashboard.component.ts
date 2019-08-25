@@ -176,6 +176,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         reset: true,
       });
       this.processGraphData(res);
+      this.createFilterObject(res);
       this.skus = data.leadSkus.map((item) => {
         item.isChecked = true;
         return item;
@@ -344,6 +345,32 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
       this.graphData.push(newPoint);
     }
+  }
+
+  public createFilterObject(res: any) {
+    this.filters = [];
+
+    // Push customer Planning Group
+    const customerPlanningGroup = this.createPlanRequestData.customerPlanningGroup;
+    this.filters.push({
+      name: 'Customer Planning Groups',
+      key: 'customerPlanningGroup',
+      isExpanded: false,
+      values: customerPlanningGroup.map(item => {
+        return {name: item, isChecked: true};
+      })
+    });
+
+    // Push plant
+    const plant = this.createPlanRequestData.plant;
+    this.filters.push({
+      name: 'Plants',
+      key: 'plant',
+      isExpanded: false,
+      values: plant.map(item => {
+        return {name: item, isChecked: true};
+      })
+    });
   }
 
   // Comment on Graph

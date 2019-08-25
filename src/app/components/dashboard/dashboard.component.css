@@ -48,7 +48,7 @@ a:focus, a:hover {
 }
 
 .filter-col .panel .panel-title {
-  font-size: 13px;
+  font-size: 0.75rem;
   font-family: 'Roboto', sans-serif !important;
 }
 
