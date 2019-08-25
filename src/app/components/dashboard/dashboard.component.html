@@ -3,11 +3,13 @@
     <h6 class="mt-3 font-weight-bold">Filter Options</h6>
     <div class="mt-4 d-flex justify-content-around">
       <div class="d-flex flex-column align-items-center">
-        <a href="javascript:void(0);" class="data-action"><i class="fa fa-upload"></i></a>
+        <a href="javascript:void(0);" class="data-action" data-target="#loadFilterModal" data-toggle="modal">
+          <i class="fa fa-upload"></i></a>
         <span class="text-muted">Load</span>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <a href="javascript:void(0);" class="data-action"><i class="fa fa-download"></i></a>
+        <a href="javascript:void(0);" class="data-action" data-target="#saveFilterModal" data-toggle="modal"><i
+          class="fa fa-download"></i></a>
         <span class="text-muted">Save</span>
       </div>
       <div class="d-flex flex-column align-items-center">
@@ -16,48 +18,48 @@
       </div>
     </div>
     <hr>
-    <!--      <div class="mb-2">-->
-    <!--        <div class="input-group">-->
-    <!--          <input type="text" class="form-control" placeholder="Search">-->
-    <!--          <div class="input-group-append">-->
-    <!--            <span class="input-group-text"><i class="fa fa-search"></i></span>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--        <div class="d-flex justify-content-end">-->
-    <!--          <a class="text-muted" href="javascript:void(0);">clear all filters</a>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">-->
-    <!--        <ng-container *ngFor="let filter of filters; let filterIndex=index">-->
-    <!--          <div class="panel panel-default">-->
-    <!--            <div class="panel-heading" role="tab" [id]="filter.key">-->
-    <!--              <h4 class="panel-title">-->
-    <!--                <a role="button" data-toggle="collapse" data-parent="#filterAccordion"-->
-    <!--                   [href]="'#' + filter.key + 'filter'"-->
-    <!--                   aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"-->
-    <!--                   (click)="filter.isExpanded = !filter.isExpanded">-->
-    <!--                  {{ filter.name }}-->
-    <!--                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>-->
-    <!--                </a>-->
-    <!--              </h4>-->
-    <!--            </div>-->
-    <!--            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"-->
-    <!--                 [attr.aria-labelledby]="filter.key">-->
-    <!--              <div class="panel-body">-->
-    <!--                <ul class="m-0">-->
-    <!--                  <li class="d-flex" *ngFor="let value of filter.values;">-->
-    <!--                    <div>-->
-    <!--                      <input class="mr-1" type="checkbox">-->
-    <!--                    </div>-->
-    <!--                    <p class="m-0">{{ value }}</p>-->
-    <!--                  </li>-->
-    <!--                </ul>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </ng-container>-->
-    <!--      </div>-->
-    <!--      <hr>-->
+    <div class="mb-2">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <a class="text-muted" href="javascript:void(0);">clear all filters</a>
+      </div>
+    </div>
+    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+      <ng-container *ngFor="let filter of filters; let filterIndex=index">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" [id]="filter.key">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                 [href]="'#' + filter.key + 'filter'"
+                 aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                 (click)="filter.isExpanded = !filter.isExpanded">
+                {{ filter.name }}
+                <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+              </a>
+            </h4>
+          </div>
+          <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+               [attr.aria-labelledby]="filter.key">
+            <div class="panel-body">
+              <ul class="m-0">
+                <li class="d-flex" *ngFor="let value of filter.values;">
+                  <div>
+                    <input class="mr-1" type="checkbox">
+                  </div>
+                  <p class="m-0">{{ value }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <hr>
     <div class="mb-2">
       <div>
         SKUs
@@ -308,7 +310,7 @@
 <!--Select Options Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#selectOptionsModal" data-toggle="modal"
    #selectOptionsModalBtn>Open Options Modal</a>
-<div class="modal" id="selectOptionsModal" tabindex="-1" role="dialog">
+<div class="modal select-options-modal" id="selectOptionsModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -327,7 +329,8 @@
 <!--Save a Plan Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#saveAPlansModal" data-toggle="modal" #saveAPlansModalBtn>Save
   a Plan Modal</a>
-<div class="modal fade" id="saveAPlansModal" tabindex="-1" role="dialog" aria-labelledby="saveAPlansModal">
+<div class="modal fade save-plan-modal" id="saveAPlansModal" tabindex="-1" role="dialog" data-backdrop="static"
+     aria-labelledby="saveAPlansModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -338,7 +341,7 @@
       <div class="modal-body">
         <input type="text" class="form-control" id="plan_name" placeholder="Name of the Plan" required>
         <p class="text-center mt-4">
-          <a href="javascript:void(0);" (click)="savePlan()" class="btn btn-primary custom-link btn-xs">Ok
+          <a href="javascript:void(0);" (click)="savePlan()" class="btn btn-secondary custom-link btn-xs">Ok
             <ng-container *ngIf="savePlanLoader">
               <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
             </ng-container>
@@ -352,10 +355,11 @@
 <!--Graph Comment Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#commentFormModal" data-toggle="modal" #commentFormModalBtn>Open
   Graph Comment Form Modal</a>
-<div class="modal comment-form-modal" id="commentFormModal" tabindex="-1" role="dialog">
+<div class="modal fade comment-modal" id="commentFormModal" tabindex="-1" role="dialog" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header p-0 pr-1">
+      <div class="modal-header">
+        <h5 class="modal-title">Comment</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" #commentFormModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
@@ -363,12 +367,12 @@
       <div class="modal-body">
         <form #commentForm="ngForm">
           <div class="form-group">
-            <label for="comment">
+            <label class="d-none" for="comment">
               Comment
             </label>
-            <input type="text" class="form-control" id="comment" name="comment" ngModel required>
+            <input type="text" class="form-control" id="comment" name="comment"  placeholder="eg. Comment" ngModel required>
           </div>
-          <button type="button" class="btn float-right btn-primary" [disabled]="!commentForm.valid"
+          <button type="button" class="btn float-right btn-secondary" [disabled]="!commentForm.valid"
                   [ngClass]="{'disabled': !commentForm.valid}"
                   (click)="onCommentFormSubmit(commentForm,commentForm.value)">Submit
           </button>
@@ -381,10 +385,11 @@
 <!--Final Forecast Comment Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#finalForecastCommentModal" data-toggle="modal"
    #finalForecastCommentModalBtn>Open Graph Comment Form Modal</a>
-<div class="modal comment-form-modal" id="finalForecastCommentModal" tabindex="-1" role="dialog">
+<div class="modal fade final-comment-modal" id="finalForecastCommentModal" tabindex="-1" role="dialog" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header p-0 pr-1">
+      <div class="modal-header">
+        <h5 class="modal-title">Comment</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" #finalForecastCommentModalCancel
                 (click)="selectedWeekIndex=null;finalForecastCommentForm.resetForm()">
           <span aria-hidden="true">&times;</span>
@@ -393,15 +398,77 @@
       <div class="modal-body">
         <form #finalForecastCommentForm="ngForm">
           <div class="form-group">
-            <label for="finalForecastComment">
+            <label class="d-none" for="finalForecastComment">
               Comment
             </label>
-            <input type="text" class="form-control" id="finalForecastComment" name="comment" ngModel required>
+            <input type="text" class="form-control" id="finalForecastComment" name="comment" placeholder="eg. Comment" ngModel required>
           </div>
-          <button type="button" class="btn float-right btn-primary" [disabled]="!finalForecastCommentForm.valid"
+          <button type="button" class="btn float-right btn-dark" [disabled]="!finalForecastCommentForm.valid"
                   [ngClass]="{'disabled': !finalForecastCommentForm.valid}"
                   (click)="onFinalForecastCommentSubmit(finalForecastCommentForm.value)">Submit
           </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Save Filter Modal-->
+<a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
+  Save Filter Modal</a>
+<div class="modal fade save-filter-modal" id="saveFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Save Filter</h5>
+        <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #saveFilterModalForm="ngForm">
+          <div>
+            <div class="form-group">
+              <label for="filterName">
+                  <span>Filter Name</span>
+              </label>
+              <input type="text" class="form-control" id="filterName"  placeholder="eg. Green Bottles" required>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-dark" [disabled]="!saveFilterModalForm.valid"
+                    [ngClass]="{'disabled': !saveFilterModalForm.valid}"
+                    (click)="onCommentFormSubmit(saveFilterModalForm,saveFilterModalForm.value)">Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Save Filter Modal-->
+<a href="javascript:void(0);" [hidden]="true" data-target="#loadFilterModal" data-toggle="modal" #loadFilterModal>Open
+  Load Filter Modal</a>
+<div class="modal fade load-filter-modal" id="loadFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Save Filter</h5>
+        <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #loadFilterModalCancel>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #saveFilterModalForm="ngForm">
+
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-dark">Load Selected</button>
+          </div>
         </form>
       </div>
     </div>
