@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   // EventEmitter
-  private eventsSubject: Subject<any> = new Subject<any>();
+  public eventsSubject: Subject<any> = new Subject<any>();
 
   // Constants
   public mlDataPointColor = '#D8B1FD';
@@ -68,7 +68,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private aopDataPoints: any = [];
   private lastYearDataPoints: any = [];
   public finalForecastDataPoints = [];
-  private totalData: any = {
+  public totalData: any = {
     finalCastTotal: 0,
     fsvtValueAdd: 0,
     apoTotal: 0,
