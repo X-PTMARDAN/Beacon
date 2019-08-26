@@ -342,7 +342,7 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="form-control" id="planName" placeholder="Name of the Plan" #planName ngModel required>
+          <input type="text" class="form-control" id="planName" name="planName" placeholder="Name of the Plan" #planName ngModel required>
           <p class="text-center mt-4">
             <button type="submit" [disabled]="!planName.value" (click)="savePlan(planName.value)" class="btn btn-secondary custom-link btn-xs" [class.disabled]="!planName.value">Ok
               <ng-container *ngIf="savePlanLoader">
@@ -439,7 +439,7 @@
               <label for="filterName">
                 <span>Filter Name</span>
               </label>
-              <input type="text" class="form-control" id="filterName" name="filterName" #filterName
+              <input type="text" class="form-control" id="filterName" name="filterName" #filterName ngModel
                      placeholder="eg. Green Bottles" required>
             </div>
           </div>
