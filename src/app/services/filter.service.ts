@@ -14,10 +14,12 @@ export class FilterService {
   }
 
   public saveFilter(data: any) {
-    return this.http.post('https://jy6gh5jl44.execute-api.eu-west-1.amazonaws.com/Stage1', data);
+    console.log(data);
+    return this.http.post('http://34.244.0.110:5450/v1/saveFilter', data);
   }
 
+  
   public getFilters(data: any) {
-    return this.http.post('https://jy6gh5jl44.execute-api.eu-west-1.amazonaws.com/Stage1', data);
+    return this.http.post('http://34.244.0.110:5450/v1/fetchFilter', data);
   }
 }

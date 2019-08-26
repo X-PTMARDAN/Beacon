@@ -294,7 +294,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         newPoint.ml = DashboardComponent.parseStringToFloat(week.ml);
         this.mlDataPoints.push({
           x: key,
-          y: week.ml,
+          y: newPoint.ml,
           color: this.mlDataPointColor,
           click: this.dataPointClick.bind(this),
           calenderYear: key
@@ -590,9 +590,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public savePlan(planName: string) {
     this.savePlanLoader = true;
-    let cnt = 0;
     const reqBody = {
-      data: {}
+      data: []
     };
 
     for (const data of this.graphData) {
@@ -602,18 +601,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (JSON.stringify(commentsObj) !== '{}') {
-        reqBody.data[cnt] = (Object.assign({
+        reqBody.data.push(Object.assign({
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
           cpg: this.createPlanRequestData.customerPlanningGroup,
           plant: this.createPlanRequestData.plants,
         }, commentsObj));
-        cnt++;
       }
     }
 
     console.log(JSON.stringify(reqBody.data));
-
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
@@ -626,16 +623,28 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Save and Load Filter
   public saveFilter(filterName: string) {
     this.filterService.saveFilter({
+      
       user: 'admin',
       filterName,
-      plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
-      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
-      forecastingGroups: this.skus.filter(item => item.isChecked).map(item => item.name)
+      plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
+      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)),
+      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     }).subscribe((res: any) => {
+      console.log("Harshit");
       this.loadFilters();
-      this.saveFilterModalCancel.nativeElement.click();
+     
     });
+    this.saveFilterModalCancel.nativeElement.click();
+   
   }
+
+  public createFilterString(filters: string[]): string {
+    let resultString = '';
+    for (const filter of filters) { 
+          resultString = `${resultString},${filter}`
+    }
+    return resultString.slice(1);
+    }
 
   public loadFilters() {
     this.filterService.getFilters({
