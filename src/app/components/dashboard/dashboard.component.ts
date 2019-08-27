@@ -118,37 +118,55 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         type: 'column',
         color: '#09C29B',
         legendMarkerColor: 'grey',
-        dataPoints: [{y: 10, x: 1}, {y: 15, x: 2}, {y: 17, x: 3}, {y: 12, x: 4}, {y: 6, x: 5}, {
+        dataPoints: [{y: 10, x: 201935}, {y: 15, x: 201936}, {y: 17, x: 201937}, {y: 12, x: 201938}, {
+          y: 6,
+          x: 201939
+        }, {
           y: 2,
-          x: 6
-        }, {y: 18, x: 7}, {y: 1, x: 8}, {y: 15, x: 9}, {y: 4, x: 2}, {y: 13, x: 11}, {y: 16, x: 12}, {
+          x: 201940
+        }, {y: 18, x: 201935}, {y: 1, x: 201935}, {y: 15, x: 201937}, {y: 4, x: 201938}, {y: 13, x: 201939}, {
+          y: 16,
+          x: 201940
+        }, {
           y: 3,
-          x: 13
-        }, {y: 19, x: 14}, {y: 9, x: 15}, {y: 15, x: 16}, {y: 16, x: 17}, {y: 11, x: 18}, {y: 9, x: 19}, {
+          x: 201941
+        }, {y: 19, x: 201935}, {y: 9, x: 201937}, {y: 15, x: 201937}, {y: 16, x: 201938}, {y: 11, x: 201939}, {
+          y: 9,
+          x: 201940
+        }, {
           y: 5,
-          x: 20
-        }, {y: 7, x: 21}, {y: 2, x: 22}, {y: 11, x: 23}, {y: 5, x: 24}, {y: 19, x: 25}, {y: 11, x: 26}, {
+          x: 201941
+        }, {y: 7, x: 201935}, {y: 2, x: 201936}, {y: 11, x: 201937}, {y: 5, x: 201938}, {y: 19, x: 201939}, {
+          y: 11,
+          x: 201940
+        }, {
           y: 2,
-          x: 27
-        }, {y: 15, x: 28}, {y: 17, x: 29}, {y: 10, x: 30}, {y: 19, x: 31}, {y: 6, x: 32}, {y: 5, x: 33}, {
+          x: 201941
+        }, {y: 15, x: 201935}, {y: 17, x: 201936}, {y: 10, x: 201937}, {y: 19, x: 201938}, {y: 6, x: 201939}, {
+          y: 5,
+          x: 201940
+        }, {
           y: 14,
-          x: 34
-        }, {y: 19, x: 35}, {y: 19, x: 36}, {y: 18, x: 37}, {y: 1, x: 38}, {y: 17, x: 39}, {y: 4, x: 40}, {
+          x: 201941
+        }, {y: 19, x: 201935}, {y: 19, x: 201936}, {y: 18, x: 201937}, {y: 1, x: 201938}, {y: 17, x: 201939}, {
+          y: 4,
+          x: 201940
+        }, {
           y: 8,
-          x: 41
-        }, {y: 14, x: 42}, {y: 2, x: 43}, {y: 11, x: 44}, {y: 9, x: 45}, {y: 15, x: 46}, {y: 4, x: 47}, {
+          x: 201941
+        }, {y: 14, x: 201935}, {y: 2, x: 201936}, {y: 11, x: 201937}, {y: 9, x: 201938}, {y: 15, x: 201939}, {
+          y: 4,
+          x: 201940
+        }, {
           y: 0,
-          x: 48
-        }, {y: 6, x: 49}, {y: 1, x: 50}, {y: 3, x: 51}, {y: 6, x: 52}, {y: 3, x: 53}, {y: 4, x: 54}, {
+          x: 201941
+        }, {y: 6, x: 201935}, {y: 1, x: 201936}, {y: 3, x: 201937}, {y: 6, x: 201938}, {y: 3, x: 201939}, {
+          y: 4,
+          x: 201940
+        }, {
           y: 18,
-          x: 55
-        }, {y: 5, x: 56}, {y: 0, x: 57}, {y: 13, x: 58}, {y: 15, x: 59}, {y: 17, x: 60}, {y: 5, x: 61}, {
-          y: 10,
-          x: 62
-        }, {y: 19, x: 63}, {y: 7, x: 64}, {y: 6, x: 65}, {y: 10, x: 66}, {y: 8, x: 67}, {y: 13, x: 68}, {
-          y: 17,
-          x: 69
-        }, {y: 0, x: 70}, {y: 10, x: 71}]
+          x: 201941
+        }]
       }]
     });
     this.chart2.render();
@@ -611,19 +629,23 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     console.log(JSON.stringify(reqBody.data));
+
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
+
     }, (error) => {
       console.log(error);
       this.savePlanLoader = false;
     });
+
+    this.PlanNameModalBtn.nativeElement.click();
   }
 
   // Save and Load Filter
   public saveFilter(filterName: string) {
     this.filterService.saveFilter({
-      
+
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
@@ -632,19 +654,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }).subscribe((res: any) => {
       console.log("Harshit");
       this.loadFilters();
-     
+
     });
     this.saveFilterModalCancel.nativeElement.click();
-   
+
   }
 
   public createFilterString(filters: string[]): string {
     let resultString = '';
-    for (const filter of filters) { 
-          resultString = `${resultString},${filter}`
+    for (const filter of filters) {
+      resultString = `${resultString},${filter}`
     }
     return resultString.slice(1);
-    }
+  }
 
   public loadFilters() {
     this.filterService.getFilters({

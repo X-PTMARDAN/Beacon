@@ -89,11 +89,24 @@
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold">Forecast Analysis</p>
             <p class="ml-2 text-muted">Load Week {{currentWeek}}</p>
+
+
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
           </div>
           <div>
           </div>
+          <span style="float:right; margin-right:10px;">
+              <div class="form-group w-50 ml-1">
+                <select name="plant" class="minimal" required>
+                  <option selected>Select</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+            </span>
         </div>
+
         <div id="chartContainer1" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
       </div>
 
@@ -134,6 +147,8 @@
                 XXXXXX
               </div>
             </div>
+            <br>
+
             <div class="row m-0">
               <div class="col-12 header-col header-text">
                 Final Forecast
@@ -189,7 +204,8 @@
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td (dblclick)="data.ml !== undefined && onDblClickInput(i)">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
-                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined" [class.disabled]="data.ml === undefined"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined"
+                               [class.disabled]="data.ml === undefined"
                                [(ngModel)]="data.fcstValueAdd">
                       </td>
                     </ng-container>
@@ -223,13 +239,14 @@
                   Plan</a>
 
 
-                  <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-                  data-target="#saveAPlansModal">Save
-                 View</a>
+                <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+                   data-target="#saveAPlansModal">Save
+                  View</a>
               </div>
             </div>
           </div>
           <div class="col-1 p-0">
+            <br>
             <div class="row m-0">
               <div class="col-12 footer-col" style="padding: 0.65rem">
                 Total
@@ -278,30 +295,17 @@
           <div>
             <input class="mr-1" type="checkbox">
           </div>
-          <p class="m-0">All Events</p>
+          <p class="m-0">Temperature</p>
         </div>
-        <div class="block m-1 p-1 d-flex" *ngFor="let event of events">
-          <div>
-            <input class="mr-1" type="checkbox">
-          </div>
-          <p class="m-0">{{ event.name }}</p>
-        </div>
-      </div>
-      <div class="mt-2">
-        <h4>Weather</h4>
         <div class="m-1 p-1 d-flex">
           <div>
             <input class="mr-1" type="checkbox">
           </div>
-          <p class="m-0">All Weathers</p>
+          <p class="m-0">Events</p>
         </div>
-        <div class="block m-1 p-1 d-flex" *ngFor="let weather of weathers">
-          <div>
-            <input class="mr-1" type="checkbox">
-          </div>
-          <p class="m-0">{{ weather.name }}</p>
-        </div>
+
       </div>
+
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <h4>Comments</h4>
         <div class="block m-1 p-1 d-flex" *ngFor="let selectedWeekComment of selectedWeekComments">
@@ -346,9 +350,10 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="form-control" id="planName" name="planName" placeholder="Name of the Plan" #planName ngModel required>
+          <input type="text" class="form-control" id="planName" name="planName"
+                 value="Are you sure, you want to save the plan? Press ok to save" #planName ngModel>
           <p class="text-center mt-4">
-            <button type="submit" [disabled]="!planName.value" (click)="savePlan(planName.value)" class="btn btn-secondary custom-link btn-xs" [class.disabled]="!planName.value">Ok
+            <button type="submit" (click)="savePlan('base')" class="btn btn-secondary custom-link btn-xs">Ok
               <ng-container *ngIf="savePlanLoader">
                 <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               </ng-container>
