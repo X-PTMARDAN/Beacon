@@ -41,7 +41,9 @@
   <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
     <div>
       <h3 class="text-center">Select Planning Horizon</h3>
+    
       <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
+      
     </div>
     <div class="mb-4">
       <form #horizonForm='ngForm' class="d-flex justify-content-center">
@@ -51,7 +53,9 @@
           </label>
           <div class="input-group input-append date">
             <span class="pr-1">From:</span>
-            <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>
+            <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> -->
+                        <input type="week" id="startWeek" value="2019-W36" name="startWeek" readonly>
+
             <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
           </div>
         </div>
@@ -72,7 +76,7 @@
       <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(15)">+ 18 weeks</a>
       <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
       <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(78)">+ 78 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(84)">+ 78 weeks</a>
       <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" tabindex="-1" (click)="addYears(3)">+ 3 years</a>
     </div>
     <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="!horizonForm.valid"
@@ -308,6 +312,44 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<div class="revisitView" *ngIf="showPanels.showRevisitView">
+    <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+      <div class="d-flex flex-wrap justify-content-around">
+        <div class="img-container">
+          <h5 align="center">View 1</h5>
+          <a href="javascript:void(0);" (click)="showPanels.showRevisitView=false; showPlanDemand();">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+          </a>
+        </div>
+        <div class="img-container">
+          <h5 align="center">View 2</h5>
+          <a href="javascript:void(0);" class="disabled">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+          </a>
+        </div>
+        <div class="img-container">
+          <h5 align="center">View 3</h5>
+          <a href="javascript:void(0);" class="disabled">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+          </a>
+        </div>
+        <div class="img-container">
+          <h5 align="center">Scenario 4</h5>
+          <a href="javascript:void(0);" class="disabled">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 <div class="portfolioMgmt" *ngIf="showPanels.showPortfolioMgmt">
   <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">

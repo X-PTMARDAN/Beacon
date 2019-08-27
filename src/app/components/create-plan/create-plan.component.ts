@@ -22,6 +22,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public showPanels = {
     showPlanDemand: false,
     showRevisitPlan: false,
+    showRevisitView: false,
     showPortfolioMgmt: false
   };
   public dropdownSettings = {
@@ -114,9 +115,11 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     // Select Horizon init
     const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
-    this.startWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
-    currentDate.setDate(currentDate.getDate() + 7);
+   // currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
+    this.startWeek = currentDate.getFullYear() + '-W' + (CreatePlanComponent.getCurrentWeek(currentDate) ) ;
+   
+   
+    currentDate.setDate(currentDate.getDate());
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
 
     // Reset Modal Event
@@ -132,6 +135,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showPlanDemand();
       } else if (data.page === 'revisit-plan') {
         this.showRevisitPlan();
+      }
+      else if (data.page === 'revisit-view') {
+        this.showRevisitView();
       }
     });
   }
@@ -165,6 +171,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     ];
     this.showPanels.showPlanDemand = false;
     this.showPanels.showRevisitPlan = false;
+    this.showPanels.showRevisitView = false;
     this.showPanels.showPortfolioMgmt = false;
     this.endWeek = '';
     this.SKUs = this.SKUs.concat(this.selectedSKUs);
@@ -362,10 +369,11 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   }
 
   // Modal wizard handlers
-  public changeActiveStep(step) {
+  private changeActiveStep(step) {
     if (step === 1) {
       this.showPanels.showPlanDemand = false;
       this.showPanels.showRevisitPlan = false;
+      this.showPanels.showRevisitView = false;
       this.showPanels.showPortfolioMgmt = false;
       this.wizardList = [
         {
@@ -405,6 +413,22 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       },
       {
         text: 'Chose Plan'
+      }
+    ];
+  }
+
+
+
+
+  public showRevisitView() {
+    this.showPanels.showRevisitView = true;
+    this.activeStepOrder = 2;
+    this.wizardList = [
+      {
+        text: 'Select Option'
+      },
+      {
+        text: 'Chose View'
       }
     ];
   }
