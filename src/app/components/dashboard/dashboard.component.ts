@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // Loader
   public savePlanLoader = false;
+  public saveViewLoader = false;
 
   constructor(
     private router: Router,
@@ -33,6 +34,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('selectOptionsModalCancel', {static: false}) selectOptionsModalCancel: ElementRef;
   @ViewChild('selectOptionsModalBtn', {static: false}) selectOptionsModalBtn: ElementRef;
   @ViewChild('PlanNameModalBtn', {static: false}) PlanNameModalBtn: ElementRef;
+  @ViewChild('ViewNameModalBtn', {static: false}) ViewNameModalBtn: ElementRef;
   // Graph Comment
   @ViewChild('commentFormModalBtn', {static: false}) commentFormModalBtn: ElementRef;
   @ViewChild('commentFormModalCancel', {static: false}) commentFormModalCancel: ElementRef;
@@ -45,7 +47,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   // EventEmitter
-  public eventsSubject: Subject<any> = new Subject<any>();
+  private eventsSubject: Subject<any> = new Subject<any>();
 
   // Constants
   public mlDataPointColor = '#D8B1FD';
@@ -68,7 +70,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private aopDataPoints: any = [];
   private lastYearDataPoints: any = [];
   public finalForecastDataPoints = [];
-  public totalData: any = {
+  private totalData: any = {
     finalCastTotal: 0,
     fsvtValueAdd: 0,
     apoTotal: 0,
@@ -118,55 +120,39 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         type: 'column',
         color: '#09C29B',
         legendMarkerColor: 'grey',
-        dataPoints: [{y: 10, x: 201935}, {y: 15, x: 201936}, {y: 17, x: 201937}, {y: 12, x: 201938}, {
-          y: 6,
-          x: 201939
-        }, {
-          y: 2,
-          x: 201940
-        }, {y: 18, x: 201935}, {y: 1, x: 201935}, {y: 15, x: 201937}, {y: 4, x: 201938}, {y: 13, x: 201939}, {
-          y: 16,
-          x: 201940
-        }, {
-          y: 3,
-          x: 201941
-        }, {y: 19, x: 201935}, {y: 9, x: 201937}, {y: 15, x: 201937}, {y: 16, x: 201938}, {y: 11, x: 201939}, {
-          y: 9,
-          x: 201940
-        }, {
-          y: 5,
-          x: 201941
-        }, {y: 7, x: 201935}, {y: 2, x: 201936}, {y: 11, x: 201937}, {y: 5, x: 201938}, {y: 19, x: 201939}, {
-          y: 11,
-          x: 201940
-        }, {
-          y: 2,
-          x: 201941
-        }, {y: 15, x: 201935}, {y: 17, x: 201936}, {y: 10, x: 201937}, {y: 19, x: 201938}, {y: 6, x: 201939}, {
-          y: 5,
-          x: 201940
-        }, {
-          y: 14,
-          x: 201941
-        }, {y: 19, x: 201935}, {y: 19, x: 201936}, {y: 18, x: 201937}, {y: 1, x: 201938}, {y: 17, x: 201939}, {
-          y: 4,
-          x: 201940
-        }, {
-          y: 8,
-          x: 201941
-        }, {y: 14, x: 201935}, {y: 2, x: 201936}, {y: 11, x: 201937}, {y: 9, x: 201938}, {y: 15, x: 201939}, {
-          y: 4,
-          x: 201940
-        }, {
-          y: 0,
-          x: 201941
-        }, {y: 6, x: 201935}, {y: 1, x: 201936}, {y: 3, x: 201937}, {y: 6, x: 201938}, {y: 3, x: 201939}, {
-          y: 4,
-          x: 201940
-        }, {
-          y: 18,
-          x: 201941
-        }]
+        dataPoints:  [      
+			{ y: 10, label: 201920},
+			{ y: 20,   label: 201921 },
+			{ y: 35,   label: 201922 },
+			{ y: 17,   label: 201923 },
+			{ y: 20,   label: 201924},
+			{ y: 13,  label: 201925 },
+			{ y: 18,   label: 201926 },
+			{ y: 21,   label: 201927 },
+          { y: 10, label: 201928},
+			{ y: 20,   label: 201929 },
+			{ y: 35,   label: 201930 },
+			{ y: 17,   label: 201931 },
+			{ y: 20,   label: 201932},
+			{ y: 13,  label: 201933 },
+			{ y: 18,   label: 201934 },
+			{ y: 21,   label: 201935 },
+          { y: 10, label: 201936},
+			{ y: 20,   label: 201937 },
+			{ y: 35,   label: 201938 },
+			{ y: 17,   label: 201939 },
+			{ y: 20,   label: 201940},
+			{ y: 13,  label: 201941 },
+			{ y: 18,   label: 201942 },
+			{ y: 21,   label: 201943 },
+          { y: 10, label: 201954},
+			{ y: 20,   label: 201945 },
+			{ y: 35,   label: 201946 },
+			{ y: 17,   label: 201947 },
+			{ y: 20,   label: 201948},
+			{ y: 13,  label: 201949 },
+			
+		]
       }]
     });
     this.chart2.render();
@@ -629,23 +615,69 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     console.log(JSON.stringify(reqBody.data));
-
+  
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
-
+      
     }, (error) => {
       console.log(error);
+      this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
     });
-
-    this.PlanNameModalBtn.nativeElement.click();
+  
+       this.PlanNameModalBtn.nativeElement.click();
   }
+
+
+
+////// save view modal
+
+public saveView(planName: string) {
+  this.saveViewLoader = true;
+  const reqBody = {
+    data: []
+  };
+
+  for (const data of this.graphData) {
+    const commentsObj = {};
+    for (const index in data.comments) {
+      commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
+    }
+
+    if (JSON.stringify(commentsObj) !== '{}') {
+      reqBody.data.push(Object.assign({
+        calendarWeek: data.calenderYearWeek,
+        sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+        cpg: this.createPlanRequestData.customerPlanningGroup,
+        plant: this.createPlanRequestData.plants,
+      }, commentsObj));
+    }
+  }
+
+  console.log(JSON.stringify(reqBody.data));
+
+  this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+    this.ViewNameModalBtn.nativeElement.click();
+    this.savePlanLoader = false;
+    
+  }, (error) => {
+    console.log(error);
+    this.savePlanLoader = false;
+  });
+
+     this.ViewNameModalBtn.nativeElement.click();
+}
+
+
+
+
+
 
   // Save and Load Filter
   public saveFilter(filterName: string) {
     this.filterService.saveFilter({
-
+      
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
@@ -654,19 +686,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }).subscribe((res: any) => {
       console.log("Harshit");
       this.loadFilters();
-
+     
     });
     this.saveFilterModalCancel.nativeElement.click();
-
+   
   }
 
   public createFilterString(filters: string[]): string {
     let resultString = '';
-    for (const filter of filters) {
-      resultString = `${resultString},${filter}`
+    for (const filter of filters) { 
+          resultString = `${resultString},${filter}`
     }
     return resultString.slice(1);
-  }
+    }
 
   public loadFilters() {
     this.filterService.getFilters({
