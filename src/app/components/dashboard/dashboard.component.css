@@ -79,7 +79,7 @@ a:focus, a:hover {
 
 /* Table Styling */
 .content-col .header-col {
-  padding: 0.5rem;
+  padding: 0.6rem;
   font-weight: 700;
   font-size: 11px;
 }
@@ -177,7 +177,7 @@ a:focus, a:hover {
   border-bottom: none;
   width: 65px;
   text-align: center;
-  padding: 0.75rem !important;
+  padding: 0.60rem !important;
   font-weight: normal;
 }
 

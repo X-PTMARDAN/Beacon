@@ -200,15 +200,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       });
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
+        exportEnabled: true,
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
           itemclick: this.toggleDataSeries.bind(this)
         },
-        axisX: {
+
+        axisX:{
           valueFormatString: '######',
           gridColor: '#ffffff',
-        },
+          scaleBreaks: {
+            type: "blank",
+            spacing: 0,
+            customBreaks: [{ 
+              startValue: 201953, 
+              endValue: 202000 
+            }]
+          },
+          stripLines: [{
+              
+              value:201935,
+              
+          }]
+      },
+
         axisY: {
           valueFormatString: '######',
           gridColor: '#ffffff',
