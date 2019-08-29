@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public Actuals_color='#02390A';
 
 
-  public ML_color='#004061';
+  public ML_color='#0f4061';
 
 
   
@@ -308,7 +308,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             name: 'APO Fcst',
             showInLegend: true,
             type: 'spline',
-         
+            legendMarkerColor: this.APO_color,
             lineColor: this.APO_color,
             dataPoints: this.aopDataPoints
           },
