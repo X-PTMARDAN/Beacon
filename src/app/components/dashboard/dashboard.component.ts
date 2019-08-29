@@ -59,12 +59,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public currentWeek: number;
 
 
-  public APO_color='#7EBC86';
+  public APO_color='#6CC78E';
 
   public Actuals_color='#02390A';
 
 
-  public ML_color='#0f4061';
+  public ML_color='#29A2F3';
 
 
   

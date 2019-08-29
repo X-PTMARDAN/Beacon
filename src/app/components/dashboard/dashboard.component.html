@@ -297,6 +297,9 @@
                     </td>
                   </tr>
                   <tr>
+
+
+
                     <td *ngFor="let data of graphData">
                       {{ data.apo }}
                     </td>
@@ -431,7 +434,7 @@
         <form>
           <input type="text" class="form-control" id="planName" name="planName" placeholder="Are you sure, you want to save the plan? " #planName ngModel >
           <p class="text-center mt-4">
-            <button type="submit"  (click)="savePlan('base')" class="btn btn-secondary custom-link btn-xs" >Ok
+            <button type="submit"  (click)="savePlan('base')" class="btn btn-secondary custom-link btn-xs" >Yes
 
 
               <ng-container *ngIf="savePlanLoader">
