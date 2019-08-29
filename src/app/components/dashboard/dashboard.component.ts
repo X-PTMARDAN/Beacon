@@ -279,7 +279,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         },
         data: [
           {
-            name: 'Actual',
+            name: 'Actuals',
             showInLegend: true,
             legendMarkerColor: this.Actuals_color,
             type: 'spline',
@@ -287,14 +287,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             dataPoints: this.actualDataPoints
           },
           {
-            name: 'Actual Last Year',
+            name: 'Actual LY',
             showInLegend: true,
             type: 'spline',
             lineColor: this.lastyearDataPointColor,
             dataPoints: this.lastYearDataPoints
           },
           {
-            name: 'ML Fcst',
+            name: 'ML Forecast',
             showInLegend: true,
 
             
@@ -305,7 +305,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             dataPoints: this.mlDataPoints
           },
           {
-            name: 'APO Fcst',
+            name: 'APO Forecast',
             showInLegend: true,
             type: 'spline',
             legendMarkerColor: this.APO_color,
