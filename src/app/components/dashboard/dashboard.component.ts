@@ -328,12 +328,132 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           }
         ]
       });
+ 
       this.chart1.render();
-
+      this.CanvasJSDataAsCSV();
       
       this.selectOptionsModalCancel.nativeElement.click();
     });
   }
+
+
+
+
+
+
+
+
+
+
+
+
+ public  CanvasJSDataAsCSV() {
+
+
+  var toolBar = document.getElementsByClassName("canvasjs-chart-toolbar")[0];
+
+  var exportCSV = document.createElement('div');
+    var text = document.createTextNode("Save as CSV");
+  exportCSV.setAttribute("style", "padding: 12px 8px; ");
+
+    exportCSV.appendChild(text);
+    toolBar.lastChild.appendChild(exportCSV);
+  // var newEle = angular.element("<div class='red'></div>");
+  //   var target = document.getElementById('target');
+  //   angular.element(target).append(newEle);
+   
+  //       var exportCSV = document.createElement('div');
+  //       var text = document.createTextNode("Save as CSV");
+  //       console.log(chart)
+  //    //   exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
+  //       exportCSV.appendChild(text);
+
+      //  this.chart1._toolBar.lastChild.appendChild("<div class='red'>Save as CSV</div>");
+  
+}
+
+ convertChartDataToCSV(args) {
+    var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+    data = args.data || null;
+    if (data == null || !data.length) {
+        return null;
+    }
+    columnDelimiter = args.columnDelimiter || ',';
+    lineDelimiter = args.lineDelimiter || '\n';
+    keys = Object.keys(data[0]);
+    result = '';
+    result += keys.join(columnDelimiter);
+    result += lineDelimiter;
+    data.forEach(function (item) {
+        ctr = 0;
+        keys.forEach(function (key) {
+            if (ctr > 0) result += columnDelimiter;
+            result += (!(typeof item[key] === 'undefined' || item[key] === null) ? item[key] : "");
+            ctr++;
+        });
+        result += lineDelimiter;
+    });
+    return result;
+}
+
+ parseCSV(args) {
+    var csv = "";
+    for (var i = 0; i < args.chart.options.data.length; i++) {
+        // csv += convertChartDataToCSV({
+        //     data: args.chart.options.data[i].dataPoints
+        // });
+    }
+    if (csv == null) return;
+    var filename = args.filename || 'chart-data.csv';
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+    this.downloadFile(csv, filename);
+}
+
+public downloadFile(extData, filename) {
+    var data = encodeURI(extData);
+    var link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link); // Required for FF
+    link.click();
+    document.body.removeChild(link);
+}
+
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = CanvasJSDataAsCSV;
+// // }
+// else {
+//     // if (/*typeof define === 'function' && define.amd*/) {
+//     //     define([], function () {
+//     //         return CanvasJSDataAsCSV;
+//     //     });
+//     // }
+//     // else {
+//     //     //window.CanvasJSDataAsCSV = CanvasJSDataAsCSV;
+//     // }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   private toggleDataSeries(e) {
     e.dataSeries.visible = !(typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible);
