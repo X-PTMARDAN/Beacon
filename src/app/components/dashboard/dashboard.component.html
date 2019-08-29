@@ -145,7 +145,7 @@
     <hr>
     <div class="mb-2">
       <div>
-        SKUs
+        <span style="font-weight: bold">SKUs</span>
         <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
       </div>
       <div class="input-group mt-2">
@@ -197,8 +197,8 @@
           <span style="float:right; margin-right:10px;">
               <div class="form-group w-50 ml-1">
                 <select name="plant" class="minimal" required>
-                  <option selected>Select</option>
-                  <option>Baseline</option>
+             
+                  <option selected>Baseline</option>
                   <option>Promo Effect</option>
                   <option>Weather effect</option>
                 </select>
@@ -380,7 +380,7 @@
           <div>
             <input class="mr-1" type="checkbox">
           </div>
-          <p class="m-0">Weather Effect/p>
+          <p class="m-0">Weather Effect</p>
         </div>
      
       </div>
@@ -429,13 +429,25 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="form-control" id="planName" name="planName" placeholder="Are you sure, you want to save the plan? Press ok to save" #planName ngModel >
+          <input type="text" class="form-control" id="planName" name="planName" placeholder="Are you sure, you want to save the plan? " #planName ngModel >
           <p class="text-center mt-4">
             <button type="submit"  (click)="savePlan('base')" class="btn btn-secondary custom-link btn-xs" >Ok
+
+
               <ng-container *ngIf="savePlanLoader">
                 <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               </ng-container>
             </button>
+
+            <button type="submit" style="margin-left: 15px"  (click)="savePlan('base')" class="btn btn-secondary custom-link btn-xs" >No
+
+
+              <ng-container *ngIf="savePlanLoader">
+                <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              </ng-container>
+            </button>
+
+
           </p>
         </form>
       </div>
