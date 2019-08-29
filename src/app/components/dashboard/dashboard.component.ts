@@ -59,12 +59,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public currentWeek: number;
 
 
-  public APO_color='#6CC78E';
+  public APO_color='#6495ED';
 
-  public Actuals_color='#02390A';
+  public Actuals_color='#006400';
 
 
-  public ML_color='#29A2F3';
+  public ML_color='#ADD8E6';
 
 
   
@@ -323,6 +323,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         ]
       });
       this.chart1.render();
+
+      
       this.selectOptionsModalCancel.nativeElement.click();
     });
   }
@@ -363,6 +365,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       if (week.ml !== undefined) {
         newPoint.ml = DashboardComponent.parseStringToFloat(week.ml);
         this.mlDataPoints.push({
+      
           x: key,
           y: newPoint.ml,
           color: this.ML_color,
