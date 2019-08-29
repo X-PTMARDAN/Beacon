@@ -58,6 +58,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private finalForecastPointColor = '#000000';
   public currentWeek: number;
 
+
+  public APO_color='#7EBC86';
+
+  public Actuals_color='#02390A';
+
+
+  public ML_color='#004061';
+
+
+  
+  
   // Charts
   public chart1;
   public chart2;
@@ -113,44 +124,78 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.weathers = res;
     });
 
+
+
+    
+
     this.chart2 = new CanvasJS.Chart('chartContainer2', {
       animationEnabled: true,
-      theme: 'light2',
+
+
+      axisX:{
+        valueFormatString: '######',
+        gridColor: '#ffffff',
+   
+    },
+
+      axisY: {
+        valueFormatString: '######',
+        gridColor: '#ffffff',
+      },
+      toolTip: {
+        content: '{name}: {y}'
+      },
+  
+
+
+     
       data: [{
-        type: 'column',
-        color: '#09C29B',
-        legendMarkerColor: 'grey',
-        dataPoints:  [      
-			{ y: 10, label: 201920},
-			{ y: 20,   label: 201921 },
-			{ y: 35,   label: 201922 },
-			{ y: 17,   label: 201923 },
-			{ y: 20,   label: 201924},
-			{ y: 13,  label: 201925 },
-			{ y: 18,   label: 201926 },
-			{ y: 21,   label: 201927 },
-          { y: 10, label: 201928},
-			{ y: 20,   label: 201929 },
-			{ y: 35,   label: 201930 },
-			{ y: 17,   label: 201931 },
-			{ y: 20,   label: 201932},
-			{ y: 13,  label: 201933 },
-			{ y: 18,   label: 201934 },
-			{ y: 21,   label: 201935 },
-          { y: 10, label: 201936},
-			{ y: 20,   label: 201937 },
-			{ y: 35,   label: 201938 },
-			{ y: 17,   label: 201939 },
-			{ y: 20,   label: 201940},
-			{ y: 13,  label: 201941 },
-			{ y: 18,   label: 201942 },
-			{ y: 21,   label: 201943 },
-          { y: 10, label: 201954},
-			{ y: 20,   label: 201945 },
-			{ y: 35,   label: 201946 },
-			{ y: 17,   label: 201947 },
-			{ y: 20,   label: 201948},
-			{ y: 13,  label: 201949 },
+        type: 'line',
+               gridColor: '#ffffff',
+        labelFontColor: "black",
+        legendMarkerColor: '#000',
+        dataPoints:  [
+
+
+          { y: 10, x: 201912}, 
+          { y: 10,x:201913}, 
+          { y: 10, x: 201914}, 
+          { y: 10, x: 201915}, 
+          { y: 10, x: 201916}, 
+          { y: 10, x: 201917}, 
+          { y: 10, x: 201918}, 
+          { y: 10, x: 201919},      
+			{ y: 10, x: 201920},
+			{ y: 20,   x: 201921 },
+			{ y: 35,   x: 201922 },
+			{ y: 17,   x: 201923 },
+			{ y: 20,   x: 201924},
+			{ y: 13,  x: 201925 },
+			{ y: 18,   x: 201926 },
+			{ y: 21,   x: 201927 },
+          { y: 10, x: 201928},
+			{ y: 20,   x: 201929 },
+			{ y: 35,   x: 201930 },
+			{ y: 17,   x: 201931 },
+			{ y: 20,   x: 201932},
+			{ y: 13,  x: 201933 },
+			{ y: 18,   x: 201934 },
+			{ y: 21,   x: 201935 },
+          { y: 10, x: 201936},
+			{ y: 20,   x: 201937 },
+			{ y: 35,   x: 201938 },
+			{ y: 17,   x: 201939 },
+			{ y: 20,   x: 201940},
+			{ y: 13,  x: 201941 },
+			{ y: 18,   x: 201942 },
+			{ y: 21,   x: 201943 },
+          { y: 10, x: 201944},
+			{ y: 20,   x: 201945 },
+			{ y: 35,   x: 201946 },
+			{ y: 17,   x: 201947 },
+			{ y: 20,   x: 201948},
+      { y: 13,  x: 201949 },
+      { y: 13,  x: 201950 },
 			
 		]
       }]
@@ -236,8 +281,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'Actual',
             showInLegend: true,
+            legendMarkerColor: this.Actuals_color,
             type: 'spline',
-            lineColor: this.actualDataPointColor,
+            lineColor: this.Actuals_color,
             dataPoints: this.actualDataPoints
           },
           {
@@ -250,22 +296,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'ML Fcst',
             showInLegend: true,
+
+            
             type: 'spline',
-            lineDashType: 'dash',
-            lineColor: this.mlDataPointColor,
+            legendMarkerColor: this.ML_color,
+           
+            lineColor: this.ML_color,
             dataPoints: this.mlDataPoints
           },
           {
             name: 'APO Fcst',
             showInLegend: true,
             type: 'spline',
-            lineDashType: 'dash',
-            lineColor: this.aopDataPointColor,
+         
+            lineColor: this.APO_color,
             dataPoints: this.aopDataPoints
           },
           {
             name: 'Final Forecast',
             showInLegend: true,
+            legendMarkerColor: "FF0000",
             type: 'spline',
             lineColor: this.finalForecastPointColor,
             dataPoints: this.finalForecastDataPoints
@@ -307,7 +357,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       };
       const key: string = week.calenderYearWeek;
       newPoint.calenderYearWeek = key;
-      newPoint.week = key.toString().slice(-2);
+      newPoint.week = key;
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
@@ -315,7 +365,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.mlDataPoints.push({
           x: key,
           y: newPoint.ml,
-          color: this.mlDataPointColor,
+          color: this.ML_color,
           click: this.dataPointClick.bind(this),
           calenderYear: key
         });
@@ -340,7 +390,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.actualDataPoints.push({
           x: key,
           y: newPoint.actuals,
-          color: this.actualDataPointColor,
+          color: this.Actuals_color,
           click: this.dataPointClick.bind(this),
           calenderYear: key
         });
@@ -358,7 +408,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.aopDataPoints.push({
           x: key,
           y: newPoint.apo,
-          color: this.aopDataPointColor,
+          color: this.APO_color,
           click: this.dataPointClick.bind(this),
           calenderYear: key,
         });
