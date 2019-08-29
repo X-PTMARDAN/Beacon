@@ -130,10 +130,28 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.chart2 = new CanvasJS.Chart('chartContainer2', {
       animationEnabled: true,
+
+
+      axisX:{
+        valueFormatString: '######',
+        gridColor: '#ffffff',
+   
+    },
+
+      axisY: {
+        valueFormatString: '######',
+        gridColor: '#ffffff',
+      },
+      toolTip: {
+        content: '{name}: {y}'
+      },
+  
+
+
      
       data: [{
         type: 'line',
-        
+               gridColor: '#ffffff',
         labelFontColor: "black",
         legendMarkerColor: '#000',
         dataPoints:  [
@@ -281,6 +299,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             
             type: 'spline',
+            legendMarkerColor: this.ML_color,
            
             lineColor: this.ML_color,
             dataPoints: this.mlDataPoints
