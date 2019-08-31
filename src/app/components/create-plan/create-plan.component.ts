@@ -115,10 +115,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     // Select Horizon init
     const currentDate = new Date();
-   // currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
-    this.startWeek = currentDate.getFullYear() + '-W' + (CreatePlanComponent.getCurrentWeek(currentDate) ) ;
-   
-   
+    // currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
+    this.startWeek = currentDate.getFullYear() + '-W' + (CreatePlanComponent.getCurrentWeek(currentDate));
+
+
     currentDate.setDate(currentDate.getDate());
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
 
@@ -135,8 +135,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showPlanDemand();
       } else if (data.page === 'revisit-plan') {
         this.showRevisitPlan();
-      }
-      else if (data.page === 'revisit-view') {
+      } else if (data.page === 'revisit-view') {
         this.showRevisitView();
       }
     });
@@ -402,6 +401,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         text: 'Select CPG and Plant'
       }
     ];
+
   }
 
   public showRevisitPlan() {
@@ -416,9 +416,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       }
     ];
   }
-
-
-
 
   public showRevisitView() {
     this.showPanels.showRevisitView = true;
