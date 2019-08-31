@@ -768,11 +768,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public saveView(planName: string) {
     this.saveViewLoader = true;
-    const reqBody = {
-      sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-      cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
-      plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
-      brand: this.filters[2].values.filter(item => item.isChecked).map(item => item.name),
+    const reqBody: any = {
+      user: 'admin',
+      sku: this.skus.filter(item => item.isChecked).map(item => item.name).join(','),
+      cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name).join(','),
+      plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name).join(','),
+      brand: this.filters[2].values.filter(item => item.isChecked).map(item => item.name).join(','),
       name: planName,
       startWeek: this.createPlanRequestData.startWeek,
       endWeek: this.createPlanRequestData.endWeek,
@@ -784,6 +785,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         reqBody.weeklyFinalForecast.push(data.finalForecast);
       }
     }
+
+    reqBody.weeklyFinalForecast = reqBody.weeklyFinalForecast.join(',');
 
     this.skuService.saveView(reqBody).subscribe((res: any) => {
       this.savePlanLoader = false;
