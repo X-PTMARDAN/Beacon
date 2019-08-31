@@ -769,26 +769,23 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public saveView(planName: string) {
     this.saveViewLoader = true;
     const reqBody = {
-      data: []
+      sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+      cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+      plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
+      brand: this.filters[2].values.filter(item => item.isChecked).map(item => item.name),
+      name: planName,
+      startWeek: this.createPlanRequestData.startWeek,
+      endWeek: this.createPlanRequestData.endWeek,
+      weeklyFinalForecast: []
     };
 
     for (const data of this.graphData) {
-      const commentsObj = {};
-      for (const index in data.comments) {
-        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
-      }
-
-      if (JSON.stringify(commentsObj) !== '{}') {
-        reqBody.data.push(Object.assign({
-          calendarWeek: data.calenderYearWeek,
-          sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-          cpg: this.createPlanRequestData.customerPlanningGroup,
-          plant: this.createPlanRequestData.plants,
-        }, commentsObj));
+      if (data.week >= this.createPlanRequestData.startWeek) {
+        reqBody.weeklyFinalForecast.push(data.finalForecast);
       }
     }
 
-    this.skuService.saveView(reqBody.data).subscribe((res: any) => {
+    this.skuService.saveView(reqBody).subscribe((res: any) => {
       this.savePlanLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     }, (error) => {
