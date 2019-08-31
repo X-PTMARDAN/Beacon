@@ -13,24 +13,6 @@ import {FilterService} from '../../services/filter.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
-  public createPlanRequestData: any;
-  public selectedWeekIndex: number;
-
-  // Filters
-  public loadedFilters: any = [];
-
-  // Loader
-  public savePlanLoader = false;
-  public saveViewLoader = false;
-
-  constructor(
-    private router: Router,
-    private skuService: SKUService,
-    private sidebarService: SidebarService,
-    private filterService: FilterService
-  ) {
-  }
-
   @ViewChild('selectOptionsModalCancel', {static: false}) selectOptionsModalCancel: ElementRef;
   @ViewChild('selectOptionsModalBtn', {static: false}) selectOptionsModalBtn: ElementRef;
   @ViewChild('PlanNameModalBtn', {static: false}) PlanNameModalBtn: ElementRef;
@@ -45,26 +27,28 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('saveFilterModalCancel', {static: false}) saveFilterModalCancel: ElementRef;
   @ViewChild('loadFilterModalCancel', {static: false}) loadFilterModalCancel: ElementRef;
 
+  public createPlanRequestData: any;
+  public selectedWeekIndex: number;
+
+  // Filters
+  public loadedFilters: any = [];
+
+  // Loader
+  public savePlanLoader = false;
+  public saveViewLoader = false;
 
   // EventEmitter
   private eventsSubject: Subject<any> = new Subject<any>();
 
   // Constants
-  public mlDataPointColor = '#D8B1FD';
   public lastyearDataPointColor = '#C0504E';
-
-  private aopDataPointColor = '#77A5F3';
-  private actualDataPointColor = '#09C29B';
   private finalForecastPointColor = '#000000';
   public currentWeek: number;
 
 
-  public APO_color = '#6495ED';
-
-  public Actuals_color = '#006400';
-
-
-  public ML_color = '#ADD8E6';
+  public aopDataPointColor = '#6495ED';
+  public actualDataPointColor = '#006400';
+  public mlDataPointColor = '#ADD8E6';
 
 
   // Charts
@@ -101,10 +85,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public selectedDataPoint: any = {};
   public selectedWeekComments: any = [];
 
-  private static getCurrentWeek(date: Date) {
-    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-    const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
-    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+  constructor(
+    private router: Router,
+    private skuService: SKUService,
+    private sidebarService: SidebarService,
+    private filterService: FilterService
+  ) {
   }
 
   ngOnInit() {
@@ -217,6 +203,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   }
 
+  private static getCurrentWeek(date: Date) {
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+  }
+
   public createPlan(data: any) {
     this.createPlanRequestData = {
       startWeek: data.startWeek,
@@ -225,6 +217,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       customerPlanningGroup: data.customerPlanningGroup,
       plants: data.plants,
     };
+    console.log(this.createPlanRequestData);
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
         page: null,
@@ -244,25 +237,39 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           cursor: 'pointer',
           itemclick: this.toggleDataSeries.bind(this)
         },
-
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
           scaleBreaks: {
             type: 'blank',
             spacing: 0,
-            customBreaks: [{
-              startValue: 201953,
-              endValue: 202000
-            }]
+            customBreaks: [
+              {
+                startValue: 201953,
+                endValue: 202000
+              },
+              {
+                startValue: 202053,
+                endValue: 202100
+              },
+              {
+                startValue: 202153,
+                endValue: 202200
+              },
+              {
+                startValue: 202253,
+                endValue: 202300
+              }
+            ]
           },
-          stripLines: [{
-
-            value: 201935,
-
-          }]
+          stripLines: [
+            {
+              startValue: this.createPlanRequestData.startWeek,
+              endValue: this.createPlanRequestData.endWeek,
+              color: '#d8d8d8'
+            }
+          ]
         },
-
         axisY: {
           valueFormatString: '######',
           gridColor: '#ffffff',
@@ -274,9 +281,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'Actuals',
             showInLegend: true,
-            legendMarkerColor: this.Actuals_color,
+            legendMarkerColor: this.actualDataPointColor,
             type: 'spline',
-            lineColor: this.Actuals_color,
+            lineColor: this.actualDataPointColor,
             dataPoints: this.actualDataPoints
           },
           {
@@ -289,40 +296,35 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'ML Forecast',
             showInLegend: true,
-
-
             type: 'spline',
-            legendMarkerColor: this.ML_color,
-
-            lineColor: this.ML_color,
+            legendMarkerColor: this.mlDataPointColor,
+            lineColor: this.mlDataPointColor,
             dataPoints: this.mlDataPoints
           },
           {
             name: 'APO Forecast',
             showInLegend: true,
             type: 'spline',
-            legendMarkerColor: this.APO_color,
-            lineColor: this.APO_color,
+            legendMarkerColor: this.aopDataPointColor,
+            lineColor: this.aopDataPointColor,
             dataPoints: this.aopDataPoints
           },
           {
             name: 'Final Forecast',
             showInLegend: true,
-            legendMarkerColor: 'FF0000',
             type: 'spline',
+            legendMarkerColor: 'FF0000',
             lineColor: this.finalForecastPointColor,
             dataPoints: this.finalForecastDataPoints
           }
         ]
       });
-
       this.chart1.render();
       this.CanvasJSDataAsCSV();
-
       this.selectOptionsModalCancel.nativeElement.click();
     });
   }
-  
+
   public CanvasJSDataAsCSV() {
 
 
@@ -401,21 +403,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     document.body.removeChild(link);
   }
 
-// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-//     module.exports = CanvasJSDataAsCSV;
-// // }
-// else {
-//     // if (/*typeof define === 'function' && define.amd*/) {
-//     //     define([], function () {
-//     //         return CanvasJSDataAsCSV;
-//     //     });
-//     // }
-//     // else {
-//     //     //window.CanvasJSDataAsCSV = CanvasJSDataAsCSV;
-//     // }
-// }
-
-
   private toggleDataSeries(e) {
     e.dataSeries.visible = !(typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible);
     this.chart1.render();
@@ -455,7 +442,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
           x: key,
           y: newPoint.ml,
-          color: this.ML_color,
+          color: this.mlDataPointColor,
           click: this.dataPointClick.bind(this),
           calenderYear: key
         });
@@ -480,7 +467,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.actualDataPoints.push({
           x: key,
           y: newPoint.actuals,
-          color: this.Actuals_color,
+          color: this.actualDataPointColor,
           click: this.dataPointClick.bind(this),
           calenderYear: key
         });
@@ -498,7 +485,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.aopDataPoints.push({
           x: key,
           y: newPoint.apo,
-          color: this.APO_color,
+          color: this.aopDataPointColor,
           click: this.dataPointClick.bind(this),
           calenderYear: key,
         });
