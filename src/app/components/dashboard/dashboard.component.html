@@ -135,48 +135,33 @@
       </div>
 
       <div class="bg-white shadow mt-2">
-        <div class="row m-0">
-          <div class="col-2 p-0">
-            <div class="row m-0">
-              <div class="invisible col-12 header-col" style="padding: 0.65rem">
-                XXXXXX
-              </div>
-            </div>
-
-
-            <div class="row m-0">
-              <div class="col-12 header-col header-text">
-                Final Forecast
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 header-col header-text">
-                Fcst Value Add
-              </div>
-            </div>
-            <div class="row m-0">
-              <div (click)="putValueInFinal('ML')" class="col-12 header-col ml-text">
-                ML Forecast
-              </div>
-            </div>
-            <div class="row m-0">
-              <div (click)="putValueInFinal('APO')" class="col-12 header-col aop-text">
-                APO Forecast
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 header-col actual-text">
-                Actuals
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 header-col header-text">
-                Actuals LY
-              </div>
-            </div>
-
+        <div class="d-flex">
+          <div class="table-header-col">
+            <table>
+              <tr class="header-text invisible">
+                <td>XXXXX</td>
+              </tr>
+              <tr class="header-text">
+                <td> Final Forecast</td>
+              </tr>
+              <tr class="header-text">
+                <td>Fcst Value Add</td>
+              </tr>
+              <tr (click)="putValueInFinal('ML')" class="ml-text">
+                <td> ML Forecast</td>
+              </tr>
+              <tr (click)="putValueInFinal('APO')" class="aop-text">
+                <td>APO Forecast</td>
+              </tr>
+              <tr class="actual-text">
+                <td>Actuals</td>
+              </tr>
+              <tr class="header-text">
+                <td>Actuals LY</td>
+              </tr>
+            </table>
           </div>
-          <div class="col-9 p-0">
+          <div class="table-content-col">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
                 <table class="table table-striped">
@@ -190,7 +175,8 @@
                   <tbody>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td class="font-weight-bold cursor-pointer" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                      <td class="font-weight-bold cursor-pointer"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
                           (click)="selectedWeekComments=graphData[i].comments">
                         {{ data.finalForecast }}
                       </td>
@@ -198,8 +184,10 @@
                   </tr>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td (dblclick)="data.ml !== undefined && onDblClickInput(i)" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
-                        <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"  [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                      <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
+                               [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= createPlanRequestData.startWeek }"
                                (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined"
                                [class.disabled]="data.ml === undefined"
                                [(ngModel)]="data.fcstValueAdd">
@@ -207,76 +195,65 @@
                     </ng-container>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                    <td *ngFor="let data of graphData"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.ml }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                    <td *ngFor="let data of graphData"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.apo }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                    <td *ngFor="let data of graphData"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.actuals }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                    <td *ngFor="let data of graphData"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.actualslastyear }}
                     </td>
                   </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="col-sm-12 text-center m-2">
-                <a href="#" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-                   data-target="#saveAPlansModal">Save Plan</a>
-
-
-                <a href="#" class="btn btn-primary custom-link btn-xs" style="margin-left:10px;" data-toggle="modal"
-                   data-target="#saveAViewsModal">Save View</a>
-              </div>
             </div>
           </div>
-          <div class="col-1 p-0">
-
-            <div class="row m-0">
-              <div class="col-12 footer-col" style="padding: 0.65rem">
-                Total
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 footer-col">
-                {{ totalData.finalCastTotal }}
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 footer-col invisible">
-                {{ totalData.fcstValueAdd || 0 }}
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 footer-col">
-                {{ totalData.mlTotal }}
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 footer-col">
-                {{ totalData.apoTotal }}
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 footer-col">
-                {{ totalData.actuals }}
-              </div>
-            </div>
-            <div class="row m-0">
-              <div class="col-12 footer-col">
-                {{ totalData.lastYearTotal }}
-              </div>
-            </div>
+          <div class="table-footer-col">
+            <table>
+              <tr class="invisible">
+                <td>Total</td>
+              </tr>
+              <tr>
+                <td>{{ totalData.finalCastTotal }}</td>
+              </tr>
+              <tr>
+                <td>{{ totalData.fcstValueAdd || 0 }}</td>
+              </tr>
+              <tr>
+                <td>{{ totalData.mlTotal }}</td>
+              </tr>
+              <tr>
+                <td>{{ totalData.apoTotal }}</td>
+              </tr>
+              <tr>
+                <td>{{ totalData.actuals }}</td>
+              </tr>
+              <tr>
+                <td>{{ totalData.lastYearTotal }}</td>
+              </tr>
+            </table>
           </div>
+        </div>
+        <div class="p-2 text-center">
+          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+             data-target="#saveAPlansModal">Save Plan</a>
+          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a>
         </div>
       </div>
     </div>

@@ -76,8 +76,113 @@ a:focus, a:hover {
   padding: 5px 10px;
 }
 
+/* Events Holidays Promo container */
+.events-container {
+  font-size: 15px;
+  border-radius: 5px;
+  height: 98vh;
+  overflow: auto;
+}
+
+.events-container .block {
+  background-color: #F4F5F9;
+  font-size: 14px;
+}
+
+.events-container div {
+  margin-top: 2px;
+}
+
+/* Modal Styling */
+.modal-footer {
+  display: none;
+}
+
+.select-options-modal .modal-header {
+  border: none;
+}
+
+#selectOptionsModal .modal-dialog {
+  max-width: 80vw;
+}
+
+#selectOptionsModal .modal-dialog .modal-content {
+  min-height: 90vh;
+}
 
 /* Table Styling */
+.fix-width {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-col .panel .table {
+  width: 100%;
+  font-size: 0.6rem;
+  margin-bottom: 0;
+  max-width: none;
+  table-layout: fixed;
+}
+
+
+.table-inputbox {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  text-align: center;
+}
+
+.colored-table-inputbox {
+  background-color: #F2F2F2;
+}
+
+.table-content-col .panel .table th {
+  border-bottom: none;
+  width: 65px;
+  text-align: center;
+  padding: 0.60rem !important;
+  font-weight: normal;
+}
+
+.table-content-col .panel .table td {
+  width: 65px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.data-strip {
+  position: absolute;
+  width: 88%;
+  top: 67.1%;
+  background: #fff;
+  right: 14px;
+  height: 24px;
+}
+
+.data-strip ul {
+  list-style: none;
+  padding: 0;
+  font-size: 10px;
+  color: #666;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+td {
+  background-color: white;
+}
+
+.colored-td {
+  background-color: #F2F2F2;
+}
+
 .content-col .header-col {
   padding: 0.5rem;
   font-weight: 700;
@@ -107,124 +212,6 @@ a:focus, a:hover {
   color: #6499F2;
 }
 
-
-/* Events Holidays Promo container */
-.events-container {
-  font-size: 15px;
-  border-radius: 5px;
-  height: 98vh;
-  overflow: auto;
-}
-
-.events-container .block {
-  background-color: #F4F5F9;
-  font-size: 14px;
-}
-
-.events-container div {
-  margin-top: 2px;
-}
-
-
-/* Modal Styling */
-.modal-footer {
-  display: none;
-}
-
-.select-options-modal .modal-header {
-  border: none;
-}
-
-#selectOptionsModal .modal-dialog {
-  max-width: 80vw;
-}
-
-#selectOptionsModal .modal-dialog .modal-content {
-  min-height: 90vh;
-}
-
-.fix-width {
-  width: 100%;
-  overflow-y: hidden;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.content-col .panel {
-}
-
-.content-col .panel .table {
-  width: 100%;
-  font-size: 0.6rem;
-  margin-bottom: 0;
-  max-width: none;
-  table-layout: fixed;
-}
-
-
-.table-inputbox {
-  width: 100%;
-  background-color: #FFFFFF;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: 1px solid grey;
-  outline: none;
-  text-align: center;
-}
-
-.colored-table-inputbox{
-  background-color: #F2F2F2;
-}
-
-.content-col .panel .table th {
-  border-bottom: none;
-  width: 65px;
-  text-align: center;
-  padding: 0.60rem !important;
-  font-weight: normal;
-}
-
-.content-col .panel .table td {
-  width: 65px;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-.data-strip {
-  position: absolute;
-  width: 88%;
-  top: 67.1%;
-  background: #fff;
-  right: 14px;
-  height: 24px;
-}
-
-.data-strip ul {
-  list-style: none;
-  padding: 0;
-  font-size: 10px;
-  color: #666;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.data-strip ul li {
-  /*display: inline-block;*/
-  /*width: 14.2%;*/
-  /*text-align: left;*/
-}
-
-.data-strip ul li:last-child {
-  /*text-align: right;*/
-}
-
-/*.shadow mt-2 {*/
-/*  position: relative;*/
-/*}*/
-
-
 /* Load and Save Filter Modal Styling */
 
 .filter-item {
@@ -242,15 +229,7 @@ a:focus, a:hover {
   border-color: #27AE60;
 }
 
-td{
-  background-color: white;
-}
-
-.colored-td{
-  background-color: #F2F2F2;
-}
-
-.highlight{
+.highlight {
   padding: 1px;
   background-color: #34495E;
   border-radius: 3px;
