@@ -774,7 +774,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name).join(','),
       plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name).join(','),
       brand: this.filters[2].values.filter(item => item.isChecked).map(item => item.name).join(','),
-      name: viewName,
+      viewName,
       startWeek: this.createPlanRequestData.startWeek,
       endWeek: this.createPlanRequestData.endWeek,
       weeklyFinalForecast: []
