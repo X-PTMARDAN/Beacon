@@ -286,7 +286,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             name: 'Actual LY',
             showInLegend: true,
             type: 'line',
-            lineDashType: "dash",
+            lineDashType: 'dash',
             legendMarkerColor: this.lastyearDataPointColor,
             lineColor: this.lastyearDataPointColor,
             dataPoints: this.lastYearDataPoints
@@ -295,7 +295,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             name: 'ML Forecast',
             showInLegend: true,
             type: 'line',
-            lineDashType: "dash",
+            lineDashType: 'dash',
             legendMarkerColor: this.mlDataPointColor,
             lineColor: this.mlDataPointColor,
             dataPoints: this.mlDataPoints
@@ -304,7 +304,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             name: 'APO Forecast',
             showInLegend: true,
             type: 'line',
-            lineDashType: "dash",
+            lineDashType: 'dash',
             legendMarkerColor: this.aopDataPointColor,
             lineColor: this.aopDataPointColor,
             dataPoints: this.aopDataPoints
@@ -313,7 +313,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             name: 'Final Forecast',
             showInLegend: true,
             type: 'line',
-            lineDashType: "dash",
+            lineDashType: 'dash',
             legendMarkerColor: this.finalForecastPointColor,
             lineColor: this.finalForecastPointColor,
             dataPoints: this.finalForecastDataPoints
@@ -327,76 +327,58 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public CanvasJSDataAsCSV() {
-
-
-    var toolBar = document.getElementsByClassName('canvasjs-chart-toolbar')[0];
-
-    var exportCSV = document.createElement('div');
-    var text = document.createTextNode('Save as CSV');
+    const toolBar = document.getElementsByClassName('canvasjs-chart-toolbar')[0];
+    const exportCSV = document.createElement('div');
+    const text = document.createTextNode('Save as CSV');
     exportCSV.setAttribute('style', 'padding: 12px 8px; ');
-
     exportCSV.appendChild(text);
-    toolBar.lastChild.appendChild(exportCSV);
-    // var newEle = angular.element("<div class='red'></div>");
-    //   var target = document.getElementById('target');
-    //   angular.element(target).append(newEle);
 
-    //       var exportCSV = document.createElement('div');
-    //       var text = document.createTextNode("Save as CSV");
-    //       console.log(chart)
-    //    //   exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
-    //       exportCSV.appendChild(text);
-
-    //  this.chart1._toolBar.lastChild.appendChild("<div class='red'>Save as CSV</div>");
-
-  }
-
-  public convertChartDataToCSV(args) {
-    var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-    data = args.data || null;
-    if (data == null || !data.length) {
-      return null;
-    }
-    columnDelimiter = args.columnDelimiter || ',';
-    lineDelimiter = args.lineDelimiter || '\n';
-    keys = Object.keys(data[0]);
-    result = '';
-    result += keys.join(columnDelimiter);
-    result += lineDelimiter;
-    data.forEach(function(item) {
-      ctr = 0;
-      keys.forEach(function(key) {
-        if (ctr > 0) {
-          result += columnDelimiter;
-        }
-        result += (!(typeof item[key] === 'undefined' || item[key] === null) ? item[key] : '');
-        ctr++;
-      });
-      result += lineDelimiter;
+    // tslint:disable-next-line:only-arrow-functions
+    exportCSV.addEventListener('mouseover', function() {
+      exportCSV.setAttribute('style', 'padding: 12px 8px; background-color: #2196F3; color: white');
     });
-    return result;
+    // tslint:disable-next-line:only-arrow-functions
+    exportCSV.addEventListener('mouseout', function() {
+      exportCSV.setAttribute('style', 'padding: 12px 8px; background-color: white; color: black');
+    });
+    exportCSV.addEventListener('click', () => {
+      this.downloadCSV({filename: 'chart-data.csv'});
+    });
+
+    toolBar.lastChild.appendChild(exportCSV);
   }
 
-  public parseCSV(args) {
-    var csv = '';
-    for (var i = 0; i < args.chart.options.data.length; i++) {
-      // csv += convertChartDataToCSV({
-      //     data: args.chart.options.data[i].dataPoints
-      // });
+  public downloadCSV(args) {
+    console.log(JSON.stringify(this.graphData));
+    let data, filename, link;
+    let csv = '';
+
+    const columns = ['CalendarYearWeek', 'Actuals', 'APO0', 'ML', 'Actuals Last Year', 'Final Forecast'];
+
+    csv += columns.join(',');
+    csv += '\n';
+
+    for (const point of this.graphData) {
+      const row = [
+        point.calenderYearWeek,
+        point.actuals,
+        point.apo,
+        point.ml,
+        point.actualslastyear,
+        point.finalForecast
+      ];
+      csv += row.join(',');
+      csv += '\n';
     }
-    if (csv == null) {
-      return;
-    }
-    var filename = args.filename || 'chart-data.csv';
+
+    filename = args.filename || 'chart-data.csv';
+
     if (!csv.match(/^data:text\/csv/i)) {
       csv = 'data:text/csv;charset=utf-8,' + csv;
     }
-    this.downloadFile(csv, filename);
-  }
 
-  public downloadFile(extData, filename) {
-    var data = encodeURI(extData);
-    var link = document.createElement('a');
+    data = encodeURI(csv);
+    link = document.createElement('a');
     link.setAttribute('href', data);
     link.setAttribute('download', filename);
     document.body.appendChild(link); // Required for FF
