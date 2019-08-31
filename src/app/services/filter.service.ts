@@ -14,11 +14,10 @@ export class FilterService {
   }
 
   public saveFilter(data: any) {
-    return this.http.post('http://34.244.0.110:5450/v1/saveFilter', data);
+    return this.http.post(`${this.apiGatewayUrl}saveFilter`, data);
   }
 
-
   public getFilters(data: any) {
-    return this.http.post('http://34.244.0.110:5450/v1/fetchFilter', data);
+    return this.http.post(`${this.apiGatewayUrl}fetchFilter`, data);
   }
 }
