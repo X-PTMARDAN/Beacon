@@ -190,15 +190,16 @@
                   <tbody>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td class="font-weight-bold cursor-pointer" (click)="selectedWeekComments=graphData[i].comments">
+                      <td class="font-weight-bold cursor-pointer" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                          (click)="selectedWeekComments=graphData[i].comments">
                         {{ data.finalForecast }}
                       </td>
                     </ng-container>
                   </tr>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td (dblclick)="data.ml !== undefined && onDblClickInput(i)">
-                        <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
+                      <td (dblclick)="data.ml !== undefined && onDblClickInput(i)" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"  [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= createPlanRequestData.startWeek }"
                                (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined"
                                [class.disabled]="data.ml === undefined"
                                [(ngModel)]="data.fcstValueAdd">
@@ -206,24 +207,22 @@
                     </ng-container>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData">
+                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.ml }}
                     </td>
                   </tr>
                   <tr>
-
-
-                    <td *ngFor="let data of graphData">
+                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.apo }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData">
+                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.actuals }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData">
+                    <td *ngFor="let data of graphData" [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.actualslastyear }}
                     </td>
                   </tr>

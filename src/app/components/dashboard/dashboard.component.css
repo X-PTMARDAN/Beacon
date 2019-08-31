@@ -164,13 +164,17 @@ a:focus, a:hover {
 
 .table-inputbox {
   width: 100%;
-  background-color: #F2F2F2;
+  background-color: #FFFFFF;
   border-left: none;
   border-right: none;
   border-top: none;
   border-bottom: 1px solid grey;
   outline: none;
   text-align: center;
+}
+
+.colored-table-inputbox{
+  background-color: #F2F2F2;
 }
 
 .content-col .panel .table th {
@@ -239,6 +243,10 @@ a:focus, a:hover {
 }
 
 td{
+  background-color: white;
+}
+
+.colored-td{
   background-color: #F2F2F2;
 }
 
