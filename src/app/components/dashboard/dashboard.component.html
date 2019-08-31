@@ -138,27 +138,43 @@
         <div class="d-flex">
           <div class="table-header-col">
             <table>
+              <thead>
               <tr class="header-text invisible">
-                <td>XXXXX</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block"> XXXX</p>
+                </th>
               </tr>
               <tr class="header-text">
-                <td> Final Forecast</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Final Forecast</p>
+                </th>
               </tr>
               <tr class="header-text">
-                <td>Fcst Value Add</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Fcst Value Add</p>
+                </th>
               </tr>
               <tr (click)="putValueInFinal('ML')" class="ml-text">
-                <td> ML Forecast</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block"> ML Forecast</p>
+                </th>
               </tr>
               <tr (click)="putValueInFinal('APO')" class="aop-text">
-                <td>APO Forecast</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">APO Forecast</p>
+                </th>
               </tr>
               <tr class="actual-text">
-                <td>Actuals</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Actuals</p>
+                </th>
               </tr>
               <tr class="header-text">
-                <td>Actuals LY</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Actuals LY</p>
+                </th>
               </tr>
+              </thead>
             </table>
           </div>
           <div class="table-content-col">
@@ -226,25 +242,39 @@
           <div class="table-footer-col">
             <table>
               <tr class="invisible">
-                <td>Total</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Total</p>
+                </th>
               </tr>
               <tr>
-                <td>{{ totalData.finalCastTotal }}</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.finalCastTotal }}</p>
+                </th>
               </tr>
               <tr>
-                <td>{{ totalData.fcstValueAdd || 0 }}</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.fcstValueAdd || 0 }}</p>
+                </th>
               </tr>
               <tr>
-                <td>{{ totalData.mlTotal }}</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.mlTotal }}</p>
+                </th>
               </tr>
               <tr>
-                <td>{{ totalData.apoTotal }}</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.apoTotal }}</p>
+                </th>
               </tr>
               <tr>
-                <td>{{ totalData.actuals }}</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.actuals }}</p>
+                </th>
               </tr>
               <tr>
-                <td>{{ totalData.lastYearTotal }}</td>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal }}</p>
+                </th>
               </tr>
             </table>
           </div>

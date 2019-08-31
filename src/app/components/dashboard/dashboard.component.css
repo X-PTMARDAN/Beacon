@@ -118,9 +118,16 @@ a:focus, a:hover {
   -webkit-overflow-scrolling: touch;
 }
 
+.table-footer-col table,
+.table-header-col table {
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+  max-width: none;
+}
+
 .content-col .panel .table {
   width: 100%;
-  font-size: 0.6rem;
   margin-bottom: 0;
   max-width: none;
   table-layout: fixed;
@@ -142,18 +149,32 @@ a:focus, a:hover {
   background-color: #F2F2F2;
 }
 
+.table-header-col th,
+.table-footer-col th {
+  border: none;
+  padding: 0.60rem !important;
+  font-weight: 500;
+  font-size: 0.7rem;
+}
+
+.table-footer-col th {
+  text-align: center;
+}
+
 .table-content-col .panel .table th {
-  border-bottom: none;
+  border: none;
   width: 65px;
   text-align: center;
   padding: 0.60rem !important;
-  font-weight: normal;
+  font-weight: 500;
+  font-size: 0.7rem;
 }
 
 .table-content-col .panel .table td {
   width: 65px;
   padding: 0.5rem;
   text-align: center;
+  font-size: 0.7rem;
 }
 
 .data-strip {
@@ -183,19 +204,6 @@ td {
   background-color: #F2F2F2;
 }
 
-.content-col .header-col {
-  padding: 0.5rem;
-  font-weight: 700;
-  font-size: 11px;
-}
-
-.content-col .footer-col {
-  padding: 0.5rem;
-  font-weight: 700;
-  font-size: 11px;
-  text-align: center;
-}
-
 .header-text {
   color: #81878E;
 }
@@ -211,6 +219,19 @@ td {
 .aop-text {
   color: #6499F2;
 }
+
+.table-footer-col {
+  min-width: 80px;
+}
+
+.table-header-col {
+  min-width: 120px;
+}
+
+.table-content-col {
+  width: calc(100% - 200px);
+}
+
 
 /* Load and Save Filter Modal Styling */
 
