@@ -339,7 +339,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Save the Plan</h5>
+        <h5 class="modal-title">Save the Plan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" #PlanNameModalBtn><span
           aria-hidden="true">&times;</span></button>
       </div>
@@ -355,17 +355,12 @@
                 <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               </ng-container>
             </button>
-
             <button type="submit" style="margin-left: 15px" (click)="savePlan('base')"
                     class="btn btn-secondary custom-link btn-xs">No
-
-
               <ng-container *ngIf="savePlanLoader">
                 <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               </ng-container>
             </button>
-
-
           </p>
         </form>
       </div>
@@ -381,14 +376,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Save the View</h5>
+        <h5 class="modal-title">Save the View</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" #ViewNameModalBtn><span
           aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="form-control" id="planName" name="planName" placeholder="Please enter the view Name"
-                 #planName ngModel>
+          <input type="text" class="form-control" id="viewName" name="viewName" placeholder="Please enter the view Name"
+                 #viewName ngModel>
           <p class="text-center mt-4">
             <button type="submit" (click)="saveView('base')" class="btn btn-secondary custom-link btn-xs">Ok
               <ng-container *ngIf="saveViewLoader">

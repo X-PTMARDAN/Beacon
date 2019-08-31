@@ -766,7 +766,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  public saveView(planName: string) {
+  public saveView(viewName: string) {
     this.saveViewLoader = true;
     const reqBody: any = {
       user: 'admin',
@@ -774,7 +774,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name).join(','),
       plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name).join(','),
       brand: this.filters[2].values.filter(item => item.isChecked).map(item => item.name).join(','),
-      name: planName,
+      name: viewName,
       startWeek: this.createPlanRequestData.startWeek,
       endWeek: this.createPlanRequestData.endWeek,
       weeklyFinalForecast: []
@@ -789,11 +789,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     reqBody.weeklyFinalForecast = reqBody.weeklyFinalForecast.join(',');
 
     this.skuService.saveView(reqBody).subscribe((res: any) => {
-      this.savePlanLoader = false;
+      this.saveViewLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     }, (error) => {
       console.log(error);
-      this.savePlanLoader = false;
+      this.saveViewLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     });
   }
@@ -809,7 +809,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }).subscribe((res: any) => {
       console.log('Harshit');
       this.loadFilters();
-
     });
     this.saveFilterModalCancel.nativeElement.click();
 
