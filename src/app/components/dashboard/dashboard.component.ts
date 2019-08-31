@@ -801,7 +801,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Save and Load Filter
   public saveFilter(filterName: string) {
     this.filterService.saveFilter({
-
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
