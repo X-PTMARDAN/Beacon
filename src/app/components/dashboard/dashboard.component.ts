@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public createPlanRequestData: any;
   public selectedWeekIndex: number;
+  public currentWeek: number;
 
   // Filters
   public loadedFilters: any = [];
@@ -41,15 +42,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public eventsSubject: Subject<any> = new Subject<any>();
 
   // Constants
-  public lastyearDataPointColor = '#C0504E';
+  private lastyearDataPointColor = '#C0504E';
   private finalForecastPointColor = '#000000';
-  public currentWeek: number;
-
-
-  public aopDataPointColor = '#6495ED';
-  public actualDataPointColor = '#006400';
-  public mlDataPointColor = '#ADD8E6';
-
+  private aopDataPointColor = '#6495ED';
+  private actualDataPointColor = '#006400';
+  private mlDataPointColor = '#ADD8E6';
 
   // Charts
   public chart1;
@@ -217,7 +214,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       customerPlanningGroup: data.customerPlanningGroup,
       plants: data.plants,
     };
-    console.log(this.createPlanRequestData);
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
         page: null,
@@ -266,7 +262,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             {
               startValue: this.createPlanRequestData.startWeek,
               endValue: this.createPlanRequestData.endWeek,
-              color: '#d8d8d8'
+              color: '#F2F3F5'
             }
           ]
         },
@@ -281,22 +277,25 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'Actuals',
             showInLegend: true,
-            legendMarkerColor: this.actualDataPointColor,
             type: 'spline',
+            legendMarkerColor: this.actualDataPointColor,
             lineColor: this.actualDataPointColor,
             dataPoints: this.actualDataPoints
           },
           {
             name: 'Actual LY',
             showInLegend: true,
-            type: 'spline',
+            type: 'line',
+            lineDashType: "dash",
+            legendMarkerColor: this.lastyearDataPointColor,
             lineColor: this.lastyearDataPointColor,
             dataPoints: this.lastYearDataPoints
           },
           {
             name: 'ML Forecast',
             showInLegend: true,
-            type: 'spline',
+            type: 'line',
+            lineDashType: "dash",
             legendMarkerColor: this.mlDataPointColor,
             lineColor: this.mlDataPointColor,
             dataPoints: this.mlDataPoints
@@ -304,7 +303,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'APO Forecast',
             showInLegend: true,
-            type: 'spline',
+            type: 'line',
+            lineDashType: "dash",
             legendMarkerColor: this.aopDataPointColor,
             lineColor: this.aopDataPointColor,
             dataPoints: this.aopDataPoints
@@ -312,8 +312,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'Final Forecast',
             showInLegend: true,
-            type: 'spline',
-            legendMarkerColor: 'FF0000',
+            type: 'line',
+            lineDashType: "dash",
+            legendMarkerColor: this.finalForecastPointColor,
             lineColor: this.finalForecastPointColor,
             dataPoints: this.finalForecastDataPoints
           }

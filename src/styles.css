@@ -4,6 +4,10 @@
   display: none;
 }
 
+.canvasjs-chart-toolbar > button{
+  background-color: transparent;
+}
+
 body {
   background-color: #E4E5E9;
 }
