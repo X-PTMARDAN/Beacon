@@ -219,6 +219,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         page: null,
         reset: true,
       });
+      this.createPlanRequestData.brands = res.req.brands;
       this.processGraphData(res);
       this.createFilterObject(res);
       this.skus = data.forecastingGroups.map((item) => {
@@ -523,6 +524,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         return {name: item, isChecked: true};
       })
     });
+
+    // Push Brands
+    const brands = this.createPlanRequestData.brands;
+    this.filters.push({
+      name: 'Brands',
+      key: 'brands',
+      isExpanded: false,
+      values: brands.map(item => {
+        return {name: item, isChecked: true};
+      })
+    });
   }
 
   private static parseStringToFloat(text) {
@@ -566,9 +578,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public onFilterCheckBoxChange() {
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    /*
+       Customer Planning Group 0
+       Plants Index  1
+       Brands Index 3
+     */
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
-    data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+    data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
       this.chart1.render();
@@ -717,7 +735,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.chart1.render();
   }
 
-  public savePlan(planName: string) {
+  public savePlan() {
     this.savePlanLoader = true;
     const reqBody = {
       data: []
@@ -733,8 +751,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         reqBody.data.push(Object.assign({
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-          cpg: this.createPlanRequestData.customerPlanningGroup,
-          plant: this.createPlanRequestData.plants,
+          cpg:  this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+          plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         }, commentsObj));
       }
     }
@@ -748,34 +766,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  public saveView(planName: string) {
+  public saveView(viewName: string) {
     this.saveViewLoader = true;
-    const reqBody = {
-      data: []
+    const reqBody: any = {
+      user: 'admin',
+      sku: this.skus.filter(item => item.isChecked).map(item => item.name).join(','),
+      cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name).join(','),
+      plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name).join(','),
+      brand: this.filters[2].values.filter(item => item.isChecked).map(item => item.name).join(','),
+      viewName,
+      startWeek: this.createPlanRequestData.startWeek,
+      endWeek: this.createPlanRequestData.endWeek,
+      weeklyFinalForecast: []
     };
 
     for (const data of this.graphData) {
-      const commentsObj = {};
-      for (const index in data.comments) {
-        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
-      }
-
-      if (JSON.stringify(commentsObj) !== '{}') {
-        reqBody.data.push(Object.assign({
-          calendarWeek: data.calenderYearWeek,
-          sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-          cpg: this.createPlanRequestData.customerPlanningGroup,
-          plant: this.createPlanRequestData.plants,
-        }, commentsObj));
+      if (data.week >= this.createPlanRequestData.startWeek) {
+        reqBody.weeklyFinalForecast.push(data.finalForecast);
       }
     }
 
-    this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
-      this.savePlanLoader = false;
+    reqBody.weeklyFinalForecast = reqBody.weeklyFinalForecast.join(',');
+
+    this.skuService.saveView(reqBody).subscribe((res: any) => {
+      this.saveViewLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     }, (error) => {
       console.log(error);
-      this.savePlanLoader = false;
+      this.saveViewLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     });
   }
@@ -783,7 +801,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Save and Load Filter
   public saveFilter(filterName: string) {
     this.filterService.saveFilter({
-
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
@@ -792,7 +809,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }).subscribe((res: any) => {
       console.log('Harshit');
       this.loadFilters();
-
     });
     this.saveFilterModalCancel.nativeElement.click();
 

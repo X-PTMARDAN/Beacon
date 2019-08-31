@@ -168,4 +168,12 @@ export class SKUService {
   public confirmPlan(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}confirmPlanData`, data);
   }
+
+  public saveView(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}saveView`, data);
+  }
+
+  public getViews() {
+    return this.http.get(`${this.apiGatewayUrl}fetchView`);
+  }
 }
