@@ -59,22 +59,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public currentWeek: number;
 
 
+  public APO_color = '#6495ED';
+
+  public Actuals_color = '#006400';
 
 
+  public ML_color = '#ADD8E6';
 
 
-  
-
-  public APO_color='#6495ED';
-
-  public Actuals_color='#006400';
-
-
-  public ML_color='#ADD8E6';
-
-
-  
-  
   // Charts
   public chart1;
   public chart2;
@@ -131,18 +123,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
 
-
-    
-
     this.chart2 = new CanvasJS.Chart('chartContainer2', {
       animationEnabled: true,
 
 
-      axisX:{
+      axisX: {
         valueFormatString: '######',
         gridColor: '#ffffff',
-   
-    },
+
+      },
 
       axisY: {
         valueFormatString: '######',
@@ -151,59 +140,57 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       toolTip: {
         content: '{name}: {y}'
       },
-  
 
 
-     
       data: [{
         type: 'line',
-               gridColor: '#ffffff',
-        labelFontColor: "black",
+        gridColor: '#ffffff',
+        labelFontColor: 'black',
         legendMarkerColor: '#000',
-        dataPoints:  [
+        dataPoints: [
 
 
-          { y: 10, x: 201912}, 
-          { y: 10,x:201913}, 
-          { y: 10, x: 201914}, 
-          { y: 10, x: 201915}, 
-          { y: 10, x: 201916}, 
-          { y: 10, x: 201917}, 
-          { y: 10, x: 201918}, 
-          { y: 10, x: 201919},      
-			{ y: 10, x: 201920},
-			{ y: 20,   x: 201921 },
-			{ y: 35,   x: 201922 },
-			{ y: 17,   x: 201923 },
-			{ y: 20,   x: 201924},
-			{ y: 13,  x: 201925 },
-			{ y: 18,   x: 201926 },
-			{ y: 21,   x: 201927 },
-          { y: 10, x: 201928},
-			{ y: 20,   x: 201929 },
-			{ y: 35,   x: 201930 },
-			{ y: 17,   x: 201931 },
-			{ y: 20,   x: 201932},
-			{ y: 13,  x: 201933 },
-			{ y: 18,   x: 201934 },
-			{ y: 21,   x: 201935 },
-          { y: 10, x: 201936},
-			{ y: 20,   x: 201937 },
-			{ y: 35,   x: 201938 },
-			{ y: 17,   x: 201939 },
-			{ y: 20,   x: 201940},
-			{ y: 13,  x: 201941 },
-			{ y: 18,   x: 201942 },
-			{ y: 21,   x: 201943 },
-          { y: 10, x: 201944},
-			{ y: 20,   x: 201945 },
-			{ y: 35,   x: 201946 },
-			{ y: 17,   x: 201947 },
-			{ y: 20,   x: 201948},
-      { y: 13,  x: 201949 },
-      { y: 13,  x: 201950 },
-			
-		]
+          {y: 10, x: 201912},
+          {y: 10, x: 201913},
+          {y: 10, x: 201914},
+          {y: 10, x: 201915},
+          {y: 10, x: 201916},
+          {y: 10, x: 201917},
+          {y: 10, x: 201918},
+          {y: 10, x: 201919},
+          {y: 10, x: 201920},
+          {y: 20, x: 201921},
+          {y: 35, x: 201922},
+          {y: 17, x: 201923},
+          {y: 20, x: 201924},
+          {y: 13, x: 201925},
+          {y: 18, x: 201926},
+          {y: 21, x: 201927},
+          {y: 10, x: 201928},
+          {y: 20, x: 201929},
+          {y: 35, x: 201930},
+          {y: 17, x: 201931},
+          {y: 20, x: 201932},
+          {y: 13, x: 201933},
+          {y: 18, x: 201934},
+          {y: 21, x: 201935},
+          {y: 10, x: 201936},
+          {y: 20, x: 201937},
+          {y: 35, x: 201938},
+          {y: 17, x: 201939},
+          {y: 20, x: 201940},
+          {y: 13, x: 201941},
+          {y: 18, x: 201942},
+          {y: 21, x: 201943},
+          {y: 10, x: 201944},
+          {y: 20, x: 201945},
+          {y: 35, x: 201946},
+          {y: 17, x: 201947},
+          {y: 20, x: 201948},
+          {y: 13, x: 201949},
+          {y: 13, x: 201950},
+
+        ]
       }]
     });
     this.chart2.render();
@@ -258,23 +245,23 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           itemclick: this.toggleDataSeries.bind(this)
         },
 
-        axisX:{
+        axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
           scaleBreaks: {
-            type: "blank",
+            type: 'blank',
             spacing: 0,
-            customBreaks: [{ 
-              startValue: 201953, 
-              endValue: 202000 
+            customBreaks: [{
+              startValue: 201953,
+              endValue: 202000
             }]
           },
           stripLines: [{
-              
-              value:201935,
-              
+
+            value: 201935,
+
           }]
-      },
+        },
 
         axisY: {
           valueFormatString: '######',
@@ -303,10 +290,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             name: 'ML Forecast',
             showInLegend: true,
 
-            
+
             type: 'spline',
             legendMarkerColor: this.ML_color,
-           
+
             lineColor: this.ML_color,
             dataPoints: this.mlDataPoints
           },
@@ -321,62 +308,51 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           {
             name: 'Final Forecast',
             showInLegend: true,
-            legendMarkerColor: "FF0000",
+            legendMarkerColor: 'FF0000',
             type: 'spline',
             lineColor: this.finalForecastPointColor,
             dataPoints: this.finalForecastDataPoints
           }
         ]
       });
- 
+
       this.chart1.render();
       this.CanvasJSDataAsCSV();
-      
+
       this.selectOptionsModalCancel.nativeElement.click();
     });
   }
+  
+  public CanvasJSDataAsCSV() {
 
 
+    var toolBar = document.getElementsByClassName('canvasjs-chart-toolbar')[0];
 
-
-
-
-
-
-
-
-
-
- public  CanvasJSDataAsCSV() {
-
-
-  var toolBar = document.getElementsByClassName("canvasjs-chart-toolbar")[0];
-
-  var exportCSV = document.createElement('div');
-    var text = document.createTextNode("Save as CSV");
-  exportCSV.setAttribute("style", "padding: 12px 8px; ");
+    var exportCSV = document.createElement('div');
+    var text = document.createTextNode('Save as CSV');
+    exportCSV.setAttribute('style', 'padding: 12px 8px; ');
 
     exportCSV.appendChild(text);
     toolBar.lastChild.appendChild(exportCSV);
-  // var newEle = angular.element("<div class='red'></div>");
-  //   var target = document.getElementById('target');
-  //   angular.element(target).append(newEle);
-   
-  //       var exportCSV = document.createElement('div');
-  //       var text = document.createTextNode("Save as CSV");
-  //       console.log(chart)
-  //    //   exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
-  //       exportCSV.appendChild(text);
+    // var newEle = angular.element("<div class='red'></div>");
+    //   var target = document.getElementById('target');
+    //   angular.element(target).append(newEle);
 
-      //  this.chart1._toolBar.lastChild.appendChild("<div class='red'>Save as CSV</div>");
-  
-}
+    //       var exportCSV = document.createElement('div');
+    //       var text = document.createTextNode("Save as CSV");
+    //       console.log(chart)
+    //    //   exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
+    //       exportCSV.appendChild(text);
 
- convertChartDataToCSV(args) {
+    //  this.chart1._toolBar.lastChild.appendChild("<div class='red'>Save as CSV</div>");
+
+  }
+
+  public convertChartDataToCSV(args) {
     var result, ctr, keys, columnDelimiter, lineDelimiter, data;
     data = args.data || null;
     if (data == null || !data.length) {
-        return null;
+      return null;
     }
     columnDelimiter = args.columnDelimiter || ',';
     lineDelimiter = args.lineDelimiter || '\n';
@@ -384,34 +360,38 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     result = '';
     result += keys.join(columnDelimiter);
     result += lineDelimiter;
-    data.forEach(function (item) {
-        ctr = 0;
-        keys.forEach(function (key) {
-            if (ctr > 0) result += columnDelimiter;
-            result += (!(typeof item[key] === 'undefined' || item[key] === null) ? item[key] : "");
-            ctr++;
-        });
-        result += lineDelimiter;
+    data.forEach(function(item) {
+      ctr = 0;
+      keys.forEach(function(key) {
+        if (ctr > 0) {
+          result += columnDelimiter;
+        }
+        result += (!(typeof item[key] === 'undefined' || item[key] === null) ? item[key] : '');
+        ctr++;
+      });
+      result += lineDelimiter;
     });
     return result;
-}
+  }
 
- parseCSV(args) {
-    var csv = "";
+  public parseCSV(args) {
+    var csv = '';
     for (var i = 0; i < args.chart.options.data.length; i++) {
-        // csv += convertChartDataToCSV({
-        //     data: args.chart.options.data[i].dataPoints
-        // });
+      // csv += convertChartDataToCSV({
+      //     data: args.chart.options.data[i].dataPoints
+      // });
     }
-    if (csv == null) return;
+    if (csv == null) {
+      return;
+    }
     var filename = args.filename || 'chart-data.csv';
     if (!csv.match(/^data:text\/csv/i)) {
-        csv = 'data:text/csv;charset=utf-8,' + csv;
+      csv = 'data:text/csv;charset=utf-8,' + csv;
     }
     this.downloadFile(csv, filename);
-}
+  }
 
-public downloadFile(extData, filename) {
+  public downloadFile(extData, filename) {
     var data = encodeURI(extData);
     var link = document.createElement('a');
     link.setAttribute('href', data);
@@ -419,7 +399,7 @@ public downloadFile(extData, filename) {
     document.body.appendChild(link); // Required for FF
     link.click();
     document.body.removeChild(link);
-}
+  }
 
 // if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 //     module.exports = CanvasJSDataAsCSV;
@@ -434,25 +414,6 @@ public downloadFile(extData, filename) {
 //     //     //window.CanvasJSDataAsCSV = CanvasJSDataAsCSV;
 //     // }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   private toggleDataSeries(e) {
@@ -491,7 +452,7 @@ public downloadFile(extData, filename) {
       if (week.ml !== undefined) {
         newPoint.ml = DashboardComponent.parseStringToFloat(week.ml);
         this.mlDataPoints.push({
-      
+
           x: key,
           y: newPoint.ml,
           color: this.ML_color,
@@ -810,90 +771,81 @@ public downloadFile(extData, filename) {
     }
 
     console.log(JSON.stringify(reqBody.data));
-  
+
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
-      
+
     }, (error) => {
       console.log(error);
       this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
     });
-  
-       this.PlanNameModalBtn.nativeElement.click();
+
+    this.PlanNameModalBtn.nativeElement.click();
   }
 
+  public saveView(planName: string) {
+    this.saveViewLoader = true;
+    const reqBody = {
+      data: []
+    };
 
+    for (const data of this.graphData) {
+      const commentsObj = {};
+      for (const index in data.comments) {
+        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
+      }
 
-////// save view modal
-
-public saveView(planName: string) {
-  this.saveViewLoader = true;
-  const reqBody = {
-    data: []
-  };
-
-  for (const data of this.graphData) {
-    const commentsObj = {};
-    for (const index in data.comments) {
-      commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
+      if (JSON.stringify(commentsObj) !== '{}') {
+        reqBody.data.push(Object.assign({
+          calendarWeek: data.calenderYearWeek,
+          sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+          cpg: this.createPlanRequestData.customerPlanningGroup,
+          plant: this.createPlanRequestData.plants,
+        }, commentsObj));
+      }
     }
 
-    if (JSON.stringify(commentsObj) !== '{}') {
-      reqBody.data.push(Object.assign({
-        calendarWeek: data.calenderYearWeek,
-        sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-        cpg: this.createPlanRequestData.customerPlanningGroup,
-        plant: this.createPlanRequestData.plants,
-      }, commentsObj));
-    }
-  }
+    console.log(JSON.stringify(reqBody.data));
 
-  console.log(JSON.stringify(reqBody.data));
+    this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+      this.ViewNameModalBtn.nativeElement.click();
+      this.savePlanLoader = false;
 
-  this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+    }, (error) => {
+      console.log(error);
+      this.savePlanLoader = false;
+    });
+
     this.ViewNameModalBtn.nativeElement.click();
-    this.savePlanLoader = false;
-    
-  }, (error) => {
-    console.log(error);
-    this.savePlanLoader = false;
-  });
-
-     this.ViewNameModalBtn.nativeElement.click();
-}
-
-
-
-
-
+  }
 
   // Save and Load Filter
   public saveFilter(filterName: string) {
     this.filterService.saveFilter({
-      
+
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     }).subscribe((res: any) => {
-      console.log("Harshit");
+      console.log('Harshit');
       this.loadFilters();
-     
+
     });
     this.saveFilterModalCancel.nativeElement.click();
-   
+
   }
 
   public createFilterString(filters: string[]): string {
     let resultString = '';
-    for (const filter of filters) { 
-          resultString = `${resultString},${filter}`
+    for (const filter of filters) {
+      resultString = `${resultString},${filter}`;
     }
     return resultString.slice(1);
-    }
+  }
 
   public loadFilters() {
     this.filterService.getFilters({
