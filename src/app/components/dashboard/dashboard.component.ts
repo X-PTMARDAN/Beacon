@@ -735,7 +735,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.chart1.render();
   }
 
-  public savePlan(planName: string) {
+  public savePlan() {
     this.savePlanLoader = true;
     const reqBody = {
       data: []

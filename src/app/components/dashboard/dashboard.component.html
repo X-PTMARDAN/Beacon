@@ -344,25 +344,14 @@
           aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <form>
-          <input type="text" class="form-control" id="planName" name="planName"
-                 placeholder="Are you sure, you want to save the plan? " #planName ngModel>
-          <p class="text-center mt-4">
-            <button type="submit" (click)="savePlan('base')" class="btn btn-secondary custom-link btn-xs">Yes
-
-
-              <ng-container *ngIf="savePlanLoader">
-                <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-              </ng-container>
-            </button>
-            <button type="submit" style="margin-left: 15px" (click)="savePlan('base')"
-                    class="btn btn-secondary custom-link btn-xs">No
-              <ng-container *ngIf="savePlanLoader">
-                <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-              </ng-container>
-            </button>
-          </p>
-        </form>
+        <div class="d-flex justify-content-center">
+          <button type="submit" (click)="savePlan()" class="btn btn-secondary custom-link btn-xs mr-2">Yes
+            <ng-container *ngIf="savePlanLoader">
+              <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            </ng-container>
+          </button>
+          <button type="submit" class="btn btn-secondary custom-link btn-">No</button>
+        </div>
       </div>
     </div>
   </div>
@@ -381,11 +370,12 @@
           aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #saveViewForm="ngForm">
           <input type="text" class="form-control" id="viewName" name="viewName" placeholder="Please enter the view Name"
-                 #viewName ngModel>
+                 #saveViewName ngModel required>
           <p class="text-center mt-4">
-            <button type="submit" (click)="saveView('base')" class="btn btn-secondary custom-link btn-xs">Ok
+            <button type="submit" [disabled]="!saveViewForm.valid" (click)="saveView('base')"
+                    class="btn btn-secondary custom-link btn-xs" [class.disabled]="!saveViewForm.valid">Ok
               <ng-container *ngIf="saveViewLoader">
                 <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
               </ng-container>
