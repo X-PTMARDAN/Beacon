@@ -219,6 +219,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         page: null,
         reset: true,
       });
+      this.createPlanRequestData.brands = res.req.brands;
       this.processGraphData(res);
       this.createFilterObject(res);
       this.skus = data.forecastingGroups.map((item) => {
@@ -523,6 +524,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         return {name: item, isChecked: true};
       })
     });
+
+    // Push Brands
+    const brands = this.createPlanRequestData.brands;
+    this.filters.push({
+      name: 'Brands',
+      key: 'brands',
+      isExpanded: false,
+      values: brands.map(item => {
+        return {name: item, isChecked: true};
+      })
+    });
   }
 
   private static parseStringToFloat(text) {
@@ -566,9 +578,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public onFilterCheckBoxChange() {
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    /*
+       Customer Planning Group 0
+       Plants Index  1
+       Brands Index 3
+     */
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
-    data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+    data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
       this.chart1.render();
@@ -770,7 +788,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }
 
-    this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+    this.skuService.saveView(reqBody.data).subscribe((res: any) => {
       this.savePlanLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     }, (error) => {
