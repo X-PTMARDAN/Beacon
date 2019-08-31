@@ -751,8 +751,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         reqBody.data.push(Object.assign({
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-          cpg: this.createPlanRequestData.customerPlanningGroup,
-          plant: this.createPlanRequestData.plants,
+          cpg:  this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+          plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         }, commentsObj));
       }
     }
