@@ -333,11 +333,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     exportCSV.setAttribute('style', 'padding: 12px 8px; ');
     exportCSV.appendChild(text);
 
-    // tslint:disable-next-line:only-arrow-functions
     exportCSV.addEventListener('mouseover', function() {
       exportCSV.setAttribute('style', 'padding: 12px 8px; background-color: #2196F3; color: white');
     });
-    // tslint:disable-next-line:only-arrow-functions
     exportCSV.addEventListener('mouseout', function() {
       exportCSV.setAttribute('style', 'padding: 12px 8px; background-color: white; color: black');
     });
@@ -411,8 +409,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     for (const week of data) {
       const newPoint: any = {
-        fcstValueAdd: '',
         comments: [],
+        userComment: []
       };
       const key: string = week.calenderYearWeek;
       newPoint.calenderYearWeek = key;
@@ -664,6 +662,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.selectedWeekIndex) {
       if (this.graphData[this.selectedWeekIndex].comments.length >= 1) {
         this.graphData[this.selectedWeekIndex].comments[0] = data.comment;
+        this.graphData[this.selectedWeekIndex].userComment[0] = data.comment;
         while (this.graphData[this.selectedWeekIndex].comments.length > 1) {
           this.graphData[this.selectedWeekIndex].comments.pop();
         }
@@ -726,8 +725,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     for (const data of this.graphData) {
       const commentsObj = {};
-      for (const index in data.comments) {
-        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.comments[index];
+      for (const index in data.userComment) {
+        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.userComment[index];
       }
 
       if (JSON.stringify(commentsObj) !== '{}') {
@@ -739,20 +738,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }, commentsObj));
       }
     }
-
-    console.log(JSON.stringify(reqBody.data));
-
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
-      this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
-
+      this.PlanNameModalBtn.nativeElement.click();
     }, (error) => {
       console.log(error);
-      this.PlanNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
+      this.PlanNameModalBtn.nativeElement.click();
     });
-
-    this.PlanNameModalBtn.nativeElement.click();
   }
 
   public saveView(planName: string) {
@@ -777,18 +770,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }
 
-    console.log(JSON.stringify(reqBody.data));
-
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
-      this.ViewNameModalBtn.nativeElement.click();
       this.savePlanLoader = false;
-
+      this.ViewNameModalBtn.nativeElement.click();
     }, (error) => {
       console.log(error);
       this.savePlanLoader = false;
+      this.ViewNameModalBtn.nativeElement.click();
     });
-
-    this.ViewNameModalBtn.nativeElement.click();
   }
 
   // Save and Load Filter
