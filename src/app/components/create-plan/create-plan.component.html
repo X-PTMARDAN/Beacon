@@ -38,52 +38,7 @@
 </div>
 
 <div class="planDemand" *ngIf="showPanels.showPlanDemand">
-  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
-    <div>
-      <h3 class="text-center">Select Planning Horizon</h3>
-    
-      <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
-      
-    </div>
-    <div class="mb-4">
-      <form #horizonForm='ngForm' class="d-flex justify-content-center">
-        <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
-          <label for="startWeek" class="d-none">
-            <span class="sr-only">Start Week</span>
-          </label>
-          <div class="input-group input-append date">
-            <span class="pr-1">From:</span>
-            <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> -->
-                        <input type="week" id="startWeek" value="2019-W36" name="startWeek" readonly>
-
-            <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-          </div>
-        </div>
-        <div class="custom-input ml-2 pt-1 pb-1 pl-1 pr-2">
-          <label for="endWeek" class="d-none">
-            <span class="sr-only">End Week</span>
-          </label>
-          <div class="input-group input-append date">
-            <span class="pr-1">To:</span>
-            <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek" [min]="minEndWeek" required>
-            <span class="input-group-addon add-on" (click)="openCalender()"><i class="fa fa-calendar"
-                                                                               aria-hidden="true"></i></span>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="d-flex justify-content-around w-75 mb-5">
-      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(15)">+ 18 weeks</a>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(84)">+ 78 weeks</a>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" tabindex="-1" (click)="addYears(3)">+ 3 years</a>
-    </div>
-    <button class="btn btn-primary nextBtn p-2" type="button" [class.disabled]="!horizonForm.valid"
-            [disabled]="!horizonForm.valid" (click)="activeStepOrder=3">Continue to Filter SKUs
-    </button>
-  </div>
-  <div *ngIf="activeStepOrder === 3" class="mt-4 container">
+  <div *ngIf="activeStepOrder === 2" class="mt-4 container">
     <div class="row">
       <div class="col-md-4">
         <div class="box-main">
@@ -165,12 +120,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
@@ -196,14 +145,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
@@ -229,14 +170,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
@@ -262,12 +195,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
@@ -293,10 +220,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
@@ -398,12 +321,12 @@
       </div>
     </div>
     <div class="mt-5 d-flex flex-column align-items-center">
-      <button class="btn btn-primary nextBtn p-2 mb-4" type="button" [class.disabled]="!this.selectedSKUs.length"
-              [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=4">Continue to Select CPG and Plant
+      <button class="btn btn-primary nextBtn p-2 mb-4" type="button" style="min-width: 200px;" [class.disabled]="!this.selectedSKUs.length"
+              [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=3">Continue to Select CPG and Plant
       </button>
     </div>
   </div>
-  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
+  <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
     <div>
       <h3 class="text-center">Select CPG and Plant</h3>
     </div>
@@ -431,10 +354,55 @@
         </ng-multiselect-dropdown>
       </div>
     </form>
-    <button class="btn btn-primary nextBtn p-2 mt-3" style="width: 200px;" type="button"  (click)="createPlan()"
+    <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button"  (click)="activeStepOrder=4"
             [class.disabled]="!CPGAndPlantForm.valid || createPlanLoader"
-            [disabled]="!CPGAndPlantForm.valid || createPlanLoader">Create Plan
-      <span *ngIf="createPlanLoader"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> </span>
+            [disabled]="!CPGAndPlantForm.valid || createPlanLoader">Continue to Select Horizon
+    </button>
+  </div>
+  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Select Planning Horizon</h3>
+
+      <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
+
+    </div>
+    <div class="mb-4">
+      <form #horizonForm='ngForm' class="d-flex justify-content-center">
+        <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+          <label for="startWeek" class="d-none">
+            <span class="sr-only">Start Week</span>
+          </label>
+          <div class="input-group input-append date">
+            <span class="pr-1">From:</span>
+            <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> -->
+            <input type="week" id="startWeek" value="2019-W36" name="startWeek" readonly>
+
+            <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <div class="custom-input ml-2 pt-1 pb-1 pl-1 pr-2">
+          <label for="endWeek" class="d-none">
+            <span class="sr-only">End Week</span>
+          </label>
+          <div class="input-group input-append date">
+            <span class="pr-1">To:</span>
+            <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek" [min]="minEndWeek" required>
+            <span class="input-group-addon add-on" (click)="openCalender()"><i class="fa fa-calendar"
+                                                                               aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex justify-content-around w-75 mb-5">
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(15)">+ 18 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(84)">+ 78 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" tabindex="-1" (click)="addYears(3)">+ 3 years</a>
+    </div>
+    <button class="btn btn-primary nextBtn p-2" type="button" style="min-width: 200px;" [class.disabled]="!horizonForm.valid"
+            [disabled]="!horizonForm.valid" (click)="createPlan()">
+      Create Plan <span *ngIf="createPlanLoader">  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> </span>
     </button>
   </div>
 </div>

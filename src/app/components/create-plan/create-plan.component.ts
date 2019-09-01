@@ -392,13 +392,13 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         text: 'Select Option'
       },
       {
-        text: 'Select Planning Horizon'
-      },
-      {
         text: 'Filter SKUs'
       },
       {
         text: 'Select CPG and Plant'
+      },
+      {
+        text: 'Select Planning Horizon'
       }
     ];
 
