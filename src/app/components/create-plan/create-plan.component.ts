@@ -138,6 +138,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showRevisitPlan();
       } else if (data.page === 'revisit-view') {
         this.showRevisitView();
+      } else if (data.page === 'change-horizon') {
+        this.showPlanDemand();
+        this.activeStepOrder = 4;
       }
     });
   }
