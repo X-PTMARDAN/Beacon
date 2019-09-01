@@ -212,8 +212,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return parseFloat(parseFloat(text).toFixed(2));
   }
 
-  // Create Plan Component Event Subscriber
+  // Event Handlers
+  public onChangeHorizonClick() {
+    this.eventsSubject.next({
+      page: 'change-horizon',
+      data: {
 
+      }
+    });
+    this.selectOptionsModalBtn.nativeElement.click();
+  }
+
+  // Create Plan Component Event Subscriber
   public eventListener(eventData: any) {
     if (eventData.type === 'create-plan') {
       this.createPlan(eventData.data);
