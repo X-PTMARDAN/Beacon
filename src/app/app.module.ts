@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FilterPipe} from './pipe/filter.pipe';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
     WizardComponent,
     SidebarComponent,
     FotterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
