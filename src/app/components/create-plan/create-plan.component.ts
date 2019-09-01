@@ -115,7 +115,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     // Select Horizon init
     const currentDate = new Date();
-    // currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
+    currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
     this.startWeek = currentDate.getFullYear() + '-W' + (CreatePlanComponent.getCurrentWeek(currentDate));
 
 
@@ -182,8 +182,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public addWeeks(numOfWeeks: number) {
     const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
     currentDate.setDate(currentDate.getDate() + 7 * numOfWeeks);
-    this.endWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
+    const week = CreatePlanComponent.getCurrentWeek(currentDate);
+    this.endWeek = currentDate.getFullYear() + '-W' + (week.toString().length === 1 ? `0${week}` : week);
   }
 
   public addYears(numOfYears: number) {
