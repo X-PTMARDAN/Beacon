@@ -102,7 +102,7 @@
                        (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                   <span class="font-weight-bold">Packs Type<i class="fa float-right"
-                                                                          [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                              [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -127,7 +127,7 @@
                        (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                   <span class="font-weight-bold">Sub-brand Name <i class="fa float-right"
-                                                                          [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                                   [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -152,7 +152,7 @@
                        (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                   <span class="font-weight-bold">Product Category <i class="fa float-right"
-                                                                          [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                                     [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -177,7 +177,7 @@
                        (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                   <span class="font-weight-bold">Alcohol Percentage <i class="fa float-right"
-                                                                          [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                                       [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -202,7 +202,7 @@
                        (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                   <span class="font-weight-bold">Pack Size <i class="fa float-right"
-                                                                          [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                              [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -227,7 +227,7 @@
                        (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                   <span class="font-weight-bold">Units Per Pack <i class="fa float-right"
-                                                                          [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                                   [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -303,7 +303,8 @@
                   <div class="panel-body" style="border-top: 0;">
                     <div class="brand-selector brand-selector2">
                       <ul>
-                        <li class="d-flex" *ngFor="let selectedSKU of selectedSKUs| filter: getCallback(true);let i=index">
+                        <li class="d-flex"
+                            *ngFor="let selectedSKU of selectedSKUs| filter: getCallback(true);let i=index">
                           <a href="javascript:void(0);" class="text-danger pr-1"
                              (click)="removeItems(selectedSKU.id)"><i
                             class="fa fa-minus-circle" aria-hidden="true"></i></a>
@@ -321,7 +322,8 @@
       </div>
     </div>
     <div class="mt-5 d-flex flex-column align-items-center">
-      <button class="btn btn-primary nextBtn p-2 mb-4" type="button" style="min-width: 200px;" [class.disabled]="!this.selectedSKUs.length"
+      <button class="btn btn-primary nextBtn p-2 mb-4" type="button" style="min-width: 200px;"
+              [class.disabled]="!this.selectedSKUs.length"
               [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=3">Continue to Select CPG and Plant
       </button>
     </div>
@@ -354,7 +356,7 @@
         </ng-multiselect-dropdown>
       </div>
     </form>
-    <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button"  (click)="activeStepOrder=4"
+    <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="activeStepOrder=4"
             [class.disabled]="!CPGAndPlantForm.valid || createPlanLoader"
             [disabled]="!CPGAndPlantForm.valid || createPlanLoader">Continue to Select Horizon
     </button>
@@ -398,9 +400,11 @@
       <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
       <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
       <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(74)">+ 78 weeks</a>
-      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" tabindex="-1" (click)="addYears(3)">+ 3 years</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" tabindex="-1" (click)="addYears(3)">+ 3
+        years</a>
     </div>
-    <button class="btn btn-primary nextBtn p-2" type="button" style="min-width: 200px;" [class.disabled]="!horizonForm.valid"
+    <button class="btn btn-primary nextBtn p-2" type="button" style="min-width: 200px;"
+            [class.disabled]="!horizonForm.valid"
             [disabled]="!horizonForm.valid" (click)="createPlan()">
       Create Plan <span *ngIf="createPlanLoader">  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> </span>
     </button>
@@ -439,35 +443,19 @@
 </div>
 
 <div class="revisitView" *ngIf="showPanels.showRevisitView">
-    <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
-      <div class="d-flex flex-wrap justify-content-around">
+  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+    <div class="d-flex flex-wrap justify-content-around">
+      <ng-container *ngFor="let view of views; let i=index">
         <div class="img-container">
-          <h5 align="center">View 1</h5>
-          <a href="javascript:void(0);" (click)="showPanels.showRevisitView=false; showPlanDemand();">
+          <h5 align="center">{{view.name| propercase}}</h5>
+          <a href="javascript:void(0);">
             <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
           </a>
         </div>
-        <div class="img-container">
-          <h5 align="center">View 2</h5>
-          <a href="javascript:void(0);" class="disabled">
-            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
-          </a>
-        </div>
-        <div class="img-container">
-          <h5 align="center">View 3</h5>
-          <a href="javascript:void(0);" class="disabled">
-            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
-          </a>
-        </div>
-        <div class="img-container">
-          <h5 align="center">Scenario 4</h5>
-          <a href="javascript:void(0);" class="disabled">
-            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
-          </a>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </div>
+</div>
 
 <div class="portfolioMgmt" *ngIf="showPanels.showPortfolioMgmt">
   <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">

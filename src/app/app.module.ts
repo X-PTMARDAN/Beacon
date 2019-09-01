@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FilterPipe} from './pipe/filter.pipe';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { LoginComponent } from './components/login/login.component';
+import {PropercasePipe} from './pipe/propercase.pipe';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     PortfolioComponent,
     PhaseComponent,
     FilterPipe,
+    PropercasePipe,
     WizardComponent,
     SidebarComponent,
     FotterComponent,

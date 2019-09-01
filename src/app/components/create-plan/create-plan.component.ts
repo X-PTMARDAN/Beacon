@@ -3,6 +3,7 @@ import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
 import {Observable} from 'rxjs';
+import {ViewService} from '../../services/view.service';
 
 enum STEPS {
   'SELECT_OPTION' = 1,
@@ -57,6 +58,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public searchText = '';
   public selectedSearchText = '';
 
+  // Views
+  public views = [];
+
   public subs: any = {
     items$: null,
     brands$: null,
@@ -65,13 +69,11 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     customerPlanningGroup$: null,
     plants$: null,
   };
-
   public toggleClass: any = {
     isBrandExpanded: false,
     isSegmentExpanded: false,
     isPackExpanded: false,
   };
-
   public wizardList = [
     {
       text: 'Select Option'
@@ -81,32 +83,33 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private skuService: SKUService,
-    private fb: FormBuilder
+    private viewService: ViewService
   ) {
   }
 
   ngOnInit() {
-    this.subs.brands$ = this.skuService.getBrands().subscribe((response: any) => {
+    this.skuService.getBrands().subscribe((response: any) => {
       this.brands = response;
     });
-    this.subs.segments$ = this.skuService.getSegments().subscribe((response: any) => {
+    this.skuService.getSegments().subscribe((response: any) => {
       this.segments = response;
     });
-    this.subs.packs$ = this.skuService.getPacks().subscribe((response: any) => {
+    this.skuService.getPacks().subscribe((response: any) => {
       this.packs = response;
 
     });
-    this.subs.items$ = this.skuService.getSkUList({
+    this.skuService.getSkUList({
       filterBrands: []
     }).subscribe((response: any) => {
       this.SKUs = response;
     });
-
-    this.subs.plants$ = this.skuService.getPlants().subscribe((response: any) => {
+    this.skuService.getPlants().subscribe((response: any) => {
       this.plants = response;
     });
-
-    this.subs.customerPlanningGroup$ = this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
+    this.viewService.getViews().subscribe((response: any) => {
+      this.views = response;
+    });
+    this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
       this.customerPlanningGroups = response;
     });
 
@@ -117,8 +120,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
     this.startWeek = currentDate.getFullYear() + '-W' + (CreatePlanComponent.getCurrentWeek(currentDate));
-
-
     currentDate.setDate(currentDate.getDate());
     this.minEndWeek = currentDate.getFullYear() + '-W' + CreatePlanComponent.getCurrentWeek(currentDate);
 

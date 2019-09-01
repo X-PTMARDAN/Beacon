@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {Subject} from 'rxjs';
 import {SidebarService} from '../../services/sidebar.service';
 import {FilterService} from '../../services/filter.service';
+import {ViewService} from '../../services/view.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -86,7 +87,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private skuService: SKUService,
     private sidebarService: SidebarService,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private viewService: ViewService
   ) {
   }
 
@@ -788,7 +790,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     reqBody.weeklyFinalForecast = reqBody.weeklyFinalForecast.join(',');
 
-    this.skuService.saveView(reqBody).subscribe((res: any) => {
+    this.viewService.saveView(reqBody).subscribe((res: any) => {
       this.saveViewLoader = false;
       this.ViewNameModalBtn.nativeElement.click();
     }, (error) => {
