@@ -180,7 +180,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
     this.chart2.render();
 
-    this.currentWeek = DashboardComponent.getCurrentWeek(new Date());
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
+    this.currentWeek = DashboardComponent.getCurrentWeek(currentDate);
 
     // SideBar Service
     this.sidebarService.getSideBarClickEvent$().subscribe((page) => {
