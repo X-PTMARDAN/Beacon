@@ -225,11 +225,11 @@ td {
 }
 
 .table-header-col {
-  min-width: 120px;
+  min-width: 100px;
 }
 
 .table-content-col {
-  width: calc(100% - 200px);
+  width: calc(100% - 180px);
 }
 
 
