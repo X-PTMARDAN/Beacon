@@ -825,6 +825,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       } else {
         this.graphData[this.selectedWeekIndex].comments.push(data.comment);
+        this.graphData[this.selectedWeekIndex].userComment.push(data.comment);
       }
     }
     this.finalForecastCommentModalCancel.nativeElement.click();
@@ -887,19 +888,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (JSON.stringify(commentsObj) !== '{}') {
-        reqBody.data.push(Object.assign({
+        const obj = {
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
           plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
-        }, commentsObj));
+        };
+        reqBody.data.push(Object.assign(obj, commentsObj));
       }
     }
+
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.savePlanLoader = false;
       this.PlanNameModalBtn.nativeElement.click();
     }, (error) => {
-      console.log(error);
       this.savePlanLoader = false;
       this.PlanNameModalBtn.nativeElement.click();
     });
