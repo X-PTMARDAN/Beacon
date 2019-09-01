@@ -218,9 +218,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public onChangeHorizonClick() {
     this.eventsSubject.next({
       page: 'change-horizon',
-      data: {
-
-      }
+      data: JSON.parse(JSON.stringify(this.createPlanRequestData))
     });
     this.selectOptionsModalBtn.nativeElement.click();
   }

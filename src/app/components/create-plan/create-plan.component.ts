@@ -140,6 +140,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showRevisitView();
       } else if (data.page === 'change-horizon') {
         this.showPlanDemand();
+        this.processChangeHorizonData(data.data);
         this.activeStepOrder = 4;
       }
     });
@@ -470,5 +471,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         text: 'PM3'
       }
     ];
+  }
+
+  public processChangeHorizonData(data: any) {
+    
   }
 }
