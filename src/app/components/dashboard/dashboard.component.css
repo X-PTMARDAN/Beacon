@@ -76,38 +76,6 @@ a:focus, a:hover {
   padding: 5px 10px;
 }
 
-
-/* Table Styling */
-.content-col .header-col {
-  padding: 0.5rem;
-  font-weight: 700;
-  font-size: 11px;
-}
-
-.content-col .footer-col {
-  padding: 0.5rem;
-  font-weight: 700;
-  font-size: 11px;
-  text-align: center;
-}
-
-.header-text {
-  color: #81878E;
-}
-
-.actual-text {
-  color: #20C9A4;
-}
-
-.ml-text {
-  color: #D8ACFF;
-}
-
-.aop-text {
-  color: #6499F2;
-}
-
-
 /* Events Holidays Promo container */
 .events-container {
   font-size: 15px;
@@ -124,7 +92,6 @@ a:focus, a:hover {
 .events-container div {
   margin-top: 2px;
 }
-
 
 /* Modal Styling */
 .modal-footer {
@@ -143,6 +110,7 @@ a:focus, a:hover {
   min-height: 90vh;
 }
 
+/* Table Styling */
 .fix-width {
   width: 100%;
   overflow-y: hidden;
@@ -150,12 +118,16 @@ a:focus, a:hover {
   -webkit-overflow-scrolling: touch;
 }
 
-.content-col .panel {
+.table-footer-col table,
+.table-header-col table {
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+  max-width: none;
 }
 
 .content-col .panel .table {
   width: 100%;
-  font-size: 0.6rem;
   margin-bottom: 0;
   max-width: none;
   table-layout: fixed;
@@ -173,22 +145,36 @@ a:focus, a:hover {
   text-align: center;
 }
 
-.colored-table-inputbox{
+.colored-table-inputbox {
   background-color: #F2F2F2;
 }
 
-.content-col .panel .table th {
-  border-bottom: none;
+.table-header-col th,
+.table-footer-col th {
+  border: none;
+  padding: 0.60rem !important;
+  font-weight: 500;
+  font-size: 0.7rem;
+}
+
+.table-footer-col th {
+  text-align: center;
+}
+
+.table-content-col .panel .table th {
+  border: none;
   width: 65px;
   text-align: center;
   padding: 0.60rem !important;
-  font-weight: normal;
+  font-weight: 500;
+  font-size: 0.7rem;
 }
 
-.content-col .panel .table td {
+.table-content-col .panel .table td {
   width: 65px;
   padding: 0.5rem;
   text-align: center;
+  font-size: 0.7rem;
 }
 
 .data-strip {
@@ -210,19 +196,41 @@ a:focus, a:hover {
   justify-content: space-between;
 }
 
-.data-strip ul li {
-  /*display: inline-block;*/
-  /*width: 14.2%;*/
-  /*text-align: left;*/
+td {
+  background-color: white;
 }
 
-.data-strip ul li:last-child {
-  /*text-align: right;*/
+.colored-td {
+  background-color: #F2F2F2;
 }
 
-/*.shadow mt-2 {*/
-/*  position: relative;*/
-/*}*/
+.header-text {
+  color: #81878E;
+}
+
+.actual-text {
+  color: #20C9A4;
+}
+
+.ml-text {
+  color: #D8ACFF;
+}
+
+.aop-text {
+  color: #6499F2;
+}
+
+.table-footer-col {
+  min-width: 80px;
+}
+
+.table-header-col {
+  min-width: 120px;
+}
+
+.table-content-col {
+  width: calc(100% - 200px);
+}
 
 
 /* Load and Save Filter Modal Styling */
@@ -242,15 +250,7 @@ a:focus, a:hover {
   border-color: #27AE60;
 }
 
-td{
-  background-color: white;
-}
-
-.colored-td{
-  background-color: #F2F2F2;
-}
-
-.highlight{
+.highlight {
   padding: 1px;
   background-color: #34495E;
   border-radius: 3px;
