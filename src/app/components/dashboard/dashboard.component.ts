@@ -208,6 +208,22 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
   }
 
+  private static parseStringToFloat(text) {
+    return parseFloat(parseFloat(text).toFixed(2));
+  }
+
+  // Create Plan Component Event Subscriber
+
+  public eventListener(eventData: any) {
+    if (eventData.type === 'create-plan') {
+      this.createPlan(eventData.data);
+    } else if (eventData.type === 'view-plan') {
+      this.viewPlan(eventData.data);
+    } else {
+
+    }
+  }
+
   public createPlan(data: any) {
     this.createPlanRequestData = {
       startWeek: data.startWeek,
@@ -329,6 +345,128 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  public viewPlan(data: any) {
+    Object.assign(this.createPlanRequestData, {
+      forecastingGroups: data.forecastingGroups,
+      customerPlanningGroup: data.customerPlanningGroup,
+      plants: data.plants,
+    });
+    this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
+      this.eventsSubject.next({
+        page: null,
+        reset: true,
+      });
+      this.createPlanRequestData.brands = res.req.brands;
+      this.processGraphData(res);
+      this.createFilterObject(res);
+      this.skus = data.forecastingGroups.map((item) => {
+        return {
+          isChecked: true,
+          name: item
+        };
+      });
+      this.chart1 = new CanvasJS.Chart('chartContainer1', {
+        animationEnabled: true,
+        exportEnabled: true,
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
+              {
+                startValue: 201953,
+                endValue: 202000
+              },
+              {
+                startValue: 202053,
+                endValue: 202100
+              },
+              {
+                startValue: 202153,
+                endValue: 202200
+              },
+              {
+                startValue: 202253,
+                endValue: 202300
+              }
+            ]
+          },
+          stripLines: [
+            {
+              startValue: this.createPlanRequestData.startWeek,
+              endValue: this.createPlanRequestData.endWeek,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+        axisY: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+        toolTip: {
+          content: '{name}: {y}'
+        },
+        data: [
+          {
+            name: 'Actuals',
+            showInLegend: true,
+            type: 'spline',
+            legendMarkerColor: this.actualDataPointColor,
+            lineColor: this.actualDataPointColor,
+            dataPoints: this.actualDataPoints
+          },
+          {
+            name: 'Actual LY',
+            showInLegend: true,
+            type: 'line',
+            lineDashType: 'dash',
+            legendMarkerColor: this.lastyearDataPointColor,
+            lineColor: this.lastyearDataPointColor,
+            dataPoints: this.lastYearDataPoints
+          },
+          {
+            name: 'ML Forecast',
+            showInLegend: true,
+            type: 'line',
+            lineDashType: 'dash',
+            legendMarkerColor: this.mlDataPointColor,
+            lineColor: this.mlDataPointColor,
+            dataPoints: this.mlDataPoints
+          },
+          {
+            name: 'APO Forecast',
+            showInLegend: true,
+            type: 'line',
+            lineDashType: 'dash',
+            legendMarkerColor: this.aopDataPointColor,
+            lineColor: this.aopDataPointColor,
+            dataPoints: this.aopDataPoints
+          },
+          {
+            name: 'Final Forecast',
+            showInLegend: true,
+            type: 'line',
+            lineDashType: 'dash',
+            legendMarkerColor: this.finalForecastPointColor,
+            lineColor: this.finalForecastPointColor,
+            dataPoints: this.finalForecastDataPoints
+          }
+        ]
+      });
+      this.chart1.render();
+      this.CanvasJSDataAsCSV();
+      this.selectOptionsModalCancel.nativeElement.click();
+    });
+  }
+
+  // Download CSV Handlers
   public CanvasJSDataAsCSV() {
     const toolBar = document.getElementsByClassName('canvasjs-chart-toolbar')[0];
     const exportCSV = document.createElement('div');
@@ -387,6 +525,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     document.body.removeChild(link);
   }
 
+  // Toggle Data Series from Graph
   private toggleDataSeries(e) {
     e.dataSeries.visible = !(typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible);
     this.chart1.render();
@@ -537,10 +676,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         return {name: item, isChecked: true};
       })
     });
-  }
-
-  private static parseStringToFloat(text) {
-    return parseFloat(parseFloat(text).toFixed(2));
   }
 
   // Comment on Graph
@@ -753,7 +888,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         reqBody.data.push(Object.assign({
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-          cpg:  this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+          cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
           plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         }, commentsObj));
       }

@@ -448,7 +448,7 @@
       <ng-container *ngFor="let view of views; let i=index">
         <div class="img-container">
           <h5 align="center">{{view.name| propercase}}</h5>
-          <a href="javascript:void(0);">
+          <a href="javascript:void(0);" (click)="viewPlan(view)">
             <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
           </a>
         </div>

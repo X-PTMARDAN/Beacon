@@ -331,7 +331,7 @@
       </div>
       <div class="modal-body">
         <app-create-plan [events]="eventsSubject.asObservable()"
-                         (submit)="createPlan($event)"></app-create-plan>
+                         (submit)="eventListener($event)"></app-create-plan>
       </div>
     </div>
   </div>
