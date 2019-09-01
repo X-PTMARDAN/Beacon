@@ -347,6 +347,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public viewPlan(data: any) {
     Object.assign(this.createPlanRequestData, {
+      startWeek: data.startWeek,
+      endWeek: data.endWeek,
       forecastingGroups: data.forecastingGroups,
       customerPlanningGroup: data.customerPlanningGroup,
       plants: data.plants,
@@ -789,6 +791,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         finalValue = this.graphData[index].initialFinalForecast + value < 0 ? 0 : this.graphData[index].initialFinalForecast + value;
       } else {
         finalValue = this.graphData[index].initialFinalForecast;
+        return;
       }
 
       const reqBody = {
@@ -796,10 +799,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         sku: this.skus.filter(item => item.isChecked).map(item => item.name),
         user: 'admin',
-        finalForecast: this.graphData[index].initialFinalForecast + finalValue,
-        fva: finalValue,
-        calendarWeek: week,
-        comments1: 'comment1'
+        finalForecast: finalValue,
+        fva: value,
+        calendarWeek: week
       };
 
       this.skuService.savePlan(reqBody).subscribe((res: any) => {
