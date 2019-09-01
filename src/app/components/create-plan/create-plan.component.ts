@@ -140,6 +140,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showRevisitView();
       } else if (data.page === 'change-horizon') {
         this.showPlanDemand();
+        this.processChangeHorizonData(data.data);
         this.activeStepOrder = 4;
       }
     });
@@ -470,5 +471,27 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         text: 'PM3'
       }
     ];
+  }
+
+  public processChangeHorizonData(data: any) {
+    // Select Filters
+    const forecastingGroups = data.forecastingGroups;
+    const plants = data.plants;
+    const customerPlanningGroups = data.customerPlanningGroup;
+
+    for (const forecastingGroup of forecastingGroups) {
+      const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
+      this.addItems(this.SKUs[index].id);
+    }
+
+    for (const plant of plants) {
+      const index = this.plants.findIndex((item) => item.name === plant);
+      this.selectedPlants.push(this.plants[index]);
+    }
+
+    for (const customerPlanningGroup of customerPlanningGroups) {
+      const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
+      this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+    }
   }
 }
