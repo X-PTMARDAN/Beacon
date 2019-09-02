@@ -25,7 +25,6 @@ export class SKUService {
     );
   }
 
-
   public getAlcP() {
     return this.http.get(`${this.apiGatewayUrl}alcoholPercentage`).pipe(
       map((AlcP: any) => {
@@ -36,9 +35,6 @@ export class SKUService {
     );
   }
 
-
-
-
   public getUnitperpack() {
     return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
       map((Unitperpack: any) => {
@@ -48,9 +44,6 @@ export class SKUService {
       })
     );
   }
-
-
-
 
   public getSubbrand() {
     return this.http.get(`${this.apiGatewayUrl}subBrand`).pipe(

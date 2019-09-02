@@ -3,13 +3,11 @@ import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
 import {Observable} from 'rxjs';
 import {ViewService} from '../../services/view.service';
-import { FilterService } from 'src/app/services/filter.service';
+import {FilterService} from 'src/app/services/filter.service';
 
 enum STEPS {
   'SELECT_OPTION' = 1,
 }
-
-
 
 @Component({
   selector: 'app-create-plan',
@@ -64,17 +62,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public segments = [];
 
 
-
-
 //harshit
 
-public filters: any = [];
-public skus: any = [];
-
-
-
-
-
+  public filters: any = [];
+  public skus: any = [];
 
 
   public Subbrand_array = [];
@@ -112,7 +103,7 @@ public skus: any = [];
     private router: Router,
     private skuService: SKUService,
     private viewService: ViewService,
-    private filterService:FilterService
+    private filterService: FilterService
   ) {
   }
 
@@ -120,24 +111,25 @@ public skus: any = [];
     this.skuService.getBrands().subscribe((response: any) => {
       this.brands = response;
     });
-
     this.skuService.getAlcP().subscribe((response: any) => {
       this.AlcP = response;
     });
-
-
     this.skuService.getUnitperpack().subscribe((response: any) => {
-      console.log("CHECK-->"+this.Unitperpack.toString);
+      console.log('CHECK-->' + this.Unitperpack.toString);
       this.Unitperpack = response;
     });
-
-
-
     this.skuService.getSubbrand().subscribe((response: any) => {
       this.Subbrand = response;
     });
+    this.filterService.getFilters({
+      user: 'admin'
+    }).subscribe((res: any) => {
+      this.loadedFilters = res.map((item: any) => {
+        item.isSelected = false;
+        return item;
+      });
+    });
 
-    
     this.skuService.getSegments().subscribe((response: any) => {
       this.segments = response;
     });
@@ -149,7 +141,7 @@ public skus: any = [];
       filterBrands: [],
       filterSubBrandName: [],
       filterAcoholPerc: [],
-      filterUnitsPerPack:[]
+      filterUnitsPerPack: []
     }).subscribe((response: any) => {
       this.SKUs = response;
     });
@@ -162,20 +154,6 @@ public skus: any = [];
     this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
       this.customerPlanningGroups = response;
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // Active Page
@@ -209,25 +187,7 @@ public skus: any = [];
         this.activeStepOrder = 4;
       }
     });
-
-
-    this.loadFilters();
-
   }
-
-  public loadFilters() {
-    this.filterService.getFilters({
-      user: 'admin'
-    }).subscribe((res: any) => {
-      this.loadedFilters = res.map((item) => {
-        item.isSelected = false;
-        return item;
-      });
-    });
-  }
-
-
-
 
   ngOnDestroy(): void {
     this.subs.brands$.unsubscribe();
@@ -313,151 +273,6 @@ public skus: any = [];
     this.SKUs.splice(itemIndex, 1);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-  // HARSHIT change STARTS
-
-
-
-
-public filterItemClick(filterIndex: number) {
-  console.log("Harsht->");
-  for (const filter of this.loadedFilters) {
-    filter.isSelected = false;
-  }
-
-  this.loadedFilters[filterIndex].isSelected = !this.loadedFilters[filterIndex].isSelected;
-  this.loadSelectedFilter();
-
-}
-
-
-
-
-public createFilterObject(res: any) {
- this.filters = [];
-
-  // Push customer Planning Group
-  const customerPlanningGroup = this.createPlanRequestData.customerPlanningGroup;
-  this.filters.push({
-    name: 'Customer Planning Groups',
-    key: 'customerPlanningGroup',
-    isExpanded: false,
-    values: customerPlanningGroup.map(item => {
-      return {name: item, isChecked: true};
-    })
-  });
-
-  // Push plant
-  const plant = this.createPlanRequestData.plants;
-  this.filters.push({
-    name: 'Plants',
-    key: 'plant',
-    isExpanded: false,
-    values: plant.map(item => {
-      return {name: item, isChecked: true};
-    })
-  });
-
-  // Push Brands
-  const brands = this.createPlanRequestData.brands;
-  this.filters.push({
-    name: 'Brands',
-    key: 'brands',
-    isExpanded: false,
-    values: brands.map(item => {
-      return {name: item, isChecked: true};
-    })
-  });
-}
-
-
-
-
-
-public loadSelectedFilter() {
-  let selectedFilter;
-  for (const filter of this.loadedFilters) {
-    if (filter.isSelected) {
-      selectedFilter = filter;
-      break;
-    }
-  }
-
-  // Todo: Change keys
-  this.filters[1] = selectedFilter.plant.map(item => {
-    return {
-      name: item,
-      isChecked: true
-    };
-  });
-  this.filters[0]= selectedFilter.cpg.map(item => {
-    return {
-      name: item,
-      isChecked: true
-    };
-  });
-
-  this.skus = selectedFilter.sku.map(item => {
-    return {
-      name: item,
-      isChecked: true
-    };
-  });
-
-  selectedFilter.isSelected = false;
-  this.onFilterCheckBoxChange();
-  //this.loadFilterModalCancel.nativeElement.click();
-}
-
-
-
-public onFilterCheckBoxChange() {
-  const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
-  /*
-     Customer Planning Group 0
-     Plants Index  1
-     Brands Index 3
-   */
-  data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
-  data.customerPlanningGroup = this.filters[0].filter(item => item.isChecked).map(item => item.name);
-  data.plants = this.filters[1].filter(item => item.isChecked).map(item => item.name);
-  data.startWeek=this.startWeek;
-  data.endWeek=this.startWeek+18;
-  //data.brands = this.filters[2].filter(item => item.isChecked).map(item => item.name);
-  this.skuService.getGraphData(data).subscribe((res: any) => {
-
-    console.log("Harshit->"+data.toString);
-   // this.processGraphData(res);
-   // this.chart1.render();
-  });
-}
-
-
-
-
-
-
-
-
-// HARSHIT CHANGE ENDS
-
-
-
-
-
-
-
-
   public addItemsAll() {
     const onlyAddFiltered = this.searchText.trim();
     const toBeRemovedItemIds = [];
@@ -529,12 +344,12 @@ public onFilterCheckBoxChange() {
     const brands = [];
     const AlcP = [];
     const Subbrand_array = [];
-    const Subbrand= [];
-   // const Unitperpack = [];
+    const Subbrand = [];
+    // const Unitperpack = [];
 
-    const unitPerPack=[];
+    const unitPerPack = [];
 
-    const AlcoholPercentage=[];
+    const AlcoholPercentage = [];
 
     for (const brand of this.brands) {
       if (brand.isChecked) {
@@ -544,7 +359,7 @@ public onFilterCheckBoxChange() {
 
     for (const subbrand of this.Subbrand) {
       if (subbrand.isChecked) {
-          Subbrand.push(subbrand.name);
+        Subbrand.push(subbrand.name);
       }
     }
 
@@ -564,7 +379,7 @@ public onFilterCheckBoxChange() {
       filterBrands: brands,
       filterSubBrandName: Subbrand,
       filterAcoholPerc: AlcoholPercentage,
-      filterUnitsPerPack:unitPerPack
+      filterUnitsPerPack: unitPerPack
     };
   }
 
@@ -651,9 +466,9 @@ public onFilterCheckBoxChange() {
     this.activeStepOrder = step;
   }
 
-  public showPlanDemand() {
+  public showPlanDemand(activeStepOrder = 2) {
     this.showPanels.showPlanDemand = true;
-    this.activeStepOrder = 2;
+    this.activeStepOrder = activeStepOrder;
     this.wizardList = [
       {
         text: 'Select Option'
@@ -671,61 +486,6 @@ public onFilterCheckBoxChange() {
         text: 'Select Planning Horizon'
       }
     ];
-
-  }
-
-
-
-
-
-// Harshit Update for Bookmarked
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  public showPlanDemand1() {
-    this.showPanels.showPlanDemand = true;
-    this.activeStepOrder = 3;
-    this.wizardList = [
-      {
-        text: 'Select Option'
-      },
-      {
-        text: 'Bookmarked'
-      },
-      {
-        text: 'Filter SKUs'
-      },
-      {
-        text: 'Select CPG and Plant'
-      },
-      {
-        text: 'Select Planning Horizon'
-      }
-    ];
-
   }
 
   public showRevisitPlan() {
@@ -793,5 +553,26 @@ public onFilterCheckBoxChange() {
       const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
       this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
     }
+  }
+
+  // Loaded Filer Item Click
+  public loadedFilterItemClick(index) {
+    const loadedFilter = this.loadedFilters[index];
+    this.addWeeks(18);
+    const data = {
+      startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+      endWeek: CreatePlanComponent.transformWeek(this.endWeek),
+      forecastingGroups:  loadedFilter.sku.map((item)=> {
+        return {
+          name: item
+        };
+      }),
+      customerPlanningGroup: loadedFilter.cpg,
+      plants: loadedFilter.plant,
+    };
+    this.outputDateEmitter.emit({
+      type: 'create-plan',
+      data
+    });
   }
 }

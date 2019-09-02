@@ -38,40 +38,25 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="planDemand" *ngIf="showPanels.showPlanDemand">
-
-
-    <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
-        <div class="d-flex flex-wrap justify-content-around">
-            <div class="img-container">
-                <h5 align="center">Customised Plan</h5>
-                <a href="javascript:void(0);" (click)="showPlanDemand1();">
-                  <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
-                </a>
-              </div>
-          <ng-container *ngFor="let view of loadedFilters; let i=index">
-            <div class="img-container" style="margin-left: 25px">
-              <h5 align="center">{{view.name| propercase}}</h5>
-              <a href="javascript:void(0);" (click)="filterItemClick(i);">
-                <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png"/>
-              </a>
-            </div>
-          </ng-container>
-        </div>
+  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+    <div class="d-flex flex-wrap justify-content-around">
+      <div class="img-container">
+        <h5 class="text-center">Customised Plan</h5>
+        <a href="javascript:void(0);" (click)="showPlanDemand(3);">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+        </a>
       </div>
-
+      <ng-container *ngFor="let view of loadedFilters; let i=index">
+        <div class="img-container" style="margin-left: 25px">
+          <h5 align="center">{{view.name| propercase}}</h5>
+          <a href="javascript:void(0);" (click)="loadedFilterItemClick(i);">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png"/>
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
   <div *ngIf="activeStepOrder === 3" class="mt-4 container">
     <div class="row">
       <div class="col-md-4">
@@ -104,15 +89,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
@@ -120,7 +96,7 @@
                        (click)="toggleClass.isAlcPExpanded = !toggleClass.isAlcPExpanded"
                        aria-expanded="true" aria-controls="collapseOne">
                                   <span class="font-weight-bold">Alcohol Percentage <i class="fa float-right"
-                                                                           [ngClass]="[ toggleClass.isAlcPExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                                       [ngClass]="[ toggleClass.isAlcPExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -138,14 +114,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
@@ -153,7 +121,7 @@
                        (click)="toggleClass.isUnitperpackExpanded = !toggleClass.isUnitperpackExpanded"
                        aria-expanded="true" aria-controls="collapseOne">
                                   <span class="font-weight-bold">Unit Per Pack <i class="fa float-right"
-                                                                           [ngClass]="[ toggleClass.isUnitperpackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                                  [ngClass]="[ toggleClass.isUnitperpackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -171,22 +139,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
@@ -194,7 +146,7 @@
                        (click)="toggleClass.isSubbrandExpanded = !toggleClass.isSubbrandExpanded"
                        aria-expanded="true" aria-controls="collapseOne">
                                   <span class="font-weight-bold">Sub Brand<i class="fa float-right"
-                                                                           [ngClass]="[ toggleClass.isSubbrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                                                                             [ngClass]="[ toggleClass.isSubbrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
                     </a>
                   </h4>
                 </div>
@@ -212,17 +164,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-         
-
             </div>
           </div>
           <div class="btm-url d-flex justify-content-between">
@@ -306,11 +247,6 @@
       </button>
     </div>
   </div>
-
-
-
-
-
   <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
     <div>
       <h3 class="text-center">Select CPG and Plant</h3>
@@ -348,8 +284,7 @@
     <div>
       <h3 class="text-center">Select Planning Horizon</h3>
 
-      
- 
+
       <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
 
     </div>
@@ -361,8 +296,8 @@
           </label>
           <div class="input-group input-append date">
             <span class="pr-1">From:</span>
-             <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> 
-            
+            <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>
+
 
             <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
           </div>
@@ -374,7 +309,8 @@
           <div class="input-group input-append date">
             <span class="pr-1">To:</span>
             <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek" [min]="minEndWeek" required>
-            <span class="input-group-addon add-on" (click)="openCalender()"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+            <span class="input-group-addon add-on" (click)="openCalender()"><i class="fa fa-calendar"
+                                                                               aria-hidden="true"></i></span>
           </div>
         </div>
       </form>
