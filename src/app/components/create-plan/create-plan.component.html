@@ -37,8 +37,38 @@
   </div>
 </div>
 
+
+
+
+
+
+<div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+  <div class="d-flex flex-wrap justify-content-around">
+      <div class="img-container">
+          <h5 align="center">Customised Plan</h5>
+          <a href="javascript:void(0);" (click)="showPlanDemand1();">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+          </a>
+        </div>
+    <ng-container *ngFor="let view of loadedFilters; let i=index">
+      <div class="img-container" style="margin-left: 25px">
+        <h5 align="center">{{view.name| propercase}}</h5>
+        <a href="javascript:void(0);" >
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+
+
+
+
+
 <div class="planDemand" *ngIf="showPanels.showPlanDemand">
-  <div *ngIf="activeStepOrder === 2" class="mt-4 container">
+  <div *ngIf="activeStepOrder === 3" class="mt-4 container">
     <div class="row">
       <div class="col-md-4">
         <div class="box-main">
@@ -268,7 +298,7 @@
     <div class="mt-5 d-flex flex-column align-items-center">
       <button class="btn btn-primary nextBtn p-2 mb-4" type="button" style="min-width: 200px;"
               [class.disabled]="!this.selectedSKUs.length"
-              [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=3">Continue to Select CPG and Plant
+              [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=4">Continue to Select CPG and Plant
       </button>
     </div>
   </div>
@@ -276,8 +306,8 @@
 
 
 
-  
-  <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
+
+  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
     <div>
       <h3 class="text-center">Select CPG and Plant</h3>
     </div>
@@ -305,12 +335,12 @@
         </ng-multiselect-dropdown>
       </div>
     </form>
-    <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="activeStepOrder=4"
+    <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="activeStepOrder=5"
             [class.disabled]="!CPGAndPlantForm.valid || createPlanLoader"
             [disabled]="!CPGAndPlantForm.valid || createPlanLoader">Continue to Select Horizon
     </button>
   </div>
-  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
+  <div *ngIf="activeStepOrder === 5" class="mt-5 d-flex flex-column align-items-center">
     <div>
       <h3 class="text-center">Select Planning Horizon</h3>
 

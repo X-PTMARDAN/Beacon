@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
 import {Observable} from 'rxjs';
 import {ViewService} from '../../services/view.service';
+import { FilterService } from 'src/app/services/filter.service';
 
 enum STEPS {
   'SELECT_OPTION' = 1,
@@ -67,6 +68,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   // Views
   public views = [];
 
+  public loadedFilters: any = [];
+
   public subs: any = {
     items$: null,
     brands$: null,
@@ -89,7 +92,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private skuService: SKUService,
-    private viewService: ViewService
+    private viewService: ViewService,
+    private filterService:FilterService
   ) {
   }
 
@@ -171,7 +175,25 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.activeStepOrder = 4;
       }
     });
+
+
+    this.loadFilters();
+
   }
+
+  public loadFilters() {
+    this.filterService.getFilters({
+      user: 'admin'
+    }).subscribe((res: any) => {
+      this.loadedFilters = res.map((item) => {
+        item.isSelected = false;
+        return item;
+      });
+    });
+  }
+
+
+
 
   ngOnDestroy(): void {
     this.subs.brands$.unsubscribe();
@@ -456,6 +478,63 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.wizardList = [
       {
         text: 'Select Option'
+      },
+      {
+        text: 'Bookmarked'
+      },
+      {
+        text: 'Filter SKUs'
+      },
+      {
+        text: 'Select CPG and Plant'
+      },
+      {
+        text: 'Select Planning Horizon'
+      }
+    ];
+
+  }
+
+
+
+
+
+// Harshit Update for Bookmarked
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public showPlanDemand1() {
+    this.showPanels.showPlanDemand = true;
+    this.activeStepOrder = 3;
+    this.wizardList = [
+      {
+        text: 'Select Option'
+      },
+      {
+        text: 'Bookmarked'
       },
       {
         text: 'Filter SKUs'
