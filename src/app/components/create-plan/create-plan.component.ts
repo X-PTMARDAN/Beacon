@@ -182,9 +182,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       } else if (data.page === 'revisit-view') {
         this.showRevisitView();
       } else if (data.page === 'change-horizon') {
-        this.showPlanDemand();
+        this.showPlanDemand(4);
         this.processChangeHorizonData(data.data);
-        this.activeStepOrder = 4;
       }
     });
   }
@@ -541,17 +540,23 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     for (const forecastingGroup of forecastingGroups) {
       const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
-      this.addItems(this.SKUs[index].id);
+      if (index > -1) {
+        this.addItems(this.SKUs[index].id);
+      }
     }
 
     for (const plant of plants) {
       const index = this.plants.findIndex((item) => item.name === plant);
-      this.selectedPlants.push(this.plants[index]);
+      if (index > -1) {
+        this.selectedPlants.push(this.plants[index]);
+      }
     }
 
     for (const customerPlanningGroup of customerPlanningGroups) {
       const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
-      this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+      if (index > -1) {
+        this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+      }
     }
   }
 
@@ -562,7 +567,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const data = {
       startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),
-      forecastingGroups:  loadedFilter.sku.map((item)=> {
+      forecastingGroups: loadedFilter.sku.map((item) => {
         return {
           name: item
         };
