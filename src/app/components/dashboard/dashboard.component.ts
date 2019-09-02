@@ -377,6 +377,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           name: item
         };
       });
+
+      console.log("hsfgerbe->"+this.currentWeek);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         exportEnabled: true,

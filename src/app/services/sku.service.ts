@@ -25,6 +25,43 @@ export class SKUService {
     );
   }
 
+
+  public getAlcP() {
+    return this.http.get(`${this.apiGatewayUrl}alcoholPercentage`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getUnitperpack() {
+    return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
+      map((Unitperpack: any) => {
+        return Unitperpack.map((Unitperpack) => {
+          return {name: Unitperpack, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getSubbrand() {
+    return this.http.get(`${this.apiGatewayUrl}subBrand`).pipe(
+      map((subBrand: any) => {
+        return subBrand.map((subBrand) => {
+          return {name: subBrand, isChecked: false};
+        });
+      })
+    );
+  }
+
   public getSegments() {
     return of([
       {

@@ -51,7 +51,13 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   // Select Sku
   public brands = [];
+  public AlcP = [];
+  public Unitperpack = [];
+
+  public Subbrand = [];
   public segments = [];
+
+  public Subbrand_array = [];
   public packs = [];
   public SKUs = [];
   public selectedSKUs = [];
@@ -91,6 +97,24 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.skuService.getBrands().subscribe((response: any) => {
       this.brands = response;
     });
+
+    this.skuService.getAlcP().subscribe((response: any) => {
+      this.AlcP = response;
+    });
+
+
+    this.skuService.getUnitperpack().subscribe((response: any) => {
+      console.log("CHECK-->"+this.Unitperpack.toString);
+      this.Unitperpack = response;
+    });
+
+
+
+    this.skuService.getSubbrand().subscribe((response: any) => {
+      this.Subbrand = response;
+    });
+
+    
     this.skuService.getSegments().subscribe((response: any) => {
       this.segments = response;
     });
@@ -99,7 +123,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     });
     this.skuService.getSkUList({
-      filterBrands: []
+      filterBrands: [],
+      filterSubBrandName: [],
+      filterAcoholPerc: [],
+      filterUnitsPerPack:[]
     }).subscribe((response: any) => {
       this.SKUs = response;
     });
@@ -148,6 +175,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.brands$.unsubscribe();
+
+    this.subs.Subbrand_array$.unsubscribe();
     this.subs.packs$.unsubscribe();
     this.subs.segments$.unsubscribe();
     this.subs.items$.unsubscribe();
@@ -297,8 +326,14 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   private getFiltersObject() {
     const brands = [];
-    const segments = [];
-    const packs = [];
+    const AlcP = [];
+    const Subbrand_array = [];
+    const Subbrand= [];
+   // const Unitperpack = [];
+
+    const unitPerPack=[];
+
+    const AlcoholPercentage=[];
 
     for (const brand of this.brands) {
       if (brand.isChecked) {
@@ -306,22 +341,29 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       }
     }
 
-    for (const segment of this.segments) {
-      if (segment.isChecked) {
-        segments.push(segment.name);
+    for (const subbrand of this.Subbrand) {
+      if (subbrand.isChecked) {
+          Subbrand.push(subbrand.name);
       }
     }
 
-    for (const pack of this.packs) {
-      if (pack.isChecked) {
-        segments.push(pack.name);
+    for (const alcp of this.AlcP) {
+      if (alcp.isChecked) {
+        AlcoholPercentage.push(alcp.name);
+      }
+    }
+
+    for (const unit of this.Unitperpack) {
+      if (unit.isChecked) {
+        unitPerPack.push(unit.name);
       }
     }
 
     return {
       filterBrands: brands,
-      filterSegments: segments,
-      filterPacks: packs,
+      filterSubBrandName: Subbrand,
+      filterAcoholPerc: AlcoholPercentage,
+      filterUnitsPerPack:unitPerPack
     };
   }
 
