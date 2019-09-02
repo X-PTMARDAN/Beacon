@@ -187,7 +187,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public addWeeks(numOfWeeks: number) {
     const currentDate = new Date();
-    //currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
+    currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
     currentDate.setDate(currentDate.getDate() + 7 * numOfWeeks);
     const week = CreatePlanComponent.getCurrentWeek(currentDate);
     this.endWeek = currentDate.getFullYear() + '-W' + (week.toString().length === 1 ? `0${week}` : week);
