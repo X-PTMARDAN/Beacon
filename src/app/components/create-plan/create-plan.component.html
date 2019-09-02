@@ -42,24 +42,7 @@
 
 
 
-<div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
-  <div class="d-flex flex-wrap justify-content-around">
-      <div class="img-container">
-          <h5 align="center">Customised Plan</h5>
-          <a href="javascript:void(0);" (click)="showPlanDemand1();">
-            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
-          </a>
-        </div>
-    <ng-container *ngFor="let view of loadedFilters; let i=index">
-      <div class="img-container" style="margin-left: 25px">
-        <h5 align="center">{{view.name| propercase}}</h5>
-        <a href="javascript:void(0);" >
-          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
-        </a>
-      </div>
-    </ng-container>
-  </div>
-</div>
+
 
 
 
@@ -68,6 +51,27 @@
 
 
 <div class="planDemand" *ngIf="showPanels.showPlanDemand">
+
+
+    <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+        <div class="d-flex flex-wrap justify-content-around">
+            <div class="img-container">
+                <h5 align="center">Customised Plan</h5>
+                <a href="javascript:void(0);" (click)="showPlanDemand1();">
+                  <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+                </a>
+              </div>
+          <ng-container *ngFor="let view of loadedFilters; let i=index">
+            <div class="img-container" style="margin-left: 25px">
+              <h5 align="center">{{view.name| propercase}}</h5>
+              <a href="javascript:void(0);" >
+                <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+              </a>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
   <div *ngIf="activeStepOrder === 3" class="mt-4 container">
     <div class="row">
       <div class="col-md-4">
