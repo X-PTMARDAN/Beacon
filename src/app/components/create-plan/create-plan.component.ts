@@ -9,6 +9,8 @@ enum STEPS {
   'SELECT_OPTION' = 1,
 }
 
+
+
 @Component({
   selector: 'app-create-plan',
   templateUrl: './create-plan.component.html',
@@ -20,6 +22,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public minEndWeek: string;
   public createPlanLoader = false;
+
+
+  public createPlanRequestData: any;
 
   public showPanels = {
     showPlanDemand: false,
@@ -57,6 +62,20 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public Subbrand = [];
   public segments = [];
+
+
+
+
+//harshit
+
+public filters: any = [];
+public skus: any = [];
+
+
+
+
+
+
 
   public Subbrand_array = [];
   public packs = [];
@@ -143,6 +162,21 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
       this.customerPlanningGroups = response;
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Active Page
     this.activeStepOrder = STEPS.SELECT_OPTION;
@@ -278,6 +312,151 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.selectedSKUs.push(item);
     this.SKUs.splice(itemIndex, 1);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  // HARSHIT change STARTS
+
+
+
+
+public filterItemClick(filterIndex: number) {
+  console.log("Harsht->");
+  for (const filter of this.loadedFilters) {
+    filter.isSelected = false;
+  }
+
+  this.loadedFilters[filterIndex].isSelected = !this.loadedFilters[filterIndex].isSelected;
+  this.loadSelectedFilter();
+
+}
+
+
+
+
+public createFilterObject(res: any) {
+ this.filters = [];
+
+  // Push customer Planning Group
+  const customerPlanningGroup = this.createPlanRequestData.customerPlanningGroup;
+  this.filters.push({
+    name: 'Customer Planning Groups',
+    key: 'customerPlanningGroup',
+    isExpanded: false,
+    values: customerPlanningGroup.map(item => {
+      return {name: item, isChecked: true};
+    })
+  });
+
+  // Push plant
+  const plant = this.createPlanRequestData.plants;
+  this.filters.push({
+    name: 'Plants',
+    key: 'plant',
+    isExpanded: false,
+    values: plant.map(item => {
+      return {name: item, isChecked: true};
+    })
+  });
+
+  // Push Brands
+  const brands = this.createPlanRequestData.brands;
+  this.filters.push({
+    name: 'Brands',
+    key: 'brands',
+    isExpanded: false,
+    values: brands.map(item => {
+      return {name: item, isChecked: true};
+    })
+  });
+}
+
+
+
+
+
+public loadSelectedFilter() {
+  let selectedFilter;
+  for (const filter of this.loadedFilters) {
+    if (filter.isSelected) {
+      selectedFilter = filter;
+      break;
+    }
+  }
+
+  // Todo: Change keys
+  this.filters[1] = selectedFilter.plant.map(item => {
+    return {
+      name: item,
+      isChecked: true
+    };
+  });
+  this.filters[0]= selectedFilter.cpg.map(item => {
+    return {
+      name: item,
+      isChecked: true
+    };
+  });
+
+  this.skus = selectedFilter.sku.map(item => {
+    return {
+      name: item,
+      isChecked: true
+    };
+  });
+
+  selectedFilter.isSelected = false;
+  this.onFilterCheckBoxChange();
+  //this.loadFilterModalCancel.nativeElement.click();
+}
+
+
+
+public onFilterCheckBoxChange() {
+  const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+  /*
+     Customer Planning Group 0
+     Plants Index  1
+     Brands Index 3
+   */
+  data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+  data.customerPlanningGroup = this.filters[0].filter(item => item.isChecked).map(item => item.name);
+  data.plants = this.filters[1].filter(item => item.isChecked).map(item => item.name);
+  data.startWeek=this.startWeek;
+  data.endWeek=this.startWeek+18;
+  //data.brands = this.filters[2].filter(item => item.isChecked).map(item => item.name);
+  this.skuService.getGraphData(data).subscribe((res: any) => {
+
+    console.log("Harshit->"+data.toString);
+   // this.processGraphData(res);
+   // this.chart1.render();
+  });
+}
+
+
+
+
+
+
+
+
+// HARSHIT CHANGE ENDS
+
+
+
+
+
+
+
 
   public addItemsAll() {
     const onlyAddFiltered = this.searchText.trim();

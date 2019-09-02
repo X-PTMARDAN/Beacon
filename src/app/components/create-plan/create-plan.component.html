@@ -64,8 +64,8 @@
           <ng-container *ngFor="let view of loadedFilters; let i=index">
             <div class="img-container" style="margin-left: 25px">
               <h5 align="center">{{view.name| propercase}}</h5>
-              <a href="javascript:void(0);" >
-                <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+              <a href="javascript:void(0);" (click)="filterItemClick(i);">
+                <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png"/>
               </a>
             </div>
           </ng-container>
