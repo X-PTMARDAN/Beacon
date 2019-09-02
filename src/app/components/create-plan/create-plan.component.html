@@ -365,7 +365,8 @@
     <div>
       <h3 class="text-center">Select Planning Horizon</h3>
 
-      <p class="text-center">Current Week {{ startWeek.slice(-2) }}, {{startWeek.substr(0, 4)}}</p>
+      
+      <p class="text-center">Current Week {{ startWeek.slice(-2) - 1 }}, {{startWeek.substr(0, 4)}}</p>
 
     </div>
     <div class="mb-4">
@@ -376,8 +377,8 @@
           </label>
           <div class="input-group input-append date">
             <span class="pr-1">From:</span>
-            <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> -->
-            <input type="week" id="startWeek" value="2019-W36" name="startWeek" readonly>
+             <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> 
+            
 
             <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
           </div>

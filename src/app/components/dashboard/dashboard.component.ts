@@ -412,7 +412,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           },
           stripLines: [
             {
-              startValue: this.createPlanRequestData.startWeek,
+              startValue: this.currentWeek,
               endValue: this.createPlanRequestData.endWeek,
               color: '#F2F3F5'
             }
@@ -901,6 +901,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         const obj = {
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+          user:"admin",
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
           plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         };
