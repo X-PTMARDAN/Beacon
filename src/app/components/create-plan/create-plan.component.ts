@@ -189,12 +189,12 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subs.brands$.unsubscribe();
+  //  this.subs.brands$.unsubscribe();
 
-    this.subs.Subbrand_array$.unsubscribe();
-    this.subs.packs$.unsubscribe();
-    this.subs.segments$.unsubscribe();
-    this.subs.items$.unsubscribe();
+  //  this.subs.Subbrand_array$.unsubscribe();
+   // this.subs.packs$.unsubscribe();
+ //   this.subs.segments$.unsubscribe();
+ //   this.subs.items$.unsubscribe();
   }
 
   private static getCurrentWeek(date: Date) {
