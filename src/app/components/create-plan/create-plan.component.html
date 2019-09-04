@@ -296,7 +296,11 @@
           </label>
           <div class="input-group input-append date">
             <span class="pr-1">From:</span>
-            <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>
+            <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> 
+
+            <!-- <input type="week" value="2019-W39" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> -->
+
+          
 
 
             <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
@@ -366,7 +370,7 @@
   <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
     <div class="d-flex flex-wrap justify-content-around">
       <ng-container *ngFor="let view of views; let i=index">
-        <div class="img-container">
+        <div class="img-container" style="margin-left: 25px">
           <h5 align="center">{{view.name| propercase}}</h5>
           <a href="javascript:void(0);" (click)="viewPlan(view)">
             <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">

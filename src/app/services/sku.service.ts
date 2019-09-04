@@ -191,6 +191,11 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
   }
 
+
+  public getFeatureGraphData(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable2`, data);
+  }
+
   public savePlan(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}savePlanData`, data);
   }

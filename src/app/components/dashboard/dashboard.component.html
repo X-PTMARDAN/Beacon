@@ -63,11 +63,11 @@
     <hr>
     <div class="mb-2">
       <div>
-        <span style="font-weight: bold">SKUs</span>
+        <span style="font-weight: bold">Forecasting Group</span>
         <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
       </div>
       <div class="input-group mt-2">
-        <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search SKU">
+        <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search FG">
         <div class="input-group-append">
           <span class="input-group-text"><i class="fa fa-search"></i></span>
         </div>
@@ -88,7 +88,7 @@
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold">Forecast Analysis</p>
-            <p class="ml-2 text-muted">Load Week {{currentWeek}}</p>
+            <p class="ml-2 text-muted">Load Week 201938</p>
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
@@ -116,10 +116,10 @@
         <div class="d-flex justify-content-between pt-1 pr-1">
           <p class="font-weight-bold ml-2 pt-2">Feature Analysis </p>
           <div class="form-group m-0">
-            <select name="plant" class="minimal form-control p-0 pr-1">
-              <option selected>Baseline</option>
-              <option>Promo Effect</option>
-              <option>Weather effect</option>
+            <select name="plant" #t class="minimal form-control p-0 pr-1" (change)="test(t.value)">
+              <option selected value="Baseline">Baseline</option>
+              <option value="Promo">Promo Effect</option>
+              <option value="Weather">Weather effect</option>
             </select>
           </div>
         </div>
@@ -156,7 +156,7 @@
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Fcst Value Add</p>
+                  <p class="m-0 week-block">Fcst Value</p>
                 </th>
               </tr>
               <tr (click)="putValueInFinal('ML')" class="ml-text">
@@ -295,7 +295,7 @@
   </div>
   <div class="events-col pt-1 pb-3 pl-2 pr-2">
     <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
-      <div class="mt-2">
+      <!-- <div class="mt-2">
         <h4>Features</h4>
         <div class="m-1 p-1 d-flex">
           <div>
@@ -310,7 +310,7 @@
           <p class="m-0">Weather Effect</p>
         </div>
 
-      </div>
+      </div> -->
 
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <h4>Comments</h4>
