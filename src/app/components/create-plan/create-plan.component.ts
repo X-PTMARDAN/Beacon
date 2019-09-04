@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {SKUService} from '../../services/sku.service';
 import {Observable} from 'rxjs';
 import {ViewService} from '../../services/view.service';
+import {FilterService} from 'src/app/services/filter.service';
 
 enum STEPS {
   'SELECT_OPTION' = 1,
@@ -19,6 +20,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public minEndWeek: string;
   public createPlanLoader = false;
+
+
+  public createPlanRequestData: any;
 
   public showPanels = {
     showPlanDemand: false,
@@ -51,7 +55,20 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   // Select Sku
   public brands = [];
+  public AlcP = [];
+  public Unitperpack = [];
+
+  public Subbrand = [];
   public segments = [];
+
+
+//harshit
+
+  public filters: any = [];
+  public skus: any = [];
+
+
+  public Subbrand_array = [];
   public packs = [];
   public SKUs = [];
   public selectedSKUs = [];
@@ -60,6 +77,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   // Views
   public views = [];
+
+  public loadedFilters: any = [];
 
   public subs: any = {
     items$: null,
@@ -83,7 +102,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private skuService: SKUService,
-    private viewService: ViewService
+    private viewService: ViewService,
+    private filterService: FilterService
   ) {
   }
 
@@ -91,6 +111,25 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.skuService.getBrands().subscribe((response: any) => {
       this.brands = response;
     });
+    this.skuService.getAlcP().subscribe((response: any) => {
+      this.AlcP = response;
+    });
+    this.skuService.getUnitperpack().subscribe((response: any) => {
+      console.log('CHECK-->' + this.Unitperpack.toString);
+      this.Unitperpack = response;
+    });
+    this.skuService.getSubbrand().subscribe((response: any) => {
+      this.Subbrand = response;
+    });
+    this.filterService.getFilters({
+      user: 'admin'
+    }).subscribe((res: any) => {
+      this.loadedFilters = res.map((item: any) => {
+        item.isSelected = false;
+        return item;
+      });
+    });
+
     this.skuService.getSegments().subscribe((response: any) => {
       this.segments = response;
     });
@@ -99,7 +138,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     });
     this.skuService.getSkUList({
-      filterBrands: []
+      filterBrands: [],
+      filterSubBrandName: [],
+      filterAcoholPerc: [],
+      filterUnitsPerPack: []
     }).subscribe((response: any) => {
       this.SKUs = response;
     });
@@ -112,6 +154,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
       this.customerPlanningGroups = response;
     });
+
 
     // Active Page
     this.activeStepOrder = STEPS.SELECT_OPTION;
@@ -139,15 +182,16 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       } else if (data.page === 'revisit-view') {
         this.showRevisitView();
       } else if (data.page === 'change-horizon') {
-        this.showPlanDemand();
+        this.showPlanDemand(5);
         this.processChangeHorizonData(data.data);
-        this.activeStepOrder = 4;
       }
     });
   }
 
   ngOnDestroy(): void {
     this.subs.brands$.unsubscribe();
+
+    this.subs.Subbrand_array$.unsubscribe();
     this.subs.packs$.unsubscribe();
     this.subs.segments$.unsubscribe();
     this.subs.items$.unsubscribe();
@@ -297,8 +341,14 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   private getFiltersObject() {
     const brands = [];
-    const segments = [];
-    const packs = [];
+    const AlcP = [];
+    const Subbrand_array = [];
+    const Subbrand = [];
+    // const Unitperpack = [];
+
+    const unitPerPack = [];
+
+    const AlcoholPercentage = [];
 
     for (const brand of this.brands) {
       if (brand.isChecked) {
@@ -306,22 +356,29 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       }
     }
 
-    for (const segment of this.segments) {
-      if (segment.isChecked) {
-        segments.push(segment.name);
+    for (const subbrand of this.Subbrand) {
+      if (subbrand.isChecked) {
+        Subbrand.push(subbrand.name);
       }
     }
 
-    for (const pack of this.packs) {
-      if (pack.isChecked) {
-        segments.push(pack.name);
+    for (const alcp of this.AlcP) {
+      if (alcp.isChecked) {
+        AlcoholPercentage.push(alcp.name);
+      }
+    }
+
+    for (const unit of this.Unitperpack) {
+      if (unit.isChecked) {
+        unitPerPack.push(unit.name);
       }
     }
 
     return {
       filterBrands: brands,
-      filterSegments: segments,
-      filterPacks: packs,
+      filterSubBrandName: Subbrand,
+      filterAcoholPerc: AlcoholPercentage,
+      filterUnitsPerPack: unitPerPack
     };
   }
 
@@ -408,12 +465,15 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.activeStepOrder = step;
   }
 
-  public showPlanDemand() {
+  public showPlanDemand(activeStepOrder = 2) {
     this.showPanels.showPlanDemand = true;
-    this.activeStepOrder = 2;
+    this.activeStepOrder = activeStepOrder;
     this.wizardList = [
       {
         text: 'Select Option'
+      },
+      {
+        text: 'Bookmarked'
       },
       {
         text: 'Filter SKUs'
@@ -425,7 +485,6 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         text: 'Select Planning Horizon'
       }
     ];
-
   }
 
   public showRevisitPlan() {
@@ -481,17 +540,44 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
     for (const forecastingGroup of forecastingGroups) {
       const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
-      this.addItems(this.SKUs[index].id);
+      if (index > -1) {
+        this.addItems(this.SKUs[index].id);
+      }
     }
 
     for (const plant of plants) {
       const index = this.plants.findIndex((item) => item.name === plant);
-      this.selectedPlants.push(this.plants[index]);
+      if (index > -1) {
+        this.selectedPlants.push(this.plants[index]);
+      }
     }
 
     for (const customerPlanningGroup of customerPlanningGroups) {
       const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
-      this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+      if (index > -1) {
+        this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+      }
     }
+  }
+
+  // Loaded Filer Item Click
+  public loadedFilterItemClick(index) {
+    const loadedFilter = this.loadedFilters[index];
+    this.addWeeks(18);
+    const data = {
+      startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+      endWeek: CreatePlanComponent.transformWeek(this.endWeek),
+      forecastingGroups: loadedFilter.sku.map((item) => {
+        return {
+          name: item
+        };
+      }),
+      customerPlanningGroup: loadedFilter.cpg,
+      plants: loadedFilter.plant,
+    };
+    this.outputDateEmitter.emit({
+      type: 'create-plan',
+      data
+    });
   }
 }
