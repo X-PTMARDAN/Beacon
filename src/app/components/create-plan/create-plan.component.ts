@@ -5,6 +5,8 @@ import {Observable} from 'rxjs';
 import {ViewService} from '../../services/view.service';
 import {FilterService} from 'src/app/services/filter.service';
 
+
+
 enum STEPS {
   'SELECT_OPTION' = 1,
 }
@@ -20,7 +22,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public minEndWeek: string;
   public createPlanLoader = false;
-
+public initial=0;
 
   public createPlanRequestData: any;
 
@@ -195,6 +197,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
    // this.subs.packs$.unsubscribe();
  //   this.subs.segments$.unsubscribe();
  //   this.subs.items$.unsubscribe();
+
+ //createPlanLoader.unsubscribe();
   }
 
   private static getCurrentWeek(date: Date) {
@@ -208,6 +212,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const year = data[0];
     const week = data[1].substr(1);
     return parseInt(year + week, 10);
+  }
+
+  public goToPage(pageName:string){
+    this.router.navigate([`${pageName}`]);
   }
 
   private resetState() {

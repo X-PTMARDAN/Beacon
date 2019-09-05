@@ -366,7 +366,8 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           gridColor: '#ffffff',
         },
         toolTip: {
-          content: '{name}: {y}'
+          content: 'Week: {x} | {name}: {y}'
+      
         },
 
       data: [{
@@ -564,7 +565,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           gridColor: '#ffffff',
         },
         toolTip: {
-          content: '{name}: {y}'
+          content: 'Week: {x} | {name}: {y}'
         },
         data: [
           {
@@ -689,7 +690,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           gridColor: '#ffffff',
         },
         toolTip: {
-          content: '{name}: {y}'
+          content: 'Week: {x} | {name}: {y}'
         },
         data: [
           {
