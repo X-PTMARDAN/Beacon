@@ -1,6 +1,9 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as CanvasJS from './../../../assets/js/canvasjs.min';
+
 import {SKUService} from '../../services/sku.service';
+
+
 import {FormBuilder, FormControl, FormGroup,NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -15,7 +18,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     private router: Router,
     private skuService: SKUService,
     private fb: FormBuilder
-  ) {
+      ) {
   }
   // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
@@ -36,6 +39,9 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   private actualDataPointColor = '#09C29B';
   private finalForcastPointColor = '#000000';
   public currentWeek: number;
+
+
+  
 
   // Charts
   public chart1;
@@ -78,6 +84,24 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   
+    let win = (window as any);
+    console.log("dfdf->"+win.location.search);
+   // win.location.search = '/?loaded';
+    if(win.location.search !== '?%2F=' ) {
+      win.location.search = '/?loaded';
+      //win.location.reload();
+  }
+  //   setTimeout(function() {
+  //     let win = (window as any);
+  //   console.log("dfdf->"+win.location.search);
+  //   if(win.location.search !== '?%2F=' ) {
+  //       win.location.search = '/?loaded';
+  //       //win.location.reload();
+  //   }
+  // }, 8000);
+    
+    
+    
   }
 
   ngOnDestroy(): void {
