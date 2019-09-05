@@ -7,6 +7,9 @@ export const environment = {
   apiGatewayUrl: 'http://54.229.62.82:5470/v1/',
 };
 
+
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
