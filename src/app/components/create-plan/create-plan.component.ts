@@ -121,6 +121,7 @@ public initial=0;
       this.Unitperpack = response;
     });
     this.skuService.getSubbrand().subscribe((response: any) => {
+      console.log("Check->"+response);
       this.Subbrand = response;
     });
     this.filterService.getFilters({
@@ -133,6 +134,7 @@ public initial=0;
     });
 
     this.skuService.getSegments().subscribe((response: any) => {
+    
       this.segments = response;
     });
     this.skuService.getPacks().subscribe((response: any) => {

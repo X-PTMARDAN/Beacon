@@ -192,6 +192,163 @@
 
 
 
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                         (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
+                                    <span class="font-weight-bold">Segments<i class="fa float-right"
+                                                                              [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" #collapseTwo class="panel-collapse collapse in" role="tabpanel"
+                       aria-labelledby="headingTwo">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let segment of segments; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="segment.isChecked" [name]="'segment-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ segment.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="font-weight-bold">Packs <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree1">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="font-weight-bold">Global beverage category <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree1" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree1">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree3">
+                                    <span class="font-weight-bold">Primary pack size <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree1">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree31">
+                                    <span class="font-weight-bold"> Secondary pack size <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree31" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
    
 
 
