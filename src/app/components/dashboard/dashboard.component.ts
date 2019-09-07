@@ -78,6 +78,11 @@ private property: any = [];
 
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
+
+  private fvaDataPoints: any = [];
+
+
+
   private lastYearDataPoints: any = [];
   public finalForecastDataPoints = [];
   private totalData: any = {
@@ -813,8 +818,12 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
   public processGraphData(res) {
     const data = res.res;
     this.aopDataPoints.length = 0;
+
+    this.fvaDataPoints.length = 0;
     this.mlDataPoints.length = 0;
     this.actualDataPoints.length = 0;
+
+    
     this.lastYearDataPoints.length = 0;
     this.finalForecastDataPoints.length = 0;
     this.graphData = [];
@@ -854,6 +863,12 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       if (week.ml !== undefined) {
         newPoint.initialFinalForecast = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.finalforecast);
         newPoint.finalForecast = newPoint.initialFinalForecast;
+
+
+//        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
+
+
+     //   newPoint.finalForecast = newPoint.initialFinalForecast;
         this.finalForecastDataPoints.push({
           x: key,
           y: newPoint.finalForecast,
@@ -877,8 +892,12 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       }
 
       if (week.fva !== undefined) {
+
+      
         const value = DashboardComponent.parseStringToFloat(week.fva);
-        newPoint.fcstValueAdd = value ? '' : value.toString();
+       // newPoint.fcstValueAdd = value ? '' : value.toString();
+        console.log("MAN RAMTA->"+value);
+        newPoint.fcstValueAdd = value;
         this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
       }
 
