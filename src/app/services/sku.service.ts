@@ -190,14 +190,14 @@ export class SKUService {
     // return this.http.get('', {});
   }
 
-  // public getGraphData(data = {}) {
-  //   return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
-  // }
-
-
   public getGraphData(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
+    return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
   }
+
+
+  //public getGraphData(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
+  // }
 
 
 
