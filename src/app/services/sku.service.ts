@@ -136,6 +136,9 @@ export class SKUService {
     );
   }
 
+
+  
+
   public getFilters() {
     return this.http.get(`${this.apiGatewayUrl}filters`).pipe(
       map((data: any) => {
@@ -187,8 +190,27 @@ export class SKUService {
     // return this.http.get('', {});
   }
 
+  // public getGraphData(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
+  // }
+
+
   public getGraphData(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
+    return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
+  }
+
+
+
+  //  public getGraphData(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}demandTable_monthly`, data);
+  // }
+
+
+
+  
+
+  public deleteTemp(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}deleteTempData`, data);
   }
 
 
