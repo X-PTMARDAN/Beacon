@@ -1180,6 +1180,9 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
         return;
       }
 
+
+      console.log("DEBUG1->"+value);
+
       const reqBody = {
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
         plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
@@ -1284,6 +1287,27 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
         reqBody.data.push(Object.assign(obj, commentsObj));
       }
     }
+    if(reqBody.data.length==0)
+    {
+      const obj = {
+        calendarWeek: 201935,
+        sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+        user:"admin",
+        cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
+        plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
+      };
+      reqBody.data.push(Object.assign(obj, null));
+      console.log("Debug -->"+reqBody.data);
+   //   this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+      //   this.savePlanLoader = false;
+      //   this.PlanNameModalBtn.nativeElement.click();
+      // }, (error) => {
+      //   this.savePlanLoader = false;
+      //   this.PlanNameModalBtn.nativeElement.click();
+      // });
+    }
+   
+    
 
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.savePlanLoader = false;
@@ -1293,6 +1317,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       this.PlanNameModalBtn.nativeElement.click();
     });
   }
+
 
   public saveView(viewName: string) {
     this.saveViewLoader = true;
