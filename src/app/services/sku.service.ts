@@ -215,7 +215,7 @@ export class SKUService {
 
 
   public getFeatureGraphData(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}demandTable2`, data);
+    return this.http.post(`${this.apiGatewayUrl}demandTable_feature_analysis`, data);
   }
 
   public savePlan(data = {}) {
