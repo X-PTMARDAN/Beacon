@@ -42,6 +42,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Filters
   public loadedFilters: any = [];
 
+  public weeks=[];
+
   // Loader
   public savePlanLoader = false;
   public saveViewLoader = false;
@@ -183,7 +185,7 @@ private property: any = [];
           gridColor: '#ffffff',
         },
         toolTip: {
-          content: '{name}: {y}'
+          content: '{y}'
         },
 
 
@@ -370,11 +372,23 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
+       // toolTip: {
+        //   content: 'Week: {x} | {name}: {y}'
+        // },
         toolTip: {
-          content: 'Week: {x} | {name}: {y}'
-      
+          shared: true,
+          contentFormatter: function (e) {
+            var content = " ";
+            console.log(JSON.stringify(e));
+           // console.log(JSON.stringify(e.dataPoint));
+            content=e.entries.dataPoint.x.toString.slice(4,6)+"-"+e.entries.dataPoint.x.toString.slice(0,4);
+            for (var i = 0; i < e.entries.length; i++) {
+              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
+              content += "<br/>";
+            }
+            return content;
+          }
         },
-
       data: [{
         type: 'line',
         gridColor: '#ffffff',
@@ -486,9 +500,23 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
-          toolTip: {
-            content: '{name}: {y}'
-          },
+        // toolTip: {
+        //   content: 'Week: {x} | {name}: {y}'
+        // },
+
+        toolTip: {
+          shared: true,
+          contentFormatter: function (e) {
+            var content = " ";
+            console.log(JSON.stringify(e));
+            content=e.entries.dataPoint.x.toString.slice(4,6)+"-"+e.entries.dataPoint.x.toString.slice(0,4);
+            for (var i = 0; i < e.entries.length; i++) {
+              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
+              content += "<br/>";
+            }
+            return content;
+          }
+        },
   
         data: [{
           type: 'line',
@@ -569,8 +597,22 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
+       // toolTip: {
+        //   content: 'Week: {x} | {name}: {y}'
+        // },
+
         toolTip: {
-          content: 'Week: {x} | {name}: {y}'
+          shared: true,
+          contentFormatter: function (e) {
+            var content = " ";
+            //console.log(e.dataPoint);
+            content=e.entries[0].dataPoint.x.toString().slice(4,6)+"-"+e.entries[0].dataPoint.x.toString().slice(0,4)+"<br/>";
+            for (var i = 0; i < e.entries.length; i++) {
+              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
+              content += "<br/>";
+            }
+            return content;
+          }
         },
         data: [
           {
@@ -694,9 +736,24 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
+        // toolTip: {
+        //   content: 'Week: {x} | {name}: {y}'
+        // },
+
         toolTip: {
-          content: 'Week: {x} | {name}: {y}'
+          shared: true,
+          contentFormatter: function (e) {
+            var content = " ";
+            console.log(JSON.stringify(e));
+            content=e.entries.dataPoint.x.toString.slice(4,6)+"-"+e.entries.dataPoint.x.toString.slice(0,4);
+            for (var i = 0; i < e.entries.length; i++) {
+              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
+              content += "<br/>";
+            }
+            return content;
+          }
         },
+
         data: [
           {
             name: 'Actuals',
@@ -817,6 +874,10 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
 
   public processGraphData(res) {
     const data = res.res;
+
+    console.log("Testing->"+JSON.stringify(data));
+     const newData=[];
+   
     this.aopDataPoints.length = 0;
 
     this.fvaDataPoints.length = 0;
@@ -837,14 +898,21 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       lastYearTotal: 0,
     };
 
+  
+   const abc=[];
     for (const week of data) {
       const newPoint: any = {
         comments: [],
         userComment: []
       };
       const key: string = week.calenderYearWeek;
+      
+
       newPoint.calenderYearWeek = key;
       newPoint.week = key;
+     
+      newPoint.newweek=key.toString().slice(4, 6)+"-"+key.toString().slice(0, 4);
+      
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
@@ -1338,6 +1406,14 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
         reqBody.weeklyFinalForecast.push(data.finalForecast);
       }
     }
+
+
+ 
+
+
+
+
+
 
     reqBody.weeklyFinalForecast = reqBody.weeklyFinalForecast.join(',');
 
