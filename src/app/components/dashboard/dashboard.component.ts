@@ -181,6 +181,7 @@ private property: any = [];
           ]
         },
         axisY: {
+          title:"In HL",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -368,10 +369,13 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
             }
           ]
         },
+     
         axisY: {
+          title:"In HL",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
+       
        // toolTip: {
         //   content: 'Week: {x} | {name}: {y}'
         // },
@@ -497,9 +501,11 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
             ]
           },
           axisY: {
+            title:"In HL",
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
+        
         // toolTip: {
         //   content: 'Week: {x} | {name}: {y}'
         // },
@@ -593,10 +599,13 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
             }
           ]
         },
+       
         axisY: {
+          title:"In HL",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
+       
        // toolTip: {
         //   content: 'Week: {x} | {name}: {y}'
         // },
@@ -733,6 +742,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           ]
         },
         axisY: {
+          title:"In HL",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },

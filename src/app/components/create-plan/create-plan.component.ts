@@ -396,9 +396,10 @@ public initial=0;
   // Create Plan Handler
   public createPlan() {
     this.createPlanLoader = true;
+    console.log("SUVID->"+CreatePlanComponent.transformWeek(this.startWeek));
     const data = {
- //     startWeek:201938,
-      startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+      startWeek:201938,
+   //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),
       forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
       customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
