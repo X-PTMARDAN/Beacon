@@ -206,6 +206,7 @@ public initial=0;
   private static getCurrentWeek(date: Date) {
     const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
     const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+    console.log("Harshit-134?"+Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7));
     return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
   }
 
@@ -396,6 +397,7 @@ public initial=0;
   public createPlan() {
     this.createPlanLoader = true;
     const data = {
+ //     startWeek:201938,
       startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),
       forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
