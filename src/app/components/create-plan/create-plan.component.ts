@@ -186,13 +186,13 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showRevisitView();
       } else if (data.page === 'change-horizon') {
         this.showPlanDemand(5);
-        this.processChangeHorizonData(data.data);
+        this.processChangeHorizonData(data.data, true, true, false);
       } else if (data.page === 'change-cpg-and-plant') {
         this.showPlanDemand(4);
-        this.processChangeHorizonData(data.data);
+        this.processChangeHorizonData(data.data, true, false, true);
       } else if (data.page === 'change-sku') {
         this.showPlanDemand(3);
-        this.processChangeHorizonData(data.data);
+        this.processChangeHorizonData(data.data, false, true, true);
       }
     });
   }
@@ -542,31 +542,40 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     ];
   }
 
-  public processChangeHorizonData(data: any) {
+  public processChangeHorizonData(data: any, sku = false, cpgPlant = false, selectHorizon = false) {
     // Select Filters
     const forecastingGroups = data.forecastingGroups;
     const plants = data.plants;
     const customerPlanningGroups = data.customerPlanningGroup;
 
-    for (const forecastingGroup of forecastingGroups) {
-      const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
-      if (index > -1) {
-        this.addItems(this.SKUs[index].id);
+    if (sku) {
+      for (const forecastingGroup of forecastingGroups) {
+        const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
+        if (index > -1) {
+          this.addItems(this.SKUs[index].id);
+        }
       }
     }
 
-    for (const plant of plants) {
-      const index = this.plants.findIndex((item) => item.name === plant);
-      if (index > -1) {
-        this.selectedPlants.push(this.plants[index]);
+    if (cpgPlant) {
+      for (const plant of plants) {
+        const index = this.plants.findIndex((item) => item.name === plant);
+        if (index > -1) {
+          this.selectedPlants.push(this.plants[index]);
+        }
+      }
+
+      for (const customerPlanningGroup of customerPlanningGroups) {
+        const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
+        if (index > -1) {
+          this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+        }
       }
     }
 
-    for (const customerPlanningGroup of customerPlanningGroups) {
-      const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
-      if (index > -1) {
-        this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
-      }
+    if (selectHorizon) {
+      this.startWeek = data.startWeek.toString().substr(0, 4) + '-W' + data.startWeek.toString().substr(-2);
+      this.endWeek = data.endWeek.toString().substr(0, 4) + '-W' + data.endWeek.toString().substr(-2);
     }
   }
 
