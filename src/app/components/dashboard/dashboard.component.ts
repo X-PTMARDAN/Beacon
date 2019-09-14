@@ -178,7 +178,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         gridColor: '#ffffff',
       },
       toolTip: {
-        content: '{y}'
+        content: 'Value : {y}'
       },
 
 
@@ -252,7 +252,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.selectOptionsModalBtn.nativeElement.click();
+ //  this.selectOptionsModalBtn.nativeElement.click();
+  
+   const data1 = {
+    startWeek: 201938,
+    endWeek: 202004,
+    forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
+    customerPlanningGroup: ['G01'],
+    plants: ['G001']
+  };
+
+   this.createPlan(data1);
   }
 
   ngOnDestroy(): void {
@@ -358,23 +368,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           gridColor: '#ffffff',
         },
 
-        // toolTip: {
-        //   content: 'Week: {x} | {name}: {y}'
-        // },
         toolTip: {
-          shared: true,
-          contentFormatter: function(e) {
-            var content = ' ';
-            console.log(JSON.stringify(e));
-            // console.log(JSON.stringify(e.dataPoint));
-            content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-            for (var i = 0; i < e.entries.length; i++) {
-              content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-              content += '<br/>';
-            }
-            return content;
-          }
+          content: 'Value: {y}'
         },
+        // toolTip: {
+        //   shared: true,
+ 
+        // },
         data: [{
           type: 'line',
           gridColor: '#ffffff',
@@ -403,6 +403,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public createPlan(data: any) {
 
+
+    console.log("Create_Plan->"+JSON.stringify(data));
     this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
@@ -481,23 +483,23 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           gridColor: '#ffffff',
         },
 
-        // toolTip: {
-        //   content: 'Week: {x} | {name}: {y}'
-        // },
-
         toolTip: {
-          shared: true,
-          contentFormatter: function(e) {
-            var content = ' ';
-            console.log(JSON.stringify(e));
-            content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-            for (var i = 0; i < e.entries.length; i++) {
-              content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-              content += '<br/>';
-            }
-            return content;
-          }
+          content: 'Value: {y}'
         },
+
+        // toolTip: {
+        //   shared: true,
+        //   contentFormatter: function(e) {
+        //     var content = ' ';
+        //     console.log(JSON.stringify(e));
+        //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+        //     for (var i = 0; i < e.entries.length; i++) {
+        //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+        //       content += '<br/>';
+        //     }
+        //     return content;
+        //   }
+       // },
 
         data: [{
           type: 'line',

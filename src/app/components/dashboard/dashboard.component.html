@@ -12,9 +12,9 @@
           class="fa fa-download"></i></a>
         <span class="text-muted">Save</span>
       </div>
-      <div class="d-flex flex-column align-items-center">
-        <a href="javascript:void(0);" class="data-action"><i class="fa fa-list-ul"></i></a>
-        <span class="text-muted">Organize</span>
+      <div class="d-flex flex-column align-items-center" >
+        <a href="javascript:void(0);" class="data-action"><i class="fa fa-list-ul" style="opacity: 0.5;background: #CCC"></i></a>
+        <span class="text-muted" style="opacity: 0.5;background: #CCC" >Organize</span>
       </div>
     </div>
     <hr>
@@ -88,9 +88,27 @@
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold">Planning table (HL)</p>
+            <p class="ml-2 text-muted">Load Week 201937</p>
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+          <div>
+          </div>
+
+          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+          data-target="#saveAPlansModal">Save Plan</a>
+       <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+          data-target="#saveAViewsModal">Save View</a> -->
+          <div class="d-flex justify-content-around align-items-center">
+      
+            <div class="form-group m-0 mr-1">
+              <select class="form-control p-0 pr-1" name="plant">
+                <option selected>Weekly View</option>
+                <option>Monthly View</option>
+                <option>Calendar Year View</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="d-flex">
@@ -238,10 +256,10 @@
           </div>
         </div>
         <div class="p-2 text-center">
-          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-             data-target="#saveAPlansModal">Save Plan</a>
-          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" data-toggle="modal"
-             data-target="#saveAViewsModal">Save View</a>
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+             data-target="#saveAPlansModal">Save Plan</a> -->
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a> -->
         </div>
       </div>
 
@@ -249,22 +267,12 @@
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold">Forecast Analysis (HL)</p>
-            <p class="ml-2 text-muted">Load Week 201937</p>
+
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
           </div>
-          <div>
-          </div>
-          <div class="d-flex justify-content-around align-items-center">
-            <div class="form-group m-0 mr-1">
-              <select class="form-control p-0 pr-1" name="plant">
-                <option selected>Weekly View</option>
-                <option>Monthly View</option>
-                <option>Calendar Year View</option>
-              </select>
-            </div>
-          </div>
+         
         </div>
 
         <div id="chartContainer1" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
@@ -302,11 +310,28 @@
   </div>
   <div class="events-col pt-1 pb-3 pl-2 pr-2">
     <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
-      <div>
-        <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">Select Sku</button>
-        <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Select Cpg & Plant</button>
-        <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Change Horizon</button>
-      </div>
+      <!-- <div class="mt-2">
+        <h4>Features</h4>
+        <div class="m-1 p-1 d-flex">
+          <div>
+            <input class="mr-1" type="checkbox">
+          </div>
+          <p class="m-0">Promo Effect</p>
+        </div>
+        <div class="m-1 p-1 d-flex">
+          <div>
+            <input class="mr-1" type="checkbox">
+          </div>
+          <p class="m-0">Weather Effect</p>
+        </div>
+
+      </div> -->
+
+      <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">Select Sku</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Select Cpg & Plant</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Change Horizon</button>
+
+
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <h4>Comments</h4>
         <div class="block m-1 p-1 d-flex" *ngFor="let selectedWeekComment of selectedWeekComments">

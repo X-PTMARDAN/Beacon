@@ -29,7 +29,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     showPlanDemand: false,
     showRevisitPlan: false,
     showRevisitView: false,
-    showPortfolioMgmt: false
+    showPortfolioMgmt: false,
+    showCPGandPlant: false,
+    showSKU:false
   };
   public dropdownSettings = {
     singleSelection: false,
@@ -47,6 +49,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   // Select CPG and Plant
   public plants = [];
+  public endWeek1;
   public customerPlanningGroups = [];
   public selectedPlants = [];
   public selectedCustomerPlanningGroups = [];
@@ -80,6 +83,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   public views = [];
 
   public loadedFilters: any = [];
+  public forecastingGroups1: any = [];
 
   public subs: any = {
     items$: null,
@@ -186,13 +190,23 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         this.showRevisitView();
       } else if (data.page === 'change-horizon') {
         this.showPlanDemand(5);
-        this.processChangeHorizonData(data.data, true, true, false);
+        this.processChangeHorizonData(data.data, "HORIZON");
       } else if (data.page === 'change-cpg-and-plant') {
-        this.showPlanDemand(4);
-        this.processChangeHorizonData(data.data, true, false, true);
+       // this.showPlanDemand(4);
+        //this.processChangeHorizonData(data.data, true, false, true);
+        console.log("Keshav->"+JSON.stringify(data.data));
+        this.showCPGandPlant();
+        this.processChangeHorizonData(data.data, "CPG");
+
       } else if (data.page === 'change-sku') {
-        this.showPlanDemand(3);
-        this.processChangeHorizonData(data.data, false, true, true);
+      //  this.showPlanDemand(3);
+       // this.processChangeHorizonData(data.data, false, true, true);
+       this.showSKU();
+       this.processChangeHorizonData(data.data, "SKU");
+      }
+      else if (data.page === 'select-sku') {
+        this.showPlanDemand(5);
+        this.processChangeHorizonData(data.data,"HOR234IZON");
       }
     });
   }
@@ -228,6 +242,8 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.showPanels.showPlanDemand = false;
     this.showPanels.showRevisitPlan = false;
     this.showPanels.showRevisitView = false;
+    this.showPanels.showCPGandPlant = false;
+    this.showPanels.showSKU = false;
     this.showPanels.showPortfolioMgmt = false;
     this.endWeek = '';
     this.SKUs = this.SKUs.concat(this.selectedSKUs);
@@ -397,11 +413,18 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     const data = {
       startWeek: 201938,
       //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
-      endWeek: CreatePlanComponent.transformWeek(this.endWeek),
+      /*
+ forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
+      customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
+      plants: this.selectedPlants.map(item => item.name),
+      */
+      endWeek: this.endWeek1,
       forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
       customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
       plants: this.selectedPlants.map(item => item.name),
     };
+
+    console.log('SUVID123456789->' + this.forecastingGroups1);
     this.outputDateEmitter.emit({
       type: 'create-plan',
       data
@@ -510,6 +533,32 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     ];
   }
 
+
+
+  public showCPGandPlant() {
+    this.showPanels.showCPGandPlant = true;
+    this.activeStepOrder = 7;
+    this.wizardList = [
+      {
+        text: 'Select CPG & Plant'
+      }
+    ];
+  }
+
+
+
+  public showSKU() {
+    this.showPanels.showSKU = true;
+    this.activeStepOrder = 8;
+    this.wizardList = [
+      {
+        text: 'Select SKU'
+      }
+    ];
+  }
+
+
+
   public showRevisitView() {
     this.showPanels.showRevisitView = true;
     this.activeStepOrder = 2;
@@ -542,22 +591,32 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     ];
   }
 
-  public processChangeHorizonData(data: any, sku = false, cpgPlant = false, selectHorizon = false) {
+  public processChangeHorizonData(data: any, type) {
     // Select Filters
-    const forecastingGroups = data.forecastingGroups;
+
+    console.log("Hi");
+    console.log("joker->"+data.forecastingGroups);
+     this.forecastingGroups1 = data.forecastingGroups;
+
+     console.log("joker->"+this.forecastingGroups1);
     const plants = data.plants;
     const customerPlanningGroups = data.customerPlanningGroup;
+    this.endWeek1=data.endWeek;
+    const startWeek=data.startWeek;
 
-    if (sku) {
-      for (const forecastingGroup of forecastingGroups) {
-        const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
-        if (index > -1) {
-          this.addItems(this.SKUs[index].id);
-        }
-      }
-    }
+    // if(type=="SKU")
+    // {
+    //   console.log("SKU");
+    //   for (const forecastingGroup of forecastingGroups) {
+    //     const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
+    //     if (index > -1) {
+    //       this.addItems(this.SKUs[index].id);
+    //     }
+    //   }
+    // }
 
-    if (cpgPlant) {
+    if(type=="CPG")
+    {
       for (const plant of plants) {
         const index = this.plants.findIndex((item) => item.name === plant);
         if (index > -1) {
@@ -573,10 +632,37 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       }
     }
 
-    if (selectHorizon) {
+    // if (sku) {
+    //   for (const forecastingGroup of forecastingGroups) {
+    //     const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
+    //     if (index > -1) {
+    //       this.addItems(this.SKUs[index].id);
+    //     }
+    //   }
+    // }
+
+    // if (cpgPlant) {
+    //   for (const plant of plants) {
+    //     const index = this.plants.findIndex((item) => item.name === plant);
+    //     if (index > -1) {
+    //       this.selectedPlants.push(this.plants[index]);
+    //     }
+    //   }
+
+    //   for (const customerPlanningGroup of customerPlanningGroups) {
+    //     const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
+    //     if (index > -1) {
+    //       this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+    //     }
+    //   }
+    // }
+
+    if (type=="HORIZON") {
       this.startWeek = data.startWeek.toString().substr(0, 4) + '-W' + data.startWeek.toString().substr(-2);
       this.endWeek = data.endWeek.toString().substr(0, 4) + '-W' + data.endWeek.toString().substr(-2);
     }
+
+
   }
 
   // Loaded Filer Item Click
@@ -594,6 +680,9 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       customerPlanningGroup: loadedFilter.cpg,
       plants: loadedFilter.plant,
     };
+
+  console.log("HGello->"+data.toString());
+
     this.outputDateEmitter.emit({
       type: 'create-plan',
       data
