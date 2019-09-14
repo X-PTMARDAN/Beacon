@@ -31,9 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData: any;
 
 
-
   public createPlanRequestData_featurechange: any;
-
 
 
   public selectedWeekIndex: number;
@@ -42,7 +40,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Filters
   public loadedFilters: any = [];
 
-  public weeks=[];
+  public weeks = [];
 
   // Loader
   public savePlanLoader = false;
@@ -68,21 +66,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private actualDataPoints: any = [];
 
 
-
-
-
 //HARSHIT
 
-private property: any = [];
-
-
+  private property: any = [];
 
 
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
 
   private fvaDataPoints: any = [];
-
 
 
   private lastYearDataPoints: any = [];
@@ -136,58 +128,58 @@ private property: any = [];
 
     this.chart2 = new CanvasJS.Chart('chartContainer2', {
       animationEnabled: true,
-       
-        backgroundColor: '#FFFFFF',
-        legend: {
-          cursor: 'pointer',
-          itemclick: this.toggleDataSeries.bind(this)
-        },
-        axisX: {
-          valueFormatString: '######',
-          gridColor: '#ffffff',
-          scaleBreaks: {
-            type: 'blank',
-            spacing: 0,
-            customBreaks: [
-              {
-                startValue: 201953,
-                endValue: 202000
-              },
-              {
-                startValue: 202053,
-                endValue: 202100
-              },
-              {
-                startValue: 202153,
-                endValue: 202200
-              },
-              {
-                startValue: 202253,
-                endValue: 202300
-              }
-            ]
-          },
-          stripLines: [
+
+      backgroundColor: '#FFFFFF',
+      legend: {
+        cursor: 'pointer',
+        itemclick: this.toggleDataSeries.bind(this)
+      },
+      axisX: {
+        valueFormatString: '######',
+        gridColor: '#ffffff',
+        scaleBreaks: {
+          type: 'blank',
+          spacing: 0,
+          customBreaks: [
             {
-              startValue: 201938,
-              endValue: 201953,
-              color: '#F2F3F5'
+              startValue: 201953,
+              endValue: 202000
             },
             {
-              startValue: 202000,
-              endValue: 201959,
-              color: '#F2F3F5'
+              startValue: 202053,
+              endValue: 202100
+            },
+            {
+              startValue: 202153,
+              endValue: 202200
+            },
+            {
+              startValue: 202253,
+              endValue: 202300
             }
           ]
         },
-        axisY: {
-          title:"In HL",
-          valueFormatString: '######',
-          gridColor: '#ffffff',
-        },
-        toolTip: {
-          content: '{y}'
-        },
+        stripLines: [
+          {
+            startValue: 201938,
+            endValue: 201953,
+            color: '#F2F3F5'
+          },
+          {
+            startValue: 202000,
+            endValue: 201959,
+            color: '#F2F3F5'
+          }
+        ]
+      },
+      axisY: {
+        title: 'In HL',
+        valueFormatString: '######',
+        gridColor: '#ffffff',
+      },
+      toolTip: {
+        content: '{y}'
+      },
 
 
       data: [{
@@ -278,54 +270,44 @@ private property: any = [];
   }
 
   // Event Handlers
-  public onChangeHorizonClick() {
+  public onChangeParameters(name = 'change-horizon') {
     this.eventsSubject.next({
-      page: 'change-horizon',
+      page: name,
       data: JSON.parse(JSON.stringify(this.createPlanRequestData))
     });
     this.selectOptionsModalBtn.nativeElement.click();
   }
 
 
+  public test(feature: String) {
 
-  public test(feature: String)
-  {
+    console.log('Harsh134->' + feature);
 
-    console.log("Harsh134->"+feature);
+    // console.log("Harshit--->"+JSON.stringify(this.createPlanRequestData.startWeek));
+    // this.createPlanRequestData_featurechange.startWeek=this.createPlanRequestData.startWeek;
 
-  // console.log("Harshit--->"+JSON.stringify(this.createPlanRequestData.startWeek));
-  // this.createPlanRequestData_featurechange.startWeek=this.createPlanRequestData.startWeek;
+    // this.createPlanRequestData_featurechange.endWeek=this.createPlanRequestData.endWeek;
 
-  // this.createPlanRequestData_featurechange.endWeek=this.createPlanRequestData.endWeek;
+    // this.createPlanRequestData_featurechange.plants=this.createPlanRequestData.plants;
 
-  // this.createPlanRequestData_featurechange.plants=this.createPlanRequestData.plants;
+    // this.createPlanRequestData_featurechange.customerPlanningGroup=this.createPlanRequestData.customerPlanningGroup;
 
-  // this.createPlanRequestData_featurechange.customerPlanningGroup=this.createPlanRequestData.customerPlanningGroup;
+    // this.createPlanRequestData_featurechange.forecastingGroups=this.createPlanRequestData.forecastingGroups;
 
-  // this.createPlanRequestData_featurechange.forecastingGroups=this.createPlanRequestData.forecastingGroups;
-
-  // this.createPlanRequestData_featurechange.property=feature;
+    // this.createPlanRequestData_featurechange.property=feature;
 
 
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
-  
+
       //this.createPlanRequestData.brands = res.req.brands;
       this.processFeatureGraphData(res);
-    //  this.createFilterObject(res);
+      //  this.createFilterObject(res);
 
 
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
+      this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        animationEnabled: true,
 
-
-
-
-
-
-
-
-console.log("thhh->"+this.createPlanRequestData.startWeek);
-    this.chart2 = new CanvasJS.Chart('chartContainer2', {
-      animationEnabled: true,
-       
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
@@ -369,40 +351,39 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
             }
           ]
         },
-     
+
         axisY: {
-          title:"In HL",
+          title: 'In HL',
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
-       
-       // toolTip: {
+
+        // toolTip: {
         //   content: 'Week: {x} | {name}: {y}'
         // },
         toolTip: {
           shared: true,
-          contentFormatter: function (e) {
-            var content = " ";
+          contentFormatter: function(e) {
+            var content = ' ';
             console.log(JSON.stringify(e));
-           // console.log(JSON.stringify(e.dataPoint));
-            content=e.entries.dataPoint.x.toString.slice(4,6)+"-"+e.entries.dataPoint.x.toString.slice(0,4);
+            // console.log(JSON.stringify(e.dataPoint));
+            content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
             for (var i = 0; i < e.entries.length; i++) {
-              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
-              content += "<br/>";
+              content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+              content += '<br/>';
             }
             return content;
           }
         },
-      data: [{
-        type: 'line',
-        gridColor: '#ffffff',
-        labelFontColor: 'black',
-        legendMarkerColor: '#000',
-        dataPoints: this.property
-      }]
-    });
-    this.chart2.render();
-    
+        data: [{
+          type: 'line',
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          legendMarkerColor: '#000',
+          dataPoints: this.property
+        }]
+      });
+      this.chart2.render();
 
 
     });
@@ -420,10 +401,8 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
   }
 
 
-  
-
   public createPlan(data: any) {
-  
+
     this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
@@ -432,7 +411,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       plants: data.plants,
     };
     //this.test();
- 
+
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
         page: null,
@@ -449,81 +428,77 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       });
 
 
-
-
-
-
-      console.log("thhh->"+this.createPlanRequestData.startWeek);
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
       this.chart2 = new CanvasJS.Chart('chartContainer2', {
         animationEnabled: true,
-         
-          backgroundColor: '#FFFFFF',
-          legend: {
-            cursor: 'pointer',
-            itemclick: this.toggleDataSeries.bind(this)
-          },
-          axisX: {
-            valueFormatString: '######',
-            gridColor: '#ffffff',
-            scaleBreaks: {
-              type: 'blank',
-              spacing: 0,
-              customBreaks: [
-                {
-                  startValue: 201953,
-                  endValue: 202000
-                },
-                {
-                  startValue: 202053,
-                  endValue: 202100
-                },
-                {
-                  startValue: 202153,
-                  endValue: 202200
-                },
-                {
-                  startValue: 202253,
-                  endValue: 202300
-                }
-              ]
-            },
-            stripLines: [
+
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
               {
-                startValue: this.createPlanRequestData.startWeek,
-                endValue: 201953,
-                color: '#F2F3F5'
+                startValue: 201953,
+                endValue: 202000
               },
               {
-                startValue: 202000,
-                endValue: this.createPlanRequestData.endWeek,
-                color: '#F2F3F5'
+                startValue: 202053,
+                endValue: 202100
+              },
+              {
+                startValue: 202153,
+                endValue: 202200
+              },
+              {
+                startValue: 202253,
+                endValue: 202300
               }
             ]
           },
-          axisY: {
-            title:"In HL",
-            valueFormatString: '######',
-            gridColor: '#ffffff',
-          },
-        
+          stripLines: [
+            {
+              startValue: this.createPlanRequestData.startWeek,
+              endValue: 201953,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: this.createPlanRequestData.endWeek,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+        axisY: {
+          title: 'In HL',
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+
         // toolTip: {
         //   content: 'Week: {x} | {name}: {y}'
         // },
 
         toolTip: {
           shared: true,
-          contentFormatter: function (e) {
-            var content = " ";
+          contentFormatter: function(e) {
+            var content = ' ';
             console.log(JSON.stringify(e));
-            content=e.entries.dataPoint.x.toString.slice(4,6)+"-"+e.entries.dataPoint.x.toString.slice(0,4);
+            content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
             for (var i = 0; i < e.entries.length; i++) {
-              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
-              content += "<br/>";
+              content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+              content += '<br/>';
             }
             return content;
           }
         },
-  
+
         data: [{
           type: 'line',
           gridColor: '#ffffff',
@@ -535,24 +510,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       this.chart2.render();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      console.log("132456->"+this.createPlanRequestData.startWeek);
+      console.log('132456->' + this.createPlanRequestData.startWeek);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         exportEnabled: true,
@@ -599,26 +557,26 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
             }
           ]
         },
-       
+
         axisY: {
-          title:"In HL",
+          title: 'In HL',
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
-       
-       // toolTip: {
+
+        // toolTip: {
         //   content: 'Week: {x} | {name}: {y}'
         // },
 
         toolTip: {
           shared: true,
-          contentFormatter: function (e) {
-            var content = " ";
+          contentFormatter: function(e) {
+            var content = ' ';
             //console.log(e.dataPoint);
-            content=e.entries[0].dataPoint.x.toString().slice(4,6)+"-"+e.entries[0].dataPoint.x.toString().slice(0,4)+"<br/>";
+            content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
             for (var i = 0; i < e.entries.length; i++) {
-              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
-              content += "<br/>";
+              content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+              content += '<br/>';
             }
             return content;
           }
@@ -698,8 +656,8 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           name: item
         };
       });
-    
-      console.log("hsfgerbe->"+this.currentWeek);
+
+      console.log('hsfgerbe->' + this.currentWeek);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
         exportEnabled: true,
@@ -742,7 +700,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
           ]
         },
         axisY: {
-          title:"In HL",
+          title: 'In HL',
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -752,13 +710,13 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
 
         toolTip: {
           shared: true,
-          contentFormatter: function (e) {
-            var content = " ";
+          contentFormatter: function(e) {
+            var content = ' ';
             console.log(JSON.stringify(e));
-            content=e.entries.dataPoint.x.toString.slice(4,6)+"-"+e.entries.dataPoint.x.toString.slice(0,4);
+            content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
             for (var i = 0; i < e.entries.length; i++) {
-              content += e.entries[i].dataSeries.name + " " + "<strong>" + e.entries[i].dataPoint.y + "</strong>";
-              content += "<br/>";
+              content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+              content += '<br/>';
             }
             return content;
           }
@@ -885,16 +843,16 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
   public processGraphData(res) {
     const data = res.res;
 
-    console.log("Testing->"+JSON.stringify(data));
-     const newData=[];
-   
+    console.log('Testing->' + JSON.stringify(data));
+    const newData = [];
+
     this.aopDataPoints.length = 0;
 
     this.fvaDataPoints.length = 0;
     this.mlDataPoints.length = 0;
     this.actualDataPoints.length = 0;
 
-    
+
     this.lastYearDataPoints.length = 0;
     this.finalForecastDataPoints.length = 0;
     this.graphData = [];
@@ -908,21 +866,21 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       lastYearTotal: 0,
     };
 
-  
-   const abc=[];
+
+    const abc = [];
     for (const week of data) {
       const newPoint: any = {
         comments: [],
         userComment: []
       };
       const key: string = week.calenderYearWeek;
-      
+
 
       newPoint.calenderYearWeek = key;
       newPoint.week = key;
-     
-      newPoint.newweek=key.toString().slice(4, 6)+"-"+key.toString().slice(0, 4);
-      
+
+      newPoint.newweek = key.toString().slice(4, 6) + '-' + key.toString().slice(0, 4);
+
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
@@ -946,7 +904,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
 
-     //   newPoint.finalForecast = newPoint.initialFinalForecast;
+        //   newPoint.finalForecast = newPoint.initialFinalForecast;
         this.finalForecastDataPoints.push({
           x: key,
           y: newPoint.finalForecast,
@@ -971,10 +929,10 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
 
       if (week.fva !== undefined) {
 
-      
+
         const value = DashboardComponent.parseStringToFloat(week.fva);
-       // newPoint.fcstValueAdd = value ? '' : value.toString();
-        console.log("MAN RAMTA->"+value);
+        // newPoint.fcstValueAdd = value ? '' : value.toString();
+        console.log('MAN RAMTA->' + value);
         newPoint.fcstValueAdd = value;
         this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
       }
@@ -1018,22 +976,13 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
   }
 
 
-
-
-
-
-
-
-
-  // Harshit 
-
-
+  // Harshit
 
 
   public processFeatureGraphData(res) {
     const data1 = res.secondGraphRes;
 
-    console.log("CHECK-->"+data1.toString);
+    console.log('CHECK-->' + data1.toString);
     this.property.length = 0;
 
 //    this.graphData = [];
@@ -1041,22 +990,20 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
     for (const week1 of data1) {
 
 
-
-
       if (week1.apo !== undefined) {
-     //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property.push({
           x: week1.calenderYearWeek,
           y: DashboardComponent.parseStringToFloat(week1.apo),
-        
+
         });
         //this.totalData.actuals += newPoint.actuals;
       }
 
-      console.log("3456789--->"+JSON.stringify(this.property));
+      console.log('3456789--->' + JSON.stringify(this.property));
 
-      console.log("TEST12--->"+week1.apo);
-      console.log("TEST12--->"+week1.calendarWeek);
+      console.log('TEST12--->' + week1.apo);
+      console.log('TEST12--->' + week1.calendarWeek);
 
 
       // console.log("HARHS^&->"+week.apo);
@@ -1069,7 +1016,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       // newPoint.week = key;
       // newPoint.calenderYear = key;
 
-  
+
       // if (week.apo !== undefined) {
       //   newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
       //   this.aopDataPoints.push({
@@ -1085,26 +1032,12 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       // this.graphData.push(newPoint);
     }
 
- //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
-    
+    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+
   }
 
 
-
-
-
-
-
   //Harshit ENDS
-
-
-
-
-
-
-
-
-
 
 
   public createFilterObject(res: any) {
@@ -1259,7 +1192,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       }
 
 
-      console.log("DEBUG1->"+value);
+      console.log('DEBUG1->' + value);
 
       const reqBody = {
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
@@ -1358,25 +1291,24 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
         const obj = {
           calendarWeek: data.calenderYearWeek,
           sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-          user:"admin",
+          user: 'admin',
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
           plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
         };
         reqBody.data.push(Object.assign(obj, commentsObj));
       }
     }
-    if(reqBody.data.length==0)
-    {
+    if (reqBody.data.length == 0) {
       const obj = {
         calendarWeek: 201935,
         sku: this.skus.filter(item => item.isChecked).map(item => item.name),
-        user:"admin",
+        user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name),
         plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
       };
       reqBody.data.push(Object.assign(obj, null));
-      console.log("Debug -->"+reqBody.data);
-   //   this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+      console.log('Debug -->' + reqBody.data);
+      //   this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       //   this.savePlanLoader = false;
       //   this.PlanNameModalBtn.nativeElement.click();
       // }, (error) => {
@@ -1384,8 +1316,7 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
       //   this.PlanNameModalBtn.nativeElement.click();
       // });
     }
-   
-    
+
 
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.savePlanLoader = false;
@@ -1416,13 +1347,6 @@ console.log("thhh->"+this.createPlanRequestData.startWeek);
         reqBody.weeklyFinalForecast.push(data.finalForecast);
       }
     }
-
-
- 
-
-
-
-
 
 
     reqBody.weeklyFinalForecast = reqBody.weeklyFinalForecast.join(',');

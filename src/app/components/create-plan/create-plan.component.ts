@@ -120,7 +120,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.Unitperpack = response;
     });
     this.skuService.getSubbrand().subscribe((response: any) => {
-      console.log("Check->"+response);
+      console.log('Check->' + response);
       this.Subbrand = response;
     });
     this.filterService.getFilters({
@@ -133,7 +133,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     });
 
     this.skuService.getSegments().subscribe((response: any) => {
-    
+
       this.segments = response;
     });
     this.skuService.getPacks().subscribe((response: any) => {
@@ -187,6 +187,12 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       } else if (data.page === 'change-horizon') {
         this.showPlanDemand(5);
         this.processChangeHorizonData(data.data);
+      } else if (data.page === 'change-cpg-and-plant') {
+        this.showPlanDemand(4);
+        this.processChangeHorizonData(data.data);
+      } else if (data.page === 'change-sku') {
+        this.showPlanDemand(3);
+        this.processChangeHorizonData(data.data);
       }
     });
   }
@@ -197,7 +203,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   private static getCurrentWeek(date: Date) {
     const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
     const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
-    console.log("Harshit-134?"+Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7));
+    console.log('Harshit-134?' + Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7));
     return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
   }
 
@@ -387,10 +393,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   // Create Plan Handler
   public createPlan() {
     this.createPlanLoader = true;
-    console.log("SUVID->"+CreatePlanComponent.transformWeek(this.startWeek));
+    console.log('SUVID->' + CreatePlanComponent.transformWeek(this.startWeek));
     const data = {
-      startWeek:201938,
-   //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+      startWeek: 201938,
+      //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
       endWeek: CreatePlanComponent.transformWeek(this.endWeek),
       forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
       customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
