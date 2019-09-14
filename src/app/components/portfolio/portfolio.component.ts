@@ -4,7 +4,7 @@ import * as CanvasJS from './../../../assets/js/canvasjs.min';
 import {SKUService} from '../../services/sku.service';
 
 
-import {FormBuilder, FormControl, FormGroup,NgForm} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,30 +18,29 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     private router: Router,
     private skuService: SKUService,
     private fb: FormBuilder
-      ) {
+  ) {
   }
+
   // @ts-ignore
   @ViewChild('createPlanModalCancel') createPlanModalCancel: ElementRef;
   // @ts-ignore
   @ViewChild('createPlanModalBtn') createPlanModalBtn: ElementRef;
   // @ts-ignore
   @ViewChild('PlanNameModalBtn') PlanNameModalBtn: ElementRef;
- // @ts-ignore
- @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
+  // @ts-ignore
+  @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
   // @ts-ignore
   @ViewChild('commentFormModalCancel') commentFormModalCancel: ElementRef;
 
   // Constants
   public mlDataPointColor = '#D8B1FD';
   public lastyearDataPointColor = '#C0504E';
-  
+
   private aopDataPointColor = '#77A5F3';
   private actualDataPointColor = '#09C29B';
   private finalForcastPointColor = '#000000';
   public currentWeek: number;
 
-
-  
 
   // Charts
   public chart1;
@@ -49,8 +48,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   // Graph Data Data points
   public graphData: any = [];
-  public weekArray: any =[];
-  public finalForcastArray: any =[];
+  public weekArray: any = [];
+  public finalForcastArray: any = [];
   public mlForcastArray: any = [];
   public apoForcastArray: any = [];
   public actualsForcastArray: any = [];
@@ -78,37 +77,30 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public promos: any = [];
   public weathers: any = [];
   public events: any = [];
-  
-    // Selected Data point
+
+  // Selected Data point
   public selectedDataPoint: any = {};
 
   ngOnInit() {
-  
+
     let win = (window as any);
-    console.log("dfdf->"+win.location.search);
-   // win.location.search = '/?loaded';
-    if(win.location.search !== '?%2F=' ) {
+    console.log('dfdf->' + win.location.search);
+    // win.location.search = '/?loaded';
+    if (win.location.search !== '?%2F=') {
       win.location.search = '/?loaded';
       //win.location.reload();
-  }
-  //   setTimeout(function() {
-  //     let win = (window as any);
-  //   console.log("dfdf->"+win.location.search);
-  //   if(win.location.search !== '?%2F=' ) {
-  //       win.location.search = '/?loaded';
-  //       //win.location.reload();
-  //   }
-  // }, 8000);
-    
-    
-    
+    }
+    //   setTimeout(function() {
+    //     let win = (window as any);
+    //   console.log("dfdf->"+win.location.search);
+    //   if(win.location.search !== '?%2F=' ) {
+    //       win.location.search = '/?loaded';
+    //       //win.location.reload();
+    //   }
+    // }, 8000);
   }
 
   ngOnDestroy(): void {
 
   }
-  
-
-
-
 }

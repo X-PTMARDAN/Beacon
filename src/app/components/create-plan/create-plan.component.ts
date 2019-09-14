@@ -6,7 +6,6 @@ import {ViewService} from '../../services/view.service';
 import {FilterService} from 'src/app/services/filter.service';
 
 
-
 enum STEPS {
   'SELECT_OPTION' = 1,
 }
@@ -22,7 +21,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
 
   public minEndWeek: string;
   public createPlanLoader = false;
-public initial=0;
+  public initial = 0;
 
   public createPlanRequestData: any;
 
@@ -193,14 +192,6 @@ public initial=0;
   }
 
   ngOnDestroy(): void {
-  //  this.subs.brands$.unsubscribe();
-
-  //  this.subs.Subbrand_array$.unsubscribe();
-   // this.subs.packs$.unsubscribe();
- //   this.subs.segments$.unsubscribe();
- //   this.subs.items$.unsubscribe();
-
- //createPlanLoader.unsubscribe();
   }
 
   private static getCurrentWeek(date: Date) {
@@ -217,7 +208,7 @@ public initial=0;
     return parseInt(year + week, 10);
   }
 
-  public goToPage(pageName:string){
+  public goToPage(pageName: string) {
     this.router.navigate([`${pageName}`]);
   }
 
