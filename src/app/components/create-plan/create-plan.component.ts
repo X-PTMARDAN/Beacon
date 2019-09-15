@@ -409,26 +409,63 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   // Create Plan Handler
   public createPlan() {
     this.createPlanLoader = true;
-    console.log('SUVID->' + CreatePlanComponent.transformWeek(this.startWeek));
-    const data = {
-      startWeek: 201938,
-      //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
-      /*
- forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
-      customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
-      plants: this.selectedPlants.map(item => item.name),
-      */
-      endWeek: this.endWeek1,
-      forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
-      customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
-      plants: this.selectedPlants.map(item => item.name),
-    };
+    console.log('SUVID->' + JSON.parse(JSON.stringify(this.selectedSKUs)));
+    
+    if(this.selectedSKUs.length==0)
+    {
+      console.log("Ek step aage");
+      const data = {
+        startWeek: 201938,
+        //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+        /*
+   forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
+        customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
+        plants: this.selectedPlants.map(item => item.name),
+        */
+        endWeek: CreatePlanComponent.transformWeek(this.endWeek),
+        forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
+        customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
+        plants: this.selectedPlants.map(item => item.name),
+      };
 
-    console.log('SUVID123456789->' + this.forecastingGroups1);
-    this.outputDateEmitter.emit({
-      type: 'create-plan',
-      data
-    });
+      this.outputDateEmitter.emit({
+        type: 'create-plan',
+        data
+      });
+
+
+    }
+    else{
+      const data = {
+        startWeek: 201938,
+        //   startWeek: CreatePlanComponent.transformWeek(this.startWeek),
+        /*
+   forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
+        customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
+        plants: this.selectedPlants.map(item => item.name),
+        */
+        endWeek: CreatePlanComponent.transformWeek(this.endWeek),
+        forecastingGroups: JSON.parse(JSON.stringify(this.selectedSKUs)),
+        customerPlanningGroup: this.selectedCustomerPlanningGroups.map(item => item.name),
+        plants: this.selectedPlants.map(item => item.name),
+      };
+
+      this.outputDateEmitter.emit({
+        type: 'create-plan',
+        data
+      });
+
+    }
+
+    
+ 
+ 
+    // for (const fr of this.forecastingGroups1) {
+    //     data.forecastingGroups[fr]=this.forecastingGroups1[fr];
+    // }
+   // console.log('SUVID123456789->' + this.forecastingGroups1);
+ //  data.forecastingGroups=JSON.parse(JSON.stringify(this.forecastingGroups1));
+  
   }
 
   public viewPlan(view: any) {
@@ -595,25 +632,43 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     // Select Filters
 
     console.log("Hi");
-    console.log("joker->"+data.forecastingGroups);
-     this.forecastingGroups1 = data.forecastingGroups;
+   
+     const forecastingGroups1 = data.forecastingGroups;
 
      console.log("joker->"+this.forecastingGroups1);
     const plants = data.plants;
     const customerPlanningGroups = data.customerPlanningGroup;
-    this.endWeek1=data.endWeek;
+   // this.endWeek1=data.endWeek;
+
+    this.endWeek = data.endWeek.toString().substr(0, 4) + '-W' + data.endWeek.toString().substr(-2);
+    console.log("joker->"+JSON.stringify(this.endWeek));
     const startWeek=data.startWeek;
 
-    // if(type=="SKU")
-    // {
-    //   console.log("SKU");
-    //   for (const forecastingGroup of forecastingGroups) {
-    //     const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
-    //     if (index > -1) {
-    //       this.addItems(this.SKUs[index].id);
-    //     }
-    //   }
-    // }
+    if(type=="SKU")
+    {
+      console.log("SKU");
+      for (const forecastingGroup of forecastingGroups1) {
+        const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
+        if (index > -1) {
+          this.addItems(this.SKUs[index].id);
+        }
+      }
+
+
+      for (const plant of plants) {
+        const index = this.plants.findIndex((item) => item.name === plant);
+        if (index > -1) {
+          this.selectedPlants.push(this.plants[index]);
+        }
+      }
+
+      for (const customerPlanningGroup of customerPlanningGroups) {
+        const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
+        if (index > -1) {
+          this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+        }
+      }
+    }
 
     if(type=="CPG")
     {
@@ -628,6 +683,13 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
         const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
         if (index > -1) {
           this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+        }
+      }
+
+      for (const forecastingGroup of forecastingGroups1) {
+        const index = this.SKUs.findIndex((item) => item.name === forecastingGroup);
+        if (index > -1) {
+          this.addItems(this.SKUs[index].id);
         }
       }
     }
@@ -660,6 +722,20 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     if (type=="HORIZON") {
       this.startWeek = data.startWeek.toString().substr(0, 4) + '-W' + data.startWeek.toString().substr(-2);
       this.endWeek = data.endWeek.toString().substr(0, 4) + '-W' + data.endWeek.toString().substr(-2);
+
+      for (const plant of plants) {
+        const index = this.plants.findIndex((item) => item.name === plant);
+        if (index > -1) {
+          this.selectedPlants.push(this.plants[index]);
+        }
+      }
+
+      for (const customerPlanningGroup of customerPlanningGroups) {
+        const index = this.customerPlanningGroups.findIndex((item) => item.name === customerPlanningGroup);
+        if (index > -1) {
+          this.selectedCustomerPlanningGroups.push(this.customerPlanningGroups[index]);
+        }
+      }
     }
 
 
