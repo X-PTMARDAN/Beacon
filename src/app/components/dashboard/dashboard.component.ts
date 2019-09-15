@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public loadedFilters: any = [];
 
   public weeks = [];
-
+  public forecastadd=0;
   // Loader
   public savePlanLoader = false;
   public saveViewLoader = false;
@@ -859,6 +859,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.finalForecastDataPoints.length = 0;
     this.graphData = [];
 
+ 
+
     this.totalData = {
       finalCastTotal: 0,
       fsvtValueAdd: 0,
@@ -896,6 +898,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           calenderYear: key
         });
         this.totalData.mlTotal += newPoint.ml;
+
+      //  console.log("RANG--->"+this.totalData.mlTotal);
       }
 
       if (week.ml !== undefined) {
@@ -931,12 +935,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
       if (week.fva !== undefined) {
 
-
+      console.log("tyt");
         const value = DashboardComponent.parseStringToFloat(week.fva);
         // newPoint.fcstValueAdd = value ? '' : value.toString();
-        console.log('MAN RAMTA->' + value);
+       // console.log('MAN RAMTA->' + value);
+       if(value !== undefined)
+       {
+        // console.log("343"+JSON.stringify(newPoint));
+
+         console.log("34567890"+newPoint.initialFinalForecast.toString());
+
+         console.log("dfghjk"+this.totalData.fsvtValueAdd);
+
+
+         console.log("dfghjk1"+this.forecastadd);
+
+    this.forecastadd =this.forecastadd + newPoint.initialFinalForecast;
+
+
+    console.log("dfghjk345"+this.forecastadd);
+       //  this.totalData.fcstValueAdd += newPoint.ml;
+       this.totalData.fsvtValueAdd = this.totalData.fsvtValueAdd + newPoint.initialFinalForecast;
+        this.totalData.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
+       console.log("TEs23%^&->"+this.totalData.fcstValueAdd);
         newPoint.fcstValueAdd = value;
         this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
+       console.log("3545%^&->"+this.totalData.fcstValueAdd);
+       }
+
       }
 
       if (week.apo !== undefined) {
@@ -975,6 +1001,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.totalData.actuals = parseFloat(this.totalData.actuals.toFixed(2));
     this.totalData.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(2));
     this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+
+   // this.totalData.fcstValueAdd = parseFloat(this.totalData.fcstValueAdd.toFixed(2));
   }
 
 
