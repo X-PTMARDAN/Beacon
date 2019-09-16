@@ -1,5 +1,6 @@
 <div id="content">
-  <div class="filter-col p-3" data-simplebar>
+  <div class="filter-col p-3" data-simplebar *ngIf="abc123">
+    <p (click)="abc12()">Full Screen</p>
     <h6 class="mt-3 font-weight-bold">Filter Options</h6>
     <div class="mt-4 d-flex justify-content-around">
       <div class="d-flex flex-column align-items-center">
@@ -74,7 +75,8 @@
       </div>
     </div>
     <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
-      <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index">
+      <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
+          <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
         <div style="margin-top: 3px;">
           <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="onFilterCheckBoxChange()">
         </div>
@@ -86,7 +88,7 @@
 
 
   <div class="row content-col mb-2">
-   
+      <div class="col-12 pl-2 pr-1">
      
       <div class="bg-white rounded shadow mt-2">
           <div class="d-flex justify-content-between align-items-center p-1">
@@ -98,10 +100,9 @@
               <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
       
       
-              <div class="col-12 pl-2 pr-1">
+            
           
-                <div class="d-flex justify-content-between align-items-center p-1">
-                  <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+           
           
                     <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
@@ -597,15 +598,18 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Organize your Filters</h5>
+        <h5 class="modal-title">Load Filter</h5>
         <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #loadFilterModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input placeholder="Search Filters" [(ngModel)]="searchText" type="text">
+        <br/>
+        <br/>
         <form #saveFilterModalForm="ngForm">
 
-          <ng-container *ngFor="let filter of loadedFilters;let i=index">
+          <ng-container *ngFor="let filter of loadedFilters | filter : getCallback() ;let i=index ">
             <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                  (click)="filterItemClick(i)">
               {{ i + 1 }}<span> {{ filter.name }}</span>

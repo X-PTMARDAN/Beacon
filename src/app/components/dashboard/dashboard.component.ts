@@ -44,10 +44,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public forecastadd=0;
   // Loader
   public savePlanLoader = false;
+
   public saveViewLoader = false;
 
   // EventEmitter
-  private eventsSubject: Subject<any> = new Subject<any>();
+  public eventsSubject: Subject<any> = new Subject<any>();
 
   // Constants
   private lastyearDataPointColor = '#C0504E';
@@ -76,10 +77,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private fvaDataPoints: any = [];
 
-
+public abc123=true;
   private lastYearDataPoints: any = [];
   public finalForecastDataPoints = [];
-  private totalData: any = {
+  public totalData: any = {
     finalCastTotal: 0,
     fsvtValueAdd: 0,
     apoTotal: 0,
@@ -1253,6 +1254,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
+
+  public abc12()
+  {
+    this.abc123=false;
+  }
+
   public createPlan(data: any) {
 
 
@@ -2052,12 +2059,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.totalData.finalCastTotal = 0;
       for (const data of this.graphData) {
         if (data.finalForecast) {
-          console.log("Mush->"+this.totalData.finalCastTotal);
+          //console.log("Mush->"+this.totalData.finalCastTotal);
           this.totalData.finalCastTotal += data.finalForecast;
         }
       }
+    this.forecastadd=0;
+      for (const data of this.graphData) {
 
-      this.forecastadd = this.totalData.finalCastTotal;
+
+        if (data.initialFinalForecast) {
+          console.log("Mush->"+JSON.stringify(data));
+          this.forecastadd += data.initialFinalForecast;
+        }
+      }
+
+    //  this.forecastadd = this.totalData.finalCastTotal;
 
       this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
     }
