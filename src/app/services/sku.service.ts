@@ -195,15 +195,15 @@ export class SKUService {
   }
 
 
-  //public getGraphData(data = {}) {
-  //   return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
-  // }
+  public getGraphData_yearly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
+  }
 
 
 
-  //  public getGraphData(data = {}) {
-  //   return this.http.post(`${this.apiGatewayUrl}demandTable_monthly`, data);
-  // }
+   public getGraphData_monthly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_monthly`, data);
+  }
 
 
 
