@@ -1,6 +1,6 @@
 <div id="content">
   <div class="filter-col p-3" data-simplebar *ngIf="abc123">
-    <p (click)="abc12()">Full Screen</p>
+   
     <h6 class="mt-3 font-weight-bold">Filter Options</h6>
     <div class="mt-4 d-flex justify-content-around">
       <div class="d-flex flex-column align-items-center">
@@ -62,50 +62,20 @@
       </ng-container>
     </div>
     <hr>
-    <div class="mb-2">
-      <div>
-        <span style="font-weight: bold">Forecasting Group</span>
-        <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
-      </div>
-      <div class="input-group mt-2">
-        <!-- <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search FG"> -->
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="fa fa-search"></i></span>
-        </div>
-      </div>
-    </div>
-    <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
-      <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
-          <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
-        <div style="margin-top: 3px;">
-          <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="onFilterCheckBoxChange()">
-        </div>
-        <p class="m-0">{{ sku.name }}</p>
-      </div>
-    </div>
+ 
   </div>
 
 
 
-  <div class="row content-col mb-2">
+  <div class="row content-col mb-2" id="upper_middle">
       <div class="col-12 pl-2 pr-1">
-     
-      <div class="bg-white rounded shadow mt-2">
+        <div class="bg-white shadow mt-2">
           <div class="d-flex justify-content-between align-items-center p-1">
             <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-           
-      
-      
-      
-              <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
-      
-      
-            
-          
-           
           
                     <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
+
+                    <p (click)="abc12()">Full</p>
                 
                     <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
                   </div>
@@ -114,7 +84,7 @@
                   </div>
         
                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-                  data-target="#saveAPlansModal">Save Plan</a>
+                  data-target="#saveAPlansModal">Save </a>
                <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
                   data-target="#saveAViewsModal">Save View</a> -->
 
@@ -140,9 +110,9 @@
       
             </div>
            
-          </div>
+          <!-- </div>
       
-        </div>
+        </div> -->
 
   </div>
 
@@ -151,8 +121,8 @@
 
 
 
-  <div class="row content-col mb-2">
-    <div class="col-12 pl-2 pr-1">
+  <div class="row content-col mb-2" id="middle">
+    <div class="col-12 pl-2 pr-1" >
       <div class="bg-white shadow mt-2">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
@@ -211,6 +181,12 @@
                   <p class="m-0 week-block">Actuals LY</p>
                 </th>
               </tr>
+
+              <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">Open Order</p>
+                  </th>
+                </tr>
               </thead>
             </table>
           </div>
@@ -270,7 +246,17 @@
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.actualslastyear }}
                     </td>
+
+                    
                   </tr>
+                  <tr>
+                      <td *ngFor="let data of graphData"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        {{ data.harshit }}
+                      </td>
+  
+                      
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -313,6 +299,11 @@
                   <p class="m-0 week-block">{{ totalData.lastYearTotal }}</p>
                 </th>
               </tr>
+              <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.harshit }}</p>
+                  </th>
+                </tr>
             </table>
           </div>
         </div>
@@ -347,6 +338,8 @@
               <option selected value="Baseline">Baseline</option>
               <option value="Promo">Promo Effect</option>
               <option value="Weather">Weather effect</option>
+
+              <option value="Weather">Open order</option>
             </select>
           </div>
         </div>
@@ -377,7 +370,7 @@
 
 
   
-  <div class="events-col pt-1 pb-3 pl-2 pr-2">
+  <div class="events-col pt-1 pb-3 pl-2 pr-2" *ngIf="second">
     <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
       <!-- <div class="mt-2">
         <h4>Features</h4>
@@ -396,10 +389,32 @@
 
       </div> -->
 
-      <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">Select Sku</button>
-      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Select Cpg & Plant</button>
-      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Change Horizon</button>
+      <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button>
 
+  <br>
+      <div class="mb-2">
+          <div>
+            <span style="font-weight: bold">Forecasting Group</span>
+            <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
+          </div>
+          <div class="input-group mt-2">
+            <!-- <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search FG"> -->
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
+          <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
+              <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
+            <div style="margin-top: 3px;">
+              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="onFilterCheckBoxChange()">
+            </div>
+            <p class="m-0">{{ sku.name }}</p>
+          </div>
+        </div>
 
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <h4>Comments</h4>
