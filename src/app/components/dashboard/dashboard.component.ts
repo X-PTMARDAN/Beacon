@@ -23,7 +23,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('commentFormModalCancel', {static: false}) commentFormModalCancel: ElementRef;
   // Final Forecast Comment
   @ViewChild('finalForecastCommentModalBtn', {static: false}) finalForecastCommentModalBtn: ElementRef;
+
+  @ViewChild('editCommentModalBtn', {static: false}) editCommentModalBtn: ElementRef;
+
   @ViewChild('finalForecastCommentModalCancel', {static: false}) finalForecastCommentModalCancel: ElementRef;
+
+
+  @ViewChild('editCommentModalBtnCancel', {static: false}) editCommentModalBtnCancel: ElementRef;
   // Save and Load Filter
   @ViewChild('saveFilterModalCancel', {static: false}) saveFilterModalCancel: ElementRef;
   @ViewChild('loadFilterModalCancel', {static: false}) loadFilterModalCancel: ElementRef;
@@ -40,8 +46,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Filters
   public loadedFilters: any = [];
 
+
+  public createdata: any = [];
+
+
+
   public weeks = [];
+
+  public filters1 = [];
   public forecastadd=0;
+
+  public valuestring="";
   // Loader
   public savePlanLoader = false;
 
@@ -72,7 +87,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private property: any = [];
 
   private hh: any = [];
-
+public endWeek;
 
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
@@ -98,6 +113,12 @@ public second=true;
   // Filter Options
   public skus: any = [];
   public filters: any = [];
+
+  public comm1: any = [];
+
+  public finn: any = [];
+
+  public comm2: any = [];
 
   public fetched_forecasting: any = [];
   
@@ -264,15 +285,15 @@ public second=true;
   ngAfterViewInit(): void {
  //  this.selectOptionsModalBtn.nativeElement.click();
   
-   const data1 = {
+    this.createdata = {
     startWeek: 201938,
     endWeek: 202004,
-    forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
+    forecastingGroups: [{"id":0,"name":"Bilz PanachÃ© CAN 4X6X0_33 ","isFiltered":true,"isChecked":false}],
     customerPlanningGroup: ['G01'],
     plants: ['G001']
   };
 
-   this.createPlan(data1);
+   this.createPlan(this.createdata);
   }
 
   ngOnDestroy(): void {
@@ -323,10 +344,110 @@ public second=true;
     // this.createPlanRequestData_featurechange.property=feature;
 
 
+    if(feature =="Open")
+    {
+      this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
+        this.valuestring="Open Order";
+              this.processFeatureGraphData(res);
+  
+        console.log('thhh->' + this.createPlanRequestData.startWeek);
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+  
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: 201938,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: this.createPlanRequestData.endWeek,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+  
+          axisY: {
+            title: 'In HL',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+  
+          toolTip: {
+           content: '{y}'
+  
+          
+          },
+          // toolTip: {
+          //   shared: true,
+   
+          // },
+          data: [{
+            type: 'line',
+            gridColor: '#ffffff',
+            labelFontColor: 'black',
+            legendMarkerColor: '#000',
+            dataPoints: this.property
+          }]
+        });
+        this.chart2.render();
+  
+      });
+    }
+
+   
+
+else{
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
-      this.processFeatureGraphData(res);
+      
+         if(feature == "Baseline"){
+            
+            this.valuestring="Baseline";
+            this.processFeatureGraphData_open(res);
+          }
+          else if(feature == "Weather"){
+            this.valuestring="Weather";
+            this.processFeatureGraphData_open(res);
+          }
+
+          else if(feature == "Promo"){
+            this.valuestring="Promo";
+            this.processFeatureGraphData_open(res);
+          }
+      
       //  this.createFilterObject(res);
 
 
@@ -385,7 +506,9 @@ public second=true;
         },
 
         toolTip: {
-          content: 'Value: {y}'
+         content: '{y}'
+
+        
         },
         // toolTip: {
         //   shared: true,
@@ -403,6 +526,7 @@ public second=true;
 
 
     });
+  }
   }
 
 
@@ -820,7 +944,7 @@ public second=true;
               customBreaks: [
                 {
                   startValue: 201913,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202053,
@@ -836,18 +960,18 @@ public second=true;
                 }
               ]
             },
-            // stripLines: [
-            //   {
-            //     startValue: this.createPlanRequestData.startWeek,
-            //     endValue: 201901,
-            //     color: '#F2F3F5'
-            //   },
-            //   {
-            //     startValue: 202000,
-            //     endValue: this.createPlanRequestData.endWeek,
-            //     color: '#F2F3F5'
-            //   }
-            // ]
+            stripLines: [
+              {
+                startValue: 201909,
+                endValue: 201912,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              }
+            ]
           },
   
           axisY: {
@@ -1019,7 +1143,7 @@ public second=true;
         },
 
         toolTip: {
-          content: 'Value: {y}'
+          content: '{y}'
         },
 
         // toolTip: {
@@ -1309,6 +1433,25 @@ public second=true;
      //this.middle.nativeElement.style.margin=''
   }
 
+
+  private static transformWeek(weekString: string) {
+    const data = weekString.split('-');
+    const year = data[0];
+    const week = data[1].substr(1);
+    return parseInt(year + week, 10);
+  }
+
+
+
+  public tick()
+  {
+    console.log("THIS ENDWEEK--"+this.endWeek);
+
+    this.createdata.endWeek=DashboardComponent.transformWeek(this.endWeek);
+  
+     this.createPlan(this.createdata);
+  }
+
   public createPlan(data: any) {
 
 
@@ -1336,7 +1479,8 @@ public second=true;
       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
 
-      this.processFeatureGraphData(res);
+      this.processFeatureGraphData_open(res);
+      this.valuestring="Open order";
       this.createFilterObject(res);
       this.skus = data.forecastingGroups.map((item) => {
         item.isChecked = true;
@@ -1398,7 +1542,7 @@ public second=true;
         },
 
         toolTip: {
-          content: 'Value: {y}'
+          content: '{y}'
         },
 
         // toolTip: {
@@ -1696,6 +1840,13 @@ public second=true;
 
   // Download CSV Handlers
   public CanvasJSDataAsCSV() {
+
+  //  document.getElementsByClassName('.canvasjs-chart-toolbar button')[0].innerHTML='Export';
+
+
+    
+//    toolBar2=document
+
     const toolBar = document.getElementsByClassName('canvasjs-chart-toolbar')[0];
     const exportCSV = document.createElement('div');
     const text = document.createTextNode('Save as CSV');
@@ -1759,8 +1910,17 @@ public second=true;
     this.chart1.render();
   }
 
+
+
   public processGraphData(res) {
+
+
+   // const abc12;
+
+        this.skus = res.req.forecastingGroups;
+    
     const data = res.res;
+
 
     console.log('Testing->' + JSON.stringify(data));
     const newData = [];
@@ -1916,6 +2076,8 @@ public second=true;
       }
 
       if (week.comment) {
+
+        console.log("Suit-------"+week.comment);
         newPoint.comments = week.comment;
       }
 
@@ -1938,9 +2100,75 @@ public second=true;
 
 
   public processFeatureGraphData(res) {
+    const data1 = res.res;
+
+    var a=document.getElementById("checking").innerHTML;
+    console.log("KCUH AUR PANGAA HAI");
+    this.property.length = 0;
+
+//    this.graphData = [];
+
+    for (const week1 of data1) {
+
+
+      if (week1.harshit !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.harshit),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+      console.log('3456789--->' + JSON.stringify(this.property));
+
+      console.log('TEST12--->' + week1.apo);
+      console.log('TEST12--->' + week1.calendarWeek);
+
+
+      // console.log("HARHS^&->"+week.apo);
+      // const newPoint: any = {
+      //   comments: [],
+      //   userComment: []
+      // };
+      // const key: string = week.calenderYearWeek;
+      // newPoint.calenderYearWeek = key;
+      // newPoint.week = key;
+      // newPoint.calenderYear = key;
+
+
+      // if (week.apo !== undefined) {
+      //   newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
+      //   this.aopDataPoints.push({
+      //     x: key,
+      //     y: newPoint.apo,
+      //     color: this.aopDataPointColor,
+      //     click: this.dataPointClick.bind(this),
+      //     calenderYear: key,
+      //   });
+      //   this.totalData.apoTotal += newPoint.apo;
+      // }
+
+      // this.graphData.push(newPoint);
+    }
+
+    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+
+  }
+
+
+
+
+
+
+
+
+  public processFeatureGraphData_open(res) {
     const data1 = res.secondGraphRes;
 
-    console.log('CHECK-->' + data1.toString);
+    var a=document.getElementById("checking").innerHTML;
+    console.log('CHECK-->' + a);
     this.property.length = 0;
 
 //    this.graphData = [];
@@ -2025,7 +2253,7 @@ public second=true;
 
     // Push Brands
     const brands = this.createPlanRequestData.brands;
-    this.filters.push({
+    this.filters1.push({
       name: 'Brands',
       key: 'brands',
       isExpanded: false,
@@ -2037,7 +2265,7 @@ public second=true;
 
     const Alcohol_percentage = this.createPlanRequestData.Alcohol_percentage;
     console.log("CHECK-->"+JSON.stringify(this.createPlanRequestData));
-    this.filters.push({
+    this.filters1.push({
       name: 'Alcohol Percentage',
       key: 'alcoholper',
       isExpanded: false,
@@ -2049,7 +2277,7 @@ public second=true;
 
 
     const Subbrand = this.createPlanRequestData.subbrand;
-    this.filters.push({
+    this.filters1.push({
       name: 'Sub-Brand',
       key: 'subbrand',
       isExpanded: false,
@@ -2120,11 +2348,115 @@ public second=true;
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
     data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
     data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+    
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
       this.chart1.render();
     });
   }
+
+
+
+  // public onFilterCheckboxClick($event) {
+  //   const reqBody = this.getFiltersObject();
+
+  //   this.subs.items$ = this.skuService.getSkUList(reqBody).subscribe((response: any) => {
+  //     this.SKUs = response;
+  //     this.selectedSKUs = [];
+  //   });
+  // }
+
+  private getFiltersObject() {
+    const brands = [];
+
+    const Subbrand = [];
+    // const Unitperpack = [];
+
+    const unitPerPack = [];
+
+    const AlcoholPercentage = [];
+
+
+    console.log("TESTTT-----"+JSON.stringify(this.filters1));
+    for (const brand of this.filters1) {
+        
+      if(brand.key=='brands')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+               brands.push(aa.name);
+           }
+        }
+      }
+
+      else if(brand.key=='alcoholper')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            AlcoholPercentage.push(aa.name);
+           }
+        }
+      }
+
+
+      else if(brand.key=='subbrand')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            Subbrand.push(aa.name);
+           }
+        }
+      }
+    }
+
+
+    return {
+      filterBrands: brands,
+      filterSubBrandName: Subbrand,
+      filterAcoholPerc: AlcoholPercentage,
+      filterUnitsPerPack: unitPerPack
+    };
+  }
+  
+
+
+
+
+  public onFilterCheckBoxChange1() {
+
+    const reqBody = this.getFiltersObject();
+
+    // const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    // /*
+    //    Customer Planning Group 0
+    //    Plants Index  1
+    //    Brands Index 3
+    //  */
+    // data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+    // data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+    // data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+    
+    // this.skuService.getSkUList({
+    //   filterBrands: [],
+    //   filterSubBrandName: [],
+    //   filterAcoholPerc: [],
+    //   filterUnitsPerPack: []
+    // }).subscribe((response: any) => {
+    //   this.skus = response;
+    // });
+
+    this.skuService.getSkUList(reqBody).subscribe((response: any) => {
+      this.skus = response;
+    //  this.selectedSKUs = [];
+    });
+
+  }
+
+
 
   public clearAllSKUs() {
     let requestData = false;
@@ -2226,6 +2558,44 @@ public second=true;
     this.finalForecastCommentModalBtn.nativeElement.click();
   }
 
+
+
+
+  public Dbledit(selectedWeekIndex: number) {
+    
+    console.log("HHHH---"+selectedWeekIndex);
+    this.selectedWeekIndex = selectedWeekIndex;
+    this.editCommentModalBtn.nativeElement.click();
+    
+    
+  }
+
+
+
+
+  // comments 
+  public comments(i)
+  {
+    console.log("Pyar--"+i);
+    
+      this.selectedWeekComments=this.graphData[i].comments;
+      console.log("Check01234567---"+JSON.stringify(this.selectedWeekComments));
+      for (var p=0;p<this.selectedWeekComments.length;p++) {
+        console.log("yj-:"+p);
+        this.comm1=this.selectedWeekComments[p].split('|');
+        this.finn.push({
+           sku:this.comm1[1],
+           comment:this.comm1[0]
+        });
+
+        
+
+        
+      }
+      console.log("Check000000---"+JSON.stringify(this.finn));
+   
+  }
+
   public onFinalForecastCommentSubmit(data: any) {
     if (this.selectedWeekIndex) {
       if (this.graphData[this.selectedWeekIndex].comments.length >= 1) {
@@ -2241,6 +2611,40 @@ public second=true;
     }
     this.finalForecastCommentModalCancel.nativeElement.click();
   }
+
+
+
+
+
+
+
+
+  public editCommentSubmit(data: any,pk_com:any) {
+
+    pk_com="admin"+pk_com;
+
+    const finaldata={
+      key:pk_com,
+      data:data.comment
+    };
+
+    this.finn[this.selectedWeekIndex].comment=data.comment;
+
+    this.skuService.editComment(finaldata).subscribe((res: any) => {
+      this.editCommentModalBtnCancel.nativeElement.click();
+
+    }, (error) => {
+      this.editCommentModalBtnCancel.nativeElement.click();
+
+    });
+   
+
+
+  }
+
+
+
+
 
   public putValueInFinal(val) {
     this.finalForecastArray.length = 0;

@@ -183,8 +183,10 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
       this.resetState();
 
       if (data.page === 'create-plan') {
+     
         this.showPlanDemand();
       } else if (data.page === 'revisit-plan') {
+        console.log("YHYHY-->"+window.location.href);
         this.showRevisitPlan();
       } else if (data.page === 'revisit-view') {
         this.showRevisitView();

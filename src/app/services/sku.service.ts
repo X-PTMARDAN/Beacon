@@ -225,4 +225,9 @@ export class SKUService {
   public confirmPlan(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}confirmPlanData`, data);
   }
+
+  public editComment(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}editcomment`, data);
+  }
+
 }

@@ -28,6 +28,10 @@ a:focus, a:hover {
   margin: 0 200px; 
 }
 
+.canvasjs-chart-toolbar {
+  margin-top: -40px !important;
+}
+
 .events-col {
   position: fixed;
   right: 0;
