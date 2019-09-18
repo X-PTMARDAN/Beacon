@@ -59,6 +59,56 @@
             </div>
           </div>
         </div>
+
+
+
+
+
+      </ng-container>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+      <ng-container *ngFor="let filter of filters1; let filterIndex=index">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" [id]="filter.key">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                 [href]="'#' + filter.key + 'filter'"
+                 aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                 (click)="filter.isExpanded = !filter.isExpanded">
+                {{ filter.name }}
+                <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+              </a>
+            </h4>
+          </div>
+          <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+               [attr.aria-labelledby]="filter.key">
+            <div class="panel-body">
+              <ul class="m-0">
+                <li class="d-flex" *ngFor="let value of filter.values;">
+                  <div>
+                    <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                           (change)="onFilterCheckBoxChange1()">
+                  </div>
+                  <p class="m-0">{{ value.name }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
       </ng-container>
     </div>
     <hr>
@@ -71,36 +121,49 @@
       <div class="col-12 pl-2 pr-1">
         <div class="bg-white shadow mt-2">
           <div class="d-flex justify-content-between align-items-center p-1">
-            <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
           
-                    <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
 
-                    <p (click)="abc12()">Full</p>
-                
-                    <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
-                  </div>
-                  <div>
-
-                  </div>
-        
                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
                   data-target="#saveAPlansModal">Save </a>
+            
+                  <!-- </div>
+                  <div> -->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="week" value="2019-W38" id="startWeek"  name="startWeek" readonly>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek" [min]="minEndWeek" required>
+
+                  </div> 
+        
+                   
+                     <p (click)="test1('year')">Yearlyview</p>
+          
+                    
+
                <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
                   data-target="#saveAViewsModal">Save View</a> -->
 
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <div class="d-flex justify-content-around align-items-center">
               
                     <div class="form-group m-0 mr-1">
                       <select class="form-control p-0 pr-1" #t1 name="plant" (change)="test1(t1.value)">
                         <option selected value="week" >Weekly View</option>
                         <option value="month">Monthly View</option>
-                        <option value="year">Calendar Year View</option>
+               
                       </select>
                     </div>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i style="size:100px;" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i style="size:100px;" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>
+
+                 
                   </div>
                 </div>
                </div>
+             
       
       
       
@@ -206,7 +269,7 @@
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td class="font-weight-bold cursor-pointer"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
-                          (click)="selectedWeekComments=graphData[i].comments">
+                          (click)="comments(i)">
                         {{ data.finalForecast }}
                       </td>
                     </ng-container>
@@ -334,12 +397,12 @@
         <div class="d-flex justify-content-between pt-1 pr-1">
           <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
           <div class="form-group m-0">
-            <select name="plant" #t class="minimal form-control p-0 pr-1" (change)="test(t.value)">
+            <select name="plant" #t class="minimal form-control p-0 pr-1" id="checking" (change)="test(t.value)">
               <option selected value="Baseline">Baseline</option>
               <option value="Promo">Promo Effect</option>
               <option value="Weather">Weather effect</option>
 
-              <option value="Weather">Open order</option>
+              <option value="Open">Open order</option>
             </select>
           </div>
         </div>
@@ -418,8 +481,13 @@
 
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <h4>Comments</h4>
-        <div class="block m-1 p-1 d-flex" *ngFor="let selectedWeekComment of selectedWeekComments">
-          <p class="m-0 text-break">{{ selectedWeekComment }}</p>
+        <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index">
+            
+          <p style="font-size: 10px" (dblclick)="Dbledit(i)">{{ fi.sku }}</p>
+          <br><hr>
+            <p style="font-size: 12px">{{ fi.comment }}</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
         </div>
       </div>
     </div>
@@ -568,6 +636,49 @@
   </div>
 </div>
 
+
+
+
+
+
+
+<!--EDIT Comment Modal-->
+<a href="javascript:void(0);" [hidden]="true" data-target="#editCommentModal" data-toggle="modal"
+   #editCommentModalBtn>Open Graph Comment Form Modal</a>
+<div class="modal fade final-comment-modal" id="editCommentModal" tabindex="-1" role="dialog"
+     data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #editCommentModalBtnCancel
+                (click)="selectedWeekIndex=null;editCommentForm.resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editCommentForm="ngForm">
+          <div class="form-group">
+            <label class="d-none" for="finalForecastComment">
+              Comment
+            </label>
+            <input type="text" class="form-control" value="{{comm1[0]}}"id="finalForecastComment" name="comment" placeholder="eg. Comment"
+                   ngModel required>
+          </div>
+          <button type="submit" class="btn float-right btn-dark" [disabled]="!editCommentForm.valid"
+                  [ngClass]="{'disabled': !editCommentForm.valid}"
+                  (click)="editCommentSubmit(editCommentForm.value,comm1[1])">Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <!--Save Filter Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
   Save Filter Modal</a>
@@ -636,6 +747,9 @@
             <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Load Selected</button>
           </div>
         </form>
+
+
+        
       </div>
     </div>
   </div>

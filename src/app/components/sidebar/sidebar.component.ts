@@ -26,6 +26,12 @@ export class SidebarComponent implements OnInit {
 
 
   public onClick(name: string) {
+    console.log("Harshit-->"+name);
+    console.log("YHYHY-->"+window.location.href);
+    if(window.location.href=="http://localhost:4200/portfolio?%2F=")
+    {
+      window.location.href="http://localhost:4200/dashboard";
+    }
     this.sidebarService.emit(name);
   }
 
