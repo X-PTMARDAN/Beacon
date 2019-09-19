@@ -218,6 +218,13 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable_feature_analysis`, data);
   }
 
+
+  public getCPGlist(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}cpg`, data);
+  }
+
+
+
   public savePlan(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}savePlanData`, data);
   }

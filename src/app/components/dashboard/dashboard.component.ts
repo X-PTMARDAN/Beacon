@@ -54,6 +54,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public weeks = [];
 
   public filters1 = [];
+
+  public filters2 = [];
   public forecastadd=0;
 
   public valuestring="";
@@ -288,7 +290,7 @@ public second=true;
     this.createdata = {
     startWeek: 201938,
     endWeek: 202004,
-    forecastingGroups: [{"id":0,"name":"Bilz PanachÃ© CAN 4X6X0_33 ","isFiltered":true,"isChecked":false}],
+    forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
     customerPlanningGroup: ['G01'],
     plants: ['G001']
   };
@@ -1477,6 +1479,8 @@ else{
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+      this.createPlanRequestData.Trade = res.req.trade;
+      this.createPlanRequestData.Sales = res.req.sales;
       this.processGraphData(res);
 
       this.processFeatureGraphData_open(res);
@@ -1916,10 +1920,15 @@ else{
 
 
    // const abc12;
-
-        this.skus = res.req.forecastingGroups;
-    
+       console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+       // this.skus = res.req.forecastingGroups;
+        
+        console.log("JOKER12345678-?"+JSON.stringify(this.skus));
     const data = res.res;
+
+    this.filters1=[];
+
+    this.filters2=[];
 
 
     console.log('Testing->' + JSON.stringify(data));
@@ -2242,6 +2251,7 @@ else{
 
     // Push plant
     const plant = this.createPlanRequestData.plants;
+    console.log("HAHA---"+JSON.stringify(plant));
     this.filters.push({
       name: 'Plants',
       key: 'plant',
@@ -2253,12 +2263,15 @@ else{
 
     // Push Brands
     const brands = this.createPlanRequestData.brands;
+
+   
+
     this.filters1.push({
       name: 'Brands',
       key: 'brands',
       isExpanded: false,
       values: brands.map(item => {
-        return {name: item, isChecked: true};
+        return {name: item, isChecked: false};
       })
     });
 
@@ -2270,7 +2283,7 @@ else{
       key: 'alcoholper',
       isExpanded: false,
       values: Alcohol_percentage.map(item => {
-        return {name: item, isChecked: true};
+        return {name: item, isChecked: false};
       })
     });
 
@@ -2282,7 +2295,30 @@ else{
       key: 'subbrand',
       isExpanded: false,
       values: Subbrand.map(item => {
-        return {name: item, isChecked: true};
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+     console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
+    const Sales = this.createPlanRequestData.Sales;
+    this.filters2.push({
+      name: 'Sales Office',
+      key: 'salesoffice',
+      isExpanded: false,
+      values: Sales.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+    const Trade = this.createPlanRequestData.Trade;
+    this.filters2.push({
+      name: 'Trade Type',
+      key: 'tradetype',
+      isExpanded: false,
+      values: Trade.map(item => {
+        return {name: item, isChecked: false};
       })
     });
 
@@ -2347,12 +2383,66 @@ else{
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
     data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
-    data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+   // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
     
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
       this.chart1.render();
     });
+  }
+
+
+
+
+  public onFilterCheckBoxChange2() {
+
+
+    const reqBody = this.getFiltersObject1();
+
+    console.log("WOW-->"+JSON.stringify(reqBody));
+  //  const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    /*
+       Customer Planning Group 0
+       Plants Index  1
+       Brands Index 3
+     */
+
+  //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+  //   data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+  //   data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+  //  // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+    
+  //   this.skuService.getGraphData(data).subscribe((res: any) => {
+  //     this.processGraphData(res);
+  //     this.chart1.render();
+  //   });
+
+  // this.filters.push({
+  //   name: 'Plants',
+  //   key: 'plant',
+  //   isExpanded: false,
+  //   values: plant.map(item => {
+  //     return {name: item, isChecked: true};
+  //   })
+
+  this.skuService.getCPGlist(reqBody).subscribe((response: any) => {
+
+    response=response.map(item => {
+          return {name: item, isChecked: true};
+        })
+
+        console.log("REsss--"+JSON.stringify(response));
+    for(const abc of this.filters)
+    {
+      console.log("HH--"+JSON.stringify(abc));
+           if(abc.key == 'customerPlanningGroup')
+           {
+            console.log("REsss123456--"+JSON.stringify(abc.values));
+               abc.values=JSON.parse(JSON.stringify(response));
+           }
+    }
+  //  this.selectedSKUs = [];
+  });
   }
 
 
@@ -2367,6 +2457,7 @@ else{
   // }
 
   private getFiltersObject() {
+
     const brands = [];
 
     const Subbrand = [];
@@ -2422,6 +2513,50 @@ else{
   }
   
 
+
+
+
+
+  private getFiltersObject1() {
+
+    const Sales = [];
+
+    const Trade = [];
+    // const Unitperpack = [];
+
+
+
+    console.log("TESTTT-----"+JSON.stringify(this.filters1));
+    for (const brand of this.filters2) {
+        
+      if(brand.key=='tradetype')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            Trade.push(aa.name);
+           }
+        }
+      }
+
+      else if(brand.key=='salesoffice')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+              Sales.push(aa.name);
+           }
+        }
+      }
+
+    }
+
+
+    return {
+      filterSales: Sales,
+      filterTrade: Trade
+    };
+  }
 
 
 
@@ -2576,13 +2711,23 @@ else{
   // comments 
   public comments(i)
   {
-    console.log("Pyar--"+i);
-    
+  
+
+      this.finn=[];
       this.selectedWeekComments=this.graphData[i].comments;
+
+      console.log("Pyar--"+JSON.stringify(this.selectedWeekComments));
       console.log("Check01234567---"+JSON.stringify(this.selectedWeekComments));
       for (var p=0;p<this.selectedWeekComments.length;p++) {
         console.log("yj-:"+p);
         this.comm1=this.selectedWeekComments[p].split('|');
+
+        console.log("KJKHU---"+this.comm1[1])
+        if(this.comm1[1]==undefined || this.comm1==null)
+        {
+          console.log("@$#%^&*");
+          this.comm1[1]="All SKU";
+        }
         this.finn.push({
            sku:this.comm1[1],
            comment:this.comm1[0]
