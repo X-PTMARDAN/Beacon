@@ -14,12 +14,12 @@
         <span class="text-muted">Save</span>
       </div>
       <div class="d-flex flex-column align-items-center" >
-        <a href="javascript:void(0);" class="data-action"><i class="fa fa-list-ul" style="opacity: 0.5;background: #CCC"></i></a>
-        <span class="text-muted" style="opacity: 0.5;background: #CCC" >Organize</span>
+        <a href="javascript:void(0);" class="data-action"><i class="fa fa-times-circle"></i></a>
+        <span class="text-muted"  >Clear</span>
       </div>
     </div>
     <hr>
-    <div class="mb-2">
+    <!-- <div class="mb-2">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
@@ -29,7 +29,7 @@
       <div class="d-flex justify-content-end">
         <a class="text-muted" href="javascript:void(0);">clear all filters</a>
       </div>
-    </div>
+    </div> -->
     <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
       <ng-container *ngFor="let filter of filters; let filterIndex=index">
         <div class="panel panel-default">
@@ -156,37 +156,61 @@
 
 
 
-  <div class="row content-col mb-2" id="upper_middle">
-      <div class="col-12 pl-2 pr-1">
-        <div class="bg-white shadow mt-2">
-          <div class="d-flex justify-content-between align-items-center p-1">
-           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+  <div class="row content-col mb-2" id="upper_middle" > 
+      <div class="col-12 " >
+        <div class="bg-white shadow mt-2" style="background: #003228;">
+          <div class="d-flex justify-content-between align-items-center p-1" style="background:#003228;">
+           <div class="d-flex justify-content-between align-items-center ml-2 pt-2" style="background:#003228;">
           
                   <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
-
-                  <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-                  data-target="#saveAPlansModal">Save </a>
+                  <div style="font-size: 49px;">
+                  <i style="color: #ecf0f1;" class="fa fa-check-circle fa-10x" data-toggle="modal"
+                  data-target="#saveAPlansModal"></i>
+                  </div>
+                  <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+                  data-target="#saveAPlansModal">Save </a> -->
             
                   <!-- </div>
                   <div> -->
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                       <input type="week" value="2019-W38" id="startWeek"  name="startWeek" readonly>
+                      &nbsp;&nbsp;To&nbsp;&nbsp;
+                           
+           
+            <input type="week" id="endWeek" value="2020-W04" name="endWeek" (change)="color_change()" [min]="minEndWeek" required>
+           
+         
+
+                      &nbsp;&nbsp;   <i style="size:100px;cursor: pointer;color:grey;" id="arrow" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek"  required>
+                      <p style="margin-top: 15px;
+                      padding: 7px;
+                      border-radius: 15px;
+                      cursor: pointer;
+                      line-height: 1.5;
+                      color: #495057;
+                      background:#ecf0f1;
+                      border: 1px #ecf0f1;" (click)="test1('year')">Yearly View</p>
+
+                    
+
+
+
 
                   </div> 
         
                    
-                     <p (click)="test1('year')">Yearlyview</p>
-          
+                   
+              
                     
 
                <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
                   data-target="#saveAViewsModal">Save View</a> -->
-
-                  <div class="d-flex justify-content-around align-items-center">
-              
-                    <div class="form-group m-0 mr-1">
+                
+                  <div class="d-flex justify-content-around align-items-center" style="margin-right: 10px;padding-top: .5rem!important;">
+                   
+                   
+                    <div class="form-group m-0 mr-1" style="margin-right: 10px;">
                       <select class="form-control p-0 pr-1" #t1 name="plant" (change)="test1(t1.value)">
                         <option selected value="week" >Weekly View</option>
                         <option value="month">Monthly View</option>
@@ -194,10 +218,8 @@
                       </select>
                     </div>
                     
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i style="size:100px;" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <i style="size:100px;" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>
-
+  
+                    <i style="margin-left: 20px;color: #ecf0f1;" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>&nbsp;
                  
                   </div>
                 </div>
@@ -224,7 +246,7 @@
 
 
   <div class="row content-col mb-2" id="middle">
-    <div class="col-12 pl-2 pr-1" >
+    <div class="col-12 " >
       <div class="bg-white shadow mt-2">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
@@ -368,7 +390,7 @@
             <table>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Total</p>
+                  <p class="m-0 week-block" style="font-size: 0.6rem;">Total</p>
                 </th>
               </tr>
               <tr>
@@ -436,7 +458,7 @@
         <div class="d-flex justify-content-between pt-1 pr-1">
           <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
           <div class="form-group m-0">
-            <select name="plant" #t class="minimal form-control p-0 pr-1" id="checking" (change)="test(t.value)">
+            <select name="plant" #t class="minimal form-control" id="checking" (change)="test(t.value)">
               <option selected value="Baseline">Baseline</option>
               <option value="Promo">Promo Effect</option>
               <option value="Weather">Weather effect</option>
@@ -472,7 +494,7 @@
 
 
   
-  <div class="events-col pt-1 pb-3 pl-2 pr-2" *ngIf="second">
+  <div class="events-col " *ngIf="second">
     <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
       <!-- <div class="mt-2">
         <h4>Features</h4>
@@ -490,19 +512,20 @@
         </div>
 
       </div> -->
-
+<!-- 
       <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
-      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button> -->
 
-  <br>
-      <div class="mb-2">
+      <div class="mb-2" style="margin-top: 20px;">
           <div>
-            <span style="font-weight: bold">Forecasting Group</span>
-            <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
+            <span style="font-weight: bold;">Forecasting Group</span>
+           
           </div>
+          <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Clear all FG</a>
+
           <div class="input-group mt-2">
-            <!-- <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search FG"> -->
+             <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search FG">
             <div class="input-group-append">
               <span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
@@ -519,7 +542,7 @@
         </div>
 
       <div class="mt-2" *ngIf="selectedWeekComments.length">
-        <h4>Comments</h4>
+        <span style="font-weight: bold">Comments</span>
         <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index" (dblclick)="Dbledit(i)">
             
           <p style="font-size: 10px" >{{ fi.sku }}</p>
@@ -530,6 +553,8 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </div>
 

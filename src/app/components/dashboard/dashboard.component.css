@@ -204,6 +204,48 @@ a:focus, a:hover {
   justify-content: space-between;
 }
 
+
+.year {
+  background-color: lightgrey;
+ 
+  border: 15px solid black;
+ 
+}
+
+
+/* Always display the drop down caret */
+
+input[type="week"]::-webkit-calendar-picker-indicator {
+  color: #000;
+}
+
+
+input[type="week"] {
+  -webkit-appearance: none;
+
+  line-height: 1.5;
+  color: #495057;
+  background:#ecf0f1;
+  font-size: 1rem;
+  font-weight: 400;
+
+
+    font-family: "Helvetica", arial, sans-serif;
+
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+
+ 
+}
+
+
+
 td {
   background-color: white;
 }
@@ -262,9 +304,13 @@ td {
   padding: 1px;
   background-color: #34495E;
   border-radius: 3px;
-  color: white;
+
+color:#fff;
+ 
 }
 
 select.form-control {
   height: calc(1.5em + 0.2em);
+  background: aliceblue;
+  border-radius: 25px;
 }

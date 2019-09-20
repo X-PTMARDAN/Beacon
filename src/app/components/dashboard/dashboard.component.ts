@@ -37,6 +37,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData: any;
 
 
+  public createPlanRequestData_temp: any;
+
+
   public createPlanRequestData_featurechange: any;
 
 
@@ -206,7 +209,7 @@ public second=true;
     //     ]
     //   },
     //   axisY: {
-    //     title: 'In HL',
+    //   
     //     valueFormatString: '######',
     //     gridColor: '#ffffff',
     //   },
@@ -401,7 +404,7 @@ public second=true;
           },
   
           axisY: {
-            title: 'In HL',
+          
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
@@ -502,7 +505,7 @@ else{
         },
 
         axisY: {
-          title: 'In HL',
+        
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -569,6 +572,17 @@ else{
         this.createPlanRequestData.subbrand = res.req.subbrand;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+        this.createPlanRequestData.Trade = res.req.trade;
+        this.createPlanRequestData.Sales = res.req.sales;
+
+
+
+        this.createPlanRequestData.globalBev = res.req.globalBev;
+        this.createPlanRequestData.materialgroup = res.req.materialgroup;
+        this.createPlanRequestData.baseunit = res.req.baseunit;
+        this.createPlanRequestData.pack_type = res.req.pack_type;
+    
+        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
 
         
         this.processGraphData(res);
@@ -637,7 +651,7 @@ else{
         //     ]
         //   },
         //   axisY: {
-        //     title: 'In HL',
+        //   
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //   },
@@ -720,7 +734,7 @@ else{
           },
   
           axisY: {
-            title: 'In HL',
+          
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
@@ -834,6 +848,17 @@ else{
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
+        this.createPlanRequestData.Trade = res.req.trade;
+        this.createPlanRequestData.Sales = res.req.sales;
+
+
+   
+        this.createPlanRequestData.globalBev = res.req.globalBev;
+        this.createPlanRequestData.materialgroup = res.req.materialgroup;
+        this.createPlanRequestData.baseunit = res.req.baseunit;
+        this.createPlanRequestData.pack_type = res.req.pack_type;
+    
+        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
   
@@ -894,7 +919,7 @@ else{
         //     // ]
         //   },
         //   axisY: {
-        //     title: 'In HL',
+        //   
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //   },
@@ -977,7 +1002,7 @@ else{
           },
   
           axisY: {
-            title: 'In HL',
+          
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
@@ -1080,6 +1105,16 @@ else{
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
+      this.createPlanRequestData.Trade = res.req.trade;
+      this.createPlanRequestData.Sales = res.req.sales;
+
+   
+      this.createPlanRequestData.globalBev = res.req.globalBev;
+      this.createPlanRequestData.materialgroup = res.req.materialgroup;
+      this.createPlanRequestData.baseunit = res.req.baseunit;
+      this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+      this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
 
@@ -1139,7 +1174,7 @@ else{
           ]
         },
         axisY: {
-          title: 'In HL',
+        
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1222,7 +1257,7 @@ else{
         },
 
         axisY: {
-          title: 'In HL',
+        
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1368,7 +1403,7 @@ else{
     //     },
 
     //     axisY: {
-    //       title: 'In HL',
+    //     
     //       valueFormatString: '######',
     //       gridColor: '#ffffff',
     //     },
@@ -1481,7 +1516,20 @@ else{
       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.createPlanRequestData.Trade = res.req.trade;
       this.createPlanRequestData.Sales = res.req.sales;
+
+      this.createPlanRequestData.globalBev = res.req.globalBev;
+      this.createPlanRequestData.materialgroup = res.req.materialgroup;
+      this.createPlanRequestData.baseunit = res.req.baseunit;
+      this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+      this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+
+      console.log("FIIFIFIIF---"+JSON.stringify(this.createPlanRequestData));
+
+     
       this.processGraphData(res);
+      document.getElementById("arrow").style.color='grey';
 
       this.processFeatureGraphData_open(res);
       this.valuestring="Open order";
@@ -1540,7 +1588,7 @@ else{
           ]
         },
         axisY: {
-          title: 'In HL',
+        
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1623,7 +1671,7 @@ else{
         },
 
         axisY: {
-          title: 'In HL',
+        
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1715,6 +1763,22 @@ else{
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+      this.createPlanRequestData.Trade = res.req.trade;
+      this.createPlanRequestData.Sales = res.req.sales;
+
+
+  
+      this.createPlanRequestData.globalBev = res.req.globalBev;
+    this.createPlanRequestData.materialgroup = res.req.materialgroup;
+    this.createPlanRequestData.baseunit = res.req.baseunit;
+    this.createPlanRequestData.pack_type = res.req.pack_type;
+
+    this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+ 
+
+
+   //      this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
       this.createFilterObject(res);
       this.skus = data.forecastingGroups.map((item) => {
@@ -1767,7 +1831,7 @@ else{
           ]
         },
         axisY: {
-          title: 'In HL',
+        
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -2234,6 +2298,11 @@ else{
 
   //Harshit ENDS
 
+  public color_change()
+  {
+    document.getElementById("arrow").style.color='green';
+  }
+
 
   public createFilterObject(res: any) {
     this.filters = [];
@@ -2298,6 +2367,88 @@ else{
         return {name: item, isChecked: false};
       })
     });
+
+   // this.createPlanRequestData.baseunit = res.req.baseunit;
+
+      
+
+
+
+     console.log("FINALLLL---"+JSON.stringify(this.createPlanRequestData));
+    const animal_Flags = this.createPlanRequestData.animal_Flags;
+    this.filters1.push({
+      name: 'Animal Flag',
+      key: 'Animal_Flags',
+      isExpanded: false,
+      values: animal_Flags.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+    // const pack_size = this.createPlanRequestData.pack_size;
+    // this.filters1.push({
+    //   name: 'Pack Size',
+    //   key: 'pack_size',
+    //   isExpanded: false,
+    //   values: pack_size.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
+
+
+
+    const pack_type = this.createPlanRequestData.pack_type;
+    this.filters1.push({
+      name: 'Pack Type',
+      key: 'packtype',
+      isExpanded: false,
+      values: pack_type.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+
+    const baseunit = this.createPlanRequestData.baseunit;
+    this.filters1.push({
+      name: 'Base Unit',
+      key: 'baseunit',
+      isExpanded: false,
+      values: baseunit.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+
+
+    const materialgroup = this.createPlanRequestData.materialgroup;
+    this.filters1.push({
+      name: 'Material Group',
+      key: 'materialgroup',
+      isExpanded: false,
+      values: materialgroup.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+
+
+    const globalBev = this.createPlanRequestData.globalBev;
+    this.filters1.push({
+      name: 'Global-Bev-Cat',
+      key: 'GlobalBev',
+      isExpanded: false,
+      values: globalBev.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+
+
 
 
      console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
@@ -2624,7 +2775,9 @@ else{
           this.graphData[index].finalForecast = 0;
         } else {
           this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast + value;
-          this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast + value;
+          console.log("Check0--"+this.graphData[index].initialFinalForecast + value);
+          console.log("Check0345--"+(this.graphData[index].initialFinalForecast + value).toFixed(2));
+          this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
         }
       } else {
         this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
@@ -2637,7 +2790,7 @@ else{
       for (const data of this.graphData) {
         if (data.finalForecast) {
           //console.log("Mush->"+this.totalData.finalCastTotal);
-          this.totalData.finalCastTotal += data.finalForecast;
+          this.totalData.finalCastTotal += parseFloat(data.finalForecast);
         }
       }
     this.forecastadd=0;
