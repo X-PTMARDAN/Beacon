@@ -1,51 +1,40 @@
-.step-1-text {
-    margin-top: 70px;
-    margin-bottom: 50px;
-}
-.step-2-content {
-    margin-top: 30px;
-}
-.bg-green {
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    background: #00341d;
-    color: #fff;
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #bgimg {
+    background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+  }
+  
+  .topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+  }
+  
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
+  
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 13px;
-    padding: 10px;
-    font-weight: bold;
-}
-a:hover, a:focus {
-    color: #fff;
-    text-decoration: none;
-	outline:none;
-
-}
-
-p{
-font-size:13px;	
-	}
-
-.thead-dark{
-background:#f2f2f2;	
-	}
-.table .thead-dark th {
-border:0px;
-color:#235343;
-background:#f2f2f2;	
-font-weight:normal;	
-	}
-
-.table td, .table th {
-    padding: .50rem;
-    font-size: 12px;
-}
-
-
-
-
-
-
-
+  }
+  
+  hr {
+    margin: auto;
+    width: 40%;
+  }
