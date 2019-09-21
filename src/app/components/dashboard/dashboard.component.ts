@@ -58,6 +58,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public filters1 = [];
 
+  public filters_plant = [];
+
   public filters2 = [];
   public forecastadd=0;
 
@@ -93,6 +95,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private hh: any = [];
 public endWeek;
+
+public prevactuals;
 
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
@@ -289,8 +293,10 @@ public second=true;
 
   ngAfterViewInit(): void {
  //  this.selectOptionsModalBtn.nativeElement.click();
-  
+  this.endWeek="2020-W04";
+  this.prevactuals="2019-W11";
     this.createdata = {
+      prevactuals:201911,
     startWeek: 201938,
     endWeek: 202004,
     forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
@@ -404,7 +410,7 @@ public second=true;
           },
   
           axisY: {
-          
+            title: " ",
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
@@ -505,7 +511,7 @@ else{
         },
 
         axisY: {
-        
+          title: " ",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -555,6 +561,7 @@ else{
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: this.createPlanRequestData.endWeek,
+        prevactuals:this.createPlanRequestData.prevactuals,
        // forecastingGroups: data.forecastingGroups,
        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.createPlanRequestData.customerPlanningGroup,
@@ -583,6 +590,10 @@ else{
         this.createPlanRequestData.pack_type = res.req.pack_type;
     
         this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
+
 
         
         this.processGraphData(res);
@@ -734,7 +745,7 @@ else{
           },
   
           axisY: {
-          
+            title: " ",
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
@@ -832,6 +843,7 @@ else{
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: this.createPlanRequestData.endWeek,
+        prevactuals:this.createPlanRequestData.prevactuals,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.createPlanRequestData.customerPlanningGroup,
         plants: this.createPlanRequestData.plants,
@@ -859,6 +871,14 @@ else{
         this.createPlanRequestData.pack_type = res.req.pack_type;
     
         this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+
+   
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
   
@@ -1002,7 +1022,7 @@ else{
           },
   
           axisY: {
-          
+            title: " ",
             valueFormatString: '######',
             gridColor: '#ffffff',
           },
@@ -1091,6 +1111,7 @@ else{
     this.createPlanRequestData = {
       startWeek: this.createPlanRequestData.startWeek,
       endWeek: this.createPlanRequestData.endWeek,
+      prevactuals: this.createPlanRequestData.prevactuals,
       forecastingGroups: this.createPlanRequestData.forecastingGroups.map(item => item.name),
       customerPlanningGroup: this.createPlanRequestData.customerPlanningGroup,
       plants: this.createPlanRequestData.plants,
@@ -1115,6 +1136,14 @@ else{
       this.createPlanRequestData.pack_type = res.req.pack_type;
   
       this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+
+   
+      this.createPlanRequestData.pack_size = res.req.pack_size;
+      this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+
       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
 
@@ -1174,7 +1203,7 @@ else{
           ]
         },
         axisY: {
-        
+          title: " ",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1257,7 +1286,7 @@ else{
         },
 
         axisY: {
-        
+          title: " ",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1482,9 +1511,13 @@ else{
 
   public tick()
   {
-    console.log("THIS ENDWEEK--"+this.endWeek);
+    
+    console.log("THIS Prev--"+this.endWeek);
 
     this.createdata.endWeek=DashboardComponent.transformWeek(this.endWeek);
+
+
+    this.createdata.prevactuals=DashboardComponent.transformWeek(this.prevactuals);
   
      this.createPlan(this.createdata);
   }
@@ -1496,6 +1529,7 @@ else{
     this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
+      prevactuals:data.prevactuals,
       forecastingGroups: data.forecastingGroups.map(item => item.name),
       customerPlanningGroup: data.customerPlanningGroup,
       plants: data.plants,
@@ -1523,6 +1557,11 @@ else{
       this.createPlanRequestData.pack_type = res.req.pack_type;
   
       this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+
+      this.createPlanRequestData.pack_size = res.req.pack_size;
+      this.createPlanRequestData.cpgname = res.req.cpgname;
+
 
 
       console.log("FIIFIFIIF---"+JSON.stringify(this.createPlanRequestData));
@@ -1588,7 +1627,7 @@ else{
           ]
         },
         axisY: {
-        
+          title: " ",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1671,7 +1710,7 @@ else{
         },
 
         axisY: {
-        
+          title: " ",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1750,6 +1789,7 @@ else{
     Object.assign(this.createPlanRequestData, {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
+      prevactuals:data.prevactuals,
       forecastingGroups: data.forecastingGroups,
       customerPlanningGroup: data.customerPlanningGroup,
       plants: data.plants,
@@ -1777,6 +1817,8 @@ else{
   
  
 
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
 
    //      this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
@@ -1831,7 +1873,7 @@ else{
           ]
         },
         axisY: {
-        
+          title: " ",
           valueFormatString: '######',
           gridColor: '#ffffff',
         },
@@ -1991,6 +2033,7 @@ else{
     const data = res.res;
 
     this.filters1=[];
+    this.filters_plant=[];
 
     this.filters2=[];
 
@@ -2305,7 +2348,7 @@ else{
 
 
   public createFilterObject(res: any) {
-    this.filters = [];
+  
 
     // Push customer Planning Group
     const customerPlanningGroup = this.createPlanRequestData.customerPlanningGroup;
@@ -2321,7 +2364,7 @@ else{
     // Push plant
     const plant = this.createPlanRequestData.plants;
     console.log("HAHA---"+JSON.stringify(plant));
-    this.filters.push({
+    this.filters_plant.push({
       name: 'Plants',
       key: 'plant',
       isExpanded: false,
@@ -2386,15 +2429,15 @@ else{
     });
 
 
-    // const pack_size = this.createPlanRequestData.pack_size;
-    // this.filters1.push({
-    //   name: 'Pack Size',
-    //   key: 'pack_size',
-    //   isExpanded: false,
-    //   values: pack_size.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+    const pack_size = this.createPlanRequestData.pack_size;
+    this.filters1.push({
+      name: 'Pack Size',
+      key: 'pack_size',
+      isExpanded: false,
+      values: pack_size.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
 
 
@@ -2469,6 +2512,16 @@ else{
       key: 'tradetype',
       isExpanded: false,
       values: Trade.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+    const cpgname = this.createPlanRequestData.cpgname;
+    this.filters2.push({
+      name: 'CPG Name',
+      key: 'cpgname',
+      isExpanded: false,
+      values: cpgname.map(item => {
         return {name: item, isChecked: false};
       })
     });
