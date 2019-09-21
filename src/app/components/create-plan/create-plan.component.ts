@@ -248,6 +248,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
     this.showPanels.showSKU = false;
     this.showPanels.showPortfolioMgmt = false;
     this.endWeek = '';
+    
     this.SKUs = this.SKUs.concat(this.selectedSKUs);
     this.selectedSKUs = [];
     this.selectedPlants = [];
