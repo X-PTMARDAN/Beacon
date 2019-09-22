@@ -195,6 +195,11 @@ export class SKUService {
   }
 
 
+  public sendLog(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savelog`, data);
+  }
+
+
   public getGraphData_yearly(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
   }
@@ -211,6 +216,16 @@ export class SKUService {
 
   public deleteTemp(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}deleteTempData`, data);
+  }
+
+
+  public getlogs(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}logs`, data);
+  }
+
+
+  public getCommnents(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}allcomments`, data);
   }
 
 

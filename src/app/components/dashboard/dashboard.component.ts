@@ -52,8 +52,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public createdata: any = [];
 
+  public allLogs: any = [];
+
+  public allComments: any = [];
 
 
+public main=true;
+public log=false;
+public comment12=false;
   public weeks = [];
 
   public filters1 = [];
@@ -92,7 +98,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 //HARSHIT
 
   private property: any = [];
+  private property2: any = [];
+  private property3: any = [];
 
+
+  public update;
   private hh: any = [];
 public endWeek;
 
@@ -127,6 +137,8 @@ public second=true;
 
   public finn: any = [];
 
+  public allCommentshtml: any = [];
+
   public comm2: any = [];
 
   public fetched_forecasting: any = [];
@@ -151,11 +163,37 @@ public second=true;
   }
 
   ngOnInit() {
+
+
+
+    this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
+
+    console.log("23456--"+JSON.stringify(this.update));
+
+    if(JSON.stringify(this.update)==null)
+    {
+      this.update="No time recorded";
+    }
+
+    const login={
+      Username:"admin",
+      activity:"Logged In",
+      datetimestamp:JSON.stringify(this.update)
+    }
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
+
+
     this.skuService.getSkUList({
       filterBrands: []
     }).subscribe((res: any) => {
       this.skus = res;
     });
+
+    
 
     this.skuService.getEvents().subscribe((res: any) => {
       this.events = res;
@@ -305,6 +343,9 @@ public second=true;
   };
 
    this.createPlan(this.createdata);
+
+
+
   }
 
   ngOnDestroy(): void {
@@ -364,7 +405,7 @@ public second=true;
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
           animationEnabled: true,
-  
+          showInLegend: true,
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -426,6 +467,7 @@ public second=true;
           // },
           data: [{
             type: 'line',
+            showInLegend: true,
             gridColor: '#ffffff',
             labelFontColor: 'black',
             legendMarkerColor: '#000',
@@ -439,7 +481,7 @@ public second=true;
 
    
 
-else{
+else if(feature =="Baseline"){
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -465,7 +507,7 @@ else{
       console.log('thhh->' + this.createPlanRequestData.startWeek);
       this.chart2 = new CanvasJS.Chart('chartContainer2', {
         animationEnabled: true,
-
+        showInLegend: true,
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
@@ -525,25 +567,286 @@ else{
         //   shared: true,
  
         // },
-        data: [{
-          type: 'line',
-          gridColor: '#ffffff',
+        data: [
+          {
+            type: "area",
+            color: "rgba(0,45,121,0.7)",
           labelFontColor: 'black',
+          showInLegend: true,
           legendMarkerColor: '#000',
           dataPoints: this.property
-        }]
+        },
+        {
+          type: "area",
+          color: "rgba(0,75,141,0.7)",
+          labelFontColor: 'black',
+          showInLegend: true,
+          legendMarkerColor: '#000',
+          dataPoints: this.property2
+        },
+        {
+          type: 'area',
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          showInLegend: true,
+          legendMarkerColor: '#000',
+          dataPoints: this.property3
+        }
+      
+      ]
       });
       this.chart2.render();
 
 
     });
   }
+
+
+
+
+
+
+
+  else if(feature =="Promo"){
+    this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
+
+      //this.createPlanRequestData.brands = res.req.brands;
+      
+         if(feature == "Baseline"){
+            
+            this.valuestring="Baseline";
+            this.processFeatureGraphData_open(res);
+          }
+          else if(feature == "Weather"){
+            this.valuestring="Weather";
+            this.processFeatureGraphData_open(res);
+          }
+
+          else if(feature == "Promo"){
+            this.valuestring="Promo";
+            this.processFeatureGraphData_open(res);
+          }
+      
+      //  this.createFilterObject(res);
+
+
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
+      this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        animationEnabled: true,
+        showInLegend: true,
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
+              {
+                startValue: 201953,
+                endValue: 202000
+              },
+              {
+                startValue: 202053,
+                endValue: 202100
+              },
+              {
+                startValue: 202153,
+                endValue: 202200
+              },
+              {
+                startValue: 202253,
+                endValue: 202300
+              }
+            ]
+          },
+          stripLines: [
+            {
+              startValue: 201938,
+              endValue: 201953,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: this.createPlanRequestData.endWeek,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+
+        axisY: {
+          title: " ",
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+
+        toolTip: {
+         content: '{y}'
+
+        
+        },
+        // toolTip: {
+        //   shared: true,
+ 
+        // },
+        data: [
+          {
+          type: 'line',
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          showInLegend: true,
+          legendMarkerColor: '#000',
+          dataPoints: this.property
+        },
+        {
+          type: 'line',
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          showInLegend: true,
+          legendMarkerColor: '#000',
+          dataPoints: this.property2
+        },
+        {
+          type: 'line',
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          showInLegend: true,
+          legendMarkerColor: '#000',
+          dataPoints: this.property3
+        }
+      
+      ]
+      });
+      this.chart2.render();
+
+
+    });
   }
 
 
 
 
 
+
+
+  else if(feature =="Weather"){
+    this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
+
+      //this.createPlanRequestData.brands = res.req.brands;
+      
+         if(feature == "Baseline"){
+            
+            this.valuestring="Baseline";
+            this.processFeatureGraphData_open(res);
+          }
+          else if(feature == "Weather"){
+            this.valuestring="Weather";
+            this.processFeatureGraphData_open_boolean(res);
+          }
+
+          else if(feature == "Promo"){
+            this.valuestring="Promo";
+            this.processFeatureGraphData_open(res);
+          }
+      
+      //  this.createFilterObject(res);
+
+
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
+      this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        animationEnabled: true,
+        showInLegend: true,
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
+              {
+                startValue: 201953,
+                endValue: 202000
+              },
+              {
+                startValue: 202053,
+                endValue: 202100
+              },
+              {
+                startValue: 202153,
+                endValue: 202200
+              },
+              {
+                startValue: 202253,
+                endValue: 202300
+              }
+            ]
+          },
+          stripLines: [
+            {
+              startValue: 201938,
+              endValue: 201953,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: this.createPlanRequestData.endWeek,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+
+        axisY: {
+          title: " ",
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+
+        toolTip: {
+         content: '{y}'
+
+        
+        },
+        // toolTip: {
+        //   shared: true,
+ 
+        // },
+        data: [
+          {
+          type: 'column',
+          showInLegend: true,
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          legendMarkerColor: '#000',
+          dataPoints: this.property
+          }
+      ]
+      });
+      this.chart2.render();
+
+
+    });
+  }
+
+
+
+  }
+
+
+
+
+public refresh()
+{
+  window.location.reload();
+}
 
   public test1(feature: String) {
 
@@ -1158,7 +1461,7 @@ else{
       console.log('thhh->' + this.createPlanRequestData.startWeek);
       this.chart2 = new CanvasJS.Chart('chartContainer2', {
         animationEnabled: true,
-
+        showInLegend: true,
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
@@ -1226,13 +1529,33 @@ else{
         //   }
        // },
 
-        data: [{
+        data: [
+          {
           type: 'line',
           gridColor: '#ffffff',
+          showInLegend: true,
           labelFontColor: 'black',
           legendMarkerColor: '#000',
           dataPoints: this.property
-        }]
+        },
+        {
+          type: 'line',
+          gridColor: '#ffffff',
+          showInLegend: true,
+          labelFontColor: 'black',
+          legendMarkerColor: '#000',
+          dataPoints: this.property2
+        },
+        {
+          type: 'line',
+          gridColor: '#ffffff',
+          showInLegend: true,
+          labelFontColor: 'black',
+          legendMarkerColor: '#000',
+          dataPoints: this.property3
+        }
+      
+      ]
       });
       this.chart2.render();
 
@@ -1472,6 +1795,38 @@ else{
   }
 
 
+  public comment1()
+  {
+    this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
+
+    console.log("Hhsdfh--"+JSON.stringify(this.update));
+    this.main=false;
+    this.comment12=true;
+    this.log=false;
+  }
+
+
+  public log1()
+  {
+    this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
+
+    console.log("Hhsdfh--"+JSON.stringify(this.update));
+    this.main=false;
+    this.comment12=false;
+    this.log=true;
+  }
+
+
+  public main1()
+  {
+    this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
+
+    console.log("Hhsdfh--"+JSON.stringify(this.update));
+    this.main=true;
+    this.comment12=false;
+    this.log=false;
+  }
+
 
   public abc12()
   {
@@ -1582,7 +1937,7 @@ else{
       console.log('thhh->' + this.createPlanRequestData.startWeek);
       this.chart2 = new CanvasJS.Chart('chartContainer2', {
         animationEnabled: true,
-
+        showInLegend: true,
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
@@ -1650,13 +2005,33 @@ else{
         //   }
        // },
 
-        data: [{
+        data: [
+          {
           type: 'line',
           gridColor: '#ffffff',
+          showInLegend: true,
           labelFontColor: 'black',
           legendMarkerColor: '#000',
           dataPoints: this.property
-        }]
+        },
+        {
+          type: 'line',
+          showInLegend: true,
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          legendMarkerColor: '#000',
+          dataPoints: this.property2
+        },
+        {
+          type: 'line',
+          gridColor: '#ffffff',
+          showInLegend: true,
+          labelFontColor: 'black',
+          legendMarkerColor: '#000',
+          dataPoints: this.property3
+        }
+      
+      ]
       });
       this.chart2.render();
 
@@ -1783,6 +2158,31 @@ else{
       this.CanvasJSDataAsCSV();
       this.selectOptionsModalCancel.nativeElement.click();
     });
+
+
+    this.skuService.getlogs().subscribe((res: any) => {
+      this.allLogs=res;
+  
+    });
+
+    this.skuService.getCommnents().subscribe((res: any) => {
+      this.allComments=res;
+      console.log("JJ----"+JSON.stringify(this.allComments));
+      for(const g of this.allComments)
+      {
+        //this.comm1==g.split('|');
+        this.allCommentshtml.push({
+           comment:g.split('|')[0],
+           know:g.split('|')[1]
+        });
+      }
+      console.log("JJ2345----"+JSON.stringify(this.allCommentshtml));
+      
+    });
+
+
+
+    
   }
 
   public viewPlan(data: any) {
@@ -1948,6 +2348,13 @@ else{
     });
   }
 
+
+  public down()
+  {
+    console.log("Fsgfsg");
+    this.downloadCSV({filename: 'chart-data.csv'});
+  }
+
   // Download CSV Handlers
   public CanvasJSDataAsCSV() {
 
@@ -1981,10 +2388,30 @@ else{
     let data, filename, link;
     let csv = '';
 
+    csv+='\n';
+    csv+="End Week "+this.createPlanRequestData.startWeek;
+    csv+='\n';
+    csv+="End Week "+this.createPlanRequestData.endWeek;
+    csv+='\n';
+    csv+="Prev Week "+this.createPlanRequestData.prevactuals;
+    csv+='\n';
+    csv+="Forecasting  "+JSON.stringify(this.createPlanRequestData.forecastingGroups);
+    csv+='\n';
+    csv+="CPG "+JSON.stringify(this.createPlanRequestData.customerPlanningGroup);
+    csv+='\n';
+    csv+="plant"+JSON.stringify(this.createPlanRequestData.plants);
+    csv+='\n';
+
     const columns = ['CalendarYearWeek', 'Actuals', 'APO', 'ML', 'Actuals Last Year', 'Final Forecast'];
 
-    csv += columns.join(',');
-    csv += '\n';
+    // columns.push(" ");
+    // columns.push(JSON.stringify)
+
+   
+    // csv += JSON.stringify(this.skus);
+    // csv +='\n';
+    // csv += columns.join(',');
+    // csv += '\n';
 
     for (const point of this.graphData) {
       const row = [
@@ -2034,7 +2461,7 @@ else{
 
     this.filters1=[];
     this.filters_plant=[];
-
+    this.filters=[];
     this.filters2=[];
 
 
@@ -2216,22 +2643,47 @@ else{
 
 
   public processFeatureGraphData(res) {
-    const data1 = res.res;
+    const data1 = res.secondGraphRes;
 
     var a=document.getElementById("checking").innerHTML;
     console.log("KCUH AUR PANGAA HAI");
     this.property.length = 0;
+
+    this.property2.length = 0;
+    this.property3.length = 0;
 
 //    this.graphData = [];
 
     for (const week1 of data1) {
 
 
-      if (week1.harshit !== undefined) {
+      if (week1.property !== undefined) {
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property.push({
           x: week1.calenderYearWeek,
-          y: DashboardComponent.parseStringToFloat(week1.harshit),
+          y: DashboardComponent.parseStringToFloat(week1.property),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+
+      if (week1.property2 !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property2.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.property2),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+
+      if (week1.property3 !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property3.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.property3),
 
         });
         //this.totalData.actuals += newPoint.actuals;
@@ -2280,23 +2732,161 @@ else{
 
 
 
-  public processFeatureGraphData_open(res) {
+  public processFeatureGraphData_open_boolean(res) {
     const data1 = res.secondGraphRes;
 
     var a=document.getElementById("checking").innerHTML;
     console.log('CHECK-->' + a);
     this.property.length = 0;
+    this.property2.length = 0;
+    this.property3.length = 0;
 
 //    this.graphData = [];
 
     for (const week1 of data1) {
 
 
-      if (week1.apo !== undefined) {
+      if (week1.property !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+
+        if(DashboardComponent.parseStringToFloat(week1.property2)>1.5)
+        {
+          this.property.push({
+            x: week1.calenderYearWeek,
+            y: 1,
+  
+          });
+        }
+
+        else(DashboardComponent.parseStringToFloat(week1.property2)>1.5)
+        {
+          this.property.push({
+            x: week1.calenderYearWeek,
+            y: 0,
+  
+          });
+        }
+      
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+
+      if (week1.property2 !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property2.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.property2),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+
+      if (week1.property3 !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property3.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.property3),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+      console.log('3456789--->' + JSON.stringify(this.property));
+
+      console.log('TEST12--->' + week1.apo);
+      console.log('TEST12--->' + week1.calendarWeek);
+
+
+      // console.log("HARHS^&->"+week.apo);
+      // const newPoint: any = {
+      //   comments: [],
+      //   userComment: []
+      // };
+      // const key: string = week.calenderYearWeek;
+      // newPoint.calenderYearWeek = key;
+      // newPoint.week = key;
+      // newPoint.calenderYear = key;
+
+
+      // if (week.apo !== undefined) {
+      //   newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
+      //   this.aopDataPoints.push({
+      //     x: key,
+      //     y: newPoint.apo,
+      //     color: this.aopDataPointColor,
+      //     click: this.dataPointClick.bind(this),
+      //     calenderYear: key,
+      //   });
+      //   this.totalData.apoTotal += newPoint.apo;
+      // }
+
+      // this.graphData.push(newPoint);
+    }
+
+    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public processFeatureGraphData_open(res) {
+    const data1 = res.secondGraphRes;
+
+    var a=document.getElementById("checking").innerHTML;
+    console.log('CHECK-->' + a);
+    this.property.length = 0;
+    this.property2.length = 0;
+    this.property3.length = 0;
+
+//    this.graphData = [];
+
+    for (const week1 of data1) {
+
+
+      if (week1.property !== undefined) {
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property.push({
           x: week1.calenderYearWeek,
-          y: DashboardComponent.parseStringToFloat(week1.apo),
+          y: DashboardComponent.parseStringToFloat(week1.property),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+
+      if (week1.property2 !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property2.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.property2),
+
+        });
+        //this.totalData.actuals += newPoint.actuals;
+      }
+
+
+      if (week1.property3 !== undefined) {
+        //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        this.property3.push({
+          x: week1.calenderYearWeek,
+          y: DashboardComponent.parseStringToFloat(week1.property3),
 
         });
         //this.totalData.actuals += newPoint.actuals;
@@ -2417,114 +3007,114 @@ else{
 
 
 
-     console.log("FINALLLL---"+JSON.stringify(this.createPlanRequestData));
-    const animal_Flags = this.createPlanRequestData.animal_Flags;
-    this.filters1.push({
-      name: 'Animal Flag',
-      key: 'Animal_Flags',
-      isExpanded: false,
-      values: animal_Flags.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    //  console.log("FINALLLL---"+JSON.stringify(this.createPlanRequestData));
+    // const animal_Flags = this.createPlanRequestData.animal_Flags;
+    // this.filters1.push({
+    //   name: 'Animal Flag',
+    //   key: 'Animal_Flags',
+    //   isExpanded: false,
+    //   values: animal_Flags.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
 
-    const pack_size = this.createPlanRequestData.pack_size;
-    this.filters1.push({
-      name: 'Pack Size',
-      key: 'pack_size',
-      isExpanded: false,
-      values: pack_size.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-
-
-    const pack_type = this.createPlanRequestData.pack_type;
-    this.filters1.push({
-      name: 'Pack Type',
-      key: 'packtype',
-      isExpanded: false,
-      values: pack_type.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // const pack_size = this.createPlanRequestData.pack_size;
+    // this.filters1.push({
+    //   name: 'Pack Size',
+    //   key: 'pack_size',
+    //   isExpanded: false,
+    //   values: pack_size.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
 
 
-    const baseunit = this.createPlanRequestData.baseunit;
-    this.filters1.push({
-      name: 'Base Unit',
-      key: 'baseunit',
-      isExpanded: false,
-      values: baseunit.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // const pack_type = this.createPlanRequestData.pack_type;
+    // this.filters1.push({
+    //   name: 'Pack Type',
+    //   key: 'packtype',
+    //   isExpanded: false,
+    //   values: pack_type.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
 
 
-
-    const materialgroup = this.createPlanRequestData.materialgroup;
-    this.filters1.push({
-      name: 'Material Group',
-      key: 'materialgroup',
-      isExpanded: false,
-      values: materialgroup.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // const baseunit = this.createPlanRequestData.baseunit;
+    // this.filters1.push({
+    //   name: 'Base Unit',
+    //   key: 'baseunit',
+    //   isExpanded: false,
+    //   values: baseunit.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
 
 
 
-    const globalBev = this.createPlanRequestData.globalBev;
-    this.filters1.push({
-      name: 'Global-Bev-Cat',
-      key: 'GlobalBev',
-      isExpanded: false,
-      values: globalBev.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // const materialgroup = this.createPlanRequestData.materialgroup;
+    // this.filters1.push({
+    //   name: 'Material Group',
+    //   key: 'materialgroup',
+    //   isExpanded: false,
+    //   values: materialgroup.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
+
+
+
+
+    // const globalBev = this.createPlanRequestData.globalBev;
+    // this.filters1.push({
+    //   name: 'Global-Bev-Cat',
+    //   key: 'GlobalBev',
+    //   isExpanded: false,
+    //   values: globalBev.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
 
 
 
 
 
-     console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
-    const Sales = this.createPlanRequestData.Sales;
-    this.filters2.push({
-      name: 'Sales Office',
-      key: 'salesoffice',
-      isExpanded: false,
-      values: Sales.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    //  console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
+    // const Sales = this.createPlanRequestData.Sales;
+    // this.filters2.push({
+    //   name: 'Sales Office',
+    //   key: 'salesoffice',
+    //   isExpanded: false,
+    //   values: Sales.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
 
-    const Trade = this.createPlanRequestData.Trade;
-    this.filters2.push({
-      name: 'Trade Type',
-      key: 'tradetype',
-      isExpanded: false,
-      values: Trade.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // const Trade = this.createPlanRequestData.Trade;
+    // this.filters2.push({
+    //   name: 'Trade Type',
+    //   key: 'tradetype',
+    //   isExpanded: false,
+    //   values: Trade.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
-    const cpgname = this.createPlanRequestData.cpgname;
-    this.filters2.push({
-      name: 'CPG Name',
-      key: 'cpgname',
-      isExpanded: false,
-      values: cpgname.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // const cpgname = this.createPlanRequestData.cpgname;
+    // this.filters2.push({
+    //   name: 'CPG Name',
+    //   key: 'cpgname',
+    //   isExpanded: false,
+    //   values: cpgname.map(item => {
+    //     return {name: item, isChecked: false};
+    //   })
+    // });
 
     const forecastingGroups = this.createPlanRequestData.forecastingGroups;
     this.fetched_forecasting.push({
