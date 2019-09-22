@@ -13,7 +13,7 @@
           class="fa fa-download"></i></a>
         <span class="text-muted">Save</span>
       </div>
-      <div class="d-flex flex-column align-items-center" >
+      <div class="d-flex flex-column align-items-center" (click)="refresh()" >
         <a href="javascript:void(0);" class="data-action"><i class="fa fa-times-circle"></i></a>
         <span class="text-muted"  >Clear</span>
       </div>
@@ -30,6 +30,9 @@
         <a class="text-muted" href="javascript:void(0);">clear all filters</a>
       </div>
     </div> -->
+
+
+    <div style="height: 505px;overflow: auto;">
     <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
       <ng-container *ngFor="let filter of filters; let filterIndex=index">
         <div class="panel panel-default">
@@ -149,6 +152,8 @@
 
     <hr style="margin-top: 0.5rem;">
     
+ 
+
     <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
       <ng-container *ngFor="let filter of filters1; let filterIndex=index">
         <div class="panel panel-default">
@@ -184,10 +189,12 @@
 
 
       </ng-container>
+
+      </div>
     </div>
 
 
-                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1" data-toggle="modal"
+                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" data-toggle="modal"
                   data-target="#saveAPlansModal">Apply Filters</a> 
 
   </div>
@@ -213,7 +220,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                       <input type="week"  value="2019-W38" id="prevactuals" [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals" >
                       &nbsp;&nbsp;
-                           <span style="color: #ecf0f1">- 38-2019 -</span>&nbsp;&nbsp;
+                           <span style="color: #ecf0f1;font-weight: 700!important;font-size: 1rem;">- 38-2019 -</span>&nbsp;&nbsp;
            
                <input type="week" id="endWeek" value="2020-W04" name="endWeek" [(ngModel)]="endWeek" (change)="color_change()" required>
            
@@ -223,9 +230,11 @@
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <p style="margin-top: 15px;
                       padding: 7px;
-                      border-radius: 15px;
+                      border-radius: 9px;
                       cursor: pointer;
                       line-height: 1.5;
+                      font-weight: 700!important;
+                      font-size: 1rem;
                       color: #495057;
                       background:#ecf0f1;
                       border: 1px #ecf0f1;" (click)="test1('year')">Yearly View</p>
@@ -295,6 +304,17 @@
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
           </div>
+ 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+          <div class="form-group m-0">
+            <span class="input-group-text"><i (click)="down()" class="fa fa-download"></i></span>
+          </div>
           <div>
           </div>
 
@@ -321,7 +341,9 @@
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p>
+                  <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
+                  <p class="m-0 week-block" > Value Add</p>
+
                 </th>
               </tr>
               <tr (click)="putValueInFinal('ML')" class="ml-text">
@@ -336,12 +358,12 @@
               </tr>
               <tr class="actual-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Actuals</p>
+                  <p class="m-0 week-block" style="color:#006400">Actuals</p>
                 </th>
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Actuals LY</p>
+                  <p class="m-0 week-block" style="color: #C0504E">Actuals LY</p>
                 </th>
               </tr>
 
@@ -496,14 +518,15 @@
       <div class="bg-white rounded shadow mt-2">
         <div class="d-flex justify-content-between pt-1 pr-1">
           <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
-          <div class="form-group m-0">
-            <select name="plant" #t class="minimal form-control" id="checking" (change)="test(t.value)">
-              <option selected value="Baseline">Baseline</option>
-              <option value="Promo">Promo Effect</option>
-              <option value="Weather">Weather effect</option>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <select name="plant" #t class="minimal form-control" id="checking" (change)="test(t.value)" style="width:20%;">
+              <option  value="Baseline">ML Split</option>
+              <option selected value="Promo">Temperature</option>
+              <option value="Weather">Events</option>
 
               <option value="Open">Open order</option>
             </select>
+          <div class="form-group m-0">
+          
           </div>
         </div>
         <div id="chartContainer2" style="height: 150px; width: 100%; margin-left:auto;margin-right:auto;">
@@ -555,7 +578,7 @@
       <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button> -->
-
+     <div *ngIf="main"> 
       <div class="mb-2" style="margin-top: 20px;">
           <div>
             <span style="font-weight: bold;">Forecasting Group</span>
@@ -570,7 +593,7 @@
             </div>
           </div>
         </div>
-        <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
+        <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar>
           <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
               <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
             <div style="margin-top: 3px;">
@@ -580,6 +603,7 @@
           </div>
         </div>
 
+        <div style="height: 253px;">
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <span style="font-weight: bold">Comments</span>
         <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index" (dblclick)="Dbledit(i)">
@@ -591,22 +615,178 @@
           <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
         </div>
       </div>
+    </div>
      
+    </div>
 
-      <div style="cursor: pointer;
+
+
+    <div *ngIf="log" style="height:645px; overflow: auto;"> 
+      <div class="mb-2" style="margin-top: 20px; ">
+          <div>
+            <span style="font-weight: bold;">Application Logs</span>
+           
+          </div>
+     
+        </div>
+
+      <div class="mt-2">
+
+          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allLogs; let i=index" >
+            
+              <p style="font-size: 10px" >{{ fi.activity }}</p>
+              <br><hr>
+                <p style="font-size: 12px" >{{ fi.datetimestamp }}</p>
+              
+              <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+            </div>
+
+
+
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >Logs in</p>
+          <br><hr>
+            <p style="font-size: 12px" >2019-09-22T08:19:40.019Z</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >Applied Filter</p>
+          <br><hr>
+            <p style="font-size: 12px" >2019-09-22T08:28:40.019Z</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+
+
+
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >Saved Filters</p>
+          <br><hr>
+            <p style="font-size: 12px" >2019-09-22T08:28:50.019Z</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+
+
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >Logs in</p>
+          <br><hr>
+            <p style="font-size: 12px" >2019-09-22T08:58:50.019Z</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+      </div>
+     
+    </div>
+
+
+
+
+
+
+
+    <div *ngIf="comment12" style="height:645px; overflow: auto;"> 
+      <div class="mb-2" style="margin-top: 20px;">
+          <div>
+            <span style="font-weight: bold;">All comments</span>
+           
+          </div>
+     
+        </div>
+
+
+        
+
+      <div class="mt-2">
+
+          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allCommentshtml; let i=index" >
+              <p style="font-size: 12px" >{{ fi.know }}</p>
+              <p style="font-size: 10px" >{{ fi.comment }}</p>
+              <br><hr>
+  
+              
+              <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+            </div>
+
+
+
+
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >201941-Grimb Blonde BOT 4X6X0_25 FopNG01G001</p>
+          <br><hr>
+            <p style="font-size: 12px" >Test Comment</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >201942 - Grimb Blonde BOT 24X0_33 INT CG01G001</p>
+          <br><hr>
+            <p style="font-size: 12px" >Comments try</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+
+
+
+        <div class="block m-1 p-1 d-flex">
+            
+          <p style="font-size: 10px" >201945-Grimb Blonde BOT 4X6X0_25 TraNG01G001</p>
+          <br><hr>
+            <p style="font-size: 12px" >Shubham try</p>
+          
+          <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+        </div>
+
+
+      </div>
+     
+    </div>
+
+
+    <div class="flex-container" style="width:100%">
+      <div (click)='main1()' style="width: 30%;text-align: center;    height: 28px;
+      cursor: pointer;margin-right: 3px;">M</div>
+      <div (click)='log1()' style="width: 40%;text-align: center;    height: 28px;
+      cursor: pointer;margin-right: 3px;">L</div>
+      <div (click)='comment1()' style="width: 30%;text-align: center;    height: 28px;
+      cursor: pointer;">C</div>  
+    </div>
+
+  
+
+
+
+  
+      <!-- <div style="cursor: pointer;
       position: absolute;
+      display:inline;
+      width:100%;
       bottom: 0;
       margin-bottom: 5px;">
-      <button>C</button>
 
-      <button>C</button>
-      <button>C</button>
-    </div>
-    </div>
+        <div style="width: 30%;background:white;">H</div>
+        <div style="width: 40%;background:white;">A</div>
+        <div style="width: 30%;background:white;">B</div>
+   <button (click)='main1()'>Main</button>&nbsp;
 
-    
+      <button (click)='comment1()'>Coment</button>&nbsp;
+      <button (click)='log1()'>Log</button>&nbsp;
+    </div> -->
+
+
+
   </div>
+
 </div>
+
+
 
 <!--Select Options Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#selectOptionsModal" data-toggle="modal"

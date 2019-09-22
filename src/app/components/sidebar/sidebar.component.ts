@@ -20,6 +20,17 @@ export class SidebarComponent implements OnInit {
 
   
   ngOnInit() {
+    if(window.location.href=="http://localhost:4200/portfolio?%2F=")
+    {
+      document.getElementById("plan").style.background='#5A5F66';
+      document.getElementById("portfolio").style.background='#797F87';
+    }
+    else if(window.location.href=="http://localhost:4200/dashboard")
+    {
+
+      document.getElementById("portfolio").style.background='#5A5F66';
+      document.getElementById("plan").style.background='#797F87';
+    }
    
   }
 

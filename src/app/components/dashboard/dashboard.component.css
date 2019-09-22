@@ -223,18 +223,21 @@ input[type="week"]::-webkit-calendar-picker-indicator {
 input[type="week"] {
   -webkit-appearance: none;
 
+
+
+  font-weight: 700!important;
+  font-size: 1rem;
+
+
   line-height: 1.5;
   color: #495057;
   background:#ecf0f1;
-  font-size: 1rem;
-  font-weight: 400;
 
 
     font-family: "Helvetica", arial, sans-serif;
 
-    border-radius: 15px;
-    font-size: 1rem;
-    font-weight: 400;
+    border-radius: 9px;
+ 
     border:1px solid #ecf0f1;
     background:#ecf0f1;
     padding:5px;
@@ -259,7 +262,7 @@ td {
 }
 
 .actual-text {
-  color: #20C9A4;
+  color: #C0504E;
 }
 
 .ml-text {
@@ -310,7 +313,26 @@ color:#fff;
 }
 
 select.form-control {
-  height: calc(1.5em + 0.2em);
+  /* height: calc(1.5em + 0.2em); */
   background: aliceblue;
   border-radius: 25px;
+
+  font-weight: 700!important;
+    font-size: 1rem;
+}
+
+
+
+
+
+.flex-container {
+  display: flex;
+  /* background-color: DodgerBlue; */
+}
+
+.flex-container > div {
+  height: 20px;
+  background-color: #f1f1f1;
+  
+  
 }
