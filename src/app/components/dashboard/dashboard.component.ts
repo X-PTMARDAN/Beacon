@@ -49,6 +49,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Filters
   public loadedFilters: any = [];
 
+  public plants = [];
 
   public createdata: any = [];
 
@@ -183,6 +184,10 @@ public second=true;
 
     this.skuService.sendLog(login).subscribe((res: any) => {
 
+    });
+
+    this.skuService.getPlants().subscribe((response: any) => {
+      this.plants = response;
     });
 
 
@@ -344,8 +349,9 @@ public second=true;
 
    this.createPlan(this.createdata);
 
-
-
+   
+    document.getElementsByClassName('canvasjs-chart-toolbar')[0].remove();
+  // document.getElementsByClassName('canvasjs-chart-toolbar').
   }
 
   ngOnDestroy(): void {
@@ -409,7 +415,8 @@ public second=true;
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
-            itemclick: this.toggleDataSeries.bind(this)
+            fontSize:10,
+            itemclick: this.toggleDataSeries1.bind(this)
           },
           axisX: {
             valueFormatString: '######',
@@ -466,6 +473,8 @@ public second=true;
    
           // },
           data: [{
+
+            name:'Open',
             type: 'line',
             showInLegend: true,
             gridColor: '#ffffff',
@@ -569,23 +578,23 @@ else if(feature =="Baseline"){
         // },
         data: [
           {
-            type: "area",
-            color: "rgba(0,45,121,0.7)",
+          type: 'line',
+          gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
           legendMarkerColor: '#000',
           dataPoints: this.property
         },
         {
-          type: "area",
-          color: "rgba(0,75,141,0.7)",
+          type: 'line',
+          gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
           legendMarkerColor: '#000',
           dataPoints: this.property2
         },
         {
-          type: 'area',
+          type: 'line',
           gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
@@ -792,7 +801,7 @@ else if(feature =="Baseline"){
           },
           stripLines: [
             {
-              startValue: 201938,
+              startValue: this.createPlanRequestData.startWeek,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -822,6 +831,7 @@ else if(feature =="Baseline"){
         data: [
           {
           type: 'column',
+          color: "green",
           showInLegend: true,
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1797,6 +1807,11 @@ public refresh()
 
   public comment1()
   {
+
+    document.getElementById('m').style.background='';
+    document.getElementById('l').style.background='';
+    document.getElementById('c').style.background='#fff';
+
     this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
 
     console.log("Hhsdfh--"+JSON.stringify(this.update));
@@ -1808,6 +1823,12 @@ public refresh()
 
   public log1()
   {
+
+    document.getElementById('m').style.background='';
+    document.getElementById('l').style.background='#fff';
+    document.getElementById('c').style.background='';
+
+
     this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
 
     console.log("Hhsdfh--"+JSON.stringify(this.update));
@@ -1819,6 +1840,11 @@ public refresh()
 
   public main1()
   {
+
+    document.getElementById('m').style.background='#fff';
+    document.getElementById('l').style.background='';
+    document.getElementById('c').style.background='';
+
     this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
 
     console.log("Hhsdfh--"+JSON.stringify(this.update));
@@ -1941,7 +1967,8 @@ public refresh()
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
-          itemclick: this.toggleDataSeries.bind(this)
+          fontSize: 10,
+          itemclick: this.toggleDataSeries1.bind(this)
         },
         axisX: {
           valueFormatString: '######',
@@ -2007,27 +2034,24 @@ public refresh()
 
         data: [
           {
-          type: 'line',
-          gridColor: '#ffffff',
+          name: 'Minimum ',
           showInLegend: true,
-          labelFontColor: 'black',
-          legendMarkerColor: '#000',
+          type: 'spline',
+          legendMarkerColor: "#000",
           dataPoints: this.property
         },
         {
-          type: 'line',
+          name: 'Maximum ',
           showInLegend: true,
-          gridColor: '#ffffff',
-          labelFontColor: 'black',
-          legendMarkerColor: '#000',
+          type: 'spline',
+          legendMarkerColor: "#000",
           dataPoints: this.property2
         },
         {
-          type: 'line',
-          gridColor: '#ffffff',
+          name: 'Average ',
           showInLegend: true,
-          labelFontColor: 'black',
-          legendMarkerColor: '#000',
+          type: 'spline',
+          legendMarkerColor: "#000",
           dataPoints: this.property3
         }
       
@@ -2445,6 +2469,11 @@ public refresh()
   private toggleDataSeries(e) {
     e.dataSeries.visible = !(typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible);
     this.chart1.render();
+  }
+
+  private toggleDataSeries1(e) {
+    e.dataSeries.visible = !(typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible);
+    this.chart2.render();
   }
 
 
@@ -2952,7 +2981,7 @@ public refresh()
     });
 
     // Push plant
-    const plant = this.createPlanRequestData.plants;
+    const plant = this.plants;
     console.log("HAHA---"+JSON.stringify(plant));
     this.filters_plant.push({
       name: 'Plants',
@@ -3007,16 +3036,16 @@ public refresh()
 
 
 
-    //  console.log("FINALLLL---"+JSON.stringify(this.createPlanRequestData));
-    // const animal_Flags = this.createPlanRequestData.animal_Flags;
-    // this.filters1.push({
-    //   name: 'Animal Flag',
-    //   key: 'Animal_Flags',
-    //   isExpanded: false,
-    //   values: animal_Flags.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+     console.log("FINALLLL---"+JSON.stringify(this.createPlanRequestData));
+    const animal_Flags = this.createPlanRequestData.animal_Flags;
+    this.filters1.push({
+      name: 'Animal Flag',
+      key: 'Animal_Flags',
+      isExpanded: false,
+      values: animal_Flags.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
 
     // const pack_size = this.createPlanRequestData.pack_size;
@@ -3031,90 +3060,90 @@ public refresh()
 
 
 
-    // const pack_type = this.createPlanRequestData.pack_type;
-    // this.filters1.push({
-    //   name: 'Pack Type',
-    //   key: 'packtype',
-    //   isExpanded: false,
-    //   values: pack_type.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+    const pack_type = this.createPlanRequestData.pack_type;
+    this.filters1.push({
+      name: 'Pack Type',
+      key: 'packtype',
+      isExpanded: false,
+      values: pack_type.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
 
 
-    // const baseunit = this.createPlanRequestData.baseunit;
-    // this.filters1.push({
-    //   name: 'Base Unit',
-    //   key: 'baseunit',
-    //   isExpanded: false,
-    //   values: baseunit.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
-
-
-
-
-    // const materialgroup = this.createPlanRequestData.materialgroup;
-    // this.filters1.push({
-    //   name: 'Material Group',
-    //   key: 'materialgroup',
-    //   isExpanded: false,
-    //   values: materialgroup.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+    const baseunit = this.createPlanRequestData.baseunit;
+    this.filters1.push({
+      name: 'Base Unit',
+      key: 'baseunit',
+      isExpanded: false,
+      values: baseunit.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
 
 
 
-    // const globalBev = this.createPlanRequestData.globalBev;
-    // this.filters1.push({
-    //   name: 'Global-Bev-Cat',
-    //   key: 'GlobalBev',
-    //   isExpanded: false,
-    //   values: globalBev.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+    const materialgroup = this.createPlanRequestData.materialgroup;
+    this.filters1.push({
+      name: 'Material Group',
+      key: 'materialgroup',
+      isExpanded: false,
+      values: materialgroup.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+
+
+
+
+    const globalBev = this.createPlanRequestData.globalBev;
+    this.filters1.push({
+      name: 'Global-Bev-Cat',
+      key: 'GlobalBev',
+      isExpanded: false,
+      values: globalBev.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
 
 
 
 
 
-    //  console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
-    // const Sales = this.createPlanRequestData.Sales;
-    // this.filters2.push({
-    //   name: 'Sales Office',
-    //   key: 'salesoffice',
-    //   isExpanded: false,
-    //   values: Sales.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+     console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
+    const Sales = this.createPlanRequestData.Sales;
+    this.filters2.push({
+      name: 'Sales Office',
+      key: 'salesoffice',
+      isExpanded: false,
+      values: Sales.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
 
-    // const Trade = this.createPlanRequestData.Trade;
-    // this.filters2.push({
-    //   name: 'Trade Type',
-    //   key: 'tradetype',
-    //   isExpanded: false,
-    //   values: Trade.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+    const Trade = this.createPlanRequestData.Trade;
+    this.filters2.push({
+      name: 'Trade Type',
+      key: 'tradetype',
+      isExpanded: false,
+      values: Trade.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
-    // const cpgname = this.createPlanRequestData.cpgname;
-    // this.filters2.push({
-    //   name: 'CPG Name',
-    //   key: 'cpgname',
-    //   isExpanded: false,
-    //   values: cpgname.map(item => {
-    //     return {name: item, isChecked: false};
-    //   })
-    // });
+    const cpgname = this.createPlanRequestData.cpgname;
+    this.filters2.push({
+      name: 'CPG Name',
+      key: 'cpgname',
+      isExpanded: false,
+      values: cpgname.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
 
     const forecastingGroups = this.createPlanRequestData.forecastingGroups;
     this.fetched_forecasting.push({
@@ -3226,15 +3255,15 @@ public refresh()
         })
 
         console.log("REsss--"+JSON.stringify(response));
-    for(const abc of this.filters)
-    {
-      console.log("HH--"+JSON.stringify(abc));
-           if(abc.key == 'customerPlanningGroup')
-           {
-            console.log("REsss123456--"+JSON.stringify(abc.values));
-               abc.values=JSON.parse(JSON.stringify(response));
-           }
-    }
+        for(const abc of this.filters)
+        {
+          console.log("HH--"+JSON.stringify(abc));
+              if(abc.key == 'customerPlanningGroup')
+              {
+                console.log("REsss123456--"+JSON.stringify(abc.values));
+                  abc.values=JSON.parse(JSON.stringify(response));
+              }
+        }
   //  this.selectedSKUs = [];
   });
   }
@@ -3257,9 +3286,23 @@ public refresh()
     const Subbrand = [];
     // const Unitperpack = [];
 
-    const unitPerPack = [];
+   
 
     const AlcoholPercentage = [];
+
+    const AnimalFlag=[];
+    const packtype=[];
+    const baseunit=[];
+
+    const materialgroup=[];
+
+    const salesoffice=[];
+
+    const tradetype=[];
+
+
+    const cpgname=[];
+
 
 
     console.log("TESTTT-----"+JSON.stringify(this.filters1));
@@ -3295,14 +3338,69 @@ public refresh()
            }
         }
       }
+
+
+      else if(brand.key=='Animal_Flags')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            AnimalFlag.push(aa.name);
+           }
+        }
+      }
+
+      else if(brand.key=='packtype')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            packtype.push(aa.name);
+           }
+        }
+      }
+
+
+
+      else if(brand.key=='baseunit')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            baseunit.push(aa.name);
+           }
+        }
+      }
+
+
+
+      else if(brand.key=='materialgroup')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            materialgroup.push(aa.name);
+           }
+        }
+      }
+
+
+
+
     }
 
 
+ 
+
     return {
-      filterBrands: brands,
-      filterSubBrandName: Subbrand,
-      filterAcoholPerc: AlcoholPercentage,
-      filterUnitsPerPack: unitPerPack
+      brands: brands,
+      alcoholper: Subbrand,
+      subbrand: AlcoholPercentage,
+      materialGroup:materialgroup,
+      animalFlag: AnimalFlag,
+      packType: packtype,
+      baseunit: baseunit,
+      
     };
   }
   
@@ -3343,12 +3441,13 @@ public refresh()
         }
       }
 
+
     }
 
 
     return {
-      filterSales: Sales,
-      filterTrade: Trade
+      salesOffice: Sales,
+      tradeType: Trade
     };
   }
 
@@ -3356,7 +3455,12 @@ public refresh()
 
   public onFilterCheckBoxChange1() {
 
+
+    //SKU
     const reqBody = this.getFiltersObject();
+
+//CPG
+    const reqBody1 = this.getFiltersObject1();
 
     // const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
     // /*
@@ -3378,10 +3482,50 @@ public refresh()
     //   this.skus = response;
     // });
 
-    this.skuService.getSkUList(reqBody).subscribe((response: any) => {
+    this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
+
+      console.log("JSss--"+JSON.stringify(this.skus));
       this.skus = response;
+
+      this.skuService.getCPGlist2(reqBody1).subscribe((response1: any) => {
+
+
+        console.log("jkdsfks----"+JSON.stringify(response1));
+              response1=response1.map(item => {
+                return {name: item, isChecked: true};
+              })
+
+              console.log("REsss--"+JSON.stringify(response1));
+              for(const abc of this.filters)
+              {
+                console.log("HH--"+JSON.stringify(abc));
+                    if(abc.key == 'customerPlanningGroup')
+                    {
+                      console.log("REsss123456--"+JSON.stringify(abc.values));
+                        abc.values=JSON.parse(JSON.stringify(response1));
+                    }
+              }
+
+
+
+
+              this.createPlanRequestData.forecastingGroups= JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+              this.createPlanRequestData.customerPlanningGroup=response1;
+
+
+
+              this.createPlan(this.createPlanRequestData);
+
+
+
+
+      //  this.selectedSKUs = [];
+      });
+
     //  this.selectedSKUs = [];
     });
+
+
 
   }
 

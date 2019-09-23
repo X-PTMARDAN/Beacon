@@ -94,7 +94,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                           (change)="onFilterCheckBoxChange2()">
+                          >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -175,7 +175,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                           (change)="onFilterCheckBoxChange1()">
+                           >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -194,22 +194,21 @@
     </div>
 
 
-                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" data-toggle="modal"
-                  data-target="#saveAPlansModal">Apply Filters</a> 
+                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange1()'>Apply Filters</a> 
 
   </div>
 
 
 
-  <div class="row content-col mb-2" id="upper_middle" > 
+  <div class="row content-col mb-2" id="upper_middle" style="margin-bottom: .0rem!important;"> 
       <div class="col-12 " >
-        <div class="bg-white shadow mt-2" style="background: #003228;">
-          <div class="d-flex justify-content-between align-items-center p-1" style="background:#003228;">
+        <div class="bg-white shadow mt-2" style="background: #003228;border-radius: 15px; ">
+          <div class="d-flex justify-content-between align-items-center p-1" style="background:#003228;border-radius: 15px;">
            <div class="d-flex justify-content-between align-items-center ml-2 pt-2" style="background:#003228;">
           
                   <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
-                  <div style="font-size: 49px;">
-                  <i style="color: #ecf0f1;" class="fa fa-check-circle fa-10x" data-toggle="modal"
+                  <div style="font-size: 40px;">
+                  <i style="color: #ecf0f1;" class="fa fa-save fa-10x" data-toggle="modal"
                   data-target="#saveAPlansModal"></i>
                   </div>
                   <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
@@ -237,7 +236,7 @@
                       font-size: 1rem;
                       color: #495057;
                       background:#ecf0f1;
-                      border: 1px #ecf0f1;" (click)="test1('year')">Yearly View</p>
+                      border: 1px #ecf0f1;" (click)="test1('year')">View 2019</p>
 
                     
 
@@ -295,7 +294,7 @@
 
   <div class="row content-col mb-2" id="middle">
     <div class="col-12 " >
-      <div class="bg-white shadow mt-2">
+      <div class="bg-white shadow mt-2" style="border-radius: 15px;">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold">Planning table (HL)</p>
@@ -342,7 +341,7 @@
               <tr class="header-text">
                 <th class="font-weight-bold">
                   <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
-                  <p class="m-0 week-block" > Value Add</p>
+                  <p class="m-0 week-block" > FVA</p>
 
                 </th>
               </tr>
@@ -500,7 +499,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded shadow mt-2">
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold">Forecast Analysis (HL)</p>
@@ -512,10 +511,10 @@
          
         </div>
 
-        <div id="chartContainer1" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+        <div id="chartContainer1" style="height: 370px; width: 100%; border-radius: 15px !important;margin-left:auto;margin-right:auto;"></div>
       </div>
 
-      <div class="bg-white rounded shadow mt-2">
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between pt-1 pr-1">
           <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <select name="plant" #t class="minimal form-control" id="checking" (change)="test(t.value)" style="width:20%;">
@@ -751,11 +750,11 @@
 
 
     <div class="flex-container" style="width:100%">
-      <div (click)='main1()' style="width: 30%;text-align: center;    height: 28px;
-      cursor: pointer;margin-right: 3px;">M</div>
-      <div (click)='log1()' style="width: 40%;text-align: center;    height: 28px;
+      <div (click)='main1()' id="m" style="width: 30%;text-align: center;    height: 28px;
+      cursor: pointer;margin-right: 3px; background: #fff;">M</div>
+      <div (click)='log1()' id="l" style="width: 40%;text-align: center;    height: 28px;
       cursor: pointer;margin-right: 3px;">L</div>
-      <div (click)='comment1()' style="width: 30%;text-align: center;    height: 28px;
+      <div (click)='comment1()' id="c" style="width: 30%;text-align: center;    height: 28px;
       cursor: pointer;">C</div>  
     </div>
 
