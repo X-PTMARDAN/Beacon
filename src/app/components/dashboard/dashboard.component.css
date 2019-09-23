@@ -81,6 +81,7 @@ a:focus, a:hover {
 
 .filter-col .panel .panel-body ul {
   list-style: none;
+  font-size: 0.75rem; font-family: 'Roboto', sans-serif !important;font-weight: 500;
   padding: 5px 10px;
 }
 
@@ -266,7 +267,7 @@ td {
 }
 
 .ml-text {
-  color: #D8ACFF;
+  color: #ADD8E6;
 }
 
 .aop-text {

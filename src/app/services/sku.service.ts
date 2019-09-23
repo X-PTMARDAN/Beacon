@@ -137,6 +137,42 @@ export class SKUService {
   }
 
 
+
+
+  public getSkUList1(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}changedfilterSKU`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: false,
+            isChecked: false,
+          };
+        });
+      })
+    );
+  }
+
+
+
+
+  public getCPGList2(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}changedfilterSKU`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: false,
+            isChecked: false,
+          };
+        });
+      })
+    );
+  }
+
+
   
 
   public getFilters() {
@@ -236,6 +272,10 @@ export class SKUService {
 
   public getCPGlist(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}cpg`, data);
+  }
+
+  public getCPGlist2(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}changedfilterCPG`, data);
   }
 
 
