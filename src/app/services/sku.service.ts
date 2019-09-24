@@ -35,6 +35,34 @@ export class SKUService {
     );
   }
 
+
+
+
+  public getAnimalFlag() {
+    return this.http.get(`${this.apiGatewayUrl}animalFlag`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+  public getPacktype() {
+    return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
+      map((Unitperpack: any) => {
+        return Unitperpack.map((Unitperpack) => {
+          return {name: Unitperpack, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+
   public getUnitperpack() {
     return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
       map((Unitperpack: any) => {
@@ -108,6 +136,10 @@ export class SKUService {
     );
   }
 
+
+
+  
+
   public getCustomerPlanningGroup() {
     return this.http.get(`${this.apiGatewayUrl}cpg`).pipe(
       map((items: any) => {
@@ -173,6 +205,29 @@ export class SKUService {
   }
 
 
+
+
+  public getForecastingGroup(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}forecastingGroup12`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: false,
+            isChecked: false,
+          };
+        });
+      })
+    );
+  }
+
+
+  // public getForecastingGroup(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}forecastingGroup12`, data);
+  // }
+
+
   
 
   public getFilters() {
@@ -231,6 +286,17 @@ export class SKUService {
   }
 
 
+
+  public getSales(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}sales`, data);
+  }
+
+
+  public getTradetype(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}tradetype`, data);
+  }
+
+
   public sendLog(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}savelog`, data);
   }
@@ -253,6 +319,7 @@ export class SKUService {
   public deleteTemp(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}deleteTempData`, data);
   }
+
 
 
   public getlogs(data = {}) {

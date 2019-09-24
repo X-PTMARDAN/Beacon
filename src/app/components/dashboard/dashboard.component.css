@@ -99,9 +99,9 @@ a:focus, a:hover {
   font-size: 14px;
 }
 
-.events-container div {
-  /* margin-top: 2px; */
-}
+/* .events-container div {
+  margin-top: 2px; 
+} */
 
 /* Modal Styling */
 .modal-footer {
@@ -238,7 +238,7 @@ input[type="week"] {
 
     font-family: "Helvetica", arial, sans-serif;
 
-    border-radius: 9px;
+    border-radius: 6px;
  
     border:1px solid #ecf0f1;
     background:#ecf0f1;
@@ -316,8 +316,10 @@ color:#fff;
 
 select.form-control {
   /* height: calc(1.5em + 0.2em); */
-  background: aliceblue;
-  border-radius: 25px;
+  background: #ecf0f1;
+
+  
+  border-radius: 7px;
 
   font-weight: 700!important;
     font-size: 1rem;

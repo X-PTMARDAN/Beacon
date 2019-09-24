@@ -78,7 +78,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" [id]="filter.key">
             <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+              <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
                  [href]="'#' + filter.key + 'filter'"
                  aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                  (click)="filter.isExpanded = !filter.isExpanded">
@@ -94,6 +94,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                    (change)="onFilterCheckBoxChange121()"
                           >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
@@ -119,6 +120,7 @@
           <div class="panel-heading" role="tab" [id]="filter.key">
             <h4 class="panel-title">
               <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+              
                  [href]="'#' + filter.key + 'filter'"
                  aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                  (click)="filter.isExpanded = !filter.isExpanded">
@@ -154,12 +156,46 @@
     
  
 
+
+
+
+    <p>Selected {{selectedskus.length}}</p>
+        <div class="input-group mt-2">
+           <input type="text" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()'  name="searchSKU" placeholder="Search FG">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+          </div>
+        </div>
+
+
+
+      <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar *ngIf="pressed">
+          <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
+              <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus_search | filter: getCallback(); let i=index">
+                    
+                  <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(sku.id)"><i
+                    class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    <p class="m-0">{{ sku.name }}</p>
+                  
+
+              </div>
+        </div>
+
+
+
+        <hr style="margin-top: 0.5rem;">
+
+
+
+
+
+
     <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
       <ng-container *ngFor="let filter of filters1; let filterIndex=index">
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" [id]="filter.key">
             <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+              <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
                  [href]="'#' + filter.key + 'filter'"
                  aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                  (click)="filter.isExpanded = !filter.isExpanded">
@@ -175,7 +211,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                           >
+                    (change)="onFilterCheckBoxChange121()"     >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -243,7 +279,7 @@
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <p style="margin-top: 15px;
                       padding: 7px;
-                      border-radius: 9px;
+                      border-radius: 6px;
                       cursor: pointer;
                       line-height: 1.5;
                       font-weight: 700!important;
@@ -256,26 +292,29 @@
 
 
 
-
                   </div> 
         
                    
                    
-              
+
                     
 
                <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
                   data-target="#saveAViewsModal">Save View</a> -->
                 
                   <div class="d-flex justify-content-around align-items-center" style="margin-right: 10px;padding-top: .5rem!important;">
-                   
+                      <select class="form-control p-0 pr-1" #t1 name="plant" (change)="test1(t1.value)">
+                          <option selected value="week" >Weekly View</option>
+                          <option value="month">Monthly View</option>
+                      
+                        </select>
+                                    
                    
                     <div class="form-group m-0 mr-1" style="margin-right: 10px;">
-                      <select class="form-control p-0 pr-1" #t1 name="plant" (change)="test1(t1.value)">
-                        <option selected value="week" >Weekly View</option>
-                        <option value="month">Monthly View</option>
-               
-                      </select>
+                   
+
+
+                      
                     </div>
                     
   
@@ -601,7 +640,7 @@
       <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button> -->
-     <div *ngIf="main"> 
+     <div > 
       <div class="mb-2" style="margin-top: 20px;">
           <div>
             <span style="font-weight: bold;">Forecasting Group</span>
@@ -615,7 +654,17 @@
               <span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
           </div>
+
+
+
+          
+          
         </div>
+
+
+ 
+
+
         <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar>
           <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
               <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
