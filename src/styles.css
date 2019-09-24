@@ -6,9 +6,9 @@
 
 .canvasjs-chart-toolbar > button {
   margin-top: -40px;
-  margin-right: 20px;
+  margin-right: -17px;
   background-color: transparent !important;
-  border: 1px solid black !important;
+  /* border: 1px solid black !important; */
 }
 
 .canvasjs-chart-toolbar > button:hover {

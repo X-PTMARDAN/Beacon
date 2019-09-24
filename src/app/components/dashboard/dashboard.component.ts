@@ -46,10 +46,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public selectedWeekIndex: number;
   public currentWeek: number;
 
+
+  public skus_search=[];
+
+  public pressed=false;
+
   // Filters
   public loadedFilters: any = [];
 
   public plants = [];
+
+  public selectedskus = [];
+
+
+  
 
   public createdata: any = [];
 
@@ -188,13 +198,330 @@ public second=true;
 
     this.skuService.getPlants().subscribe((response: any) => {
       this.plants = response;
+     // this.filters_plant=response;
+      
+
+     console.log("Dfsfg---"+JSON.stringify(response));
+      const plant = this.plants;
+    console.log("HAHA---"+JSON.stringify(plant));
+    this.filters_plant.push({
+      name: 'Plants',
+      key: 'plant',
+      isExpanded: false,
+      values: response
     });
+
+
+
+    });
+
+
+
+
+
+
+
+    this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
+    
+     // this.filters_plant=response;
+      
+
+   
+     console.log("shbfsh--");
+     this.filters.push({
+       name: 'Customer Planning Groups',
+       key: 'customerPlanningGroup',
+       isExpanded: false,
+       values: response
+     });
+ 
+ 
+
+
+
+    });
+
+
+
+
+
+
+
+    this.skuService.getSales().subscribe((response: any) => {
+      
+     // this.filters_plant=response;
+      
+
+   
+     console.log("shbfsh--");
+     this.filters2.push({
+      name: 'Sales Office',
+      key: 'salesoffice',
+      isExpanded: false,
+      values: response.map(item => {
+        return {name: item, isChecked: false};
+      })
+    });
+ 
+ 
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+    this.skuService.getTradetype().subscribe((response: any) => {    
+      this.filters2.push({
+        name: 'Trade Type',
+        key: 'tradetype',
+        isExpanded: false,
+        values: response.map(item => {
+          return {name: item, isChecked: false};
+        })
+      });
+ 
+     });
+
+
+
+
+
+
+
+
+     this.skuService.getBrands().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Brands',
+        key: 'brands',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
+
+
+
+
+
+
+     this.skuService.getAlcP().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Alcohol Percentage',
+        key: 'alcoholper',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
+
+
+
+
+
+
+     this.skuService.getSubbrand().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Sub-Brand',
+        key: 'subbrand',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
+
+
+
+
+
+
+    //  this.skuService.getAnimalFlag().subscribe((response: any) => {    
+     
+    //   this.filters1.push({
+    //     name: 'Animal Flag',
+    //     key: 'Animal_Flags',
+    //     isExpanded: false,
+    //     values: response
+    //   });
+ 
+    //  });
+
+
+
+
+
+
+
+    //  this.skuService.getPacktype().subscribe((response: any) => {    
+     
+    //   this.filters1.push({
+    //     name: 'Pack Type',
+    //     key: 'packtype',
+    //     isExpanded: false,
+    //     values:response
+    //   });
+  
+ 
+    //  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+  
+ 
+ 
+ 
+  
+ 
+    // this.createPlanRequestData.baseunit = res.req.baseunit;
+ 
+       
+ 
+ 
+ 
+ 
+     // const pack_size = this.createPlanRequestData.pack_size;
+     // this.filters1.push({
+     //   name: 'Pack Size',
+     //   key: 'pack_size',
+     //   isExpanded: false,
+     //   values: pack_size.map(item => {
+     //     return {name: item, isChecked: false};
+     //   })
+     // });
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+    //  const materialgroup = this.createPlanRequestData.materialgroup;
+    //  this.filters1.push({
+    //    name: 'Material Group',
+    //    key: 'materialgroup',
+    //    isExpanded: false,
+    //    values: materialgroup.map(item => {
+    //      return {name: item, isChecked: false};
+    //    })
+    //  });
+ 
+ 
+ 
+ 
+    //  const globalBev = this.createPlanRequestData.globalBev;
+    //  this.filters1.push({
+    //    name: 'Global-Bev-Cat',
+    //    key: 'GlobalBev',
+    //    isExpanded: false,
+    //    values: globalBev.map(item => {
+    //      return {name: item, isChecked: false};
+    //    })
+    //  });
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    this.skuService.getForecastingGroup().subscribe((res: any) => {
+    //  this.plants = response;
+    console.log("767868675-"+JSON.stringify(res));
+      this.skus_search=res;
+    });
+
+    this.endWeek="2020-W04";
+    this.prevactuals="2019-W11";
+      this.createdata = {
+        prevactuals:201911,
+      startWeek: 201938,
+      endWeek: 202004,
+      forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
+      customerPlanningGroup: ['G01'],
+      plants: ['G001']
+    };
+  
+  
+  
+    console.log("sdfshbr---"+JSON.stringify(this.createdata));
+     this.createPlan(this.createdata);
+  
 
 
 
     this.skuService.getSkUList({
       filterBrands: []
     }).subscribe((res: any) => {
+
+      console.log("909090=="+JSON.stringify(res));
+      this.skus_search=JSON.parse(JSON.stringify(res)).map(item => item.name),
       this.skus = res;
     });
 
@@ -336,21 +663,9 @@ public second=true;
 
   ngAfterViewInit(): void {
  //  this.selectOptionsModalBtn.nativeElement.click();
-  this.endWeek="2020-W04";
-  this.prevactuals="2019-W11";
-    this.createdata = {
-      prevactuals:201911,
-    startWeek: 201938,
-    endWeek: 202004,
-    forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":false}],
-    customerPlanningGroup: ['G01'],
-    plants: ['G001']
-  };
-
-   this.createPlan(this.createdata);
 
    
-    document.getElementsByClassName('canvasjs-chart-toolbar')[0].remove();
+   // document.getElementsByClassName('canvasjs-chart-toolbar')[0].remove();
   // document.getElementsByClassName('canvasjs-chart-toolbar').
   }
 
@@ -857,6 +1172,35 @@ public refresh()
 {
   window.location.reload();
 }
+
+
+
+
+public addItems(itemId: number) {
+  const itemIndex = this.skus_search.findIndex((item) => item.id === itemId);
+  const item = this.skus_search[itemIndex];
+  item.isFiltered = false;
+  this.selectedskus.push(item);
+  this.skus_search.splice(itemIndex, 1);
+  this.skus.push(JSON.parse(JSON.stringify(this.skus_search[itemIndex])));
+}
+
+
+
+public fgshow()
+{
+  this.pressed=true;
+}
+
+
+public fghide()
+{
+  this.pressed=false;
+}
+
+
+
+
 
   public test1(feature: String) {
 
@@ -1907,7 +2251,6 @@ public refresh()
   public createPlan(data: any) {
 
 
-    console.log("Create_Plan->"+JSON.stringify(data));
     this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
@@ -2489,10 +2832,10 @@ public refresh()
         console.log("JOKER12345678-?"+JSON.stringify(this.skus));
     const data = res.res;
 
-    this.filters1=[];
-    this.filters_plant=[];
-    this.filters=[];
-    this.filters2=[];
+  
+    
+   
+  //  this.filters2=[];
 
 
     console.log('Testing->' + JSON.stringify(data));
@@ -2971,180 +3314,36 @@ public refresh()
   
 
     // Push customer Planning Group
-    const customerPlanningGroup = this.createPlanRequestData.customerPlanningGroup;
-    this.filters.push({
-      name: 'Customer Planning Groups',
-      key: 'customerPlanningGroup',
-      isExpanded: false,
-      values: customerPlanningGroup.map(item => {
-        return {name: item, isChecked: true};
-      })
-    });
+  
 
-    // Push plant
-    const plant = this.plants;
-    console.log("HAHA---"+JSON.stringify(plant));
-    this.filters_plant.push({
-      name: 'Plants',
-      key: 'plant',
-      isExpanded: false,
-      values: plant.map(item => {
-        return {name: item, isChecked: true};
-      })
-    });
 
-    // Push Brands
-    const brands = this.createPlanRequestData.brands;
+    // console.log("32454--"+JSON.stringify(customerPlanningGroup));
+
+    // // Push plant
+    
+
 
    
 
-    this.filters1.push({
-      name: 'Brands',
-      key: 'brands',
-      isExpanded: false,
-      values: brands.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
 
-
-    const Alcohol_percentage = this.createPlanRequestData.Alcohol_percentage;
-    console.log("CHECK-->"+JSON.stringify(this.createPlanRequestData));
-    this.filters1.push({
-      name: 'Alcohol Percentage',
-      key: 'alcoholper',
-      isExpanded: false,
-      values: Alcohol_percentage.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    // Push Brands
 
 
 
-    const Subbrand = this.createPlanRequestData.subbrand;
-    this.filters1.push({
-      name: 'Sub-Brand',
-      key: 'subbrand',
-      isExpanded: false,
-      values: Subbrand.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-   // this.createPlanRequestData.baseunit = res.req.baseunit;
-
-      
 
 
 
-     console.log("FINALLLL---"+JSON.stringify(this.createPlanRequestData));
-    const animal_Flags = this.createPlanRequestData.animal_Flags;
-    this.filters1.push({
-      name: 'Animal Flag',
-      key: 'Animal_Flags',
-      isExpanded: false,
-      values: animal_Flags.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
+    
 
-
-    // const pack_size = this.createPlanRequestData.pack_size;
-    // this.filters1.push({
-    //   name: 'Pack Size',
-    //   key: 'pack_size',
+    // const cpgname = this.createPlanRequestData.cpgname;
+    // this.filters2.push({
+    //   name: 'CPG Name',
+    //   key: 'cpgname',
     //   isExpanded: false,
-    //   values: pack_size.map(item => {
+    //   values: cpgname.map(item => {
     //     return {name: item, isChecked: false};
     //   })
     // });
-
-
-
-    const pack_type = this.createPlanRequestData.pack_type;
-    this.filters1.push({
-      name: 'Pack Type',
-      key: 'packtype',
-      isExpanded: false,
-      values: pack_type.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-
-
-    const baseunit = this.createPlanRequestData.baseunit;
-    this.filters1.push({
-      name: 'Base Unit',
-      key: 'baseunit',
-      isExpanded: false,
-      values: baseunit.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-
-
-
-    const materialgroup = this.createPlanRequestData.materialgroup;
-    this.filters1.push({
-      name: 'Material Group',
-      key: 'materialgroup',
-      isExpanded: false,
-      values: materialgroup.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-
-
-
-    const globalBev = this.createPlanRequestData.globalBev;
-    this.filters1.push({
-      name: 'Global-Bev-Cat',
-      key: 'GlobalBev',
-      isExpanded: false,
-      values: globalBev.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-
-
-
-
-
-     console.log("VBHKJ--"+JSON.stringify(this.createPlanRequestData));
-    const Sales = this.createPlanRequestData.Sales;
-    this.filters2.push({
-      name: 'Sales Office',
-      key: 'salesoffice',
-      isExpanded: false,
-      values: Sales.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-
-    const Trade = this.createPlanRequestData.Trade;
-    this.filters2.push({
-      name: 'Trade Type',
-      key: 'tradetype',
-      isExpanded: false,
-      values: Trade.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
-
-    const cpgname = this.createPlanRequestData.cpgname;
-    this.filters2.push({
-      name: 'CPG Name',
-      key: 'cpgname',
-      isExpanded: false,
-      values: cpgname.map(item => {
-        return {name: item, isChecked: false};
-      })
-    });
 
     const forecastingGroups = this.createPlanRequestData.forecastingGroups;
     this.fetched_forecasting.push({
@@ -3204,10 +3403,17 @@ public refresh()
        Plants Index  1
        Brands Index 3
      */
+
+     console.log("DSfsdfsd----"+JSON.stringify(this.filters_plant[0].values.map(item => item.name)));
+
+     console.log("DSfsdfsd234----"+JSON.stringify(this.filters_plant));
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
-    data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
-    data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    data.customerPlanningGroup = this.filters[0].values.map(item => item.name);
+    data.plants = this.filters_plant[0].values.map(item => item.name);
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+
+
+   console.log("CHECKKKK---"+JSON.stringify(data));
     
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
@@ -3454,6 +3660,119 @@ public refresh()
 
 
 
+
+
+
+
+  public onFilterCheckBoxChange121() {
+
+
+    //SKU
+    const reqBody = this.getFiltersObject();
+
+    console.log("BODyyyy---"+JSON.stringify(reqBody));
+
+//CPG
+    const reqBody1 = this.getFiltersObject1();
+
+
+
+    console.log("tftuf76---"+JSON.stringify(reqBody1));
+
+     if(reqBody1.salesOffice.length>0)
+     {
+       document.getElementById('salesoffice').style.background='#05d7be';
+     }
+     else{
+       console.log("34567iuhjk");
+      document.getElementById('salesoffice').style.background='#f4f5f9';
+     }
+     if(reqBody1.tradeType.length>0)
+     {
+       document.getElementById('tradetype').style.background='#05d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+     if(reqBody.alcoholper.length>0)
+     {
+      document.getElementById('alcoholper').style.background='#05d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+
+     if(reqBody.animalFlag.length>0)
+     {
+      document.getElementById('Animal_Flags').style.background='#b5d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+
+     if(reqBody.baseunit.length>0)
+     {
+      document.getElementById('baseunit').style.background='#b5d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+
+
+     if(reqBody.brands.length>0)
+     {
+      document.getElementById('brands').style.background='#b5d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+     if(reqBody.materialGroup.length>0)
+     {
+      document.getElementById('materialgroup').style.background='#b5d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+
+     if(reqBody.packType.length>0)
+     {
+      document.getElementById('packtype').style.background='#b5d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+
+     if(reqBody.subbrand.length>0)
+     {
+      document.getElementById('subbrand').style.background='#b5d7be';
+     }
+     else{
+      console.log("34567iuhjk");
+     document.getElementById('salesoffice').style.background='#f4f5f9';
+    }
+
+
+
+  }
+
+
+
+
+
   public onFilterCheckBoxChange1() {
 
 
@@ -3509,9 +3828,10 @@ public refresh()
 
 
 
-
-              this.createPlanRequestData.forecastingGroups= JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
-              this.createPlanRequestData.customerPlanningGroup=response1;
+              
+              this.createPlanRequestData.forecastingGroups= response;
+              console.log("sdfsfsfgsfgsfgsfgsfg---"+JSON.stringify(this.createPlanRequestData.forecastingGroups));
+              this.createPlanRequestData.customerPlanningGroup=response1.map(item => item.name);
 
 
 
