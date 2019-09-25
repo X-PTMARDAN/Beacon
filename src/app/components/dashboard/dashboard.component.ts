@@ -58,7 +58,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public selectedskus = [];
 
-
+public cpgss;
+public plantss;
   
 
   public createdata: any = [];
@@ -215,7 +216,9 @@ public second=true;
       name: 'Plants',
       key: 'plant',
       isExpanded: false,
-      values: response
+      values: response.map(item => {
+        return {name: item, isChecked: false};
+      })
     });
 
 
@@ -239,7 +242,9 @@ public second=true;
        name: 'Customer Planning Groups',
        key: 'customerPlanningGroup',
        isExpanded: false,
-       values: response
+       values: response.map(item => {
+        return {name: item, isChecked: false};
+      })
      });
  
  
@@ -309,21 +314,141 @@ public second=true;
         isExpanded: false,
         values: response
       });
+
+
+
+
+
+      this.skuService.getBrands().subscribe((response: any) => {    
+     
+        this.filters1.push({
+          name: 'Brands',
+          key: 'brands',
+          isExpanded: false,
+          values: response
+        });
+
+
+
+        this.skuService.getSubbrand().subscribe((response: any) => {    
+     
+          this.filters1.push({
+            name: 'Sub-Brand',
+            key: 'subbrand',
+            isExpanded: false,
+            values: response
+          });
+
+
+
+          this.skuService.getglobalbev().subscribe((response: any) => {    
+     
+            this.filters1.push({
+              name: 'Category',
+              key: 'globalbev',
+              isExpanded: false,
+              values: response
+            });
+
+
+            this.skuService.getbaseunit().subscribe((response: any) => {    
+     
+              this.filters1.push({
+                name: 'Primary Unit',
+                key: 'baseunit',
+                isExpanded: false,
+                values: response
+              });
+        
+              this.skuService.getpacktype().subscribe((response: any) => {    
+             
+                this.filters1.push({
+                  name: 'Pack Type',
+                  key: 'packtype',
+                  isExpanded: false,
+                  values:response
+                });
+
+
+
+
+              this.skuService.getAlcP().subscribe((response: any) => {    
+              
+                this.filters1.push({
+                  name: 'ABV',
+                  key: 'alcoholper',
+                  isExpanded: false,
+                  values: response
+                });
+
+
+
+
+            this.skuService.getAnimalFlag().subscribe((response: any) => {    
+            
+              this.filters1.push({
+                name: 'Segment',
+                key: 'Animal_Flags',
+                isExpanded: false,
+                values: response
+              });
+        
+            });
+
+
+
+
+          
+              });
+          
+                
+         
+             });
+        
+        
+        
+            
+         
+             });
+
+
+
+
+
+
+
+       
+           });
+
+
+     
+         });
+    
+
+
+
+
+   
+       });
+
+
+
+
+
+
+
+
+
+
+
+
+
  
      });
 
 
 
-     this.skuService.getBrands().subscribe((response: any) => {    
      
-      this.filters1.push({
-        name: 'Brands',
-        key: 'brands',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
 
 
 
@@ -334,56 +459,14 @@ public second=true;
 
 
 
-     this.skuService.getSubbrand().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'Sub-Brand',
-        key: 'subbrand',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
-
-
-
-     this.skuService.getglobalbev().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'Category',
-        key: 'globalbev',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
-
-
-
-     this.skuService.getbaseunit().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'Primary Unit',
-        key: 'baseunit',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
-
-
-
-     this.skuService.getpacktype().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'Pack Type',
-        key: 'packtype',
-        isExpanded: false,
-        values:response
-      });
   
+
+
+    
+
+
+
  
-     });
 
 
 
@@ -393,30 +476,10 @@ public second=true;
 
 
 
-     this.skuService.getAlcP().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'ABV',
-        key: 'alcoholper',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
 
 
 
 
-     this.skuService.getAnimalFlag().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'Segment',
-        key: 'Animal_Flags',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
 
 
 
@@ -2369,6 +2432,7 @@ public fghide()
 
   public createPlan(data: any) {
 
+    document.getElementById('apply_filter').style.background='#bec1c1';
 
     this.createPlanRequestData = {
       startWeek: data.startWeek,
@@ -3524,13 +3588,13 @@ public fghide()
        Plants Index  1
        Brands Index 3
      */
+this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
+this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-     console.log("DSfsdfsd----"+JSON.stringify(this.filters_plant[0].values.map(item => item.name)));
-
-     console.log("DSfsdfsd234----"+JSON.stringify(this.filters_plant));
+     console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)));
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
-    data.customerPlanningGroup = this.filters[0].values.map(item => item.name);
-    data.plants = this.filters_plant[0].values.map(item => item.name);
+    data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
+    data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
    this.plant_string=JSON.stringify(this.filters_plant[0].values.map(item => item.name));

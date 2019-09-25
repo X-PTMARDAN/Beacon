@@ -97,7 +97,7 @@
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                     (change)="reactivate_filter()" >
                   </div>
-                  <p class="m-0">{{ value.name }}</p>
+                  <p class="m-0">{{ value.name.name }}</p>
                 </li>
               </ul>
             </div>
@@ -142,7 +142,7 @@
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                          (change)="reactivate_filter()" >
                   </div>
-                  <p class="m-0">{{ value.name }}</p>
+                  <p class="m-0">{{ value.name.name }}</p>
                 </li>
               </ul>
             </div>
@@ -230,7 +230,7 @@
     </div>
 
 
-                   <a href="javascript:void(0);" id="apply_filter" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange()'>Apply Filters</a> 
+                   <a href="javascript:void(0);" id="apply_filter" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange()'>Plan Selection</a> 
 
   </div>
 
@@ -661,9 +661,9 @@
   <div *ngIf="main">
       <div class="mb-2" style="margin-top: 20px;" >
 
-        <p>Plant-{{plant_string}}</p>
+        <p>Plant-{{plantss}}</p>
 
-        <p>CPG-{{cpg_string}}</p>
+        <p>CPG-{{cpgss}}</p>
           <div>
             <span style="font-weight: bold;">Forecasting Group</span>
            
