@@ -87,7 +87,7 @@
               <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
                  [href]="'#' + filter.key + 'filter'"
                  aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-                 (click)="filter.isExpanded = !filter.isExpanded">
+                 (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                 {{ filter.name }}
                 <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
               </a>
@@ -102,7 +102,7 @@
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                     (change)="reactivate_filter(1)" >
                   </div>
-                  <p class="m-0">{{ value.name.name }}</p>
+                  <p class="m-0">{{ value.name }}</p>
                 </li>
               </ul>
             </div>
@@ -132,7 +132,7 @@
               
                  [href]="'#' + filter.key + 'filter'"
                  aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-                 (click)="filter.isExpanded = !filter.isExpanded">
+                 (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                 {{ filter.name }}
                 <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
               </a>
@@ -203,13 +203,13 @@
               <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
                  [href]="'#' + filter.key + 'filter'"
                  aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-                 (click)="filter.isExpanded = !filter.isExpanded">
+                 (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                 {{ filter.name }}
                 <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
               </a>
             </h4>
           </div>
-          <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+          <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
                [attr.aria-labelledby]="filter.key">
             <div class="panel-body">
               <ul class="m-0">
@@ -670,7 +670,7 @@
 
         <p>CPG-{{cpgss}}</p>
           <div>
-            <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }} - {{skus.length}}</span>
+            <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }} - {{skus.length + second_sku.length}}</span>
            
           </div>
           <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a>

@@ -78,7 +78,7 @@ public plant_string;
 public cpg_string;
 public log=false;
 
-
+public materialgroupfilter=false;
 public second_sku: any=[];
 
 
@@ -240,19 +240,22 @@ public second=true;
      // this.filters_plant=response;
       
 
+     const a=response.map(item => {
+      return {name: item, isChecked: false};
+    });
+
+      console.log("JKHFRR---"+JSON.stringify(response));
    
      console.log("shbfsh--");
      this.filters.push({
        name: 'Customer Planning Groups',
        key: 'customerPlanningGroup',
        isExpanded: false,
-       values: response.map(item => {
-        return {name: item, isChecked: false};
-      })
+       values: response
      });
  
  
-
+     console.log("khguyg-"+JSON.stringify(this.filters));
 
 
     });
@@ -1354,7 +1357,31 @@ public refresh()
 }
 
 
+public unexpanded()
+{
+  console.log("SDfssgfsgsfgsfgsfg");
+this.materialgroupfilter=false;
 
+  // for(const ab of this.filters2)
+  //  {
+  //    //  ab.isExpanded=false;
+
+  //      document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
+  //  }
+  //  for(const ab of this.filters)
+  //  {
+  //   document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
+  //  }
+  //  for(const ab of this.filters_plant)
+  //  {
+  //   document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
+  //  }
+   for(const ab of this.filters1)
+   {
+    console.log("234567--"+'\''+ab.key+'filter'+'\'');
+    document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
+   }
+}
 
 public addItems(itemId: number) {
   const itemIndex = this.skus_search.findIndex((item) => item.id === itemId);
@@ -1398,6 +1425,7 @@ public fgshow()
 {
   this.pressed=true;
 }
+
 
 
 public fghide()
@@ -3691,7 +3719,9 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
           console.log("HH--"+JSON.stringify(abc));
               if(abc.key == 'customerPlanningGroup')
               {
-                console.log("REsss123456--"+JSON.stringify(abc.values));
+                console.log("RIGHT NOW"+JSON.stringify(abc.values));
+
+                console.log("AFTER NOW"+JSON.stringify(response));
                   abc.values=JSON.parse(JSON.stringify(response));
               }
         }
