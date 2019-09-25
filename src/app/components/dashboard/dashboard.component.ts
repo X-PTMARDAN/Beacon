@@ -51,6 +51,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public pressed=false;
 
+
+  public loading = false;
   // Filters
   public loadedFilters: any = [];
 
@@ -60,6 +62,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 public cpgss;
 public plantss;
+
+public fgssselected;
   
 
   public createdata: any = [];
@@ -651,7 +655,11 @@ public second=true;
       plants: ['G001']
     };
   
-  
+  this.cpgss=JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
+
+  this.plantss=JSON.parse(JSON.stringify(this.createdata.plants));
+
+  this.fgssselected=this.createdata.forecastingGroups;
   
     console.log("sdfshbr---"+JSON.stringify(this.createdata));
      this.createPlan(this.createdata);
@@ -827,12 +835,29 @@ public second=true;
   }
 
 
-  public reactivate_filter()
+  public reactivate_filter(a:number)
   {
-    document.getElementById('apply_filter').style.background='#003228';
+if(true)
+{
+  document.getElementById('apply_filter').style.background='#003228';
+}
+
+
+   
 
 
 
+
+
+    
+  }
+
+  public deactivate()
+  {
+  //  document.getElementById('apply_filter').style.background='#003228';
+
+console.log("dfsdfsdfsdf----");
+    document.getElementById("apply_filter").style.background='#bec1c1';
 
 
     
@@ -1830,7 +1855,7 @@ public fghide()
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201913,
+                  startValue: 201912,
                   endValue: 202000
                 },
                 {
@@ -1847,18 +1872,6 @@ public fghide()
                 }
               ]
             },
-            stripLines: [
-              {
-                startValue: 201909,
-                endValue: 201912,
-                color: '#F2F3F5'
-              },
-              {
-                startValue: 202000,
-                endValue: 202001,
-                color: '#F2F3F5'
-              }
-            ]
           },
   
           axisY: {
@@ -2433,7 +2446,8 @@ public fghide()
   public createPlan(data: any) {
 
    // document.getElementById('apply_filter').style.background='#bec1c1';
-
+     this.loading=true;
+   //this.reactivate_filter(2);
     this.createPlanRequestData = {
       startWeek: data.startWeek,
       endWeek: data.endWeek,
@@ -2447,6 +2461,8 @@ public fghide()
     
     console.log("hhhh---"+JSON.stringify(this.hh));
     //this.test();
+
+  
 
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
@@ -2471,11 +2487,11 @@ public fghide()
       this.createPlanRequestData.pack_size = res.req.pack_size;
       this.createPlanRequestData.cpgname = res.req.cpgname;
 
-
+      this.loading=false;
 
       console.log("FIIFIFIIF---"+JSON.stringify(this.createPlanRequestData));
 
-      document.getElementById("apply_filter").style.background='#bec1c1;';
+      
     
       this.processGraphData(res);
       document.getElementById("arrow").style.color='grey';
@@ -3588,8 +3604,14 @@ public fghide()
        Plants Index  1
        Brands Index 3
      */
+
+
+
 this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
 this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
+
+this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name);
+
 
      console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)));
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
@@ -3603,6 +3625,13 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
    this.plant_string=JSON.stringify(this.filters_plant[0].values.map(item => item.name));
 
    this.cpg_string=JSON.stringify(this.filters[0].values.map(item => item.name));
+
+
+   if(this.fgssselected.length==0 || this.plant_string.length==0 || this.cpg_string.length==0)
+   {
+    window.alert("Please select all CPG, Plant, Forecasting Group");
+  //   window.alert("hi!");
+   }
 
 
    console.log("CHECKKKK---"+JSON.stringify(data));
@@ -3804,8 +3833,8 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
 
     return {
       brands: brands,
-      alcoholper: Subbrand,
-      subbrand: AlcoholPercentage,
+      alcoholper: AlcoholPercentage,
+      subbrand: Subbrand,
       materialGroup:materialgroup,
       animalFlag: AnimalFlag,
       packType: packtype,
@@ -4184,6 +4213,8 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
     
           console.log("JSss--"+JSON.stringify(this.skus));
           this.skus = response;
+
+          this.fgssselected=[];
     
     
         //  this.selectedSKUs = [];
@@ -4290,7 +4321,7 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
       sku.isChecked=true;
  
     }
-    this.reactivate_filter();
+    this.reactivate_filter(1);
   }
 
 
@@ -4611,10 +4642,21 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
 
   // Save and Load Filter
   public saveFilter(filterName: string) {
+
+    const ahg={
+      user: 'admin',
+      filterName,
+      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
+    }
+
+    console.log("CHECKING---"+JSON.stringify(ahg));
+
     this.filterService.saveFilter({
       user: 'admin',
       filterName,
-      plant: this.createFilterString(this.filters[1].values.filter(item => item.isChecked).map(item => item.name)),
+      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     }).subscribe((res: any) => {
@@ -4661,19 +4703,13 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
       }
     }
 
+
+    console.log("Tftdfwf---"+JSON.stringify(selectedFilter.plant));
     // Todo: Change keys
-    this.filters_plant[0].values = selectedFilter.plant.map(item => {
-      return {
-        name: item,
-        isChecked: true
-      };
-    });
-    this.filters[0].values = selectedFilter.cpg.map(item => {
-      return {
-        name: item,
-        isChecked: true
-      };
-    });
+    this.filters_plant[0].values = selectedFilter.plant;
+    
+    this.filters[0].values = selectedFilter.cpg;
+
 
     this.skus = selectedFilter.sku.map(item => {
       return {
