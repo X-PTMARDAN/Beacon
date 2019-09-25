@@ -2432,7 +2432,7 @@ public fghide()
 
   public createPlan(data: any) {
 
-    document.getElementById('apply_filter').style.background='#bec1c1';
+   // document.getElementById('apply_filter').style.background='#bec1c1';
 
     this.createPlanRequestData = {
       startWeek: data.startWeek,
@@ -3595,6 +3595,9 @@ this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(ite
     data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
+
+    data.startWeek=201938;
+    data.endWeek=202004;
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
    this.plant_string=JSON.stringify(this.filters_plant[0].values.map(item => item.name));
