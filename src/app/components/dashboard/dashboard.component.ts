@@ -3634,10 +3634,13 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
    }
 
 
+   this.loading=true;
+
    console.log("CHECKKKK---"+JSON.stringify(data));
     
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);
+      this.loading=false;
       this.chart1.render();
     });
   }
