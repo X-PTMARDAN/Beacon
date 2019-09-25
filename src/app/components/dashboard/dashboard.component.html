@@ -33,6 +33,47 @@
 
 
     <div style="height: 505px;overflow: auto;">
+
+
+    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters2; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                   [href]="'#' + filter.key + 'filter'"
+                   aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                   (click)="filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                 [attr.aria-labelledby]="filter.key">
+              <div class="panel-body">
+                <ul class="m-0">
+                  <li class="d-flex" *ngFor="let value of filter.values;">
+                    <div>
+                      <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                      (change)="onFilterCheckBoxChange121()"
+                            >
+                    </div>
+                    <p class="m-0">{{ value.name }}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+  
+  
+  
+  
+        </ng-container>
+      </div>
+
+
     <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
       <ng-container *ngFor="let filter of filters; let filterIndex=index">
         <div class="panel panel-default">
@@ -54,7 +95,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                           (change)="onFilterCheckBoxChange()">
+                    (change)="reactivate_filter()" >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -73,43 +114,6 @@
 
  
 
-    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
-      <ng-container *ngFor="let filter of filters2; let filterIndex=index">
-        <div class="panel panel-default">
-          <div class="panel-heading" role="tab" [id]="filter.key">
-            <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
-                 [href]="'#' + filter.key + 'filter'"
-                 aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-                 (click)="filter.isExpanded = !filter.isExpanded">
-                {{ filter.name }}
-                <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
-              </a>
-            </h4>
-          </div>
-          <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
-               [attr.aria-labelledby]="filter.key">
-            <div class="panel-body">
-              <ul class="m-0">
-                <li class="d-flex" *ngFor="let value of filter.values;">
-                  <div>
-                    <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                    (change)="onFilterCheckBoxChange121()"
-                          >
-                  </div>
-                  <p class="m-0">{{ value.name }}</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-      </ng-container>
-    </div>
 
     <hr style="margin-top: 0.5rem;">
 
@@ -136,7 +140,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                           (change)="onFilterCheckBoxChange()">
+                         (change)="reactivate_filter()" >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -156,10 +160,6 @@
     
  
 
-
-
-
-    <p>Selected {{selectedskus.length}}</p>
         <div class="input-group mt-2">
            <input type="text" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()'  name="searchSKU" placeholder="Search FG">
           <div class="input-group-append">
@@ -211,7 +211,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                    (change)="onFilterCheckBoxChange121()"     >
+                    (change)="onFilterCheckBoxChange121_sku()"     >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -230,7 +230,7 @@
     </div>
 
 
-                   <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange1()'>Apply Filters</a> 
+                   <a href="javascript:void(0);" id="apply_filter" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange()'>Apply Filters</a> 
 
   </div>
 
@@ -267,17 +267,24 @@
                   <div> -->
 
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                      <input type="week"  value="2019-W38" id="prevactuals" [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals" >
+
+                    <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;padding-left: 50px">Actuals</p>
+                      <input type="week"  value="2019-W38" id="prevactuals" [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals" ></div>
                       &nbsp;&nbsp;
+                             <div style="padding-bottom: 20px;"> <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:14px">Load Week</p>
                            <span style="color: #ecf0f1;font-weight: 700!important;font-size: 1rem;">- 38-2019 -</span>&nbsp;&nbsp;
-           
-               <input type="week" id="endWeek" value="2020-W04" name="endWeek" [(ngModel)]="endWeek" (change)="color_change()" required>
+                          </div>
+
+                          <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;padding-left: 50px">Plan</p>
+               <input type="week" id="endWeek" value="2020-W04" name="endWeek" [(ngModel)]="endWeek" (change)="color_change()" required></div>
            
          
 
-                      &nbsp;&nbsp;   <i style="size:100px;cursor: pointer;color:grey;" id="arrow" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>
+                      &nbsp;&nbsp;  <i style="size:100px;cursor: pointer;color:grey;" id="arrow" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <p style="margin-top: 15px;
+
+                      <div style="padding-bottom: 13px;    padding-top: 12px;"><p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left: 15px">Quick Link</p> 
+                      <p style="
                       padding: 7px;
                       border-radius: 6px;
                       cursor: pointer;
@@ -286,9 +293,9 @@
                       font-size: 1rem;
                       color: #495057;
                       background:#ecf0f1;
-                      border: 1px #ecf0f1;" (click)="test1('year')">View 2019</p>
+                      border: 0.5px #ecf0f1;" (click)="test1('year')">View 2019</p>
 
-                    
+                          </div>
 
 
 
@@ -301,14 +308,17 @@
 
                <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
                   data-target="#saveAViewsModal">Save View</a> -->
-                
+
                   <div class="d-flex justify-content-around align-items-center" style="margin-right: 10px;padding-top: .5rem!important;">
-                      <select class="form-control p-0 pr-1" #t1 name="plant" (change)="test1(t1.value)">
+                      <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;padding-left: 20px">Time Granularity</p>
+ 
+                    
+                    <select class="form-control p-0 pr-1" #t1 name="plant" (change)="test1(t1.value)">
                           <option selected value="week" >Weekly View</option>
                           <option value="month">Monthly View</option>
                       
                         </select>
-                                    
+                        </div>            
                    
                     <div class="form-group m-0 mr-1" style="margin-right: 10px;">
                    
@@ -317,10 +327,18 @@
                       
                     </div>
                     
-  
+                    <!-- <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;">Actuals</p> -->
+
                     <i style="margin-left: 20px;color: #ecf0f1;" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>&nbsp;
-                 
+                 <!-- </div> -->
                   </div>
+
+
+
+
+
+
+                  
                 </div>
 
 
@@ -640,16 +658,20 @@
       <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
       <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button> -->
-     <div > 
-      <div class="mb-2" style="margin-top: 20px;">
+  <div *ngIf="main">
+      <div class="mb-2" style="margin-top: 20px;" >
+
+        <p>Plant-{{plant_string}}</p>
+
+        <p>CPG-{{cpg_string}}</p>
           <div>
             <span style="font-weight: bold;">Forecasting Group</span>
            
           </div>
-          <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Clear all FG</a>
+          <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a>
 
           <div class="input-group mt-2">
-             <input type="text" class="form-control" [(ngModel)]="searchText1" name="searchSKU1" placeholder="Search FG">
+             <input type="text" class="form-control" [(ngModel)]="searchText121" name="searchSKU1" placeholder="Search FG">
             <div class="input-group-append">
               <span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
@@ -665,17 +687,29 @@
  
 
 
-        <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar>
+        <div class="mb-2" style="height: 270px; overflow: auto;font-size: 12px;" data-simplebar>
           <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
               <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
             <div style="margin-top: 3px;">
-              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="onFilterCheckBoxChange()">
+              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter()">
             </div>
             <p class="m-0">{{ sku.name }}</p>
           </div>
+
+          <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
+              <div style="margin-top: 3px;">
+                <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter()">
+              </div>
+              <p class="m-0">{{ sku.name }}</p>
+            </div>
+
+
         </div>
 
-        <div style="height: 253px;">
+
+
+        
+        <div style="height: 203px;">
       <div class="mt-2" *ngIf="selectedWeekComments.length">
         <span style="font-weight: bold">Comments</span>
         <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index" (dblclick)="Dbledit(i)">
@@ -686,6 +720,9 @@
           
           <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
         </div>
+
+
+        
       </div>
     </div>
      

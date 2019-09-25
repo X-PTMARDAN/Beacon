@@ -69,7 +69,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 public main=true;
+public plant_string;
+public cpg_string;
 public log=false;
+
+
+public second_sku: any=[];
+
+
 public comment12=false;
   public weeks = [];
 
@@ -294,6 +301,16 @@ public second=true;
 
 
 
+     this.skuService.getMaterialgroup().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Material Group',
+        key: 'materialgroup',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
 
 
 
@@ -313,18 +330,6 @@ public second=true;
 
 
 
-     this.skuService.getAlcP().subscribe((response: any) => {    
-     
-      this.filters1.push({
-        name: 'Alcohol Percentage',
-        key: 'alcoholper',
-        isExpanded: false,
-        values: response
-      });
- 
-     });
-
-
 
 
 
@@ -342,14 +347,93 @@ public second=true;
 
 
 
+     this.skuService.getglobalbev().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Category',
+        key: 'globalbev',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
 
 
 
-    //  this.skuService.getAnimalFlag().subscribe((response: any) => {    
+     this.skuService.getbaseunit().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Primary Unit',
+        key: 'baseunit',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
+
+
+
+     this.skuService.getpacktype().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Pack Type',
+        key: 'packtype',
+        isExpanded: false,
+        values:response
+      });
+  
+ 
+     });
+
+
+
+
+  
+
+
+
+
+     this.skuService.getAlcP().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'ABV',
+        key: 'alcoholper',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
+
+
+
+
+     this.skuService.getAnimalFlag().subscribe((response: any) => {    
+     
+      this.filters1.push({
+        name: 'Segment',
+        key: 'Animal_Flags',
+        isExpanded: false,
+        values: response
+      });
+ 
+     });
+
+
+
+
+
+
+
+
+
+
+
+
+    //  this.skuService.getbaseunit().subscribe((response: any) => {    
      
     //   this.filters1.push({
-    //     name: 'Animal Flag',
-    //     key: 'Animal_Flags',
+    //     name: 'Base Unit',
+    //     key: 'baseunit',
     //     isExpanded: false,
     //     values: response
     //   });
@@ -362,17 +446,13 @@ public second=true;
 
 
 
-    //  this.skuService.getPacktype().subscribe((response: any) => {    
-     
-    //   this.filters1.push({
-    //     name: 'Pack Type',
-    //     key: 'packtype',
-    //     isExpanded: false,
-    //     values:response
-    //   });
-  
- 
-    //  });
+
+
+
+
+
+
+
 
 
 
@@ -681,6 +761,18 @@ public second=true;
 
   private static parseStringToFloat(text) {
     return parseFloat(parseFloat(text).toFixed(2));
+  }
+
+
+  public reactivate_filter()
+  {
+    document.getElementById('apply_filter').style.background='#003228';
+
+
+
+
+
+    
   }
 
   // Event Handlers
@@ -1178,11 +1270,38 @@ public refresh()
 
 public addItems(itemId: number) {
   const itemIndex = this.skus_search.findIndex((item) => item.id === itemId);
-  const item = this.skus_search[itemIndex];
-  item.isFiltered = false;
-  this.selectedskus.push(item);
+  var item1 = this.skus_search[itemIndex];
+
+  var arr=item1.name.split('-');
+
+  var fin_item=arr[0];
+
+  item1.name=fin_item;
+
+  console.log("sdfjs---"+JSON.stringify(item1));
+
+  console.log("sdfjs---"+JSON.stringify(this.skus));
+  item1.isFiltered = false;
+  this.selectedskus.push(item1);
   this.skus_search.splice(itemIndex, 1);
-  this.skus.push(JSON.parse(JSON.stringify(this.skus_search[itemIndex])));
+   var flag=0;
+  for(const ab of this.skus)
+  {
+      if(item1.name==ab.name)
+      {
+        flag=1;
+        
+      }
+  }
+  if(flag==0)
+  {
+    this.second_sku.push(item1)
+  }
+  else if(flag==1)
+  {
+    console.log("nhi ha");
+  }
+ 
 }
 
 
@@ -2261,6 +2380,7 @@ public fghide()
     };
 
     this.hh=data.forecastingGroups;
+    
     console.log("hhhh---"+JSON.stringify(this.hh));
     //this.test();
 
@@ -2291,7 +2411,8 @@ public fghide()
 
       console.log("FIIFIFIIF---"+JSON.stringify(this.createPlanRequestData));
 
-     
+      document.getElementById("apply_filter").style.background='#bec1c1;';
+    
       this.processGraphData(res);
       document.getElementById("arrow").style.color='grey';
 
@@ -3412,6 +3533,10 @@ public fghide()
     data.plants = this.filters_plant[0].values.map(item => item.name);
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
+   this.plant_string=JSON.stringify(this.filters_plant[0].values.map(item => item.name));
+
+   this.cpg_string=JSON.stringify(this.filters[0].values.map(item => item.name));
+
 
    console.log("CHECKKKK---"+JSON.stringify(data));
     
@@ -3510,7 +3635,7 @@ public fghide()
 
     const cpgname=[];
 
-
+    const globalbev=[];
 
     console.log("TESTTT-----"+JSON.stringify(this.filters1));
     for (const brand of this.filters1) {
@@ -3592,6 +3717,17 @@ public fghide()
       }
 
 
+      else if(brand.key=='globalbev')
+      {
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            globalbev.push(aa.name);
+           }
+        }
+      }
+
+
 
 
     }
@@ -3607,6 +3743,7 @@ public fghide()
       animalFlag: AnimalFlag,
       packType: packtype,
       baseunit: baseunit,
+      globalbev:globalbev
       
     };
   }
@@ -3667,108 +3804,331 @@ public fghide()
   public onFilterCheckBoxChange121() {
 
 
-    //SKU
-    const reqBody = this.getFiltersObject();
+//     //SKU
+//     const reqBody = this.getFiltersObject();
 
-    console.log("BODyyyy---"+JSON.stringify(reqBody));
+//     console.log("BODyyyy---"+JSON.stringify(reqBody));
+
+// //CPG
+//     const reqBody1 = this.getFiltersObject1();
+
+
+
+//     console.log("tftuf76---"+JSON.stringify(reqBody1));
+
+//      if(reqBody1.salesOffice.length>0)
+//      {
+//        document.getElementById('salesoffice').style.background='#05d7be';
+//      }
+//      else{
+//        console.log("34567iuhjk");
+//       document.getElementById('salesoffice').style.background='#f4f5f9';
+//      }
+//      if(reqBody1.tradeType.length>0)
+//      {
+//        document.getElementById('tradetype').style.background='#05d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+//      if(reqBody.alcoholper.length>0)
+//      {
+//       document.getElementById('alcoholper').style.background='#05d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+
+//      if(reqBody.animalFlag.length>0)
+//      {
+//       document.getElementById('Animal_Flags').style.background='#b5d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+
+//      if(reqBody.baseunit.length>0)
+//      {
+//       document.getElementById('baseunit').style.background='#b5d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+
+
+//      if(reqBody.brands.length>0)
+//      {
+//       document.getElementById('brands').style.background='#b5d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+//      if(reqBody.materialGroup.length>0)
+//      {
+//       document.getElementById('materialgroup').style.background='#b5d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+
+//      if(reqBody.packType.length>0)
+//      {
+//       document.getElementById('packtype').style.background='#b5d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+
+//      if(reqBody.subbrand.length>0)
+//      {
+//       document.getElementById('subbrand').style.background='#b5d7be';
+//      }
+//      else{
+//       console.log("34567iuhjk");
+//      document.getElementById('salesoffice').style.background='#f4f5f9';
+//     }
+
+
+    //SKU
+  //  const reqBody = this.getFiltersObject();
 
 //CPG
     const reqBody1 = this.getFiltersObject1();
 
+    // const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    // /*
+    //    Customer Planning Group 0
+    //    Plants Index  1
+    //    Brands Index 3
+    //  */
+    // data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+    // data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+    // data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+    
+    // this.skuService.getSkUList({
+    //   filterBrands: [],
+    //   filterSubBrandName: [],
+    //   filterAcoholPerc: [],
+    //   filterUnitsPerPack: []
+    // }).subscribe((response: any) => {
+    //   this.skus = response;
+    // });
+
+    // this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
+
+    //   console.log("JSss--"+JSON.stringify(this.skus));
+    //   this.skus = response;
+
+      this.skuService.getCPGlist2(reqBody1).subscribe((response1: any) => {
 
 
-    console.log("tftuf76---"+JSON.stringify(reqBody1));
+        console.log("jkdsfks----"+JSON.stringify(response1));
+              response1=response1.map(item => {
+                return {name: item, isChecked: true};
+              })
 
-     if(reqBody1.salesOffice.length>0)
-     {
-       document.getElementById('salesoffice').style.background='#05d7be';
-     }
-     else{
-       console.log("34567iuhjk");
-      document.getElementById('salesoffice').style.background='#f4f5f9';
-     }
-     if(reqBody1.tradeType.length>0)
-     {
-       document.getElementById('tradetype').style.background='#05d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
-
-     if(reqBody.alcoholper.length>0)
-     {
-      document.getElementById('alcoholper').style.background='#05d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
-
-
-     if(reqBody.animalFlag.length>0)
-     {
-      document.getElementById('Animal_Flags').style.background='#b5d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
-
-
-     if(reqBody.baseunit.length>0)
-     {
-      document.getElementById('baseunit').style.background='#b5d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
+              console.log("REsss--"+JSON.stringify(response1));
+              for(const abc of this.filters)
+              {
+                console.log("HH--"+JSON.stringify(abc));
+                    if(abc.key == 'customerPlanningGroup')
+                    {
+                      console.log("REsss123456--"+JSON.stringify(abc.values));
+                        abc.values=JSON.parse(JSON.stringify(response1));
+                    }
+              }
 
 
 
-     if(reqBody.brands.length>0)
-     {
-      document.getElementById('brands').style.background='#b5d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
-
-     if(reqBody.materialGroup.length>0)
-     {
-      document.getElementById('materialgroup').style.background='#b5d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
+              
+              // this.createPlanRequestData.forecastingGroups= response;
+              // console.log("sdfsfsfgsfgsfgsfgsfg---"+JSON.stringify(this.createPlanRequestData.forecastingGroups));
+              // this.createPlanRequestData.customerPlanningGroup=response1.map(item => item.name);
 
 
-     if(reqBody.packType.length>0)
-     {
-      document.getElementById('packtype').style.background='#b5d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
+
+              // this.createPlan(this.createPlanRequestData);
 
 
-     if(reqBody.subbrand.length>0)
-     {
-      document.getElementById('subbrand').style.background='#b5d7be';
-     }
-     else{
-      console.log("34567iuhjk");
-     document.getElementById('salesoffice').style.background='#f4f5f9';
-    }
+
+
+      //  this.selectedSKUs = [];
+      });
+
+    //  this.selectedSKUs = [];
+   // });
+
+
+
 
 
 
   }
 
+
+
+
+
+
+  public onFilterCheckBoxChange121_sku() {
+
+
+    //     //SKU
+    //     const reqBody = this.getFiltersObject();
+    
+    //     console.log("BODyyyy---"+JSON.stringify(reqBody));
+    
+    // //CPG
+    //     const reqBody1 = this.getFiltersObject1();
+    
+    
+    
+    //     console.log("tftuf76---"+JSON.stringify(reqBody1));
+    
+    //      if(reqBody1.salesOffice.length>0)
+    //      {
+    //        document.getElementById('salesoffice').style.background='#05d7be';
+    //      }
+    //      else{
+    //        console.log("34567iuhjk");
+    //       document.getElementById('salesoffice').style.background='#f4f5f9';
+    //      }
+    //      if(reqBody1.tradeType.length>0)
+    //      {
+    //        document.getElementById('tradetype').style.background='#05d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    //      if(reqBody.alcoholper.length>0)
+    //      {
+    //       document.getElementById('alcoholper').style.background='#05d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    
+    //      if(reqBody.animalFlag.length>0)
+    //      {
+    //       document.getElementById('Animal_Flags').style.background='#b5d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    
+    //      if(reqBody.baseunit.length>0)
+    //      {
+    //       document.getElementById('baseunit').style.background='#b5d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    
+    
+    //      if(reqBody.brands.length>0)
+    //      {
+    //       document.getElementById('brands').style.background='#b5d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    //      if(reqBody.materialGroup.length>0)
+    //      {
+    //       document.getElementById('materialgroup').style.background='#b5d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    
+    //      if(reqBody.packType.length>0)
+    //      {
+    //       document.getElementById('packtype').style.background='#b5d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    
+    //      if(reqBody.subbrand.length>0)
+    //      {
+    //       document.getElementById('subbrand').style.background='#b5d7be';
+    //      }
+    //      else{
+    //       console.log("34567iuhjk");
+    //      document.getElementById('salesoffice').style.background='#f4f5f9';
+    //     }
+    
+    
+        //SKU
+        const reqBody = this.getFiltersObject();
+    
+    //CPG
+       // const reqBody1 = this.getFiltersObject1();
+    
+        // const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+        // /*
+        //    Customer Planning Group 0
+        //    Plants Index  1
+        //    Brands Index 3
+        //  */
+        // data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+        // data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+        // data.plants = this.filters[1].values.filter(item => item.isChecked).map(item => item.name);
+        // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
+        
+        // this.skuService.getSkUList({
+        //   filterBrands: [],
+        //   filterSubBrandName: [],
+        //   filterAcoholPerc: [],
+        //   filterUnitsPerPack: []
+        // }).subscribe((response: any) => {
+        //   this.skus = response;
+        // });
+    
+        this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
+    
+          console.log("JSss--"+JSON.stringify(this.skus));
+          this.skus = response;
+    
+    
+        //  this.selectedSKUs = [];
+        });
+    
+    
+    
+    
+    
+    
+      }
+    
 
 
 
@@ -3856,21 +4216,21 @@ public fghide()
     let requestData = false;
 
     for (const sku of this.skus) {
-      if (sku.isChecked) {
-        sku.isChecked = false;
-        requestData = true;
-      }
+      sku.isChecked=true;
     }
 
-    if (requestData) {
-      const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
-      data.leadSkus = [];
-      this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
-        this.processGraphData(res);
-        this.chart1.render();
-      });
+    for (const sku of this.second_sku) {
+      sku.isChecked=true;
+ 
     }
+    this.reactivate_filter();
   }
+
+
+
+
+
+  
 
   // Final Forecast
   public onValueInput(calenderYearWeek: string, index: number) {
@@ -4235,7 +4595,7 @@ public fghide()
     }
 
     // Todo: Change keys
-    this.filters[1].values = selectedFilter.plant.map(item => {
+    this.filters_plant[0].values = selectedFilter.plant.map(item => {
       return {
         name: item,
         isChecked: true
