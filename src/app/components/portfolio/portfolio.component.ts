@@ -32,10 +32,22 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     let win = (window as any);
     console.log('dfdf->' + win.location.search);
     // win.location.search = '/?loaded';
-    if (win.location.search !== '?%2F=') {
-      win.location.search = '/?loaded';
-      //win.location.reload();
-    }
+    // if (win.location.search !== '?%2F=') {
+
+    //   if(win.location.search=='?a')
+    //   {
+    //     win.location.search = '/?a';
+    //   }
+    //   else if(win.location.search=='?b')
+    //   {
+    //     win.location.search = '/?b';
+    //   }
+    //   else{
+    //     win.location.search = '/';
+    //   }
+      
+    //   //win.location.reload();
+    // }
     //   setTimeout(function() {
     //     let win = (window as any);
     //   console.log("dfdf->"+win.location.search);

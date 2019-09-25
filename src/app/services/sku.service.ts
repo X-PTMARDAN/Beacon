@@ -49,15 +49,67 @@ export class SKUService {
   }
 
 
-  public getPacktype() {
-    return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
-      map((Unitperpack: any) => {
-        return Unitperpack.map((Unitperpack) => {
-          return {name: Unitperpack, isChecked: false};
+
+  public getMaterialgroup() {
+    return this.http.get(`${this.apiGatewayUrl}materialgroup`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
         });
       })
     );
   }
+
+
+
+
+  public getglobalbev() {
+    return this.http.get(`${this.apiGatewayUrl}globalbevcat`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getbaseunit() {
+    return this.http.get(`${this.apiGatewayUrl}baseunit`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getpacktype() {
+    return this.http.get(`${this.apiGatewayUrl}packtype`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+  // public getPacktype() {
+  //   return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
+  //     map((Unitperpack: any) => {
+  //       return Unitperpack.map((Unitperpack) => {
+  //         return {name: Unitperpack, isChecked: false};
+  //       });
+  //     })
+  //   );
+  // }
 
 
 
