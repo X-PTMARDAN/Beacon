@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public createPlanRequestData_temp: any;
 
-
+public granular1="week";
   public createPlanRequestData_featurechange: any;
 
 
@@ -1437,7 +1437,7 @@ public fghide()
 
     console.log('Harsh134->' + feature);
 
-
+console.log("GRANUALLLL---"+this.granular1);
 
     if(feature == "year")
     {

@@ -318,7 +318,7 @@
                       <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;padding-left: 20px">Time Granularity</p>
  
                     
-                    <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" (change)="test1(t1.value)">
+                    <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [(ngModel)]="granular1" (change)="test1(t1.value)">
                           <option selected value="week" >Weekly View</option>
                           <option value="month">Monthly View</option>
                       
