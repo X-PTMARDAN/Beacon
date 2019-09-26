@@ -1451,12 +1451,13 @@ public fghide()
         plants: this.createPlanRequestData.plants,
       };
       //this.test();
-  
+  this.loading=true;
       this.skuService.getGraphData_yearly(this.createPlanRequestData).subscribe((res: any) => {
         this.eventsSubject.next({
           page: null,
           reset: true,
         });
+        this.loading=false;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -1990,12 +1991,13 @@ public fghide()
       plants: this.createPlanRequestData.plants,
     };
     //this.test();
-
+    this.loading=true;
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
         page: null,
         reset: true,
       });
+      this.loading=false;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2539,12 +2541,13 @@ public fghide()
     //this.test();
 
   
-
+    this.loading=true;
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
         page: null,
         reset: true,
       });
+      this.loading=false;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2840,11 +2843,15 @@ public fghide()
       customerPlanningGroup: data.customerPlanningGroup,
       plants: data.plants,
     });
+
+    this.loading=true;
     this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
       this.eventsSubject.next({
         page: null,
         reset: true,
       });
+
+      this.loading=false;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3720,6 +3727,7 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
       this.processGraphData(res);
       this.loading=false;
       this.chart1.render();
+      this.loading=false;
     });
   }
 
@@ -5184,7 +5192,7 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
     data.startWeek=201938;
     data.endWeek=202004;
 
-
+    this.loading=true;
 
     console.log("sfsgfs--"+JSON.stringify(data.forecastingGroups));
 
@@ -5192,6 +5200,7 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
       this.processGraphData(res);
       this.loading=false;
       this.chart1.render();
+      this.loading=false;
     });
 
     this.loadFilterModalCancel.nativeElement.click();
