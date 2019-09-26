@@ -863,6 +863,17 @@ console.log("dfsdfsdfsdf----");
     document.getElementById("apply_filter").style.background='#bec1c1';
 
 
+
+    const login={
+      Username:"admin",
+      activity:"Applied Filter",
+      datetimestamp:JSON.stringify(this.update)
+    }
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
     
   }
 
@@ -910,6 +921,7 @@ console.log("dfsdfsdfsdf----");
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
           animationEnabled: true,
           showInLegend: true,
+          
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -919,6 +931,7 @@ console.log("dfsdfsdfsdf----");
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -1023,6 +1036,7 @@ else if(feature =="Baseline"){
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
+          
           scaleBreaks: {
             type: 'blank',
             spacing: 0,
@@ -1076,7 +1090,7 @@ else if(feature =="Baseline"){
         // },
         data: [
           {
-          type: 'line',
+          type: 'area',
           gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
@@ -1084,7 +1098,7 @@ else if(feature =="Baseline"){
           dataPoints: this.property
         },
         {
-          type: 'line',
+          type: 'area',
           gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
@@ -1092,7 +1106,7 @@ else if(feature =="Baseline"){
           dataPoints: this.property2
         },
         {
-          type: 'line',
+          type: 'area',
           gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
@@ -1149,6 +1163,7 @@ else if(feature =="Baseline"){
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
+          
           scaleBreaks: {
             type: 'blank',
             spacing: 0,
@@ -1275,6 +1290,7 @@ else if(feature =="Baseline"){
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
+          
           scaleBreaks: {
             type: 'blank',
             spacing: 0,
@@ -1357,32 +1373,6 @@ public refresh()
 }
 
 
-public unexpanded()
-{
-  console.log("SDfssgfsgsfgsfgsfg");
-this.materialgroupfilter=false;
-
-  // for(const ab of this.filters2)
-  //  {
-  //    //  ab.isExpanded=false;
-
-  //      document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
-  //  }
-  //  for(const ab of this.filters)
-  //  {
-  //   document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
-  //  }
-  //  for(const ab of this.filters_plant)
-  //  {
-  //   document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
-  //  }
-   for(const ab of this.filters1)
-   {
-    console.log("234567--"+'\''+ab.key+'filter'+'\'');
-    document.getElementById('\''+ab.key+'filter'+'\'').className='panel-collapse collapse';
-   }
-}
-
 public addItems(itemId: number) {
   const itemIndex = this.skus_search.findIndex((item) => item.id === itemId);
   var item1 = this.skus_search[itemIndex];
@@ -1446,7 +1436,7 @@ public fghide()
     if(feature == "year")
     {
        
-
+        console.log("dsfsdffgsf--"+document.getElementById('granular').innerHTML);
       this.prevactuals="2019-W01";
       this.endWeek="2019-W52";
     //const data=this.createPlanRequestData;
@@ -1744,12 +1734,13 @@ public fghide()
       //this.test();
 
       console.log("WOW->"+JSON.stringify(this.createPlanRequestData));
-  
+  this.loading=true;
       this.skuService.getGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
         this.eventsSubject.next({
           page: null,
           reset: true,
         });
+        this.loading=false;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -1878,12 +1869,13 @@ public fghide()
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: 1,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201912,
+                  startValue: 201913,
                   endValue: 202000
                 },
                 {
@@ -2048,6 +2040,7 @@ public fghide()
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
+          
           scaleBreaks: {
             type: 'blank',
             spacing: 0,
@@ -2376,6 +2369,7 @@ public fghide()
   public comment1()
   {
 
+ 
     document.getElementById('m').style.background='';
     document.getElementById('l').style.background='';
     document.getElementById('c').style.background='#fff';
@@ -2387,6 +2381,60 @@ public fghide()
     this.comment12=true;
     this.log=false;
   }
+
+
+  public unexpanded1()
+  {
+
+    
+    this.pressed=false;
+    document.getElementById('salesofficefilter').className='panel-collapse collapse';
+
+    document.getElementById('tradetypefilter').className='panel-collapse collapse';
+    
+    this.filters2[0].isExpanded=false;
+    this.filters2[1].isExpanded=false;
+  }
+
+  public unexpanded()
+  {
+    this.pressed=false;
+     document.getElementById('materialgroupfilter').className='panel-collapse collapse';
+
+     this.filters1[0].isExpanded=false;
+     this.filters1[1].isExpanded=false;
+     this.filters1[2].isExpanded=false;
+     this.filters1[3].isExpanded=false;
+     this.filters1[4].isExpanded=false;
+     this.filters1[5].isExpanded=false;
+     this.filters1[7].isExpanded=false;
+     this.filters1[6].isExpanded=false;
+
+
+     document.getElementById('brandsfilter').className='panel-collapse collapse';
+
+     document.getElementById('globalbevfilter').className='panel-collapse collapse';
+
+     document.getElementById('subbrandfilter').className='panel-collapse collapse';
+
+     
+     document.getElementById('baseunitfilter').className='panel-collapse collapse';
+
+     document.getElementById('packtypefilter').className='panel-collapse collapse';
+
+
+     document.getElementById('alcoholperfilter').className='panel-collapse collapse';
+
+     document.getElementById('Animal_Flagsfilter').className='panel-collapse collapse';
+
+
+
+
+    
+    
+  }
+
+  
 
 
   public log1()
@@ -2546,6 +2594,7 @@ public fghide()
         axisX: {
           valueFormatString: '######',
           gridColor: '#ffffff',
+          
           scaleBreaks: {
             type: 'blank',
             spacing: 0,
@@ -3626,6 +3675,7 @@ public fghide()
   }
 
   public onFilterCheckBoxChange() {
+
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
     /*
        Customer Planning Group 0
@@ -3739,6 +3789,228 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
   //     this.selectedSKUs = [];
   //   });
   // }
+
+
+
+
+  public getFiltersObject_color() {
+
+    const brands = [];
+
+    const Subbrand = [];
+    // const Unitperpack = [];
+
+   
+
+    const AlcoholPercentage = [];
+
+    const AnimalFlag=[];
+    const packtype=[];
+    const baseunit=[];
+
+    const materialgroup=[];
+
+    const salesoffice=[];
+
+    const tradetype=[];
+
+
+    const cpgname=[];
+
+    const globalbev=[];
+
+    console.log("TESTTT-----"+JSON.stringify(this.filters1));
+    for (const brand of this.filters1) {
+        
+      if(brand.key=='brands')
+      {
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+             console.log("JKNFBJHBFHJBHJFBVHFF");
+            flag=0;
+           }
+        }
+
+        if(flag==1)
+        {
+          document.getElementById('brands').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('brands').style.background='#05d7be';
+        }
+      }
+
+      else if(brand.key=='alcoholper')
+      {
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            flag=0;
+           }
+        }
+        if(flag==1)
+        {
+          document.getElementById('alcoholper').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('alcoholper').style.background='#05d7be';
+        }
+      }
+
+
+      else if(brand.key=='subbrand')
+      {
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            flag=0;
+           }
+        }
+
+        if(flag==1)
+        {
+          document.getElementById('subbrand').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('subbrand').style.background='#05d7be';
+        }
+      }
+
+
+      else if(brand.key=='Animal_Flags')
+      {
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            flag=0;
+           }
+        }
+        if(flag==1)
+        {
+          document.getElementById('Animal_Flags').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('Animal_Flags').style.background='#05d7be';
+        }
+      }
+
+      else if(brand.key=='packtype')
+      {
+
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            flag=0;
+           }
+        }
+        if(flag==1)
+        {
+          document.getElementById('packtype').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('packtype').style.background='#05d7be';
+        }
+      }
+
+
+
+      else if(brand.key=='baseunit')
+      {
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+             flag=0;
+           }
+        }
+        if(flag==1)
+        {
+          document.getElementById('baseunit').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('baseunit').style.background='#05d7be';
+        }
+      }
+
+
+
+      else if(brand.key=='materialgroup')
+      {
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+            flag=0;
+           }
+        }
+
+        if(flag==1)
+        {
+          document.getElementById('materialgroup').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('materialgroup').style.background='#05d7be';
+        }
+      }
+
+
+      else if(brand.key=='globalbev')
+      {
+
+        var flag=1;
+        for (const aa of brand.values) {
+           if(aa.isChecked)
+           {
+           flag=0;
+           }
+        }
+
+        if(flag==1)
+        {
+          document.getElementById('globalbev').style.background='#f4f5f9';
+        }
+        else{
+          document.getElementById('globalbev').style.background='#05d7be';
+        }
+      }
+
+
+
+
+
+
+
+
+   
+
+
+
+
+    }
+
+
+ 
+
+    return {
+      brands: brands,
+      alcoholper: AlcoholPercentage,
+      subbrand: Subbrand,
+      materialGroup:materialgroup,
+      animalFlag: AnimalFlag,
+      packType: packtype,
+      baseunit: baseunit,
+      globalbev:globalbev
+      
+    };
+  }
+
+
 
   private getFiltersObject() {
 
@@ -3882,6 +4154,82 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
 
 
 
+
+
+
+private getFiltersObject1_sku() {
+
+  const Sales = [];
+
+  const Trade = [];
+  // const Unitperpack = [];
+
+
+
+  console.log("TESTTT-----"+JSON.stringify(this.filters1));
+  for (const brand of this.filters2) {
+      
+    if(brand.key=='tradetype')
+    {
+      var flag=1;
+      for (const aa of brand.values) {
+         if(aa.isChecked)
+         {
+          flag=0;
+         }
+      }
+
+      if(flag==1)
+      {
+        document.getElementById('tradetype').style.background='#f4f5f9';
+      }
+      else{
+        document.getElementById('tradetype').style.background='#05d7be';
+      }
+
+
+    }
+
+    else if(brand.key=='salesoffice')
+    {
+
+      var flag=1;
+      for (const aa of brand.values) {
+         if(aa.isChecked)
+         {
+            flag=0;
+         }
+      }
+
+      if(flag==1)
+      {
+        document.getElementById('salesoffice').style.background='#f4f5f9';
+      }
+      else{
+        document.getElementById('salesoffice').style.background='#05d7be';
+      }
+
+    }
+
+
+  }
+
+
+  return {
+    salesOffice: Sales,
+    tradeType: Trade
+  };
+}
+
+
+
+
+
+
+
+
+
+
   private getFiltersObject1() {
 
     const Sales = [];
@@ -3932,6 +4280,8 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
 
   public onFilterCheckBoxChange121() {
 
+
+    this.getFiltersObject1_sku();
 
 //     //SKU
 //     const reqBody = this.getFiltersObject();
@@ -4116,7 +4466,7 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
 
   public onFilterCheckBoxChange121_sku() {
 
-
+this.getFiltersObject_color();
     //     //SKU
     //     const reqBody = this.getFiltersObject();
     
@@ -4241,6 +4591,15 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
         // }).subscribe((response: any) => {
         //   this.skus = response;
         // });
+
+
+
+
+
+    
+
+
+
     
         this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
     
@@ -4630,6 +4989,17 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
     }
 
 
+    const login={
+      Username:"admin",
+      activity:"Saved Plan",
+      datetimestamp:JSON.stringify(this.update)
+    }
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
+
     this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
       this.savePlanLoader = false;
       this.PlanNameModalBtn.nativeElement.click();
@@ -4676,11 +5046,24 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
   // Save and Load Filter
   public saveFilter(filterName: string) {
 
+
+
+    const login={
+      Username:"admin",
+      activity:"Saved Filter",
+      datetimestamp:JSON.stringify(this.update)
+    }
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
+ console.log("SUfdf--"+JSON.stringify(this.filters[0].values));
     const ahg={
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     }
 
@@ -4728,6 +5111,22 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
   }
 
   public loadSelectedFilter() {
+
+
+
+    const login={
+      Username:"admin",
+      activity:"Filter Loaded",
+      datetimestamp:JSON.stringify(this.update)
+    }
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
+
+
+
     let selectedFilter;
     for (const filter of this.loadedFilters) {
       if (filter.isSelected) {
@@ -4737,11 +5136,21 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
     }
 
 
-    console.log("Tftdfwf---"+JSON.stringify(selectedFilter.plant));
+    console.log("Tftdfwf---"+JSON.stringify(selectedFilter));
     // Todo: Change keys
-    this.filters_plant[0].values = selectedFilter.plant;
+    // this.filters_plant[0].values = selectedFilter.plant.map(item => {
+    //   return {
+    //     name: item,
+    //     isChecked: true
+    //   };
+    // });;
     
-    this.filters[0].values = selectedFilter.cpg;
+    // this.filters[0].values = selectedFilter.cpg.map(item => {
+    //   return {
+    //     name: item,
+    //     isChecked: true
+    //   };
+    // });;
 
 
     this.skus = selectedFilter.sku.map(item => {
@@ -4752,7 +5161,39 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
     });
 
     selectedFilter.isSelected = false;
-    this.onFilterCheckBoxChange();
+    const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
+    /*
+       Customer Planning Group 0
+       Plants Index  1
+       Brands Index 3
+     */
+
+
+
+this.cpgss=selectedFilter.cpg;
+this.plantss=selectedFilter.plant;
+
+this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name);
+
+
+     console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)));
+    data.forecastingGroups = selectedFilter.sku;
+    data.customerPlanningGroup = selectedFilter.cpg;
+    data.plants = selectedFilter.plant;
+
+    data.startWeek=201938;
+    data.endWeek=202004;
+
+
+
+    console.log("sfsgfs--"+JSON.stringify(data.forecastingGroups));
+
+    this.skuService.getGraphData(data).subscribe((res: any) => {
+      this.processGraphData(res);
+      this.loading=false;
+      this.chart1.render();
+    });
+
     this.loadFilterModalCancel.nativeElement.click();
   }
 }
