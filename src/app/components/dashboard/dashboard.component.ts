@@ -1090,6 +1090,7 @@ else if(feature =="Baseline"){
         // },
         data: [
           {
+          name:'Baseline',
           type: 'area',
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1098,6 +1099,7 @@ else if(feature =="Baseline"){
           dataPoints: this.property
         },
         {
+          name:'Weather Effect',
           type: 'area',
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1106,6 +1108,7 @@ else if(feature =="Baseline"){
           dataPoints: this.property2
         },
         {
+          name:'Promo Effect',
           type: 'area',
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1217,6 +1220,7 @@ else if(feature =="Baseline"){
         // },
         data: [
           {
+          name:"Average",
           type: 'line',
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1225,6 +1229,7 @@ else if(feature =="Baseline"){
           dataPoints: this.property
         },
         {
+          name:"Max",
           type: 'line',
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1233,6 +1238,7 @@ else if(feature =="Baseline"){
           dataPoints: this.property2
         },
         {
+          name:"Min",
           type: 'line',
           gridColor: '#ffffff',
           labelFontColor: 'black',
