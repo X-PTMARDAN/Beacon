@@ -3343,10 +3343,10 @@ console.log("GRANUALLLL---"+this.granular1);
     csv+="plant"+JSON.stringify(this.createPlanRequestData.plants);
     csv+='\n';
 
-    const columns = ['CalendarYearWeek', 'Actuals', 'APO', 'ML', 'Actuals Last Year', 'Final Forecast'];
+    // const columns = ['CalendarYearWeek', 'Actuals', 'APO', 'ML', 'Actuals Last Year', 'Final Forecast'];
 
     // columns.push(" ");
-    // columns.push(JSON.stringify)
+    // //columns.push(JSON.stringify)
 
    
     // csv += JSON.stringify(this.skus);
@@ -3354,18 +3354,106 @@ console.log("GRANUALLLL---"+this.granular1);
     // csv += columns.join(',');
     // csv += '\n';
 
+
+        csv += '\n';
+
+
+           csv += '\n';
+
+
+   var weeks=[];
+   weeks.push("Week");
     for (const point of this.graphData) {
-      const row = [
-        point.calenderYearWeek,
-        point.actuals,
-        point.apo,
-        point.ml,
-        point.actualslastyear,
-        point.finalForecast
-      ];
-      csv += row.join(',');
-      csv += '\n';
+        weeks.push(point.calenderYearWeek);
     }
+
+    csv += weeks.join(',');
+    csv += '\n';
+
+
+    var ml=[];
+    ml.push("ML");
+     for (const point of this.graphData) {
+         ml.push(point.ml);
+     }
+
+
+     csv += ml.join(',');
+     csv += '\n';
+
+
+     var apo=[];
+     apo.push("APO");
+      for (const point of this.graphData) {
+          apo.push(point.apo);
+      }
+      
+ 
+     csv += apo.join(',');
+     csv += '\n';
+
+
+
+
+     var finalforecast=[];
+     finalforecast.push("Final forecast");
+      for (const point of this.graphData) {
+        finalforecast.push(point.finalForecast);
+      }
+      
+ 
+     csv += finalforecast.join(',');
+     csv += '\n';
+
+
+
+
+
+
+
+     var actualslastyear=[];
+     actualslastyear.push("Actual Last Year");
+      for (const point of this.graphData) {
+        actualslastyear.push(point.actualslastyear);
+      }
+      
+ 
+     csv += actualslastyear.join(',');
+     csv += '\n';
+
+
+
+
+
+
+     var actuals=[];
+     actuals.push("Actuals");
+      for (const point of this.graphData) {
+        actuals.push(point.actuals);
+      }
+      
+ 
+     csv += actuals.join(',');
+     csv += '\n';
+    
+
+    // for (const point of this.graphData) {
+
+
+    //   const first="ML";
+
+    //   ar.splice(0, 0, "three");
+    //   const row = [
+    //     point.calenderYearWeek,
+    //     point.actuals,
+    //     point.apo,
+    //     point.ml,
+    //     point.actualslastyear,
+    //     point.finalForecast
+    //   ];
+    //   csv += row.join(',');
+    //   csv += '\n';
+    // }
 
     filename = args.filename || 'chart-data.csv';
 
