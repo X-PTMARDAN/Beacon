@@ -103,10 +103,10 @@ public comment12=false;
 
   // Constants
   private lastyearDataPointColor = '#C0504E';
-  private finalForecastPointColor = '#000000';
-  private aopDataPointColor = '#6495ED';
-  private actualDataPointColor = '#006400';
-  private mlDataPointColor = '#ADD8E6';
+  private finalForecastPointColor = '#17b169';
+  private aopDataPointColor = '#B49132';
+  private actualDataPointColor = '#00321E';
+  private mlDataPointColor = '#46a6b9';
 
   // Charts
   public chart1;
@@ -248,7 +248,7 @@ public second=true;
    
      console.log("shbfsh--");
      this.filters.push({
-       name: 'Customer Planning Groups',
+       name: 'CPG',
        key: 'customerPlanningGroup',
        isExpanded: false,
        values: response
@@ -844,7 +844,7 @@ public second=true;
   {
 if(true)
 {
-  document.getElementById('apply_filter').style.background='#003228';
+  document.getElementById('apply_filter').style.background='#17b169';
 }
 
 
@@ -862,7 +862,7 @@ if(true)
   //  document.getElementById('apply_filter').style.background='#003228';
 
 console.log("dfsdfsdfsdf----");
-    document.getElementById("apply_filter").style.background='#bec1c1';
+    document.getElementById("apply_filter").style.background='#808080';
 
 
 
@@ -1235,6 +1235,7 @@ else if(feature =="Baseline"){
           type: 'line',
           gridColor: '#ffffff',
           labelFontColor: 'black',
+          
           showInLegend: true,
           legendMarkerColor: '#000',
           dataPoints: this.property2
@@ -1353,7 +1354,7 @@ else if(feature =="Baseline"){
         data: [
           {
           type: 'column',
-          color: "green",
+          color: "#46a5b9",
           showInLegend: true,
           gridColor: '#ffffff',
           labelFontColor: 'black',
@@ -1408,6 +1409,7 @@ public addItems(itemId: number) {
   }
   if(flag==0)
   {
+    document.getElementById('apply_filter').style.background='#17b169';
     this.second_sku.push(item1)
   }
   else if(flag==1)
@@ -2804,7 +2806,7 @@ console.log("GRANUALLLL---"+this.granular1);
 
   public createPlan(data: any) {
 
-   // document.getElementById('apply_filter').style.background='#bec1c1';
+   // document.getElementById('apply_filter').style.background='#17b169';
      this.loading=true;
    //this.reactivate_filter(2);
     this.createPlanRequestData = {
@@ -2944,13 +2946,16 @@ console.log("GRANUALLLL---"+this.granular1);
           showInLegend: true,
           type: 'spline',
           legendMarkerColor: "#000",
+          lineColor: '#17b169',
           dataPoints: this.property
+       
         },
         {
           name: 'Maximum ',
           showInLegend: true,
           type: 'spline',
-          legendMarkerColor: "#000",
+          legendMarkerColor: "#00321E",
+          lineColor: '#00321E',
           dataPoints: this.property2
         },
         {
@@ -2958,9 +2963,11 @@ console.log("GRANUALLLL---"+this.granular1);
           showInLegend: true,
           type: 'spline',
           legendMarkerColor: "#000",
+          lineColor: '#46a5b9',
           dataPoints: this.property3
         }
       
+        
       ]
       });
       this.chart2.render();
@@ -3600,6 +3607,7 @@ console.log("GRANUALLLL---"+this.granular1);
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property.push({
           x: week1.calenderYearWeek,
+          color: '#17b169',
           y: DashboardComponent.parseStringToFloat(week1.property),
 
         });
@@ -3611,6 +3619,7 @@ console.log("GRANUALLLL---"+this.granular1);
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property2.push({
           x: week1.calenderYearWeek,
+          color: '#00321E',
           y: DashboardComponent.parseStringToFloat(week1.property2),
 
         });
@@ -3622,6 +3631,7 @@ console.log("GRANUALLLL---"+this.granular1);
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property3.push({
           x: week1.calenderYearWeek,
+          color: '#46a5b9',
           y: DashboardComponent.parseStringToFloat(week1.property3),
 
         });
@@ -3803,6 +3813,7 @@ console.log("GRANUALLLL---"+this.granular1);
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property.push({
           x: week1.calenderYearWeek,
+          color: '#17b169',
           y: DashboardComponent.parseStringToFloat(week1.property),
 
         });
@@ -3814,6 +3825,7 @@ console.log("GRANUALLLL---"+this.granular1);
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property2.push({
           x: week1.calenderYearWeek,
+          color: '#00321E',
           y: DashboardComponent.parseStringToFloat(week1.property2),
 
         });
@@ -3825,6 +3837,7 @@ console.log("GRANUALLLL---"+this.granular1);
         //   newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
         this.property3.push({
           x: week1.calenderYearWeek,
+          color: '#46a5b9',
           y: DashboardComponent.parseStringToFloat(week1.property3),
 
         });
@@ -3976,11 +3989,21 @@ console.log("GRANUALLLL---"+this.granular1);
 this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
 this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name);
+var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
+for(const abc of fgssselected2)
+{
+  fgssselected1.push(abc);
+}
+this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
+console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
+
+//this.fgssselected
      console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)));
-    data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+ //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
+ data.forecastingGroups=JSON.parse(JSON.stringify(this.fgssselected));
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
