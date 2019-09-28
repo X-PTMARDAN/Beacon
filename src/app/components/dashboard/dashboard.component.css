@@ -227,13 +227,13 @@ input[type="week"] {
 
 
 
-  font-weight: 700!important;
-  font-size: 1rem;
+
+  font-size: 0.75rem;
 
 
   line-height: 1.5;
-  color: #495057;
-  background:#ecf0f1;
+  color: #000;
+  background:#fff;
 
 
     font-family: "Helvetica", arial, sans-serif;
@@ -241,7 +241,7 @@ input[type="week"] {
     border-radius: 6px;
  
     border:1px solid #ecf0f1;
-    background:#ecf0f1;
+    background:#fff;
     padding:5px;
     display: inline-block !important;
     visibility: visible !important;
@@ -316,13 +316,13 @@ color:#fff;
 
 select.form-control {
   /* height: calc(1.5em + 0.2em); */
-  background: #ecf0f1;
+  background: #fff;
 
   
   border-radius: 7px;
 
   font-weight: 700!important;
-    font-size: 1rem;
+    font-size: 0.75rem;
 }
 
 
