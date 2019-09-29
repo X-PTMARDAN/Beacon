@@ -360,6 +360,12 @@ export class SKUService {
 
 
 
+  public download(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}download`, data);
+  }
+
+
+
    public getGraphData_monthly(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}demandTable_monthly`, data);
   }
