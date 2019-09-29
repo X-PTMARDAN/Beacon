@@ -262,7 +262,7 @@
           
                   <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
                   <div style="font-size: 40px;padding-top: 10px">
-                  <i style="color: #000;padding-top: 20px;" class="fa fa-save fa-10x" data-toggle="modal"
+                  <i style="color: #000;padding-top: 28px;" class="fa fa-save fa-10x" data-toggle="modal"
                   data-target="#saveAPlansModal"></i>
                   </div>
                   <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
@@ -293,7 +293,7 @@
            
          
 
-                      &nbsp;&nbsp;  <i style="size:100px;cursor: pointer;color:grey;padding-top: 50px;" id="arrow" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>
+                      &nbsp;&nbsp;  <i style="size:100px;cursor: pointer;color:grey;padding-top: 55px;" id="arrow" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Quick link</h6>
@@ -337,7 +337,7 @@
                     <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">UOM</h6>
   
                     
-                            <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [(ngModel)]="granul3ar1">
+                            <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [(ngModel)]="grar5erternular1">
                                   <option  value="week234">HL</option>
                                   <option selected value="month23456">L</option>
                                   <option value="month23456">PC</option>
@@ -378,7 +378,7 @@
                     
                     <!-- <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;">Actuals</p> -->
 
-                    <i style="margin-left: 20px;color: #000;padding-top: 20px" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>&nbsp;
+                    <i style="margin-left: 20px;color: #000;padding-top: 40px" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>&nbsp;
                  <!-- </div> -->
                   </div>
 
@@ -494,7 +494,7 @@
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block" style="color: #ff64aa">Actuals LY</p>
+                  <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
                 </th>
               </tr>
 
@@ -647,9 +647,9 @@
       </div>
 
       <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
-        <div class="d-flex justify-content-between pt-1 pr-1">
+        <div class="d-flex justify-content-between pt-1 pr-1" >
           <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
-  <select name="plant" #t class="minimal form-control" id="checking" (change)="test(t.value)" style="width:20%;float: right!important;margin-right:15px !important ">
+  <select name="plant" #t class="minimal form-control" [(ngModel)]='secondgraph' id="checking" (change)="test(t.value)" style="width:20%;float: right!important;margin-right:15px !important;margin-top: 5px ">
               <option  value="Baseline">ML Split</option>
               <option selected value="Promo">Temperature</option>
               <option value="Weather">Events</option>
@@ -775,7 +775,7 @@
                        [href]="'#' + filter.key + 'filter'"
                        aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                        (click)="filter.isExpanded = !filter.isExpanded">
-                      {{ filter.name }}
+                      {{ filter.name }} - {{plantss.length}}/{{filter.values.length}}
                       <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
                     </a>
                   </span>
@@ -789,7 +789,7 @@
                           <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                                (change)="reactivate_filter(1)" >
                         </div>
-                        <p class="m-0">{{ value.name.name }}</p>
+                        <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
                       </li>
                     </ul>
                   </div>
@@ -814,7 +814,7 @@
                      [href]="'#' + filter.key + 'filter'"
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="filter.isExpanded = !filter.isExpanded">
-                    {{ filter.name }}
+                    {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
                     <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
                   </a>
                 </span>
@@ -828,7 +828,7 @@
                         <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                         (change)="reactivate_filter(1)" >
                       </div>
-                      <p class="m-0">{{ value.name }}</p>
+                      <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
                     </li>
                   </ul>
                 </div>
@@ -841,17 +841,17 @@
 
 
  <div>
-            <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }} - {{skus.length + second_sku.length}}</span>
+            <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }}/{{skus.length + second_sku.length}}</span>
            
           </div>
-          <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a>
+          <!-- <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a> -->
 
-          <div class="input-group mt-2">
+          <!-- <div class="input-group mt-2">
              <input type="text" class="form-control"  name="searchSKU1" placeholder="Search FG">
             <div class="input-group-append">
               <span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
-          </div>
+          </div> -->
 
 
 
@@ -982,11 +982,11 @@
       </div>
     </div> -->
 
+ 
 
+     </div>
+ 
     <!---COMMENTSS END-->
-     
-    </div>
-
 
 
     <div *ngIf="log" style="height:645px; overflow: auto;"> 
@@ -1095,18 +1095,76 @@
 
 
 
-      </div>
+      
      
     </div>
 
 
+
+
+
+
+   
+
+
+<!--         
+
+      <div class="mt-2">
+
+          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allCommentshtml; let i=index" >
+              <p style="font-size: 12px" >{{ fi.know }}</p>
+              <p style="font-size: 10px" >{{ fi.comment }}</p>
+              <br><hr>
+  
+              
+             
+            </div>
+
+
+
+
+
+
+      </div> -->
+     
+    </div>
+
+
+
+    <div *ngIf="weeklycomment" style="height:645px; overflow: auto;"> 
+           
+
+      <h6 class="mt-3 font-weight-bold">Weekly Comments</h6>
+
+
+        <div style="height: 203px;">
+      <div class="mt-2" *ngIf="selectedWeekComments.length">
+        <span style="font-weight: bold">Comments</span>
+        <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index" (dblclick)="Dbledit(i)">
+            
+          <p style="font-size: 10px" >{{ fi.sku }}</p>
+          <br><hr>
+            <p style="font-size: 12px" >{{ fi.comment }}</p>
+          
+         
+        </div>
+
+
+        
+      </div>
+      </div>
+    </div>
+
+
     <div class="flex-container" style="width:100%">
-      <div (click)='main1()' id="m" style="width: 30%;text-align: center;    height: 28px;
+      <div (click)='main1()' id="m" style="width: 25%;text-align: center;    height: 28px;
       cursor: pointer;margin-right: 3px; background: #fff;">M</div>
-      <div (click)='log1()' id="l" style="width: 40%;text-align: center;    height: 28px;
+      <div (click)='log1()' id="l" style="width: 25%;text-align: center;    height: 28px;
       cursor: pointer;margin-right: 3px;">L</div>
-      <div (click)='comment1()' id="c" style="width: 30%;text-align: center;    height: 28px;
+      <div (click)='comment1()' id="c" style="width: 25%;text-align: center;    height: 28px;
       cursor: pointer;">C</div>  
+        <div (click)='weeklycomment1()' id="w" style="width: 25%;text-align: center;    height: 28px;
+        cursor: pointer;">WC</div>  
     </div>
 
   
