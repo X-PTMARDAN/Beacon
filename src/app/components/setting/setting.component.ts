@@ -64,6 +64,33 @@ export class SettingComponent implements OnInit {
     
         
         }
+
+
+
+
+
+        for(const point of res.row1)
+        {    
+            const first="ML";
+      
+      
+            const row = [
+              point.id,
+              point.plant,
+              point.cpg,
+              'G001',
+              point.calenderYearWeek,
+              point.ml,
+              0,
+              point.ml,
+              "HL"
+            ];
+            csv += row.join(',');
+            csv += '\n';
+          
+      
+          
+          }
         // for (const point of this.graphData) {
     
     

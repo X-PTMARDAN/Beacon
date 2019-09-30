@@ -53,6 +53,39 @@ export class LoginComponent implements OnInit {
 
      
     }
+
+
+
+
+    else if(formValue.username=='swissPlanner' && formValue.password=="swissPassword")
+    {
+      sessionStorage.setItem('username', formValue.username);
+
+
+    let update = new Date().toJSON("yyyy/MM/dd HH:mm");
+
+    console.log("23456--"+JSON.stringify(update));
+
+    if(JSON.stringify(update)==null)
+    {
+      update="No time recorded";
+    }
+
+    const login={
+      Username:"admin",
+      activity:"Logged In",
+      datetimestamp:JSON.stringify(update)
+    }
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
+    this.router.navigate(['/dashboard']);
+
+
+     
+    }
     else{
       window.alert("Please enter correct credentials");
     }
