@@ -30,6 +30,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#797F87';
       document.getElementById("snop").style.background='#5A5F66';
+      document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("npd").style.background='#5A5F66';
     }
     else if(window.location.href=='http://aurora-carlsberg.herokuapp.com/portfolio?b=')
@@ -37,7 +38,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#5A5F66';
-
+      document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("snop").style.background='#5A5F66';
     }
 
@@ -46,13 +47,28 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#5A5F66';
+      document.getElementById("setting").style.background='#5A5F66';
+      document.getElementById("npd").style.background='#5A5F66';
+    }
+
+    else if(window.location.href=='http://aurora-carlsberg.herokuapp.com/setting')
+    {
+      document.getElementById("snop").style.background='#5A5F66';
+      document.getElementById("portfolio").style.background='#5A5F66';
+      document.getElementById("plan").style.background='#5A5F66';
+
+      document.getElementById("setting").style.background='#797F87';
 
       document.getElementById("npd").style.background='#5A5F66';
     }
+
+
+
     else{
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#797F87';
       document.getElementById("snop").style.background='#5A5F66';
+      document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("npd").style.background='#5A5F66';
     }
   
@@ -97,9 +113,11 @@ export class SidebarComponent implements OnInit {
     
     
           const row = [
+            point.id,
             point.calenderYearWeek,
             point.cpg,
             point.plant,
+            point.ml,
             point.fva,
             point.sku,
             point.final_Forecast
@@ -176,6 +194,12 @@ export class SidebarComponent implements OnInit {
     {
       this.num=4;
       this.onClick('revisit-plan')
+    }
+
+    else if(pageName=='e')
+    {
+      this.num=5;
+      window.location.href="http://aurora-carlsberg.herokuapp.com/setting"
     }
 
     

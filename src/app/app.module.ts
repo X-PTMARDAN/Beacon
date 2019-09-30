@@ -5,7 +5,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {PortfolioComponent} from './components/portfolio/portfolio.component';
+
+
 import {PhaseComponent} from './components/phase/phase.component';
+
+
 import {HomeComponent} from './components/home/home.component';
 import {WizardComponent} from './components/wizard/wizard.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
@@ -17,7 +21,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {FilterPipe} from './pipe/filter.pipe';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { LoginComponent } from './components/login/login.component';
+
+import { SettingComponent} from './components/setting/setting.component';
 import {PropercasePipe} from './pipe/propercase.pipe';
+
 
 
 @NgModule({
@@ -33,7 +40,9 @@ import {PropercasePipe} from './pipe/propercase.pipe';
     SidebarComponent,
     FotterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    SettingComponent,
+
   ],
   imports: [
     BrowserModule,
