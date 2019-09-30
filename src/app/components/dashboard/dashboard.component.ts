@@ -424,7 +424,7 @@ public second=true;
           prevactuals:201911,
         startWeek: 201938,
         endWeek: 202004,
-        forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":true}],
+        forecastingGroups: [{"id":0,"name":"EVE Litchi BOT 24X0_275","isFiltered":true,"isChecked":true}],
         customerPlanningGroup: ['G01'],
         plants: ['G001']
       };
@@ -743,7 +743,7 @@ public second=true;
         prevactuals:201911,
       startWeek: 201938,
       endWeek: 202004,
-      forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":true}],
+      forecastingGroups: [{"id":0,"name":"EVE Litchi BOT 24X0_275 ","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
       plants: ['G001']
     };
