@@ -8,6 +8,7 @@ import {SidebarService} from '../../services/sidebar.service';
 import {FilterService} from '../../services/filter.service';
 import {ViewService} from '../../services/view.service';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -406,7 +407,57 @@ public second=true;
                 values: response
               });
 
-              this.loading=false;
+        
+
+
+
+
+    this.skuService.getForecastingGroup().subscribe((res: any) => {
+      //  this.plants = response;
+      console.log("767868675-"+JSON.stringify(res));
+        this.skus_search=res;
+      });
+  
+      this.endWeek="2020-W04";
+      this.prevactuals="2019-W11";
+        this.createdata = {
+          prevactuals:201911,
+        startWeek: 201938,
+        endWeek: 202004,
+        forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":true}],
+        customerPlanningGroup: ['G01'],
+        plants: ['G001']
+      };
+    
+    this.cpgss=JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
+  
+    this.plantss=JSON.parse(JSON.stringify(this.createdata.plants));
+  
+    this.fgssselected=this.createdata.forecastingGroups;
+  
+  this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
+  
+  
+    // this.skus = JSON.parse(JSON.stringify(this.createdata.forecastingGroups)).map(item => item.name).map((item) => {
+    //       item.isChecked = true;
+    //       return item;
+    //     });
+    
+      console.log("sdfshbr---"+JSON.stringify(this.createdata));
+       this.createPlan(this.createdata);
+    
+  
+     
+  
+      
+      
+  
+     
+  
+  
+      
+  
+
 
               
 
@@ -660,33 +711,7 @@ public second=true;
       this.skus_search=res;
     });
 
-    this.endWeek="2020-W04";
-    this.prevactuals="2019-W11";
-      this.createdata = {
-        prevactuals:201911,
-      startWeek: 201938,
-      endWeek: 202004,
-      forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":true}],
-      customerPlanningGroup: ['G01'],
-      plants: ['G001']
-    };
-  
-  this.cpgss=JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
 
-  this.plantss=JSON.parse(JSON.stringify(this.createdata.plants));
-
-  this.fgssselected=this.createdata.forecastingGroups;
-
-this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
-
-
-  // this.skus = JSON.parse(JSON.stringify(this.createdata.forecastingGroups)).map(item => item.name).map((item) => {
-  //       item.isChecked = true;
-  //       return item;
-  //     });
-  
-    console.log("sdfshbr---"+JSON.stringify(this.createdata));
-     this.createPlan(this.createdata);
   
 
    
@@ -712,7 +737,24 @@ this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
 
 
     
+    this.endWeek="2020-W04";
+    this.prevactuals="2019-W11";
+      this.createdata = {
+        prevactuals:201911,
+      startWeek: 201938,
+      endWeek: 202004,
+      forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25 ","isFiltered":true,"isChecked":true}],
+      customerPlanningGroup: ['G01'],
+      plants: ['G001']
+    };
+  
+  this.cpgss=JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
 
+  this.plantss=JSON.parse(JSON.stringify(this.createdata.plants));
+
+  this.fgssselected=this.createdata.forecastingGroups;
+
+this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
     // this.chart2 = new CanvasJS.Chart('chartContainer2', {
     //   animationEnabled: true,
 
@@ -841,7 +883,13 @@ this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
   ngAfterViewInit(): void {
  //  this.selectOptionsModalBtn.nativeElement.click();
 
-   
+
+
+// this.skus = JSON.parse(JSON.stringify(this.createdata.forecastingGroups)).map(item => item.name).map((item) => {
+//       item.isChecked = true;
+//       return item;
+//     });
+
    // document.getElementsByClassName('canvasjs-chart-toolbar')[0].remove();
   // document.getElementsByClassName('canvasjs-chart-toolbar').
   }
@@ -995,7 +1043,7 @@ console.log("dfsdfsdfsdf----");
             },
             stripLines: [
               {
-                startValue: 201938,
+                startValue: 201940,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -1070,7 +1118,7 @@ else if(feature =="Baseline"){
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
-          itemclick: this.toggleDataSeries.bind(this)
+          itemclick: this.toggleDataSeries1.bind(this)
         },
         axisX: {
           valueFormatString: '######',
@@ -1100,7 +1148,7 @@ else if(feature =="Baseline"){
           },
           stripLines: [
             {
-              startValue: 201938,
+              startValue: 201940,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -1130,9 +1178,9 @@ else if(feature =="Baseline"){
         data: [
           {
           name:'Baseline',
-          type: 'area',
+          type: 'stackedArea',
           gridColor: '#ffffff',
-          labelFontColor: 'black',
+         
           showInLegend: true,
          color: "#17b169",
           lineColor: '#17b169',
@@ -1141,22 +1189,22 @@ else if(feature =="Baseline"){
        
         {
           name:'Weather Effect',
-          type: 'area',
+          type: 'stackedArea',
           gridColor: '#ffffff',
-          labelFontColor: 'black',
+    
           showInLegend: true,
-         color: " #46a6b9",
-          lineColor: ' #46a6b9',
+         color: "#00321e",
+          lineColor: "#00321e",
           dataPoints: this.property2
         },
         {
           name:'Promo Effect',
-          type: 'area',
+          type: 'stackedArea',
           gridColor: '#ffffff',
-          labelFontColor: 'black',
+       
           showInLegend: true,
-         color: " #00321e",
-          lineColor: '#00321e',
+         color: " #46a6b9",
+          lineColor: '#46a6b9',
           dataPoints: this.property3
         }
       
@@ -1234,7 +1282,7 @@ else if(feature =="Baseline"){
           },
           stripLines: [
             {
-              startValue: 201938,
+              startValue: 201940,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -1783,7 +1831,7 @@ console.log("GRANUALLLL---"+this.granular1);
       this.endWeek="2019-W52";
 
       this.createPlanRequestData = {
-        startWeek: 201939,
+        startWeek: 201940,
         endWeek: 201952,
         prevactuals:201901,
         forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -2896,6 +2944,19 @@ console.log("GRANUALLLL---"+this.granular1);
     console.log("SDfsfgsdg--"+JSON.stringify(this.createPlanRequestData));
 
    this.granular1='week';
+
+   var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+   var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
+   
+   for(const abc of fgssselected2)
+   {
+     fgssselected1.push(abc);
+   }
+   this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+
+
+   this.createPlanRequestData.forecastingGroups=JSON.parse(JSON.stringify(this.fgssselected));
+
       this.createPlan(this.createPlanRequestData);
     
 
@@ -3935,7 +3996,7 @@ console.log("GRANUALLLL---"+this.granular1);
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
-        newPoint.ml = DashboardComponent.parseStringToFloat(week.ml);
+        newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2));
         this.mlDataPoints.push({
 
           x: key,
@@ -3950,7 +4011,7 @@ console.log("GRANUALLLL---"+this.granular1);
       }
 
       if (week.ml !== undefined) {
-        newPoint.initialFinalForecast = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.finalforecast);
+        newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2))+parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2)));
         newPoint.finalForecast = newPoint.initialFinalForecast;
 
 
@@ -3969,7 +4030,7 @@ console.log("GRANUALLLL---"+this.granular1);
       }
 
       if (week.actuals !== undefined) {
-        newPoint.actuals = DashboardComponent.parseStringToFloat(week.actuals);
+        newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(2));
         this.actualDataPoints.push({
           x: key,
           y: newPoint.actuals,
@@ -3985,7 +4046,7 @@ console.log("GRANUALLLL---"+this.granular1);
       if (week.fva !== undefined) {
 
      
-        const value = DashboardComponent.parseStringToFloat(week.fva);
+        const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2));
         // newPoint.fcstValueAdd = value ? '' : value.toString();
        // console.log('MAN RAMTA->' + value);
        if(value !== undefined)
@@ -3999,7 +4060,7 @@ console.log("GRANUALLLL---"+this.granular1);
 
          console.log("dfghjk1-->"+this.forecastadd);
 
-    this.forecastadd =this.forecastadd + value;
+     this.forecastadd = parseFloat(this.forecastadd.toFixed(2)) + parseFloat(value.toFixed(2));
 
 
     console.log("dfghjk345-->"+this.forecastadd);
@@ -4487,7 +4548,7 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-    data.startWeek=201938;
+    data.startWeek=201940;
     data.endWeek=this.createPlanRequestData.endWeek;
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -5934,6 +5995,8 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
 
 
 
+
+
   // comments 
   public comments(i)
   {
@@ -6001,7 +6064,7 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
       data:data.comment
     };
 
-    this.finn[this.selectedWeekIndex].comment=data.comment;
+    
 
     this.skuService.editComment(finaldata).subscribe((res: any) => {
       this.editCommentModalBtnCancel.nativeElement.click();
@@ -6013,6 +6076,19 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
    
 
 
+  }
+
+
+
+  public deletecomment(selectedWeekIndex: number) {
+    
+    console.log("HHHH---"+selectedWeekIndex);
+    this.selectedWeekIndex = selectedWeekIndex;
+    //this.editCommentModalBtn.nativeElement.click();
+
+    this.finn.splice(selectedWeekIndex);
+    
+    
   }
 
 
@@ -6100,7 +6176,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201935,
+        calendarWeek: 201940,
         sku: this.skus.filter(item => item.isChecked).map(item => item.name),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
@@ -6615,7 +6691,7 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
     data.customerPlanningGroup = selectedFilter.cpg;
     data.plants = selectedFilter.plant;
 
-    data.startWeek=201938;
+    data.startWeek=201940;
     data.endWeek=202004;
 
     this.loading=true;
