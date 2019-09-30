@@ -1,5 +1,12 @@
 <div id="content">
-  <div class="filter-col p-3" data-simplebar>
+  <div *ngIf="loading" style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-030f7b87ee31.gif" alt="Smiley face" >
+
+        </div>
+    </div> 
+  <div class="filter-col p-3" data-simplebar *ngIf="abc123">
+   
     <h6 class="mt-3 font-weight-bold">Filter Options</h6>
     <div class="mt-4 d-flex justify-content-around">
       <div class="d-flex flex-column align-items-center">
@@ -12,13 +19,13 @@
           class="fa fa-download"></i></a>
         <span class="text-muted">Save</span>
       </div>
-      <div class="d-flex flex-column align-items-center">
-        <a href="javascript:void(0);" class="data-action"><i class="fa fa-list-ul"></i></a>
-        <span class="text-muted">Organize</span>
+      <div class="d-flex flex-column align-items-center" (click)="refresh()" >
+        <a href="javascript:void(0);" class="data-action"><i class="fa fa-times-circle"></i></a>
+        <span class="text-muted"  >Clear</span>
       </div>
     </div>
-    <hr>
-    <div class="mb-2">
+    <hr style="margin-top: 0.5rem;">
+    <!-- <div class="mb-2">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search">
         <div class="input-group-append">
@@ -28,7 +35,51 @@
       <div class="d-flex justify-content-end">
         <a class="text-muted" href="javascript:void(0);">clear all filters</a>
       </div>
-    </div>
+    </div> -->
+
+
+    <div style="height: 505px;overflow: auto;">
+
+
+    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters2; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                   [href]="'#' + filter.key + 'filter'"
+                   aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                   (click)="unexpanded1();filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                 [attr.aria-labelledby]="filter.key">
+              <div class="panel-body" style="height: 90px; overflow: auto;">
+                <ul class="m-0">
+                  <li class="d-flex" *ngFor="let value of filter.values;">
+                    <div>
+                      <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                      (change)="reactivate_filter(1);onFilterCheckBoxChange121()"
+                            >
+                    </div>
+                    <p class="m-0">{{ value.name }}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+  
+  
+  
+  
+        </ng-container>
+      </div>
+
+<!-- 
     <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
       <ng-container *ngFor="let filter of filters; let filterIndex=index">
         <div class="panel panel-default">
@@ -50,7 +101,7 @@
                 <li class="d-flex" *ngFor="let value of filter.values;">
                   <div>
                     <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                           (change)="onFilterCheckBoxChange()">
+                    (change)="reactivate_filter(1)" >
                   </div>
                   <p class="m-0">{{ value.name }}</p>
                 </li>
@@ -58,83 +109,363 @@
             </div>
           </div>
         </div>
+
+
+
+
+
       </ng-container>
-    </div>
-    <hr>
-    <div class="mb-2">
-      <div>
-        <span style="font-weight: bold">SKUs</span>
-        <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">clear all skus</a>
-      </div>
-      <div class="input-group mt-2">
-        <input type="text" class="form-control" [(ngModel)]="searchText" name="searchSKU" placeholder="Search SKU">
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div> -->
+
+
+ 
+
+<!-- 
+    <hr style="margin-top: 0.5rem;">
+
+
+    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+      <ng-container *ngFor="let filter of filters_plant; let filterIndex=index">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" [id]="filter.key">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+              
+                 [href]="'#' + filter.key + 'filter'"
+                 aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                 (click)="filter.isExpanded = !filter.isExpanded">
+                {{ filter.name }}
+                <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+              </a>
+            </h4>
+          </div>
+          <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+               [attr.aria-labelledby]="filter.key">
+            <div class="panel-body">
+              <ul class="m-0">
+                <li class="d-flex" *ngFor="let value of filter.values;">
+                  <div>
+                    <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                         (change)="reactivate_filter(1)" >
+                  </div>
+                  <p class="m-0">{{ value.name.name }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="mb-2" style="max-height: 300px; overflow: auto;font-size: 12px;" data-simplebar>
-      <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index">
-        <div style="margin-top: 3px;">
-          <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="onFilterCheckBoxChange()">
+
+
+
+
+
+      </ng-container>
+    </div> -->
+
+    <hr style="margin-top: 0.5rem;">
+    
+ 
+
+        <div class="input-group mt-2">
+           <input type="text" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()'  name="searchSKU" placeholder="Search FG">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+          </div>
         </div>
-        <p class="m-0">{{ sku.name }}</p>
+
+
+
+      <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar *ngIf="pressed">
+          <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
+              <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus_search | filter: getCallback(); let i=index">
+                    
+                  <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(sku.id)"><i
+                    style="color: #17b169;" class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    <p class="m-0">{{ sku.name }}</p>
+                  
+
+              </div>
+        </div>
+
+
+
+        <hr style="margin-top: 0.5rem;">
+
+
+
+
+
+
+    <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+      <ng-container *ngFor="let filter of filters1; let filterIndex=index">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" [id]="filter.key">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                 [href]="'#' + filter.key + 'filter'"
+                 aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                 (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
+                {{ filter.name }}
+                <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+              </a>
+            </h4>
+          </div>
+          <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+               [attr.aria-labelledby]="filter.key">
+            <div class="panel-body" style="height: 90px; overflow: auto;">
+              <ul class="m-0">
+                <li class="d-flex" *ngFor="let value of filter.values;">
+                  <div>
+                    <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                    (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku()"     >
+                  </div>
+                  <p class="m-0">{{ value.name }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </ng-container>
+
       </div>
     </div>
+
+
+
   </div>
-  <div class="row content-col mb-2">
-    <div class="col-12 pl-2 pr-1">
-      <div class="bg-white rounded shadow mt-2">
+
+
+
+  <div class="row content-col mb-2" id="upper_middle" style="margin-bottom: .0rem!important;"> 
+      <div class="col-12 " >
+        <div class="bg-white shadow mt-2" style="background: #f4f5f9;border-radius: 6px; ">
+        
+        
+        
+        
+        
+          <div class="d-flex justify-content-between align-items-center " style="background:#f4f5f9;border-radius: 6px;">
+
+
+
+
+ 
+
+
+            
+           <div class="d-flex justify-content-between ml-2 " style="background:#f4f5f9;">
+          
+                  <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
+                  <div style="font-size: 40px;padding-top: 10px">
+                  <i style="color: #000;padding-top: 28px;" class="fa fa-save fa-10x" data-toggle="modal"
+                  data-target="#saveAPlansModal"></i>
+                  </div>
+                  <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+                  data-target="#saveAPlansModal">Save </a> -->
+                  
+                  <!-- </div>
+                  <div> -->
+
+                    &nbsp;&nbsp;
+                    <div style="border-left: 1px solid #e6e7ea;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+                    
+                    &nbsp;&nbsp;
+
+                    <div style="padding-top: 3px;">  <h6 class="mt-3 font-weight-bold">Actuals</h6>
+                      <input type="week"  value="2019-W38" id="prevactuals" [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals" ></div>
+                      &nbsp;&nbsp;
+                           <div >   <!-- <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:6px;font-weight: 700!important">Load Week</p> -->
+                           
+                            <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Load week</h6><p style="    margin-top: 0.9rem;color: #000;font-size: 0.75rem;padding-left: 4px;font-weight: 700!important;"> - 40 - 2019 - </p></div>
+                           
+                            
+                          </div>
+
+
+                        
+
+
+
+                        &nbsp;&nbsp; &nbsp;&nbsp;  <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Plan</h6>
+               <input type="week" id="endWeek" value="2020-W04" name="endWeek" [(ngModel)]="endWeek" (change)="color_change()" required></div>
+           
+         
+
+                      &nbsp;&nbsp;  <i style="size:100px;cursor: pointer;color:grey;padding-top: 55px;" id="arrow" class="fa fa-arrow-right fa-lg"  (click)="tick()"></i>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                      <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Quick link</h6>
+                      <p style="
+                     padding:7px;
+                      border-radius: 6px;
+                      cursor: pointer;
+                      height: 30px;
+    width: 100px;
+
+                      margin-bottom: 0rem;
+                     font-size: 0.75rem;
+                      color: #000;
+                      background:#fff;
+                      border: 0.5px #ecf0f1;" (click)="test1('year')">View 2019</p>
+
+                          </div>
+&nbsp;&nbsp;&nbsp;
+                    <div style="border-left: 1px solid #e6e7ea;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+
+
+
+
+
+
+
+
+                              
+                  <div  style="margin-right: 40px;">
+                   
+
+
+                      
+                    </div>
+                   
+                   
+                   
+                   
+                   
+                   
+                    <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">UOM</h6>
+  
+                    
+                            <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" >
+                                  <option  value="week234">HL</option>
+                                  <option selected value="month23456">L</option>
+                                  <option value="month23456">PC</option>
+                              
+                                </select>
+                                </div>   
+
+                                &nbsp;&nbsp;&nbsp;
+                                <div style="border-left: 1px solid #e6e7ea;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+                                            <div  style="margin-right: 10px;">
+                   
+
+
+                      
+                                  </div>
+
+                                  
+
+                                <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Granularity</h6>
+ 
+                    
+                                  <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [(ngModel)]="granular1" (change)="test1(t1.value)">
+                                        <option selected value="week" >Weekly View</option>
+                                        <option value="month">Monthly View</option>
+                                    
+                                      </select>
+                                      </div>   
+                  </div> 
+
+
+                  &nbsp;&nbsp;&nbsp;
+                    <div style="border-left: 1px solid #e6e7ea;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+
+        
+                
+
+                    
+
+               <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+                  data-target="#saveAViewsModal">Save View</a> -->
+
+                  <div class="d-flex " style="margin-right: 10px;">
+                   
+        
+                    
+                    <!-- <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;">Actuals</p> -->
+
+                    <i style="margin-left: 20px;color: #000;padding-top: 40px" class="fa fa-arrows-alt fa-lg"  (click)="abc12()"></i>&nbsp;
+                 <!-- </div> -->
+                  </div>
+
+
+
+
+
+
+                  
+                </div>
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+               </div>
+             
+      
+      
+      
+      
+      
+      
+      
+            </div>
+           
+          <!-- </div>
+      
+        </div> -->
+
+       
+  </div>
+
+
+  
+
+
+
+  <div class="row content-col " id="middle">
+    <div class="col-12 " >
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold">Forecast Analysis</p>
-            <p class="ml-2 text-muted">Load Week {{currentWeek}}</p>
+            <p class="font-weight-bold">Planning table (HL)</p>
+        
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
           </div>
-          <div>
-          </div>
+ 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
           <div class="form-group m-0">
-            <select class="form-control p-0 pr-1" name="plant">
-              <option selected>Weekly View</option>
-              <option>Monthly View</option>
-              <option>Yearly View</option>
-            </select>
+            <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()" class="fa fa-download"></i></span>
           </div>
-        </div>
+     
 
-        <div id="chartContainer1" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
-      </div>
-
-      <div class="bg-white rounded shadow mt-2">
-        <div class="d-flex justify-content-between pt-1 pr-1">
-          <p class="font-weight-bold ml-2 pt-2">Feature Analysis </p>
-          <div class="form-group m-0">
-            <select name="plant" class="minimal form-control p-0 pr-1">
-              <option selected>Baseline</option>
-              <option>Promo Effect</option>
-              <option>Weather effect</option>
-            </select>
-          </div>
+       
+       <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+          data-target="#saveAViewsModal">Save View</a> -->
+ 
         </div>
-        <div id="chartContainer2" style="height: 150px; width: 100%; margin-left:auto;margin-right:auto;">
-
-        </div>
-        <div class="data-strip d-none">
-          <ul>
-            <li>201910</li>
-            <li>201915</li>
-            <li>201920</li>
-            <li>201925</li>
-            <li>201930</li>
-            <li>201935</li>
-            <li>201940</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-white shadow mt-2">
         <div class="d-flex">
           <div class="table-header-col">
             <table>
@@ -146,34 +477,42 @@
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Final Forecast</p>
+                  <p class="m-0 week-block" style="color: #17b169">Final Forecast</p>
                 </th>
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Fcst Value Add</p>
+                  <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
+                  <p class="m-0 week-block" > FVA</p>
+
                 </th>
               </tr>
               <tr (click)="putValueInFinal('ML')" class="ml-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block"> ML Forecast</p>
+                  <p class="m-0 week-block" style="color:#46a6b9"> ML Forecast</p>
                 </th>
               </tr>
               <tr (click)="putValueInFinal('APO')" class="aop-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">APO Forecast</p>
+                  <p class="m-0 week-block" style="color:#b49132">APO Forecast</p>
                 </th>
               </tr>
               <tr class="actual-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Actuals</p>
+                  <p class="m-0 week-block" style="color:#00321e">Actuals</p>
                 </th>
               </tr>
               <tr class="header-text">
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Actuals LY</p>
+                  <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
                 </th>
               </tr>
+
+              <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">Open Order</p>
+                  </th>
+                </tr>
               </thead>
             </table>
           </div>
@@ -184,7 +523,7 @@
                   <thead>
                   <tr>
                     <th class="font-weight-bold" *ngFor="let data of graphData">
-                      <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{ data.week }}</p>
+                      <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data.newweek}}</p>
                     </th>
                   </tr>
                   </thead>
@@ -193,7 +532,7 @@
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td class="font-weight-bold cursor-pointer"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
-                          (click)="selectedWeekComments=graphData[i].comments">
+                          (click)="comments(i)">
                         {{ data.finalForecast }}
                       </td>
                     </ng-container>
@@ -233,7 +572,17 @@
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
                       {{ data.actualslastyear }}
                     </td>
+
+                    
                   </tr>
+                  <tr>
+                      <td *ngFor="let data of graphData"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        {{ data.harshit }}
+                      </td>
+  
+                      
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -241,9 +590,9 @@
           </div>
           <div class="table-footer-col">
             <table>
-              <tr class="invisible">
+              <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">Total</p>
+                  <p class="m-0 week-block" style="font-size: 0.6rem;">Total</p>
                 </th>
               </tr>
               <tr>
@@ -253,7 +602,7 @@
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.fcstValueAdd || 0 }}</p>
+                  <p class="m-0 week-block">{{ forecastadd  }}</p>
                 </th>
               </tr>
               <tr>
@@ -276,21 +625,79 @@
                   <p class="m-0 week-block">{{ totalData.lastYearTotal }}</p>
                 </th>
               </tr>
+              <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.harshit }}</p>
+                  </th>
+                </tr>
             </table>
           </div>
         </div>
         <div class="p-2 text-center">
-          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-             data-target="#saveAPlansModal">Save Plan</a>
-          <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" data-toggle="modal"
-             data-target="#saveAViewsModal">Save View</a>
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+             data-target="#saveAPlansModal">Save Plan</a> -->
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a> -->
         </div>
       </div>
+
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;">
+        <div class="d-flex justify-content-between align-items-center p-1">
+          <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+            <p class="font-weight-bold">Forecast Analysis (HL)</p>
+
+
+
+            <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+         
+        </div>
+
+        <div id="chartContainer1" style="height: 370px; width: 99%; border-radius: 6px !important;margin-left:8px;margin-right:100px;"></div>
+      </div>
+
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
+        <div class="d-flex justify-content-between pt-1 pr-1" >
+          <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
+  <select name="plant" #t class="minimal form-control" [(ngModel)]='secondgraph' id="checking" (change)="test(t.value)" style="width:20%;float: right!important;margin-right:15px !important;margin-top: 5px ">
+              <option  value="Baseline">ML Split</option>
+              <option selected value="Promo">Temperature</option>
+              <option value="Weather">Events</option>
+
+              <option value="Open">Open order</option>
+            </select>
+      
+        </div>
+        <div id="chartContainer2" style="height: 150px; width: 99%; margin-left:8px;margin-right:auto;">
+
+        </div>
+        <div class="data-strip d-none">
+          <ul>
+            <li>201910</li>
+            <li>201915</li>
+            <li>201920</li>
+            <li>201925</li>
+            <li>201930</li>
+            <li>201935</li>
+            <li>201940</li>
+          </ul>
+        </div>
+      </div>
+
+
     </div>
   </div>
-  <div class="events-col pt-1 pb-3 pl-2 pr-2">
-    <div class="events-container shadow mt-1 mb-1 p-2 bg-white" data-simplebar>
-      <div class="mt-2">
+
+
+
+
+
+
+
+  
+  <div class="events-col " *ngIf="second" style="background: #f4f5f9;">
+    <div class="events-container shadow mt-1 mb-1 p-2 " data-simplebar>
+      <!-- <div class="mt-2">
         <h4>Features</h4>
         <div class="m-1 p-1 d-flex">
           <div>
@@ -305,17 +712,492 @@
           <p class="m-0">Weather Effect</p>
         </div>
 
-      </div>
+      </div> -->
+<!-- 
+      <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
+      <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button> -->
+  <div *ngIf="main">
+      <!-- <div class="mb-2" style="margin-top: 20px;" >
 
-      <div class="mt-2" *ngIf="selectedWeekComments.length">
-        <h4>Comments</h4>
-        <div class="block m-1 p-1 d-flex" *ngFor="let selectedWeekComment of selectedWeekComments">
-          <p class="m-0">{{ selectedWeekComment }}</p>
+        <p>Plant-{{plantss}}</p>
+
+        <p>CPG-{{cpgss}}</p>
+          <div>
+            <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }} - {{skus.length + second_sku.length}}</span>
+           
+          </div>
+          <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a>
+
+          <div class="input-group mt-2">
+             <input type="text" class="form-control"  name="searchSKU1" placeholder="Search FG">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+          </div>
+
+
+
+          
+          
+        </div> -->
+
+
+
+
+
+        <!-- <div class="panel-heading" role="tab" [id]="filter.key">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+               [href]="'#' + filter.key + 'filter'"
+               aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+               (click)="filter.isExpanded = !filter.isExpanded">
+              {{ filter.name }}
+              <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+            </a>
+          </h4>
+        </div> -->
+
+
+
+          <!-- <div class="panel-heading" role="tab" >
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+               
+              
+               (click)="filter.isExpanded = !filter.isExpanded">
+              Customer Planning Group
+              <i class="fa float-right fa-plus" ></i>
+            </a>
+          </h4>
+        </div>  -->
+
+      <h6 class="mt-3 font-weight-bold" style="padding-left: 10px;">Combination</h6>
+
+       
+<br>
+          <ng-container *ngFor="let filter of filters_plant; let filterIndex=index">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" [id]="filter.key">
+                  <span class="panel-title" class="mt-3 font-weight-bold" style="color: #000">
+                    <a style="color: #000" role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                    
+                       [href]="'#' + filter.key + 'filter'"
+                       aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                       (click)="filter.isExpanded = !filter.isExpanded">
+                      {{ filter.name }} - {{plantss.length}}/{{filter.values.length}}
+                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    </a>
+                  </span>
+                </div>
+                <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                     [attr.aria-labelledby]="filter.key">
+                  <div class="panel-body" style="height: 100px; overflow: auto;">
+                    <ul class="m-0" style="padding-inline-start: 15px;">
+                      <li class="d-flex" *ngFor="let value of filter.values;">
+                        <div>
+                          <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                               (change)="reactivate_filter(1)" >
+                        </div>
+                        <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+      
+      
+      
+      
+      
+            </ng-container>
+
+
+
+          <hr >
+          <ng-container *ngFor="let filter of filters; let filterIndex=index">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" [id]="filter.key">
+                
+                <span class="panel-title" class="mt-3 font-weight-bold" style="color: #000">
+                  <a style="color: #000" role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                     [href]="'#' + filter.key + 'filter'"
+                     aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                     (click)="filter.isExpanded = !filter.isExpanded">
+                    {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                  </a>
+                </span>
+              </div>
+              <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                   [attr.aria-labelledby]="filter.key">
+                <div class="panel-body" style="height: 100px; overflow: auto;">
+                  <ul class="m-0" style="padding-inline-start: 15px;">
+                    <li class="d-flex" *ngFor="let value of filter.values;">
+                      <div>
+                        <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                        (change)="reactivate_filter(1)" >
+                      </div>
+                      <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+    
+    
+          </ng-container>
+<hr>
+
+
+ <div>
+            <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }}/{{skus.length + second_sku.length}}</span>
+           
+          </div>
+          <!-- <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a> -->
+
+          <!-- <div class="input-group mt-2">
+             <input type="text" class="form-control"  name="searchSKU1" placeholder="Search FG">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+          </div> -->
+
+
+
+          
+          
+           <!-- <div class="mb-2" style="height: 200px; overflow: auto;font-size: 12px;" data-simplebar >
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
+            <div style="margin-top: 3px;">
+              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+            </div>
+            <p class="m-0">{{ sku.name }}</p>
+          </div>
+
+          <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
+              <div style="margin-top: 3px;">
+                <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+              </div>
+              <p style="font-size: 0.75rem;" class="m-0">{{ sku.name }}</p>
+            </div>
+
+
+        </div>  
+
+
+
+
+
+       <div class="panel-heading" role="tab" [id]="filter.key">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+               [href]="'#' + filter.key + 'filter'"
+               aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+               (click)="filter.isExpanded = !filter.isExpanded">
+              {{ filter.name }}
+              <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+            </a>
+          </h4>
+        </div> -->
+
+
+
+          <!-- <div class="panel-heading" role="tab" >
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+               
+              
+               (click)="filter.isExpanded = !filter.isExpanded">
+              Customer Planning Group
+              <i class="fa float-right fa-plus" ></i>
+            </a>
+          </h4>
+        </div>  -->
+  
+  
+
+
+      <div class="mb-2" style="height: 200px; overflow: auto;font-size: 12px;" data-simplebar >
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
+            <div style="margin-top: 3px;">
+              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+            </div>
+            <p class="m-0">{{ sku.name }}</p>
+          </div>
+
+          <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
+              <div style="margin-top: 3px;">
+                <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+              </div>
+              <p style="font-size: 0.75rem;" class="m-0">{{ sku.name }}</p>
+            </div>
+
+
+        </div> 
+
+
+
+
+<!-- <p style="font-weight: bold;">Customer Planning Group </p>
+
+
+        <div class="mb-2" style="height: 200px; overflow: auto;font-size: 12px;background: #f4f5f9;" data-simplebar>
+              <div style="background: #f4f5f9;" class=" mt-1 pl-2 d-flex" *ngFor="let sku of filters[0].values; let i=index">
+            <div style="margin-top: 3px;">
+              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+            </div>
+            <p style="font-size: 0.75rem;" class="m-0">{{ sku.name }}</p>
+          </div>
+
+
+
         </div>
+
+
+
+        <p style="font-weight: bold;">Plant </p>
+
+
+        <div class="mb-2" style="height: 200px; overflow: auto;font-size: 12px;background: #f4f5f9;" data-simplebar>
+              <div style="background: #f4f5f9;" class=" mt-1 pl-2 d-flex" *ngFor="let sku of filters_plant[0].values; let i=index">
+            <div style="margin-top: 3px;">
+              <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+            </div>
+            <p style="font-size: 0.75rem;" class="m-0">{{ sku.name.name }}</p>
+          </div>
+        </div> -->
+
+        <hr>
+        <a href="javascript:void(0);" id="apply_filter" class="btn btn-primary custom-link btn-xs" style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange();deactivate();'>Plan Selection</a> 
+
+        <hr>
+<!---COMMENTSS START-->
+
+<!--         
+        <div style="height: 203px;">
+      <div class="mt-2" *ngIf="selectedWeekComments.length">
+        <span style="font-weight: bold">Comments</span>
+        <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index" (dblclick)="Dbledit(i)">
+            
+          <p style="font-size: 10px" >{{ fi.sku }}</p>
+          <br><hr>
+            <p style="font-size: 12px" >{{ fi.comment }}</p>
+          
+         
+        </div>
+
+
+        
+      </div>
+    </div> -->
+
+ 
+
+     </div>
+ 
+    <!---COMMENTSS END-->
+
+
+    <div *ngIf="log" style="height:645px; overflow: auto;"> 
+      <div class="mb-2" style="margin-top: 20px; ">
+          <div>
+            <span style="font-weight: bold;">Application Logs</span>
+           
+          </div>
+     
+        </div>
+
+      <div class="mt-2">
+
+          <div class="block m-1 p-1 d-flex">
+            
+              <p style="font-size: 10px" >Applied Filter</p>
+              <br><hr>
+                <p style="font-size: 12px" >2019-09-22T08:28:40.019Z</p>
+              
+              <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+            </div>
+
+            <div class="block m-1 p-1 d-flex">
+            
+                <p style="font-size: 10px" >Logs in</p>
+                <br><hr>
+                  <p style="font-size: 12px" >2019-09-22T08:19:40.019Z</p>
+                
+                <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+              </div>
+
+
+              <div class="block m-1 p-1 d-flex">
+            
+                  <p style="font-size: 10px" >Saved Filters</p>
+                  <br><hr>
+                    <p style="font-size: 12px" >2019-09-22T08:28:50.019Z</p>
+                  
+                  <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+                </div>
+        
+
+            
+
+
+          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allLogs; let i=index" >
+            
+              <p style="font-size: 10px" >{{ fi.activity }}</p>
+              <br><hr>
+                <p style="font-size: 12px" >{{ fi.datetimestamp }}</p>
+              
+              <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+            </div>
+
+
+
+      
+     
+
+
+       
+
+      </div>
+     
+    </div>
+
+
+
+
+
+
+
+    <div *ngIf="comment12" style="height:645px; overflow: auto;"> 
+      <div class="mb-2" style="margin-top: 20px;">
+          <div>
+            <span style="font-weight: bold;">All comments</span>
+           
+          </div>
+     
+        </div>
+
+
+        
+
+      <div class="mt-2">
+
+          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allCommentshtml; let i=index" >
+              <p style="font-size: 12px" >{{ fi.know }}</p>
+              <p style="font-size: 10px" >{{ fi.comment }}</p>
+              <br><hr>
+  
+              
+              <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
+            </div>
+
+
+
+
+
+
+      
+     
+    </div>
+
+
+
+
+
+
+   
+
+
+<!--         
+
+      <div class="mt-2">
+
+          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allCommentshtml; let i=index" >
+              <p style="font-size: 12px" >{{ fi.know }}</p>
+              <p style="font-size: 10px" >{{ fi.comment }}</p>
+              <br><hr>
+  
+              
+             
+            </div>
+
+
+
+
+
+
+      </div> -->
+     
+    </div>
+
+
+
+    <div *ngIf="weeklycomment" style="height:645px; overflow: auto;"> 
+           
+
+      <h6 class="mt-3 font-weight-bold">Weekly Comments</h6>
+
+
+        <div style="height: 203px;">
+      <div class="mt-2" *ngIf="selectedWeekComments.length">
+        <span style="font-weight: bold">Comments</span>
+        <div class="block m-1 p-1 d-flex" *ngFor="let fi of finn; let i=index" (dblclick)="Dbledit(i)">
+            
+          <p style="font-size: 10px" >{{ fi.sku }}</p>
+          <br><hr>
+            <p style="font-size: 12px" >{{ fi.comment }}</p>&nbsp;&nbsp;
+            <i class="fa fa-trash" aria-hidden="true" (click)="deletecomment(i)"></i>
+          
+         
+        </div>
+
+
+        
+      </div>
       </div>
     </div>
+
+
+    <div class="flex-container" style="width:100%">
+      <div (click)='main1()' id="m" style="width: 25%;text-align: center;    height: 28px;
+      cursor: pointer;margin-right: 3px; background: #fff;">M</div>
+      <div (click)='log1()' id="l" style="width: 25%;text-align: center;    height: 28px;
+      cursor: pointer;margin-right: 3px;">L</div>
+      <div (click)='comment1()' id="c" style="width: 25%;text-align: center;    height: 28px;
+      cursor: pointer;">C</div>  
+        <div (click)='weeklycomment1()' id="w" style="width: 25%;text-align: center;    height: 28px;
+        cursor: pointer;">WC</div>  
+    </div>
+
+  
+
+
+
+  
+      <!-- <div style="cursor: pointer;
+      position: absolute;
+      display:inline;
+      width:100%;
+      bottom: 0;
+      margin-bottom: 5px;">
+
+        <div style="width: 30%;background:white;">H</div>
+        <div style="width: 40%;background:white;">A</div>
+        <div style="width: 30%;background:white;">B</div>
+   <button (click)='main1()'>Main</button>&nbsp;
+
+      <button (click)='comment1()'>Coment</button>&nbsp;
+      <button (click)='log1()'>Log</button>&nbsp;
+    </div> -->
+
+
+
   </div>
+
 </div>
+
+
 
 <!--Select Options Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#selectOptionsModal" data-toggle="modal"
@@ -331,7 +1213,7 @@
       </div>
       <div class="modal-body">
         <app-create-plan [events]="eventsSubject.asObservable()"
-                         (submit)="createPlan($event)"></app-create-plan>
+                         (submit)="eventListener($event)"></app-create-plan>
       </div>
     </div>
   </div>
@@ -351,12 +1233,14 @@
       </div>
       <div class="modal-body">
         <div class="d-flex justify-content-center">
-          <button type="submit" (click)="savePlan()" class="btn btn-secondary custom-link btn-xs mr-2">Yes
+          <button type="button" (click)="savePlan()" class="btn btn-secondary custom-link btn-xs mr-2">Yes
             <ng-container *ngIf="savePlanLoader">
               <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
             </ng-container>
           </button>
-          <button type="submit" class="btn btn-secondary custom-link btn-">No</button>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-secondary custom-link btn-xs">
+            No
+          </button>
         </div>
       </div>
     </div>
@@ -457,6 +1341,49 @@
   </div>
 </div>
 
+
+
+
+
+
+
+<!--EDIT Comment Modal-->
+<a href="javascript:void(0);" [hidden]="true" data-target="#editCommentModal" data-toggle="modal"
+   #editCommentModalBtn>Open Graph Comment Form Modal</a>
+<div class="modal fade final-comment-modal" id="editCommentModal" tabindex="-1" role="dialog"
+     data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #editCommentModalBtnCancel
+                (click)="selectedWeekIndex=null;editCommentForm.resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editCommentForm="ngForm">
+          <div class="form-group">
+            <label class="d-none" for="finalForecastComment">
+              Comment
+            </label>
+            <input type="text" class="form-control" value="{{comm1[0]}}"id="finalForecastComment" name="comment" placeholder="eg. Comment"
+                   ngModel required>
+          </div>
+          <button type="submit" class="btn float-right btn-dark" [disabled]="!editCommentForm.valid"
+                  [ngClass]="{'disabled': !editCommentForm.valid}"
+                  (click)="editCommentSubmit(editCommentForm.value,comm1[1])">Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <!--Save Filter Modal-->
 <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
   Save Filter Modal</a>
@@ -502,15 +1429,18 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Organize your Filters</h5>
+        <h5 class="modal-title">Load Filter</h5>
         <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #loadFilterModalCancel>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input placeholder="Search Filters" [(ngModel)]="searchText" type="text">
+        <br/>
+        <br/>
         <form #saveFilterModalForm="ngForm">
 
-          <ng-container *ngFor="let filter of loadedFilters;let i=index">
+          <ng-container *ngFor="let filter of loadedFilters | filter : getCallback() ;let i=index ">
             <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                  (click)="filterItemClick(i)">
               {{ i + 1 }}<span> {{ filter.name }}</span>
@@ -522,6 +1452,9 @@
             <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Load Selected</button>
           </div>
         </form>
+
+
+        
       </div>
     </div>
   </div>

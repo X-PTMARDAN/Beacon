@@ -3,48 +3,61 @@
     <div id="logo" class="d-flex justify-content-center">
       <a href="javascript:void(0);" routerLink="/"><img src="assets/images/logo.png"></a>
     </div>
-    <div class="item d-flex flex-column align-items-center mt-3">
-      <a class="text-center" href="javascript:void(0);" (click)="onClick('plan-demand')">
+    <div class="item d-flex flex-column align-items-center mt-3" id="plan">
+      <a class="text-center" href="javascript:void(0);" (click)="goToPage('c')">
         <i class="fa pb-1 fa-list-ul"></i>
         <p class="m-0">Plan Demand</p>
       </a>
     </div>
-    <div class="item d-flex flex-column align-items-center mt-2">
-      <a class="text-center" href="javascript:void(0);" (click)="onClick('create-plan')">
+    <div class="item d-flex flex-column align-items-center mt-2" id="snop">
+      <a class="text-center" href="javascript:void(0);" (click)="goToPage('a')">
         <i class="fa pb-1 fa-list-ul"></i>
         <p class="m-0">S&OP </p>
         <p class="m-0">Analytics</p>
       </a>
     </div>
     <div class="item d-flex flex-column align-items-center mt-2">
-      <a class="text-center" href="javascript:void(0);" (click)="onClick('revisit-plan')">
+      <a class="text-center" href="javascript:void(0);" (click)="goToPage('d')">
         <i class="fa pb-1 fa-repeat"></i>
-        <p class="m-0">Revisit a Plan</p>
+        <p class="m-0">Plan a</p>
+        <p class="m-0">Scenario</p>
       </a>
     </div>
-
-
-
-    <div class="item d-flex flex-column align-items-center mt-2">
+    <!-- <div class="item d-flex flex-column align-items-center mt-2">
       <a class="text-center" href="javascript:void(0);" (click)="onClick('revisit-view')">
         <i class="fa pb-1 fa-repeat"></i>
         <p class="m-0">Revisit View</p>
       </a>
+    </div> -->
+    <div class="item d-flex flex-column align-items-center mt-2 justify-content-center" id="portfolio">
+      <a href="javascript:void(0);" (click)="goToPage('ab')" class="text-center">
+        <i class="fa pb-1 fa-list-ul"></i>
+        <p class="m-0 text-center">Portfolio Management</p>
+      </a>
     </div>
 
+
+    <div class="item d-flex flex-column align-items-center mt-2 justify-content-center" id="npd">
+      <a href="javascript:void(0);" (click)="goToPage('b')" class="text-center">
+        <i class="fa pb-1 fa-list-ul"></i>
+        <p class="m-0 text-center">NPD</p>
+      </a>
+    </div>
+
+
+    <div class="item d-flex flex-column align-items-center mt-2 justify-content-center" id="npd">
+      <a href="javascript:void(0);" (click)="download()" class="text-center">
+        <i class="fa pb-1 fa-list-ul"></i>
+        <p class="m-0 text-center">Download</p>
+      </a>
+    </div>
 
 
   </div>
   <div class="mb-2">
-    <div class="item d-flex flex-column align-items-center mt-2">
+    <div class="item d-flex flex-column align-items-center mt-2" id="setting" (click)="goToPage('e')"> 
       <i class="fa pb-1 fa-cog"></i>
       <p class="m-0">Settings</p>
-    </div>
-    <div class="item d-flex flex-column align-items-center mt-2 justify-content-center">
-      <a routerLink="/portfolio" class="text-center" href="javascript:void(0);">
-        <i class="fa pb-1 fa-list-ul"></i>
-        <p class="m-0 text-center">Portfolio Management</p>
-      </a>
     </div>
   </div>
 </div>

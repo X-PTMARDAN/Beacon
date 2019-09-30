@@ -25,6 +25,116 @@ export class SKUService {
     );
   }
 
+  public getAlcP() {
+    return this.http.get(`${this.apiGatewayUrl}alcoholPercentage`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getAnimalFlag() {
+    return this.http.get(`${this.apiGatewayUrl}animalFlag`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+  public getMaterialgroup() {
+    return this.http.get(`${this.apiGatewayUrl}materialgroup`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getglobalbev() {
+    return this.http.get(`${this.apiGatewayUrl}globalbevcat`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getbaseunit() {
+    return this.http.get(`${this.apiGatewayUrl}baseunit`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+  public getpacktype() {
+    return this.http.get(`${this.apiGatewayUrl}packtype`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+  // public getPacktype() {
+  //   return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
+  //     map((Unitperpack: any) => {
+  //       return Unitperpack.map((Unitperpack) => {
+  //         return {name: Unitperpack, isChecked: false};
+  //       });
+  //     })
+  //   );
+  // }
+
+
+
+
+
+  public getUnitperpack() {
+    return this.http.get(`${this.apiGatewayUrl}unitPerPack`).pipe(
+      map((Unitperpack: any) => {
+        return Unitperpack.map((Unitperpack) => {
+          return {name: Unitperpack, isChecked: false};
+        });
+      })
+    );
+  }
+
+  public getSubbrand() {
+    return this.http.get(`${this.apiGatewayUrl}subBrand`).pipe(
+      map((subBrand: any) => {
+        return subBrand.map((subBrand) => {
+          return {name: subBrand, isChecked: false};
+        });
+      })
+    );
+  }
+
   public getSegments() {
     return of([
       {
@@ -78,6 +188,10 @@ export class SKUService {
     );
   }
 
+
+
+  
+
   public getCustomerPlanningGroup() {
     return this.http.get(`${this.apiGatewayUrl}cpg`).pipe(
       map((items: any) => {
@@ -105,6 +219,68 @@ export class SKUService {
       })
     );
   }
+
+
+
+
+  public getSkUList1(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}changedfilterSKU`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: false,
+            isChecked: false,
+          };
+        });
+      })
+    );
+  }
+
+
+
+
+  public getCPGList2(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}changedfilterSKU`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: false,
+            isChecked: false,
+          };
+        });
+      })
+    );
+  }
+
+
+
+
+  public getForecastingGroup(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}forecastingGroup12`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: false,
+            isChecked: false,
+          };
+        });
+      })
+    );
+  }
+
+
+  // public getForecastingGroup(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}forecastingGroup12`, data);
+  // }
+
+
+  
 
   public getFilters() {
     return this.http.get(`${this.apiGatewayUrl}filters`).pipe(
@@ -161,6 +337,74 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
   }
 
+
+
+  public getSales(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}sales`, data);
+  }
+
+
+  public getTradetype(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}tradetype`, data);
+  }
+
+
+  public sendLog(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savelog`, data);
+  }
+
+
+  public getGraphData_yearly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_yearly`, data);
+  }
+
+
+
+  public download(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}download`, data);
+  }
+
+
+
+   public getGraphData_monthly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_monthly`, data);
+  }
+
+
+
+  
+
+  public deleteTemp(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}deleteTempData`, data);
+  }
+
+
+
+  public getlogs(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}logs`, data);
+  }
+
+
+  public getCommnents(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}allcomments`, data);
+  }
+
+
+  public getFeatureGraphData(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_feature_analysis`, data);
+  }
+
+
+  public getCPGlist(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}cpg`, data);
+  }
+
+  public getCPGlist2(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}changedfilterCPG`, data);
+  }
+
+
+
   public savePlan(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}savePlanData`, data);
   }
@@ -169,11 +413,8 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}confirmPlanData`, data);
   }
 
-  public saveView(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}saveView`, data);
+  public editComment(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}editcomment`, data);
   }
 
-  public getViews() {
-    return this.http.get(`${this.apiGatewayUrl}fetchView`);
-  }
 }

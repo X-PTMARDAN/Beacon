@@ -5,11 +5,19 @@
 }
 
 .canvasjs-chart-toolbar > button {
+  margin-top: -40px;
+  margin-right: -21px;
   background-color: transparent !important;
+  /* border: 1px solid black !important; */
 }
 
-.canvasjs-chart-toolbar > button:hover {
-  background-color: rgb(33, 150, 243)!important;
+/* .canvasjs-chart-toolbar > button:hover {
+
+} */
+
+.canvasjs-chart-toolbar button {
+  width: 100px !important;
+
 }
 
 body {
