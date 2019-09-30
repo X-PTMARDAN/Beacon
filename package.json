@@ -2,7 +2,7 @@
   "name": "beacon",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,6 +28,7 @@
     "rxjs": "~6.4.0",
     "simplebar": "^4.1.0",
     "tslib": "^1.10.0",
+    "webpack-dev-server": "^3.8.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
