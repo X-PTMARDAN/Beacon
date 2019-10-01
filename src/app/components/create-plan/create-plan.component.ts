@@ -522,7 +522,7 @@ export class CreatePlanComponent implements OnInit, OnDestroy {
   }
 
   // Modal wizard handlers
-  private changeActiveStep(step) {
+  public changeActiveStep(step) {
     if (step === 1) {
       this.showPanels.showPlanDemand = false;
       this.showPanels.showRevisitPlan = false;
