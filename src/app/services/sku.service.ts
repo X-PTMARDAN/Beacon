@@ -339,8 +339,36 @@ export class SKUService {
 
 
 
+  public getGraphData_week_uom(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM`, data);
+  }
+
+
+
   public getSales(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}sales`, data);
+  }
+
+
+  public defaultnull(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}prevnull`, data);
+  }
+
+
+  public setdefault(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}setdefault`, data);
+  }
+
+
+  public savePIPOsku(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savePIPOsku`, data);
+  }
+
+
+
+
+  public getPIPO(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}pipo`, data);
   }
 
 
@@ -368,6 +396,12 @@ export class SKUService {
 
    public getGraphData_monthly(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}demandTable_monthly`, data);
+  }
+
+
+
+  public savePIPO(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savePIPO`, data);
   }
 
 

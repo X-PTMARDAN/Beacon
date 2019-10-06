@@ -340,10 +340,10 @@
                     <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">UOM</h6>
   
                     
-                            <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" >
-                                  <option  value="week234">HL</option>
-                                  <option selected value="month23456">L</option>
-                                  <option value="month23456">PC</option>
+                            <select class="form-control p-0 pr-1" #t5 name="plant" id="granular" [(ngModel)]="UOM" (change)="uom(t5.value)">
+                                  <option  value="HL">HL</option>
+                                  <option selected value="PC">PC</option>
+                                  
                               
                                 </select>
                                 </div>   
@@ -551,13 +551,15 @@
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                        [class.highlight]="data.lockcell?.length">
                       {{ data.ml }}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                        [class.highlight]="data.lockcell?.length">
                       {{ data.apo }}
                     </td>
                   </tr>
@@ -788,6 +790,7 @@
                       {{ filter.name }} - {{plantss.length}}/{{filter.values.length}}
                       <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
                     </a>
+                    <a class="text-muted float-right" href="javascript:void(0);" (click)="selectAllplant()">Select all plants</a> 
                   </span>
                 </div>
                 <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
@@ -826,6 +829,7 @@
                      (click)="filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
                     <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <a class="text-muted float-right" href="javascript:void(0);" (click)="selectAllcpg()">Select all CPG</a> 
                   </a>
                 </span>
               </div>
@@ -854,7 +858,7 @@
             <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }}/{{skus.length + second_sku.length}}</span>
            
           </div>
-          <!-- <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a> -->
+        <a class="text-muted float-right" href="javascript:void(0);" (click)="x()">Select all FG</a> 
 
           <!-- <div class="input-group mt-2">
              <input type="text" class="form-control"  name="searchSKU1" placeholder="Search FG">
@@ -1161,13 +1165,15 @@
 
     <div class="flex-container" style="width:100%">
       <div (click)='main1()' id="m" style="width: 25%;text-align: center;    height: 28px;
-      cursor: pointer;margin-right: 3px; background: #fff;">M</div>
+      cursor: pointer;margin-right: 3px; background: #fff;">P</div>
+         <div (click)='weeklycomment1()' id="w" style="width: 25%;text-align: center;    height: 28px;
+         cursor: pointer;">C</div>  
+
       <div (click)='log1()' id="l" style="width: 25%;text-align: center;    height: 28px;
       cursor: pointer;margin-right: 3px;">L</div>
       <div (click)='comment1()' id="c" style="width: 25%;text-align: center;    height: 28px;
-      cursor: pointer;">C</div>  
-        <div (click)='weeklycomment1()' id="w" style="width: 25%;text-align: center;    height: 28px;
-        cursor: pointer;">WC</div>  
+      cursor: pointer;">CL</div>  
+     
     </div>
 
   
@@ -1442,13 +1448,18 @@
 
           <ng-container *ngFor="let filter of loadedFilters | filter : getCallback() ;let i=index ">
             <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
-                 (click)="filterItemClick(i)">
-              {{ i + 1 }}<span> {{ filter.name }}</span>
+                 (click)="filterItemClick(i)" >
+              {{ i + 1 }}<span> {{ filter.name }} {{filter.default_Val}}</span>
+
+            
+              
             </div>
           </ng-container>
 
           <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+            <button type="button" class="btn btn-dark" (click)="default()">Make Default</button>
             <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Load Selected</button>
           </div>
         </form>
@@ -1459,3 +1470,71 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Load Filter Modal-->
+<a href="javascript:void(0);" [hidden]="true" data-target="#lockModal" data-toggle="modal" #lockModal>Open
+    Options available</a>
+  <div class="modal fade load-filter-modal" id="lockModal" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Load Filter</h5>
+          <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #lockModalCancel>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #loadForm="ngForm">
+  
+        
+              <div class="filter-item shadow-sm cursor-pointer" 
+                   (click)="commenting()">
+                Comment
+  
+              
+                
+              </div>
+
+
+
+              <div class="filter-item shadow-sm cursor-pointer" (click)="locking_final()"
+              >
+           Lock Cell
+
+         
+           
+         </div>
+          
+  
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+  
+  
+              <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Yes</button>
+            </div>
+          </form>
+  
+  
+          
+        </div>
+      </div>
+    </div>
+  </div>

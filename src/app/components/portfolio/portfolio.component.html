@@ -1,16 +1,515 @@
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 
-    <div class="topleft">
-      <p>Logo</p>
-    </div>
-    <div class="middle">
-      <h1>COMING SOON</h1>
-      <hr>
-      <p>This module is under construction and will be updated very soon. Aurora application will notify you when this is module is live. Thanks for your patience and checking up.</p>
-    </div>
-    <div class="bottomleft">
-      <p>
+<div style="background:#fff; padding-top:50px;">
 
-        </p>
+
+  <div class="container">
+  
+  <div style="display:flex;flex-direction: row;justify-content: space-around;">
+  <div class="">
+  
+  <div class="bg-green"><a href="javascript:" data-toggle="modal" (click)="abc()" data-target="#myModal3" style="color:#fff;">Forecasting Group Mapping</a></div>
+  <div class="bottomtext">
+ 
+  
+  
+   </div>
+    </div>
+    <div class="">
+  
+  <div class="bg-green" (click)="abc_phase()" >Phase In Phase Out</div>
+
+  <div class="bottomtext">
+  <!--<div class="media">
+    <div class="media-left">
+      <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:#f13464;"></i>
+    </div>
+    <div class="media-body">
+  <p>
+   There are new SKUs<br /> Without maping</p>
+    </div>
+  </div>
+  
+  <p class="text-center">OR</p>
+  <div class="media">
+    <div class="media-left">
+  <i class="fa fa-check-circle" aria-hidden="true" style="color:#003418;"></i>
+    </div>
+    <div class="media-body">
+  <p>All SKUs are maping</p>
+    </div>
+  </div>-->
+  
+  
+   </div>
+    </div>
+  </div>
+  
+  
+        </div>
+ 
+  
+   <div class="table-responsive" *ngIf="table">
+
+      <button class="btn btn-primary nextBtn" type="button" data-toggle="modal" data-target="#myModal4" > Add Sku</button>
+   <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"  (click)="sortHeaderClick()" >SKU ID</th>
+        <th scope="col">Material Name</th>
+        <th scope="col">FGID</th>
+        <th scope="col">Forecasting Group</th>
+        <th scope="col">Week First Seen</th>
+        <th scope="col">Week Last Seen</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody > 
+
+        <ng-container *ngFor="let data of pipo; let i=index">
+      <tr>
+        <th scope="row">{{data.material}}</th>
+       <td>{{data.sku}}</td>
+        <td>{{data.fgid}}</td>
+        <td>{{data.forecastinggroup}}</td>
+  
+        <td>{{data.minimum}}</td>
+
+        <td>{{data.maximum}}</td>
+      
+         <td><a href="javascript:" class="btn btn-sm btn-success" aria-disabled="">Edit</a></td>
+          <td><a href="javascript:" class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
+      </tr>
+  
+      </ng-container>
+    </tbody>
+  
+  </table>
+</div>
+
+
+
+
+
+<div style="background:#fff; padding-top:150px;" *ngIf='phase'>
+    <div class="container" id="add_here()">
+     <h3 class="text-center">Phase in- Phase Out</h3><i class="fa fa-plus" style="float:right" (click)="show_phase()" aria-hidden="true"></i>
+    <div style="display:flex;flex-direction: row;justify-content: space-around;">
+    <div class="form-group col-sm-3">
+    <label>Phase in SKU2</label>
+    
+    <select id="select1" [(ngModel)]="fromsku">
+
+
+        <ng-container *ngFor="let filter of drop; let filterIndex=index" >
+                <option [value]="filter">{{filter}}</option>
+          </ng-container>
+      </select>
+                  </div>
+
+
+
+                  <div class="form-group col-sm-3">
+                      <label>Phase in SKU</label>
+                      
+                      <select [(ngModel)]="tosku">
+                      <ng-container *ngFor="let filter of drop; let filterIndex=index">
+                          <option [value]="filter">{{filter}}</option>
+                    </ng-container>
+                  </select>
+                                    </div>
+
+                                    <div class="form-group col-sm-3">
+                                        <label>Phasing Logic</label>
+                                        
+                                                        <select class="minimal" [(ngModel)]="logic">
+                                          <option >Select </option>
+                                          <option value="transistion">Transition</option>
+                                          <option value="delist">Delist</option>
+                                        </select>
+                                                      </div>
+
+
+      <div class="form-group col-sm-3">
+
+          <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+              <label for="startWeek" class="d-none">
+                <span class="sr-only">Start Week</span>
+              </label>
+              <div class="input-group input-append date">
+                <span class="pr-1">From:</span>
+                <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
+    
+                <input type="week" value="2019-W39" id="startWeek" [value]="startweek" [(ngModel)]="startweek" name="startWeek">
+    
+              
+    
+    
+                <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+              </div>
+            </div>
+              
+      </div>
+                
+                  <!-- <div class="form-group col-sm-3">
+    <label>Logic Parameter</label>
+    
+                   <select class="minimal">
+      <option>Select </option>
+      <option>10%</option>
+    
+      <option>20%</option>
+      <option>30%</option>
+      <option>40%</option>
+      <option>50%</option>
+      <option>60%</option>
+      <option>70%</option>
+      <option>80%</option>
+      <option>90%</option>
+    
+    </select>
+                  </div> -->
+    
+    
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- SECONDDDDDD TO BE DELETED-->
+
+    
+    <div style="display:flex;flex-direction: row;justify-content: space-around;" *ngIf=phase_second>
+        <div class="form-group col-sm-3">
+        <label>Phase in SKU</label>
+        
+        <ng-multiselect-dropdown
+        [placeholder]="'Please Select'"
+        [data]="pipo"
+        id="pipo"
+        name="pipo"
+        [(ngModel)]="selectedPlants"
+        [settings]="dropdownSettings" required>
+      </ng-multiselect-dropdown>
+                      </div>
+    
+    
+    
+                      <div class="form-group col-sm-3">
+                          <label>Phase in SKU</label>
+                          
+                          <ng-multiselect-dropdown
+                          [placeholder]="'Please Select'"
+                          [data]="pipo"
+                          id="pipo"
+                          name="pipo"
+                          [(ngModel)]="selectedPlants"
+                          [settings]="dropdownSettings" required>
+                        </ng-multiselect-dropdown>
+                                        </div>
+    
+                                        <div class="form-group col-sm-3">
+                                            <label>Phasing Logic</label>
+                                            
+                                                            <select class="minimal">
+                                              <option>Select </option>
+                                              <option>Launch</option>
+                                              <option>Exhaust</option>
+                                            </select>
+                                                          </div>
+    
+    
+          <div class="form-group col-sm-3">
+    
+              <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+                  <label for="startWeek" class="d-none">
+                    <span class="sr-only">Start Week</span>
+                  </label>
+                  <div class="input-group input-append date">
+                    <span class="pr-1">From:</span>
+                    <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
+        
+                    <input type="week" value="2019-W39" id="startWeek"  name="startWeek">
+        
+                  
+        
+        
+                    <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+                  
+          </div>
+                    
+                      <!-- <div class="form-group col-sm-3">
+        <label>Logic Parameter</label>
+        
+                       <select class="minimal">
+          <option>Select </option>
+          <option>10%</option>
+        
+          <option>20%</option>
+          <option>30%</option>
+          <option>40%</option>
+          <option>50%</option>
+          <option>60%</option>
+          <option>70%</option>
+          <option>80%</option>
+          <option>90%</option>
+        
+        </select>
+                      </div> -->
+        
+        
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--THIRD-->
+
+          <!-- SECONDDDDDD TO BE DELETED-->
+
+    
+    <div style="display:flex;flex-direction: row;justify-content: space-around;" *ngIf=phase_third>
+        <div class="form-group col-sm-3">
+        <label>Phase in SKU</label>
+        
+        <ng-multiselect-dropdown
+        [placeholder]="'Please Select'"
+        [data]="pipo"
+        id="pipo"
+        name="pipo"
+        [(ngModel)]="selectedPlants"
+        [settings]="dropdownSettings" required>
+      </ng-multiselect-dropdown>
+                      </div>
+    
+    
+    
+                      <div class="form-group col-sm-3">
+                          <label>Phase in SKU</label>
+                          
+                          <ng-multiselect-dropdown
+                          [placeholder]="'Please Select'"
+                          [data]="pipo"
+                          id="pipo"
+                          name="pipo"
+                          [(ngModel)]="selectedPlants"
+                          [settings]="dropdownSettings" required>
+                        </ng-multiselect-dropdown>
+                                        </div>
+    
+                                        <div class="form-group col-sm-3">
+                                            <label>Phasing Logic</label>
+                                            
+                                                            <select class="minimal"  [(ngModel)]="l23ogic">
+                                              <option>Select </option>
+                                              <option>Launch</option>
+                                              <option>Exhaust</option>
+                                            </select>
+                                                          </div>
+    
+    
+          <div class="form-group col-sm-3">
+    
+              <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+                  <label for="startWeek" class="d-none">
+                    <span class="sr-only">Start Week</span>
+                  </label>
+                  <div class="input-group input-append date">
+                    <span class="pr-1">From:</span>
+                    <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
+        
+                    <input type="week" value="2019-W39" id="startWeek" [(ngModel)]="star23456tweek"  name="startWeek">
+        
+                  
+        
+        
+                    <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+                  
+          </div>
+                    
+                      <!-- <div class="form-group col-sm-3">
+        <label>Logic Parameter</label>
+        
+                       <select class="minimal">
+          <option>Select </option>
+          <option>10%</option>
+        
+          <option>20%</option>
+          <option>30%</option>
+          <option>40%</option>
+          <option>50%</option>
+          <option>60%</option>
+          <option>70%</option>
+          <option>80%</option>
+          <option>90%</option>
+        
+        </select>
+                      </div> -->
+        
+        
+        </div>
+    
+        
+
+    <div style="display:flex; flex-direction: column; align-items:center;">
+    <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn" type="button" (click)="apply()" > Apply</button></div>
+    </div>
+    </div>
+            <!--<div class="col-md-12">
+              <div class="step-1-text">
+                <h3 class="text-center">Phase in- Phase Out</h3>
+    <div class="step-2-content">
+    <div class="form-group col-sm-3">
+    <label>Phase SKU</label>
+    
+                    <select class="minimal">
+      <option>Select </option>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+                  </div>
+      <div class="form-group col-sm-3">
+    <label>Phase out SKU</label>
+    
+                    <select class="minimal">
+      <option>Select </option>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+                  </div>
+                  <div class="form-group col-sm-3">
+    <label>Phasing Logic</label>
+    
+                    <select class="minimal">
+      <option>Select </option>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+                  </div>
+                  <div class="form-group col-sm-3">
+    <label>Logic Parameter</label>
+    
+                    <select class="minimal">
+      <option>Select </option>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+                  </div>
+    </div>
+    
+    
+                <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn" type="button" data-toggle="modal" data-target="#myModal4" > Apply</button></div>
+             
+              </div>
+            </div>-->
+    
+          
+    </div>
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           </div>
+          <div class="modal-body">
+<!--     
+    <div class="row">
+   
+    <div class="col-sm-4"><div class="input-group">
+      <select class="custom-select" id="inputGroupSelect01" style="border-color:#ddd;">
+        <option selected>Chardonay_Red</option>
+        
+      </select>
+    </div></div>
+    <div class="col-sm-4">
+    <div class="input-group" style="border-bottom:solid 1px #ddd;">
+      <input type="text" class="form-control searchbox" placeholder="Username" aria-label="Search for Forecasting group" aria-describedby="basic-addon1">
+        <div class="input-group-prepend">
+        <button style="border:none; background:none;"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+    </div>
+    </div> -->
+    
+    <div class="table-responsive mt-3">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Material ID</th>
+          <th scope="col">SKU Name</th>
+          <th scope="col">FGID</th>
+          <th scope="col" style="width:75px;">Forecasting Group</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"> <input type="text" class="form-control searchbox" [(ngModel)]="materialid" placeholder="Material ID" aria-describedby="basic-addon1"></td>
+          <td> <input type="text" class="form-control searchbox" [(ngModel)]="skuname" placeholder="SKU Name" aria-describedby="basic-addon1"></td>
+          <td > <input type="text" class="form-control searchbox" [(ngModel)]="fgid"  aria-describedby="basic-addon1"></td>
+          <td> <input type="text" class="form-control searchbox" [(ngModel)]="fgname" placeholder="Forecasting Name" aria-describedby="basic-addon1"></td>
+          
+        </tr>
+      
+
+      </tbody>
+    </table>
+    
+    
+    
+    </div>
+    <div class="col-sm-12 text-center" (click)="add_sku();"><a href="javascript:void(0)" class="btn">Add</a></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  
+  
+ 
+ 
+  
+  
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
   
