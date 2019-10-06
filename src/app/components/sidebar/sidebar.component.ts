@@ -202,6 +202,13 @@ export class SidebarComponent implements OnInit {
       window.location.href="http://aurora-carlsberg.herokuapp.com/setting"
     }
 
+
+    else if(pageName=='f')
+    {
+      this.num=5;
+      window.location.href="http://aurora-carlsberg.herokuapp.com/login"
+    }
+
     
     
   }
