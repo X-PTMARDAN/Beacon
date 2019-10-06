@@ -829,7 +829,7 @@
                      (click)="filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
                     <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
-                    <a class="text-muted float-right" href="javascript:void(0);" (click)="selectAllcpg()">Select all CPG</a> 
+                    <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all CPG</a> 
                   </a>
                 </span>
               </div>
