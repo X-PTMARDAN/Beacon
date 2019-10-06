@@ -7588,21 +7588,15 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
 
 
 
-  public locking_final(data: any) {
+  public locking_final() {
     if (this.selectedWeekIndex) {
-      if (this.graphData[this.selectedWeekIndex].comments.length >= 1) {
-        this.graphData[this.selectedWeekIndex].comments[0] = data.comment;
-        this.graphData[this.selectedWeekIndex].userComment[0] = data.comment;
-        while (this.graphData[this.selectedWeekIndex].comments.length > 1) {
-          this.graphData[this.selectedWeekIndex].comments.pop();
-        }
-      } else {
+     
         console.log("TYUFHRF---"+this.selecteddblclick);
 
         console.log("TYertyUFHRF---"+ JSON.stringify(this.graphData[this.selecteddblclick]));
         this.graphData[this.selecteddblclick].lockcell='12';
        // this.graphData[this.selectedWeekIndex].userComment.push(data.comment);
-      }
+      
     }
     this.lockModalCancel.nativeElement.click();
   }

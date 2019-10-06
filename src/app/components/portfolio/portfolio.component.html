@@ -55,7 +55,7 @@
    <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col"  (click)="sortHeaderClick()" >SKU ID</th>
+        <th scope="col" >SKU ID</th>
         <th scope="col">Material Name</th>
         <th scope="col">FGID</th>
         <th scope="col">Forecasting Group</th>
@@ -196,89 +196,6 @@
 
     <!-- SECONDDDDDD TO BE DELETED-->
 
-    
-    <div style="display:flex;flex-direction: row;justify-content: space-around;" *ngIf=phase_second>
-        <div class="form-group col-sm-3">
-        <label>Phase in SKU</label>
-        
-        <ng-multiselect-dropdown
-        [placeholder]="'Please Select'"
-        [data]="pipo"
-        id="pipo"
-        name="pipo"
-        [(ngModel)]="selectedPlants"
-        [settings]="dropdownSettings" required>
-      </ng-multiselect-dropdown>
-                      </div>
-    
-    
-    
-                      <div class="form-group col-sm-3">
-                          <label>Phase in SKU</label>
-                          
-                          <ng-multiselect-dropdown
-                          [placeholder]="'Please Select'"
-                          [data]="pipo"
-                          id="pipo"
-                          name="pipo"
-                          [(ngModel)]="selectedPlants"
-                          [settings]="dropdownSettings" required>
-                        </ng-multiselect-dropdown>
-                                        </div>
-    
-                                        <div class="form-group col-sm-3">
-                                            <label>Phasing Logic</label>
-                                            
-                                                            <select class="minimal">
-                                              <option>Select </option>
-                                              <option>Launch</option>
-                                              <option>Exhaust</option>
-                                            </select>
-                                                          </div>
-    
-    
-          <div class="form-group col-sm-3">
-    
-              <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
-                  <label for="startWeek" class="d-none">
-                    <span class="sr-only">Start Week</span>
-                  </label>
-                  <div class="input-group input-append date">
-                    <span class="pr-1">From:</span>
-                    <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
-        
-                    <input type="week" value="2019-W39" id="startWeek"  name="startWeek">
-        
-                  
-        
-        
-                    <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                  </div>
-                </div>
-                  
-          </div>
-                    
-                      <!-- <div class="form-group col-sm-3">
-        <label>Logic Parameter</label>
-        
-                       <select class="minimal">
-          <option>Select </option>
-          <option>10%</option>
-        
-          <option>20%</option>
-          <option>30%</option>
-          <option>40%</option>
-          <option>50%</option>
-          <option>60%</option>
-          <option>70%</option>
-          <option>80%</option>
-          <option>90%</option>
-        
-        </select>
-                      </div> -->
-        
-        
-        </div>
 
 
 
@@ -297,88 +214,7 @@
           <!-- SECONDDDDDD TO BE DELETED-->
 
     
-    <div style="display:flex;flex-direction: row;justify-content: space-around;" *ngIf=phase_third>
-        <div class="form-group col-sm-3">
-        <label>Phase in SKU</label>
-        
-        <ng-multiselect-dropdown
-        [placeholder]="'Please Select'"
-        [data]="pipo"
-        id="pipo"
-        name="pipo"
-        [(ngModel)]="selectedPlants"
-        [settings]="dropdownSettings" required>
-      </ng-multiselect-dropdown>
-                      </div>
-    
-    
-    
-                      <div class="form-group col-sm-3">
-                          <label>Phase in SKU</label>
-                          
-                          <ng-multiselect-dropdown
-                          [placeholder]="'Please Select'"
-                          [data]="pipo"
-                          id="pipo"
-                          name="pipo"
-                          [(ngModel)]="selectedPlants"
-                          [settings]="dropdownSettings" required>
-                        </ng-multiselect-dropdown>
-                                        </div>
-    
-                                        <div class="form-group col-sm-3">
-                                            <label>Phasing Logic</label>
-                                            
-                                                            <select class="minimal"  [(ngModel)]="l23ogic">
-                                              <option>Select </option>
-                                              <option>Launch</option>
-                                              <option>Exhaust</option>
-                                            </select>
-                                                          </div>
-    
-    
-          <div class="form-group col-sm-3">
-    
-              <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
-                  <label for="startWeek" class="d-none">
-                    <span class="sr-only">Start Week</span>
-                  </label>
-                  <div class="input-group input-append date">
-                    <span class="pr-1">From:</span>
-                    <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
-        
-                    <input type="week" value="2019-W39" id="startWeek" [(ngModel)]="star23456tweek"  name="startWeek">
-        
-                  
-        
-        
-                    <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                  </div>
-                </div>
-                  
-          </div>
-                    
-                      <!-- <div class="form-group col-sm-3">
-        <label>Logic Parameter</label>
-        
-                       <select class="minimal">
-          <option>Select </option>
-          <option>10%</option>
-        
-          <option>20%</option>
-          <option>30%</option>
-          <option>40%</option>
-          <option>50%</option>
-          <option>60%</option>
-          <option>70%</option>
-          <option>80%</option>
-          <option>90%</option>
-        
-        </select>
-                      </div> -->
-        
-        
-        </div>
+   
     
         
 
