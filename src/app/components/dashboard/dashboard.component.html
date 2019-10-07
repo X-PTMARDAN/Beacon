@@ -531,6 +531,7 @@
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td class="font-weight-bold cursor-pointer"
+                          [class.highlight]="data.lockcell?.length"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
                           (click)="comments(i)">
                         {{ data.finalForecast }}
@@ -545,6 +546,7 @@
                                [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= createPlanRequestData.startWeek }"
                                (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined"
                                [class.disabled]="data.ml === undefined"
+                               [class.highlight]="data.lockcell?.length"
                                [(ngModel)]="data.fcstValueAdd">
                       </td>
                     </ng-container>
