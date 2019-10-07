@@ -98,6 +98,17 @@ public materialgroupfilter=false;
 public second_sku: any=[];
 public weeklycomment=false;
 
+
+
+public planningtable ='Planning table (HL)';
+
+public forecastinganalysis='Forecast Analysis (HL)';
+
+// [(ngModel)]="planningtable"
+
+// forecastinganalysis
+
+
 public comment12=false;
   public weeks = [];
 
@@ -598,7 +609,7 @@ this.filterService.getFilters({
         prevactuals:201911,
       startWeek: 201938,
       endWeek: 202004,
-      forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
+      forecastingGroups: [{"id":0,"name":"EVE GrapefCosm BOT 6X4X0_275","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
       plants: ['G001']
     };
@@ -1050,7 +1061,7 @@ var index=0;
         prevactuals:201911,
       startWeek: 201938,
       endWeek: 202004,
-      forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
+      forecastingGroups: [{"id":0,"name":"EVE GrapefCosm BOT 6X4X0_275","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
       plants: ['G001']
     };
@@ -1744,8 +1755,18 @@ console.log("GRANUALLLL---"+this.granular1);
 
   if(feature == "PC")
   {
+
+    
+    this.planningtable ='Planning table (PC)';
+
+    document.getElementById('planningtable').innerHTML='Planning table (PC)';
+
+    document.getElementById('forecastinganalysis').innerHTML='Forecast Analysis (PC)';
+
+    
+
+   this.forecastinganalysis='Forecast Analysis (PC)';
      
-      console.log("dsfsdffgsf--"+document.getElementById('granular').innerHTML);
     this.prevactuals="2019-W01";
     this.endWeek="2019-W52";
   //const data=this.createPlanRequestData;
