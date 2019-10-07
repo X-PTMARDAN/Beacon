@@ -25,7 +25,7 @@ export class SidebarComponent implements OnInit {
 
 
 
-    if(window.location.href=='http://aurora-carlsberg.herokuapp.com/portfolio')
+    if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//portfolio')
     {
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#797F87';
@@ -33,7 +33,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("npd").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://aurora-carlsberg.herokuapp.com/portfolio?b=')
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//portfolio?b=')
     {
       document.getElementById("npd").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -42,7 +42,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#5A5F66';
     }
 
-    else if(window.location.href=='http://aurora-carlsberg.herokuapp.com/portfolio?a=')
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//portfolio?a=')
     {
       document.getElementById("snop").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -51,7 +51,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
     }
 
-    else if(window.location.href=='http://aurora-carlsberg.herokuapp.com/setting')
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//setting')
     {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -81,9 +81,9 @@ export class SidebarComponent implements OnInit {
   public onClick(name: string) {
     console.log("Harshit-->"+name);
     console.log("YHYHY-->"+window.location.href);
-    if(window.location.href=="http://aurora-carlsberg.herokuapp.com/portfolio?%2F=")
+    if(window.location.href=="http://aurora-testingcarlsberg.herokuapp.com//portfolio?%2F=")
     {
-      window.location.href="http://aurora-carlsberg.herokuapp.com/dashboard";
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//dashboard";
     }
     this.sidebarService.emit(name);
   }
@@ -171,24 +171,24 @@ export class SidebarComponent implements OnInit {
     if(pageName=='a')
     {
       this.num=1;
-      window.location.href="http://aurora-carlsberg.herokuapp.com/portfolio?a"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//portfolio?a"
      // this.router.navigate([`/portfolio`]);
     }
     else if(pageName=='b')
     {
       this.num=2;
-      window.location.href="http://aurora-carlsberg.herokuapp.com/portfolio?b"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//portfolio?b"
     }
 
     else if(pageName=='ab')
     {
       this.num=2;
-      window.location.href="http://aurora-carlsberg.herokuapp.com/portfolio"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//portfolio"
     }
     else if(pageName=='c')
     {
       this.num=3;
-      window.location.href="http://aurora-carlsberg.herokuapp.com/dashboard"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//dashboard"
     }
     else if(pageName=='d')
     {
@@ -199,14 +199,14 @@ export class SidebarComponent implements OnInit {
     else if(pageName=='e')
     {
       this.num=5;
-      window.location.href="http://aurora-carlsberg.herokuapp.com/setting"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//setting"
     }
 
 
     else if(pageName=='f')
     {
       this.num=5;
-      window.location.href="http://aurora-carlsberg.herokuapp.com/login"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//login"
     }
 
     
