@@ -32,6 +32,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public pipo: any =[];
 
+  public pipoMapping: any =[];
+
 
   public drop =[];
 
@@ -41,9 +43,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public phase_third =false;
 
+public pipo_map=false;
+public sku_map=true;
 
   public fromsku;
   public tosku;
+
+  public mappedFG;
   public logic;
   public startweek;
 
@@ -56,7 +62,7 @@ public selectedPlants=[];
   public fgname;
 
 
-
+public mappingdrop;
   public fgname_column;
   public material_column;
   public fgid_column;
@@ -68,6 +74,7 @@ public selectedPlants=[];
 public table=false;
   //table
   ngOnInit() {
+ 
     let win = (window as any);
     console.log('dfdf->' + win.location.search);
     // win.location.search = '/?loaded';
@@ -103,10 +110,25 @@ public table=false;
               this.pipo=response;
               for(const abc of this.pipo)
               {
-                this.drop.push(abc.sku);
+                this.drop.push(abc.material);
               }
               console.log("Dfdfdfd---"+JSON.stringify(this.drop));
           });
+
+
+          this.skuService.getPIPOMapping().subscribe((response: any) => {  
+            this.pipoMapping=response;
+          });
+
+
+
+          this.skuService.getfgid().subscribe((response: any) => {  
+            this.mappingdrop=response;
+          });
+
+
+
+          
   }
 
 
@@ -136,6 +158,66 @@ public table=false;
     
   }
 
+
+
+  public pipo_click()
+  {
+    this.pipo_map=true;
+    this.sku_map=false;
+    document.getElementById('pipo_bar').style.background='#00321E';
+
+    document.getElementById('sku_bar').style.background='#f4f5f9';
+  }
+
+
+  public sku_click()
+  {
+
+    this.pipo_map=false;
+    this.sku_map=true;
+
+    document.getElementById('sku_bar').style.background='#00321E';
+
+    document.getElementById('pipo_bar').style.background='#f4f5f9';
+  }
+
+
+  public map_sku()
+  {
+    this.materialid;
+    this.skuname;
+    this.mappedFG;
+
+
+    var data={
+      material: this.materialid,
+      fg:this.mappedFG
+    };
+
+    this.skuService.mapFG(data).subscribe((response: any) => {  
+      //
+      window.alert("Mapped");
+
+
+      this.skuService.getPIPO().subscribe((response: any) => {    
+        this.pipo=response;
+        for(const abc of this.pipo)
+        {
+          this.drop.push(abc.material);
+        }
+        console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+    });
+
+
+    this.skuService.getPIPOMapping().subscribe((response: any) => {  
+      this.pipoMapping=response;
+    });
+
+
+    });
+
+
+  }
 
 
   public add_sku()
@@ -172,6 +254,17 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
   //  fgid;
   //  fgname;
   }
+
+
+
+  public edit(num: number)
+  {
+      var a=this.pipo[num];
+      console.log("SDFsfs---"+JSON.stringify(a));
+
+      this.skuname=a.material;
+      this.materialid=a.sku;
+  }
 public apply()
 {
   
@@ -182,22 +275,46 @@ console.log("Dfsfgfsg1---"+JSON.stringify(this.tosku));
 console.log("Dfsfgfsg2---"+JSON.stringify(this.logic));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek.substr(0,4)));
-
+var state;
 var date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
 console.log("34354ythrgbfd---"+date);
-
-var data={
-  sku_from:this.fromsku,
-  sku_to:this.tosku,
-  reason:this.logic,
-  week:date
+if(this.logic=='delist')
+{
+   state=0;
 }
+else {
+  state =1;
+}
+var data={
+  fromid:this.fromsku,
+  toid:this.tosku,
+  state:state,
+  fromweek:date
+}
+
+console.log("CHEK000--"+JSON.stringify(data));
 
   this.skuService.savePIPOsku(data).subscribe((response: any) => {  
     this.fromsku='';
     this.tosku='';
     this.logic=''
     this.startweek='';
+
+    this.skuService.getPIPO().subscribe((response: any) => {    
+      this.pipo=response;
+      for(const abc of this.pipo)
+      {
+        this.drop.push(abc.material);
+      }
+      console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+  });
+  
+  
+  this.skuService.getPIPOMapping().subscribe((response: any) => {  
+    this.pipoMapping=response;
+  });
+
+  
     console.log("DFdf---");
     window.alert("Done!");
   
@@ -207,6 +324,12 @@ var data={
   this.tosku='';
   this.logic=''
   this.startweek='';
+
+
+
+ 
+
+
 }
 
   public abc_phase()
