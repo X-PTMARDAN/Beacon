@@ -74,7 +74,7 @@ public UOM='HL';
 
   public selectedskus = [];
 
-  public secondgraph;
+  public secondgraph='Promo';
 
 public cpgss;
 public plantss;
@@ -503,14 +503,14 @@ this.filterService.getFilters({
 
 
         this.loading=true;
-        this.skuService.getSubbrand().subscribe((response: any) => {    
+        // this.skuService.getSubbrand().subscribe((response: any) => {    
      
-          this.filters1.push({
-            name: 'Sub-Brand',
-            key: 'subbrand',
-            isExpanded: false,
-            values: response
-          });
+        //   this.filters1.push({
+        //     name: 'Sub-Brand',
+        //     key: 'subbrand',
+        //     isExpanded: false,
+        //     values: response
+        //   });
 
 
           this.loading=true;
@@ -719,7 +719,7 @@ var index=0;
         
             
          
-             });
+             //});
 
 
 
@@ -1253,7 +1253,7 @@ console.log("dfsdfsdfsdf----");
             },
             stripLines: [
               {
-                startValue: 201940,
+                startValue: 201938,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -1358,7 +1358,7 @@ else if(feature =="Baseline"){
           },
           stripLines: [
             {
-              startValue: 201940,
+              startValue: 201938,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -1492,7 +1492,7 @@ else if(feature =="Baseline"){
           },
           stripLines: [
             {
-              startValue: 201940,
+              startValue: 201938,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -2060,7 +2060,7 @@ this.loading=true;
     this.endWeek="2019-W52";
 
     this.createPlanRequestData = {
-      startWeek: 201940,
+      startWeek: 201938,
       endWeek: 201952,
       prevactuals:201901,
       forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -2591,7 +2591,7 @@ this.loading=true;
   }
 
 
-  else if(feature=="week")
+  else if(feature=="HL")
   {
 
       if(this.fgssselected.length==0)
@@ -3302,7 +3302,7 @@ console.log("GRANUALLLL---"+this.granular1);
       this.endWeek="2019-W52";
 
       this.createPlanRequestData = {
-        startWeek: 201940,
+        startWeek: 201938,
         endWeek: 201952,
         prevactuals:201901,
         forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -3584,7 +3584,7 @@ console.log("GRANUALLLL---"+this.granular1);
       //this.test();
 
 
-      this.skus=JSON.parse(JSON.stringify(this.fgssselected));
+    //  this.skus=JSON.parse(JSON.stringify(this.fgssselected));
       console.log("WOW->"+JSON.stringify(this.createPlanRequestData));
   this.loading=true;
       this.skuService.getGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
@@ -4416,18 +4416,19 @@ console.log("GRANUALLLL---"+this.granular1);
 
    this.granular1='week';
 
-   var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
-   var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
+  //  var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+  //  var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
    
-   for(const abc of fgssselected2)
-   {
-     fgssselected1.push(abc);
-   }
-   this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+  //  for(const abc of fgssselected2)
+  //  {
+  //    fgssselected1.push(abc);
+  //  }
+  //  this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 
    this.createPlanRequestData.forecastingGroups=JSON.parse(JSON.stringify(this.fgssselected));
 
+   console.log("TICKKK---"+JSON.stringify(this.fgssselected));
       this.createPlan(this.createPlanRequestData);
     
 
@@ -5902,6 +5903,12 @@ console.log("GRANUALLLL---"+this.granular1);
 
   //Harshit ENDS
 
+
+  public sku_map()
+  {
+    
+  }
+
   public color_change()
   {
     document.getElementById("arrow").style.color='green';
@@ -6026,14 +6033,14 @@ console.log("Sfsgf34sg---"+JSON.stringify(this.createPlanRequestData));
 this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
 this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
-var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
+// var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+// var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
-for(const abc of fgssselected2)
-{
-  fgssselected1.push(abc);
-}
-this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+// for(const abc of fgssselected2)
+// {
+//   fgssselected1.push(abc);
+// }
+// this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
 
@@ -6044,7 +6051,7 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-    data.startWeek=201940;
+    data.startWeek=201938;
     data.endWeek=this.createPlanRequestData.endWeek;
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -7479,17 +7486,16 @@ this.fgssselected=[];
 
 
 
-      var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
-var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
+//       var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+// var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
-for(const abc of fgssselected2)
-{
-  fgssselected1.push(abc);
-}
-this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+// for(const abc of fgssselected2)
+// {
+//   fgssselected1.push(abc);
+// }
+// this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
-console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
-
+// console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
 
 
 
@@ -7498,7 +7504,9 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
       const reqBody = {
         cpg:this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
         plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
-        sku: JSON.parse(JSON.stringify(this.fgssselected)),
+        
+      sku: this.fgssselected.map(item => item.name),
+
         user: 'admin',
         finalForecast: finalValue,
         fva: value,
@@ -7727,14 +7735,14 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
 
 
 
-      var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
-var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
+//       var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+// var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
-for(const abc of fgssselected2)
-{
-  fgssselected1.push(abc);
-}
-this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+// for(const abc of fgssselected2)
+// {
+//   fgssselected1.push(abc);
+// }
+// this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
       
       if (JSON.stringify(commentsObj) !== '{}') {
@@ -7750,11 +7758,11 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201940,
+        calendarWeek: 201938,
         sku: this.skus.filter(item => item.isChecked).map(item => item.name),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
-        plant: this.filters[1].values.filter(item => item.isChecked).map(item => item.name),
+        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name),
       };
       reqBody.data.push(Object.assign(obj, null));
       console.log('Debug -->' + reqBody.data);
@@ -8010,16 +8018,26 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       };
     });
 
+
+
+    this.fgssselected = selectedFilter.sku.map(item => {
+      return {
+        name: item,
+        isChecked: true
+      };
+    });
+
     this.second_sku=[];
 
 
 
+    console.log("TOCKKKK--"+JSON.stringify(this.skus));
+
+//this.fgssselected = JSON.parse(JSON.stringify(this.skus));
 
 
 
-
-
-
+console.log("TJHGHYKJH---"+JSON.stringify(this.fgssselected));
     for (const brand of this.filters2) {
       
       if(brand.key=='tradetype')
@@ -8336,12 +8354,15 @@ this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name
     data.customerPlanningGroup = selectedFilter.cpg;
     data.plants = selectedFilter.plant;
 
-    data.startWeek=201940;
+    data.startWeek=201938;
     data.endWeek=202004;
 
     this.loading=true;
 
     console.log("sfsgfs--"+JSON.stringify(data.forecastingGroups));
+
+
+    console.log("sfsgf435tyhgns--"+JSON.stringify(data));
 
     this.skuService.getGraphData(data).subscribe((res: any) => {
       this.processGraphData(res);

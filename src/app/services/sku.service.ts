@@ -364,8 +364,11 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}savePIPOsku`, data);
   }
 
+  public getPIPOMapping(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}fetchpipoMapping`, data);
+  }
 
-
+  
 
   public getPIPO(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}pipo`, data);
@@ -375,6 +378,22 @@ export class SKUService {
   public getTradetype(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}tradetype`, data);
   }
+
+
+
+
+  // PORTFOLIO
+  public getforecastinggroup(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}forecastinggroup`);
+  }
+
+
+  public getfgid(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}fgid`);
+  }
+//
+
+
 
 
   public sendLog(data = {}) {
@@ -392,6 +411,13 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}download`, data);
   }
 
+
+  public mapFG(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}mapFG`, data);
+  }
+
+
+  
 
 
    public getGraphData_monthly(data = {}) {
@@ -432,6 +458,13 @@ export class SKUService {
   public getCPGlist(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}cpg`, data);
   }
+
+
+
+
+
+
+  
 
   public getCPGlist2(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}changedfilterCPG`, data);

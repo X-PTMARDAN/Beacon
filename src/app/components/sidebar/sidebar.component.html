@@ -44,20 +44,26 @@
       </a>
     </div>
 
-
-    <div class="item d-flex flex-column align-items-center mt-2 justify-content-center" id="npd">
-      <a href="javascript:void(0);" (click)="goToPage('f')" class="text-center">
-        <i class="fa pb-1 fa-home"></i>
-        <p class="m-0 text-center">Logout</p>
-      </a>
+    <div class="mb-2">
+      <div class="item d-flex flex-column align-items-center mt-2" id="setting" (click)="goToPage('e')"> 
+        <i class="fa pb-1 fa-cog"></i>
+        <p class="m-0">Settings</p>
+      </div>
     </div>
 
 
+
+
   </div>
-  <div class="mb-2">
-    <div class="item d-flex flex-column align-items-center mt-2" id="setting" (click)="goToPage('e')"> 
-      <i class="fa pb-1 fa-cog"></i>
-      <p class="m-0">Settings</p>
-    </div>
+  
+
+
+
+  <div class="item d-flex flex-column align-items-center mt-2 justify-content-center" id="npd">
+    <a href="javascript:void(0);" (click)="goToPage('f')" class="text-center">
+      <i class="fa pb-1 fa-sign-out"></i>
+      <p class="m-0 text-center">Logout</p>
+    </a>
   </div>
+
 </div>
