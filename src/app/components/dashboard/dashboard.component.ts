@@ -1291,7 +1291,7 @@ console.log("dfsdfsdfsdf----");
             showInLegend: true,
             gridColor: '#ffffff',
             labelFontColor: 'black',
-           color: '#46a6b9',
+           color: '#17b169',
             dataPoints: this.property
           }]
         });
@@ -1532,25 +1532,6 @@ else if(feature =="Baseline"){
           showInLegend: true,
          color: '#000',
           dataPoints: this.property
-        },
-        {
-          name:"Max",
-          type: 'line',
-          gridColor: '#ffffff',
-          labelFontColor: 'black',
-          
-          showInLegend: true,
-         color: '#000',
-          dataPoints: this.property2
-        },
-        {
-          name:"Min",
-          type: 'line',
-          gridColor: '#ffffff',
-          labelFontColor: 'black',
-          showInLegend: true,
-         color: '#000',
-          dataPoints: this.property3
         }
       
       ]
@@ -3148,14 +3129,15 @@ console.log("GRANUALLLL---"+this.granular1);
           data: [{
             type: 'line',
             gridColor: '#ffffff',
+            
+            color: '#17b169',
             labelFontColor: 'black',
-           color: '#000',
             dataPoints: this.property
           }]
         });
-        this.secondgraph='Open order';
+        this.secondgraph='Open';
         this.chart2.render();
-  
+        
   
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -7736,14 +7718,14 @@ this.fgssselected=[];
 
 
 
-//       var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
-// var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
+var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
+var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
-// for(const abc of fgssselected2)
-// {
-//   fgssselected1.push(abc);
-// }
-// this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+for(const abc of fgssselected2)
+{
+  fgssselected1.push(abc);
+}
+this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
       
       if (JSON.stringify(commentsObj) !== '{}') {
@@ -7760,10 +7742,10 @@ this.fgssselected=[];
     if (reqBody.data.length == 0) {
       const obj = {
         calendarWeek: 201938,
-        sku: this.skus.filter(item => item.isChecked).map(item => item.name),
+        sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
-        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name),
+        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
       };
       reqBody.data.push(Object.assign(obj, null));
       console.log('Debug -->' + reqBody.data);

@@ -26,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { SettingComponent} from './components/setting/setting.component';
 import {PropercasePipe} from './pipe/propercase.pipe';
+import { ComingsoonComponent } from './components/comingsoon/comingsoon.component';
 
 
 
@@ -44,6 +45,7 @@ import {PropercasePipe} from './pipe/propercase.pipe';
     HomeComponent,
     LoginComponent,
     SettingComponent,
+    ComingsoonComponent,
 
   ],
   imports: [

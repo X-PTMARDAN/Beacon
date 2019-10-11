@@ -25,42 +25,57 @@ export class SidebarComponent implements OnInit {
 
 
 
-    if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//portfolio')
+    if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com/portfolio')
     {
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#797F87';
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("npd").style.background='#5A5F66';
+      document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//portfolio?b=')
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com/comingsoon?b=')
     {
       document.getElementById("npd").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("snop").style.background='#5A5F66';
+      document.getElementById("planscene").style.background='#5A5F66';
     }
 
-    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//portfolio?a=')
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com/comingsoon?bcd=')
+    {
+      document.getElementById("npd").style.background='#5A5F66';
+      document.getElementById("portfolio").style.background='#5A5F66';
+      document.getElementById("plan").style.background='#5A5F66';
+      document.getElementById("setting").style.background='#5A5F66';
+      document.getElementById("snop").style.background='#5A5F66';
+      document.getElementById("planscene").style.background='#797F87';
+    }
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com/comingsoon?a=')
     {
       document.getElementById("snop").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("npd").style.background='#5A5F66';
+      document.getElementById("planscene").style.background='#5A5F66';
     }
-
-    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com//setting')
+    else if(window.location.href=='http://aurora-testingcarlsberg.herokuapp.com/setting')
     {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#5A5F66';
 
       document.getElementById("setting").style.background='#797F87';
+      document.getElementById("planscene").style.background='#5A5F66';
 
       document.getElementById("npd").style.background='#5A5F66';
     }
+
+
+    
 
 
 
@@ -70,6 +85,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("setting").style.background='#5A5F66';
       document.getElementById("npd").style.background='#5A5F66';
+      document.getElementById("planscene").style.background='#5A5F66';
     }
   
     
@@ -171,19 +187,25 @@ export class SidebarComponent implements OnInit {
     if(pageName=='a')
     {
       this.num=1;
-      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//portfolio?a"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/comingsoon?a"
      // this.router.navigate([`/portfolio`]);
     }
     else if(pageName=='b')
     {
       this.num=2;
-      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//portfolio?b"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/comingsoon?b"
+    }
+
+    else if(pageName=='bcd')
+    {
+      this.num=56;
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/comingsoon?bcd"
     }
 
     else if(pageName=='ab')
     {
       this.num=2;
-      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//portfolio"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/portfolio"
     }
     else if(pageName=='c')
     {
