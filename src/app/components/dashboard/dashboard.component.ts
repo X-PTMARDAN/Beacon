@@ -94,6 +94,10 @@ public plant_string;
 public cpg_string;
 public log=false;
 
+public table_up=true;
+
+public table_down=false;
+
 public materialgroupfilter=false;
 public second_sku: any=[];
 public weeklycomment=false;
@@ -4458,7 +4462,7 @@ console.log("GRANUALLLL---"+this.granular1);
 
 
 
-
+  console.log("GFSECELE---"+JSON.stringify(this.fgssselected));
     
    // document.getElementById('apply_filter').style.background='#17b169';
      this.loading=true;
@@ -4844,23 +4848,6 @@ console.log("GRANUALLLL---"+this.granular1);
            // },
     
             data: [
-              {
-              name: 'Minimum ',
-              showInLegend: true,
-              type: 'spline',
-             color: "#17b169",
-              lineColor: '#17b169',
-              dataPoints: this.property
-           
-            },
-            {
-              name: 'Maximum ',
-              showInLegend: true,
-              type: 'spline',
-             color: "#00321E",
-              lineColor: '#00321E',
-              dataPoints: this.property2
-            },
             {
               name: 'Average ',
               showInLegend: true,
@@ -5027,6 +5014,20 @@ console.log("GRANUALLLL---"+this.granular1);
 
 
     
+  }
+
+
+  public table_up_click()
+  {
+    this.table_up=false;
+    this.table_down=true;
+  }
+
+
+  public table_down_click()
+  {
+    this.table_up=true;
+    this.table_down=false;
   }
 
   public viewPlan(data: any) {
@@ -5409,7 +5410,7 @@ console.log("GRANUALLLL---"+this.granular1);
 
 
    // const abc12;
-       console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+    //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
        // this.skus = res.req.forecastingGroups;
         
         console.log("JOKER12345678-?"+JSON.stringify(this.skus));
@@ -8346,7 +8347,7 @@ this.granular1='week';
 
 
 
-this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name);
+//this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name);
 
 
     // console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)));
