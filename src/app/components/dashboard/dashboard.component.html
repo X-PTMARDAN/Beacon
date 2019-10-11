@@ -281,7 +281,7 @@
                       &nbsp;&nbsp;
                            <div >   <!-- <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:6px;font-weight: 700!important">Load Week</p> -->
                            
-                            <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Load week</h6><p style="    margin-top: 0.9rem;color: #000;font-size: 0.75rem;padding-left: 4px;font-weight: 700!important;"> - 38a - 2019 - </p></div>
+                            <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Load week</h6><p style="    margin-top: 0.9rem;color: #000;font-size: 0.75rem;padding-left: 4px;font-weight: 700!important;"> - 38 - 2019 - </p></div>
                            
                             
                           </div>
@@ -439,7 +439,12 @@
 
   <div class="row content-col " id="middle">
     <div class="col-12 " >
-      <div class="bg-white shadow mt-2" style="border-radius: 6px;">
+
+
+
+
+
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_up">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" id="planningtable" [(ngModel)]="planningtable" >Planning table (HL)</p>
@@ -456,6 +461,11 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;
+
+            <div class="form-group m-0">
+                <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="table_up_click()" class="fa fa-sign-out"></i></span>
+              </div>
+
           <div class="form-group m-0">
             <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()" class="fa fa-download"></i></span>
           </div>
@@ -645,7 +655,10 @@
         </div>
       </div>
 
-      <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;">
+
+
+
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;" >
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" id="forecastinganalysis" [(ngModel)]="forecastinganalysis">Forecast Analysis (HL)</p>
@@ -659,6 +672,238 @@
 
         <div id="chartContainer1" style="height: 370px; width: 99%; border-radius: 6px !important;margin-left:8px;margin-right:100px;"></div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_down">
+          <div class="d-flex justify-content-between align-items-center p-1">
+            <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+              <p class="font-weight-bold" id="planningtable" [(ngModel)]="planningtable" >Planning table (HL)</p>
+          
+  
+  
+              <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+            </div>
+   
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;
+
+              <div class="form-group m-0">
+                  <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="table_down_click()" class="fa fa-sign-out"></i></span>
+                </div>
+           
+            <div class="form-group m-0">
+              <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()" class="fa fa-download"></i></span>
+            </div>
+       
+  
+         
+         <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+            data-target="#saveAViewsModal">Save View</a> -->
+   
+          </div>
+          <div class="d-flex">
+            <div class="table-header-col">
+              <table>
+                <thead>
+                <tr class="header-text invisible">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block"> XXXX</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color: #17b169">Final Forecast</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
+                    <p class="m-0 week-block" > FVA</p>
+  
+                  </th>
+                </tr>
+                <tr (click)="putValueInFinal('ML')" class="ml-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#46a6b9"> ML Forecast</p>
+                  </th>
+                </tr>
+                <tr (click)="putValueInFinal('APO')" class="aop-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#b49132">APO Forecast</p>
+                  </th>
+                </tr>
+                <tr class="actual-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#00321e">Actuals</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
+                  </th>
+                </tr>
+  
+                <tr class="header-text">
+                    <th class="font-weight-bold">
+                      <p class="m-0 week-block">Open Order</p>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="table-content-col">
+              <div class="panel panel-default">
+                <div class="center-block fix-width scroll-inner">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th class="font-weight-bold" *ngFor="let data of graphData">
+                        <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data.newweek}}</p>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <ng-container *ngFor="let data of graphData; let i=index">
+                        <td class="font-weight-bold cursor-pointer"
+                            [class.highlight]="data.lockcell?.length"
+                            [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                            (click)="comments(i)">
+                          {{ data.finalForecast }}
+                        </td>
+                      </ng-container>
+                    </tr>
+                    <tr>
+                      <ng-container *ngFor="let data of graphData; let i=index">
+                        <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
+                            [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                          <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
+                                 [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                                 (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="data.ml === undefined"
+                                 [class.disabled]="data.ml === undefined"
+                                 [class.highlight]="data.lockcell?.length"
+                                 [(ngModel)]="data.fcstValueAdd">
+                        </td>
+                      </ng-container>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                          [class.highlight]="data.lockcell?.length">
+                        {{ data.ml }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
+                          [class.highlight]="data.lockcell?.length">
+                        {{ data.apo }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        {{ data.actuals }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                        {{ data.actualslastyear }}
+                      </td>
+  
+                      
+                    </tr>
+                    <tr>
+                        <td *ngFor="let data of graphData"
+                            [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }">
+                          {{ data.harshit }}
+                        </td>
+    
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="table-footer-col">
+              <table>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="font-size: 0.6rem;">Total</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.finalCastTotal }}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ forecastadd  }}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.mlTotal }}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.apoTotal }}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.actuals }}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.lastYearTotal }}</p>
+                  </th>
+                </tr>
+                <tr>
+                    <th class="font-weight-bold">
+                      <p class="m-0 week-block">{{ totalData.harshit }}</p>
+                    </th>
+                  </tr>
+              </table>
+            </div>
+          </div>
+          <div class="p-2 text-center">
+            <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+               data-target="#saveAPlansModal">Save Plan</a> -->
+            <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+               data-target="#saveAViewsModal">Save View</a> -->
+          </div>
+        </div>
+
+
+
+
 
       <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between pt-1 pr-1" >
