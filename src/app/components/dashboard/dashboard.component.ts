@@ -1530,7 +1530,7 @@ else if(feature =="Baseline"){
           gridColor: '#ffffff',
           labelFontColor: 'black',
           showInLegend: true,
-         color: '#000',
+          lineColor:'#17b169',
           dataPoints: this.property
         }
       
