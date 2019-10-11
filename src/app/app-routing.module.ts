@@ -5,6 +5,8 @@ import {PortfolioComponent} from './components/portfolio/portfolio.component';
 import {PhaseComponent} from './components/phase/phase.component';
 
 import {SettingComponent} from './components/setting/setting.component'
+
+import {ComingsoonComponent} from './components/comingsoon/comingsoon.component'
 import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 import {GuestGuardService} from './services/guest-guard.service';
@@ -19,7 +21,8 @@ const routes: Routes = [
         {path: 'dashboard', component: DashboardComponent},
         {path: 'portfolio', component: PortfolioComponent},
         {path: 'phase', component: PhaseComponent},
-        {path: 'setting', component: SettingComponent}
+        {path: 'setting', component: SettingComponent},
+        {path: 'comingsoon', component: ComingsoonComponent}
 
       ]
   },
