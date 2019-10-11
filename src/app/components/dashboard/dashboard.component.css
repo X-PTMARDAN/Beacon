@@ -11,6 +11,9 @@ a:focus, a:hover {
 }
 
 
+::-webkit-scrollbar {
+  width: 4px;
+}
 
 
 
