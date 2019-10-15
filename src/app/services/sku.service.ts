@@ -389,7 +389,7 @@ export class SKUService {
 
 
   public getfgid(data = {}) {
-    return this.http.get(`${this.apiGatewayUrl}fgid`);
+    return this.http.get(`${this.apiGatewayUrl}forecastinggroup`);
   }
 //
 

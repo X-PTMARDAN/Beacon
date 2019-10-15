@@ -905,6 +905,69 @@
 
 
 
+        <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
+          <div class="d-flex justify-content-between pt-1 pr-1" >
+            <p class="font-weight-bold ml-2 pt-2">Comments</p>
+   
+
+              <!-- <span class="input-group-text" style="float: right !important;margin-right:2px"><i (click)="hide_all_comments()" class="fa fa-clone"></i></span> -->
+
+              <span class="input-group-text" style="float: right!important;margin-left: 60%;height: 50%;" ><i (click)="hide_all_comments()" class="fa fa-clone"></i></span>
+
+
+              <select name="plant" #t4 class="minimal form-control" [(ngModel)]='dropdown_table' id="checking" (change)="changecomment(t4.value)" style="float: right!important;width: 20%;margin-right: 15px;">
+                <option  value="week">Clicked Week</option>
+                <option selected value="allweek">All Week</option>
+              </select>
+        
+          </div>
+
+          <div *ngIf="up_table" style="height:260px;overflow: auto">
+
+
+            <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
+              <tr style="background-color: #fff">
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"> <span class="text-muted">Week</span></th>
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><span class="text-muted">Comment</span></th>
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><span class="text-muted">Forecasting Group</span></th>
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">Plant</span></th>
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">CPG</span></th>
+              </tr>
+          
+            </table>
+
+
+          <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let fi of allCommentshtml; let i=index" >
+            <tr style="background-color: #fff">
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"> <span class="text-muted">{{ fi.week }}</span></th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;font: initial;"><span class="text-muted">{{fi.comment}}</span></th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;font: initial;"><span class="text-muted">{{fi.SKU}}</span></th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{fi.plant}}</span></th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{fi.cpg}}</span></th>
+            </tr>
+        
+          </table>
+        </div>
+
+
+
+        <div *ngIf="down_table"  style="overflow: auto">
+          <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let fi of finn; let i=index" >
+            <tr style="background-color: #fff">
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;" (dblclick)="Dbledit(i)">{{ fi.comment }}</th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{fi.sku}}</th>
+
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> <i class="fa fa-trash" aria-hidden="true" (click)="deletecomment(i)"></i></th>
+
+
+
+             
+           
+            </tr>
+        
+          </table>
+        </div>
+        </div>
 
 
       <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
@@ -1343,51 +1406,16 @@
 
           <div class="block m-1 p-1 d-flex" *ngFor="let fi of allCommentshtml; let i=index" >
               <p style="font-size: 12px" >{{ fi.know }}</p>
-              <p style="font-size: 10px" >{{ fi.comment }}</p>
+              <p style="font-size: 10px" >{{ fi.SKU }}</p>
               <br><hr>
   
               
               <!-- <input class="m-0 text-break" type="text" value="{{comm1[1]}}"> -->
             </div>
-
-
-
-
-
-
-      
      
     </div>
-
-
-
-
-
-
-   
-
-
-<!--         
-
-      <div class="mt-2">
-
-          <div class="block m-1 p-1 d-flex" *ngFor="let fi of allCommentshtml; let i=index" >
-              <p style="font-size: 12px" >{{ fi.know }}</p>
-              <p style="font-size: 10px" >{{ fi.comment }}</p>
-              <br><hr>
-  
-              
-             
-            </div>
-
-
-
-
-
-
-      </div> -->
      
-    </div>
+  </div>
 
 
 
