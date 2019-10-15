@@ -35,6 +35,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public pipoMapping: any =[];
 
 
+  public option='sku';
+
   public drop =[];
 
   public phase =false;
@@ -42,6 +44,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public phase_second =false;
 
   public phase_third =false;
+
+  public newsku=true;
 
 public pipo_map=false;
 public sku_map=true;
@@ -159,12 +163,41 @@ public table=false;
   }
 
 
+  public test(feature)
+  {
+      if(feature == "sku")
+      {
+        this.pipo_map=false;
+        this.sku_map=true;
+        // document.getElementById('pipo_bar').style.background='#17b169';
+    
+        // document.getElementById('sku_bar').style.background='#f4f5f9';
+      }
+      else
+      {
+        this.pipo_map=true;
+        this.sku_map=false;
+      }
+  }
+
+
+  public changelogic(feature)
+  {
+    if(feature=='delist')
+    {
+      this.newsku=false;
+    }
+    else{
+      this.newsku=true;
+    }
+  }
+
 
   public pipo_click()
   {
     this.pipo_map=true;
     this.sku_map=false;
-    document.getElementById('pipo_bar').style.background='#00321E';
+    document.getElementById('pipo_bar').style.background='#17b169';
 
     document.getElementById('sku_bar').style.background='#f4f5f9';
   }
@@ -176,7 +209,7 @@ public table=false;
     this.pipo_map=false;
     this.sku_map=true;
 
-    document.getElementById('sku_bar').style.background='#00321E';
+    document.getElementById('sku_bar').style.background='#17b169';
 
     document.getElementById('pipo_bar').style.background='#f4f5f9';
   }
@@ -294,31 +327,71 @@ var data={
 
 console.log("CHEK000--"+JSON.stringify(data));
 
-  this.skuService.savePIPOsku(data).subscribe((response: any) => {  
-    this.fromsku='';
-    this.tosku='';
-    this.logic=''
-    this.startweek='';
 
-    this.skuService.getPIPO().subscribe((response: any) => {    
-      this.pipo=response;
-      for(const abc of this.pipo)
-      {
-        this.drop.push(abc.material);
-      }
-      console.log("Dfdfdfd---"+JSON.stringify(this.drop));
-  });
-  
-  
-  this.skuService.getPIPOMapping().subscribe((response: any) => {  
-    this.pipoMapping=response;
-  });
+
+
+
+this.skuService.savePIPOsku(data).subscribe((res: any) => {
+  //this.editCommentModalBtnCancel.nativeElement.click();
+
+}, (error) => {
 
   
-    console.log("DFdf---");
-    window.alert("Done!");
-  
+  console.log("Check--------");
+  this.skuService.getPIPO().subscribe((response1: any) => {    
+    this.pipo=response1;
+    for(const abc of this.pipo)
+    {
+      this.drop.push(abc.material);
+    }
+    console.log("Dfdfdfd---"+JSON.stringify(this.drop));
   });
+
+
+this.skuService.getPIPOMapping().subscribe((response2: any) => {  
+  this.pipoMapping=response2;
+  this.fromsku='';
+  this.tosku='';
+  this.logic=''
+  this.startweek='';
+  console.log("DFdf---");
+  window.alert("Done!");
+});
+
+
+ // this.editCommentModalBtnCancel.nativeElement.click();
+
+});
+
+
+
+
+
+  // this.skuService.savePIPOsku(data).subscribe((response: any) => {  
+  //   this.fromsku='';
+  //   this.tosku='';
+  //   this.logic=''
+  //   this.startweek='';
+  //   console.log("Check--------");
+  //   this.skuService.getPIPO().subscribe((response1: any) => {    
+  //     this.pipo=response1;
+  //     for(const abc of this.pipo)
+  //     {
+  //       this.drop.push(abc.material);
+  //     }
+  //     console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+  //   });
+  
+  
+  // this.skuService.getPIPOMapping().subscribe((response2: any) => {  
+  //   this.pipoMapping=response2;
+  // });
+
+  
+  //   console.log("DFdf---");
+  //   window.alert("Done!");
+  
+  // });
 
   this.fromsku='';
   this.tosku='';

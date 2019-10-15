@@ -17,10 +17,22 @@ export class SettingComponent implements OnInit {
     private skuService: SKUService,
   ) { }
 
+  public allLogs: any = [];
+
+  public up_table=false;
+
   ngOnInit() {
+
+    this.skuService.getlogs().subscribe((res: any) => {
+      this.allLogs=res;
+
+      console.log("sjkhfgksfgrg---"+JSON.stringify(this.allLogs));
+  
+    });
 
 
   }
+
 
 
   public download()
@@ -30,7 +42,7 @@ export class SettingComponent implements OnInit {
       console.log("CHECKK---"+JSON.stringify(res));
       let data, filename, link;
       let csv = '';
-      const columns = ['APO Product', 'APO Location', 'CPG', 'Company Code', 'Technical Period', 'Machine Learning','Forecast Value Add','Final Forecast','UOM'];
+      const columns = ['APO Product', 'APO Location', 'Customer Planning Group', 'Company Code', 'Technical Period', 'Machine Learning','Forecast Value Add','Final Forecast','UOM'];
     
       columns.push(" ");
       // //columns.push(JSON.stringify)
@@ -124,6 +136,12 @@ export class SettingComponent implements OnInit {
         document.body.removeChild(link);
     
     });
+  }
+
+
+  public logs1()
+  {
+      this.up_table=true;
   }
 
 }

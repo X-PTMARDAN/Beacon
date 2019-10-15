@@ -11,8 +11,8 @@
   </div>
 </div>
 <br>
-<div class="row" (click)="download()" style="cursor: pointer">
-  <div class="column" style="background-color:#aaa;width:100%;">
+<div class="row" style="cursor: pointer">
+  <div class="column" style="background-color:#aaa;width:100%;" (click)="download()">
     <h2>Download</h2>
     <p>Click here</p>
   </div>
@@ -21,6 +21,35 @@
     <h2>Support</h2>
     <p>Coming soon</p>
   </div>
-</div>
+
+
+  <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" (click)="logs1()">
+    <h2>Logs</h2>
+    <p>Click here</p>
+  </div>
 </div>
 
+
+
+</div>
+
+
+
+<div *ngIf="up_table">
+  <br>
+    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
+        <tr style="background-color: #ddd;">
+          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Activity</th>
+          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Date-Time Stamp</th>
+        
+        </tr>
+    </table>
+  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allLogs; let i=index">
+    <tr style="background-color: #fff;">
+      <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{ fi.activity }}</th>
+      <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.datetimestamp}}</th>
+    
+    </tr>
+
+  </table>
+</div>
