@@ -277,7 +277,7 @@
                     &nbsp;&nbsp;
 
                     <div style="padding-top: 3px;">  <h6 class="mt-3 font-weight-bold">Actuals</h6>
-                      <input type="week"  value="2019-W38" id="prevactuals" [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals" ></div>
+                      <input type="week"  value="2019-W38" max="2019-W38" id="prevactuals" [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals" ></div>
                       &nbsp;&nbsp;
                            <div >   <!-- <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:6px;font-weight: 700!important">Load Week</p> -->
                            
@@ -292,7 +292,7 @@
 
 
                         &nbsp;&nbsp; &nbsp;&nbsp;  <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Plan</h6>
-                        <input type="week" id="endWeek" value="2020-W04" name="endWeek" [(ngModel)]="endWeek" (change)="color_change()" required></div>
+                        <input type="week" id="endWeek" value="2020-W04" min="2019-W39" name="endWeek" [(ngModel)]="endWeek" (change)="color_change()" required></div>
            
          
 

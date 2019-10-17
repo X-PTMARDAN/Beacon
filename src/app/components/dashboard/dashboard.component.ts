@@ -49,7 +49,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData_temp: any;
 
 
-  
+  public reactivate_filter_button=0;
+
+
+  public selectallcpg=0;
 
   public selecteddblclick;
 
@@ -73,6 +76,8 @@ public UOM='HL';
   public loadedFilters: any = [];
 
   public plants = [];
+
+  public selectallplant=0;
 
   public selectedskus = [];
 
@@ -1137,7 +1142,7 @@ this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
   public reactivate_filter(a:number)
   {
 
-
+    this.reactivate_filter_button=1;
     console.log("FGSSSSS2345ytujhnbv_initial---"+JSON.stringify(this.fgssselected));
   document.getElementById('apply_filter').style.background='#17b169';
 
@@ -1176,6 +1181,7 @@ console.log("FGSSSSS2345ytujhnbv---"+JSON.stringify(this.fgssselected));
   {
   //  document.getElementById('apply_filter').style.background='#003228';
 
+  this.reactivate_filter_button=0;
 console.log("dfsdfsdfsdf----");
     document.getElementById("apply_filter").style.background='#808080';
 
@@ -1253,6 +1259,10 @@ console.log("dfsdfsdfsdf----");
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
                 {
                   startValue: 201953,
                   endValue: 202000
@@ -1359,6 +1369,10 @@ else if(feature =="Baseline"){
             spacing: 0,
             customBreaks: [
               {
+                startValue: 201853,
+                endValue: 201900
+              },
+              {
                 startValue: 201953,
                 endValue: 202000
               },
@@ -1415,17 +1429,6 @@ else if(feature =="Baseline"){
          color: "#17b169",
           lineColor: '#17b169',
           dataPoints: this.property
-        },
-       
-        {
-          name:'Weather Effect',
-          type: 'stackedArea',
-          gridColor: '#ffffff',
-    
-          showInLegend: true,
-         color: "#00321e",
-          lineColor: "#00321e",
-          dataPoints: this.property2
         },
         {
           name:'Promo Effect',
@@ -1492,6 +1495,10 @@ else if(feature =="Baseline"){
             type: 'blank',
             spacing: 0,
             customBreaks: [
+              {
+                startValue: 201853,
+                endValue: 201900
+              },
               {
                 startValue: 201953,
                 endValue: 202000
@@ -1604,6 +1611,10 @@ else if(feature =="Baseline"){
             type: 'blank',
             spacing: 0,
             customBreaks: [
+              {
+                startValue: 201853,
+                endValue: 201900
+              },
               {
                 startValue: 201953,
                 endValue: 202000
@@ -1933,6 +1944,10 @@ this.loading=true;
             type: 'blank',
             spacing: 0,
             customBreaks: [
+              {
+                startValue: 201853,
+                endValue: 201900
+              },
               {
                 startValue: 201953,
                 endValue: 202000
@@ -2854,6 +2869,10 @@ this.loading=true;
           spacing: 0,
           customBreaks: [
             {
+              startValue: 201853,
+              endValue: 201900
+            },
+            {
               startValue: 201953,
               endValue: 202000
             },
@@ -2955,6 +2974,10 @@ this.loading=true;
           type: 'blank',
           spacing: 0,
           customBreaks: [
+            {
+              startValue: 201853,
+              endValue: 201900
+            },
             {
               startValue: 201953,
               endValue: 202000
@@ -3271,6 +3294,10 @@ console.log("GRANUALLLL---"+this.granular1);
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
                   startValue: 201953,
                   endValue: 202000
                 },
@@ -3354,6 +3381,10 @@ console.log("GRANUALLLL---"+this.granular1);
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
                 {
                   startValue: 201953,
                   endValue: 202000
@@ -4289,6 +4320,10 @@ console.log("GRANUALLLL---"+this.granular1);
             spacing: 0,
             customBreaks: [
               {
+                startValue: 201853,
+                endValue: 201900
+              },
+              {
                 startValue: 201953,
                 endValue: 202000
               },
@@ -4390,6 +4425,10 @@ console.log("GRANUALLLL---"+this.granular1);
             type: 'blank',
             spacing: 0,
             customBreaks: [
+              {
+                startValue: 201853,
+                endValue: 201900
+              },
               {
                 startValue: 201953,
                 endValue: 202000
@@ -4847,12 +4886,20 @@ console.log("GRANUALLLL---"+this.granular1);
   //  }
   //  this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
+  console.log("Harshit12121-----"+this.reactivate_filter_button);
+if(this.reactivate_filter_button==0)
+{
+  this.createPlanRequestData.forecastingGroups=JSON.parse(JSON.stringify(this.fgssselected));
 
-   this.createPlanRequestData.forecastingGroups=JSON.parse(JSON.stringify(this.fgssselected));
+  console.log("TICKKK---"+JSON.stringify(this.fgssselected));
+     this.createPlan(this.createPlanRequestData);
+   
+}
+else{
+  window.alert("Please plan selection first, then only you can click this");
+}
 
-   console.log("TICKKK---"+JSON.stringify(this.fgssselected));
-      this.createPlan(this.createPlanRequestData);
-    
+  
 
     
     
@@ -5215,6 +5262,10 @@ console.log("GRANUALLLL---"+this.granular1);
                 spacing: 0,
                 customBreaks: [
                   {
+                    startValue: 201853,
+                    endValue: 201900
+                  },
+                  {
                     startValue: 201953,
                     endValue: 202000
                   },
@@ -5301,6 +5352,10 @@ console.log("GRANUALLLL---"+this.granular1);
                 type: 'blank',
                 spacing: 0,
                 customBreaks: [
+                  {
+                    startValue: 201853,
+                    endValue: 201900
+                  },
                   {
                     startValue: 201953,
                     endValue: 202000
@@ -5535,6 +5590,10 @@ console.log("GRANUALLLL---"+this.granular1);
             type: 'blank',
             spacing: 0,
             customBreaks: [
+              {
+                startValue: 201853,
+                endValue: 201900
+              },
               {
                 startValue: 201953,
                 endValue: 202000
@@ -7935,27 +7994,54 @@ this.fgssselected=[];
 
 
   public selectAllplant() {
-    let requestData = false;
 
-    console.log("dfsdf12--"+JSON.stringify(this.filters_plant[0]));
 
-    for (const sku of this.filters_plant[0].values) {
-      sku.isChecked=true;
+    if(this.selectallplant==1)
+    {
+      let requestData = false;
+      this.selectallplant=0;
+      console.log("dfsdf12--"+JSON.stringify(this.filters_plant[0]));
+      for (const sku of this.filters_plant[0].values) {
+        sku.isChecked=true;
+      }
+  
+      // for (const sku of this.second_sku) {
+      //   sku.isChecked=true;
+   
+      // }
+      this.reactivate_filter(1);
     }
-
-    // for (const sku of this.second_sku) {
-    //   sku.isChecked=true;
- 
-    // }
-    this.reactivate_filter(1);
+    else if(this.selectallplant==0){
+      let requestData = false;
+      this.selectallplant=1;
+      console.log("dfsdf12--"+JSON.stringify(this.filters_plant[0]));
+  
+      for (const sku of this.filters_plant[0].values) {
+        sku.isChecked=false;
+      }
+  
+      // for (const sku of this.second_sku) {
+      //   sku.isChecked=true;
+   
+      // }
+      this.reactivate_filter(1);
+    }
+    
   }
 
 
 
 
   public selectAllcpg() {
-    let requestData = false;
 
+
+
+if(this.selectallcpg==0)
+{
+
+
+    let requestData = false;
+    this.selectallcpg=1;
     console.log("dfsdf1244--"+JSON.stringify(this.filters[0]));
 
     // for (const sku of this.) {
@@ -7971,19 +8057,61 @@ this.fgssselected=[];
  
     // }
     this.reactivate_filter(1);
+
+  }
+  else if(this.selectallcpg==1){
+    let requestData = false;
+    this.selectallcpg=0;
+    console.log("dfsdf1244--"+JSON.stringify(this.filters[0]));
+
+    // for (const sku of this.) {
+    //   sku.name.isChecked=true;
+    // }
+
+    for (const sku of this.filters[0].values) {
+      sku.isChecked=false;
+    }
+
+    // for (const sku of this.second_sku) {
+    //   sku.isChecked=true;
+ 
+    // }
+    this.reactivate_filter(1);
+  }
+
+
   }
 
 
 
+public isInt(n){
+    return Number(n) === n && n % 1 === 0;
+}
 
+public isFloat(n){
+    return Number(n) === n && n % 1 !== 0;
+}
 
   
 
   // Final Forecast
   public onValueInput(calenderYearWeek: string, index: number) {
+
+
+   console.log("FDfd12---"+index)
+    
     const dpIndex = this.finalForecastDataPoints.findIndex(item => item.calenderYear === calenderYearWeek);
     if (dpIndex > -1) {
       const value = parseFloat(this.graphData[index].fcstValueAdd);
+      console.log("FDfd123---"+value);
+      var decimal=  /^[-+]?[0-9]+\.[0-9]+$/; 
+    //   if(value===undefined || value==undefined)
+    // {
+    //   console.log("dfdf12");
+    //   this.graphData[index].fcstValueAdd=0;
+    //   // window.alert("These values are not allowed, please enter any float value")
+    //   return;
+    // }
       if (!isNaN(value)) {
         if (this.graphData[index].initialFinalForecast + value < 0) {
           this.finalForecastDataPoints[dpIndex].y = 0;
@@ -7995,6 +8123,8 @@ this.fgssselected=[];
           this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
         }
       } else {
+        this.graphData[index].fcstValueAdd=0;
+        window.alert("You have added a wrong number or empty string, please add integer or decimal value");
         this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
         this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast;
       }
@@ -8139,6 +8269,7 @@ this.fgssselected=[];
           console.log("Test133443--"+JSON.stringify(this.skus));
         for(const ab of this.fgssselected)
         {
+          console.log("Chefking---"+JSON.stringify(ab));
           if(ab.isChecked)
           {
             this.finn.push({
@@ -8150,6 +8281,7 @@ this.fgssselected=[];
           }
 
         }
+        console.log("CHECKING_LAST---"+this.finn);
        
 
         
