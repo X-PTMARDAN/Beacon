@@ -1768,7 +1768,11 @@ public uom(feature: String) {
 
 console.log("GRANUALLLL---"+this.granular1);
 
-
+if(this.reactivate_filter_button==1)
+{
+  window.alert("Please try to choose plan selection first");
+  return; 
+}
 
   if(feature == "PC")
   {
@@ -3205,7 +3209,11 @@ this.loading=true;
 
 
   public test1(feature: String) {
-
+    if(this.reactivate_filter_button==1)
+    {
+      window.alert("Please try to choose plan selection first");
+      return; 
+    }
     console.log('Harsh134->' + feature);
 
 console.log("GRANUALLLL---"+this.granular1);
@@ -8112,7 +8120,10 @@ public isFloat(n){
     //   // window.alert("These values are not allowed, please enter any float value")
     //   return;
     // }
+   // var a=document.getElementById(''+index+'').innerHTML;
+   console.log("43retwf234567---"+this.graphData[index].fcstValueAdd);
       if (!isNaN(value)) {
+        console.log("43retwf---"+this.graphData[index].fcstValueAdd);
         if (this.graphData[index].initialFinalForecast + value < 0) {
           this.finalForecastDataPoints[dpIndex].y = 0;
           this.graphData[index].finalForecast = 0;
@@ -8123,6 +8134,9 @@ public isFloat(n){
           this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
         }
       } else {
+
+        console.log("YFTGHJBKUIYGVHJKH---"+this.graphData[index].fcstValueAdd);
+        this.graphData[index].fcstValueAdd=null;
         this.graphData[index].fcstValueAdd=0;
         window.alert("You have added a wrong number or empty string, please add integer or decimal value");
         this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
