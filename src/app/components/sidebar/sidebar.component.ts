@@ -210,7 +210,7 @@ export class SidebarComponent implements OnInit {
     else if(pageName=='c')
     {
       this.num=3;
-      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//dashboard"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/dashboard"
     }
     else if(pageName=='d')
     {
@@ -221,14 +221,14 @@ export class SidebarComponent implements OnInit {
     else if(pageName=='e')
     {
       this.num=5;
-      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//setting"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/setting"
     }
 
 
     else if(pageName=='f')
     {
       this.num=5;
-      window.location.href="http://aurora-testingcarlsberg.herokuapp.com//login"
+      window.location.href="http://aurora-testingcarlsberg.herokuapp.com/login"
     }
 
     
