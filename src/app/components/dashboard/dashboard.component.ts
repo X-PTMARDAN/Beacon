@@ -66,6 +66,8 @@ public granular1="week";
 
   public dropdown_table='allweek';
   
+
+  public selectallskus=0;
   public skus_search=[];
 
   public pressed=false;
@@ -1641,7 +1643,11 @@ else if(feature =="Baseline"){
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            }, {
+              startValue: 201000,
+              endValue: 201053,
               color: '#F2F3F5'
             }
           ]
@@ -1980,7 +1986,13 @@ this.loading=true;
               startValue: 202000,
               endValue: this.createPlanRequestData.endWeek,
               color: '#F2F3F5'
-            }
+            },
+            {
+              startValue: 202000,
+              endValue: 202025,
+              color: '#F2F3F5'
+            },
+            
           ]
         },
 
@@ -2264,7 +2276,11 @@ this.loading=true;
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            }, {
+              startValue: 201000,
+              endValue: 201053,
               color: '#F2F3F5'
             }
           ]
@@ -2540,7 +2556,7 @@ this.loading=true;
       //     //     color: '#F2F3F5'
       //     //   },
       //     //   {
-      //     //     startValue: 202000,
+      //     //   ,
       //     //     endValue: 202003,
       //     //     color: '#F2F3F5'
       //     //   }
@@ -2627,7 +2643,11 @@ this.loading=true;
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            }, {
+              startValue: 201000,
+              endValue: 201053,
               color: '#F2F3F5'
             }
           ]
@@ -2902,7 +2922,11 @@ this.loading=true;
           },
           {
             startValue: 202000,
-            endValue: this.createPlanRequestData.endWeek,
+            endValue: 202053,
+            color: '#F2F3F5'
+          }, {
+            startValue: 201000,
+            endValue: 201053,
             color: '#F2F3F5'
           }
         ]
@@ -3008,7 +3032,11 @@ this.loading=true;
           },
           {
             startValue: 202000,
-            endValue: this.createPlanRequestData.endWeek,
+            endValue: 202053,
+            color: '#F2F3F5'
+          }, {
+            startValue: 201000,
+            endValue: 201053,
             color: '#F2F3F5'
           }
         ]
@@ -3331,7 +3359,11 @@ console.log("GRANUALLLL---"+this.granular1);
               },
               {
                 startValue: 202000,
-                endValue: this.createPlanRequestData.endWeek,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 201000,
+                endValue: 201053,
                 color: '#F2F3F5'
               }
             ]
@@ -3419,7 +3451,11 @@ console.log("GRANUALLLL---"+this.granular1);
               },
               {
                 startValue: 202000,
-                endValue: this.createPlanRequestData.endWeek,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 201000,
+                endValue: 201053,
                 color: '#F2F3F5'
               }
             ]
@@ -3705,7 +3741,11 @@ console.log("GRANUALLLL---"+this.granular1);
               },
               {
                 startValue: 202000,
-                endValue: this.createPlanRequestData.endWeek,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 201000,
+                endValue: 201053,
                 color: '#F2F3F5'
               }
             ]
@@ -4065,7 +4105,11 @@ console.log("GRANUALLLL---"+this.granular1);
               },
               {
                 startValue: 202000,
-                endValue: this.createPlanRequestData.endWeek,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 201000,
+                endValue: 201053,
                 color: '#F2F3F5'
               }
             ]
@@ -4357,7 +4401,11 @@ console.log("GRANUALLLL---"+this.granular1);
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            }, {
+              startValue: 201000,
+              endValue: 201053,
               color: '#F2F3F5'
             }
           ]
@@ -4463,7 +4511,11 @@ console.log("GRANUALLLL---"+this.granular1);
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            }, {
+              startValue: 201000,
+              endValue: 201053,
               color: '#F2F3F5'
             }
           ]
@@ -4704,15 +4756,15 @@ console.log("GRANUALLLL---"+this.granular1);
      this.filters1[3].isExpanded=false;
      this.filters1[4].isExpanded=false;
      this.filters1[5].isExpanded=false;
-     this.filters1[7].isExpanded=false;
-     this.filters1[6].isExpanded=false;
+    // this.filters1[7].isExpanded=false;
+     //this.filters1[6].isExpanded=false;
 
 
      document.getElementById('brandsfilter').className='panel-collapse collapse';
 
      document.getElementById('globalbevfilter').className='panel-collapse collapse';
 
-     document.getElementById('subbrandfilter').className='panel-collapse collapse';
+  //   document.getElementById('subbrandfilter').className='panel-collapse collapse';
 
      
      document.getElementById('baseunitfilter').className='panel-collapse collapse';
@@ -4873,17 +4925,35 @@ console.log("GRANUALLLL---"+this.granular1);
     
     console.log("THIS Prev--"+this.endWeek);
 
+    if(DashboardComponent.transformWeek(this.endWeek)<201938)
+    {
+       window.alert("Please choose end week correctly");
+       return;
+    }
+    if(DashboardComponent.transformWeek(this.prevactuals)>201938)
+    {
+     window.alert("Please choose Actual week correctly");
+     return;
+    }
+
     this.createPlanRequestData.endWeek=DashboardComponent.transformWeek(this.endWeek);
 
 
     this.createPlanRequestData.prevactuals=DashboardComponent.transformWeek(this.prevactuals);
   
     
+
+
+  
+
+
     console.log("FINALLLLLLLTCK--"+JSON.stringify(this.createPlanRequestData));
 
     console.log("SDfsfgsdg--"+JSON.stringify(this.createPlanRequestData));
 
    this.granular1='week';
+
+ 
 
   //  var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
   //  var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
@@ -5299,7 +5369,11 @@ else{
                 },
                 {
                   startValue: 202000,
-                  endValue: this.createPlanRequestData.endWeek,
+                  endValue: 202053,
+                  color: '#F2F3F5'
+                }, {
+                  startValue: 201000,
+                  endValue: 201053,
                   color: '#F2F3F5'
                 }
               ]
@@ -5390,7 +5464,12 @@ else{
                 },
                 {
                   startValue: 202000,
-                  endValue: this.createPlanRequestData.endWeek,
+                  endValue: 202053,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201000,
+                  endValue: 201053,
                   color: '#F2F3F5'
                 }
               ]
@@ -7985,6 +8064,10 @@ this.fgssselected=[];
 
 
   public clearAllSKUs() {
+
+    if(this.selectallskus==0)
+    {
+      this.selectallskus=1;
     let requestData = false;
 
     for (const sku of this.skus) {
@@ -7995,6 +8078,21 @@ this.fgssselected=[];
       sku.isChecked=true;
  
     }
+  }
+  if(this.selectallskus==1)
+  {
+    this.selectallskus=0;
+  let requestData = false;
+
+  for (const sku of this.skus) {
+    sku.isChecked=false;
+  }
+
+  for (const sku of this.second_sku) {
+    sku.isChecked=false;
+
+  }
+}
     this.reactivate_filter(1);
   }
 
@@ -8100,6 +8198,35 @@ public isFloat(n){
     return Number(n) === n && n % 1 !== 0;
 }
 
+
+
+public how(s)
+{
+   var pointExists = false;
+
+		if (s == null) {
+			return true;
+		}
+		
+		for (const i in s) {
+      var ch = s.charAt(i);
+      console.log("Checking--"+ch);
+			if (ch >= '0' && ch <= '9') {
+				continue;
+			}
+			if (ch == '.') {
+				if (pointExists) {
+					return false;
+				} else {
+					pointExists = true;
+				}
+			} else {
+				return false;
+			}
+		}
+		return true;
+}
+
   
 
   // Final Forecast
@@ -8122,6 +8249,23 @@ public isFloat(n){
     // }
    // var a=document.getElementById(''+index+'').innerHTML;
    console.log("43retwf234567---"+this.graphData[index].fcstValueAdd);
+
+
+
+var s=this.graphData[index].fcstValueAdd;
+var r=this.how(s);
+ console.log("Hbhbgt---"+r);
+ if(r==false)
+ {
+  this.graphData[index].fcstValueAdd=0;
+  window.alert("You have added a wrong number or empty string, it will be treated as 0");
+
+  console.log("Really---"+this.graphData[index].fcstValueAdd);
+  return;
+  
+ }
+  console.log("check---"+this.graphData[index].fcstValueAdd);
+
       if (!isNaN(value)) {
         console.log("43retwf---"+this.graphData[index].fcstValueAdd);
         if (this.graphData[index].initialFinalForecast + value < 0) {
@@ -8136,9 +8280,9 @@ public isFloat(n){
       } else {
 
         console.log("YFTGHJBKUIYGVHJKH---"+this.graphData[index].fcstValueAdd);
-        this.graphData[index].fcstValueAdd=null;
-        this.graphData[index].fcstValueAdd=0;
-        window.alert("You have added a wrong number or empty string, please add integer or decimal value");
+        //this.graphData[index].fcstValueAdd=null;
+      //  this.graphData[index].fcstValueAdd=0;
+        //window.alert("You have added a wrong number or empty string, please add integer or decimal value");
         this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
         this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast;
       }

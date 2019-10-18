@@ -541,7 +541,7 @@
                   <tbody>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td class="font-weight-bold cursor-pointer"
+                      <td id="i"class="font-weight-bold cursor-pointer"
                           [class.highlight]="data.lockcell?.length"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= createPlanRequestData.startWeek }"
                           (click)="comments(i)">
@@ -912,7 +912,7 @@
 
               <!-- <span class="input-group-text" style="float: right !important;margin-right:2px"><i (click)="hide_all_comments()" class="fa fa-clone"></i></span> -->
 
-              <span class="input-group-text" style="float: right!important;margin-left: 60%;height: 50%;" ><i (click)="hide_all_comments()" class="fa fa-clone"></i></span>
+              <span class="input-group-text" style="float: right!important;margin-left: 60%;height: 50%;" ><i (click)="hide_all_comments()" class="fa fa fa-comments-o"></i></span>
 
 
               <select name="plant" #t4 class="minimal form-control" [(ngModel)]='dropdown_table' id="checking" (change)="changecomment(t4.value)" style="float: right!important;width: 20%;margin-right: 15px;">
@@ -927,11 +927,11 @@
 
             <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
               <tr style="background-color: #fff">
-                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"> <span class="text-muted">Week</span></th>
-                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><span class="text-muted">Comment</span></th>
-                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><span class="text-muted">Forecasting Group</span></th>
-                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">Plant</span></th>
-                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">CPG</span></th>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week</h6></td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><h6 class="mt-3 font-weight-bold">Comment</h6></td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Plant</h6></td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">CPG</h6></td>
               </tr>
           
             </table>
@@ -939,11 +939,11 @@
 
           <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let fi of allCommentshtml; let i=index" >
             <tr style="background-color: #fff">
-              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"> <span class="text-muted">{{ fi.week }}</span></th>
-              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;font: initial;"><span class="text-muted">{{fi.comment}}</span></th>
-              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;font: initial;"><span class="text-muted">{{fi.SKU}}</span></th>
-              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{fi.plant}}</span></th>
-              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{fi.cpg}}</span></th>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{ fi.week }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><p class="m-0" style="font-size:0.75rem">{{ fi.comment }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0" style="font-size:0.75rem">{{ fi.SKU }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{ fi.plant }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{ fi.cpg }}</p></td>
             </tr>
         
           </table>
@@ -1244,7 +1244,7 @@
             <div style="margin-top: 3px;">
               <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
             </div>
-            <p class="m-0">{{ sku.name }}</p>
+            <p class="m-0" style="font-size: 0.75rem;">{{ sku.name }}</p>
           </div>
 
           <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
