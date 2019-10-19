@@ -8925,7 +8925,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
+      sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     }
 
     console.log("CHECKING---"+JSON.stringify(ahg));
@@ -8935,7 +8935,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
+      sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     }).subscribe((res: any) => {
       console.log('Harshit');
       this.loadFilters();
