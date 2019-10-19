@@ -455,6 +455,15 @@ export class SKUService {
   }
 
 
+  public getFeatureGraphData_monthly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_feature_analysis_monthly`, data);
+  }
+
+
+
+  
+
+
   public getCPGlist(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}cpg`, data);
   }

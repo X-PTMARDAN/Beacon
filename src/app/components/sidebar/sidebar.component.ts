@@ -228,6 +228,7 @@ export class SidebarComponent implements OnInit {
     else if(pageName=='f')
     {
       this.num=5;
+      sessionStorage.removeItem('username');
       window.location.href="http://aurora-testingcarlsberg.herokuapp.com/login"
     }
 
