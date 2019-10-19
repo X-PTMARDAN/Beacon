@@ -52,6 +52,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public reactivate_filter_button=0;
 
 
+  public greystart;
+
   public selectallcpg=0;
 
   public selecteddblclick;
@@ -155,7 +157,7 @@ public comment12=false;
   public up_table=true;
 
 
-  public down_table=true;
+  public down_table=false;
 
 
 
@@ -1243,6 +1245,7 @@ console.log("dfsdfsdfsdf----");
               this.processFeatureGraphData(res);
   
         console.log('thhh->' + this.createPlanRequestData.startWeek);
+        console.log("ISSE PTA--"+this.greystart);
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
           animationEnabled: true,
           showInLegend: true,
@@ -1815,6 +1818,7 @@ this.loading=true;
         reset: true,
       });
       this.loading=false;
+      this.greystart=res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2114,6 +2118,7 @@ this.loading=true;
         reset: true,
       });
       this.loading=false;
+      this.greystart=res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2228,7 +2233,7 @@ this.loading=true;
       //   }]
       // });
       // this.chart2.render();
-
+      console.log("ISSE PTA--"+this.greystart);
       this.chart2 = new CanvasJS.Chart('chartContainer2', {
         animationEnabled: true,
         showInLegend: true,
@@ -2270,17 +2275,17 @@ this.loading=true;
           },
           stripLines: [
             {
-              startValue: this.createPlanRequestData.startWeek,
-              endValue: 201953,
+              startValue: this.greystart,
+              endValue: 201913,
               color: '#F2F3F5'
             },
             {
               startValue: 202000,
-              endValue: 202053,
+              endValue: 202013,
               color: '#F2F3F5'
             }, {
               startValue: 201000,
-              endValue: 201053,
+              endValue: 201013,
               color: '#F2F3F5'
             }
           ]
@@ -2362,6 +2367,23 @@ this.loading=true;
               }
             ]
           },
+          stripLines: [
+            {
+              startValue: 201909,
+              endValue: 201913,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: 202013,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201000,
+              endValue: 201013,
+              color: '#F2F3F5'
+            }
+          ]
         },
 
         axisY: {
@@ -2481,6 +2503,7 @@ this.loading=true;
         reset: true,
       });
       this.loading=false;
+      this.greystart=res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2637,17 +2660,17 @@ this.loading=true;
           },
           stripLines: [
             {
-              startValue: this.createPlanRequestData.startWeek,
-              endValue: 201953,
+              startValue:this.greystart,
+              endValue: 201913,
               color: '#F2F3F5'
             },
             {
               startValue: 202000,
-              endValue: 202053,
+              endValue: 202013,
               color: '#F2F3F5'
             }, {
               startValue: 201000,
-              endValue: 201053,
+              endValue: 201013,
               color: '#F2F3F5'
             }
           ]
@@ -2728,7 +2751,26 @@ this.loading=true;
                 endValue: 202300
               }
             ]
+            
           },
+
+          stripLines: [
+            {
+              startValue: 201909,
+              endValue: 201913,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: 202013,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201000,
+              endValue: 201013,
+              color: '#F2F3F5'
+            }
+          ]
         },
 
         axisY: {
@@ -2843,6 +2885,7 @@ this.loading=true;
       reset: true,
     });
     this.loading=false;
+    this.greystart=res.start;
     this.createPlanRequestData.brands = res.req.brands;
     this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
     this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2876,6 +2919,7 @@ this.loading=true;
 
 
     console.log('thhh->' + this.createPlanRequestData.startWeek);
+   // console.log("ISSE PTA--"+this.greystart);
     this.chart2 = new CanvasJS.Chart('chartContainer2', {
       animationEnabled: true,
       showInLegend: true,
@@ -3273,6 +3317,7 @@ console.log("GRANUALLLL---"+this.granular1);
           reset: true,
         });
         this.loading=false;
+        this.greystart=res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3579,6 +3624,7 @@ console.log("GRANUALLLL---"+this.granular1);
           reset: true,
         });
         this.loading=false;
+        this.greystart=res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3817,7 +3863,7 @@ console.log("GRANUALLLL---"+this.granular1);
                   endValue: 202099
                 },
                 {
-                  startValue: 202153,
+                  startValue: 202113,
                   endValue: 202200
                 },
                 {
@@ -3826,6 +3872,23 @@ console.log("GRANUALLLL---"+this.granular1);
                 }
               ]
             },
+            stripLines: [
+              {
+                startValue: 201909,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202013,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201000,
+                endValue: 201012,
+                color: '#F2F3F5'
+              }
+            ]
           },
   
           axisY: {
@@ -3945,6 +4008,7 @@ console.log("GRANUALLLL---"+this.granular1);
           reset: true,
         });
         this.loading=false;
+        this.greystart=res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4059,6 +4123,8 @@ console.log("GRANUALLLL---"+this.granular1);
         //   }]
         // });
         // this.chart2.render();
+
+        console.log("ISSE PTA--"+this.greystart);
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
           animationEnabled: true,
           showInLegend: true,
@@ -4099,13 +4165,13 @@ console.log("GRANUALLLL---"+this.granular1);
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
-                endValue: 201953,
+                startValue: this.greystart,
+                endValue: 201913,
                 color: '#F2F3F5'
               },
               {
                 startValue: 202000,
-                endValue: 202053,
+                endValue: 202013,
                 color: '#F2F3F5'
               }, {
                 startValue: 201000,
@@ -4208,6 +4274,23 @@ console.log("GRANUALLLL---"+this.granular1);
                 }
               ]
             },
+            stripLines: [
+              {
+                startValue: 201909,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202013,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201000,
+                endValue: 201053,
+                color: '#F2F3F5'
+              }
+            ]
           },
   
           axisY: {
@@ -4322,6 +4405,7 @@ console.log("GRANUALLLL---"+this.granular1);
         reset: true,
       });
       this.loading=false;
+      this.greystart=res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4355,6 +4439,7 @@ console.log("GRANUALLLL---"+this.granular1);
 
 
       console.log('thhh->' + this.createPlanRequestData.startWeek);
+      console.log("ISSE PTA--"+this.greystart);
       this.chart2 = new CanvasJS.Chart('chartContainer2', {
         animationEnabled: true,
         showInLegend: true,
@@ -4395,7 +4480,7 @@ console.log("GRANUALLLL---"+this.granular1);
           },
           stripLines: [
             {
-              startValue: this.createPlanRequestData.startWeek,
+              startValue: this.greystart,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -5037,6 +5122,7 @@ else{
             reset: true,
           });
           this.loading=false;
+          this.greystart=res.start;
           this.createPlanRequestData.brands = res.req.brands;
           this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
           this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -5152,6 +5238,102 @@ else{
           // });
           // this.chart2.render();
     
+
+          console.log("ISSE PTA--"+this.greystart);
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              fontSize: 10,
+              itemclick: this.toggleDataSeries1.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              theme: "light2",
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201813,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201913,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202053,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202153,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202253,
+                    endValue: 202300
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: this.greystart,
+                  endValue: 201913,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202013,
+                  color: '#F2F3F5'
+                }, {
+                  startValue: 201000,
+                  endValue: 201013,
+                  color: '#F2F3F5'
+                }
+              ]
+            },
+            axisY: {
+              title: " ",
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+    
+            toolTip: {
+              content: '{y}'
+            },
+    
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+           // },
+    
+            data: [
+            {
+              name: 'Average ',
+              showInLegend: true,
+              type: 'spline',
+             color: "#46a5b9",
+              lineColor: '#46a5b9',
+              dataPoints: this.property3
+            }
+          
+            
+          ]
+          });
+          this.chart2.render();
     
           console.log('132456->' + this.createPlanRequestData.startWeek);
           this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -5192,6 +5374,23 @@ else{
                   }
                 ]
               },
+              stripLines: [
+                {
+                  startValue:201909,
+                  endValue: 201913,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202013,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201000,
+                  endValue: 201013,
+                  color: '#F2F3F5'
+                }
+              ]
             },
     
             axisY: {
@@ -5286,6 +5485,8 @@ else{
           });
           
           this.createPlanRequestData.brands = res.req.brands;
+          this.greystart=res.start;
+          console.log("GREYSTART--"+this.greystart);
           this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
           this.createPlanRequestData.subbrand = res.req.subbrand;
           this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
@@ -5322,6 +5523,7 @@ else{
     
     
           console.log('thhh->' + this.createPlanRequestData.startWeek);
+          console.log("ISSE PTA--"+this.greystart);
           this.chart2 = new CanvasJS.Chart('chartContainer2', {
             animationEnabled: true,
             showInLegend: true,
@@ -5630,6 +5832,7 @@ else{
       });
 
       this.loading=false;
+      this.greystart=res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
       this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -8067,6 +8270,7 @@ this.fgssselected=[];
 
     if(this.selectallskus==0)
     {
+      console.log("ffddghd--"+this.selectallskus);
       this.selectallskus=1;
     let requestData = false;
 
@@ -8079,7 +8283,7 @@ this.fgssselected=[];
  
     }
   }
-  if(this.selectallskus==1)
+  else if(this.selectallskus==1)
   {
     this.selectallskus=0;
   let requestData = false;

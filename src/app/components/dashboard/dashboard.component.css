@@ -10,6 +10,9 @@ a:focus, a:hover {
   background-color: #E5E6EA;
 }
 
+table table-striped ::-webkit-scrollbar {
+  width: 7px;
+}
 
 ::-webkit-scrollbar {
   width: 7px;
