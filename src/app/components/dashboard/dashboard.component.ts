@@ -62,6 +62,8 @@ public granular1="week";
   public createPlanRequestData_featurechange: any;
 
 
+public edit_comment;
+
   public selectedWeekIndex: number;
   public currentWeek: number;
 
@@ -308,7 +310,7 @@ this.filterService.getFilters({
   // this.prevactuals="2019-W11";
   //   this.createdata = {
   //     prevactuals:201911,
-  //   startWeek: 201938,
+  //   startWeek: 201940,
   //   endWeek: 202004,
   //   forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
   //   customerPlanningGroup: ['G01'],
@@ -628,10 +630,10 @@ this.filterService.getFilters({
 
   
     this.endWeek="2020-W04";
-    this.prevactuals="2019-W11";
+    this.prevactuals="2019-W35";
       this.createdata = {
-        prevactuals:201911,
-      startWeek: 201938,
+        prevactuals:201935,
+      startWeek: 201940,
       endWeek: 202004,
       forecastingGroups: [{"id":0,"name":"EVE GrapefCosm BOT 6X4X0_275","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
@@ -819,7 +821,7 @@ var index=0;
 //     this.prevactuals="2019-W11";
 //       this.createdata = {
 //         prevactuals:201911,
-//       startWeek: 201938,
+//       startWeek: 201940,
 //       endWeek: 202004,
 //       forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
 //       customerPlanningGroup: ['G01'],
@@ -1080,10 +1082,10 @@ var index=0;
 
     
     this.endWeek="2020-W04";
-    this.prevactuals="2019-W11";
+    this.prevactuals="2019-W35";
       this.createdata = {
-        prevactuals:201911,
-      startWeek: 201938,
+        prevactuals:201935,
+      startWeek: 201940,
       endWeek: 202004,
       forecastingGroups: [{"id":0,"name":"EVE GrapefCosm BOT 6X4X0_275","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
@@ -1184,7 +1186,7 @@ console.log("FGSSSSS2345ytujhnbv---"+JSON.stringify(this.fgssselected));
   public deactivate()
   {
   //  document.getElementById('apply_filter').style.background='#003228';
-
+  //document.getElementById("apply_filter").disabled=true;
   this.reactivate_filter_button=0;
 console.log("dfsdfsdfsdf----");
     document.getElementById("apply_filter").style.background='#808080';
@@ -1288,7 +1290,7 @@ console.log("dfsdfsdfsdf----");
             },
             stripLines: [
               {
-                startValue: 201938,
+                startValue: 201940,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -1613,7 +1615,7 @@ else if(feature =="Baseline" && this.granular1=="month"){
           },
           stripLines: [
             {
-              startValue: 201938,
+              startValue: 201940,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -1850,7 +1852,7 @@ else if(feature =="Baseline" && this.granular1=="month"){
           },
           stripLines: [
             {
-              startValue: 201938,
+              startValue: 201940,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -2543,7 +2545,7 @@ this.loading=true;
     this.endWeek="2019-W52";
 
     this.createPlanRequestData = {
-      startWeek: 201938,
+      startWeek: 201940,
       endWeek: 201952,
       prevactuals:201901,
       forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -3663,7 +3665,7 @@ this.loading=true;
   //       },
   //       stripLines: [
   //         {
-  //           startValue: 201938,
+  //           startValue: 201940,
   //           endValue: 201953,
   //           color: '#F2F3F5'
   //         },
@@ -4049,7 +4051,7 @@ console.log("GRANUALLLL---"+this.granular1);
       this.endWeek="2019-W52";
 
       this.createPlanRequestData = {
-        startWeek: 201938,
+        startWeek: 201940,
         endWeek: 201952,
         prevactuals:201901,
         forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -5183,7 +5185,7 @@ console.log("GRANUALLLL---"+this.granular1);
     //       },
     //       stripLines: [
     //         {
-    //           startValue: 201938,
+    //           startValue: 201940,
     //           endValue: 201953,
     //           color: '#F2F3F5'
     //         },
@@ -5452,12 +5454,12 @@ console.log("GRANUALLLL---"+this.granular1);
     
     console.log("THIS Prev--"+this.endWeek);
 
-    if(DashboardComponent.transformWeek(this.endWeek)<201938)
+    if(DashboardComponent.transformWeek(this.endWeek)<201940)
     {
        window.alert("Please choose end week correctly");
        return;
     }
-    if(DashboardComponent.transformWeek(this.prevactuals)>201938)
+    if(DashboardComponent.transformWeek(this.prevactuals)>201940)
     {
      window.alert("Please choose Actual week correctly");
      return;
@@ -7305,7 +7307,7 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-    data.startWeek=201938;
+    data.startWeek=201940;
     data.endWeek=this.createPlanRequestData.endWeek;
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -9040,6 +9042,10 @@ var r=this.how(s);
     this.selectedWeekIndex = selectedWeekIndex;
     this.editCommentModalBtn.nativeElement.click();
     
+this.edit_comment=this.finn[selectedWeekIndex].comment;
+
+
+
     
   }
 
@@ -9086,11 +9092,6 @@ var r=this.how(s);
 
         }
         console.log("CHECKING_LAST---"+this.finn);
-       
-
-        
-
-        
       }
       console.log("Check000000---"+JSON.stringify(this.finn));
 
@@ -9142,10 +9143,15 @@ var r=this.how(s);
   public editCommentSubmit(data: any,pk_com:any) {
 
 
+
+    this.finn[pk_com].comment=data.comment;
+
+    console.log("764rt3g8uihr--"+JSON.stringify(this.comm1));
+
     console.log("CHECK---"+JSON.stringify(data));
 
 
-    console.log("CHECK1234---"+JSON.stringify(pk_com));
+    console.log("CHECK1234565---"+JSON.stringify(this.finn));
   //  pk_com="admin"+pk_com;
 
     const finaldata={
@@ -9153,14 +9159,14 @@ var r=this.how(s);
       data:data.comment
     };
 
-    this.finn=[];
+  //   this.finn=[];
 
-    this.finn.push({
-      sku:pk_com,
-      plant:this.comm1[2],
-      cpg:this.comm1[3],
-      comment:data.comment
-   });
+  //   this.finn.push({
+  //     sku:pk_com,
+  //     plant:this.comm1[2],
+  //     cpg:this.comm1[3],
+  //     comment:data.comment
+  //  });
 
    
 
@@ -9274,7 +9280,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201938,
+        calendarWeek: 201940,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
@@ -9372,27 +9378,70 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
     console.log("CHECKING---"+JSON.stringify(ahg));
 
-    this.filterService.saveFilter({
+    var data12={
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
-    }).subscribe((res: any) => {
-      console.log('SUBSCRIBE');
+    };
 
-      //this.loadFilters();
-      this.filterService.getFilters({
-        user: 'admin'
-      }).subscribe((res: any) => {
-        this.loadedFilters = res.map((item) => {
-          item.isSelected = false;
-          return item;
-        });
+    // this.filterService.saveFilter({
+    //   user: 'admin',
+    //   filterName,
+    //   plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+    //   cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+    //   sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
+    // }).subscribe((res: any) => {
+    //   console.log('SUBSCRIBE');
+
+    //   //this.loadFilters();
+    //   this.filterService.getFilters({
+    //     user: 'admin'
+    //   }).subscribe((res: any) => {
+    //     this.loadedFilters = res.map((item) => {
+    //       item.isSelected = false;
+    //       return item;
+    //     });
+    //   });
+    //   this.loadFilters();
+    // });
+
+
+
+
+
+
+
+
+
+    this.filterService.saveFilter(data12).subscribe((res: any) => {
+     // this.editCommentModalBtnCancel.nativeElement.click();
+     this.saveFilterModalCancel.nativeElement.click();
+     this.filterService.getFilters({
+      user: 'admin'
+    }).subscribe((res: any) => {
+      this.loadedFilters = res.map((item) => {
+        item.isSelected = false;
+        return item;
       });
-      this.loadFilters();
     });
-    this.saveFilterModalCancel.nativeElement.click();
+
+    }, (error) => {
+      this.saveFilterModalCancel.nativeElement.click();
+    //  this.editCommentModalBtnCancel.nativeElement.click();
+    this.filterService.getFilters({
+      user: 'admin'
+    }).subscribe((res: any) => {
+      this.loadedFilters = res.map((item) => {
+        item.isSelected = false;
+        return item;
+      });
+    });
+
+    });
+   
+   
 
   }
 
@@ -9474,14 +9523,28 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       var a={
         val:name
       };
-          this.skuService.defaultnull(a).subscribe((res: any) => {
+          // this.skuService.defaultnull(a).subscribe((res: any) => {
 
-               this.skuService.setdefault(final_def).subscribe((res: any) => {
+               
+
+          // });
+
+
+          this.skuService.defaultnull(a).subscribe((res: any) => {
+            this.skuService.setdefault(final_def).subscribe((res: any) => {
 
               
-                });
+            });
+      
+          }, (error) => {
+            this.skuService.setdefault(final_def).subscribe((res: any) => {
 
+              
+            });
+      
           });
+
+         
     }
    
 
@@ -9880,7 +9943,7 @@ this.granular1='week';
     data.customerPlanningGroup = selectedFilter.cpg;
     data.plants = selectedFilter.plant;
 
-    data.startWeek=201938;
+    data.startWeek=201940;
     data.endWeek=202004;
 
     this.loading=true;

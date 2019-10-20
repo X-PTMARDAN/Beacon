@@ -281,7 +281,7 @@
                       &nbsp;&nbsp;
                            <div >   <!-- <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:6px;font-weight: 700!important">Load Week</p> -->
                            
-                            <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Load week</h6><p style="    margin-top: 0.9rem;color: #000;font-size: 0.75rem;padding-left: 4px;font-weight: 700!important;"> - 38 - 2019 - </p></div>
+                            <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Load week</h6><p style="    margin-top: 0.9rem;color: #000;font-size: 0.75rem;padding-left: 4px;font-weight: 700!important;"> - 40 - 2019 - </p></div>
                            
                             
                           </div>
@@ -916,8 +916,8 @@
 
 
               <select name="plant" #t4 class="minimal form-control" [(ngModel)]='dropdown_table' id="checking" (change)="changecomment(t4.value)" style="float: right!important;width: 20%;margin-right: 15px;">
-                <option  value="week">This Week</option>
-                <option selected value="allweek">All Week</option>
+                <option  value="week">Selected Week - Unsaved</option>
+                <option selected value="allweek">All Comments</option>
               </select>
         
           </div>
@@ -930,8 +930,8 @@
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week</h6></td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><h6 class="mt-3 font-weight-bold">Comment</h6></td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
-                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Plant</h6></td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">CPG</h6></td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Plant</h6></td>
               </tr>
           
             </table>
@@ -967,7 +967,7 @@
 
           <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let fi of finn; let i=index" >
             <tr style="background-color: #fff">
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;">  <p class="m-0" style="font-size:0.75rem">{{ fi.comment }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;" (dblclick)="Dbledit(i)">  <p class="m-0" style="font-size:0.75rem">{{ fi.comment }}</p></td>
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;"><p class="m-0" style="font-size:0.75rem">{{fi.sku}}</p></td>
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><i class="fa fa-trash" aria-hidden="true" (click)="deletecomment(i)"></i></td>
 
@@ -1469,7 +1469,7 @@
     </div>
 
 
-    <div class="flex-container" style="width:100%">
+    <!-- <div class="flex-container" style="width:100%">
       <div (click)='main1()' id="m" style="width: 25%;text-align: center;    height: 28px;
       cursor: pointer;margin-right: 3px; background: #fff;">P</div>
          <div (click)='weeklycomment1()' id="w" style="width: 25%;text-align: center;    height: 28px;
@@ -1480,7 +1480,7 @@
       <div (click)='comment1()' id="c" style="width: 25%;text-align: center;    height: 28px;
       cursor: pointer;">CL</div>  
      
-    </div>
+    </div> -->
 
   
 
@@ -1684,7 +1684,7 @@
           </div>
           <button type="submit" class="btn float-right btn-dark" [disabled]="!editCommentForm.valid"
                   [ngClass]="{'disabled': !editCommentForm.valid}"
-                  (click)="editCommentSubmit(editCommentForm.value,comm1[1])">Submit
+                  (click)="editCommentSubmit(editCommentForm.value,selectedWeekIndex)">Submit
           </button>
         </form>
       </div>
