@@ -76,38 +76,56 @@
 
                   <br>
                   <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
-                      <tr style="background-color: #fff">
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%; "> <span class="text-muted">Material</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><span class="text-muted">Material name</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">FGID</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><span class="text-muted">Forecasting group name</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">Week first seen</span></th>
-
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted">Week last seen</span></th>
-
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</th>
-                      </tr>
-                  
-                    </table>
+                    <tr style="background-color: #fff">
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Material</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">SKU Name</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
+                    </tr>
+                
+                  </table>
+      
+      
 
 
                   <div >
-                      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index" >
+
+
+
+                <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
+                    <tr style="background-color: #fff">
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
+                    </tr>
+                
+                  </table>
+
+
+
+                      <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index" >
                         <tr style="background-color: #fff">
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"> <span class="text-muted">{{data.material}}</span></th>
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;font: initial;"><span class="text-muted">{{data.sku}}</span></th>
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{data.fgid}}</span></th>
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;font: initial;"><span class="text-muted">{{data.forecastinggroup}}</span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{data.minimum}}</span></th>
+                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></span></th>
 
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{data.maximum}}</span></th>
+                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></span></th>
 
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><span class="text-muted"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></span></th>
+               
                         </tr>
                     
-                      </table>
+                      </table> -->
                     </div>
             
 
@@ -187,8 +205,8 @@
                   <div class="form-group col-sm-3">
                     <label>Phasing Logic</label>
                     
-                                    <select class="minimal" #t5 [(ngModel)]="logic" (change)="changelogic(t5.value)">
-                      <option >Select </option>
+                                    <select class="minimal"  placeholder="harshit" #t5 [(ngModel)]="logic" (change)="changelogic(t5.value)">
+                      <option value="select" selected>Select your option</option>
                       <option value="transistion">Transition</option>
                       <option value="delist">Delist</option>
                     </select>
@@ -198,8 +216,8 @@
             
                   <div class="form-group col-sm-3">
                   <label>Current SKU</label>
-                  <select id="select1" [(ngModel)]="fromsku">
-            
+                  <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()">
+                      <option value="select"  selected>Select current SKU</option>
                       <ng-container *ngFor="let filter of drop; let filterIndex=index" >
                               <option [value]="filter">{{filter}}</option>
                         </ng-container>
@@ -212,7 +230,8 @@
                                     <label>Phase in SKU</label>
                                     
                                     <select [(ngModel)]="tosku">
-                                    <ng-container *ngFor="let filter of drop; let filterIndex=index">
+                                        <option value="select" disabled selected>Select Phase in SKU</option>
+                                    <ng-container *ngFor="let filter of drop2; let filterIndex=index">
                                         <option [value]="filter">{{filter}}</option>
                                   </ng-container>
                                 </select>
@@ -223,7 +242,7 @@
               
                     <div class="form-group col-sm-3">
               
-                        <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+                        <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2" style="width: 160%;">
                             <label for="startWeek" class="d-none">
                               <span class="sr-only">Start Week</span>
                             </label>
@@ -259,10 +278,37 @@
                       <br>
                       <h3 class="text-center">Previous</h3>
 
-
-
-
                       <div >
+                      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
+                          <tr style="background-color: #fff">
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">STATE(1 - Transition & 0 - Delist)</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
+                          </tr>
+                      
+                        </table>
+                        </div>      
+            
+      
+      
+                        <div >
+      
+      
+      
+                      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipoMapping; let i=index">
+                          <tr style="background-color: #fff">
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
+                          </tr>
+                      
+                        </table>
+
+                        </div>
+
+                      <!-- <div >
                         <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
                           <tr style="background-color: #fff">
                             <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"> <span class="text-muted">From ID</span></th>
@@ -272,10 +318,10 @@
                           </tr>
                       
                         </table>
-                      </div>
+                      </div> -->
               
 
-
+<!-- 
                   <div >
                     <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;"  *ngFor="let data of pipoMapping; let i=index">
                       <tr style="background-color: #fff">
@@ -286,7 +332,7 @@
                       </tr>
                   
                     </table>
-                  </div>
+                  </div> -->
           
 
 

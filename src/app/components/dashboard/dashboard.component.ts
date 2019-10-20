@@ -1238,7 +1238,7 @@ console.log("dfsdfsdfsdf----");
     // this.createPlanRequestData_featurechange.property=feature;
 
 
-    if(feature =="Open")
+    if(feature =="Open" && this.granular1=="week")
     {
       this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring="Open Order";
@@ -1331,9 +1331,225 @@ console.log("dfsdfsdfsdf----");
       });
     }
 
+
+    else if(feature =="Open" && this.granular1=="month")
+    {
+      this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
+        this.valuestring="Open Order";
+              this.processFeatureGraphData(res);
+  
+        console.log('thhh->' + this.createPlanRequestData.startWeek);
+        console.log("ISSE PTA--"+this.greystart);
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            fontSize:10,
+            itemclick: this.toggleDataSeries1.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201813,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201913,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202013,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202113,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202213,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: 201909,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202013,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+  
+          axisY: {
+            title: " ",
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+  
+          toolTip: {
+           content: '{y}'
+  
+          
+          },
+          // toolTip: {
+          //   shared: true,
+   
+          // },
+          data: [{
+
+            name:'Open',
+            type: 'line',
+            showInLegend: true,
+            gridColor: '#ffffff',
+            labelFontColor: 'black',
+           color: '#17b169',
+            dataPoints: this.property
+          }]
+        });
+        this.chart2.render();
+  
+      });
+    }
+
    
 
-else if(feature =="Baseline"){
+else if(feature =="Baseline" && this.granular1=="month"){
+    this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
+
+      //this.createPlanRequestData.brands = res.req.brands;
+      
+         if(feature == "Baseline"){
+            
+            this.valuestring="Baseline";
+            this.processFeatureGraphData_open(res);
+          }
+          else if(feature == "Weather"){
+            this.valuestring="Weather";
+            this.processFeatureGraphData_open(res);
+          }
+
+          else if(feature == "Promo"){
+            this.valuestring="Promo";
+            this.processFeatureGraphData_open(res);
+          }
+      
+      //  this.createFilterObject(res);
+
+
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
+      this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        animationEnabled: true,
+        showInLegend: true,
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries1.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
+              {
+                startValue: 201813,
+                endValue: 201900
+              },
+              {
+                startValue: 201913,
+                endValue: 202000
+              },
+              {
+                startValue: 202013,
+                endValue: 202100
+              },
+              {
+                startValue: 202113,
+                endValue: 202200
+              },
+              {
+                startValue: 202213,
+                endValue: 202300
+              }
+            ]
+          },
+          stripLines: [
+            {
+              startValue: 201909,
+              endValue: 201913,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: 202013,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+
+        axisY: {
+          title: " ",
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+
+        toolTip: {
+         content: '{y}'
+
+        
+        },
+        // toolTip: {
+        //   shared: true,
+ 
+        // },
+        data: [
+          {
+          name:'Baseline',
+          type: 'stackedArea',
+          gridColor: '#ffffff',
+         
+          showInLegend: true,
+         color: "#17b169",
+          lineColor: '#17b169',
+          dataPoints: this.property
+        },
+        {
+          name:'Promo Effect',
+          type: 'stackedArea',
+          gridColor: '#ffffff',
+       
+          showInLegend: true,
+         color: " #46a6b9",
+          lineColor: '#46a6b9',
+          dataPoints: this.property3
+        }
+      
+      ]
+      });
+      this.chart2.render();
+
+
+    });
+  }
+
+
+  else if(feature =="Baseline" && this.granular1=="week"){
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -1458,9 +1674,119 @@ else if(feature =="Baseline"){
 
 
 
+  else if(feature =="Promo" && this.granular1=="month"){
+    this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
+
+      //this.createPlanRequestData.brands = res.req.brands;
+      
+         if(feature == "Baseline"){
+            
+            this.valuestring="Baseline";
+            this.processFeatureGraphData_open(res);
+          }
+          else if(feature == "Weather"){
+            this.valuestring="Weather";
+            this.processFeatureGraphData_open(res);
+          }
+
+          else if(feature == "Promo"){
+            this.valuestring="Promo";
+            this.processFeatureGraphData_open(res);
+          }
+      
+      //  this.createFilterObject(res);
 
 
-  else if(feature =="Promo"){
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
+      this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        animationEnabled: true,
+        showInLegend: true,
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
+              {
+                startValue: 201813,
+                endValue: 201900
+              },
+              {
+                startValue: 201913,
+                endValue: 202000
+              },
+              {
+                startValue: 202013,
+                endValue: 202100
+              },
+              {
+                startValue: 202113,
+                endValue: 202200
+              },
+              {
+                startValue: 202213,
+                endValue: 202300
+              }
+            ]
+          },
+          stripLines: [
+            {
+              startValue: 201909,
+              endValue: 201913,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: 201913,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+
+        axisY: {
+          title: " ",
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+
+        toolTip: {
+         content: '{y}'
+
+        
+        },
+        // toolTip: {
+        //   shared: true,
+ 
+        // },
+        data: [
+          {
+          name:"Average",
+          type: 'line',
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+          showInLegend: true,
+          lineColor:'#17b169',
+          dataPoints: this.property
+        }
+      
+      ]
+      });
+      this.chart2.render();
+
+
+    });
+  }
+
+
+
+  else if(feature =="Promo" && this.granular1=="week"){
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -1572,11 +1898,123 @@ else if(feature =="Baseline"){
 
 
 
+  else if(feature =="Weather" && this.granular1=='month'){
+    this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
+
+      //this.createPlanRequestData.brands = res.req.brands;
+      
+         if(feature == "Baseline"){
+            
+            this.valuestring="Baseline";
+            this.processFeatureGraphData_open(res);
+          }
+          else if(feature == "Weather"){
+            this.valuestring="Weather";
+            this.processFeatureGraphData_open_boolean(res);
+          }
+
+          else if(feature == "Promo"){
+            this.valuestring="Promo";
+            this.processFeatureGraphData_open(res);
+          }
+      
+      //  this.createFilterObject(res);
+
+
+      console.log('thhh->' + this.createPlanRequestData.startWeek);
+      this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        animationEnabled: true,
+        showInLegend: true,
+        backgroundColor: '#FFFFFF',
+        legend: {
+          cursor: 'pointer',
+          itemclick: this.toggleDataSeries.bind(this)
+        },
+        axisX: {
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+          
+          scaleBreaks: {
+            type: 'blank',
+            spacing: 0,
+            customBreaks: [
+              {
+                startValue: 201813,
+                endValue: 201900
+              },
+              {
+                startValue: 201913,
+                endValue: 202000
+              },
+              {
+                startValue: 202013,
+                endValue: 202100
+              },
+              {
+                startValue: 202113,
+                endValue: 202200
+              },
+              {
+                startValue: 202213,
+                endValue: 202300
+              }
+            ]
+          },
+          stripLines: [
+            {
+              startValue: 201909,
+              endValue: 201913,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202000,
+              endValue: 202013,
+              color: '#F2F3F5'
+            }, {
+              startValue: 201000,
+              endValue: 201013,
+              color: '#F2F3F5'
+            }
+          ]
+        },
+
+        axisY: {
+          title: " ",
+          valueFormatString: '######',
+          gridColor: '#ffffff',
+        },
+
+        toolTip: {
+         content: '{y}'
+
+        
+        },
+        // toolTip: {
+        //   shared: true,
+ 
+        // },
+        data: [
+          {
+          type: 'column',
+          color: "#46a5b9",
+          showInLegend: true,
+          gridColor: '#ffffff',
+          labelFontColor: 'black',
+      
+          dataPoints: this.property
+          }
+      ]
+      });
+      this.chart2.render();
+
+
+    });
+  }
 
 
 
 
-  else if(feature =="Weather"){
+  else if(feature =="Weather" && this.granular1=='week'){
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -1723,12 +2161,16 @@ public addItems(itemId: number) {
    var flag=0;
   for(const ab of this.skus)
   {
-      if(item1.name==ab.name)
+      console.log("ITEM -"+item1.name);
+      console.log("ITEM_SKU -"+ab.name);
+
+      if(item1.name === ab.name)
       {
         flag=1;
         
       }
   }
+  console.log("FLAGGER--"+flag);
   if(flag==0)
   {
     document.getElementById('apply_filter').style.background='#17b169';

@@ -459,7 +459,11 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable_feature_analysis_monthly`, data);
   }
 
+  public fetch_material_list_pipo(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}fetch_material_list_pipo`, data);
+  }
 
+  
 
   
 
