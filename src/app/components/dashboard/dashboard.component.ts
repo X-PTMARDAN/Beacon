@@ -9379,7 +9379,17 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     }).subscribe((res: any) => {
-      console.log('Harshit');
+      console.log('SUBSCRIBE');
+
+      //this.loadFilters();
+      this.filterService.getFilters({
+        user: 'admin'
+      }).subscribe((res: any) => {
+        this.loadedFilters = res.map((item) => {
+          item.isSelected = false;
+          return item;
+        });
+      });
       this.loadFilters();
     });
     this.saveFilterModalCancel.nativeElement.click();
