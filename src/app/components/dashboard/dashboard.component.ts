@@ -6730,8 +6730,10 @@ else{
 
       if (week.ml !== undefined) {
         newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2))+parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2)));
-        newPoint.finalForecast = newPoint.initialFinalForecast;
-
+        
+        //newPoint.finalForecast = newData;
+        newPoint.finalForecast=parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(2))
+        console.log("Debug -"+newPoint.finalForecast);
 
 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
