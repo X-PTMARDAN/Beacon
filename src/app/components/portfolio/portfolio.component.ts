@@ -34,7 +34,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public pipoMapping: any =[];
 
-
+public drop2;
   public option='sku';
 
   public drop =[];
@@ -50,11 +50,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 public pipo_map=false;
 public sku_map=true;
 
-  public fromsku;
-  public tosku;
+  public fromsku='select';
+  public tosku='select';
 
   public mappedFG;
-  public logic;
+  public logic='select';
+
+
   public startweek;
 
 public selectedPlants=[];
@@ -162,6 +164,33 @@ public table=false;
     
   }
 
+
+  public populate_drop2()
+  {
+  //  this.skuService.fetch_material_list_pipo(drop1)
+
+
+
+console.log("Checkng---"+this.fromsku);
+
+var a={
+  mat123:this.fromsku
+}
+
+console.log("dsfheg---"+JSON.stringify(a));
+  this.skuService.fetch_material_list_pipo(a).subscribe((res: any) => {
+    
+
+    console.log("RESPONSE");
+      this.drop2=res;
+  }, (error) => {
+   
+
+  });
+
+
+
+  }
 
   public test(feature)
   {
