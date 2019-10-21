@@ -32,6 +32,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public pipo: any =[];
 
+  public materialidnumber='1990';
+
+  public materialidqwe;
+  public skunamenew;
+
+  public texthide=false;
+
   public pipoMapping: any =[];
 
 public drop2;
@@ -114,11 +121,13 @@ public table=false;
 
          this.skuService.getPIPO().subscribe((response: any) => {    
               this.pipo=response;
+              console.log("Checking-----"+JSON.stringify(this.pipo));
               for(const abc of this.pipo)
               {
+                console.log("Test-32453----"+JSON.stringify(abc.material));
                 this.drop.push(abc.material);
               }
-              console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+              console.log("Dfdfdfd---"+JSON.stringify(response));
           });
 
 
@@ -137,6 +146,49 @@ public table=false;
           
   }
 
+
+  public test1()
+  {
+    this.materialidnumber='';
+
+    this.skunamenew='';
+  }
+public addingSKU()
+{
+  console.log("gfhgfh12---"+this.materialidnumber);
+
+
+  this.pipo.push({
+    material:this.materialidnumber,
+    sku:this.skunamenew,
+    minimum:201940
+  });
+
+
+  var a={
+    material:this.materialidnumber,
+    sku:this.skunamenew,
+    minimum:201940
+  };
+
+console.log("Fsfsfss----"+JSON.stringify(this.pipo));
+
+
+
+
+this.skuService.addSKU_pipo_final(a).subscribe((res: any) => {
+    
+
+  console.log("RESPONSE");
+  //  this.drop2=res;
+}, (error) => {
+ 
+
+});
+
+
+  //this.texthide=true;
+}
 
   public abc()
   {
@@ -171,11 +223,22 @@ public table=false;
 
 
 
-console.log("Checkng---"+this.fromsku);
+// console.log("Checkng---"+this.fromsku);
+
+// var a={
+//   mat123:JSON.stringify(this.fromsku.toString())
+// };
+
+
+console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 
 var a={
-  mat123:this.fromsku
+  fromid:this.fromsku,
 }
+
+console.log("CHEK000--"+JSON.stringify(a));
+
+
 
 console.log("dsfheg---"+JSON.stringify(a));
   this.skuService.fetch_material_list_pipo(a).subscribe((res: any) => {
@@ -252,12 +315,17 @@ console.log("dsfheg---"+JSON.stringify(a));
 
 
     var data={
-      material: this.materialid,
+      material: this.skuname,
       fg:this.mappedFG
     };
 
-    this.skuService.mapFG(data).subscribe((response: any) => {  
-      //
+
+
+
+
+    this.skuService.mapFG(data).subscribe((res: any) => {
+      //this.editCommentModalBtnCancel.nativeElement.click();
+
       window.alert("Mapped");
 
 
@@ -270,18 +338,53 @@ console.log("dsfheg---"+JSON.stringify(a));
         console.log("Dfdfdfd---"+JSON.stringify(this.drop));
     });
 
-
     this.skuService.getPIPOMapping().subscribe((response: any) => {  
       this.pipoMapping=response;
     });
 
 
+    
+    }, (error) => {
+    
+      window.alert("Mapped");
+
+
+      this.skuService.getPIPO().subscribe((response: any) => {    
+        this.pipo=response;
+        for(const abc of this.pipo)
+        {
+          this.drop.push(abc.material);
+        }
+        console.log("Dfdfdfd---"+JSON.stringify(this.drop));
     });
+
+    this.skuService.getPIPOMapping().subscribe((response: any) => {  
+      this.pipoMapping=response;
+    });
+    
+     // this.editCommentModalBtnCancel.nativeElement.click();
+    
+    });
+
+    
+
+
+    // this.skuService.mapFG(data).subscribe((response: any) => {  
+    //   //
+      
+
+
+
+
+
+    // });
 
 
   }
 
 
+
+  // NOT TO BE USED
   public add_sku()
   {
 
@@ -291,8 +394,6 @@ this.pipo.push({
   material:this.materialid,
   minimum:201940,
   sku:this.skuname,
-  fgid:this.fgid,
-  forecastinggroup:this.fgname
 });
 
 
@@ -300,10 +401,8 @@ var a={
   material:this.materialid,
   minimum:201940,
   sku:this.skuname,
-  fgid:this.fgid,
-  forecastinggroup:this.fgname
 };
-this.drop.push(this.skuname);
+//this.drop.push(this.skuname);
 
 this.skuService.savePIPO(a).subscribe((response: any) => {  
   
@@ -342,10 +441,10 @@ var date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
 console.log("34354ythrgbfd---"+date);
 if(this.logic=='delist')
 {
-   state=0;
+   state="Delist";
 }
 else {
-  state =1;
+  state ="Transistion";
 }
 var data={
   fromid:this.fromsku,

@@ -19,14 +19,17 @@
  
 
 
-              <div style="width:50%;background:#17b169;border-radius: 10px;" id="sku_bar" (click)=sku_click()>  <div style="font-size: 40px;padding-top: 10px;border-radius: 15px;    float: right;
+              <div style="width:50%;background:#17b169;border-radius: 10px;" id="sku_bar" (click)=sku_click()> 
+              
+                <!-- <p class="mt-3 font-weight-bold"  [(ngModel)]="texthide">Some unmapped SKU are available</p>    -->
+              <div style="font-size: 40px;padding-top: 10px;border-radius: 15px;    float: right;
                 margin-right: 25%;">
               
 
                 <!-- <p style="color: #000;padding-top: 28px;">Sku Mapping</p> -->
 
 
-                <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;">SKU Mapping</h5>
+                  <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;"> SKU Mapping</h5>
               
 
                 </div>
@@ -73,7 +76,7 @@
           <div class="table-content-col" style="width: 100%;margin-left:15px;margin-right:15px;">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
-
+                  <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button>
                   <br>
                   <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
@@ -430,6 +433,48 @@
       </div>
     </div>
 
+
+
+
+
+
+
+
+    <div class="modal fade" id="myModal4_6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_6">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           </div>
+          <div class="modal-body">
+    <div class="table-responsive mt-3">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Material ID</th>
+          <th scope="col">SKU Name</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"> <input type="text" class="form-control searchbox" [(ngModel)]="materialidnumber" placeholder="Material ID"></td>
+          <td> <input type="text" class="form-control searchbox" [(ngModel)]="skunamenew" placeholder="SKU Name" ></td>          
+        </tr>
+      
+
+      </tbody>
+    </table>
+    
+    
+    
+    </div>
+    <div class="col-sm-12 text-center" (click)="addingSKU();"><a href="javascript:void(0)" class="btn">Add</a></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
 
 

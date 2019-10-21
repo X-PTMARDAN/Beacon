@@ -416,7 +416,12 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}mapFG`, data);
   }
 
+  public addSKU_pipo_final(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}addSKU_pipo_final`, data);
+  }
 
+
+  
   
 
 
