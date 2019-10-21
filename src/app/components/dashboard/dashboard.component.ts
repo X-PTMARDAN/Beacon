@@ -1249,6 +1249,8 @@ console.log("dfsdfsdfsdf----");
 
     if(feature =="Open" && this.granular1=="week")
     {
+
+      this.createPlanRequestData.which_feature="Open";
       this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring="Open Order";
               this.processFeatureGraphData(res);
@@ -1353,6 +1355,8 @@ console.log("dfsdfsdfsdf----");
 
     else if(feature =="Open" && this.granular1=="month")
     {
+
+      this.createPlanRequestData.which_feature="Open";
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring="Open Order";
               this.processFeatureGraphData(res);
@@ -1457,6 +1461,8 @@ console.log("dfsdfsdfsdf----");
    
 
 else if(feature =="Baseline" && this.granular1=="month"){
+
+  this.createPlanRequestData.which_feature="Baseline";
     this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -1589,6 +1595,8 @@ else if(feature =="Baseline" && this.granular1=="month"){
 
 
   else if(feature =="Baseline" && this.granular1=="week"){
+
+    this.createPlanRequestData.which_feature="Baseline";
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -1724,6 +1732,9 @@ else if(feature =="Baseline" && this.granular1=="month"){
 
 
   else if(feature =="Promo" && this.granular1=="month"){
+
+
+    this.createPlanRequestData.which_feature="Promo";
     this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -1846,6 +1857,8 @@ else if(feature =="Baseline" && this.granular1=="month"){
 
 
   else if(feature =="Promo" && this.granular1=="week"){
+
+    this.createPlanRequestData.which_feature="Promo";
     this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
       //this.createPlanRequestData.brands = res.req.brands;
@@ -6117,8 +6130,8 @@ else{
           this.processGraphData(res);
           document.getElementById("arrow").style.color='grey';
     
-          this.processFeatureGraphData_open(res);
-          this.valuestring="Open order";
+          this.processFeatureGraphData(res);
+          this.valuestring="Promo";
           this.createFilterObject(res);
           // this.skus = data.forecastingGroups.map((item) => {
           //   item.isChecked = true;
