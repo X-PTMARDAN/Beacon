@@ -1148,6 +1148,13 @@ this.skus=JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
   public reactivate_filter(a:number)
   {
 
+
+
+
+    console.log("Graph - "+JSON.stringify(this.graphData));
+
+
+
     this.reactivate_filter_button=1;
     console.log("FGSSSSS2345ytujhnbv_initial---"+JSON.stringify(this.fgssselected));
   document.getElementById('apply_filter').style.background='#17b169';
@@ -1296,7 +1303,17 @@ console.log("dfsdfsdfsdf----");
               },
               {
                 startValue: 202000,
-                endValue: this.createPlanRequestData.endWeek,
+                endValue: 202053,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
                 color: '#F2F3F5'
               }
             ]
@@ -1391,6 +1408,16 @@ console.log("dfsdfsdfsdf----");
               {
                 startValue: 202000,
                 endValue: 202013,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202100,
+                endValue: 202113,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202213,
                 color: '#F2F3F5'
               }
             ]
@@ -1500,6 +1527,16 @@ else if(feature =="Baseline" && this.granular1=="month"){
             {
               startValue: 202000,
               endValue: 202013,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -1621,7 +1658,17 @@ else if(feature =="Baseline" && this.granular1=="month"){
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202100,
+              endValue: 202153,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202253,
               color: '#F2F3F5'
             }
           ]
@@ -1746,7 +1793,17 @@ else if(feature =="Baseline" && this.granular1=="month"){
             },
             {
               startValue: 202000,
-              endValue: 201913,
+              endValue: 202013,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -1858,7 +1915,17 @@ else if(feature =="Baseline" && this.granular1=="month"){
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202100,
+              endValue: 202153,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202253,
               color: '#F2F3F5'
             }
           ]
@@ -1973,8 +2040,13 @@ else if(feature =="Baseline" && this.granular1=="month"){
               endValue: 202013,
               color: '#F2F3F5'
             }, {
-              startValue: 201000,
-              endValue: 201013,
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -2089,8 +2161,12 @@ else if(feature =="Baseline" && this.granular1=="month"){
               endValue: 202053,
               color: '#F2F3F5'
             }, {
-              startValue: 201000,
-              endValue: 201053,
+              startValue: 202100,
+              endValue: 202153,
+              color: '#F2F3F5'
+            }, {
+              startValue: 202200,
+              endValue: 202253,
               color: '#F2F3F5'
             }
           ]
@@ -2432,12 +2508,17 @@ this.loading=true;
             },
             {
               startValue: 202000,
-              endValue: this.createPlanRequestData.endWeek,
+              endValue: 202053,
               color: '#F2F3F5'
             },
             {
-              startValue: 202000,
-              endValue: 202025,
+              startValue: 202100,
+              endValue: 202153,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202253,
               color: '#F2F3F5'
             },
             
@@ -2728,8 +2809,13 @@ this.loading=true;
               endValue: 202013,
               color: '#F2F3F5'
             }, {
-              startValue: 201000,
-              endValue: 201013,
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -2823,8 +2909,13 @@ this.loading=true;
               color: '#F2F3F5'
             },
             {
-              startValue: 201000,
-              endValue: 201013,
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -3113,8 +3204,13 @@ this.loading=true;
               endValue: 202013,
               color: '#F2F3F5'
             }, {
-              startValue: 201000,
-              endValue: 201013,
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -3210,8 +3306,12 @@ this.loading=true;
               color: '#F2F3F5'
             },
             {
-              startValue: 201000,
-              endValue: 201013,
+              startValue: 202100,
+              endValue: 202113,
+              color: '#F2F3F5'
+            }, {
+              startValue: 202200,
+              endValue: 202213,
               color: '#F2F3F5'
             }
           ]
@@ -3413,8 +3513,12 @@ this.loading=true;
             endValue: 202053,
             color: '#F2F3F5'
           }, {
-            startValue: 201000,
-            endValue: 201053,
+            startValue: 202100,
+            endValue: 202153,
+            color: '#F2F3F5'
+          },{
+            startValue: 202200,
+            endValue: 202253,
             color: '#F2F3F5'
           }
         ]
@@ -3523,8 +3627,12 @@ this.loading=true;
             endValue: 202053,
             color: '#F2F3F5'
           }, {
-            startValue: 201000,
-            endValue: 201053,
+            startValue: 202100,
+            endValue: 202153,
+            color: '#F2F3F5'
+          }, {
+            startValue: 202200,
+            endValue: 202253,
             color: '#F2F3F5'
           }
         ]
@@ -3851,8 +3959,12 @@ console.log("GRANUALLLL---"+this.granular1);
                 endValue: 202053,
                 color: '#F2F3F5'
               }, {
-                startValue: 201000,
-                endValue: 201053,
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },{
+                startValue: 202200,
+                endValue: 202253,
                 color: '#F2F3F5'
               }
             ]
@@ -3943,8 +4055,13 @@ console.log("GRANUALLLL---"+this.granular1);
                 endValue: 202053,
                 color: '#F2F3F5'
               }, {
-                startValue: 201000,
-                endValue: 201053,
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
                 color: '#F2F3F5'
               }
             ]
@@ -4234,8 +4351,12 @@ console.log("GRANUALLLL---"+this.granular1);
                 endValue: 202053,
                 color: '#F2F3F5'
               }, {
-                startValue: 201000,
-                endValue: 201053,
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },{
+                startValue: 202200,
+                endValue: 202253,
                 color: '#F2F3F5'
               }
             ]
@@ -4328,8 +4449,13 @@ console.log("GRANUALLLL---"+this.granular1);
                 color: '#F2F3F5'
               },
               {
-                startValue: 201000,
-                endValue: 201012,
+                startValue: 202100,
+                endValue: 202113,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202213,
                 color: '#F2F3F5'
               }
             ]
@@ -4618,10 +4744,16 @@ console.log("GRANUALLLL---"+this.granular1);
                 endValue: 202013,
                 color: '#F2F3F5'
               }, {
-                startValue: 201000,
-                endValue: 201053,
+                startValue: 202100,
+                endValue: 202113,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 202200,
+                endValue: 202213,
+                color: '#F2F3F5'
+              },
+
             ]
           },
           axisY: {
@@ -4730,8 +4862,13 @@ console.log("GRANUALLLL---"+this.granular1);
                 color: '#F2F3F5'
               },
               {
-                startValue: 201000,
-                endValue: 201053,
+                startValue: 202100,
+                endValue: 202113,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202213,
                 color: '#F2F3F5'
               }
             ]
@@ -4933,8 +5070,13 @@ console.log("GRANUALLLL---"+this.granular1);
               endValue: 202053,
               color: '#F2F3F5'
             }, {
-              startValue: 201000,
-              endValue: 201053,
+              startValue: 202100,
+              endValue: 202153,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202253,
               color: '#F2F3F5'
             }
           ]
@@ -5043,8 +5185,13 @@ console.log("GRANUALLLL---"+this.granular1);
               endValue: 202053,
               color: '#F2F3F5'
             }, {
-              startValue: 201000,
-              endValue: 201053,
+              startValue: 202100,
+              endValue: 202153,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 202200,
+              endValue: 202253,
               color: '#F2F3F5'
             }
           ]
@@ -5697,6 +5844,7 @@ else{
               valueFormatString: '######',
               gridColor: '#ffffff',
               theme: "light2",
+              
               scaleBreaks: {
                 type: 'blank',
                 spacing: 0,
@@ -5734,8 +5882,13 @@ else{
                   endValue: 202013,
                   color: '#F2F3F5'
                 }, {
-                  startValue: 201000,
-                  endValue: 201013,
+                  startValue: 202100,
+                  endValue: 202113,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202200,
+                  endValue: 202213,
                   color: '#F2F3F5'
                 }
               ]
@@ -5830,8 +5983,13 @@ else{
                   color: '#F2F3F5'
                 },
                 {
-                  startValue: 201000,
-                  endValue: 201013,
+                  startValue: 202100,
+                  endValue: 202113,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202200,
+                  endValue: 202213,
                   color: '#F2F3F5'
                 }
               ]
@@ -5865,6 +6023,7 @@ else{
               {
                 name: 'Actuals',
                 showInLegend: true,
+             
                 type: 'spline',
                color: this.actualDataPointColor,
                 lineColor: this.actualDataPointColor,
@@ -5873,6 +6032,7 @@ else{
               {
                 name: 'Actual LY',
                 showInLegend: true,
+               
                 type: 'line',
                 lineDashType: 'dash',
                color: this.lastyearDataPointColor,
@@ -6018,8 +6178,13 @@ else{
                   endValue: 202053,
                   color: '#F2F3F5'
                 }, {
-                  startValue: 201000,
-                  endValue: 201053,
+                  startValue: 202100,
+                  endValue: 202153,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202200,
+                  endValue: 202253,
                   color: '#F2F3F5'
                 }
               ]
@@ -6114,8 +6279,13 @@ else{
                   color: '#F2F3F5'
                 },
                 {
-                  startValue: 201000,
-                  endValue: 201053,
+                  startValue: 202100,
+                  endValue: 202153,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202200,
+                  endValue: 202253,
                   color: '#F2F3F5'
                 }
               ]
@@ -6149,6 +6319,7 @@ else{
               {
                 name: 'Actuals',
                 showInLegend: true,
+             
                 type: 'spline',
                color: this.actualDataPointColor,
                 lineColor: this.actualDataPointColor,
@@ -6157,6 +6328,7 @@ else{
               {
                 name: 'Actual LY',
                 showInLegend: true,
+                visible: false,
                 type: 'line',
                 lineDashType: 'dash',
                color: this.lastyearDataPointColor,
@@ -6175,6 +6347,7 @@ else{
               {
                 name: 'APO Forecast',
                 showInLegend: true,
+                visible: false,
                 type: 'line',
                 lineDashType: 'dash',
                color: this.aopDataPointColor,
@@ -6435,7 +6608,7 @@ else{
   public down()
   {
     console.log("Fsgfsg");
-    this.downloadCSV({filename: 'chart-data.csv'});
+    this.downloadCSV({filename: 'planning_table.xlsx'});
   }
 
   // Download CSV Handlers
@@ -6460,7 +6633,7 @@ else{
       exportCSV.setAttribute('style', 'padding: 12px 8px; background-color: white; color: black');
     });
     exportCSV.addEventListener('click', () => {
-      this.downloadCSV({filename: 'chart-data.csv'});
+      this.downloadCSV({filename: 'planning_table.xlsx'});
     });
 
     toolBar.lastChild.appendChild(exportCSV);
@@ -6472,7 +6645,7 @@ else{
     let csv = '';
 
     csv+='\n';
-    csv+="End Week "+this.createPlanRequestData.startWeek;
+    csv+="Start Week "+this.createPlanRequestData.startWeek;
     csv+='\n';
     csv+="End Week "+this.createPlanRequestData.endWeek;
     csv+='\n';
@@ -6578,7 +6751,15 @@ else{
      csv += '\n';
 
 
-
+     var actualslastyear1=[];
+     actualslastyear1.push("---");
+      for (const point of this.graphData) {
+        actualslastyear1.push("---");
+      }
+      actualslastyear1.push("---");
+ 
+     csv += actualslastyear1.join(',');
+     csv += '\n';
 
 
 
@@ -6623,7 +6804,7 @@ else{
     //   csv += '\n';
     // }
 
-    filename = args.filename || 'chart-data.csv';
+    filename = args.filename || 'planning_table.xlsx';
 
     if (!csv.match(/^data:text\/csv/i)) {
       csv = 'data:text/csv;charset=utf-8,' + csv;
@@ -6827,7 +7008,7 @@ else{
 
       if (week.comment) {
 
-        console.log("Suit-------"+week.comment);
+        console.log("Weeks comment -- "+week.comment);
         newPoint.comments = week.comment;
       }
 
