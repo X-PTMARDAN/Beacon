@@ -6319,7 +6319,7 @@ else{
               {
                 name: 'Actuals',
                 showInLegend: true,
-                visible: false,
+             
                 type: 'spline',
                color: this.actualDataPointColor,
                 lineColor: this.actualDataPointColor,
@@ -6347,6 +6347,7 @@ else{
               {
                 name: 'APO Forecast',
                 showInLegend: true,
+                visible: false,
                 type: 'line',
                 lineDashType: 'dash',
                color: this.aopDataPointColor,
