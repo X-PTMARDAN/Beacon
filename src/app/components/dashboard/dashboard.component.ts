@@ -310,7 +310,7 @@ this.filterService.getFilters({
   // this.prevactuals="2019-W11";
   //   this.createdata = {
   //     prevactuals:201911,
-  //   startWeek: 201940,
+  //   startWeek: 201942,
   //   endWeek: 202004,
   //   forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
   //   customerPlanningGroup: ['G01'],
@@ -633,7 +633,7 @@ this.filterService.getFilters({
     this.prevactuals="2019-W35";
       this.createdata = {
         prevactuals:201935,
-      startWeek: 201940,
+      startWeek: 201942,
       endWeek: 202004,
       forecastingGroups: [{"id":0,"name":"EVE GrapefCosm BOT 6X4X0_275","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
@@ -821,7 +821,7 @@ var index=0;
 //     this.prevactuals="2019-W11";
 //       this.createdata = {
 //         prevactuals:201911,
-//       startWeek: 201940,
+//       startWeek: 201942,
 //       endWeek: 202004,
 //       forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
 //       customerPlanningGroup: ['G01'],
@@ -1085,7 +1085,7 @@ var index=0;
     this.prevactuals="2019-W35";
       this.createdata = {
         prevactuals:201935,
-      startWeek: 201940,
+      startWeek: 201942,
       endWeek: 202004,
       forecastingGroups: [{"id":0,"name":"EVE GrapefCosm BOT 6X4X0_275","isFiltered":true,"isChecked":true}],
       customerPlanningGroup: ['G01'],
@@ -1300,7 +1300,7 @@ console.log("dfsdfsdfsdf----");
             },
             stripLines: [
               {
-                startValue: 201940,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -1661,7 +1661,7 @@ else if(feature =="Baseline" && this.granular1=="month"){
           },
           stripLines: [
             {
-              startValue: 201940,
+              startValue: 201942,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -1923,7 +1923,7 @@ else if(feature =="Baseline" && this.granular1=="month"){
           },
           stripLines: [
             {
-              startValue: 201940,
+              startValue: 201942,
               endValue: 201953,
               color: '#F2F3F5'
             },
@@ -2640,7 +2640,7 @@ this.loading=true;
     this.endWeek="2019-W52";
 
     this.createPlanRequestData = {
-      startWeek: 201940,
+      startWeek: 201942,
       endWeek: 201952,
       prevactuals:201901,
       forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -3791,7 +3791,7 @@ this.loading=true;
   //       },
   //       stripLines: [
   //         {
-  //           startValue: 201940,
+  //           startValue: 201942,
   //           endValue: 201953,
   //           color: '#F2F3F5'
   //         },
@@ -4186,7 +4186,7 @@ console.log("GRANUALLLL---"+this.granular1);
       this.endWeek="2019-W52";
 
       this.createPlanRequestData = {
-        startWeek: 201940,
+        startWeek: 201942,
         endWeek: 201952,
         prevactuals:201901,
         forecastingGroups:  this.fgssselected.map(item => item.name),
@@ -5350,7 +5350,7 @@ console.log("GRANUALLLL---"+this.granular1);
     //       },
     //       stripLines: [
     //         {
-    //           startValue: 201940,
+    //           startValue: 201942,
     //           endValue: 201953,
     //           color: '#F2F3F5'
     //         },
@@ -5619,12 +5619,12 @@ console.log("GRANUALLLL---"+this.granular1);
     
     console.log("THIS Prev--"+this.endWeek);
 
-    if(DashboardComponent.transformWeek(this.endWeek)<201940)
+    if(DashboardComponent.transformWeek(this.endWeek)<201942)
     {
        window.alert("Please choose end week correctly");
        return;
     }
-    if(DashboardComponent.transformWeek(this.prevactuals)>201940)
+    if(DashboardComponent.transformWeek(this.prevactuals)>201942)
     {
      window.alert("Please choose Actual week correctly");
      return;
@@ -7513,7 +7513,7 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-    data.startWeek=201940;
+    data.startWeek=201942;
     data.endWeek=this.createPlanRequestData.endWeek;
    // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -9486,7 +9486,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201940,
+        calendarWeek: 201942,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
@@ -9779,7 +9779,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 
 
-
+      this.second_sku=[];
     let selectedFilter;
     for (const filter of this.loadedFilters) {
       if (filter.isSelected) {
@@ -10149,7 +10149,7 @@ this.granular1='week';
     data.customerPlanningGroup = selectedFilter.cpg;
     data.plants = selectedFilter.plant;
 
-    data.startWeek=201940;
+    data.startWeek=201942;
     data.endWeek=202004;
 
     this.loading=true;
