@@ -1251,7 +1251,8 @@ console.log("dfsdfsdfsdf----");
     {
 
       this.createPlanRequestData.which_feature="Open";
-      this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
+   //   kjsfhksjhgsfhgdfsg
+      this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring="Open Order";
               this.processFeatureGraphData(res);
   
@@ -1339,7 +1340,7 @@ console.log("dfsdfsdfsdf----");
           data: [{
 
             name:'Open',
-            type: 'line',
+            type: 'column',
             showInLegend: true,
             gridColor: '#ffffff',
             labelFontColor: 'black',
@@ -3265,6 +3266,10 @@ this.loading=true;
         
       ]
       });
+
+
+      this.chart2.render();
+
       this.chart2.render();
       console.log('132456->' + this.createPlanRequestData.startWeek);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -4794,28 +4799,28 @@ console.log("GRANUALLLL---"+this.granular1);
          // },
   
           data: [
-            {
-            type: 'line',
-            gridColor: '#ffffff',
-            showInLegend: true,
-            labelFontColor: 'black',
-           color: '#000',
-            dataPoints: this.property
-          },
+          //   {
+          //   type: 'line',
+          //   gridColor: '#ffffff',
+          //   showInLegend: true,
+          //   labelFontColor: 'black',
+          //  color: '#000',
+          //   dataPoints: this.property
+          // },
+          // {
+          //   type: 'line',
+          //   gridColor: '#ffffff',
+          //   showInLegend: true,
+          //   labelFontColor: 'black',
+          //  color: '#000',
+          //   dataPoints: this.property2
+          // },
           {
-            type: 'line',
-            gridColor: '#ffffff',
+            name: 'Average ',
             showInLegend: true,
-            labelFontColor: 'black',
-           color: '#000',
-            dataPoints: this.property2
-          },
-          {
-            type: 'line',
-            gridColor: '#ffffff',
-            showInLegend: true,
-            labelFontColor: 'black',
-           color: '#000',
+            type: 'spline',
+           color: "#46a5b9",
+            lineColor: '#46a5b9',
             dataPoints: this.property3
           }
         
@@ -7470,6 +7475,11 @@ else{
        Brands Index 3
      */
 this.granular1='week';
+
+
+// this.granular1='te';dfdfdsfsdf
+
+this.secondgraph='Promo';
 
 console.log("Sfsgf34sg---"+JSON.stringify(this.createPlanRequestData));
 this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
