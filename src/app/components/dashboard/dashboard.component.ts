@@ -6621,7 +6621,7 @@ else{
   public down()
   {
     console.log("Fsgfsg");
-    this.downloadCSV({filename: 'planning_table.xlsx'});
+    this.downloadCSV({filename: 'planning_table.csv'});
   }
 
   // Download CSV Handlers
@@ -6646,7 +6646,7 @@ else{
       exportCSV.setAttribute('style', 'padding: 12px 8px; background-color: white; color: black');
     });
     exportCSV.addEventListener('click', () => {
-      this.downloadCSV({filename: 'planning_table.xlsx'});
+      this.downloadCSV({filename: 'planning_table.csv'});
     });
 
     toolBar.lastChild.appendChild(exportCSV);
@@ -6817,7 +6817,7 @@ else{
     //   csv += '\n';
     // }
 
-    filename = args.filename || 'planning_table.xlsx';
+    filename = args.filename || 'planning_table.csv';
 
     if (!csv.match(/^data:text\/csv/i)) {
       csv = 'data:text/csv;charset=utf-8,' + csv;
