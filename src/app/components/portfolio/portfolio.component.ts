@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 
 
 
+
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -27,6 +29,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   @ViewChild('commentFormModalBtn') commentFormModalBtn: ElementRef;
   // @ts-ignore
   @ViewChild('commentFormModalCancel') commentFormModalCancel: ElementRef;
+
+  @ViewChild('addsku', {static: false}) addsku: ElementRef;
+
+
+  @ViewChild('mapsku', {static: false}) mapsku: ElementRef;
 
   public events: any = [];
 
@@ -124,8 +131,10 @@ public table=false;
               console.log("Checking-----"+JSON.stringify(this.pipo));
               for(const abc of this.pipo)
               {
-                console.log("Test-32453----"+JSON.stringify(abc.material));
-                this.drop.push(abc.material);
+                var g=abc.material + "-" + abc.fgid;
+                console.log("121---"+g);
+        
+                this.drop.push(g);
               }
               console.log("Dfdfdfd---"+JSON.stringify(response));
           });
@@ -186,6 +195,7 @@ this.skuService.addSKU_pipo_final(a).subscribe((res: any) => {
 
 });
 
+this.addsku.nativeElement.click();
 
   //this.texthide=true;
 }
@@ -231,9 +241,9 @@ this.skuService.addSKU_pipo_final(a).subscribe((res: any) => {
 
 
 console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
-
+var sku=this.fromsku.split('-');
 var a={
-  fromid:this.fromsku,
+  fromid:sku[0],
 }
 
 console.log("CHEK000--"+JSON.stringify(a));
@@ -333,7 +343,10 @@ console.log("dsfheg---"+JSON.stringify(a));
         this.pipo=response;
         for(const abc of this.pipo)
         {
-          this.drop.push(abc.material);
+
+          var g=abc.material + "-" + abc.fgid;
+          console.log("121---"+g);
+          this.drop.push(g);
         }
         console.log("Dfdfdfd---"+JSON.stringify(this.drop));
     });
@@ -353,7 +366,9 @@ console.log("dsfheg---"+JSON.stringify(a));
         this.pipo=response;
         for(const abc of this.pipo)
         {
-          this.drop.push(abc.material);
+          var g=abc.material + "-" + abc.fgid;
+          console.log("121---"+g);
+          this.drop.push(g);
         }
         console.log("Dfdfdfd---"+JSON.stringify(this.drop));
     });
@@ -374,7 +389,7 @@ console.log("dsfheg---"+JSON.stringify(a));
       
 
 
-
+    this.mapsku.nativeElement.click();
 
 
     // });
@@ -470,7 +485,9 @@ this.skuService.savePIPOsku(data).subscribe((res: any) => {
     this.pipo=response1;
     for(const abc of this.pipo)
     {
-      this.drop.push(abc.material);
+      var g=abc.material + "-" + abc.fgid;
+      console.log("121---"+g);
+      this.drop.push(g);
     }
     console.log("Dfdfdfd---"+JSON.stringify(this.drop));
   });
