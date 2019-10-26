@@ -448,14 +448,16 @@
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" id="planningtable" [(ngModel)]="planningtable" >Planning table (HL)</p>
-        
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Sum - </p><p class="font-weight-bold" [(ngModel)]="sumselected" ></p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Average - </p><p [(ngModel)]="averageselected" ></p>
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
           </div>
  
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -495,7 +497,6 @@
                 <th class="font-weight-bold">
                   <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
                   <p class="m-0 week-block" > FVA</p>
-
                 </th>
               </tr>
               <tr (click)="putValueInFinal('ML')" class="ml-text">
@@ -908,11 +909,14 @@
         <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
           <div class="d-flex justify-content-between pt-1 pr-1" >
             <p class="font-weight-bold ml-2 pt-2">Comments</p>
-   
+
+
+
+             <input placeholder="Search Comments" [(ngModel)]="searchText1" style="height: 80%;padding:7px;margin-left:25px;" type="text">
 
               <!-- <span class="input-group-text" style="float: right !important;margin-right:2px"><i (click)="hide_all_comments()" class="fa fa-clone"></i></span> -->
 
-              <span class="input-group-text" style="float: right!important;margin-left: 60%;height: 50%;" ><i (click)="hide_all_comments()" class="fa fa-low-vision"></i></span>
+              <span class="input-group-text" style="float: right!important;margin-left: 40%;height: 50%;" ><i (click)="hide_all_comments()" class="fa fa-low-vision"></i></span>
 
 
               <select name="plant" #t4 class="minimal form-control" [(ngModel)]='dropdown_table' id="checking" (change)="changecomment(t4.value)" style="float: right!important;width: 20%;margin-right: 15px;">
@@ -937,14 +941,16 @@
             </table>
 
 
-          <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let fi of allCommentshtml; let i=index" >
+          <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
+            <ng-container *ngFor="let g of allComments | filt : getCallback_comm() ;let i=index ">
             <tr style="background-color: #fff">
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">  <p class="m-0" style="font-size:0.75rem">{{ fi.week }}</p></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0" style="font-size:0.75rem">{{ fi.comment }}</p></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0" style="font-size:0.75rem">{{ fi.SKU }}</p></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{ fi.plant }}</p></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{ fi.cpg }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">  <p class="m-0" style="font-size:0.75rem">{{g.name.split('|')[1]}}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0" style="font-size:0.75rem">{{g.name.split('|')[2]}}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p></td> 
             </tr>
+          </ng-container>
         
           </table>
         </div>
@@ -1114,7 +1120,8 @@
 
        
 <br>
-          <ng-container *ngFor="let filter of filters_plant; let filterIndex=index">
+
+          <ng-container *ngFor="let filter of filters_plant  ;let filterIndex=index">
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" [id]="filter.key">
                   <span class="panel-title" class="mt-3 font-weight-bold" style="color: #000">
@@ -1129,12 +1136,19 @@
                   </span>
                 </div>
                 <a class="text-muted float-right" href="javascript:void(0);" (click)="selectAllplant()">Select/Deselect all plants</a> 
+             
+
+     
                   <br>
                 <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
                      [attr.aria-labelledby]="filter.key">
+
+
                   <div class="panel-body" style="height: 100px; overflow: auto;background: #fff;">
+
                     <ul class="m-0" style="padding-inline-start: 15px;">
-                      <li class="d-flex" *ngFor="let value of filter.values;">
+                      <input type="text" class="form-control" [(ngModel)]="searchText34"  name="search Plant" placeholder="Search Plant">
+                      <li class="d-flex" *ngFor="let value of filter.values | filter : getCallback() ;let i=index ">
                         <div>
                           <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                                (change)="reactivate_filter(1)" >
@@ -1178,6 +1192,7 @@
                    [attr.aria-labelledby]="filter.key">
                 <div class="panel-body" style="height: 100px; overflow: auto;background: #fff;">
                   <ul class="m-0" style="padding-inline-start: 15px;">
+                    <input type="text" class="form-control" [(ngModel)]="searchText345"  name="search Plant" placeholder="Search Plant">
                     <li class="d-flex" *ngFor="let value of filter.values;">
                       <div>
                         <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
@@ -1197,6 +1212,9 @@
 
  <div>
             <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }}/{{skus.length + second_sku.length}}</span>
+
+            <input type="file" (change)="changeListener($event.target.files)">
+
             <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select/Deselect all FG</a> 
           </div>
        <br>

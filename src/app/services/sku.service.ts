@@ -450,9 +450,29 @@ export class SKUService {
   }
 
 
+  // public getCommnents(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}allcomments`, data);
+  // }
+
+
+
+
+
   public getCommnents(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}allcomments`, data);
+    return this.http.post(`${this.apiGatewayUrl}allcomments`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: true,
+            isChecked: true,
+          };
+        });
+      })
+    );
   }
+
 
 
   public getFeatureGraphData(data = {}) {

@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public createPlanRequestData_temp: any;
 
-
+   public inter :any;
   public reactivate_filter_button=0;
 
 
@@ -67,7 +67,7 @@ public edit_comment;
   public selectedWeekIndex: number;
   public currentWeek: number;
 
-
+public searchText1;
   public dropdown_table='allweek';
   
 
@@ -601,6 +601,12 @@ this.filterService.getFilters({
       //  this.plants = response;
       console.log("767868675-"+JSON.stringify(res));
         this.skus_search=res;
+
+        this.skus_search.push({
+          isChecked:true,
+          isFiltered:true,
+          name:"Testing"
+        })
       });
   
      
@@ -1053,6 +1059,18 @@ var index=0;
     //  this.plants = response;
     console.log("767868675-"+JSON.stringify(res));
       this.skus_search=res;
+      
+      this.skus_search.push({
+        isChecked:true,
+        isFiltered:true,
+        name:"Testing"
+      })
+
+
+
+
+
+
     });
 
 
@@ -2341,7 +2359,7 @@ if(this.reactivate_filter_button==1)
       prevactuals:this.createPlanRequestData.prevactuals,
      // forecastingGroups: data.forecastingGroups,
      forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
-      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
       plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
     };
     //this.test();
@@ -2644,7 +2662,7 @@ this.loading=true;
       endWeek: 201952,
       prevactuals:201901,
       forecastingGroups:  this.fgssselected.map(item => item.name),
-      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
       plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
     };
     //this.test();
@@ -3037,7 +3055,7 @@ this.loading=true;
       endWeek: this.createPlanRequestData.endWeek,
       prevactuals:this.createPlanRequestData.prevactuals,
       forecastingGroups: this.fgssselected.map(item => item.name),
-      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
       plants:this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
     };
     //this.test();
@@ -3434,7 +3452,7 @@ this.loading=true;
     endWeek: this.createPlanRequestData.endWeek,
     prevactuals: this.createPlanRequestData.prevactuals,
     forecastingGroups: this.fgssselected.map(item => item.name),
-    customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+    customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
     plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
   };
 
@@ -3876,7 +3894,7 @@ console.log("GRANUALLLL---"+this.granular1);
         prevactuals:this.createPlanRequestData.prevactuals,
        // forecastingGroups: data.forecastingGroups,
        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
-        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)
       };
       //this.test();
@@ -4190,7 +4208,7 @@ console.log("GRANUALLLL---"+this.granular1);
         endWeek: 201952,
         prevactuals:201901,
         forecastingGroups:  this.fgssselected.map(item => item.name),
-        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
       };
       //this.test();
@@ -4581,7 +4599,7 @@ console.log("GRANUALLLL---"+this.granular1);
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals:this.createPlanRequestData.prevactuals,
         forecastingGroups: this.fgssselected.map(item => item.name),
-        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
         plants:this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
       };
       //this.test();
@@ -5730,6 +5748,8 @@ else{
             page: null,
             reset: true,
           });
+
+          console.log("CHCHHCHCHC-----"+JSON.stringify(res));
           this.loading=false;
           this.greystart=res.start;
           this.createPlanRequestData.brands = res.req.brands;
@@ -6105,9 +6125,18 @@ else{
             page: null,
             reset: true,
           });
+
+          if(res.res.length==0)
+          {
+            console.log("CHCHHCHCHC-----"+JSON.stringify(res.res));
+            window.alert("No Combination is available");
+            this.loading=false;
+            return;
+          }
           
           this.createPlanRequestData.brands = res.req.brands;
           this.greystart=res.start;
+          this.inter=(res.res.length/10);
           console.log("GREYSTART--"+this.greystart);
           this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
           this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -6158,6 +6187,7 @@ else{
             axisX: {
               valueFormatString: '######',
               gridColor: '#ffffff',
+              interval: this.inter,
               theme: "light2",
               scaleBreaks: {
                 type: 'blank',
@@ -6259,6 +6289,7 @@ else{
             axisX: {
               valueFormatString: '######',
               gridColor: '#ffffff',
+              interval: this.inter,
               scaleBreaks: {
                 type: 'blank',
                 spacing: 0,
@@ -6397,23 +6428,78 @@ else{
   
     });
 
-    this.skuService.getCommnents().subscribe((res: any) => {
-      this.allComments=res;
-      console.log("JJ----"+JSON.stringify(this.allComments));
-      for(const g of this.allComments)
+    // this.skuService.getCommnents().subscribe((res: any) => {
+
+    //   console.log("Ffgfgfg----");
+
+    
+
+
+
+
+
+
+        this.skuService.getCommnents().subscribe((res: any) => {
+
+          console.log("$5454");
+          // this.editCommentModalBtnCancel.nativeElement.click();
+          // this.allComments = res.map((item) => {
+          //   item.isSelected = false;
+          //   item.isFiltered=false;
+          //   return item;
+          // });
+
+          this.allComments=res;
+
+
+          console.log("DFdfdf-----"+JSON.stringify(this.allComments));
+
+                for(const g of this.allComments)
       {
         //this.comm1==g.split('|');
-        this.allCommentshtml.push({
-           comment:g.split('|')[0],
-           week:g.split('|')[1],
-           SKU:g.split('|')[2],
-           plant:g.split('|')[3],
-           cpg:g.split('|')[4],
-        });
+        this.allCommentshtml.push(g.name);
       }
-      console.log("JJ2345----"+JSON.stringify(this.allCommentshtml));
+     
+         }, (error) => {
+
+          // this.allComments = res.map((item) => {
+          //   item.isSelected = false;
+          //   item.isFiltered=false;
+          //   return item;
+          // });
+          // console.log("fgfgfgfg-----"+this.allComments);
+         });
+
+
+
+        console.log("fgfgfgfg-----"+this.allComments);
+
+     // this.allComments=res;
+    
+
+// console.log("Fgfgfdgf--------");
+
+//       // this.allComments = this.allComments.map((item) => {
+//       //   item.isFiltered = true;
+//       //   item.isSelected=true;
+//       //   return item;
+//       // });
+
+//       console.log("JJ2345678----"+JSON.stringify(this.allComments));
+//       for(const g of this.allComments)
+//       {
+//         //this.comm1==g.split('|');
+//         this.allCommentshtml.push({
+//            comment:g.split('|')[0],
+//            week:g.split('|')[1],
+//            SKU:g.split('|')[2],
+//            plant:g.split('|')[3],
+//            cpg:g.split('|')[4],
+//         });
+//       }
+//       console.log("JJ2345----"+JSON.stringify(this.allCommentshtml));
       
-    });
+//     });
 
 
 
@@ -6916,7 +7002,7 @@ else{
         newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2));
         this.mlDataPoints.push({
 
-          x: key,
+          x:key,
           y: newPoint.ml,
           color: this.mlDataPointColor,
           click: this.dataPointClick.bind(this),
@@ -6939,7 +7025,7 @@ else{
 
         //   newPoint.finalForecast = newPoint.initialFinalForecast;
         this.finalForecastDataPoints.push({
-          x: key,
+          x:key,
           y: newPoint.finalForecast,
           color: this.finalForecastPointColor,
           click: this.dataPointClick.bind(this),
@@ -6951,7 +7037,7 @@ else{
       if (week.actuals !== undefined) {
         newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(2));
         this.actualDataPoints.push({
-          x: key,
+          x:key,
           y: newPoint.actuals,
           color: this.actualDataPointColor,
           click: this.dataPointClick.bind(this),
@@ -6997,7 +7083,7 @@ else{
       if (week.apo !== undefined) {
         newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
         this.aopDataPoints.push({
-          x: key,
+          x:key,
           y: newPoint.apo,
           color: this.aopDataPointColor,
           click: this.dataPointClick.bind(this),
@@ -7009,7 +7095,7 @@ else{
       if (week.actualslastyear !== undefined) {
         newPoint.actualslastyear = DashboardComponent.parseStringToFloat(week.actualslastyear);
         this.lastYearDataPoints.push({
-          x: key,
+          x:key,
           y: newPoint.actualslastyear,
           color: this.lastyearDataPointColor,
           click: this.dataPointClick.bind(this),
@@ -7125,7 +7211,7 @@ else{
       // if (week.apo !== undefined) {
       //   newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
       //   this.aopDataPoints.push({
-      //     x: key,
+      //     x:key,
       //     y: newPoint.apo,
       //     color: this.aopDataPointColor,
       //     click: this.dataPointClick.bind(this),
@@ -7228,7 +7314,7 @@ else{
       // if (week.apo !== undefined) {
       //   newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
       //   this.aopDataPoints.push({
-      //     x: key,
+      //     x:key,
       //     y: newPoint.apo,
       //     color: this.aopDataPointColor,
       //     click: this.dataPointClick.bind(this),
@@ -7331,7 +7417,7 @@ else{
       // if (week.apo !== undefined) {
       //   newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
       //   this.aopDataPoints.push({
-      //     x: key,
+      //     x:key,
       //     y: newPoint.apo,
       //     color: this.aopDataPointColor,
       //     click: this.dataPointClick.bind(this),
@@ -7455,6 +7541,8 @@ else{
 
   // Filter SKU Handlers
   public getCallback() {
+
+   //console.log("yrgthyght---"+JSON.stringify(this));
     return this.filterSKUs.bind(this);
   }
 
@@ -7463,6 +7551,81 @@ else{
       return true;
     }
     const regex = new RegExp(this.searchText && this.searchText.trim(), 'ig');
+    console.log("Checking--"+JSON.stringify(sku));
+
+    console.log("wuhfur---"+JSON.stringify(regex));
+    return regex.test(sku);
+  }
+
+
+
+
+
+  public getCallback_comm() {
+    console.log("DFdf");
+
+    console.log("uiferfgeytg---"+this.filterSKUs_comm.bind(this));
+    return this.filterSKUs_comm.bind(this);
+  }
+
+
+  public changeListener(files: FileList){
+    console.log(files);
+    if(files && files.length > 0) {
+       let file : File = files.item(0); 
+         console.log(file.name);
+         console.log(file.size);
+         console.log(file.type);
+         let reader: FileReader = new FileReader();
+         reader.readAsText(file);
+         reader.onload = (e) => {
+            let csv: string = reader.result as string;
+            console.log("harshit---"+csv);
+            console.log("harshit1212----"+csv.split('\n').length);
+            var g=csv.split('\n');
+            console.log("popop---"+g);
+            var g=csv.split('\n').splice(1);
+            console.log("popop121---"+g);
+            var g1=[];
+
+
+
+            for(const ab of csv.split('\n').splice(1))
+            {
+              if(ab==='Forecasting Group' || ab=='Forecasting Group')
+              {
+                 
+              }
+              else{
+              this.second_sku=[];
+              this.skus=[];
+              console.log("SFsgfg---"+ab);
+              g1.push(ab);
+              
+              }
+                //this.skus
+            }
+            this.reactivate_filter(1);
+            this.skus = g1.map(item => {
+              return {
+                name: item,
+                isChecked: true
+              };
+            });
+            console.log("harshit1212----"+csv.split('\n')[1]);
+         }
+      }
+  }
+
+
+  public filterSKUs_comm(sku: string) {
+    if (!this.searchText1 || !this.searchText1.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.searchText1 && this.searchText1.trim(), 'ig');
+    console.log("Checking--"+JSON.stringify(sku));
+
+    console.log("wuhfur---"+JSON.stringify(regex));
     return regex.test(sku);
   }
 
@@ -7482,7 +7645,7 @@ this.granular1='week';
 this.secondgraph='Promo';
 
 console.log("Sfsgf34sg---"+JSON.stringify(this.createPlanRequestData));
-this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
+this.cpgss=this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]);
 this.plantss=this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
 var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
@@ -7510,7 +7673,7 @@ console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
      console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)));
  //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
  data.forecastingGroups=JSON.parse(JSON.stringify(this.fgssselected));
-    data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name);
+    data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
     data.startWeek=201942;
@@ -9197,7 +9360,7 @@ var r=this.how(s);
       console.log('DEBUG1->' + value);
 
       const reqBody = {
-        cpg:this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        cpg:this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
         plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
         
       sku: this.fgssselected.map(item => item.name),
@@ -9478,7 +9641,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
           calendarWeek: data.calenderYearWeek,
           sku: JSON.parse(JSON.stringify(this.fgssselected)),
           user: 'admin',
-          cpg:this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+          cpg:this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
           plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
         };
         reqBody.data.push(Object.assign(obj, commentsObj));
@@ -9489,7 +9652,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
         calendarWeek: 201942,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
-        cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0]),
         plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
       };
       reqBody.data.push(Object.assign(obj, null));
@@ -9578,7 +9741,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])),
       sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     }
 
@@ -9588,7 +9751,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])),
       sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     };
 
@@ -9596,7 +9759,7 @@ this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
     //   user: 'admin',
     //   filterName,
     //   plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-    //   cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+    //   cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])),
     //   sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     // }).subscribe((res: any) => {
     //   console.log('SUBSCRIBE');
@@ -10144,7 +10307,7 @@ this.granular1='week';
 //this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name);
 
 
-    // console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)));
+    // console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])));
     data.forecastingGroups = selectedFilter.sku;
     data.customerPlanningGroup = selectedFilter.cpg;
     data.plants = selectedFilter.plant;
