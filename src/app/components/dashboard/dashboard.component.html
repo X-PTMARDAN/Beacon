@@ -1080,15 +1080,20 @@
               <div class="panel-body" style="height: 100px; overflow: auto;background: #fff;">
 
                 <ul class="m-0" style="padding-inline-start: 15px;">
-                  <input type="text" class="form-control" [(ngModel)]="searchText34" name="search Plant"
+                  <input type="text" class="form-control" [(ngModel)]="commentSearchText" name="commentSearchText" 
                          placeholder="Search Plant">
-                  <li class="d-flex" *ngFor="let value of filter.values | filter : getCallback() ;let i=index ">
+             <ng-container *ngFor="let value of filter.values | filter_comment : getCallback_comm() ;let i=index ">
+
+                  <li class="d-flex" >
+
+                    
                     <div>
                       <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                              (change)="reactivate_filter(1)">
                     </div>
                     <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
                   </li>
+                  </ng-container>
                 </ul>
               </div>
             </div>

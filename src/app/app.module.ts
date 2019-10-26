@@ -24,6 +24,8 @@ import {FilterPipe} from './pipe/filter.pipe';
 
 import {SearchPipe} from './pipe/search.pipe';
 
+import {PlantPipe} from './pipe/plant.pipe';
+
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { LoginComponent } from './components/login/login.component';
 
@@ -42,6 +44,7 @@ import { ComingsoonComponent } from './components/comingsoon/comingsoon.componen
     PhaseComponent,
     FilterPipe,
     SearchPipe,
+    PlantPipe,
     PropercasePipe,
     WizardComponent,
     SidebarComponent,

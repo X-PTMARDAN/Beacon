@@ -1,3 +1,4 @@
+
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as CanvasJS from './../../../assets/js/canvasjs.min';
 import {SKUService} from '../../services/sku.service';
@@ -55,6 +56,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public selectallcpg = 0;
 
+
+  public searchplant;
   public selecteddblclick;
 
   public granular1 = 'week';
@@ -6889,6 +6892,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.filterSKUs_comm.bind(this);
   }
 
+
+  public getCallback_plant() {
+    return this.filterSKUs_plant.bind(this);
+  }
+
   public changeListener(files: FileList) {
     console.log(files);
     if (files && files.length > 0) {
@@ -6938,6 +6946,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       return true;
     }
     const regex = new RegExp(this.commentSearchText && this.commentSearchText.trim(), 'ig');
+    return regex.test(skuComment);
+  }
+
+
+
+  public filterSKUs_plant(skuComment: string) {
+    if (!this.searchplant || !this.searchplant.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.searchplant && this.searchplant.trim(), 'ig');
     return regex.test(skuComment);
   }
 

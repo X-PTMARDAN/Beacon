@@ -1,9 +1,9 @@
 import {PipeTransform, Pipe} from '@angular/core';
 
 @Pipe({
-  name: 'filter_comment',
+  name: 'filter_plant',
 })
-export class SearchPipe implements PipeTransform {
+export class PlantPipe implements PipeTransform {
   transform(items: any[], callback: (item: any) => boolean): any {
     if (!items || !callback) {
       return items;
