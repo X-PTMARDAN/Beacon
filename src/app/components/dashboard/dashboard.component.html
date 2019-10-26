@@ -1080,9 +1080,9 @@
               <div class="panel-body" style="height: 100px; overflow: auto;background: #fff;">
 
                 <ul class="m-0" style="padding-inline-start: 15px;">
-                  <input type="text" class="form-control" [(ngModel)]="commentSearchText" name="commentSearchText" 
+                  <input type="text" class="form-control" [(ngModel)]="searchplant" name="searchplant" 
                          placeholder="Search Plant">
-             <ng-container *ngFor="let value of filter.values | filter_comment : getCallback_comm() ;let i=index ">
+             <ng-container *ngFor="let value of filter.values | filter_plant : getCallback_plant() ;let i=index ">
 
                   <li class="d-flex" >
 

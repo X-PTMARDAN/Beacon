@@ -81,6 +81,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public pressed = false;
 
+
+  public searchcpg;
+
   public UOM = 'HL';
   public loading = false;
   // Filters
@@ -6897,6 +6900,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.filterSKUs_plant.bind(this);
   }
 
+
+  public getCallback_cpg() {
+    return this.filterSKUs_cpg.bind(this);
+  }
+
+
+
   public changeListener(files: FileList) {
     console.log(files);
     if (files && files.length > 0) {
@@ -6939,6 +6949,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         console.log('harshit1212----' + csv.split('\n')[1]);
       };
     }
+  }
+
+
+  public filterSKUs_cpg(skuComment: string) {
+    if (!this.searchcpg || !this.searchcpg.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.searchcpg && this.searchcpg.trim(), 'ig');
+    return regex.test(skuComment);
   }
 
   public filterSKUs_comm(skuComment: string) {
