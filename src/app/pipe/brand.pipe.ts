@@ -3,7 +3,7 @@ import {PipeTransform, Pipe} from '@angular/core';
 @Pipe({
   name: 'filter_brand',
 })
-export class CPGPipe implements PipeTransform {
+export class BrandPipe implements PipeTransform {
   transform(items: any[], callback: (item: any) => boolean): any {
     if (!items || !callback) {
       return items;
