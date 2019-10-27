@@ -21,6 +21,13 @@ import {CreatePlanComponent} from './components/create-plan/create-plan.componen
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FilterPipe} from './pipe/filter.pipe';
+
+import {SearchPipe} from './pipe/search.pipe';
+
+import {PlantPipe} from './pipe/plant.pipe';
+
+import {CPGPipe} from './pipe/cpg.pipe';
+
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { LoginComponent } from './components/login/login.component';
 
@@ -38,6 +45,9 @@ import { ComingsoonComponent } from './components/comingsoon/comingsoon.componen
     PortfolioComponent,
     PhaseComponent,
     FilterPipe,
+    SearchPipe,
+    PlantPipe,
+    CPGPipe,
     PropercasePipe,
     WizardComponent,
     SidebarComponent,

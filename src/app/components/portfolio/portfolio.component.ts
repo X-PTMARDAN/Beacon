@@ -32,10 +32,21 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   @ViewChild('addsku', {static: false}) addsku: ElementRef;
 
+  @ViewChild('gantchart_open', {static: false}) gantchart_open: ElementRef;
+
+
+  
 
   @ViewChild('mapsku', {static: false}) mapsku: ElementRef;
 
   public events: any = [];
+
+  public date;
+
+
+  public newsku=false;
+
+  public abc12='fshjg';
 
   public pipo: any =[];
 
@@ -59,7 +70,7 @@ public drop2;
 
   public phase_third =false;
 
-  public newsku=true;
+  public newsku12=false;
 
 public pipo_map=false;
 public sku_map=true;
@@ -182,8 +193,8 @@ public addingSKU()
 
 console.log("Fsfsfss----"+JSON.stringify(this.pipo));
 
-
-
+this.newsku12=true;
+document.getElementById('newsku123').style.display='block';
 
 this.skuService.addSKU_pipo_final(a).subscribe((res: any) => {
     
@@ -435,15 +446,18 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
   public edit(num: number)
   {
+
+
       var a=this.pipo[num];
       console.log("SDFsfs---"+JSON.stringify(a));
 
       this.skuname=a.material;
       this.materialid=a.sku;
+
+      document.getElementById('newsku123').style.display='none';
   }
 public apply()
 {
-  
   
 console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 
@@ -452,8 +466,11 @@ console.log("Dfsfgfsg2---"+JSON.stringify(this.logic));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek.substr(0,4)));
 var state;
-var date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
-console.log("34354ythrgbfd---"+date);
+ this.date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
+
+//this.final=201952;
+
+console.log("34354ythrgbfd---"+this.date);
 if(this.logic=='delist')
 {
    state="Delist";
@@ -462,10 +479,10 @@ else {
   state ="Transistion";
 }
 var data={
-  fromid:this.fromsku,
+  fromid:this.fromsku.split("-")[0],
   toid:this.tosku,
   state:state,
-  fromweek:date
+  fromweek:this.date
 }
 
 console.log("CHEK000--"+JSON.stringify(data));
@@ -476,6 +493,29 @@ console.log("CHEK000--"+JSON.stringify(data));
 
 this.skuService.savePIPOsku(data).subscribe((res: any) => {
   //this.editCommentModalBtnCancel.nativeElement.click();
+
+  console.log("Check--------");
+  this.skuService.getPIPO().subscribe((response1: any) => {    
+    this.pipo=response1;
+    for(const abc of this.pipo)
+    {
+      var g=abc.material + "-" + abc.fgid;
+      console.log("121---"+g);
+      this.drop.push(g);
+    }
+    console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+  });
+
+
+this.skuService.getPIPOMapping().subscribe((response2: any) => {  
+  this.pipoMapping=response2;
+  this.fromsku='';
+  this.tosku='';
+  this.logic=''
+  this.startweek='';
+  console.log("DFdf---");
+  window.alert("Done!");
+});
 
 }, (error) => {
 

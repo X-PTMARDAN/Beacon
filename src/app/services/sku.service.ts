@@ -337,6 +337,12 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
   }
 
+  public getGraphData_L(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_L`, data);
+  }
+
+
+  
 
 
   public getGraphData_week_uom(data = {}) {
@@ -450,9 +456,29 @@ export class SKUService {
   }
 
 
+  // public getCommnents(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}allcomments`, data);
+  // }
+
+
+
+
+
   public getCommnents(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}allcomments`, data);
+    return this.http.post(`${this.apiGatewayUrl}allcomments`, data).pipe(
+      map((items: any) => {
+        return items.map((item, index) => {
+          return {
+            id: index,
+            name: item,
+            isFiltered: true,
+            isChecked: true,
+          };
+        });
+      })
+    );
   }
+
 
 
   public getFeatureGraphData(data = {}) {
