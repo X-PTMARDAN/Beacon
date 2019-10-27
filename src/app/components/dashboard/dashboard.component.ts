@@ -46,13 +46,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData: any;
 
 
+  public avgselected=0;
+
   public createPlanRequestData_temp: any;
 
   public inter: any;
   public reactivate_filter_button = 0;
 
-
+public up=0;
   public greystart;
+
+
+  public brandstext;
 
   public selectallcpg = 0;
 
@@ -78,6 +83,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public selectallskus = 0;
   public skus_search = [];
+
+  public sumselected=0;
 
   public pressed = false;
 
@@ -137,6 +144,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public weeks = [];
 
   public filters1 = [];
+
+  public filters1_brands = [];
 
   public filters_plant = [];
 
@@ -458,7 +467,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
       this.skuService.getBrands().subscribe((response: any) => {
 
-        this.filters1.push({
+        this.filters1_brands.push({
           name: 'Brands',
           key: 'brands',
           isExpanded: false,
@@ -4990,6 +4999,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.filters1[3].isExpanded = false;
     this.filters1[4].isExpanded = false;
     this.filters1[5].isExpanded = false;
+
+    this.filters1_brands[0].isExpanded = false;
     // this.filters1[7].isExpanded=false;
     //this.filters1[6].isExpanded=false;
 
@@ -6883,6 +6894,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.filterSKUs.bind(this);
   }
 
+  public getCallback_brands() {
+    return this.filterSKUs_brands.bind(this);
+  }
+
+
+  public filterSKUs_brands(sku: string) {
+    if (!this.brandstext || !this.brandstext.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.brandstext && this.brandstext.trim(), 'ig');
+    return regex.test(sku);
+  }
+
   public filterSKUs(sku: string) {
     if (!this.searchText || !this.searchText.trim()) {
       return true;
@@ -6946,9 +6970,172 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             isChecked: true
           };
         });
+        this.fgssselected=JSON.parse(JSON.stringify(this.skus));
+
         console.log('harshit1212----' + csv.split('\n')[1]);
       };
     }
+  }
+
+
+
+  public start_drag()
+  {
+    console.log("Start Drag--");
+    this.sumselected=0;
+    this.avgselected=0;
+    this.up=1;
+  }
+
+  public end_drag()
+  {
+    console.log("End Drag--");
+    this.up=0;
+  }
+
+  
+
+  public addvalues(cell : any)
+  {
+    if(this.up==1){
+    console.log("Cell----"+cell);
+    var num1=this.graphData[cell].ml;
+  //  console.log("Graph----"+JSON.stringify(this.graphData));
+  this.avgselected= (this.sumselected+num1)/2;
+    this.sumselected=this.sumselected+num1;
+
+
+    this.avgselected=parseFloat((this.avgselected).toFixed(2));
+    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+   // (this.avgselected).toFixed(2);
+    //this.avgselected=
+console.log("Checkiiigg--"+this.sumselected)
+  //  this.sumselected=this.fetch_values.bind(this);
+
+  }
+}
+
+
+public addvalues_actuals(cell : any)
+  {
+    if(this.up==1){
+    console.log("Cell----"+cell);
+    var num1=this.graphData[cell].actuals;
+  //  console.log("Graph----"+JSON.stringify(this.graphData));
+  this.avgselected= (this.sumselected+num1)/2;
+    this.sumselected=this.sumselected+num1;
+
+
+    this.avgselected=parseFloat((this.avgselected).toFixed(2));
+    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+   // (this.avgselected).toFixed(2);
+    //this.avgselected=
+console.log("Checkiiigg--"+this.sumselected)
+  //  this.sumselected=this.fetch_values.bind(this);
+
+  }
+}
+
+
+
+public addvalues_harshit(cell : any)
+  {
+    if(this.up==1){
+    console.log("Cell----"+cell);
+    var num1=this.graphData[cell].harshit;
+  //  console.log("Graph----"+JSON.stringify(this.graphData));
+  this.avgselected= (this.sumselected+num1)/2;
+    this.sumselected=this.sumselected+num1;
+
+
+    this.avgselected=parseFloat((this.avgselected).toFixed(2));
+    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+   // (this.avgselected).toFixed(2);
+    //this.avgselected=
+console.log("Checkiiigg--"+this.sumselected)
+  //  this.sumselected=this.fetch_values.bind(this);
+
+  }
+}
+
+public addvalues_actualslastyear(cell : any)
+  {
+    if(this.up==1){
+    console.log("Cell----"+cell);
+    var num1=this.graphData[cell].actualslastyear;
+  //  console.log("Graph----"+JSON.stringify(this.graphData));
+  this.avgselected= (this.sumselected+num1)/2;
+    this.sumselected=this.sumselected+num1;
+
+
+    this.avgselected=parseFloat((this.avgselected).toFixed(2));
+    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+   // (this.avgselected).toFixed(2);
+    //this.avgselected=
+console.log("Checkiiigg--"+this.sumselected)
+  //  this.sumselected=this.fetch_values.bind(this);
+
+  }
+}
+
+
+
+
+
+
+
+public addvalues_apo(cell : any)
+  {
+    if(this.up==1){
+    console.log("Cell----"+cell);
+    console.log("Graph----"+JSON.stringify(this.graphData));
+    var num1=this.graphData[cell].apo;
+ 
+  this.avgselected= (this.sumselected+num1)/2;
+    this.sumselected=this.sumselected+num1;
+
+
+    this.avgselected=parseFloat((this.avgselected).toFixed(2));
+    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+   // (this.avgselected).toFixed(2);
+    //this.avgselected=
+console.log("Checkiiigg--"+this.sumselected)
+  //  this.sumselected=this.fetch_values.bind(this);
+
+  }
+}
+
+
+
+public addvalues_finaldforecast(cell : any)
+{
+  if(this.up==1){
+  console.log("Cell----"+cell);
+  var num1=this.graphData[cell].ml;
+//  console.log("Graph----"+JSON.stringify(this.graphData));
+this.avgselected= (this.sumselected+num1)/2;
+  this.sumselected=this.sumselected+num1;
+
+
+  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+  this.sumselected=parseFloat((this.sumselected).toFixed(2));
+ // (this.avgselected).toFixed(2);
+  //this.avgselected=
+console.log("Checkiiigg--"+this.sumselected)
+//  this.sumselected=this.fetch_values.bind(this);
+
+}
+}
+
+
+  public fetch_values(num)
+  {
+    console.log("FetchValues_num--"+num);
+    var num1=this.graphData.ml[num];
+    console.log("num1 values--"+num1);
+      this.sumselected=this.sumselected+num1;
+
+      console.log("Final Selection--"+num1);
   }
 
 
@@ -7610,6 +7797,28 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
 
+
+    for (const brand of this.filters1_brands) {
+
+      if (brand.key == 'brands') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            console.log('JKNFBJHBFHJBHJFBVHFF');
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('brands').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('brands').style.background = '#05d7be';
+        }
+      } 
+
+    }
+
+
     return {
       brands: brands,
       alcoholper: AlcoholPercentage,
@@ -7705,6 +7914,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     }
 
+    
+    for (const brand of this.filters1_brands) {
+
+
+      if (brand.key == 'brands') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            brands.push(aa.name);
+          }
+        }
+      } 
+    }
 
     return {
       brands: brands,
@@ -7765,6 +7986,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     }
+
+
+
 
 
     return {
@@ -9158,6 +9382,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     }
+
+
+
+    for (const brand of this.filters1_brands) {
+
+      if (brand.key == 'brands') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            aa.isChecked = false;
+          }
+        }
+        document.getElementById('brands').style.background = '#f4f5f9';
+
+      }
+
+    }
+
+
+    
 
 
     selectedFilter.isSelected = false;

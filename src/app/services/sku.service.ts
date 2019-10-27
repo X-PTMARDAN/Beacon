@@ -337,6 +337,12 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable`, data);
   }
 
+  public getGraphData_L(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_L`, data);
+  }
+
+
+  
 
 
   public getGraphData_week_uom(data = {}) {
