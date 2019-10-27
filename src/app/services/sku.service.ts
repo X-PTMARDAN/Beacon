@@ -342,6 +342,14 @@ export class SKUService {
   }
 
 
+  public getGraphData_L_month(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_L_month`, data);
+  }
+
+
+
+  
+
   
 
 
