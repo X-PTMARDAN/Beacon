@@ -28,6 +28,8 @@ import {PlantPipe} from './pipe/plant.pipe';
 
 import {CPGPipe} from './pipe/cpg.pipe';
 
+import {BrandPipe} from './pipe/brand.pipe';
+
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { LoginComponent } from './components/login/login.component';
 
@@ -45,6 +47,7 @@ import { ComingsoonComponent } from './components/comingsoon/comingsoon.componen
     PortfolioComponent,
     PhaseComponent,
     FilterPipe,
+    BrandPipe,
     SearchPipe,
     PlantPipe,
     CPGPipe,
