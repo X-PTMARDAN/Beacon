@@ -68,7 +68,7 @@ public up=0;
   public granular1 = 'week';
   public createPlanRequestData_featurechange: any;
 
-
+//public graphData_table;
   public edit_comment;
 
   public selectedWeekIndex: number;
@@ -152,6 +152,8 @@ public up=0;
   public filters2 = [];
   public forecastadd = 0;
 
+  public forecastadd_table = 0;
+
   public valuestring = '';
   // Loader
   public savePlanLoader = false;
@@ -184,6 +186,13 @@ public up=0;
   private actualDataPoints: any = [];
 
 
+
+
+  public graphData_table: any = [];
+  public finalForecastArray_table: any = [];
+  private actualDataPoints_table: any = [];
+
+
 //HARSHIT
 
   private property: any = [];
@@ -200,7 +209,16 @@ public up=0;
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
 
+
+  private mlDataPoints_table: any = [];
+  private aopDataPoints_table: any = [];
+
+
+
   private fvaDataPoints: any = [];
+
+
+  private fvaDataPoints_table: any = [];
 
   public abc123 = true;
   public middle = true;
@@ -208,7 +226,29 @@ public up=0;
   public second = true;
   private lastYearDataPoints: any = [];
   public finalForecastDataPoints = [];
+
+
+
+  private lastYearDataPoints_table: any = [];
+  public finalForecastDataPoints_table = [];
+
+
+
   public totalData: any = {
+    finalCastTotal: 0,
+    harshit: 0,
+    fsvtValueAdd: 0,
+    apoTotal: 0,
+    mlTotal: 0,
+    actuals: 0,
+    lastYearTotal: 0,
+  };
+
+
+
+
+
+  public totalData_table: any = {
     finalCastTotal: 0,
     harshit: 0,
     fsvtValueAdd: 0,
@@ -1969,6 +2009,609 @@ public up=0;
       return;
     }
 
+    if(feature =='L' && this.granular1=="week")
+    {
+
+      this.planningtable = 'Planning table (L)';
+
+      document.getElementById('planningtable').innerHTML = 'Planning table (L)';
+
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (L)';
+
+
+      this.forecastinganalysis = 'Forecast Analysis (L)';
+
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
+      //const data=this.createPlanRequestData;
+      console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+      this.createPlanRequestData = {
+        startWeek: this.createPlanRequestData.startWeek,
+        endWeek: this.createPlanRequestData.endWeek,
+        prevactuals: this.createPlanRequestData.prevactuals,
+        // forecastingGroups: data.forecastingGroups,
+        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      };
+      //this.test();
+      this.loading = true;
+      this.skuService.getGraphData_L(this.createPlanRequestData).subscribe((res: any) => {
+        this.eventsSubject.next({
+          page: null,
+          reset: true,
+        });
+        this.loading = false;
+        this.greystart = res.start;
+        this.createPlanRequestData.brands = res.req.brands;
+        this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+        this.createPlanRequestData.subbrand = res.req.subbrand;
+
+        this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+        this.createPlanRequestData.Trade = res.req.trade;
+        this.createPlanRequestData.Sales = res.req.sales;
+
+
+        this.createPlanRequestData.globalBev = res.req.globalBev;
+        this.createPlanRequestData.materialgroup = res.req.materialgroup;
+        this.createPlanRequestData.baseunit = res.req.baseunit;
+        this.createPlanRequestData.pack_type = res.req.pack_type;
+
+        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+        this.processGraphData(res);
+        this.processGraphData_table(res);
+
+        //this.processFeatureGraphData(res);
+        this.createFilterObject(res);
+        //  this.skus=data.forecastingGroups;
+
+        // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+        //     item.isChecked = true;
+        //     return item;
+        //   });
+
+
+        // this.skus = data.forecastingGroups.map((item) => {
+        //   item.isChecked = true;
+        //   return item;
+        // });
+
+
+        console.log('thhh->' + this.createPlanRequestData.startWeek);
+        // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        //   animationEnabled: true,
+
+        //   backgroundColor: '#FFFFFF',
+        //   legend: {
+        //     cursor: 'pointer',
+        //     itemclick: this.toggleDataSeries.bind(this)
+        //   },
+        //   axisX: {
+        //     valueFormatString: '######',
+        //     gridColor: '#ffffff',
+        //     scaleBreaks: {
+        //       type: 'blank',
+        //       spacing: 0,
+        //       customBreaks: [
+        //         {
+        //           startValue: 201953,
+        //           endValue: 202000
+        //         },
+        //         {
+        //           startValue: 202053,
+        //           endValue: 202100
+        //         },
+        //         {
+        //           startValue: 202153,
+        //           endValue: 202200
+        //         },
+        //         {
+        //           startValue: 202253,
+        //           endValue: 202300
+        //         }
+        //       ]
+        //     },
+        //     stripLines: [
+        //       {
+        //         startValue: this.createPlanRequestData.startWeek,
+        //         endValue: 201953,
+        //         color: '#F2F3F5'
+        //       },
+        //       {
+        //         startValue: 202000,
+        //         endValue: this.createPlanRequestData.endWeek,
+        //         color: '#F2F3F5'
+        //       }
+        //     ]
+        //   },
+        //   axisY: {
+
+        //     valueFormatString: '######',
+        //     gridColor: '#ffffff',
+        //   },
+
+        //   toolTip: {
+        //     content: 'Value: {y}'
+        //   },
+
+        //   // toolTip: {
+        //   //   shared: true,
+        //   //   contentFormatter: function(e) {
+        //   //     var content = ' ';
+        //   //     console.log(JSON.stringify(e));
+        //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+        //   //     for (var i = 0; i < e.entries.length; i++) {
+        //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+        //   //       content += '<br/>';
+        //   //     }
+        //   //     return content;
+        //   //   }
+        //  // },
+
+        //   data: [{
+        //     type: 'line',
+        //     gridColor: '#ffffff',
+        //     labelFontColor: 'black',
+        //    color: '#000',
+        //     dataPoints: this.property
+        //   }]
+        // });
+        // this.secondgraph='Open order';
+        // this.chart2.render();
+
+
+        console.log('132456->' + this.createPlanRequestData.startWeek);
+        this.chart1 = new CanvasJS.Chart('chartContainer1', {
+          animationEnabled: true,
+          exportEnabled: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.createPlanRequestData.startWeek,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+
+          axisY: {
+            title: ' ',
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          // toolTip: {
+          //   content: 'Week: {x} | {name}: {y}'
+          // },
+
+          toolTip: {
+            shared: true,
+            contentFormatter: function(e) {
+              var content = ' ';
+              //console.log(e.dataPoint);
+              content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+              for (var i = 0; i < e.entries.length; i++) {
+                content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                content += '<br/>';
+              }
+              return content;
+            }
+          },
+          data: [
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'spline',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
+            },
+            {
+              name: 'Actual LY',
+              showInLegend: true,
+              type: 'line',
+
+              lineDashType: 'dash',
+              color: this.lastyearDataPointColor,
+              lineColor: this.lastyearDataPointColor,
+              dataPoints: this.lastYearDataPoints
+            },
+            {
+              name: 'ML Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.mlDataPointColor,
+              lineColor: this.mlDataPointColor,
+              dataPoints: this.mlDataPoints
+            },
+            {
+              name: 'APO Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.aopDataPointColor,
+              lineColor: this.aopDataPointColor,
+              dataPoints: this.aopDataPoints
+            },
+            {
+              name: 'Final Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.finalForecastPointColor,
+              lineColor: this.finalForecastPointColor,
+              dataPoints: this.finalForecastDataPoints
+            }
+          ]
+        });
+        this.chart1.render();
+        this.CanvasJSDataAsCSV();
+        this.selectOptionsModalCancel.nativeElement.click();
+      });
+
+
+
+
+    }
+
+
+    if(feature =='L' && this.granular1=="month")
+    {
+
+      this.planningtable = 'Planning table (L)';
+
+      document.getElementById('planningtable').innerHTML = 'Planning table (L)';
+
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (L)';
+
+
+      this.forecastinganalysis = 'Forecast Analysis (L)';
+
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
+      //const data=this.createPlanRequestData;
+      console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+      this.createPlanRequestData = {
+        startWeek: this.createPlanRequestData.startWeek,
+        endWeek: this.createPlanRequestData.endWeek,
+        prevactuals: this.createPlanRequestData.prevactuals,
+        // forecastingGroups: data.forecastingGroups,
+        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      };
+      //this.test();
+      this.loading = true;
+      this.skuService.getGraphData_L_month(this.createPlanRequestData).subscribe((res: any) => {
+        this.eventsSubject.next({
+          page: null,
+          reset: true,
+        });
+        this.loading = false;
+        this.greystart = res.start;
+        this.createPlanRequestData.brands = res.req.brands;
+        this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+        this.createPlanRequestData.subbrand = res.req.subbrand;
+
+        this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+        this.createPlanRequestData.Trade = res.req.trade;
+        this.createPlanRequestData.Sales = res.req.sales;
+
+
+        this.createPlanRequestData.globalBev = res.req.globalBev;
+        this.createPlanRequestData.materialgroup = res.req.materialgroup;
+        this.createPlanRequestData.baseunit = res.req.baseunit;
+        this.createPlanRequestData.pack_type = res.req.pack_type;
+
+        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+        this.processGraphData(res);
+        this.processGraphData_table(res);
+
+        //this.processFeatureGraphData(res);
+        this.createFilterObject(res);
+        //  this.skus=data.forecastingGroups;
+
+        // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+        //     item.isChecked = true;
+        //     return item;
+        //   });
+
+
+        // this.skus = data.forecastingGroups.map((item) => {
+        //   item.isChecked = true;
+        //   return item;
+        // });
+
+
+        console.log('thhh->' + this.createPlanRequestData.startWeek);
+        // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        //   animationEnabled: true,
+
+        //   backgroundColor: '#FFFFFF',
+        //   legend: {
+        //     cursor: 'pointer',
+        //     itemclick: this.toggleDataSeries.bind(this)
+        //   },
+        //   axisX: {
+        //     valueFormatString: '######',
+        //     gridColor: '#ffffff',
+        //     scaleBreaks: {
+        //       type: 'blank',
+        //       spacing: 0,
+        //       customBreaks: [
+        //         {
+        //           startValue: 201953,
+        //           endValue: 202000
+        //         },
+        //         {
+        //           startValue: 202053,
+        //           endValue: 202100
+        //         },
+        //         {
+        //           startValue: 202153,
+        //           endValue: 202200
+        //         },
+        //         {
+        //           startValue: 202253,
+        //           endValue: 202300
+        //         }
+        //       ]
+        //     },
+        //     stripLines: [
+        //       {
+        //         startValue: this.createPlanRequestData.startWeek,
+        //         endValue: 201953,
+        //         color: '#F2F3F5'
+        //       },
+        //       {
+        //         startValue: 202000,
+        //         endValue: this.createPlanRequestData.endWeek,
+        //         color: '#F2F3F5'
+        //       }
+        //     ]
+        //   },
+        //   axisY: {
+
+        //     valueFormatString: '######',
+        //     gridColor: '#ffffff',
+        //   },
+
+        //   toolTip: {
+        //     content: 'Value: {y}'
+        //   },
+
+        //   // toolTip: {
+        //   //   shared: true,
+        //   //   contentFormatter: function(e) {
+        //   //     var content = ' ';
+        //   //     console.log(JSON.stringify(e));
+        //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+        //   //     for (var i = 0; i < e.entries.length; i++) {
+        //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+        //   //       content += '<br/>';
+        //   //     }
+        //   //     return content;
+        //   //   }
+        //  // },
+
+        //   data: [{
+        //     type: 'line',
+        //     gridColor: '#ffffff',
+        //     labelFontColor: 'black',
+        //    color: '#000',
+        //     dataPoints: this.property
+        //   }]
+        // });
+        // this.secondgraph='Open order';
+        // this.chart2.render();
+
+
+        console.log('132456->' + this.createPlanRequestData.startWeek);
+        this.chart1 = new CanvasJS.Chart('chartContainer1', {
+          animationEnabled: true,
+          exportEnabled: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.createPlanRequestData.startWeek,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+
+          axisY: {
+            title: ' ',
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          // toolTip: {
+          //   content: 'Week: {x} | {name}: {y}'
+          // },
+
+          toolTip: {
+            shared: true,
+            contentFormatter: function(e) {
+              var content = ' ';
+              //console.log(e.dataPoint);
+              content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+              for (var i = 0; i < e.entries.length; i++) {
+                content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                content += '<br/>';
+              }
+              return content;
+            }
+          },
+          data: [
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'spline',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
+            },
+            {
+              name: 'Actual LY',
+              showInLegend: true,
+              type: 'line',
+
+              lineDashType: 'dash',
+              color: this.lastyearDataPointColor,
+              lineColor: this.lastyearDataPointColor,
+              dataPoints: this.lastYearDataPoints
+            },
+            {
+              name: 'ML Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.mlDataPointColor,
+              lineColor: this.mlDataPointColor,
+              dataPoints: this.mlDataPoints
+            },
+            {
+              name: 'APO Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.aopDataPointColor,
+              lineColor: this.aopDataPointColor,
+              dataPoints: this.aopDataPoints
+            },
+            {
+              name: 'Final Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.finalForecastPointColor,
+              lineColor: this.finalForecastPointColor,
+              dataPoints: this.finalForecastDataPoints
+            }
+          ]
+        });
+        this.chart1.render();
+        this.CanvasJSDataAsCSV();
+        this.selectOptionsModalCancel.nativeElement.click();
+      });
+
+
+
+
+    }
+
     if (feature == 'PC') {
 
 
@@ -2024,6 +2667,7 @@ public up=0;
 
 
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         //this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -2316,6 +2960,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -2700,6 +3345,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -3086,6 +3732,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -3502,6 +4149,7 @@ public up=0;
 
 
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -3805,6 +4453,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -4585,6 +5234,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
+        this.processGraphData_table(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -5249,7 +5899,8 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-
+        this.processGraphData_table(res);
+        
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
         //   this.skus = this.createPlanRequestData.forecastingGroups;
@@ -5630,6 +6281,7 @@ public up=0;
 
 
         this.processGraphData(res);
+        this.processGraphData_table(res);
         document.getElementById('arrow').style.color = 'grey';
 
         this.processFeatureGraphData(res);
@@ -5985,6 +6637,7 @@ public up=0;
 
       //      this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
+      this.processGraphData_table(res);
       this.createFilterObject(res);
       this.skus = data.forecastingGroups.map((item) => {
         return {
@@ -6529,6 +7182,215 @@ public up=0;
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+  public processGraphData_table(res) {
+
+
+    // const abc12;
+    //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+    // this.skus = res.req.forecastingGroups;
+
+    console.log('JOKER12345678344343-?' + JSON.stringify(this.skus));
+    const data = res.res_table;
+
+
+    //  this.filters2=[];
+
+
+    console.log('Testing_TABLE__Dfd->' + JSON.stringify(data));
+    const newData = [];
+
+    this.aopDataPoints_table.length = 0;
+
+    this.fvaDataPoints_table.length = 0;
+    this.mlDataPoints_table.length = 0;
+    this.actualDataPoints_table.length = 0;
+
+
+    this.lastYearDataPoints_table.length = 0;
+    this.finalForecastDataPoints_table.length = 0;
+    this.graphData_table = [];
+
+
+    this.totalData_table = {
+      finalCastTotal: 0,
+      harshit: 0,
+      fsvtValueAdd: 0,
+
+      apoTotal: 0,
+      mlTotal: 0,
+      actuals: 0,
+      lastYearTotal: 0,
+    };
+
+    this.forecastadd_table = 0;
+
+
+    const abc = [];
+    for (const week of data) {
+      const newPoint: any = {
+        comments: [],
+        userComment: []
+      };
+      const key: string = week.calenderYearWeek;
+
+
+      newPoint.calenderYearWeek = key;
+      newPoint.week = key;
+
+      newPoint.newweek = key.toString().slice(4, 6) + '-' + key.toString().slice(0, 4);
+
+      newPoint.calenderYear = key;
+
+      if (week.ml !== undefined) {
+        newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2));
+        this.mlDataPoints_table.push({
+
+          x: key,
+          y: newPoint.ml,
+          color: this.mlDataPointColor,
+          click: this.dataPointClick.bind(this),
+          calenderYear: key
+        });
+        this.totalData_table.mlTotal += newPoint.ml;
+
+        //  console.log("RANG--->"+this.totalData.mlTotal);
+      }
+
+      if (week.ml !== undefined) {
+        newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2)) + parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2)));
+
+        //newPoint.finalForecast = newData;
+        newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(2));
+        console.log('Debug -' + newPoint.finalForecast);
+
+//        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
+
+
+        //   newPoint.finalForecast = newPoint.initialFinalForecast;
+        this.finalForecastDataPoints_table.push({
+          x: key,
+          y: newPoint.finalForecast,
+          color: this.finalForecastPointColor,
+          click: this.dataPointClick.bind(this),
+          calenderYear: key
+        });
+        this.totalData_table.finalCastTotal += newPoint.finalForecast;
+      }
+
+      if (week.actuals !== undefined) {
+        newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(2));
+        this.actualDataPoints_table.push({
+          x: key,
+          y: newPoint.actuals,
+          color: this.actualDataPointColor,
+          click: this.dataPointClick.bind(this),
+          calenderYear: key
+        });
+        this.totalData_table.actuals += newPoint.actuals;
+      }
+
+
+      console.log('tyt!@#$%^&-------' + JSON.stringify(week));
+      if (week.fva !== undefined) {
+
+
+        const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2));
+        // newPoint.fcstValueAdd = value ? '' : value.toString();
+        // console.log('MAN RAMTA->' + value);
+        if (value !== undefined) {
+          // console.log("343"+JSON.stringify(newPoint));
+
+          console.log('34567890--->' + newPoint.initialFinalForecast.toString());
+
+          console.log('dfghjk-->' + this.totalData_table.fsvtValueAdd);
+
+
+          console.log('dfghjk1-->' + this.forecastadd_table);
+
+          this.forecastadd_table = parseFloat(this.forecastadd.toFixed(2)) + parseFloat(value.toFixed(2));
+
+
+          console.log('dfghjk345-->' + this.forecastadd_table);
+          //  this.totalData.fcstValueAdd += newPoint.ml;
+          this.totalData_table.fsvtValueAdd = this.totalData_table.fsvtValueAdd + newPoint.initialFinalForecast;
+          this.totalData_table.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
+          console.log('TEs23%^&->' + this.totalData_table.fcstValueAdd);
+          newPoint.fcstValueAdd = value;
+          this.totalData_table.fsvtValueAdd += newPoint.fcstValueAdd;
+          console.log('3545%^&->' + this.totalData_table.fcstValueAdd);
+        }
+
+      }
+
+      if (week.apo !== undefined) {
+        newPoint.apo = DashboardComponent.parseStringToFloat(week.apo);
+        this.aopDataPoints_table.push({
+          x: key,
+          y: newPoint.apo,
+          color: this.aopDataPointColor,
+          click: this.dataPointClick.bind(this),
+          calenderYear: key,
+        });
+        this.totalData_table.apoTotal += newPoint.apo;
+      }
+
+      if (week.actualslastyear !== undefined) {
+        newPoint.actualslastyear = DashboardComponent.parseStringToFloat(week.actualslastyear);
+        this.lastYearDataPoints_table.push({
+          x: key,
+          y: newPoint.actualslastyear,
+          color: this.lastyearDataPointColor,
+          click: this.dataPointClick.bind(this),
+          calenderYear: key
+        });
+        this.totalData_table.lastYearTotal += newPoint.actualslastyear;
+      }
+
+      if (week.harshit !== undefined) {
+        newPoint.harshit = DashboardComponent.parseStringToFloat(week.harshit);
+
+        this.totalData_table.harshit += newPoint.harshit;
+      }
+
+      if (week.comment) {
+
+        console.log('Weeks comment -- ' + week.comment);
+        newPoint.comments = week.comment;
+      }
+
+
+      if (week.lockcell) {
+
+        console.log('Suit-------' + week.lockcell);
+        newPoint.lockcell = week.lockcell;
+      }
+
+      this.graphData_table.push(newPoint);
+    }
+
+    this.totalData_table.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+    this.totalData_table.lastYearTotal = parseFloat(this.totalData.lastYearTotal.toFixed(2));
+    this.totalData_table.actuals = parseFloat(this.totalData.actuals.toFixed(2));
+    this.totalData_table.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(2));
+    this.totalData_table.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+
+    this.totalData_table.harshit = parseFloat(this.totalData.harshit.toFixed(2));
+
+    // this.totalData.fcstValueAdd = parseFloat(this.totalData.fcstValueAdd.toFixed(2));
+  }
+
+
   // Harshit
 
 
@@ -6999,7 +7861,7 @@ public up=0;
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData[cell].ml;
+    var num1=this.graphData_table[cell].ml;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7020,7 +7882,7 @@ public addvalues_actuals(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData[cell].actuals;
+    var num1=this.graphData_table[cell].actuals;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7042,7 +7904,7 @@ public addvalues_harshit(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData[cell].harshit;
+    var num1=this.graphData_table[cell].harshit;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7062,7 +7924,7 @@ public addvalues_actualslastyear(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData[cell].actualslastyear;
+    var num1=this.graphData_table[cell].actualslastyear;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7088,8 +7950,8 @@ public addvalues_apo(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    console.log("Graph----"+JSON.stringify(this.graphData));
-    var num1=this.graphData[cell].apo;
+  //  console.log("Graph----"+JSON.stringify(this.graphData));
+    var num1=this.graphData_table[cell].apo;
  
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7111,7 +7973,7 @@ public addvalues_finaldforecast(cell : any)
 {
   if(this.up==1){
   console.log("Cell----"+cell);
-  var num1=this.graphData[cell].ml;
+  var num1=this.graphData_table[cell].ml;
 //  console.log("Graph----"+JSON.stringify(this.graphData));
 this.avgselected= (this.sumselected+num1)/2;
   this.sumselected=this.sumselected+num1;
@@ -8591,9 +9453,9 @@ console.log("Checkiiigg--"+this.sumselected)
 
     console.log('FDfd12---' + index);
 
-    const dpIndex = this.finalForecastDataPoints.findIndex(item => item.calenderYear === calenderYearWeek);
+    const dpIndex = this.finalForecastDataPoints_table.findIndex(item => item.calenderYear === calenderYearWeek);
     if (dpIndex > -1) {
-      const value = parseFloat(this.graphData[index].fcstValueAdd);
+      const value = parseFloat(this.graphData_table[index].fcstValueAdd);
       console.log('FDfd123---' + value);
       var decimal = /^[-+]?[0-9]+\.[0-9]+$/;
       //   if(value===undefined || value==undefined)
@@ -8607,25 +9469,37 @@ console.log("Checkiiigg--"+this.sumselected)
       console.log('43retwf234567---' + this.graphData[index].fcstValueAdd);
 
 
-      var s = this.graphData[index].fcstValueAdd;
+      var s = this.graphData_table[index].fcstValueAdd;
       var r = this.how(s);
       console.log('Hbhbgt---' + r);
       if (r == false) {
-        this.graphData[index].fcstValueAdd = 0;
+        this.graphData_table[index].fcstValueAdd = 0;
         window.alert('You have added a wrong number or empty string, it will be treated as 0');
 
-        console.log('Really---' + this.graphData[index].fcstValueAdd);
+       // console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
         return;
 
       }
-      console.log('check---' + this.graphData[index].fcstValueAdd);
+      console.log('check---' + this.graphData_table[index].fcstValueAdd);
 
       if (!isNaN(value)) {
         console.log('43retwf---' + this.graphData[index].fcstValueAdd);
-        if (this.graphData[index].initialFinalForecast + value < 0) {
+        if (this.graphData_table[index].initialFinalForecast + value < 0) {
+          this.finalForecastDataPoints_table[dpIndex].y = 0;
+          this.graphData_table[index].finalForecast = 0;
+
+
           this.finalForecastDataPoints[dpIndex].y = 0;
           this.graphData[index].finalForecast = 0;
         } else {
+          this.finalForecastDataPoints_table[dpIndex].y = this.graphData_table[index].initialFinalForecast + value;
+          console.log('Check0--' + this.graphData_table[index].initialFinalForecast + value);
+          console.log('Check0345--' + (this.graphData_table[index].initialFinalForecast + value).toFixed(2));
+          this.graphData_table[index].finalForecast = parseFloat((this.graphData_table[index].initialFinalForecast + value).toFixed(2));
+
+
+
+
           this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast + value;
           console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
           console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(2));
@@ -8639,11 +9513,24 @@ console.log("Checkiiigg--"+this.sumselected)
         //window.alert("You have added a wrong number or empty string, please add integer or decimal value");
         this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
         this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast;
+
+
+
+
+        this.finalForecastDataPoints_table[dpIndex].y = this.graphData_table[index].initialFinalForecast;
+        this.graphData_table[index].finalForecast = this.graphData_table[index].initialFinalForecast;
       }
 
 
       console.log('CH!@--' + JSON.stringify(this.graphData));
-      this.totalData.finalCastTotal = 0;
+      this.totalData_table.finalCastTotal = 0;
+      for (const data of this.graphData_table) {
+        if (data.finalForecast) {
+          //console.log("Mush->"+this.totalData.finalCastTotal);
+          this.totalData_table.finalCastTotal += parseFloat(data.finalForecast);
+        }
+      }
+
       for (const data of this.graphData) {
         if (data.finalForecast) {
           //console.log("Mush->"+this.totalData.finalCastTotal);
@@ -8651,6 +9538,17 @@ console.log("Checkiiigg--"+this.sumselected)
         }
       }
       this.forecastadd = 0;
+      for (const data of this.graphData_table) {
+
+
+        if (data.fcstValueAdd) {
+          //console.log("Mush->"+JSON.stringify(data));
+          this.forecastadd += parseFloat(data.fcstValueAdd);
+        }
+      }
+
+
+
       for (const data of this.graphData) {
 
 
@@ -8661,6 +9559,8 @@ console.log("Checkiiigg--"+this.sumselected)
       }
 
       //  this.forecastadd = this.totalData.finalCastTotal;
+
+      this.totalData_table.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
 
       this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
     }
