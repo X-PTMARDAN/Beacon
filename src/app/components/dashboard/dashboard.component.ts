@@ -741,9 +741,14 @@ public maxselected=0;
                     //       return item;
                     //     });
 
-                   
+                    for(const abc in this.createdata.customerPlanningGroup)
+                    {
 
-                    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
+                      console.log("00000----"+abc);
+                      this.createdata.customerPlanningGroup[abc]=this.createdata.customerPlanningGroup[abc].split('-')[0];
+                    }
+                    
+                //    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
                     console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
                     console.log('sdfshbr---' + JSON.stringify(this.createdata));
                     this.createPlan(this.createdata);
