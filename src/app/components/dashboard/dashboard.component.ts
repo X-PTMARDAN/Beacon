@@ -8079,7 +8079,7 @@ public maxselected=0;
   public addvalues(cell : any)
   {
     if(this.up==1){
-    console.log("Cell----"+cell);
+    console.log("Cell_addd----"+cell);
     var num1=this.graphData[cell].ml;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   // this.avgselected= (this.sumselected+num1)/2;
@@ -8106,12 +8106,7 @@ public addvalues_actuals(cell : any)
     console.log("Cell----"+cell);
     var num1=this.graphData[cell].actuals;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
-  this.avgselected= (this.sumselected+num1)/2;
-    this.sumselected=this.sumselected+num1;
-
-
-    this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+  this.selected_array.push(num1);
    // (this.avgselected).toFixed(2);
     //this.avgselected=
 console.log("Checkiiigg--"+this.sumselected)
@@ -8128,12 +8123,7 @@ public addvalues_harshit(cell : any)
     console.log("Cell----"+cell);
     var num1=this.graphData[cell].harshit;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
-  this.avgselected= (this.sumselected+num1)/2;
-    this.sumselected=this.sumselected+num1;
-
-
-    this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+  this.selected_array.push(num1);
    // (this.avgselected).toFixed(2);
     //this.avgselected=
 console.log("Checkiiigg--"+this.sumselected)
@@ -8148,12 +8138,7 @@ public addvalues_actualslastyear(cell : any)
     console.log("Cell----"+cell);
     var num1=this.graphData[cell].actualslastyear;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
-  this.avgselected= (this.sumselected+num1)/2;
-    this.sumselected=this.sumselected+num1;
-
-
-    this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+  this.selected_array.push(num1);
    // (this.avgselected).toFixed(2);
     //this.avgselected=
 console.log("Checkiiigg--"+this.sumselected)
@@ -8171,16 +8156,13 @@ console.log("Checkiiigg--"+this.sumselected)
 public addvalues_apo(cell : any)
   {
     if(this.up==1){
-    console.log("Cell----"+cell);
+
+
+    console.log("Cell1212----"+cell);
   //  console.log("Graph----"+JSON.stringify(this.graphData));
     var num1=this.graphData[cell].apo;
  
-  this.avgselected= (this.sumselected+num1)/2;
-    this.sumselected=this.sumselected+num1;
-
-
-    this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    this.selected_array.push(num1);
    // (this.avgselected).toFixed(2);
     //this.avgselected=
 console.log("Checkiiigg--"+this.sumselected)
@@ -8197,12 +8179,7 @@ public addvalues_finaldforecast(cell : any)
   console.log("Cell----"+cell);
   var num1=this.graphData[cell].ml;
 //  console.log("Graph----"+JSON.stringify(this.graphData));
-this.avgselected= (this.sumselected+num1)/2;
-  this.sumselected=this.sumselected+num1;
-
-
-  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-  this.sumselected=parseFloat((this.sumselected).toFixed(2));
+this.selected_array.push(num1);
  // (this.avgselected).toFixed(2);
   //this.avgselected=
 console.log("Checkiiigg--"+this.sumselected)
