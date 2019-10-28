@@ -9,8 +9,8 @@ export class BrandPipe implements PipeTransform {
       return items;
     }
     return items.filter(item => {
-      item.isChecked = callback(item.name);
-      return item.isChecked;
+      item.isFiltered = callback(item.name);
+      return item.isFiltered;
     });
   }
 }
