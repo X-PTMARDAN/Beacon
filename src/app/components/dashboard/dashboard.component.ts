@@ -633,14 +633,49 @@ public maxselected=0;
                       }
                     }
 
+                    console.log("DEFAULT--------"+JSON.stringify(temp_cpg));
+
                     if (temp_cpg.length > 0) {
                       //   this.createdata.forecastingGroups=JSON.parse(JSON.stringify());
 
                       // var a=temp_fg.filter(item => item.isChecked).map(item => item.name);
 
+                      console.log("INSIDE IF--------"+JSON.stringify(temp_cpg));
+
+
+
                       var a: any = [];
+
+                      var cpg: any = [];
+
+
+                      var plant: any = [];
                       //   this.createdata.forecastingGroups=JSON.parse(JSON.stringify());
                       var index = 0;
+                      for (const abc of temp_cpg) {
+                        cpg.push({
+                          id: index,
+                          name: abc,
+                          isFiltered: true,
+                          isChecked: true
+                        });
+                        index++;
+                      }
+
+
+                      for (const abc of temp_plant) {
+                        plant.push({
+                          id: index,
+                          name: abc,
+                          isFiltered: true,
+                          isChecked: true
+                        });
+                        index++;
+                      }
+
+
+
+
                       for (const abc of temp_fg) {
                         a.push({
                           id: index,
@@ -653,6 +688,43 @@ public maxselected=0;
                       this.createdata.forecastingGroups = JSON.parse(JSON.stringify(a));
                       this.createdata.plants = JSON.parse(JSON.stringify(temp_plant));
                       this.createdata.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
+
+
+                      for (const b of this.filters[0].values) {
+                        for (const c of temp_cpg) {
+                        console.log('fgsfg12345-' + JSON.stringify(b));
+                        if (b.name.name == c) {
+                          b.isChecked = true;
+                        }
+                      }
+                    }
+
+
+
+                    for (const b of this.filters_plant[0].values) {
+                      for (const c of temp_plant) {
+                      console.log('fgsfg12345-' + JSON.stringify(b));
+                      if (b.name.name == c) {
+                        b.isChecked = true;
+                      }
+                    }
+                  }
+
+
+
+
+
+
+                    // for (const b of this.filters_plant[0].values) {
+                    //   console.log('fgsfg12345-' + JSON.stringify(b));
+                    //   if (b.name.name == 'G001') {
+                    //     b.isChecked = true;
+                    //   }
+                    // }
+
+
+
+
                     }
 
                     this.cpgss = JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
@@ -10289,7 +10361,7 @@ console.log("Checkiiigg--"+this.sumselected)
     }
 
 
-    console.log('Tftdfwf---' + JSON.stringify(selectedFilter));
+    console.log('Tftdfwfvc46v675gg7uuubjy---' + JSON.stringify(selectedFilter));
     // Todo: Change keys
     // this.filters_plant[0].values = selectedFilter.plant.map(item => {
     //   return {
