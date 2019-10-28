@@ -56,7 +56,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 public up=0;
   public greystart;
 
-
+public countselected=0;
+public minselected=0;
+public maxselected=0;
   public brandstext;
 
   public selectallcpg = 0;
@@ -68,7 +70,7 @@ public up=0;
   public granular1 = 'week';
   public createPlanRequestData_featurechange: any;
 
-//public graphData_table;
+//public graphData;
   public edit_comment;
 
   public selectedWeekIndex: number;
@@ -85,6 +87,9 @@ public up=0;
   public skus_search = [];
 
   public sumselected=0;
+
+
+  public selected_array=[];
 
   public pressed = false;
 
@@ -174,7 +179,7 @@ public up=0;
   public chart1;
   public chart2;
 
-  public up_table = true;
+  public up_table = false;
 
 
   public down_table = false;
@@ -188,7 +193,7 @@ public up=0;
 
 
 
-  public graphData_table: any = [];
+  //public graphData: any = [];
   public finalForecastArray_table: any = [];
   private actualDataPoints_table: any = [];
 
@@ -450,7 +455,7 @@ public up=0;
 
       for (const b of this.filters[0].values) {
         console.log('fgsfg12345-' + JSON.stringify(b));
-        if (b.name.name == 'G01') {
+        if (b.name.name == 'G04 - CH Aldi') {
           b.isChecked = true;
         }
       }
@@ -611,10 +616,10 @@ public up=0;
                       startWeek: 201942,
                       endWeek: 202004,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
-                      customerPlanningGroup: ['G01'],
+                      customerPlanningGroup: ['G04 - CH Aldi'],
                       plants: ['G001']
                     };
-
+                    
                     var temp_fg = [];
                     var temp_cpg = [];
                     var temp_plant = [];
@@ -664,6 +669,10 @@ public up=0;
                     //       return item;
                     //     });
 
+                   
+
+                    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
+                    console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
                     console.log('sdfshbr---' + JSON.stringify(this.createdata));
                     this.createPlan(this.createdata);
 
@@ -882,7 +891,7 @@ public up=0;
 
     this.skus = JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
 
-
+   
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + (1 + 7 - currentDate.getDay()) % 7);
     this.currentWeek = DashboardComponent.getCurrentWeek(currentDate);
@@ -937,7 +946,7 @@ public up=0;
     document.getElementById('apply_filter').style.background = '#17b169';
 
 
-    this.cpgss = this.filters[0].values.filter(item => item.isChecked).map(item => item.name);
+    this.cpgss = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     this.plantss = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
 
@@ -2064,9 +2073,9 @@ public up=0;
 
 
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
-        //this.processFeatureGraphData(res);
+        this.processFeatureGraphData(res);
         this.createFilterObject(res);
         //  this.skus=data.forecastingGroups;
 
@@ -2366,7 +2375,7 @@ public up=0;
 
 
         this.processGraphData(res);
-        this.processGraphData_table(res);
+      //  //this.processgraphData(res);
 
         //this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -2667,7 +2676,7 @@ public up=0;
 
 
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
         //this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -2960,7 +2969,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -3345,7 +3354,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -3732,9 +3741,9 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
-        this.processFeatureGraphData(res);
+       // this.processFeatureGraphData(res);
         this.createFilterObject(res);
         // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
         //   item.isChecked = true;
@@ -3743,119 +3752,119 @@ public up=0;
 
 
         console.log('thhh->' + this.createPlanRequestData.startWeek);
-        // console.log("ISSE PTA--"+this.greystart);
-        this.chart2 = new CanvasJS.Chart('chartContainer2', {
-          animationEnabled: true,
-          showInLegend: true,
-          backgroundColor: '#FFFFFF',
-          legend: {
-            cursor: 'pointer',
-            itemclick: this.toggleDataSeries.bind(this)
-          },
-          axisX: {
-            valueFormatString: '######',
-            gridColor: '#ffffff',
+        // // console.log("ISSE PTA--"+this.greystart);
+        // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+        //   animationEnabled: true,
+        //   showInLegend: true,
+        //   backgroundColor: '#FFFFFF',
+        //   legend: {
+        //     cursor: 'pointer',
+        //     itemclick: this.toggleDataSeries.bind(this)
+        //   },
+        //   axisX: {
+        //     valueFormatString: '######',
+        //     gridColor: '#ffffff',
 
-            scaleBreaks: {
-              type: 'blank',
-              spacing: 0,
-              customBreaks: [
-                {
-                  startValue: 201853,
-                  endValue: 201900
-                },
-                {
-                  startValue: 201953,
-                  endValue: 202000
-                },
-                {
-                  startValue: 202053,
-                  endValue: 202100
-                },
-                {
-                  startValue: 202153,
-                  endValue: 202200
-                },
-                {
-                  startValue: 202253,
-                  endValue: 202300
-                }
-              ]
-            },
-            stripLines: [
-              {
-                startValue: this.createPlanRequestData.startWeek,
-                endValue: 201953,
-                color: '#F2F3F5'
-              },
-              {
-                startValue: 202000,
-                endValue: 202053,
-                color: '#F2F3F5'
-              }, {
-                startValue: 202100,
-                endValue: 202153,
-                color: '#F2F3F5'
-              }, {
-                startValue: 202200,
-                endValue: 202253,
-                color: '#F2F3F5'
-              }
-            ]
-          },
-          axisY: {
-            title: ' ',
-            valueFormatString: '######',
-            gridColor: '#ffffff',
-          },
+        //     scaleBreaks: {
+        //       type: 'blank',
+        //       spacing: 0,
+        //       customBreaks: [
+        //         {
+        //           startValue: 201853,
+        //           endValue: 201900
+        //         },
+        //         {
+        //           startValue: 201953,
+        //           endValue: 202000
+        //         },
+        //         {
+        //           startValue: 202053,
+        //           endValue: 202100
+        //         },
+        //         {
+        //           startValue: 202153,
+        //           endValue: 202200
+        //         },
+        //         {
+        //           startValue: 202253,
+        //           endValue: 202300
+        //         }
+        //       ]
+        //     },
+        //     stripLines: [
+        //       {
+        //         startValue: this.createPlanRequestData.startWeek,
+        //         endValue: 201953,
+        //         color: '#F2F3F5'
+        //       },
+        //       {
+        //         startValue: 202000,
+        //         endValue: 202053,
+        //         color: '#F2F3F5'
+        //       }, {
+        //         startValue: 202100,
+        //         endValue: 202153,
+        //         color: '#F2F3F5'
+        //       }, {
+        //         startValue: 202200,
+        //         endValue: 202253,
+        //         color: '#F2F3F5'
+        //       }
+        //     ]
+        //   },
+        //   axisY: {
+        //     title: ' ',
+        //     valueFormatString: '######',
+        //     gridColor: '#ffffff',
+        //   },
 
-          toolTip: {
-            content: '{y}'
-          },
+        //   toolTip: {
+        //     content: '{y}'
+        //   },
 
-          // toolTip: {
-          //   shared: true,
-          //   contentFormatter: function(e) {
-          //     var content = ' ';
-          //     console.log(JSON.stringify(e));
-          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-          //     for (var i = 0; i < e.entries.length; i++) {
-          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-          //       content += '<br/>';
-          //     }
-          //     return content;
-          //   }
-          // },
+        //   // toolTip: {
+        //   //   shared: true,
+        //   //   contentFormatter: function(e) {
+        //   //     var content = ' ';
+        //   //     console.log(JSON.stringify(e));
+        //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+        //   //     for (var i = 0; i < e.entries.length; i++) {
+        //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+        //   //       content += '<br/>';
+        //   //     }
+        //   //     return content;
+        //   //   }
+        //   // },
 
-          data: [
-            {
-              type: 'line',
-              gridColor: '#ffffff',
-              showInLegend: true,
-              labelFontColor: 'black',
-              color: '#000',
-              dataPoints: this.property
-            },
-            {
-              type: 'line',
-              gridColor: '#ffffff',
-              showInLegend: true,
-              labelFontColor: 'black',
-              color: '#000',
-              dataPoints: this.property2
-            },
-            {
-              type: 'line',
-              gridColor: '#ffffff',
-              showInLegend: true,
-              labelFontColor: 'black',
-              color: '#000',
-              dataPoints: this.property3
-            }
+        //   data: [
+        //     {
+        //       type: 'line',
+        //       gridColor: '#ffffff',
+        //       showInLegend: true,
+        //       labelFontColor: 'black',
+        //       color: '#000',
+        //       dataPoints: this.property
+        //     },
+        //     {
+        //       type: 'line',
+        //       gridColor: '#ffffff',
+        //       showInLegend: true,
+        //       labelFontColor: 'black',
+        //       color: '#000',
+        //       dataPoints: this.property2
+        //     },
+        //     {
+        //       type: 'line',
+        //       gridColor: '#ffffff',
+        //       showInLegend: true,
+        //       labelFontColor: 'black',
+        //       color: '#000',
+        //       dataPoints: this.property3
+        //     }
 
-          ]
-        });
-        this.chart2.render();
+        //   ]
+        // });
+        // this.chart2.render();
 
 
         console.log('132456->' + this.createPlanRequestData.startWeek);
@@ -4149,7 +4158,7 @@ public up=0;
 
 
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -4453,7 +4462,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -4835,6 +4844,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
+        //this.processgraphData(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -5234,7 +5244,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
 
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -5899,7 +5909,7 @@ public up=0;
 
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
         
         this.processFeatureGraphData(res);
         this.createFilterObject(res);
@@ -6281,7 +6291,7 @@ public up=0;
 
 
         this.processGraphData(res);
-        this.processGraphData_table(res);
+        //this.processgraphData(res);
         document.getElementById('arrow').style.color = 'grey';
 
         this.processFeatureGraphData(res);
@@ -6637,7 +6647,7 @@ public up=0;
 
       //      this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
       this.processGraphData(res);
-      this.processGraphData_table(res);
+      //this.processgraphData(res);
       this.createFilterObject(res);
       this.skus = data.forecastingGroups.map((item) => {
         return {
@@ -7193,7 +7203,7 @@ public up=0;
 
 
 
-  public processGraphData_table(res) {
+  public processgraphData(res) {
 
 
     // const abc12;
@@ -7219,7 +7229,7 @@ public up=0;
 
     this.lastYearDataPoints_table.length = 0;
     this.finalForecastDataPoints_table.length = 0;
-    this.graphData_table = [];
+    this.graphData = [];
 
 
     this.totalData_table = {
@@ -7376,7 +7386,7 @@ public up=0;
         newPoint.lockcell = week.lockcell;
       }
 
-      this.graphData_table.push(newPoint);
+      this.graphData.push(newPoint);
     }
 
     this.totalData_table.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
@@ -7841,18 +7851,155 @@ public up=0;
 
 
 
-  public start_drag()
+  public start_drag_ml(cell :any)
   {
+    this.selected_array=[];
     console.log("Start Drag--");
+    var num1=this.graphData[cell].ml;
     this.sumselected=0;
     this.avgselected=0;
+ //   this.avgselected=num1
+ //   this.sumselected=this.sumselected+num1;
+    this.selected_array.push(num1);
+
+  //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+ //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
     this.up=1;
   }
+
+
+
+  public start_drag_final(cell :any)
+  {
+
+    this.selected_array=[];
+    console.log("Start Drag--");
+    var num1=this.graphData[cell].ml;
+    this.sumselected=0;
+    this.avgselected=0;
+ //   this.avgselected=num1
+ //   this.sumselected=this.sumselected+num1;
+    this.selected_array.push(num1);
+
+  //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+ //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    this.up=1;
+  }
+
+
+  public start_drag_apo(cell :any)
+  {
+
+    this.selected_array=[];
+    console.log("Start Drag--");
+    var num1=this.graphData[cell].apo;
+    this.sumselected=0;
+    this.avgselected=0;
+ //   this.avgselected=num1
+ //   this.sumselected=this.sumselected+num1;
+    this.selected_array.push(num1);
+
+  //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+ //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    this.up=1;
+  }
+
+
+
+
+  public start_drag_actuals(cell :any)
+  {
+
+    this.selected_array=[];
+    console.log("Start Drag--");
+    var num1=this.graphData[cell].actuals;
+    this.sumselected=0;
+    this.avgselected=0;
+ //   this.avgselected=num1
+ //   this.sumselected=this.sumselected+num1;
+    this.selected_array.push(num1);
+
+  //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+ //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    this.up=1;
+  }
+
+
+
+
+
+
+  public start_drag_actualsly(cell :any)
+  {
+
+
+    this.selected_array=[];
+    console.log("Start Drag--");
+    var num1=this.graphData[cell].actualslastyear;
+    this.sumselected=0;
+    this.avgselected=0;
+ //   this.avgselected=num1
+ //   this.sumselected=this.sumselected+num1;
+    this.selected_array.push(num1);
+
+  //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+ //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    this.up=1;
+  }
+
+
+
+
+
+  public start_drag_open(cell :any)
+  {
+
+
+    this.selected_array=[];
+    console.log("Start Drag--");
+    var num1=this.graphData[cell].harshit;
+    this.sumselected=0;
+    this.avgselected=0;
+ //   this.avgselected=num1
+ //   this.sumselected=this.sumselected+num1;
+    this.selected_array.push(num1);
+
+  //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
+ //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    this.up=1;
+  }
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
   public end_drag()
   {
     console.log("End Drag--");
     this.up=0;
+
+
+    console.log("DFdfd--"+JSON.stringify(this.selected_array));
+   // this.selected_array;
+    this.sumselected = this.selected_array.reduce((a, b)=>a + b); 
+    this.maxselected = this.selected_array.reduce((a, b)=>Math.max(a, b)); 
+    this.minselected = this.selected_array.reduce((a, b)=>Math.min(a, b)); 
+    this.avgselected = (this.sumselected / this.selected_array.length);
+    this.countselected =this.selected_array.length;
+
+
+    this.avgselected=parseFloat((this.avgselected).toFixed(2));
+    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+
   }
 
   
@@ -7861,14 +8008,17 @@ public up=0;
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData_table[cell].ml;
+    var num1=this.graphData[cell].ml;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
-  this.avgselected= (this.sumselected+num1)/2;
-    this.sumselected=this.sumselected+num1;
+  // this.avgselected= (this.sumselected+num1)/2;
+  //   this.sumselected=this.sumselected+num1;
 
 
-    this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    this.sumselected=parseFloat((this.sumselected).toFixed(2));
+  //   this.avgselected=parseFloat((this.avgselected).toFixed(2));
+  //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+
+
+  this.selected_array.push(num1);
    // (this.avgselected).toFixed(2);
     //this.avgselected=
 console.log("Checkiiigg--"+this.sumselected)
@@ -7882,7 +8032,7 @@ public addvalues_actuals(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData_table[cell].actuals;
+    var num1=this.graphData[cell].actuals;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7904,7 +8054,7 @@ public addvalues_harshit(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData_table[cell].harshit;
+    var num1=this.graphData[cell].harshit;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7924,7 +8074,7 @@ public addvalues_actualslastyear(cell : any)
   {
     if(this.up==1){
     console.log("Cell----"+cell);
-    var num1=this.graphData_table[cell].actualslastyear;
+    var num1=this.graphData[cell].actualslastyear;
   //  console.log("Graph----"+JSON.stringify(this.graphData));
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7951,7 +8101,7 @@ public addvalues_apo(cell : any)
     if(this.up==1){
     console.log("Cell----"+cell);
   //  console.log("Graph----"+JSON.stringify(this.graphData));
-    var num1=this.graphData_table[cell].apo;
+    var num1=this.graphData[cell].apo;
  
   this.avgselected= (this.sumselected+num1)/2;
     this.sumselected=this.sumselected+num1;
@@ -7973,7 +8123,7 @@ public addvalues_finaldforecast(cell : any)
 {
   if(this.up==1){
   console.log("Cell----"+cell);
-  var num1=this.graphData_table[cell].ml;
+  var num1=this.graphData[cell].ml;
 //  console.log("Graph----"+JSON.stringify(this.graphData));
 this.avgselected= (this.sumselected+num1)/2;
   this.sumselected=this.sumselected+num1;
@@ -9453,9 +9603,19 @@ console.log("Checkiiigg--"+this.sumselected)
 
     console.log('FDfd12---' + index);
 
-    const dpIndex = this.finalForecastDataPoints_table.findIndex(item => item.calenderYear === calenderYearWeek);
+    const dpIndex = this.finalForecastDataPoints.findIndex(item => item.calenderYear === calenderYearWeek);
     if (dpIndex > -1) {
-      const value = parseFloat(this.graphData_table[index].fcstValueAdd);
+
+
+    
+
+
+    //  console.log("Check"+(this.graphData);
+
+
+
+
+      const value = parseFloat(this.graphData[index].fcstValueAdd);
       console.log('FDfd123---' + value);
       var decimal = /^[-+]?[0-9]+\.[0-9]+$/;
       //   if(value===undefined || value==undefined)
@@ -9466,71 +9626,71 @@ console.log("Checkiiigg--"+this.sumselected)
       //   return;
       // }
       // var a=document.getElementById(''+index+'').innerHTML;
-      console.log('43retwf234567---' + this.graphData[index].fcstValueAdd);
+      console.log('43retwf234567---' + this.graphData[dpIndex].fcstValueAdd);
 
 
-      var s = this.graphData_table[index].fcstValueAdd;
+      var s = this.graphData[index].fcstValueAdd;
       var r = this.how(s);
-      console.log('Hbhbgt---' + r);
+      //console.log('Hbhbgt---' + r);
       if (r == false) {
-        this.graphData_table[index].fcstValueAdd = 0;
+        this.graphData[index].fcstValueAdd = 0;
         window.alert('You have added a wrong number or empty string, it will be treated as 0');
 
        // console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
         return;
 
       }
-      console.log('check---' + this.graphData_table[index].fcstValueAdd);
+      console.log('check---' + this.graphData[index].fcstValueAdd);
 
       if (!isNaN(value)) {
         console.log('43retwf---' + this.graphData[index].fcstValueAdd);
-        if (this.graphData_table[index].initialFinalForecast + value < 0) {
-          this.finalForecastDataPoints_table[dpIndex].y = 0;
-          this.graphData_table[index].finalForecast = 0;
+        if (this.graphData[index].initialFinalForecast + value < 0) {
+          this.finalForecastDataPoints[dpIndex].y = 0;
+          this.graphData[index].finalForecast = 0;
 
 
           this.finalForecastDataPoints[dpIndex].y = 0;
           this.graphData[index].finalForecast = 0;
         } else {
-          this.finalForecastDataPoints_table[dpIndex].y = this.graphData_table[index].initialFinalForecast + value;
-          console.log('Check0--' + this.graphData_table[index].initialFinalForecast + value);
-          console.log('Check0345--' + (this.graphData_table[index].initialFinalForecast + value).toFixed(2));
-          this.graphData_table[index].finalForecast = parseFloat((this.graphData_table[index].initialFinalForecast + value).toFixed(2));
-
-
-
-
           this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast + value;
-          console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
-          console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(2));
+         // console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
+       //   console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(2));
+          this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
+
+
+
+
+          this.finalForecastDataPoints[index].y = this.graphData[index].initialFinalForecast + value;
+        //  console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
+          //console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(2));
           this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
         }
       } else {
 
-        console.log('YFTGHJBKUIYGVHJKH---' + this.graphData[index].fcstValueAdd);
+      //  console.log('YFTGHJBKUIYGVHJKH---' + this.graphData[index].fcstValueAdd);
         //this.graphData[index].fcstValueAdd=null;
         //  this.graphData[index].fcstValueAdd=0;
         //window.alert("You have added a wrong number or empty string, please add integer or decimal value");
-        this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast;
+        this.finalForecastDataPoints[index].y = this.graphData[index].initialFinalForecast;
         this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast;
 
 
 
 
-        this.finalForecastDataPoints_table[dpIndex].y = this.graphData_table[index].initialFinalForecast;
-        this.graphData_table[index].finalForecast = this.graphData_table[index].initialFinalForecast;
+        this.finalForecastDataPoints[index].y = this.graphData[index].initialFinalForecast;
+        this.graphData[index].finalForecast = this.graphData[index].initialFinalForecast;
       }
 
 
-      console.log('CH!@--' + JSON.stringify(this.graphData));
-      this.totalData_table.finalCastTotal = 0;
-      for (const data of this.graphData_table) {
+    //  console.log('CH!@--' + JSON.stringify(this.graphData));
+      this.totalData.finalCastTotal = 0;
+      for (const data of this.graphData) {
         if (data.finalForecast) {
           //console.log("Mush->"+this.totalData.finalCastTotal);
-          this.totalData_table.finalCastTotal += parseFloat(data.finalForecast);
+          this.totalData.finalCastTotal += parseFloat(data.finalForecast);
         }
       }
-
+      this.totalData.finalCastTotal = 0;
       for (const data of this.graphData) {
         if (data.finalForecast) {
           //console.log("Mush->"+this.totalData.finalCastTotal);
@@ -9538,17 +9698,6 @@ console.log("Checkiiigg--"+this.sumselected)
         }
       }
       this.forecastadd = 0;
-      for (const data of this.graphData_table) {
-
-
-        if (data.fcstValueAdd) {
-          //console.log("Mush->"+JSON.stringify(data));
-          this.forecastadd += parseFloat(data.fcstValueAdd);
-        }
-      }
-
-
-
       for (const data of this.graphData) {
 
 
@@ -9558,9 +9707,20 @@ console.log("Checkiiigg--"+this.sumselected)
         }
       }
 
+
+
+      // for (const data of this.graphData) {
+
+
+      //   if (data.fcstValueAdd) {
+      //     //console.log("Mush->"+JSON.stringify(data));
+      //     this.forecastadd += parseFloat(data.fcstValueAdd);
+      //   }
+      // }
+
       //  this.forecastadd = this.totalData.finalCastTotal;
 
-      this.totalData_table.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+      this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
 
       this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
     }
@@ -9952,7 +10112,7 @@ console.log("Checkiiigg--"+this.sumselected)
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
+      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     };
 
@@ -10288,9 +10448,12 @@ console.log("Checkiiigg--"+this.sumselected)
     for (const brand of this.filters1_brands) {
 
       if (brand.key == 'brands') {
+        console.log("poopoo");
         var flag = 1;
         for (const aa of brand.values) {
+          console.log("poopoo12121");
           if (aa.isChecked) {
+            console.log("fgetgte");
             aa.isChecked = false;
           }
         }
@@ -10313,10 +10476,10 @@ console.log("Checkiiigg--"+this.sumselected)
      */
 
 
-    this.cpgss = selectedFilter.cpg;
+    this.cpgss = JSON.parse(JSON.stringify(selectedFilter.cpg));
     this.plantss = selectedFilter.plant;
 
-    console.log('CPG-----' + this.cpgss);
+    console.log('CPG-----' + JSON.stringify(this.cpgss));
     this.filters = [];
     this.filters_plant = [];
 
@@ -10340,9 +10503,9 @@ console.log("Checkiiigg--"+this.sumselected)
       });
 
 
-      console.log('khguyg-' + JSON.stringify(this.filters));
+      console.log('khguyg-' + JSON.stringify(this.filters[0].values));
 
-      console.log('Sgfgsg--' + this.cpgss);
+      console.log('Sgfgsg--' + JSON.stringify(this.cpgss));
       for (const a of this.cpgss) {
         for (const b of this.filters[0].values) {
           console.log('32r34435345-' + JSON.stringify(b));
@@ -10423,6 +10586,12 @@ console.log("Checkiiigg--"+this.sumselected)
     });
     console.log('sfsgf435tyhgns--' + JSON.stringify(data));
 
+
+    for(const a in data.customerPlanningGroup)
+    {
+       console.log("Loadingggggggg---"+a);
+    }
+    data.customerPlanningGroup[0]=data.customerPlanningGroup[0].split("-")[0];
     this.createPlan(data);
 
     // this.skuService.getGraphData(data).subscribe((res: any) => {

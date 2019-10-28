@@ -482,7 +482,8 @@ var data={
   fromid:this.fromsku.split("-")[0],
   toid:this.tosku,
   state:state,
-  fromweek:this.date
+  fromweek:this.date,
+  fgid:this.fromsku.split("-")[1]
 }
 
 console.log("CHEK000--"+JSON.stringify(data));
