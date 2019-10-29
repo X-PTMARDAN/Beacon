@@ -350,10 +350,10 @@
 
 
               <select class="form-control p-0 pr-1" #t5 name="plant" [(ngModel)]="UOM" (change)="uom(t5.value)">
-                <option value="HL">HL</option>
-                <option selected value="PC">PC</option>
+                <option selected value="HL">HL</option>
+                <option value="PC">PC</option>
 
-                <option selected value="L">L</option>
+                <option value="L">L</option>
 
 
                 
@@ -545,7 +545,8 @@
                                (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek "
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
-                               [(ngModel)]="data.fcstValueAdd">
+                               [(ngModel)]="data.fcstValueAdd"
+                               [innerText]="data.fcstValueAdd">
                       </td>
                     </ng-container>
                   </tr>

@@ -185,6 +185,9 @@ public maxselected=0;
   public down_table = false;
 
 
+  public color_tick=0;
+
+
   // Graph Data Data points
   public graphData: any = [];
   public finalForecastArray: any = [];
@@ -2128,6 +2131,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -2430,6 +2440,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -2731,6 +2748,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -3024,6 +3048,16 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
+
+
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -3409,6 +3443,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -3796,6 +3837,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -4213,6 +4261,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -4517,6 +4572,15 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
+
+
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -4899,6 +4963,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5299,6 +5370,14 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
+
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5883,6 +5962,12 @@ public maxselected=0;
 
     console.log('THIS Prev--' + this.endWeek);
 
+if(this.color_tick==0)
+{
+  return;
+}
+    this.color_tick=0;
+
     if (DashboardComponent.transformWeek(this.endWeek) < 201942) {
       window.alert('Please choose end week correctly');
       return;
@@ -5962,8 +6047,18 @@ public maxselected=0;
           reset: true,
         });
 
+
+
         console.log('CHCHHCHCHC-----' + JSON.stringify(res));
         this.loading = false;
+
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -6702,6 +6797,13 @@ public maxselected=0;
       });
 
       this.loading = false;
+
+      if (res.res.length == 0) {
+        console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        window.alert('No Combination is available');
+        this.loading = false;
+        return;
+      }
       this.greystart = res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -7758,6 +7860,8 @@ public maxselected=0;
   }
 
   public color_change() {
+
+    this.color_tick=1;
     document.getElementById('arrow').style.color = 'green';
   }
 
@@ -8233,6 +8337,14 @@ console.log("Checkiiigg--"+this.sumselected)
 
   public onFilterCheckBoxChange() {
 
+     
+    
+  if(this.reactivate_filter_button==0)
+  {
+      return;
+  }
+
+  this.UOM='HL';
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
     /*
        Customer Planning Group 0
@@ -9688,10 +9800,11 @@ console.log("Checkiiigg--"+this.sumselected)
       //console.log('Hbhbgt---' + r);
       if (r == false) {
         this.graphData[index].fcstValueAdd = 0;
-        window.alert('You have added a wrong number or empty string, it will be treated as 0');
 
+        this.graphData[index].fcstValueAdd = 1;
+        window.alert('You have added a wrong number or empty string, it will be treated as 0');
        // console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
-        return;
+      //  return;
 
       }
       console.log('check---' + this.graphData[index].fcstValueAdd);
