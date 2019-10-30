@@ -1015,7 +1015,7 @@
 
       <div class="bg-white rounded shadow mt-2" style="border-radius: 15px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between pt-1 pr-1">
-          <p class="font-weight-bold ml-2 pt-2">Feature Analysis (HL)</p>
+          <p class="font-weight-bold ml-2 pt-2" [innerText]="featureanalysis"></p>
           <select name="plant" #t class="minimal form-control" [(ngModel)]='secondgraph' id="checking"
                   (change)="test(t.value)"
                   style="width:20%;float: right!important;margin-right:15px !important;margin-top: 5px ">

@@ -55,6 +55,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 public up=0;
 
+public featureanalysis='Feature Analysis (C)'
+
 
 public tables;
 
@@ -1110,6 +1112,8 @@ public maxselected=0;
 
     if (feature == 'Open' && this.granular1 == 'week') {
 
+
+      this.featureanalysis='Feature Analysis (HL)';
       this.createPlanRequestData.which_feature = 'Open';
       //   kjsfhksjhgsfhgdfsg
       this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
@@ -1213,6 +1217,8 @@ public maxselected=0;
       });
     } else if (feature == 'Open' && this.granular1 == 'month') {
 
+
+      this.featureanalysis='Feature Analysis (HL)';
       this.createPlanRequestData.which_feature = 'Open';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring = 'Open Order';
@@ -1315,6 +1321,7 @@ public maxselected=0;
       });
     } else if (feature == 'Baseline' && this.granular1 == 'month') {
 
+      this.featureanalysis='Feature Analysis (HL)';
       this.createPlanRequestData.which_feature = 'Baseline';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
@@ -1443,6 +1450,7 @@ public maxselected=0;
       });
     } else if (feature == 'Baseline' && this.granular1 == 'week') {
 
+      this.featureanalysis='Feature Analysis (HL)';
       this.createPlanRequestData.which_feature = 'Baseline';
       this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
@@ -1572,6 +1580,7 @@ public maxselected=0;
     } else if (feature == 'Promo' && this.granular1 == 'month') {
 
 
+      this.featureanalysis='Feature Analysis (C)';
       this.createPlanRequestData.which_feature = 'Promo';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
@@ -1688,6 +1697,10 @@ public maxselected=0;
 
       });
     } else if (feature == 'Promo' && this.granular1 == 'week') {
+
+
+      this.featureanalysis='Feature Analysis (C)';
+
 
       this.createPlanRequestData.which_feature = 'Promo';
       this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
@@ -1809,6 +1822,7 @@ public maxselected=0;
 
         //this.createPlanRequestData.brands = res.req.brands;
 
+        this.featureanalysis='Feature Analysis (Count)';
         if (feature == 'Baseline') {
 
           this.valuestring = 'Baseline';
@@ -1918,6 +1932,10 @@ public maxselected=0;
 
       });
     } else if (feature == 'Weather' && this.granular1 == 'week') {
+
+      this.featureanalysis='Feature Analysis (Count)';
+
+
       this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
         //this.createPlanRequestData.brands = res.req.brands;
@@ -3873,12 +3891,113 @@ public maxselected=0;
         this.processGraphData(res);
         //this.processgraphData(res);
 
-       // this.processFeatureGraphData(res);
+        this.processFeatureGraphData(res);
         this.createFilterObject(res);
         // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
         //   item.isChecked = true;
         //   return item;
         // });
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.createPlanRequestData.startWeek,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+          axisY: {
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: 'Value: {y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [{
+            type: 'line',
+            gridColor: '#ffffff',
+
+            color: '#17b169',
+            labelFontColor: 'black',
+            dataPoints: this.property3
+          }]
+        });
+        this.secondgraph = 'Promo';
+        this.chart2.render();
+
+
+
+
+
+
+
 
 
         console.log('thhh->' + this.createPlanRequestData.startWeek);
@@ -6023,6 +6142,7 @@ if(this.color_tick==0)
 
     console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
 
+    this.featureanalysis='Feature Analysis (C)';
     // document.getElementById('apply_filter').style.background='#17b169';
     this.loading = true;
     //this.reactivate_filter(2);
