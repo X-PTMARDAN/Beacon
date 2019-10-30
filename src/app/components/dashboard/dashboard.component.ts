@@ -54,6 +54,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public reactivate_filter_button = 0;
 
 public up=0;
+
+
+public tables;
+
+                                                                                                                                    
   public greystart;
 
 public countselected=0;
@@ -2352,7 +2357,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -2661,7 +2666,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -2969,7 +2974,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -3261,7 +3266,7 @@ public maxselected=0;
             {
               name: 'Average ',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: '#46a5b9',
               lineColor: '#46a5b9',
               dataPoints: this.property3
@@ -3362,7 +3367,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -3653,7 +3658,7 @@ public maxselected=0;
             {
               name: 'Average ',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: '#46a5b9',
               lineColor: '#46a5b9',
               dataPoints: this.property3
@@ -3759,7 +3764,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -4080,7 +4085,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -4493,7 +4498,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -4882,7 +4887,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -5190,7 +5195,7 @@ public maxselected=0;
             {
               name: 'Average ',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: '#46a5b9',
               lineColor: '#46a5b9',
               dataPoints: this.property3
@@ -5292,7 +5297,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -5616,7 +5621,7 @@ public maxselected=0;
             {
               name: 'Actuals',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -6265,7 +6270,7 @@ if(this.color_tick==0)
             {
               name: 'Average ',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: '#46a5b9',
               lineColor: '#46a5b9',
               dataPoints: this.property3
@@ -6368,7 +6373,7 @@ if(this.color_tick==0)
               name: 'Actuals',
               showInLegend: true,
 
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -6567,7 +6572,7 @@ if(this.color_tick==0)
             {
               name: 'Average ',
               showInLegend: true,
-              type: 'spline',
+              type: 'line',
               color: '#46a5b9',
               lineColor: '#46a5b9',
               dataPoints: this.property3
@@ -6671,7 +6676,7 @@ if(this.color_tick==0)
               name: 'Actuals',
               showInLegend: true,
 
-              type: 'spline',
+              type: 'line',
               color: this.actualDataPointColor,
               lineColor: this.actualDataPointColor,
               dataPoints: this.actualDataPoints
@@ -6909,7 +6914,7 @@ if(this.color_tick==0)
           {
             name: 'Actuals',
             showInLegend: true,
-            type: 'spline',
+            type: 'line',
             color: this.actualDataPointColor,
             lineColor: this.actualDataPointColor,
             dataPoints: this.actualDataPoints
@@ -8039,7 +8044,13 @@ if(this.color_tick==0)
     var num1=this.graphData[cell].ml;
     this.sumselected=0;
     this.avgselected=0;
+
+    console.log("fdfd----"+JSON.stringify(this.tables));
+
+    
  //   this.avgselected=num1
+
+    //  document.getElementById('table').
  //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
@@ -8640,7 +8651,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //         {
 //           name: 'Average ',
 //           showInLegend: true,
-//           type: 'spline',
+//           type: 'line',
 //          color: "#46a5b9",
 //           lineColor: '#46a5b9',
 //           dataPoints: this.property3
@@ -8715,7 +8726,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //           {
 //             name: 'Actuals',
 //             showInLegend: true,
-//             type: 'spline',
+//             type: 'line',
 //            color: this.actualDataPointColor,
 //             lineColor: this.actualDataPointColor,
 //             dataPoints: this.actualDataPoints
@@ -9799,10 +9810,10 @@ console.log("Checkiiigg--"+this.sumselected)
       var r = this.how(s);
       //console.log('Hbhbgt---' + r);
       if (r == false) {
-        this.graphData[index].fcstValueAdd = 0;
+        this.graphData[index].fcstValueAdd = null;
 
-        this.graphData[index].fcstValueAdd = 1;
-        window.alert('You have added a wrong number or empty string, it will be treated as 0');
+        //this.graphData[index].fcstValueAdd = 1;
+      //  window.alert('You have added a wrong number or empty string, it will be treated as 0');
        // console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
       //  return;
 

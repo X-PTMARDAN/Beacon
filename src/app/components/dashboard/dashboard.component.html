@@ -424,19 +424,37 @@
       <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_up">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
+            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p>
+            <table>
+              <tr>
+                <th>Sum</th>
+                <th>Avg</th>
+                 <th>Count</th>
+                <th>Max</th>
+                 <th>Min</th>
+                
+              </tr>
+              <tr>
+                <td [innerText]="sumselected" ></td>
+                <td [innerText]="avgselected"></td>
+                <td [innerText]="countselected"></td>
+                <td [innerText]="maxselected"></td>
+                <td [innerText]="minselected"></td>
+              </tr>
+            
+            </table>
+            <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
             <!-- <p class="font-weight-bold" ></p> -->
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-            <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
@@ -517,7 +535,7 @@
           <div class="table-content-col">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
-                <table class="table table-striped">
+                <table class="table table-striped" [(ngModel)]="tables">
                   <thead>
                   <tr>
                     <th class="font-weight-bold" *ngFor="let data of graphData" >
@@ -665,7 +683,7 @@
       <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_down">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold" id="planningtable"  [innerText]="planningtable"></p>
+            <p class="font-weight-bold" style="width: 40%;"  id="planningtable"  [innerText]="planningtable"></p>
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
