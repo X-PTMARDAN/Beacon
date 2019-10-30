@@ -205,7 +205,7 @@
               <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
                    role="tabpanel"
                    [attr.aria-labelledby]="filter.key">
-                <div class="panel-body" style="height: 90px; overflow: auto;">
+                <div class="panel-body" style="height: 150px; overflow: auto;">
                   <ul class="m-0">
                       <input type="text" class="form-control" [(ngModel)]="brandstext" name="brandstext" 
                       placeholder="Search Brand">
@@ -245,7 +245,7 @@
             <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
                  role="tabpanel"
                  [attr.aria-labelledby]="filter.key">
-              <div class="panel-body" style="height: 90px; overflow: auto;">
+              <div class="panel-body" style="height: 100px; overflow: auto;">
                 <ul class="m-0">
                   <li class="d-flex" *ngFor="let value of filter.values;">
                     <div>
@@ -426,8 +426,10 @@
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <table>
-              <tr>
+            <table style='font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;'>
+              <tr> 
                 <th>Sum</th>
                 <th>Avg</th>
                  <th>Count</th>

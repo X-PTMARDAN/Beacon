@@ -51,7 +51,7 @@ table table-striped ::-webkit-scrollbar {
   left: 80px;
   width: 200px;
   position: fixed;
-  overflow: auto;
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -122,7 +122,7 @@ table table-striped ::-webkit-scrollbar {
   font-size: 15px;
   border-radius: 5px;
   height: 100%;
-  overflow: auto;
+  
 }
 
 .events-container .block {
