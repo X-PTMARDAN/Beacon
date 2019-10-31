@@ -24,14 +24,16 @@
               <div style="width:50%;background:#17b169;border-radius: 10px;" id="sku_bar" (click)=sku_click()> 
               
                 <!-- <p class="mt-3 font-weight-bold"  [(ngModel)]="texthide">Some unmapped SKU are available</p>    -->
-              <div style="font-size: 40px;padding-top: 10px;border-radius: 15px;    float: right;
+                <span id="newsku123" style="display: none;color:#fff;margin-left: 40%" >You have unmapped SKUs in the list</span> 
+            
+            <div style="font-size: 40px;border-radius: 15px;    float: right;
                 margin-right: 25%;">
               
 
                 <!-- <p style="color: #000;padding-top: 28px;">Sku Mapping</p> -->
 
-
-                  <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;"><span id="newsku123" style="display: none" >New SKU Left Mapping</span> SKU Mapping </h5>
+               
+                  <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;">SKU Mapping </h5>
               
 
                 </div>
@@ -82,10 +84,10 @@
                   <br>
                   <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">Material</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">Material-<span [innerText]='material_len'></span></h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><h6 class="mt-3 font-weight-bold">SKU Name</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group-<span [innerText]='fg_len'></span></h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
