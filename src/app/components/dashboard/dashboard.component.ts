@@ -468,9 +468,7 @@ public maxselected=0;
 
       for (const b of this.filters[0].values) {
         console.log('fgsfg12345-' + JSON.stringify(b));
-        if (b.name.name == 'G04 - CH Aldi') {
-          b.isChecked = true;
-        }
+   
       }
     });
 
@@ -629,7 +627,7 @@ public maxselected=0;
                       startWeek: 201942,
                       endWeek: 202004,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
-                      customerPlanningGroup: ['G04 - CH Aldi'],
+                      customerPlanningGroup: [],
                       plants: ['G001']
                     };
                     
@@ -701,7 +699,7 @@ public maxselected=0;
                       this.createdata.forecastingGroups = JSON.parse(JSON.stringify(a));
                       this.createdata.plants = JSON.parse(JSON.stringify(temp_plant));
                       this.createdata.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
-
+                      console.log("dfsdfhdf-------"+JSON.stringify(this.createdata.customerPlanningGroup));
 
                       for (const b of this.filters[0].values) {
                         for (const c of temp_cpg) {
