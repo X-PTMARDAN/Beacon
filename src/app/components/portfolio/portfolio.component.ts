@@ -587,10 +587,10 @@ this.skuService.getPIPOMapping().subscribe((response2: any) => {
   
   // });
 
-  this.fromsku='';
-  this.tosku='';
-  this.logic=''
-  this.startweek='';
+  this.fromsku;
+  this.tosku;
+  this.logic;
+  this.startweek;
 
 
 
