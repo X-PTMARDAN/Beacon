@@ -10098,7 +10098,7 @@ console.log("Checkiiigg--"+this.sumselected)
         console.log(res);
       });
 
-      window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue);
+      window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue+", Please click on save button if you want to save the plan");
     }
   }
 
