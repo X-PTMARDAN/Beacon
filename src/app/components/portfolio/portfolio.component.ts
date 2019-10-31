@@ -43,6 +43,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public date;
 
+  public material_len=0;
+
+  public fg_len=0;
+
 
   public newsku=false;
 
@@ -147,6 +151,8 @@ public table=false;
         
                 this.drop.push(g);
               }
+
+              this.material_len=this.drop.length;
               console.log("Dfdfdfd---"+JSON.stringify(response));
           });
 
@@ -157,8 +163,10 @@ public table=false;
 
 
 
-          this.skuService.getfgid().subscribe((response: any) => {  
+          this.skuService.getfgid().subscribe((response: any) => { 
+           
             this.mappingdrop=response;
+            this.fg_len=this.mappingdrop.length; 
           });
 
 
@@ -181,14 +189,14 @@ public addingSKU()
   this.pipo.push({
     material:this.materialidnumber,
     sku:this.skunamenew,
-    minimum:201940
+ 
   });
 
 
   var a={
     material:this.materialidnumber,
     sku:this.skunamenew,
-    minimum:201940
+      
   };
 
 console.log("Fsfsfss----"+JSON.stringify(this.pipo));

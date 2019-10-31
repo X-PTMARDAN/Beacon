@@ -289,6 +289,9 @@ public maxselected=0;
 
   public searchText = '';
 
+
+  public searchText_filter='';
+
   // Events
   public weathers: any = [];
   public events: any = [];
@@ -6097,7 +6100,7 @@ if(this.color_tick==0)
       return;
     }
     if (DashboardComponent.transformWeek(this.prevactuals) > 201942) {
-      window.alert('Please choose Actual week correctly');
+      window.alert('Please choose a valid Actual Week');
       return;
     }
 
@@ -8093,6 +8096,26 @@ if(this.color_tick==0)
     return regex.test(sku);
   }
 
+
+
+
+
+  public filterSKUs_filter(sku: string) {
+    if (!this.searchText_filter || !this.searchText_filter.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.searchText_filter && this.searchText_filter.trim(), 'ig');
+    return regex.test(sku);
+  }
+
+
+  public getCallback_filter() {
+    return this.filterSKUs_filter.bind(this);
+  }
+
+
+
+
   public getCallback_comm() {
     return this.filterSKUs_comm.bind(this);
   }
@@ -8496,12 +8519,19 @@ console.log("Checkiiigg--"+this.sumselected)
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
+    
+
     for (const abc of fgssselected2) {
       fgssselected1.push(abc);
     }
     this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
+    if(this.cpgss.length==0 || this.plantss.length==0 || this.fgssselected.length==0)
+    {
+      window.alert("Please choose atleast one plant, Customer planning Group and Forecasting Group");
 
+      return;
+    }
     this.fgssselected = this.fgssselected.map(item => {
       return {name: item, isChecked: true};
     });
@@ -10067,6 +10097,8 @@ console.log("Checkiiigg--"+this.sumselected)
       this.skuService.savePlan(reqBody).subscribe((res: any) => {
         console.log(res);
       });
+
+      window.alert("FVA - 10 \n Final Forecast for 201946 becomes 135.61");
     }
   }
 
