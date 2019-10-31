@@ -10098,7 +10098,7 @@ console.log("Checkiiigg--"+this.sumselected)
         console.log(res);
       });
 
-      window.alert("FVA - 10 \n Final Forecast for 201946 becomes 135.61");
+      window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue);
     }
   }
 
