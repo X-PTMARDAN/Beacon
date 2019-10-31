@@ -10888,8 +10888,10 @@ console.log("Checkiiigg--"+this.sumselected)
     for(const a in data.customerPlanningGroup)
     {
        console.log("Loadingggggggg---"+a);
+       data.customerPlanningGroup[a]=data.customerPlanningGroup[a].split("-")[0];
+       
     }
-    data.customerPlanningGroup[0]=data.customerPlanningGroup[0].split("-")[0];
+    console.log('FINAL_LOADING_DDD--' + JSON.stringify(data));
     this.createPlan(data);
 
     // this.skuService.getGraphData(data).subscribe((res: any) => {
