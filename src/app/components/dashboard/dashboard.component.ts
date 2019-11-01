@@ -10096,7 +10096,7 @@ console.log("Checkiiigg--"+this.sumselected)
       //   console.log(res);
       // });
     //  window.alert("Harshit Sharma is the best guy in the world and sdue to ")
-      window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue+", Please click on save button if you want to save the plan");
+    //  window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue+", Please click on save button if you want to save the plan");
     }
   }
 
