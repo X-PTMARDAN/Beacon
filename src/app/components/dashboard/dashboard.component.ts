@@ -57,7 +57,7 @@ public up=0;
 
 public featureanalysis='Feature Analysis (C)'
 
-
+public checking=0;
 public tables;
 
                                                                                                                                     
@@ -10092,10 +10092,10 @@ console.log("Checkiiigg--"+this.sumselected)
         calendarWeek: week
       };
 
-      this.skuService.savePlan(reqBody).subscribe((res: any) => {
-        console.log(res);
-      });
-
+      // this.skuService.savePlan(reqBody).subscribe((res: any) => {
+      //   console.log(res);
+      // });
+    //  window.alert("Harshit Sharma is the best guy in the world and sdue to ")
       window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue+", Please click on save button if you want to save the plan");
     }
   }
@@ -10304,6 +10304,10 @@ console.log("Checkiiigg--"+this.sumselected)
     this.chart1.render();
   }
 
+
+
+
+
   public savePlan() {
     this.savePlanLoader = true;
     const reqBody = {
@@ -10335,6 +10339,140 @@ console.log("Checkiiigg--"+this.sumselected)
           plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
         };
         reqBody.data.push(Object.assign(obj, commentsObj));
+      }
+    }
+
+    var abc : any =[];
+    for(const data of this.graphData)
+    {
+     
+        if(data.fcstValueAdd)
+        {
+
+          const reqBody = {
+            cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+    
+            sku: JSON.parse(JSON.stringify(this.fgssselected)),
+    
+            user: 'admin',
+            finalForecast: data.finalForecast,
+            fva: data.fcstValueAdd,
+            calendarWeek: data.week
+            };
+
+
+            abc.push(reqBody);
+        }
+    }
+
+    
+
+    if (reqBody.data.length == 0) {
+      const obj = {
+        calendarWeek: 201942,
+        sku: JSON.parse(JSON.stringify(this.fgssselected)),
+        user: 'admin',
+        cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      };
+      reqBody.data.push(Object.assign(obj, null));
+      console.log('Debug -->' + reqBody.data);
+      //   this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+      //   this.savePlanLoader = false;
+      //   this.PlanNameModalBtn.nativeElement.click();
+      // }, (error) => {
+      //   this.savePlanLoader = false;
+      //   this.PlanNameModalBtn.nativeElement.click();
+      // });
+    }
+
+
+    const login = {
+      Username: 'admin',
+      activity: 'Saved Plan',
+      datetimestamp: JSON.stringify(this.update)
+    };
+
+    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    });
+
+
+    this.skuService.savePlan(abc).subscribe((res: any) => {
+      console.log(res);
+      this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+        this.savePlanLoader = false;
+        this.PlanNameModalBtn.nativeElement.click();
+      }, (error) => {
+        this.savePlanLoader = false;
+        this.PlanNameModalBtn.nativeElement.click();
+      });
+    });
+
+
+
+  }
+
+
+
+
+
+  public savePlan_null() {
+    this.savePlanLoader = true;
+    const reqBody = {
+      data: []
+    };
+
+    for (const data of this.graphData) {
+      const commentsObj = {};
+      for (const index in data.userComment) {
+        commentsObj[`comments${parseInt(index, 10) + 1}`] = data.userComment[index];
+      }
+
+
+      var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
+      var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
+
+      for (const abc of fgssselected2) {
+        fgssselected1.push(abc);
+      }
+      this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+   
+   
+      console.log("hahha---"+JSON.stringify(this.graphData));
+      var abc : any =[];
+      for(const g of this.graphData)
+      {
+       
+          if(data.fcstValueAdd)
+          {
+
+            const reqBody = {
+              cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+              plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+      
+              sku: this.fgssselected.map(item => item.name),
+      
+              user: 'admin',
+              finalForecast: data.finalForecast,
+              fva: data.fcstValueAdd,
+              calendarWeek: data.week
+              };
+
+
+              abc.push(reqBody);
+          }
+      }
+      if (JSON.stringify(commentsObj) !== '{}') {
+        const obj = {
+          calendarWeek: data.calenderYearWeek,
+          sku: JSON.parse(JSON.stringify(this.fgssselected)),
+          user: 'admin',
+          cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        };
+        
       }
     }
     if (reqBody.data.length == 0) {
