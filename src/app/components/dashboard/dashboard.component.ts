@@ -1149,6 +1149,22 @@ public maxselected=0;
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
                   startValue: 201853,
                   endValue: 201900
                 },
@@ -1190,7 +1206,27 @@ public maxselected=0;
                 startValue: 202200,
                 endValue: 202253,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 202300,
+                endValue: 202353,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202400,
+                endValue: 202453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202500,
+                endValue: 202553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202600,
+                endValue: 202653,
+                color: '#F2F3F5'
+              },
             ]
           },
 
@@ -1268,6 +1304,22 @@ public maxselected=0;
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
                   startValue: 201813,
                   endValue: 201900
                 },
@@ -1286,6 +1338,18 @@ public maxselected=0;
                 {
                   startValue: 202213,
                   endValue: 202300
+                },
+                {
+                  startValue: 202313,
+                  endValue: 202400
+                },
+                {
+                  startValue: 202413,
+                  endValue: 202500
+                },
+                {
+                  startValue: 202513,
+                  endValue: 202600
                 }
               ]
             },
@@ -1308,6 +1372,21 @@ public maxselected=0;
               {
                 startValue: 202200,
                 endValue: 202213,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202300,
+                endValue: 202313,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202400,
+                endValue: 202413,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202500,
+                endValue: 202513,
                 color: '#F2F3F5'
               }
             ]
@@ -1383,6 +1462,22 @@ public maxselected=0;
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
                   startValue: 201813,
                   endValue: 201900
                 },
@@ -1401,6 +1496,18 @@ public maxselected=0;
                 {
                   startValue: 202213,
                   endValue: 202300
+                },
+                {
+                  startValue: 202313,
+                  endValue: 202400
+                },
+                {
+                  startValue: 202413,
+                  endValue: 202500
+                },
+                {
+                  startValue: 202513,
+                  endValue: 202600
                 }
               ]
             },
@@ -1423,6 +1530,26 @@ public maxselected=0;
               {
                 startValue: 202200,
                 endValue: 202213,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202300,
+                endValue: 202313,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202400,
+                endValue: 202413,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202500,
+                endValue: 202513,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202600,
+                endValue: 202613,
                 color: '#F2F3F5'
               }
             ]
@@ -1511,6 +1638,22 @@ public maxselected=0;
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
                 {
                   startValue: 201853,
                   endValue: 201900
@@ -10272,7 +10415,8 @@ console.log("Checkiiigg--"+this.sumselected)
     }
     console.log('Check000000---' + JSON.stringify(this.finn));
 
-    this.weeklycomment1();
+    this.down_table = true;
+    //this.weeklycomment1();
 
   }
 
