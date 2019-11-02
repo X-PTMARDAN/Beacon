@@ -33,7 +33,7 @@
                 <!-- <p style="color: #000;padding-top: 28px;">Sku Mapping</p> -->
 
                
-                  <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;">SKU Mapping </h5>
+                  <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;cursor: pointer;">SKU Mapping </h5>
               
 
                 </div>
@@ -47,7 +47,7 @@
 
               <div style="width:50%;border-radius: 10px;" id="pipo_bar" (click)='pipo_click()'> <div style="font-size: 40px;padding-top: 10px;  border-radius: 15px;  float: left;
                 margin-left: 25%;">
-               <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;">Phase in Phase Out</h5>
+               <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;cursor: pointer;">Phase in Phase Out</h5>
                 </div></div>
       
       
@@ -266,6 +266,7 @@
                   
                               <input type="week" value="2019-W39" id="startWeek" [value]="startweek" [(ngModel)]="startweek" name="startWeek" style="height: 43px;
                               width: 300px;
+                              border-radius: 5px;
                               margin-top: 3px;">
                   
                             
@@ -282,7 +283,7 @@
 
 
 
-                  <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"  data-target="#myModal_gant" data-toggle="modal" type="button" (click)="apply()" > Apply</button></div>  
+                  <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="apply()" > Apply</button></div>  
 
 
 
@@ -315,7 +316,7 @@
       
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipoMapping; let i=index">
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" data-toggle="modal" data-target="#myModal_gant" (click)="gantchart(i)">{{data.fromid}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>

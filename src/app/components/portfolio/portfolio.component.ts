@@ -35,6 +35,9 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   @ViewChild('gantchart_open', {static: false}) gantchart_open: ElementRef;
 
 
+  @ViewChild('myModal_gant', {static: false}) myModal_gant: ElementRef;
+
+
   
 
   @ViewChild('mapsku', {static: false}) mapsku: ElementRef;
@@ -185,7 +188,11 @@ public addingSKU()
 {
   console.log("gfhgfh12---"+this.materialidnumber);
 
-
+  if(this.materialidnumber===null || this.skunamenew===null || this.skunamenew=='' || this.materialidnumber=='')
+  {
+    window.alert("Please enter the value");
+    return;
+  }
   this.pipo.push({
     material:this.materialidnumber,
     sku:this.skunamenew,
@@ -426,14 +433,14 @@ console.log("Check ---"+this.skuname);
 
 this.pipo.push({
   material:this.materialid,
-  minimum:201940,
+  //minimum:201940,
   sku:this.skuname,
 });
 
 
 var a={
   material:this.materialid,
-  minimum:201940,
+  //minimum:201940,
   sku:this.skuname,
 };
 //this.drop.push(this.skuname);
@@ -464,15 +471,37 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
       document.getElementById('newsku123').style.display='none';
   }
+
+
+  public gantchart(num)
+  {
+    this.fromsku=this.pipoMapping[num].fromid;
+
+    this.tosku=this.pipoMapping[num].toid;
+
+    this.date=this.pipoMapping[num].fromweek;
+
+    console.log("DFdfdf---"+this.date);
+
+    this.logic=this.pipoMapping[num].state;
+
+  }
 public apply()
 {
-  
+
+  if(this.fromsku=='' ||  this.fromsku===null || this.tosku===null || this.tosku=='' || state===null || state=='' || this.date===null || this.date=='')
+{
+  window.alert("Please select all the values");
+  return;
+}
 console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 
 console.log("Dfsfgfsg1---"+JSON.stringify(this.tosku));
 console.log("Dfsfgfsg2---"+JSON.stringify(this.logic));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek.substr(0,4)));
+
+
 var state;
  this.date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
 
@@ -494,9 +523,11 @@ var data={
   fgid:this.fromsku.split("-")[1]
 }
 
+
+
 console.log("CHEK000--"+JSON.stringify(data));
 
-
+//this.myModal_gant.nativeElement.click();
 
 
 
