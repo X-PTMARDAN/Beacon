@@ -684,28 +684,60 @@
 
 
       <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_down">
+    
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold" style="width: 40%;"  id="planningtable"  [innerText]="planningtable"></p>
+            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+         
+            <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
+            <!-- <p class="font-weight-bold" ></p> -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
           </div>
 
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;
-
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+          <table style='font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 40%;margin-left: 17%'>
+            <tr> 
+             
+              <td style="width: 20%;">   <p class="m-0 week-block" style="font-size: 0.7rem;">Sum</p></td>
+              <td style="width: 20%;">   <p class="m-0 week-block" style="font-size: 0.7rem;">Avg</p></td>
+               <td style="width: 20%;">   <p class="m-0 week-block" style="font-size: 0.7rem;">Count</p></td>
+              <td style="width: 20%;">   <p class="m-0 week-block" style="font-size: 0.7rem;">Max</p></td>
+               <td style="width: 20%;">   <p class="m-0 week-block" style="font-size: 0.7rem;">Min</p></td>
+              
+            </tr>
+            <tr>
+              <td style="width: 20%;">   <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;"></p></td>
+              <td style="width: 20%;">   <p class="m-0 week-block" [innerText]="avgselected" style="font-size: 0.7rem;"></p></td>
+              <td style="width: 20%;">   <p class="m-0 week-block" [innerText]="countselected" style="font-size: 0.7rem;"></p></td>
+              <td style="width: 20%;" >   <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;"></p></td>
+              <td style="width: 20%;">   <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;"></p></td>
+            </tr>
+          
+          </table>
           <div class="form-group m-0">
           </div>
 
           <div class="form-group m-0">
-            <span class="input-group-text" style="float: right !important;margin-right:15px"><i
-              (click)="table_down_click()" class="fa fa-clone"></i></span>
+            <span class="input-group-text" style="float: right !important;margin-right:20px"><i
+              (click)="table_up_click()" class="fa fa-clone"></i></span>
 
             <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
                                                                                                 class="fa fa-download"></i></span>
@@ -734,7 +766,6 @@
                 <th class="font-weight-bold">
                   <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
                   <p class="m-0 week-block"> FVA</p>
-
                 </th>
               </tr>
               <tr (click)="putValueInFinal('ML')" class="ml-text">
@@ -769,10 +800,10 @@
           <div class="table-content-col">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
-                <table class="table table-striped">
+                <table class="table table-striped" [(ngModel)]="tables">
                   <thead>
                   <tr>
-                    <th class="font-weight-bold" *ngFor="let data of graphData">
+                    <th class="font-weight-bold" *ngFor="let data of graphData" >
                       <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data.newweek}}</p>
                     </th>
                   </tr>
@@ -780,7 +811,7 @@
                   <tbody>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
-                      <td class="font-weight-bold cursor-pointer"
+                      <td id="i" class="font-weight-bold cursor-pointer"
                           [class.highlight]="data.lockcell?.length"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
                           (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
@@ -794,43 +825,44 @@
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
                                [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= greystart }"
-                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
-                               [(ngModel)]="data.fcstValueAdd">
+                               [(ngModel)]="data.fcstValueAdd"
+                               [innerText]="data.fcstValueAdd">
                       </td>
                     </ng-container>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData  ; let i=index"
+                    <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
                       {{ data.ml }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData  ; let i=index"
+                    <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
                       {{ data.apo }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData  ; let i=index"
+                    <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
                       {{ data.actuals }}
                     </td>
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData  ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"  (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
                       {{ data.actualslastyear }}
                     </td>
 
 
                   </tr>
                   <tr>
-                    <td *ngFor="let data of graphData  ; let i=index"
+                    <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
                       {{ data.harshit }}
                     </td>
@@ -876,7 +908,7 @@
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.lastYearTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal}}</p>
                 </th>
               </tr>
               <tr>
@@ -893,6 +925,7 @@
           <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
              data-target="#saveAViewsModal">Save View</a> -->
         </div>
+     
       </div>
 
 
