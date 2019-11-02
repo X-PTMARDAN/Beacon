@@ -58,6 +58,13 @@ public up=0;
 public featureanalysis='Feature Analysis (C)'
 
 public checking=0;
+
+
+public enabled=1;
+
+
+
+
 public tables;
 
                                                                                                                                     
@@ -1225,6 +1232,21 @@ public maxselected=0;
         this.valuestring = 'Open Order';
         this.processFeatureGraphData(res);
 
+
+
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
+
+        
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
+
+
+
+
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         console.log('ISSE PTA--' + this.greystart);
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -1327,7 +1349,7 @@ public maxselected=0;
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
         //this.createPlanRequestData.brands = res.req.brands;
-
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         if (feature == 'Baseline') {
 
           this.valuestring = 'Baseline';
@@ -1585,6 +1607,8 @@ public maxselected=0;
       this.createPlanRequestData.which_feature = 'Promo';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
+
         //this.createPlanRequestData.brands = res.req.brands;
 
         if (feature == 'Baseline') {
@@ -1820,6 +1844,8 @@ public maxselected=0;
       });
     } else if (feature == 'Weather' && this.granular1 == 'month') {
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
+
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
 
         //this.createPlanRequestData.brands = res.req.brands;
 
@@ -2124,7 +2150,7 @@ public maxselected=0;
 
     if(feature =='L' && this.granular1=="week")
     {
-
+     if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
       this.planningtable = 'Planning table (L)';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (L)';
@@ -2385,7 +2411,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
-
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -2404,6 +2430,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible: false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -2434,6 +2461,7 @@ public maxselected=0;
     if(feature =='L' && this.granular1=="month")
     {
 
+     
       this.planningtable = 'Planning table (L)';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (L)';
@@ -2471,6 +2499,8 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -2694,7 +2724,8 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
-
+              visible: false,
+              
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -2712,6 +2743,7 @@ public maxselected=0;
             {
               name: 'APO Forecast',
               showInLegend: true,
+              visible: false,
               type: 'line',
               lineDashType: 'dash',
               color: this.aopDataPointColor,
@@ -2779,6 +2811,12 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+
+
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
+
+
+
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -3002,7 +3040,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
-
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -3020,6 +3058,7 @@ public maxselected=0;
             {
               name: 'APO Forecast',
               showInLegend: true,
+              visible:false,
               type: 'line',
               lineDashType: 'dash',
               color: this.aopDataPointColor,
@@ -3081,7 +3120,7 @@ public maxselected=0;
           return;
         }
 
-
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -3395,6 +3434,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -3413,6 +3453,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -3474,6 +3515,8 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -3792,6 +3835,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -3810,6 +3854,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -3841,6 +3886,14 @@ public maxselected=0;
         return;
       }
 
+
+      if(this.UOM=='HL' && this.granular1=='week')
+        {
+          this.enabled=1;
+        }
+        else{
+          this.enabled=0;
+        }
       // const data=this.createPlanRequestData;
 //  console.log("Create_Plan->"+JSON.stringify(data));
       this.createPlanRequestData = {
@@ -4214,6 +4267,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -4232,6 +4286,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -4386,7 +4441,13 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
-
+        if(this.UOM=='HL' && this.granular1=='week')
+        {
+          this.enabled=1;
+        }
+        else{
+          this.enabled=0;
+        }
         if (res.res.length == 0) {
           console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
           window.alert('No Combination is available');
@@ -4627,7 +4688,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
-
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -4646,6 +4707,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+                visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -4705,7 +4767,7 @@ public maxselected=0;
           return;
         }
 
-
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5015,6 +5077,7 @@ public maxselected=0;
             {
               name: 'Actual LY',
               showInLegend: true,
+              visible: false,
               type: 'line',
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
@@ -5034,6 +5097,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -5095,6 +5159,7 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5426,6 +5491,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -5444,6 +5510,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -5502,7 +5569,13 @@ public maxselected=0;
           this.loading = false;
           return;
         }
-
+        if(this.UOM=='HL' && this.granular1=='week')
+        {
+          this.enabled=1;
+        }
+        else{
+          this.enabled=0;
+        }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5750,6 +5823,7 @@ public maxselected=0;
               name: 'Actual LY',
               showInLegend: true,
               type: 'line',
+              visible: false,
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
               lineColor: this.lastyearDataPointColor,
@@ -5768,6 +5842,7 @@ public maxselected=0;
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -6185,6 +6260,9 @@ if(this.color_tick==0)
           this.loading = false;
           return;
         }
+
+
+          if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -6412,6 +6490,9 @@ if(this.color_tick==0)
             itemclick: this.toggleDataSeries.bind(this)
           },
           axisX: {
+            // labelFormatter: function(e){
+            //   return e.value.toString.slice(4, 6) + '-' + e.value.toString.slice(0, 4);
+            // },
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: 1,
@@ -6502,7 +6583,7 @@ if(this.color_tick==0)
             {
               name: 'Actual LY',
               showInLegend: true,
-
+              visible: false,
               type: 'line',
               lineDashType: 'dash',
               color: this.lastyearDataPointColor,
@@ -6522,6 +6603,7 @@ if(this.color_tick==0)
               name: 'APO Forecast',
               showInLegend: true,
               type: 'line',
+              visible:false,
               lineDashType: 'dash',
               color: this.aopDataPointColor,
               lineColor: this.aopDataPointColor,
@@ -6561,6 +6643,15 @@ if(this.color_tick==0)
           this.loading = false;
           return;
         }
+
+        if(this.UOM=='HL' && this.granular1=='week')
+        {
+          this.enabled=1;
+        }
+        else{
+          this.enabled=0;
+        }
+        
 
         this.createPlanRequestData.brands = res.req.brands;
         this.greystart = res.start;
@@ -6613,6 +6704,11 @@ if(this.color_tick==0)
             itemclick: this.toggleDataSeries1.bind(this)
           },
           axisX: {
+            // labelFormatter: function(e){
+
+            //   console.log("Checking--1212-"+e);
+            //  // return e.value.slice(4, 6);
+            // },
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7043,6 +7139,7 @@ if(this.color_tick==0)
           {
             name: 'Actual LY',
             showInLegend: true,
+            visible: false,
             type: 'line',
             lineDashType: 'dash',
             color: this.lastyearDataPointColor,
@@ -7062,6 +7159,7 @@ if(this.color_tick==0)
             name: 'APO Forecast',
             showInLegend: true,
             type: 'line',
+            visible:false,
             lineDashType: 'dash',
             color: this.aopDataPointColor,
             lineColor: this.aopDataPointColor,
@@ -8882,6 +8980,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //           {
 //             name: 'Actual LY',
 //             showInLegend: true,
+
 //             type: 'line',
 //             lineDashType: 'dash',
 //            color: this.lastyearDataPointColor,
