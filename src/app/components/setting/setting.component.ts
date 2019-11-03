@@ -41,11 +41,12 @@ export class SettingComponent implements OnInit {
         return item;
       });
 
-      for (const g of this.allComments) {
-        this.allCommentshtml.push(g.name);
-      }
+      // for (const g of this.allComments) {
+      //   this.allCommentshtml.push(g.name);
+      // }
 
 
+ console.log("sjkhfgksfgrg234---"+JSON.stringify(this.allComments));
 
     }, (error) => {
       // this.allComments = res.map((item) => {
