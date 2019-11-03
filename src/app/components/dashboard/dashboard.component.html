@@ -737,7 +737,7 @@
 
           <div class="form-group m-0">
             <span class="input-group-text" style="float: right !important;margin-right:20px"><i
-              (click)="table_up_click()" class="fa fa-clone"></i></span>
+              (click)="table_down_click()" class="fa fa-clone"></i></span>
 
             <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
                                                                                                 class="fa fa-download"></i></span>
@@ -935,7 +935,10 @@
           <!-- <input placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"  style="height: 80%;padding:7px;margin-left:25px;" type="text"> -->
 
           <div class="input-group" style="margin-top: 5px;">
-              <input type="text" placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"  style="border-radius:5px;height: 90%;padding:7px;margin-left:25px;">
+              <input type="text" placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"  style="border-radius:5px;height: 90%;padding:7px;margin-left:25px;    background-clip: padding-box;
+              border: 1px solid #ced4da;
+              background-color: #fff;
+              height: calc(1.5em + .30rem + 2px);">
              
            </div>
           <!-- <span class="input-group-text" style="float: right !important;margin-right:2px"><i (click)="hide_all_comments()" class="fa fa-clone"></i></span> -->
@@ -975,22 +978,22 @@
 
           <table
             style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
-            <ng-container *ngFor="let g of allComments | filter_comment : getCallback_comm() ;let i=index ">
+            <ng-container *ngFor="let g of allselectedweek | filter_comment : getCallback_comm() ;let i=index ">
               <tr style="background-color: #fff">
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
-                                                                                                   style="font-size:0.75rem">{{g.name.split('|')[1]}}</p>
+                                                                                                   style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
                 </td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
                                                                                                    style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
                 </td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
-                                                                                                   style="font-size:0.75rem">{{g.name.split('|')[2]}}</p>
+                                                                                                   style="font-size:0.75rem">{{ g.name.split('|')[1] }}</p>
                 </td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
-                                                                                                   style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
+                                                                                                   style="font-size:0.75rem">{{ g.name.split('|')[2]}}</p>
                 </td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
-                                                                                                   style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
+                                                                                                   style="font-size:0.75rem">{{ g.name.split('|')[3] }}</p>
                 </td>
               </tr>
             </ng-container>
@@ -1010,7 +1013,10 @@
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;"><h6
                 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
-                class="mt-3 font-weight-bold">Delete</h6></td>
+                class="mt-3 font-weight-bold">Plant</h6></td>
+
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
+                  class="mt-3 font-weight-bold">CPG</h6></td>
             </tr>
 
           </table>
@@ -1025,10 +1031,20 @@
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;"><p class="m-0"
                                                                                                  style="font-size:0.75rem">{{fi.sku}}</p>
               </td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><i class="fa fa-trash"
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;"><p class="m-0"
+                style="font-size:0.75rem">{{fi.plant}}</p>
+</td>
+
+
+
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;"><p class="m-0"
+  style="font-size:0.75rem">{{fi.cpg}}</p>
+</td>
+              <!-- <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><i class="fa fa-trash"
                                                                                                  aria-hidden="true"
                                                                                                  (click)="deletecomment(i)"></i>
-              </td>
+              </td> -->
 
             </tr>
 

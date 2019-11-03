@@ -19,9 +19,42 @@ export class SettingComponent implements OnInit {
 
   public allLogs: any = [];
 
+
+  public allComments;
+
+  public allCommentshtml;
+  public comments_table=false;
+
   public up_table=false;
 
   ngOnInit() {
+
+
+
+    this.skuService.getCommnents().subscribe((res: any) => {
+
+
+
+      this.allComments = res.map((item) => {
+        item.isSelected = false;
+        item.isFiltered=false;
+        return item;
+      });
+
+      for (const g of this.allComments) {
+        this.allCommentshtml.push(g.name);
+      }
+
+
+
+    }, (error) => {
+      // this.allComments = res.map((item) => {
+      //   item.isSelected = false;
+      //   item.isFiltered=false;
+      //   return item;
+      // });
+      // console.log("fgfgfgfg-----"+this.allComments);
+    });
 
     this.skuService.getlogs().subscribe((res: any) => {
       this.allLogs=res;
@@ -142,6 +175,12 @@ export class SettingComponent implements OnInit {
   public logs1()
   {
       this.up_table=true;
+  }
+
+
+  public comments1()
+  {
+      this.comments_table=true;
   }
 
 }

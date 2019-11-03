@@ -62,6 +62,7 @@ public checking=0;
 
 public enabled=1;
 
+public commentsall_combination : any =[];
 
 
 
@@ -77,7 +78,7 @@ public maxselected=0;
 
   public selectallcpg = 0;
 
-
+public allselectedweek: any=[];
   public searchplant;
   public selecteddblclick;
 
@@ -121,7 +122,7 @@ public maxselected=0;
 
   public selectedskus = [];
 
-  public secondgraph = 'Promo';
+  public secondgraph = 'Baseline';
 
   public cpgss;
   public plantss;
@@ -1149,6 +1150,22 @@ public maxselected=0;
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
                   startValue: 201853,
                   endValue: 201900
                 },
@@ -1190,7 +1207,27 @@ public maxselected=0;
                 startValue: 202200,
                 endValue: 202253,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 202300,
+                endValue: 202353,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202400,
+                endValue: 202453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202500,
+                endValue: 202553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202600,
+                endValue: 202653,
+                color: '#F2F3F5'
+              },
             ]
           },
 
@@ -1268,6 +1305,22 @@ public maxselected=0;
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
                   startValue: 201813,
                   endValue: 201900
                 },
@@ -1286,6 +1339,18 @@ public maxselected=0;
                 {
                   startValue: 202213,
                   endValue: 202300
+                },
+                {
+                  startValue: 202313,
+                  endValue: 202400
+                },
+                {
+                  startValue: 202413,
+                  endValue: 202500
+                },
+                {
+                  startValue: 202513,
+                  endValue: 202600
                 }
               ]
             },
@@ -1308,6 +1373,21 @@ public maxselected=0;
               {
                 startValue: 202200,
                 endValue: 202213,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202300,
+                endValue: 202313,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202400,
+                endValue: 202413,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202500,
+                endValue: 202513,
                 color: '#F2F3F5'
               }
             ]
@@ -1383,6 +1463,22 @@ public maxselected=0;
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
                   startValue: 201813,
                   endValue: 201900
                 },
@@ -1401,6 +1497,18 @@ public maxselected=0;
                 {
                   startValue: 202213,
                   endValue: 202300
+                },
+                {
+                  startValue: 202313,
+                  endValue: 202400
+                },
+                {
+                  startValue: 202413,
+                  endValue: 202500
+                },
+                {
+                  startValue: 202513,
+                  endValue: 202600
                 }
               ]
             },
@@ -1423,6 +1531,26 @@ public maxselected=0;
               {
                 startValue: 202200,
                 endValue: 202213,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202300,
+                endValue: 202313,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202400,
+                endValue: 202413,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202500,
+                endValue: 202513,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202600,
+                endValue: 202613,
                 color: '#F2F3F5'
               }
             ]
@@ -1511,6 +1639,22 @@ public maxselected=0;
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
                 {
                   startValue: 201853,
                   endValue: 201900
@@ -2137,6 +2281,51 @@ public maxselected=0;
   }
 
 
+
+
+  public commentsall()
+  {
+
+    var aab : any=[];
+   // this.allselectedweek=[];
+    //this.selectedWeekComments = this.graphData[i].comments;
+
+    for(const abc of this.graphData)
+    {
+      if(abc.comments[0])
+      {
+        aab.push({
+          name:abc.comments[0],
+          isSelected:false,
+          isFiltered:false});
+      }
+     
+    }
+
+    this.allselectedweek=JSON.parse(JSON.stringify(aab));
+    // this.allselectedweek = this.allselectedweek.map((item) => {
+    //   item.isSelected = false;
+    //   item.isFiltered=false;
+    //   return item;
+    // });
+
+    console.log("dsfkhsdkhfsd---"+JSON.stringify(this.allselectedweek));
+      // this.commentsall_combination=[];
+      // for(const abc of this.graphData)
+      // {
+      //     if(abc.comment)
+      //     {
+      //       this.commentsall_combination = abc.comments;
+      //     }
+      // }
+
+      // console.log("Comments Test---"+JSON.stringify(this.commentsall_combination));
+
+
+
+  }
+
+
   public uom(feature: string) {
 
     console.log('Harsh134->' + feature);
@@ -2188,6 +2377,8 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+
+        
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -2220,7 +2411,7 @@ public maxselected=0;
         //     item.isChecked = true;
         //     return item;
         //   });
-
+        this.commentsall();
 
         // this.skus = data.forecastingGroups.map((item) => {
         //   item.isChecked = true;
@@ -2501,7 +2692,10 @@ public maxselected=0;
         }
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
-        this.greystart = res.start;
+       
+         
+       
+          this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2540,7 +2734,7 @@ public maxselected=0;
         //   return item;
         // });
 
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -2816,7 +3010,7 @@ public maxselected=0;
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
 
 
-
+       
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -2856,7 +3050,7 @@ public maxselected=0;
         //   return item;
         // });
 
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -3121,7 +3315,9 @@ public maxselected=0;
         }
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
-        this.greystart = res.start;
+      
+       
+          this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3153,7 +3349,7 @@ public maxselected=0;
         //   item.isChecked = true;
         //   return item;
         // });
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -3322,14 +3518,25 @@ public maxselected=0;
 
           data: [
             {
-              name: 'Average ',
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
               showInLegend: true,
-              type: 'line',
-              color: '#46a5b9',
-              lineColor: '#46a5b9',
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
               dataPoints: this.property3
             }
-
 
           ]
         });
@@ -3517,7 +3724,9 @@ public maxselected=0;
         }
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
-        this.greystart = res.start;
+        
+      
+          this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3549,7 +3758,7 @@ public maxselected=0;
         //   item.isChecked = true;
         //   return item;
         // });
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -3718,14 +3927,25 @@ public maxselected=0;
 
           data: [
             {
-              name: 'Average ',
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
               showInLegend: true,
-              type: 'line',
-              color: '#46a5b9',
-              lineColor: '#46a5b9',
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
               dataPoints: this.property3
             }
-
 
           ]
         });
@@ -3921,6 +4141,7 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+        this.enabled=1;
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -4034,16 +4255,31 @@ public maxselected=0;
           //   }
           // },
 
-          data: [{
-            type: 'line',
-            gridColor: '#ffffff',
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
 
-            color: '#17b169',
-            labelFontColor: 'black',
-            dataPoints: this.property3
-          }]
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
         });
-        this.secondgraph = 'Promo';
+        this.secondgraph = 'Baseline';
         this.chart2.render();
 
 
@@ -4454,6 +4690,8 @@ public maxselected=0;
           this.loading = false;
           return;
         }
+
+     
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -4493,7 +4731,7 @@ public maxselected=0;
         //   return item;
         // });
 
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
           animationEnabled: true,
@@ -4577,16 +4815,31 @@ public maxselected=0;
           //   }
           // },
 
-          data: [{
-            type: 'line',
-            gridColor: '#ffffff',
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
 
-            color: '#17b169',
-            labelFontColor: 'black',
-            dataPoints: this.property
-          }]
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
         });
-        this.secondgraph = 'Open';
+        this.secondgraph = 'Baseline';
         this.chart2.render();
 
 
@@ -4768,7 +5021,10 @@ public maxselected=0;
         }
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
-        this.greystart = res.start;
+      
+     
+      
+          this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4800,7 +5056,7 @@ public maxselected=0;
         //   item.isChecked = true;
         //   return item;
         // });
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -4965,18 +5221,33 @@ public maxselected=0;
           //   }
           // },
 
-          data: [{
-            type: 'line',
-            gridColor: '#ffffff',
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
 
-            color: '#17b169',
-            labelFontColor: 'black',
-            dataPoints: this.property
-          }]
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
         });
 
         this.chart2.render();
-
+        this.secondgraph='Baseline';
 
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -5152,7 +5423,7 @@ public maxselected=0;
           reset: true,
         });
         this.loading = false;
-
+ 
         if (res.res.length == 0) {
           console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
           window.alert('No Combination is available');
@@ -5192,7 +5463,7 @@ public maxselected=0;
         //   item.isChecked = true;
         //   return item;
         // });
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -5359,37 +5630,32 @@ public maxselected=0;
           //     return content;
           //   }
           // },
-
           data: [
-            //   {
-            //   type: 'line',
-            //   gridColor: '#ffffff',
-            //   showInLegend: true,
-            //   labelFontColor: 'black',
-            //  color: '#000',
-            //   dataPoints: this.property
-            // },
-            // {
-            //   type: 'line',
-            //   gridColor: '#ffffff',
-            //   showInLegend: true,
-            //   labelFontColor: 'black',
-            //  color: '#000',
-            //   dataPoints: this.property2
-            // },
             {
-              name: 'Average ',
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
               showInLegend: true,
-              type: 'line',
-              color: '#46a5b9',
-              lineColor: '#46a5b9',
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
               dataPoints: this.property3
             }
 
           ]
         });
         this.chart2.render();
-
+        this.secondgraph='Baseline';
 
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -5576,6 +5842,9 @@ public maxselected=0;
         else{
           this.enabled=0;
         }
+
+      
+
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5607,7 +5876,7 @@ public maxselected=0;
         //   return item;
         // });
 
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         console.log('ISSE PTA--' + this.greystart);
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -5696,32 +5965,30 @@ public maxselected=0;
 
           data: [
             {
-              type: 'line',
+              name: 'Baseline',
+              type: 'stackedArea',
               gridColor: '#ffffff',
+
               showInLegend: true,
-              labelFontColor: 'black',
-              color: '#000',
+              color: '#17b169',
+              lineColor: '#17b169',
               dataPoints: this.property
             },
             {
-              type: 'line',
+              name: 'Promo Effect',
+              type: 'stackedArea',
               gridColor: '#ffffff',
+
               showInLegend: true,
-              labelFontColor: 'black',
-              color: '#000',
-              dataPoints: this.property2
-            },
-            {
-              type: 'line',
-              gridColor: '#ffffff',
-              showInLegend: true,
-              labelFontColor: 'black',
-              color: '#000',
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
               dataPoints: this.property3
             }
 
           ]
         });
+
+        this.secondgraph='Baseline';
         this.chart2.render();
 
 
@@ -6078,13 +6345,16 @@ public maxselected=0;
   public weeklycomment1() {
 
 
-    if (this.up_table == false) {
-      this.up_table = true;
-      this.down_table = false;
-    } else if (this.up_table == true) {
-      this.up_table = false;
+        this.up_table = false;
       this.down_table = true;
-    }
+
+    // if (this.up_table == false) {
+    //   this.up_table = true;
+    //   this.down_table = false;
+    // } else if (this.up_table == true) {
+    //   this.up_table = false;
+    //   this.down_table = true;
+    // }
 
 
     // document.getElementById('m').style.background='';
@@ -6263,7 +6533,9 @@ if(this.color_tick==0)
 
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
-        this.greystart = res.start;
+      
+
+          this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -6295,7 +6567,7 @@ if(this.color_tick==0)
         //   item.isChecked = true;
         //   return item;
         // });
-
+        this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
@@ -6467,19 +6739,30 @@ if(this.color_tick==0)
 
           data: [
             {
-              name: 'Average ',
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
               showInLegend: true,
-              type: 'line',
-              color: '#46a5b9',
-              lineColor: '#46a5b9',
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
               dataPoints: this.property3
             }
-
 
           ]
         });
         this.chart2.render();
-
+        this.secondgraph='Baseline';
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
@@ -6652,7 +6935,7 @@ if(this.color_tick==0)
           this.enabled=0;
         }
         
-
+      
         this.createPlanRequestData.brands = res.req.brands;
         this.greystart = res.start;
         this.inter = (res.res.length / 10);
@@ -6690,7 +6973,7 @@ if(this.color_tick==0)
         //   item.isChecked = true;
         //   return item;
         // });
-
+        this.commentsall();
 
         console.log('thhh->' + this.createPlanRequestData.startWeek);
         console.log('ISSE PTA--' + this.greystart);
@@ -6787,19 +7070,30 @@ if(this.color_tick==0)
 
           data: [
             {
-              name: 'Average ',
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
               showInLegend: true,
-              type: 'line',
-              color: '#46a5b9',
-              lineColor: '#46a5b9',
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
               dataPoints: this.property3
             }
-
 
           ]
         });
         this.chart2.render();
-
+        this.secondgraph='Baseline';
         this.loading = false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
@@ -6958,6 +7252,9 @@ if(this.color_tick==0)
 
 
     this.skuService.getCommnents().subscribe((res: any) => {
+
+
+
       this.allComments = res.map((item) => {
         item.isSelected = false;
         item.isFiltered=false;
@@ -6967,6 +7264,8 @@ if(this.color_tick==0)
       for (const g of this.allComments) {
         this.allCommentshtml.push(g.name);
       }
+
+
 
     }, (error) => {
       // this.allComments = res.map((item) => {
@@ -7026,6 +7325,8 @@ if(this.color_tick==0)
         this.loading = false;
         return;
       }
+
+  
       this.greystart = res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -7056,7 +7357,7 @@ if(this.color_tick==0)
           name: item
         };
       });
-
+      this.commentsall();
       console.log('hsfgerbe->' + this.currentWeek);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
@@ -8606,7 +8907,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
 // this.granular1='te';dfdfdsfsdf
 
-    this.secondgraph = 'Promo';
+    this.secondgraph = 'Baseline';
 
     console.log('Sfsgf34sg---' + JSON.stringify(this.createPlanRequestData));
     this.cpgss = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
@@ -10240,7 +10541,9 @@ console.log("Checkiiigg--"+this.sumselected)
 
     this.dropdown_table = 'week';
     this.finn = [];
-    this.selectedWeekComments = this.graphData[i].comments;
+
+    console.log("previouscheck---"+JSON.stringify(this.graphData));
+    this.selectedWeekComments = this.graphData[i].userComment;
 
     console.log('Pyar--' + JSON.stringify(this.selectedWeekComments));
     console.log('Check01234567---' + JSON.stringify(this.selectedWeekComments));
@@ -10256,22 +10559,30 @@ console.log("Checkiiigg--"+this.sumselected)
       }
       console.log('Test133--' + JSON.stringify(this.fgssselected));
       console.log('Test133443--' + JSON.stringify(this.skus));
-      for (const ab of this.fgssselected) {
-        console.log('Chefking---' + JSON.stringify(ab));
-        if (ab.isChecked) {
-          this.finn.push({
-            sku: ab.name,
-            plant: 'Plant',
-            cpg: 'CPG',
-            comment: this.comm1[0]
-          });
+      for(const pl of this.plantss)
+      {
+        for(const cpg of this.cpgss)
+        {
+          for (const ab of this.fgssselected) {
+            console.log('Chefking---' + JSON.stringify(ab));
+            if (ab.isChecked) {
+              this.finn.push({
+                sku: ab.name,
+                plant: pl,
+                cpg: cpg,
+                comment: this.comm1[0]
+              });
+            }
+    
+          }
         }
-
       }
+     
       console.log('CHECKING_LAST---' + this.finn);
     }
     console.log('Check000000---' + JSON.stringify(this.finn));
 
+  //  this.down_table = true;
     this.weeklycomment1();
 
   }
@@ -10442,11 +10753,19 @@ console.log("Checkiiigg--"+this.sumselected)
     }
 
     var abc : any =[];
+
+    console.log("CHECK121ING----------"+JSON.stringify(this.graphData));
     for(const data of this.graphData)
     {
      
         if(data.fcstValueAdd)
         {
+
+          if(data.comments.length>1)
+          {
+            
+          }
+          else{
 
           const reqBody = {
             cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -10463,6 +10782,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
             abc.push(reqBody);
         }
+      }
     }
 
     

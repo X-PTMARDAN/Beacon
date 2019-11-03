@@ -188,9 +188,14 @@ public addingSKU()
 {
   console.log("gfhgfh12---"+this.materialidnumber);
 
-  if(this.materialidnumber===null || this.skunamenew===null || this.skunamenew=='' || this.materialidnumber=='')
+  if(this.materialidnumber===null ||  this.materialidnumber=='')
   {
-    window.alert("Please enter the value");
+    window.alert("Please enter Material ID");
+    return;
+  }
+  if(this.skunamenew===null || this.skunamenew=='' )
+  {
+    window.alert("Please enter SKU Name");
     return;
   }
   this.pipo.push({
@@ -489,11 +494,11 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 public apply()
 {
 
-  if(this.fromsku=='' ||  this.fromsku===null || this.tosku===null || this.tosku=='' || state===null || state=='' || this.date===null || this.date=='')
-{
-  window.alert("Please select all the values");
-  return;
-}
+//   if(this.fromsku=='' ||  this.fromsku===null || this.tosku===null || this.tosku=='' || state===null || state=='' || this.date===null || this.date=='')
+// {
+//   window.alert("Please select all the values");
+//   return;
+// }
 console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 
 console.log("Dfsfgfsg1---"+JSON.stringify(this.tosku));
