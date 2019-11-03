@@ -60,6 +60,9 @@ public featureanalysis='Feature Analysis (C)'
 public checking=0;
 
 
+public allComments_harshit;
+
+
 public enabled=1;
 
 public commentsall_combination : any =[];
@@ -2310,6 +2313,14 @@ public allselectedweek: any=[];
     // });
 
     console.log("dsfkhsdkhfsd---"+JSON.stringify(this.allselectedweek));
+
+
+    this.allselectedweek=JSON.parse(JSON.stringify(this.allComments));
+
+
+
+
+    
       // this.commentsall_combination=[];
       // for(const abc of this.graphData)
       // {
@@ -2378,7 +2389,18 @@ public allselectedweek: any=[];
           return;
         }
 
-        
+              this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+       
+              this.allComments_harshit=[];
+              for(const abc of this.allComments)
+              {
+      
+                  this.allComments_harshit.push({
+                    name:abc,
+                    isSelected:false,
+                    isFiltered:false});
+              }
+
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -2694,8 +2716,18 @@ public allselectedweek: any=[];
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
        
          
-       
-          this.greystart = res.start;
+             this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));        // this.allComments = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+          
+             this.allComments_harshit=[];
+             for(const abc of this.allComments)
+             {
+     
+                 this.allComments_harshit.push({
+                   name:abc,
+                   isSelected:false,
+                   isFiltered:false});
+             }
+             this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3010,8 +3042,18 @@ public allselectedweek: any=[];
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
 
 
-       
-        this.greystart = res.start;
+                 this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+     
+                 this.allComments_harshit=[];
+                 for(const abc of this.allComments)
+                 {
+         
+                     this.allComments_harshit.push({
+                       name:abc,
+                       isSelected:false,
+                       isFiltered:false});
+                 }
+                 this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3316,8 +3358,18 @@ public allselectedweek: any=[];
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
       
-       
-          this.greystart = res.start;
+                 this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                 this.allComments_harshit=[];
+                 for(const abc of this.allComments)
+                 {
+         
+                     this.allComments_harshit.push({
+                       name:abc,
+                       isSelected:false,
+                       isFiltered:false});
+                 }
+        
+                 this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3725,8 +3777,18 @@ public allselectedweek: any=[];
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         
-      
-          this.greystart = res.start;
+                 this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                 this.allComments_harshit=[];
+                 for(const abc of this.allComments)
+                 {
+         
+                     this.allComments_harshit.push({
+                       name:abc,
+                       isSelected:false,
+                       isFiltered:false});
+                 }
+         
+                 this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4142,7 +4204,18 @@ public allselectedweek: any=[];
           return;
         }
         this.enabled=1;
-        this.greystart = res.start;
+               this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+               this.allComments_harshit=[];
+               for(const abc of this.allComments)
+               {
+       
+                   this.allComments_harshit.push({
+                     name:abc,
+                     isSelected:false,
+                     isFiltered:false});
+               }
+       
+               this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4691,7 +4764,22 @@ public allselectedweek: any=[];
           return;
         }
 
-     
+           
+        
+        this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+      
+        this.allComments_harshit=[];
+        for(const abc of this.allComments)
+        {
+
+            this.allComments_harshit.push({
+              name:abc,
+              isSelected:false,
+              isFiltered:false});
+        }
+        
+        
+        
         this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -5023,8 +5111,19 @@ public allselectedweek: any=[];
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
       
      
-      
-          this.greystart = res.start;
+                 this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+          
+                 this.allComments_harshit=[];
+                 for(const abc of this.allComments)
+                 {
+         
+                     this.allComments_harshit.push({
+                       name:abc,
+                       isSelected:false,
+                       isFiltered:false});
+                 }
+          
+                 this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -5432,7 +5531,21 @@ public allselectedweek: any=[];
         }
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
-        this.createPlanRequestData.brands = res.req.brands;
+
+               this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+       
+               this.allComments_harshit=[];
+               for(const abc of this.allComments)
+               {
+       
+                   this.allComments_harshit.push({
+                     name:abc,
+                     isSelected:false,
+                     isFiltered:false});
+               }
+       
+       
+               this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
         this.createPlanRequestData.Trade = res.req.trade;
@@ -5844,8 +5957,18 @@ public allselectedweek: any=[];
         }
 
       
-
-        this.greystart = res.start;
+               this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+       
+               this.allComments_harshit=[];
+               for(const abc of this.allComments)
+               {
+       
+                   this.allComments_harshit.push({
+                     name:abc,
+                     isSelected:false,
+                     isFiltered:false});
+               }
+               this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -6534,8 +6657,19 @@ if(this.color_tick==0)
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
       
-
-          this.greystart = res.start;
+                 this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+       
+                 this.allComments_harshit=[];
+                 for(const abc of this.allComments)
+                 {
+         
+                     this.allComments_harshit.push({
+                       name:abc,
+                       isSelected:false,
+                       isFiltered:false});
+                 }
+       
+                 this.greystart = res.start;
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -6935,8 +7069,19 @@ if(this.color_tick==0)
           this.enabled=0;
         }
         
+               this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
       
-        this.createPlanRequestData.brands = res.req.brands;
+               this.allComments_harshit=[];
+               for(const abc of this.allComments)
+               {
+       
+                   this.allComments_harshit.push({
+                     name:abc,
+                     isSelected:false,
+                     isFiltered:false});
+               }
+      
+               this.createPlanRequestData.brands = res.req.brands;
         this.greystart = res.start;
         this.inter = (res.res.length / 10);
         console.log('GREYSTART--' + this.greystart);
@@ -7325,8 +7470,17 @@ if(this.color_tick==0)
         this.loading = false;
         return;
       }
+      this.allComments=res.combinedcomment;
+      
+      this.allComments_harshit=[];
+      for(const abc of this.allComments)
+      {
 
-  
+          this.allComments_harshit.push({
+            name:abc,
+            isSelected:false,
+            isFiltered:false});
+      }
       this.greystart = res.start;
       this.createPlanRequestData.brands = res.req.brands;
       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -10724,6 +10878,37 @@ console.log("Checkiiigg--"+this.sumselected)
       data: []
     };
 
+     var com=[];
+
+     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
+     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
+
+     for (const abc of fgssselected2) {
+       fgssselected1.push(abc);
+     }
+     this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+
+
+
+     
+    for (const data of this.graphData) {
+      if(data.comments.length>0)
+      {
+          com.push({
+            calendarWeek: data.calenderYearWeek,
+            sku: JSON.parse(JSON.stringify(this.fgssselected)),
+            user: 'admin',
+            cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+            comments1:data.comments[0].split('|')[0]
+          });
+      }
+    }
+
+    console.log("9oioi09---"+JSON.stringify(com));
+
+
+
     for (const data of this.graphData) {
       const commentsObj = {};
       for (const index in data.userComment) {
@@ -10820,7 +11005,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
     this.skuService.savePlan(abc).subscribe((res: any) => {
       console.log(res);
-      this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
+      this.skuService.confirmPlan(com).subscribe((res: any) => {
         this.savePlanLoader = false;
         this.PlanNameModalBtn.nativeElement.click();
       }, (error) => {
