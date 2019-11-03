@@ -214,7 +214,9 @@
                   <div class="form-group col-sm-3">
                     <label>Phasing Logic</label>
                     
-                                    <select class="minimal"  placeholder="harshit" #t5 [(ngModel)]="logic" (change)="changelogic(t5.value)">
+                                    <select  placeholder="harshit" #t5 [(ngModel)]="logic" (change)="changelogic(t5.value)" style="color: #000;background-clip: padding-box;
+                                    border: 1px solid #ced4da;
+                                    background-color: #fff;">
                       <option value="select" selected>Select your option</option>
                       <option value="transistion">Transition</option>
                       <option value="delist">Delist</option>
@@ -225,7 +227,9 @@
             
                   <div class="form-group col-sm-3">
                   <label>Current SKU</label>
-                  <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()">
+                  <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;">
                       <option value="select"  selected>Select current SKU</option>
                       <ng-container *ngFor="let filter of drop; let filterIndex=index" >
                               <option [value]="filter">{{filter}}</option>
@@ -243,7 +247,9 @@
                                 <div class="form-group col-sm-3" *ngIf="newsku">
                                     <label>Phase in SKU</label>
                                     
-                                    <select [(ngModel)]="tosku">
+                                    <select [(ngModel)]="tosku" style="background-clip: padding-box;
+                                    border: 1px solid #ced4da;
+                                    background-color: #fff;">
                                         <option value="select" disabled selected>Select Phase in SKU</option>
                                     <ng-container *ngFor="let filter of drop2; let filterIndex=index">
                                         <option [value]="filter">{{filter}}</option>
@@ -267,6 +273,9 @@
                               <input type="week" value="2019-W39" id="startWeek" [value]="startweek" [(ngModel)]="startweek" name="startWeek" style="height: 43px;
                               width: 300px;
                               border-radius: 5px;
+                              background-clip: padding-box;
+              border: 1px solid #ced4da;
+              background-color: #fff;
                               margin-top: 3px;">
                   
                             
