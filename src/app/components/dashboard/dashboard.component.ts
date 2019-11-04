@@ -3688,6 +3688,18 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
                   startValue: 201853,
                   endValue: 201900
                 },
@@ -3798,6 +3810,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
                 {
                   startValue: 201853,
                   endValue: 201900
@@ -4107,6 +4127,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
                   startValue: 201813,
                   endValue: 201900
                 },
@@ -4218,6 +4246,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201612,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201712,
+                  endValue: 201800
+                },
                 {
                   startValue: 201812,
                   endValue: 201900
@@ -4529,6 +4565,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
                   startValue: 201813,
                   endValue: 201900
                 },
@@ -4640,6 +4684,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
                 {
                   startValue: 201813,
                   endValue: 201900
@@ -4872,6 +4924,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
                   startValue: 201853,
                   endValue: 201900
                 },
@@ -4984,6 +5044,10 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
                 {
                   startValue: 201853,
                   endValue: 201900
@@ -6317,23 +6381,31 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201853,
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201813,
                   endValue: 201900
                 },
                 {
-                  startValue: 201953,
+                  startValue: 201913,
                   endValue: 202000
                 },
                 {
-                  startValue: 202053,
+                  startValue: 202013,
                   endValue: 202100
                 },
                 {
-                  startValue: 202153,
+                  startValue: 202113,
                   endValue: 202200
                 },
                 {
-                  startValue: 202253,
+                  startValue: 202213,
                   endValue: 202300
                 }
               ]
@@ -6341,7 +6413,7 @@ this.granular1="week";
             stripLines: [
               {
                 startValue: this.createPlanRequestData.startWeek,
-                endValue: 201953,
+                endValue: 204000,
                 color: '#F2F3F5'
               },
               {
