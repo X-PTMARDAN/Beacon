@@ -34,6 +34,12 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   @ViewChild('gantchart_open', {static: false}) gantchart_open: ElementRef;
 
+  @ViewChild('saveFilterModal', {static: false}) saveFilterModal: ElementRef;
+
+
+
+  @ViewChild('saveFilterModal12', {static: false}) saveFilterModal12: ElementRef;
+
 
   @ViewChild('myModal_gant', {static: false}) myModal_gant: ElementRef;
 
@@ -46,11 +52,41 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public date;
 
+
+
+
+
+
+
+  public fromsku_transistion_apply;
+
+public tosku_transistion_apply;
+  
+public logic_transistion_apply;
+  
+  
+public startweek_transistion_apply;
+  
+  
+public forecasting_fgid;
+
+
+
+
+
+
+
+
+
+
+
+
+
   public material_len=0;
 
   public fg_len=0;
 
-
+public maxweek;
   public newsku=false;
 
   public abc12='fshjg';
@@ -151,8 +187,14 @@ public table=false;
               {
                 var g=abc.material + "-" + abc.fgid;
                 console.log("121---"+g);
-        
-                this.drop.push(g);
+                if(abc.prime=="PRIMARY")
+                {
+                  this.drop.push(g);
+                }
+                else{
+                  console.log("DFdfdfdf-");
+                }
+                
               }
 
               this.material_len=this.drop.length;
@@ -162,6 +204,13 @@ public table=false;
 
           this.skuService.getPIPOMapping().subscribe((response: any) => {  
             this.pipoMapping=response;
+          });
+
+
+
+
+          this.skuService.getmaxweek().subscribe((response: any) => {  
+            this.maxweek=response;
           });
 
 
@@ -478,27 +527,51 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
   }
 
 
-  public gantchart(num)
+  public gantchart(num: number)
   {
-    this.fromsku=this.pipoMapping[num].fromid;
 
-    this.tosku=this.pipoMapping[num].toid;
 
-    this.date=this.pipoMapping[num].fromweek;
+    console.log("Fdfd--");
+    this.fromsku_transistion_apply=this.pipoMapping[num].fromid.split('-')[0];
+
+    console.log("12345678----"+JSON.stringify(this.pipoMapping[num]));
+
+    this.forecasting_fgid=this.pipoMapping[num].fromid.split('-')[1];
+
+    this.startweek_transistion_apply=this.pipoMapping[num].fromweek;
+
+
+
+   
 
     console.log("DFdfdf---"+this.date);
 
     this.logic=this.pipoMapping[num].state;
 
+
+    if(this.pipoMapping[num].state=="Transistion")
+    {
+      this.saveFilterModal.nativeElement.click();
+    }
+    else{
+      this.saveFilterModal12.nativeElement.click();
+    }
+
   }
 public apply()
 {
 
-//   if(this.fromsku=='' ||  this.fromsku===null || this.tosku===null || this.tosku=='' || state===null || state=='' || this.date===null || this.date=='')
-// {
-//   window.alert("Please select all the values");
-//   return;
-// }
+  if(this.fromsku=='' ||  this.fromsku===null || state===null || state=='' || this.date===null || this.date=='' || this.fromsku=='select' )
+{
+  window.alert("Please select all the values");
+  return;
+}
+
+
+
+
+
+
 console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 
 console.log("Dfsfgfsg1---"+JSON.stringify(this.tosku));
@@ -506,6 +579,22 @@ console.log("Dfsfgfsg2---"+JSON.stringify(this.logic));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek.substr(0,4)));
 
+
+
+
+this.fromsku_transistion_apply=this.fromsku.split('-')[0];
+
+this.tosku_transistion_apply=this.tosku;
+
+this.logic_transistion_apply=this.logic;
+
+
+this.startweek_transistion_apply=this.startweek;
+
+
+this.forecasting_fgid=this.fromsku.split('-')[1];
+
+console.log("3434343--"+this.tosku_transistion_apply);
 
 var state;
  this.date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
@@ -516,9 +605,11 @@ console.log("34354ythrgbfd---"+this.date);
 if(this.logic=='delist')
 {
    state="Delist";
+   this.saveFilterModal12.nativeElement.click();
 }
 else {
   state ="Transistion";
+  this.saveFilterModal.nativeElement.click();
 }
 var data={
   fromid:this.fromsku.split("-")[0],
@@ -527,6 +618,8 @@ var data={
   fromweek:this.date,
   fgid:this.fromsku.split("-")[1]
 }
+
+
 
 
 
@@ -539,14 +632,24 @@ console.log("CHEK000--"+JSON.stringify(data));
 this.skuService.savePIPOsku(data).subscribe((res: any) => {
   //this.editCommentModalBtnCancel.nativeElement.click();
 
-  console.log("Check--------");
+ 
   this.skuService.getPIPO().subscribe((response1: any) => {    
     this.pipo=response1;
+    console.log("Check--------"+JSON.stringify(response1));
     for(const abc of this.pipo)
     {
       var g=abc.material + "-" + abc.fgid;
-      console.log("121---"+g);
-      this.drop.push(g);
+      //console.log("121---"+JSON.stringify(abc));
+
+      console.log("Fdfdfdfdfd---"+abc.prime);
+      if(abc.prime==='PRIMARY')
+      {
+        this.drop.push(g);
+      }
+      else{
+        console.log("0909we3434343");
+      }
+    
     }
     console.log("Dfdfdfd---"+JSON.stringify(this.drop));
   });

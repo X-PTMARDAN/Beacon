@@ -410,6 +410,11 @@ export class SKUService {
   public getfgid(data = {}) {
     return this.http.get(`${this.apiGatewayUrl}forecastinggroup`);
   }
+
+
+  public getmaxweek(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}maxweek`);
+  }
 //
 
 
