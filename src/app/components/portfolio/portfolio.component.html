@@ -325,12 +325,12 @@
       
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipoMapping; let i=index">
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" data-toggle="modal" data-target="#myModal_gant" (click)="gantchart(i)">{{data.fromid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" data-toggle="modal" data-target="#myModal_gant" (click)="gantchart(i)">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
 
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;" data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
                           </tr>
                       
                         </table>

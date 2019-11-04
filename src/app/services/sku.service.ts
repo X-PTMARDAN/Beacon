@@ -357,7 +357,12 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable_UOM`, data);
   }
 
+  public getGraphData_week_uom_monthly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM_monthly`, data);
+  }
 
+
+  
 
   public getSales(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}sales`, data);
@@ -486,6 +491,28 @@ export class SKUService {
       })
     );
   }
+
+
+
+
+
+
+
+  // public getCommnents_for_comb(data = {}) {
+  //   return this.http.post(`${this.apiGatewayUrl}allcomments`, data).pipe(
+  //     map((items: any) => {
+  //       return items.map((item, index) => {
+  //         return {
+  //           id: index,
+  //           name: item,
+  //           isFiltered: true,
+  //           isChecked: true,
+  //         };
+  //       });
+  //     })
+  //   );
+  // }
+
 
 
 
