@@ -8710,7 +8710,37 @@ if(this.color_tick==0)
             this.second_sku = [];
             this.skus = [];
             console.log('SFsgfg---' + ab);
-            g1.push(ab);
+              var flag=0;
+            for (var i = 0; i < ab.length; i++) {
+              console.log("OWO4567WOWO"+ab.charAt(i));
+              if(ab.charAt(i)=='\r')
+              {
+                console.log("OWOWOWO");
+                flag=1;
+              }
+            }
+
+            if(ab.substring(ab.length - 1,ab.length)=='\r')
+            {
+              console.log("2121212----");
+            }
+
+            if(ab.length<3)
+            {
+              console.log("return121---");
+              continue;
+            }
+            if(flag==0 && ab!=null)
+            {
+              console.log("without cuttt---");
+              g1.push(ab);
+            }
+            else if(ab!=null && flag==1){
+              console.log("cutttt---"+ab.substring(0, ab.length - 1));
+              g1.push(ab.substring(0, ab.length - 1));
+            }
+          // ab1= str.substring(0, str.length - 1);
+       
 
           }
           //this.skus
@@ -10890,7 +10920,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
 
-     
+
     for (const data of this.graphData) {
       if(data.comments.length>0)
       {
