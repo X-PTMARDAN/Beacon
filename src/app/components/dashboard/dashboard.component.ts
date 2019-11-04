@@ -2449,6 +2449,127 @@ public allselectedweek: any=[];
 
 
         console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.greystart,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+          axisY: {
+            title: ' ',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: '{y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+
+        this.secondgraph='Baseline';
+        this.chart2.render();
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
 
@@ -2768,7 +2889,7 @@ public allselectedweek: any=[];
         this.processGraphData(res);
         //this.processgraphData(res);
 
-        //this.processFeatureGraphData(res);
+        this.processFeatureGraphData(res);
         this.createFilterObject(res);
         //  this.skus=data.forecastingGroups;
 
@@ -2785,6 +2906,127 @@ public allselectedweek: any=[];
 
         this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.greystart,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+          axisY: {
+            title: ' ',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: '{y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+
+        this.secondgraph='Baseline';
+        this.chart2.render();
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
 
@@ -5179,11 +5421,6 @@ public allselectedweek: any=[];
     if(feature =='week' && this.UOM=="L")
     {
 
-
- 
- 
- 
- 
  
      this.planningtable = 'Planning table (L)';
 
@@ -5359,6 +5596,135 @@ public allselectedweek: any=[];
         // });
         // this.secondgraph='Open order';
         // this.chart2.render();
+
+
+
+
+
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.greystart,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+          axisY: {
+            title: ' ',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: '{y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+
+        this.secondgraph='Baseline';
+        this.chart2.render();
+
+
+
+
 
 
         console.log('132456->' + this.createPlanRequestData.startWeek);
@@ -5589,7 +5955,7 @@ public allselectedweek: any=[];
         this.processGraphData(res);
       //  //this.processgraphData(res);
 
-        //this.processFeatureGraphData(res);
+        this.processFeatureGraphData(res);
         this.createFilterObject(res);
         //  this.skus=data.forecastingGroups;
 
@@ -5606,6 +5972,130 @@ public allselectedweek: any=[];
 
         this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201813,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201913,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202013,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202113,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202213,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.greystart,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202013,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202113,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202213,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+          axisY: {
+            title: ' ',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: '{y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+        this.chart2.render();
+        this.secondgraph='Baseline';
+
+
+
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
 
@@ -5705,23 +6195,23 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201853,
+                  startValue: 201813,
                   endValue: 201900
                 },
                 {
-                  startValue: 201953,
+                  startValue: 201913,
                   endValue: 202000
                 },
                 {
-                  startValue: 202053,
+                  startValue: 202013,
                   endValue: 202100
                 },
                 {
-                  startValue: 202153,
+                  startValue: 202113,
                   endValue: 202200
                 },
                 {
-                  startValue: 202253,
+                  startValue: 202213,
                   endValue: 202300
                 }
               ]
@@ -5729,7 +6219,7 @@ public allselectedweek: any=[];
             stripLines: [
               {
                 startValue: this.createPlanRequestData.startWeek,
-                endValue: 201953,
+                endValue: 203953,
                 color: '#F2F3F5'
               },
               {
@@ -5929,7 +6419,7 @@ this.granular1="week";
         this.processGraphData(res);
         //this.processgraphData(res);
 
-        //this.processFeatureGraphData(res);
+        this.processFeatureGraphData(res);
         this.createFilterObject(res);
         //  this.skus=data.forecastingGroups;
 
@@ -5946,6 +6436,132 @@ this.granular1="week";
 
         this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201653,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201753,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201853,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201953,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202053,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.greystart,
+                endValue: 201953,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202053,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202153,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202253,
+                color: '#F2F3F5'
+              }
+            ]
+          },
+          axisY: {
+            title: ' ',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: '{y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+
+        this.secondgraph='Baseline';
+        this.chart2.render();
+
+
+
+
+
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
 
@@ -6265,7 +6881,7 @@ this.granular1="week";
         this.processGraphData(res);
         //this.processgraphData(res);
 
-        //this.processFeatureGraphData(res);
+        this.processFeatureGraphData(res);
         this.createFilterObject(res);
         //  this.skus=data.forecastingGroups;
 
@@ -6282,6 +6898,127 @@ this.granular1="week";
 
         this.commentsall();
         console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201613,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201713,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201813,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201913,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202013,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202153,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202213,
+                  endValue: 202300
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: this.greystart,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202013,
+                color: '#F2F3F5'
+              }, {
+                startValue: 202100,
+                endValue: 202113,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202200,
+                endValue: 202213,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+          axisY: {
+            title: ' ',
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: '{y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+        this.chart2.render();
+        this.secondgraph='Baseline';
+
+
         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
         //   animationEnabled: true,
 
