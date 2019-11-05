@@ -292,7 +292,7 @@
 
 
 
-                  <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="apply()" > Apply</button></div>  
+                  <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"    type="button" (click)="apply()" > Apply</button></div>  
 
 
 
@@ -325,12 +325,12 @@
       
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipoMapping; let i=index">
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" data-toggle="modal" data-target="#myModal_gant" (click)="gantchart(i)">{{data.fromid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"  data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" aria-disabled="" data-toggle="modal" data-target="#saveFilterModal" (click)="gantchart(i)">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" data-toggle="modal" data-target="#saveFilterModal"   (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" data-toggle="modal" data-target="#saveFilterModal"  (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" data-toggle="modal" data-target="#saveFilterModal"   (click)="gantchart(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
 
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;" data-toggle="modal" data-target="#myModal_gant"   type="button" (click)="gantchart(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;" data-toggle="modal" data-target="#saveFilterModal"   (click)="gantchart(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
                           </tr>
                       
                         </table>
@@ -458,6 +458,169 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+    <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
+      Save Filter Modal</a>
+    <div class="modal fade save-filter-modal" id="saveFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Gantt Chart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-4">Select forecasting</div>
+             
+             
+              </div>
+              
+              <div class="table-responsive mt-3">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Transistion</th>
+                    <th scope="col">FGID</th>
+                    <th scope="col">201942.......<span>{{startweek_transistion_apply}}</span>...............................................{{maxweek}}</th>
+                    <th scope="col" style="width:75px;">Current</th>
+                    <th scope="col" style="width:75px;">New</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  
+                    <td [innerText]="fromsku_transistion_apply" name="fromsku_transistion_apply" id="fromsku_transistion_apply"></td>
+                    <td [innerText]="forecasting_fgid" name="forecasting_fgid" id="forecasting_fgid"></td>
+                    <td style="width:45%;">
+                      
+                      
+                      <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" value="30" min="0" max="100" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%"></div>
+              </div></td>
+                    <td>100%</td>
+                    <td>0%</td>
+                  </tr>
+
+
+
+
+
+
+
+                
+               
+                  <tr>
+                 
+                    <td><span [innerText]="tosku_transistion_apply"></span></td>
+
+                    <td [innerText]="forecasting_fgid" name="forecasting_fgid" id="forecasting_fgid"></td>
+                    <td style="width:45%;"><div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="30" aria-valuemax="100" style="margin-left:30%;width: 70%"></div>
+              </div></td>
+                    <td>0%</td>
+                    <td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal12" data-toggle="modal" #saveFilterModal12>Open
+      Save Filter Modal</a>
+    <div class="modal fade save-filter-modal" id="saveFilterModal12" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Gantt Chart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel12>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-4">Select forecasting</div>
+             
+             
+              </div>
+              
+              <div class="table-responsive mt-3">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Transistion</th>
+                    <th scope="col">FGID</th>
+                    <th scope="col">201942.......<span>{{startweek_transistion_apply}}</span>...............................................{{maxweek}}</th>
+                    <th scope="col" style="width:75px;">Current</th>
+                    <th scope="col" style="width:75px;">New</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  
+                    <td [innerText]="fromsku_transistion_apply" name="fromsku_transistion_apply" id="fromsku_transistion_apply"></td>
+                    <td [innerText]="forecasting_fgid" name="forecasting_fgid" id="forecasting_fgid"></td>
+                    <td style="width:45%;">
+                      
+                      
+                      <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" value="30" min="0" max="100" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%"></div>
+              </div></td>
+                    <td>100%</td>
+                    <td>0%</td>
+                  </tr>
+
+
+
+
+
+
+
+                
+               
+               
+                </tbody>
+              </table>
+              
+              
+              
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 
