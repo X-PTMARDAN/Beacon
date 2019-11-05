@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 public up=0;
 
-public featureanalysis='Feature Analysis (C)'
+public featureanalysis='Feature Analysis (HL)'
 
 public checking=0;
 
@@ -7697,7 +7697,7 @@ if(this.color_tick==0)
 
     console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
 
-    this.featureanalysis='Feature Analysis (C)';
+    this.featureanalysis='Feature Analysis (HL)';
     // document.getElementById('apply_filter').style.background='#17b169';
     this.loading = true;
     //this.reactivate_filter(2);
