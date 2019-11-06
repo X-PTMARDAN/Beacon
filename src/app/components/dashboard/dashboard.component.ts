@@ -12335,13 +12335,22 @@ console.log("Checkiiigg--"+this.sumselected)
 
     });
 
+    var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
+    var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
+
+    
+    for (const abc of fgssselected2) {
+      fgssselected1.push(abc);
+    }
+    this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+
     console.log('SUfdf--' + JSON.stringify(this.filters[0].values));
     const ahg = {
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
-      sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
+      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     };
 
     console.log('CHECKING---' + JSON.stringify(ahg));
@@ -12351,7 +12360,7 @@ console.log("Checkiiigg--"+this.sumselected)
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
+      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))
     };
 
     // this.filterService.saveFilter({
