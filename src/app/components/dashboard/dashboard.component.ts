@@ -1799,6 +1799,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -1928,6 +1936,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -2054,6 +2070,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -2178,6 +2202,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -2508,6 +2540,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -2708,6 +2748,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -2981,6 +3029,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -3185,6 +3241,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -3422,6 +3486,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -3664,6 +3736,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -4014,6 +4094,10 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
                   startValue: 201553,
                   endValue: 201600
                 },
@@ -4140,6 +4224,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -4461,6 +4553,18 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -4588,6 +4692,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201412,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201512,
+                  endValue: 201600
+                },
                 {
                   startValue: 201612,
                   endValue: 201700
@@ -4911,6 +5023,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -5034,6 +5154,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
                 {
                   startValue: 201613,
                   endValue: 201700
@@ -5278,6 +5406,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -5402,6 +5538,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201353,
+                  endValue: 201400
+                },
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
                 {
                   startValue: 201553,
                   endValue: 201600
@@ -5747,6 +5891,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -5875,6 +6027,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -6140,6 +6300,14 @@ public allselectedweek: any=[];
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -6346,6 +6514,14 @@ public allselectedweek: any=[];
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
                 {
                   startValue: 201613,
                   endValue: 201700
@@ -6619,6 +6795,14 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -6824,6 +7008,14 @@ this.granular1="week";
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -7092,6 +7284,14 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -7293,6 +7493,14 @@ this.granular1="week";
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
                 {
                   startValue: 201613,
                   endValue: 201700
@@ -7890,6 +8098,14 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
+                {
                   startValue: 201613,
                   endValue: 201700
                 },
@@ -8011,6 +8227,14 @@ if(this.color_tick==0)
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201413,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201513,
+                  endValue: 201600
+                },
                 {
                   startValue: 201613,
                   endValue: 201700
@@ -8252,6 +8476,14 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
+                {
                   startValue: 201653,
                   endValue: 201700
                 },
@@ -8371,6 +8603,14 @@ if(this.color_tick==0)
               type: 'blank',
               spacing: 0,
               customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201500
+                },
+                {
+                  startValue: 201553,
+                  endValue: 201600
+                },
                 {
                   startValue: 201653,
                   endValue: 201700
@@ -8654,6 +8894,14 @@ if(this.color_tick==0)
             type: 'blank',
             spacing: 0,
             customBreaks: [
+              {
+                startValue: 201453,
+                endValue: 201500
+              },
+              {
+                startValue: 201553,
+                endValue: 201600
+              },
               {
                 startValue: 201653,
                 endValue: 201700
@@ -11680,12 +11928,12 @@ console.log("Checkiiigg--"+this.sumselected)
       var r = this.how(s);
       //console.log('Hbhbgt---' + r);
       if (r == false) {
-        this.graphData[index].fcstValueAdd = null;
+        this.graphData[index].fcstValueAdd = 0;
 
         //this.graphData[index].fcstValueAdd = 1;
-      //  window.alert('You have added a wrong number or empty string, it will be treated as 0');
+        window.alert('You have added a wrong number or empty string, it will be treated as 0');
        // console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
-      //  return;
+        return;
 
       }
       console.log('check---' + this.graphData[index].fcstValueAdd);
@@ -11899,9 +12147,34 @@ console.log("Checkiiigg--"+this.sumselected)
           }
         }
       }
+
+
+
+
      
       console.log('CHECKING_LAST---' + this.finn);
     }
+
+
+   // var  = this.graphData[i].comments;
+   console.log('CHECKING_LAST---' + JSON.stringify(this.graphData[i].comments));
+
+   if(this.graphData[i].comments[0].split('|')[1]!=null)
+   {
+    for(const fg of this.graphData[i].comments)
+    {
+      console.log("ewewe--"+fg);
+      this.finn.push({
+        sku: fg.split('|')[1],
+        plant: fg.split('|')[2],
+        cpg: fg.split('|')[3],
+        comment: fg.split('|')[0]
+      });
+    }
+   }
+ 
+   
+
     console.log('Check000000---' + JSON.stringify(this.finn));
 
   //  this.down_table = true;
