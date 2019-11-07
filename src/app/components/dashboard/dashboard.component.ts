@@ -1883,7 +1883,7 @@ public allselectedweek: any=[];
               labelFontColor: 'black',
               showInLegend: true,
               lineColor: '#17b169',
-              dataPoints: this.property
+              dataPoints: this.property3
             }
 
           ]
@@ -2020,7 +2020,7 @@ public allselectedweek: any=[];
               labelFontColor: 'black',
               showInLegend: true,
               lineColor: '#17b169',
-              dataPoints: this.property
+              dataPoints: this.property3
             }
 
           ]
@@ -3405,6 +3405,20 @@ public allselectedweek: any=[];
       }
 
 
+
+      this.planningtable = 'Planning table (HL)';
+
+
+
+
+      document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+      this.forecastinganalysis = 'Forecast Analysis (HL)';
+
+
       if(this.UOM=='HL' && this.granular1=='week')
         {
           this.enabled=1;
@@ -4016,8 +4030,8 @@ public allselectedweek: any=[];
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
-        endWeek: this.createPlanRequestData.endWeek,
-        prevactuals: this.createPlanRequestData.prevactuals,
+        endWeek: 201952,
+        prevactuals: 201901,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -4882,9 +4896,24 @@ public allselectedweek: any=[];
       this.chart1.render();
     } else if (feature == 'month' && this.UOM=='HL') {
 
-
+      this.featureanalysis='Feature Analysis (HL)';
       console.log('MONTH->' + JSON.stringify(this.hh));
       //  const data=this.createPlanRequestData;
+
+   
+
+      this.planningtable = 'Planning table (HL)';
+
+
+
+
+      document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+      this.forecastinganalysis = 'Forecast Analysis (HL)';
+
 
 
       console.log('Create_Plan1234->' + JSON.stringify(this.hh));
@@ -5356,6 +5385,19 @@ public allselectedweek: any=[];
         window.alert('Please select atleast one FG');
         return;
       }
+
+
+      this.planningtable = 'Planning table (HL)';
+
+
+
+
+      document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+      this.forecastinganalysis = 'Forecast Analysis (HL)';
 
       // const data=this.createPlanRequestData;
       //  console.log("Create_Plan->"+JSON.stringify(data));
