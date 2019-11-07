@@ -175,13 +175,28 @@ export class SettingComponent implements OnInit {
 
   public logs1()
   {
+    if(this.up_table==false)
+    {
       this.up_table=true;
+    }
+    else{
+      this.up_table=false;
+    }
+   
   }
 
 
   public comments1()
   {
+
+    if(this.comments_table==false)
+    {
       this.comments_table=true;
+    }
+    else{
+      this.comments_table=false;
+    }
+      
   }
 
 }
