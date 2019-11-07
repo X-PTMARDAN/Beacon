@@ -1364,7 +1364,7 @@ public allselectedweek: any=[];
             stripLines: [
               {
                 startValue: 201909,
-                endValue: 201913,
+                endValue: 202013,
                 color: '#F2F3F5'
               },
               {
@@ -1522,7 +1522,7 @@ public allselectedweek: any=[];
             stripLines: [
               {
                 startValue: 201909,
-                endValue: 201913,
+                endValue: 202913,
                 color: '#F2F3F5'
               },
               {
@@ -2481,6 +2481,12 @@ public allselectedweek: any=[];
               }
 
         this.greystart = res.start;
+
+        this.greystart = res.start;
+        this.inter = (res.res.length / 10);
+        console.log('GREYSTART--' + this.greystart);
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -2744,6 +2750,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -2970,6 +2977,12 @@ public allselectedweek: any=[];
                        isFiltered:false});
                  }
                  this.greystart = res.start;
+
+                 this.greystart = res.start;
+                 this.inter = (res.res.length / 10);
+                 console.log('GREYSTART--' + this.greystart);
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3023,7 +3036,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -3427,7 +3440,9 @@ public allselectedweek: any=[];
           return;
         }
 
-        this.granular1="week";
+     
+
+
         this.enabled=1;
                this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
                this.allComments_harshit=[];
@@ -3441,6 +3456,14 @@ public allselectedweek: any=[];
                }
        
                this.greystart = res.start;
+
+               this.granular1="week";
+
+               this.greystart = res.start;
+               this.inter = (res.res.length / 10);
+               console.log('GREYSTART--' + this.greystart);
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3732,6 +3755,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -4038,6 +4062,14 @@ public allselectedweek: any=[];
         
         
         this.greystart = res.start;
+
+        this.granular1="week";
+
+        this.greystart = res.start;
+        this.inter = (res.res.length / 10);
+        console.log('GREYSTART--' + this.greystart);
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4220,6 +4252,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -4423,6 +4456,14 @@ public allselectedweek: any=[];
                  }
           
                  this.greystart = res.start;
+                 this.greystart = res.start;
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 10);
+                }
+                else{
+                  this.inter=1;
+                }
+                 console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -4687,7 +4728,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-            interval: 1,
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -4736,7 +4777,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: 201909,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
@@ -4878,7 +4919,15 @@ public allselectedweek: any=[];
         }
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
-
+        this.greystart = res.start;
+        if(res.res.length>20){
+          this.inter = (res.res.length / 10);
+        }
+        else{
+          this.inter=1;
+        }
+        
+        console.log('GREYSTART--' + this.inter);
                this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
        
                this.allComments_harshit=[];
@@ -5066,7 +5115,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
@@ -5149,7 +5198,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-            interval: 1,
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -5198,8 +5247,8 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: 201909,
-                endValue: 201913,
+                startValue: 201910,
+                endValue: 202913,
                 color: '#F2F3F5'
               },
               {
@@ -5356,6 +5405,14 @@ public allselectedweek: any=[];
                      isFiltered:false});
                }
                this.greystart = res.start;
+
+               this.granular1="week";
+
+               this.greystart = res.start;
+               this.inter = (res.res.length / 10);
+               console.log('GREYSTART--' + this.greystart);
+
+               
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -5534,6 +5591,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -5748,6 +5806,9 @@ public allselectedweek: any=[];
               }
 
         this.greystart = res.start;
+        this.greystart = res.start;
+        this.inter = (res.res.length / 10);
+        console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -6023,6 +6084,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -6240,6 +6302,17 @@ public allselectedweek: any=[];
                    isFiltered:false});
              }
              this.greystart = res.start;
+
+             this.greystart = res.start;
+             if(res.res.length>20){
+              this.inter = (res.res.length / 10);
+            }
+            else{
+              this.inter=1;
+            }
+             console.log('GREYSTART--' + this.greystart);
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -6510,6 +6583,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -6558,7 +6632,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue: 201910,
                 endValue: 203953,
                 color: '#F2F3F5'
               },
@@ -6736,6 +6810,12 @@ this.granular1="week";
                        isFiltered:false});
                  }
                  this.greystart = res.start;
+
+                 this.greystart = res.start;
+                 this.inter = (res.res.length / 10);
+                 console.log('GREYSTART--' + this.greystart);
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -7004,6 +7084,7 @@ this.granular1="week";
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -7226,6 +7307,19 @@ this.granular1="week";
                        isFiltered:false});
                  }
                  this.greystart = res.start;
+
+
+                 this.greystart = res.start;
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 10);
+                }
+                else{
+                  this.inter=1;
+                }
+                 console.log('GREYSTART--' + this.greystart);
+
+
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -7323,8 +7417,8 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: this.greystart,
-                endValue: 201913,
+                startValue: 201910,
+                endValue: 202913,
                 color: '#F2F3F5'
               },
               {
@@ -7489,6 +7583,7 @@ this.granular1="week";
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -7537,7 +7632,7 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue: 201910,
                 endValue: 204000,
                 color: '#F2F3F5'
               },
@@ -7964,6 +8059,14 @@ if(this.color_tick==0)
                  }
        
                  this.greystart = res.start;
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 10);
+                }
+                else{
+                  this.inter=1;
+                }
+                 console.log('GREYSTART--' + this.greystart);
+
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -8222,7 +8325,7 @@ if(this.color_tick==0)
             // },
             valueFormatString: '######',
             gridColor: '#ffffff',
-            interval: 1,
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -8271,7 +8374,7 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 201909,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
