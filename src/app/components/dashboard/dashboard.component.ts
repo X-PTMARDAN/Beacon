@@ -5873,6 +5873,8 @@ public allselectedweek: any=[];
 
       this.forecastinganalysis = 'Forecast Analysis (L)';
 
+      this.featureanalysis='Feature Analysis (L)';
+
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
@@ -6369,6 +6371,8 @@ public allselectedweek: any=[];
 
 
       this.forecastinganalysis = 'Forecast Analysis (L)';
+
+      this.featureanalysis='Feature Analysis (L)';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -6877,6 +6881,8 @@ public allselectedweek: any=[];
 
       this.forecastinganalysis = 'Forecast Analysis (PC)';
 
+      this.featureanalysis='Feature Analysis (PC)';
+
       this.prevactuals = '2019-W01';
       this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
@@ -7373,6 +7379,9 @@ this.granular1="week";
 
 
       this.forecastinganalysis = 'Forecast Analysis (PC)';
+
+
+      this.featureanalysis='Feature Analysis (PC)';
 
       this.prevactuals = '2019-W01';
       this.endWeek = '2019-W52';
