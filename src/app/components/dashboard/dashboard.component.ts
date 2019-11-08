@@ -1101,6 +1101,7 @@ public allselectedweek: any=[];
   public test(feature: any) {
 
     console.log('Harsh134->' + feature);
+    this.createPlanRequestData.uom = this.UOM;
 
     // if(feature == "Baseline")
     // {
@@ -1122,11 +1123,32 @@ public allselectedweek: any=[];
     // this.createPlanRequestData_featurechange.property=feature;
 
 
-    if (feature == 'Open' && this.granular1 == 'week') {
+    if (feature == 'Open' && this.granular1 == 'week' ) {
 
 
-      this.featureanalysis='Feature Analysis (HL)';
+
+
+      if(this.UOM=='HL')
+      {
+        this.featureanalysis='Feature Analysis (HL)';
+      }
+      else if(this.UOM='PC')
+      {
+        this.featureanalysis='Feature Analysis (PC)';
+      }
+
+      else if(this.UOM='L')
+      {
+        this.featureanalysis='Feature Analysis (L)';
+      }
+      
       this.createPlanRequestData.which_feature = 'Open';
+
+
+
+
+
+
       //   kjsfhksjhgsfhgdfsg
       this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring = 'Open Order';
@@ -1271,19 +1293,28 @@ public allselectedweek: any=[];
 
 
       this.featureanalysis='Feature Analysis (HL)';
+
+
+      if(this.UOM=='HL')
+      {
+        this.featureanalysis='Feature Analysis (HL)';
+      }
+      else if(this.UOM='PC')
+      {
+        this.featureanalysis='Feature Analysis (PC)';
+      }
+
+      else if(this.UOM='L')
+      {
+        this.featureanalysis='Feature Analysis (L)';
+      }
+
       this.createPlanRequestData.which_feature = 'Open';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
         this.valuestring = 'Open Order';
         this.processFeatureGraphData(res);
 
 
-
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
 
         
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
@@ -1363,7 +1394,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: 201909,
+                startValue: 201910,
                 endValue: 202013,
                 color: '#F2F3F5'
               },
@@ -1418,7 +1449,7 @@ public allselectedweek: any=[];
           data: [{
 
             name: 'Open',
-            type: 'line',
+            type: 'column',
             showInLegend: true,
             gridColor: '#ffffff',
             labelFontColor: 'black',
@@ -1427,11 +1458,28 @@ public allselectedweek: any=[];
           }]
         });
         this.chart2.render();
+        this.chart2.render();
 
       });
     } else if (feature == 'Baseline' && this.granular1 == 'month') {
 
       this.featureanalysis='Feature Analysis (HL)';
+
+
+
+      if(this.UOM=='HL')
+      {
+        this.featureanalysis='Feature Analysis (HL)';
+      }
+      else if(this.UOM='PC')
+      {
+        this.featureanalysis='Feature Analysis (PC)';
+      }
+
+      else if(this.UOM='L')
+      {
+        this.featureanalysis='Feature Analysis (L)';
+      }
       this.createPlanRequestData.which_feature = 'Baseline';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
 
@@ -1521,7 +1569,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: 201909,
+                startValue: 201910,
                 endValue: 202913,
                 color: '#F2F3F5'
               },
@@ -1609,6 +1657,23 @@ public allselectedweek: any=[];
     } else if (feature == 'Baseline' && this.granular1 == 'week') {
 
       this.featureanalysis='Feature Analysis (HL)';
+
+
+      if(this.UOM=='HL')
+      {
+        this.featureanalysis='Feature Analysis (HL)';
+      }
+      else if(this.UOM='PC')
+      {
+        this.featureanalysis='Feature Analysis (PC)';
+      }
+
+      else if(this.UOM='L')
+      {
+        this.featureanalysis='Feature Analysis (L)';
+      }
+
+
       this.createPlanRequestData.which_feature = 'Baseline';
       this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
 
@@ -1838,7 +1903,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: 201909,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
@@ -2109,7 +2174,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: 201909,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
@@ -2242,7 +2307,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -2438,6 +2503,8 @@ public allselectedweek: any=[];
 
 
       this.forecastinganalysis = 'Forecast Analysis (L)';
+
+      this.featureanalysis='Feature Analysis (L)';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -2931,7 +2998,7 @@ public allselectedweek: any=[];
 
 
       this.forecastinganalysis = 'Forecast Analysis (PC)';
-
+      this.featureanalysis='Feature Analysis (PC)';
       this.prevactuals = '2019-W01';
       this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
@@ -3085,7 +3152,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -3418,7 +3485,7 @@ public allselectedweek: any=[];
 
       this.forecastinganalysis = 'Forecast Analysis (HL)';
 
-
+      this.featureanalysis='Feature Analysis (HL)';
       if(this.UOM=='HL' && this.granular1=='week')
         {
           this.enabled=1;
@@ -3563,7 +3630,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -4059,7 +4126,7 @@ public allselectedweek: any=[];
           return;
         }
 
-           
+        this.UOM='HL';
         
         this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
       
@@ -4183,7 +4250,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -4426,6 +4493,8 @@ public allselectedweek: any=[];
       this.prevactuals = '2019-W01';
       this.endWeek = '2019-W52';
 
+      this.UOM='HL';
+
       this.createPlanRequestData = {
         startWeek: 201942,
         endWeek: 201952,
@@ -4603,6 +4672,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -4659,7 +4729,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue:201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -5095,7 +5165,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -5499,7 +5569,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -5548,7 +5618,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -5988,7 +6058,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -6037,7 +6107,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -6409,7 +6479,7 @@ public allselectedweek: any=[];
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -6458,7 +6528,7 @@ public allselectedweek: any=[];
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
@@ -6911,7 +6981,7 @@ this.granular1="week";
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -6956,7 +7026,7 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -7414,7 +7484,7 @@ this.granular1="week";
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -8012,6 +8082,7 @@ if(this.color_tick==0)
     console.log('SDfsfgsdg--' + JSON.stringify(this.createPlanRequestData));
 
     this.granular1 = 'week';
+    this.UOM='HL';
 
 
     //  var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
@@ -8237,7 +8308,7 @@ if(this.color_tick==0)
             valueFormatString: '######',
             gridColor: '#ffffff',
             theme: 'light2',
-
+            interval: this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -8282,7 +8353,7 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: this.greystart,
+                startValue: 201910,
                 endValue: 201913,
                 color: '#F2F3F5'
               },
@@ -8660,7 +8731,7 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: this.createPlanRequestData.startWeek,
+                startValue: 201942,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
