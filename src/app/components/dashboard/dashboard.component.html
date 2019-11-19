@@ -2,7 +2,7 @@
    <div *ngIf="loading"
        style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <img src="https://dfdfdfddfdfdfd.s3-eu-west-1.amazonaws.com/ezgif.com-video-to-gif+(5).gif" alt="Smiley face">
+      <img src="https://sfgsdjkngd.s3-eu-west-1.amazonaws.com/ezgif.com-video-to-gif+(6).gif" alt="Smiley face">
 
     </div>
   </div>  
@@ -555,7 +555,7 @@
                           [class.highlight]="data.lockcell?.length"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
                           (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
-                        {{ data.finalForecast }}
+                        {{ data.finalForecast | currency: "€ " :" "}}
                       </td>
                     </ng-container>
                   </tr>
@@ -577,26 +577,26 @@
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
-                      {{ data.ml }}
+                      {{ data.ml | currency: "€ ":" " }}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
-                      {{ data.apo }}
+                      {{ data.apo | currency: "€ ":" "}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
-                      {{ data.actuals }}
+                      {{ data.actuals | currency: "€ ":" "}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
-                      {{ data.actualslastyear }}
+                      {{ data.actualslastyear | currency: "€ " :" "}}
                     </td>
 
 
@@ -604,7 +604,7 @@
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
-                      {{ data.harshit }}
+                      {{ data.harshit | currency: "€ ":" "}}
                     </td>
 
 
@@ -1820,6 +1820,7 @@
           <br/>
           <form #saveFilterModalForm="ngForm">
 
+            
             <ng-container *ngFor="let filter of loadedFilters | loadfilter : getCallback_filter() ;let i=index ">
               <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                    (click)="filterItemClick(i)">
@@ -1891,3 +1892,5 @@
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.8/angular-locale_eu.js"></script>
