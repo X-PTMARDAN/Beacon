@@ -543,14 +543,14 @@ public allselectedweek: any=[];
 
 
         this.loading = true;
-        // this.skuService.getSubbrand().subscribe((response: any) => {
+         this.skuService.getSubbrand().subscribe((response: any) => {
 
-        //   this.filters1.push({
-        //     name: 'Sub-Brand',
-        //     key: 'subbrand',
-        //     isExpanded: false,
-        //     values: response
-        //   });
+          this.filters1.push({
+            name: 'Sub-Brand',
+            key: 'subbrand',
+            isExpanded: false,
+            values: response
+          });
 
 
         this.loading = true;
@@ -765,14 +765,13 @@ public allselectedweek: any=[];
 
                     for(const abc in this.createdata.customerPlanningGroup)
                     {
-
                       console.log("00000----"+abc);
                       this.createdata.customerPlanningGroup[abc]=this.createdata.customerPlanningGroup[abc].split('-')[0];
                     }
                     
                 //    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
-                    console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
-                    console.log('sdfshbr---' + JSON.stringify(this.createdata));
+                    // console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
+                    // console.log('sdfshbr---' + JSON.stringify(this.createdata));
                     this.createPlan(this.createdata);
 
 
@@ -791,7 +790,7 @@ public allselectedweek: any=[];
             });
 
 
-            //});
+            });
 
 
           });
@@ -2528,12 +2527,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
         this.granular1="week";
               this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
        
@@ -3021,12 +3020,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
         this.granular1="week";
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
@@ -3514,12 +3513,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
      
 
@@ -4119,12 +4118,12 @@ public allselectedweek: any=[];
         else{
           this.enabled=0;
         }
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
         this.UOM='HL';
         
@@ -4514,12 +4513,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
         this.UOM='HL';
 
@@ -5010,12 +5009,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
  
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
         this.greystart = res.start;
         this.greystart = res.start;
@@ -5490,12 +5489,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
         if(this.UOM=='HL' && this.granular1=='week')
         {
           this.enabled=1;
@@ -5897,12 +5896,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
         this.granular1="week";
 
         if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
@@ -6396,12 +6395,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
        
@@ -6905,12 +6904,12 @@ public allselectedweek: any=[];
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
 this.granular1="week";
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
@@ -7405,12 +7404,12 @@ this.granular1="week";
         });
         this.loading = false;
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
 //this.granular1=="week";
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
@@ -8158,12 +8157,12 @@ if(this.color_tick==0)
         this.loading = false;
 
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
 
           if(this.UOM=='HL' && this.granular1=='week')         {           this.enabled=1;         }         else{           this.enabled=0;         }
@@ -8609,12 +8608,12 @@ if(this.color_tick==0)
           reset: true,
         });
 
-        if (res.res.length == 0) {
-          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-          window.alert('No Combination is available');
-          this.loading = false;
-          return;
-        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
 
         if(this.UOM=='HL' && this.granular1=='week')
         {
@@ -9055,12 +9054,12 @@ if(this.color_tick==0)
 
       this.loading = false;
 
-      if (res.res.length == 0) {
-        console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-        window.alert('No Combination is available');
-        this.loading = false;
-        return;
-      }
+      // if (res.res.length == 0) {
+      //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+      //   window.alert('No Combination is available');
+      //   this.loading = false;
+      //   return;
+      // }
       this.allComments=res.combinedcomment;
       
       this.allComments_harshit=[];
@@ -12861,6 +12860,12 @@ console.log("Checkiiigg--"+this.sumselected)
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))
     };
 
+
+    if(this.skus.filter(item => item.isChecked).map(item => item.name).length==0)
+    {
+      console.log("0990909----");
+      data12.sku=data12.sku.substr(1);
+    }
     // this.filterService.saveFilter({
     //   user: 'admin',
     //   filterName,
