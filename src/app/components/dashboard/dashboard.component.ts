@@ -239,7 +239,7 @@ public allselectedweek: any=[];
   private mlDataPoints_table: any = [];
   private aopDataPoints_table: any = [];
 
-
+public sameName=false;
 
   private fvaDataPoints: any = [];
 
@@ -12821,7 +12821,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
   public saveFilter(filterName: string) {
 
-
+    this.sameName=false;
     const login = {
       Username: 'admin',
       activity: 'Saved Filter',
@@ -12888,8 +12888,21 @@ console.log("Checkiiigg--"+this.sumselected)
     // });
 
 
+    for(const ab of this.loadedFilters)
+    {
+      console.log("fdfdfd--"+JSON.stringify(ab));
+       if(ab.name===filterName)
+       {
+         window.alert("Please choose a different name");
+       //  this.sameName=true;
+         return;
+       }
+    }
+
     this.filterService.saveFilter(data12).subscribe((res: any) => {
       // this.editCommentModalBtnCancel.nativeElement.click();
+
+
       this.saveFilterModalCancel.nativeElement.click();
       this.filterService.getFilters({
         user: 'admin'
@@ -12923,6 +12936,41 @@ console.log("Checkiiigg--"+this.sumselected)
       resultString = `${resultString},${filter}`;
     }
     return resultString.slice(1);
+  }
+
+
+  public delfilter(i)
+  {
+    console.log("dsdfdfd=----"+this.loadedFilters[i].name);
+
+    
+
+
+    this.skuService.deletefilter(this.loadedFilters[i].name).subscribe((res: any) => {
+      this.filterService.getFilters({
+        user: 'admin'
+      }).subscribe((res: any) => {
+        this.loadedFilters = res.map((item) => {
+          item.isSelected = false;
+          return item;
+        });
+      });
+
+    }, (error) => {
+     
+
+      this.filterService.getFilters({
+        user: 'admin'
+      }).subscribe((res: any) => {
+        this.loadedFilters = res.map((item) => {
+          item.isSelected = false;
+          return item;
+        });
+      });
+      
+    });
+
+    
   }
 
   public loadFilters() {
@@ -12994,6 +13042,8 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
       this.skuService.defaultnull(a).subscribe((res: any) => {
+
+
         this.skuService.setdefault(final_def).subscribe((res: any) => {
 
 

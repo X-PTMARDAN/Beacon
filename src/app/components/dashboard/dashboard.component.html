@@ -1770,7 +1770,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Save Filter</h5>
+          <h5 class="modal-title">Save Filter</h5> 
           <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
             <span aria-hidden="true">&times;</span>
           </button>
@@ -1825,7 +1825,7 @@
               <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                    (click)="filterItemClick(i)">
                 {{ i + 1 }}<span> {{ filter.name }} <span
-                style="color: #17b169;margin-left:20px">{{filter.default_Val}}</span></span>
+                style="color: #17b169;margin-left:20px">{{filter.default_Val}}</span><span><i class="fa fa-close" (click)="delfilter(i)"></i></span></span>
 
 
               </div>
