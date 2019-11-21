@@ -369,6 +369,17 @@ export class SKUService {
   }
 
 
+  public deletefilter(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}deletefilter`, data);
+  }
+
+
+
+
+
+  
+
+
   public defaultnull(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}prevnull`, data);
   }
