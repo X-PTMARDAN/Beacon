@@ -1645,6 +1645,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -1811,6 +1821,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -2715,6 +2735,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -3215,6 +3245,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -3692,6 +3732,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -4312,6 +4362,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -4791,6 +4851,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -5277,6 +5347,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -5681,6 +5761,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -6172,6 +6262,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -6595,6 +6695,16 @@ public sameName=false;
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -7095,6 +7205,16 @@ this.granular1="week";
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -7601,6 +7721,16 @@ this.granular1="week";
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -8425,6 +8555,16 @@ if(this.color_tick==0)
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -8803,6 +8943,16 @@ if(this.color_tick==0)
               color: ' #46a6b9',
               lineColor: '#46a6b9',
               dataPoints: this.property3
+            },
+            {
+              name: 'Line',
+              type: 'line',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #4606b9',
+              lineColor: '#4606b9',
+              dataPoints: this.property2
             }
 
           ]
@@ -12967,7 +13117,7 @@ console.log("Checkiiigg--"+this.sumselected)
           return item;
         });
       });
-      
+
     });
 
     
