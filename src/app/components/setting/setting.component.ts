@@ -27,6 +27,11 @@ export class SettingComponent implements OnInit {
 
   public up_table=false;
 
+
+  public prevactuals;
+
+
+  public horizon=false;
   ngOnInit() {
 
 
@@ -172,6 +177,38 @@ export class SettingComponent implements OnInit {
     });
   }
 
+
+  public done()
+  {
+    this.prevactuals;
+
+    console.log("Harsht---"+this.prevactuals);
+
+    var a=this.prevactuals.substr(6);
+    var b=this.prevactuals.substr(0,4);
+    var c=b+a;
+
+    console.log("fdfdf--"+c);
+
+    var y={
+      user:"admin",
+      horizon:c
+    };
+
+    console.log("TYUI--"+JSON.stringify(y));
+
+    this.skuService.saveHorizon(y).subscribe((res: any) => {
+            console.log("Done --");
+    });
+
+
+  }
+
+
+  public datefield()
+  {
+    this.horizon=true;
+  }
 
   public logs1()
   {

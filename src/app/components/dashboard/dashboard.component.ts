@@ -232,6 +232,9 @@ public allselectedweek: any=[];
 
   public prevactuals;
 
+
+  public prevactuals_val;
+
   private mlDataPoints: any = [];
   private aopDataPoints: any = [];
 
@@ -542,6 +545,21 @@ public sameName=false;
         });
 
 
+
+
+        this.skuService.fetchHorizon().subscribe((response: any) => {
+          this.prevactuals_val=response;
+          console.log("DEBUG0909---"+this.prevactuals);
+
+          this.prevactuals=response.toString().substr(0,4)+"-W"+response.toString().substr(4,6);
+
+        
+
+
+          console.log("DEBUG0909121---"+this.prevactuals);
+
+
+
         this.loading = true;
          this.skuService.getSubbrand().subscribe((response: any) => {
 
@@ -632,9 +650,9 @@ public sameName=false;
 
 
                     this.endWeek = '2020-W04';
-                    this.prevactuals = '2019-W35';
+                    //this.prevactuals = '2019-W35';
                     this.createdata = {
-                      prevactuals: 201935,
+                      prevactuals: this.prevactuals_val,
                       startWeek: 201942,
                       endWeek: 202004,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
@@ -794,6 +812,7 @@ public sameName=false;
 
 
           });
+        });
 
 
         });
@@ -971,9 +990,9 @@ public sameName=false;
 
 
     this.endWeek = '2020-W04';
-    this.prevactuals = '2019-W35';
+   // this.prevactuals = '2019-W35';
     this.createdata = {
-      prevactuals: 201935,
+      prevactuals: this.prevactuals_val,
       startWeek: 201942,
       endWeek: 202004,
       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
@@ -1030,6 +1049,13 @@ public sameName=false;
 
   private static parseStringToFloat(text) {
     return parseFloat(parseFloat(text).toFixed(2));
+  }
+
+  public download_graph()
+  {
+    console.log("567898uytghjn----");
+    this.chart1.title("text", "Added Text While Exporting" );
+    this.chart1.exportChart({ format: "jpg" });
   }
 
 
@@ -4188,6 +4214,18 @@ public sameName=false;
               isSelected:false,
               isFiltered:false});
         }
+
+
+    this.planningtable = 'Planning table (HL)';
+
+    document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+    this.forecastinganalysis = 'Forecast Analysis (HL)';
+
+    this.featureanalysis='Feature Analysis (HL)';
         
         
         
@@ -8223,6 +8261,20 @@ if(this.color_tick==0)
     this.UOM='HL';
 
 
+
+
+    this.planningtable = 'Planning table (HL)';
+
+    document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+    this.forecastinganalysis = 'Forecast Analysis (HL)';
+
+    this.featureanalysis='Feature Analysis (HL)';
+
+
     //  var fgssselected1=this.skus.filter(item => item.isChecked).map(item => item.name);
     //  var fgssselected2=this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
@@ -8819,6 +8871,7 @@ if(this.color_tick==0)
         this.chart2 = new CanvasJS.Chart('chartContainer2', {
           animationEnabled: true,
           showInLegend: true,
+        
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -8965,6 +9018,7 @@ if(this.color_tick==0)
           animationEnabled: true,
           exportEnabled: true,
           backgroundColor: '#FFFFFF',
+          
           legend: {
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
@@ -10840,6 +10894,17 @@ console.log("Checkiiigg--"+this.sumselected)
   }
 
   this.UOM='HL';
+
+  this.planningtable = 'Planning table (HL)';
+
+    document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+    this.forecastinganalysis = 'Forecast Analysis (HL)';
+
+    this.featureanalysis='Feature Analysis (HL)';
     const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
     /*
        Customer Planning Group 0
@@ -12240,6 +12305,8 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
   public how(s) {
+
+   
     var pointExists = false;
 
     if (s == null) {
@@ -12249,7 +12316,7 @@ console.log("Checkiiigg--"+this.sumselected)
     for (const i in s) {
       var ch = s.charAt(i);
       console.log('Checking--' + ch);
-      if (ch >= '0' && ch <= '9') {
+      if (ch >= '0' && ch <= '9' || ch=='%') {
         continue;
       }
       if (ch == '.') {
@@ -12264,6 +12331,9 @@ console.log("Checkiiigg--"+this.sumselected)
     }
     return true;
   }
+
+
+  
 
 
   // Final Forecast
@@ -12284,7 +12354,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
 
-      const value = parseFloat(this.graphData[index].fcstValueAdd);
+      var value = parseFloat(this.graphData[index].fcstValueAdd);
       console.log('FDfd123---' + value);
       var decimal = /^[-+]?[0-9]+\.[0-9]+$/;
       //   if(value===undefined || value==undefined)
@@ -12300,6 +12370,24 @@ console.log("Checkiiigg--"+this.sumselected)
 
       var s = this.graphData[index].fcstValueAdd;
       var r = this.how(s);
+
+      if(s.substr(s.length-1, s.length)=='%')
+      {
+        console.log("Ho gya12------");
+        var jk=this.graphData[index].fcstValueAdd.substr(0,this.graphData[index].fcstValueAdd.length-1);
+
+        console.log("ffgfgfgfg--"+jk);
+        var ml1=this.graphData[index].ml;
+        console.log("ffgfgfgfg123--"+ml1);
+
+        var h=(jk/100)*ml1;
+
+        console.log("ffgfgfgfg12--"+h);
+
+        this.graphData[index].fcstValueAdd=h;
+        value=h;
+
+      }
       //console.log('Hbhbgt---' + r);
       if (r == false) {
         this.graphData[index].fcstValueAdd = 0;
