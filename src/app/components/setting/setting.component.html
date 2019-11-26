@@ -36,13 +36,26 @@
   </div>
 
 
+
+  <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" (click)="datefield()">
+    <h2>Horizon</h2>
+    <p>Click here</p>
+  </div>
+
+
 </div>
 
 
 
 </div>
 
+<div *ngIf="horizon" style="height:260px;overflow: auto;margin-left: 30px;">
 
+  <input type="week" value="2019-W38" max="2019-W38" id="prevactuals" [(ngModel)]="prevactuals"  name="prevactuals">
+
+ <br> <br><br><button (click)="done()"> SUBMIT </button>
+
+</div>
 
 
 

@@ -376,6 +376,17 @@ export class SKUService {
 
 
 
+  public fetchHorizon(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}fetchHorizon`, data);
+  }
+
+  public saveHorizon(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}saveHorizon`, data);
+  }
+
+
+
+
 
   
 
