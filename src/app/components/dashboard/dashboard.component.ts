@@ -3024,8 +3024,7 @@ public sameName=false;
 
       this.forecastinganalysis = 'Forecast Analysis (PC)';
       this.featureanalysis='Feature Analysis (PC)';
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+    
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
