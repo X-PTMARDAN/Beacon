@@ -7950,8 +7950,9 @@ this.granular1="week";
     this.filters1[2].isExpanded = false;
     this.filters1[3].isExpanded = false;
     this.filters1[4].isExpanded = false;
-    this.filters1[5].isExpanded = false;
+    this.filters1[6].isExpanded = false;
 
+    this.filters1[5].isExpanded = false;
     this.filters1_brands[0].isExpanded = false;
     // this.filters1[7].isExpanded=false;
     //this.filters1[6].isExpanded=false;
@@ -7961,7 +7962,7 @@ this.granular1="week";
 
     document.getElementById('globalbevfilter').className = 'panel-collapse collapse';
 
-    //   document.getElementById('subbrandfilter').className='panel-collapse collapse';
+      document.getElementById('subbrandfilter').className='panel-collapse collapse';
 
 
     document.getElementById('baseunitfilter').className = 'panel-collapse collapse';
@@ -7972,6 +7973,11 @@ this.granular1="week";
     document.getElementById('alcoholperfilter').className = 'panel-collapse collapse';
 
     document.getElementById('Animal_Flagsfilter').className = 'panel-collapse collapse';
+
+
+    //document.getElementById('subbrand').className = 'panel-collapse collapse';
+
+  
 
 
   }
