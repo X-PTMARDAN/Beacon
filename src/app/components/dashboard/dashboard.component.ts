@@ -374,7 +374,7 @@ public sameName=false;
       // this.prevactuals="2019-W11";
       //   this.createdata = {
       //     prevactuals:201911,
-      //   startWeek: 201942,
+      //   startWeek: 201946,
       //   endWeek: 202004,
       //   forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
       //   customerPlanningGroup: ['G01'],
@@ -653,7 +653,7 @@ public sameName=false;
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
                       prevactuals: this.prevactuals_val,
-                      startWeek: 201942,
+                      startWeek: 201946,
                       endWeek: 202004,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                       customerPlanningGroup: [],
@@ -840,7 +840,7 @@ public sameName=false;
 //     this.prevactuals="2019-W11";
 //       this.createdata = {
 //         prevactuals:201911,
-//       startWeek: 201942,
+//       startWeek: 201946,
 //       endWeek: 202004,
 //       forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
 //       customerPlanningGroup: ['G01'],
@@ -993,7 +993,7 @@ public sameName=false;
    // this.prevactuals = '2019-W35';
     this.createdata = {
       prevactuals: this.prevactuals_val,
-      startWeek: 201942,
+      startWeek: 201946,
       endWeek: 202004,
       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
       customerPlanningGroup: ['G01'],
@@ -1243,7 +1243,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -1780,7 +1780,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -2065,7 +2065,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -2332,7 +2332,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -3177,7 +3177,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -3655,7 +3655,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -4063,7 +4063,7 @@ public sameName=false;
     //       },
     //       stripLines: [
     //         {
-    //           startValue: 201942,
+    //           startValue: 201946,
     //           endValue: 201953,
     //           color: '#F2F3F5'
     //         },
@@ -4287,7 +4287,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -4533,7 +4533,7 @@ public sameName=false;
       this.UOM='HL';
 
       this.createPlanRequestData = {
-        startWeek: 201942,
+        startWeek: 201946,
         endWeek: 201952,
         prevactuals: 201901,
         forecastingGroups: this.fgssselected.map(item => item.name),
@@ -4766,7 +4766,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue:201942,
+                startValue:201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -5655,7 +5655,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -6146,7 +6146,7 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -7069,7 +7069,7 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -8107,11 +8107,11 @@ if(this.color_tick==0)
 }
     this.color_tick=0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 201942) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 201946) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 201942) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 201946) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -8791,7 +8791,7 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 201942,
+                startValue: 201946,
                 endValue: 201953,
                 color: '#F2F3F5'
               },
@@ -10801,7 +10801,7 @@ console.log("Checkiiigg--"+this.sumselected)
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
 
-    data.startWeek = 201942;
+    data.startWeek = 201946;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -11297,7 +11297,32 @@ console.log("Checkiiigg--"+this.sumselected)
         } else {
           document.getElementById('brands').style.background = '#05d7be';
         }
-      } else if (brand.key == 'alcoholper') {
+      } 
+      
+      
+   
+
+
+      else if (brand.key == 'subbrand') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            flag = 0;
+          }
+        }
+        if (flag == 1) {
+          document.getElementById('subbrand').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('subbrand').style.background = '#05d7be';
+        }
+      } 
+      
+      
+      
+      
+      
+      
+      else if (brand.key == 'alcoholper') {
         var flag = 1;
         for (const aa of brand.values) {
           if (aa.isChecked) {
@@ -12726,7 +12751,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201942,
+        calendarWeek: 201946,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -12833,7 +12858,7 @@ console.log("Checkiiigg--"+this.sumselected)
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201942,
+        calendarWeek: 201946,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -13460,7 +13485,7 @@ console.log("Checkiiigg--"+this.sumselected)
     data.customerPlanningGroup = selectedFilter.cpg;
     data.plants = selectedFilter.plant;
 
-    data.startWeek = 201942;
+    data.startWeek = 201946;
     data.endWeek = 202004;
 
     this.loading = true;
