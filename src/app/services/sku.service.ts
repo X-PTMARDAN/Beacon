@@ -4,6 +4,7 @@ import {of} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,6 +41,20 @@ export class SKUService {
 
   public getAnimalFlag() {
     return this.http.get(`${this.apiGatewayUrl}animalFlag`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+
+  public getpacksize() {
+    return this.http.get(`${this.apiGatewayUrl}packsize`).pipe(
       map((AlcP: any) => {
         return AlcP.map((AlcP) => {
           return {name: AlcP, isChecked: false};
@@ -381,6 +396,7 @@ export class SKUService {
   }
 
   public saveHorizon(data = {}) {
+   
     return this.http.post(`${this.apiGatewayUrl}saveHorizon`, data);
   }
 

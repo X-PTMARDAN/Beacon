@@ -534,6 +534,16 @@
                   <p class="m-0 week-block">Open Orders</p>
                 </th>
               </tr>
+
+
+
+              <tr class="header-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Promo</p>
+                </th>
+              </tr>
+
+
               </thead>
             </table>
           </div>
@@ -553,7 +563,7 @@
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td id="i" class="font-weight-bold cursor-pointer"
                           [class.highlight]="data.lockcell?.length"
-                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                           (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
                         {{ data.finalForecast | currency: "€ " :" "}}
                       </td>
@@ -562,9 +572,9 @@
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
-                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }">
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
-                               [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= greystart }"
+                               [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
                                (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
@@ -575,27 +585,27 @@
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
                       {{ data.ml | currency: "€ ":" " }}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
                       {{ data.apo | currency: "€ ":" "}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
                       {{ data.actuals | currency: "€ ":" "}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
                       {{ data.actualslastyear | currency: "€ " :" "}}
                     </td>
 
@@ -603,8 +613,20 @@
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
                       {{ data.harshit | currency: "€ ":" "}}
+                    </td>
+
+
+                  </tr>
+
+
+
+
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                      {{ data.promovalue | currency: "€ ":" "}}
                     </td>
 
 
@@ -623,39 +645,46 @@
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.finalCastTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.finalCastTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ forecastadd.toFixed(2)  }}</p>
+                  <p class="m-0 week-block">{{ forecastadd.toFixed(2) | currency: "€ ":" " }}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.mlTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.mlTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.apoTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.apoTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.actuals }}</p>
+                  <p class="m-0 week-block">{{ totalData.actuals | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.lastYearTotal}}</p>
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.harshit }}</p>
+                  <p class="m-0 week-block">{{ totalData.harshit | currency: "€ ":" "}}</p>
                 </th>
               </tr>
+
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.promovalue | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+
             </table>
           </div>
         </div>
@@ -736,11 +765,11 @@
               
             </tr>
             <tr>
-              <td style="width: 20%;  ">   <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
-              <td style="width: 20%;    text-align: center;">   <p class="m-0 week-block" [innerText]="avgselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
-              <td style="width: 20%;    text-align: center;">   <p class="m-0 week-block" [innerText]="countselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
-              <td style="width: 20%;    text-align: center;" >   <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
-              <td style="width: 20%;    text-align: center;">   <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
+              <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
+              <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="avgselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
+              <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="countselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
+              <td style="width: 20%;  text-align: center;" >   <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
+              <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
             </tr>
           
           </table>
@@ -760,6 +789,7 @@
              data-target="#saveAViewsModal">Save View</a> -->
 
         </div>
+
         <div class="d-flex">
           <div class="table-header-col">
             <table>
@@ -806,6 +836,16 @@
                   <p class="m-0 week-block">Open Orders</p>
                 </th>
               </tr>
+
+
+
+              <tr class="header-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Promo</p>
+                </th>
+              </tr>
+
+
               </thead>
             </table>
           </div>
@@ -825,18 +865,18 @@
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td id="i" class="font-weight-bold cursor-pointer"
                           [class.highlight]="data.lockcell?.length"
-                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                           (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
-                        {{ data.finalForecast }}
+                        {{ data.finalForecast | currency: "€ " :" "}}
                       </td>
                     </ng-container>
                   </tr>
                   <tr>
                     <ng-container *ngFor="let data of graphData; let i=index">
                       <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
-                          [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }">
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
-                               [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek >= greystart }"
+                               [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
                                (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
@@ -847,36 +887,48 @@
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
-                      {{ data.ml }}
+                      {{ data.ml | currency: "€ ":" " }}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
-                      {{ data.apo }}
+                      {{ data.apo | currency: "€ ":" "}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
-                      {{ data.actuals }}
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
+                      {{ data.actuals | currency: "€ ":" "}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
-                      {{ data.actualslastyear }}
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
+                      {{ data.actualslastyear | currency: "€ " :" "}}
                     </td>
 
 
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
-                        [ngClass]="{ 'colored-td': data.calenderYearWeek >= greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
-                      {{ data.harshit }}
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                      {{ data.harshit | currency: "€ ":" "}}
+                    </td>
+
+
+                  </tr>
+
+
+
+
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                      {{ data.promovalue | currency: "€ ":" "}}
                     </td>
 
 
@@ -895,42 +947,53 @@
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.finalCastTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.finalCastTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ forecastadd.toFixed(2)  }}</p>
+                  <p class="m-0 week-block">{{ forecastadd.toFixed(2) | currency: "€ ":" " }}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.mlTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.mlTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.apoTotal }}</p>
+                  <p class="m-0 week-block">{{ totalData.apoTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.actuals }}</p>
+                  <p class="m-0 week-block">{{ totalData.actuals | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.lastYearTotal}}</p>
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal | currency: "€ ":" "}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.harshit }}</p>
+                  <p class="m-0 week-block">{{ totalData.harshit | currency: "€ ":" "}}</p>
                 </th>
               </tr>
+
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.promovalue | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+
             </table>
           </div>
         </div>
+
+
+
+
         <div class="p-2 text-center">
           <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
              data-target="#saveAPlansModal">Save Plan</a> -->
@@ -1366,7 +1429,7 @@
 
 
         <div class="mb-2" style="height: 200px; overflow: auto;font-size: 12px;" data-simplebar>
-          <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
+          <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index ">
             <div style="margin-top: 3px;">
               <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
             </div>

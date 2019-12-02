@@ -192,7 +192,7 @@ export class SettingComponent implements OnInit {
 
     var y={
       user:"admin",
-      horizon:c
+      horizon:parseInt(c)
     };
 
     console.log("TYUI--"+JSON.stringify(y));
