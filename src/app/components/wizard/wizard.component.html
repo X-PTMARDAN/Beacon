@@ -1,0 +1,10 @@
+<div class="stepwizard-row d-flex justify-content-center">
+  <div class="step d-flex flex-column justify-content-center align-items-center"
+       *ngFor="let item of wizardList; let i = index">
+                <span class="step-circle">
+                  <a href="javascript:void(0);" type="button" class="btn btn-default btn-circle active"
+                     [class.active]="activeStepOrder >= i+1" (click)="emitActiveStep(i+1)"></a>
+                </span>
+    <p class="mb-0 mt-1">{{item.text}}</p>
+  </div>
+</div>

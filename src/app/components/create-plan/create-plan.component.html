@@ -1,0 +1,1016 @@
+<div class="container d-flex justify-content-center">
+  <div class="w-50">
+    <wizard-component (activeStepEmitter)="changeActiveStep($event)" [activeStepOrder]="activeStepOrder"
+                      [wizardList]="wizardList"></wizard-component>
+  </div>
+</div>
+<div *ngIf="activeStepOrder === 1" class="mt-5 d-flex flex-column align-items-center">
+  <div class="step d-flex flex-row justify-content-center align-items-center flex-wrap mb-5">
+    <div class="items align-items-center">
+      <i class="fa fa-check-square-o"></i>
+      <h4>Plan Demand</h4>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="showPlanDemand()">Click
+        Here</a>
+    </div>
+    <div class="items align-items-center">
+      <i class="fa fa-eye"></i>
+      <h4>Revisit a plan</h4>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="showRevisitPlan()">Click
+        Here</a>
+    </div>
+    <div class="items align-items-center">
+      <i class="fa fa-cogs"></i>
+      <h4>Portfolio management</h4>
+      <a  href="javascript:void(0);" class="btn btn-primary custom-link" (click)="goToPage('portfolio')">Click
+        Here</a>
+    </div>
+    <div class="items align-items-center">
+      <i class="fa fa-sliders"></i>
+      <h4>NPD</h4>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" disabled>Click Here</a>
+    </div>
+    <div class="items align-items-center">
+      <i class="fa fa-bullhorn"></i>
+      <h4>S&OP Analytics</h4>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" disabled>Click Here</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="planDemand" *ngIf="showPanels.showPlanDemand">
+  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Select from your saved filters OR create a customised plan</h3>
+      <br>
+    </div>
+    <br>
+    <div class="d-flex flex-wrap justify-content-around">
+      <div class="img-container">
+        <h5 class="text-center">Customised Plan</h5>
+        <a href="javascript:void(0);" (click)="showPlanDemand(3);">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+        </a>
+      </div>
+      <ng-container *ngFor="let view of loadedFilters; let i=index">
+        <div class="img-container" style="margin-left: 25px">
+          <h5 align="center">{{view.name| propercase}}</h5>
+          <a href="javascript:void(0);" (click)="loadedFilterItemClick(i);">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/images.jpeg"/>
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div *ngIf="activeStepOrder === 3" class="mt-4 container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box-main">
+          <span>Filter</span>
+          <div class="last-box p-1 pt-2">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                       (click)="toggleClass.isBrandExpanded = !toggleClass.isBrandExpanded"
+                       aria-expanded="true" aria-controls="collapseOne">
+                                  <span class="font-weight-bold">Brands <i class="fa float-right"
+                                                                           [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                  <div class="panel-body p-0">
+                    <div class="brand-selector">
+                      <ul>
+                        <ng-container *ngFor="let brand of brands; let i=index">
+                          <li><input type="checkbox" [(ngModel)]="brand.isChecked" [name]="'brand-'+i"
+                                     (change)="onFilterCheckboxClick($event)">{{ brand.name }}</li>
+                        </ng-container>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEigth"
+                         (click)="toggleClass.isSubbrandExpanded = !toggleClass.isSubbrandExpanded"
+                         aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="font-weight-bold">Sub Brand<i class="fa float-right"
+                                                                               [ngClass]="[ toggleClass.isSubbrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseEigth" class="panel-collapse collapse in" role="tabpanel"
+                       aria-labelledby="headingOne">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let subbrand of Subbrand; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="subbrand.isChecked" [name]="'subbrand-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ subbrand.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSixth"
+                       (click)="toggleClass.isUnitperpackExpanded = !toggleClass.isUnitperpackExpanded"
+                       aria-expanded="true" aria-controls="collapseOne">
+                                  <span class="font-weight-bold">Unit Per Pack <i class="fa float-right"
+                                                                                  [ngClass]="[ toggleClass.isUnitperpackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseSixth" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                  <div class="panel-body p-0">
+                    <div class="brand-selector">
+                      <ul>
+                        <ng-container *ngFor="let unit of Unitperpack; let i=index">
+                          <li><input type="checkbox" [(ngModel)]="unit.isChecked" [name]="'unit-'+i"
+                                     (change)="onFilterCheckboxClick($event)">{{ unit.name }}</li>
+                        </ng-container>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFifth"
+                         (click)="toggleClass.isAlcPExpanded = !toggleClass.isAlcPExpanded"
+                         aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="font-weight-bold">Alcohol Percentage <i class="fa float-right"
+                                                                                         [ngClass]="[ toggleClass.isAlcPExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFifth" class="panel-collapse collapse in" role="tabpanel"
+                       aria-labelledby="headingOne">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let alcp of AlcP; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="alcp.isChecked" [name]="'alcp-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ alcp.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                         (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
+                                    <span class="font-weight-bold">Segments<i class="fa float-right"
+                                                                              [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" #collapseTwo class="panel-collapse collapse in" role="tabpanel"
+                       aria-labelledby="headingTwo">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let segment of segments; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="segment.isChecked" [name]="'segment-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ segment.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="font-weight-bold">Packs <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree1">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="font-weight-bold">Global beverage category <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree1" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree1">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree3">
+                                    <span class="font-weight-bold">Primary pack size <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree1">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                         (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                         href="#collapseThree" aria-expanded="false" aria-controls="collapseThree31">
+                                    <span class="font-weight-bold"> Secondary pack size <i class="fa float-right"
+                                                                            [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree31" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="headingThree">
+                    <div class="panel-body p-0">
+                      <div class="brand-selector">
+                        <ul>
+                          <ng-container *ngFor="let pack of packs; let i=index">
+                            <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                       (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+   
+
+
+
+
+            </div>
+          </div>
+          <div class="btm-url d-flex justify-content-between">
+            <a href="javascript:void(0);" (click)="selectOrClearAll()">Select All</a>
+            <a href="javascript:void(0);" (click)="selectOrClearAll(true)">Clear All</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box-main">
+          <span>Showing {{ searchText.trim() ? getFilteredSKUCount() : SKUs.length }} Result</span>
+          <div class="last-box">
+            <div class="panel-group" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 15px 0 0 0" role="tab">
+                  <h4 class="panel-title">
+                    <div class="form-group has-feedback">
+                      <input type="text" class="form-control search-box-l" [(ngModel)]="searchText"
+                             placeholder="Search SKU">
+                    </div>
+                  </h4>
+                </div>
+                <div class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <div class="brand-selector brand-selector2">
+                      <ul>
+                        <li *ngFor="let SKU of SKUs| filter: getCallback() ;let i=index">
+                          <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(SKU.id)"><i
+                            class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU.name}}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btm-url"><a href="javascript:void(0);" (click)="addItemsAll()">Add All</a></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box-main">
+          <span>Product Added</span>
+          <div class="last-box">
+            <div class="panel-group" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 15px 0 0 0;" role="tab">
+                  <h4 class="panel-title">
+                    <div class="form-group has-feedback">
+                      <input type="text" class="form-control search-box-l" [(ngModel)]="selectedSearchText"
+                             placeholder="Search Selected SKU">
+                    </div>
+                  </h4>
+                </div>
+                <div class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body" style="border-top: 0;">
+                    <div class="brand-selector brand-selector2">
+                      <ul>
+                        <li class="d-flex"
+                            *ngFor="let selectedSKU of selectedSKUs| filter: getCallback(true);let i=index">
+                          <a href="javascript:void(0);" class="text-danger pr-1"
+                             (click)="removeItems(selectedSKU.id)"><i
+                            class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                          {{ selectedSKU.name }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btm-url"><a href="javascript:void(0);" (click)="removeItemsAll()">Remove All</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 d-flex flex-column align-items-center">
+      <button class="btn btn-primary nextBtn p-2 mb-4" type="button" style="min-width: 200px;"
+              [class.disabled]="!this.selectedSKUs.length"
+              [disabled]="!this.selectedSKUs.length" (click)="activeStepOrder=4">Continue to Select CPG and Plant
+      </button>
+    </div>
+  </div>
+  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Select CPG and Plant</h3>
+    </div>
+    <form #CPGAndPlantForm='ngForm' class="d-flex mt-4">
+      <div class="form-group mr-1" style="width:210px;">
+        <label for="plants" style="font-weight:normal;">Plant</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Please Select'"
+          [data]="plants"
+          id="plants"
+          name="plants"
+          [(ngModel)]="selectedPlants"
+          [settings]="dropdownSettings" required>
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="form-group ml-1" style="width:210px;">
+        <label for="customerPlanningGroups" style="width: 200px; font-weight:normal;">Customer Planning Group</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Please Select'"
+          [data]="customerPlanningGroups"
+          [(ngModel)]="selectedCustomerPlanningGroups"
+          name="customerPlanningGroups"
+          id="customerPlanningGroups"
+          [settings]="dropdownSettings" required>
+        </ng-multiselect-dropdown>
+      </div>
+    </form>
+    <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="activeStepOrder=5"
+            [class.disabled]="!CPGAndPlantForm.valid || createPlanLoader"
+            [disabled]="!CPGAndPlantForm.valid || createPlanLoader">Continue to Select Horizon
+    </button>
+  </div>
+  <div *ngIf="activeStepOrder === 5" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Select Planning Horizon</h3>
+
+
+      <p class="text-center">Current Week 37,2019</p>
+
+    </div>
+    <div class="mb-4">
+      <form #horizonForm='ngForm' class="d-flex justify-content-center">
+        <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2">
+          <label for="startWeek" class="d-none">
+            <span class="sr-only">Start Week</span>
+          </label>
+          <div class="input-group input-append date">
+            <span class="pr-1">From:</span>
+            <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
+
+            <input type="week" value="2019-W38" id="startWeek"  name="startWeek" readonly>
+
+          
+
+
+            <span class="input-group-addon add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <div class="custom-input ml-2 pt-1 pb-1 pl-1 pr-2">
+          <label for="endWeek" class="d-none">
+            <span class="sr-only">End Week</span>
+          </label>
+          <div class="input-group input-append date">
+            <span class="pr-1">To:</span>
+            <input type="week" id="endWeek" [(ngModel)]="endWeek" name="endWeek" [min]="minEndWeek" required>
+            <span class="input-group-addon add-on" (click)="openCalender()"><i class="fa fa-calendar"
+                                                                               aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex justify-content-around w-75 mb-5">
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(18)">+ 18 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(36)">+ 36 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(54)">+ 54 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link" (click)="addWeeks(74)">+ 78 weeks</a>
+      <a href="javascript:void(0);" class="btn btn-primary custom-link disabled" tabindex="-1" (click)="addYears(3)">+ 3
+        years</a>
+    </div>
+    <button class="btn btn-primary nextBtn p-2" type="button" style="min-width: 200px;"
+            [class.disabled]="!horizonForm.valid"
+            [disabled]="!horizonForm.valid" (click)="createPlan()">
+      Create Plan <span *ngIf="createPlanLoader">  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> </span>
+    </button>
+  </div>
+</div>
+
+<div class="revisitPlan" *ngIf="showPanels.showRevisitPlan">
+  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+    <div class="d-flex flex-wrap justify-content-around">
+      <div class="img-container">
+        <h5 align="center"> Weekly plan 201935</h5>
+        <a href="javascript:void(0);" (click)="showPanels.showRevisitPlan=false; showPlanDemand();">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+        </a>
+      </div>
+      <div class="img-container">
+        <h5 align="center">Scenario 1_201935</h5>
+        <a href="javascript:void(0);" class="disabled">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+        </a>
+      </div>
+      <div class="img-container">
+        <h5 align="center">Scenario 2_201935</h5>
+        <a href="javascript:void(0);" class="disabled">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+        </a>
+      </div>
+      <div class="img-container">
+        <h5 align="center">Scenario 3_201935</h5>
+        <a href="javascript:void(0);" class="disabled">
+          <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/2.png">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="revisitView" *ngIf="showPanels.showRevisitView">
+  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+    <div class="d-flex flex-wrap justify-content-around">
+      <ng-container *ngFor="let view of views; let i=index">
+        <div class="img-container" style="margin-left: 25px">
+          <h5 align="center">{{view.name| propercase}}</h5>
+          <a href="javascript:void(0);" (click)="viewPlan(view)">
+            <img src="https://fusionhawk.s3-eu-west-1.amazonaws.com/1.png">
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="showCPGandPlant" *ngIf="showPanels.showCPGandPlant" class="mt-5 d-flex flex-column align-items-center">
+
+  
+          <form #CPGAndPlantForm='ngForm' class="d-flex mt-4">
+            <div class="form-group mr-1" style="width:210px;">
+              <label for="plants" style="font-weight:normal;">Plant</label>
+              <ng-multiselect-dropdown
+                [placeholder]="'Please Select'"
+                [data]="plants"
+                id="plants"
+                name="plants"
+                [(ngModel)]="selectedPlants"
+                [settings]="dropdownSettings" required>
+              </ng-multiselect-dropdown>
+            </div>
+            <div class="form-group ml-1" style="width:210px;">
+              <label for="customerPlanningGroups" style="width: 200px; font-weight:normal;">Customer Planning Group</label>
+              <ng-multiselect-dropdown
+                [placeholder]="'Please Select'"
+                [data]="customerPlanningGroups"
+                [(ngModel)]="selectedCustomerPlanningGroups"
+                name="customerPlanningGroups"
+                id="customerPlanningGroups"
+                [settings]="dropdownSettings" required>
+              </ng-multiselect-dropdown>
+            </div>
+          </form>
+          <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="createPlan()"
+                >Create Plan
+          </button>
+
+  </div>
+
+
+
+
+
+  <div class="showSKU" *ngIf="showPanels.showSKU" class="mt-4 container">
+
+  
+      <div class="row">
+          <div class="col-md-4">
+            <div class="box-main">
+              <span>Filter</span>
+              <div class="last-box p-1 pt-2">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    
+    
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           (click)="toggleClass.isBrandExpanded = !toggleClass.isBrandExpanded"
+                           aria-expanded="true" aria-controls="collapseOne">
+                                      <span class="font-weight-bold">Brands <i class="fa float-right"
+                                                                               [ngClass]="[ toggleClass.isBrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="headingOne">
+                      <div class="panel-body p-0">
+                        <div class="brand-selector">
+                          <ul>
+                            <ng-container *ngFor="let brand of brands; let i=index">
+                              <li><input type="checkbox" [(ngModel)]="brand.isChecked" [name]="'brand-'+i"
+                                         (change)="onFilterCheckboxClick($event)">{{ brand.name }}</li>
+                            </ng-container>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+    
+    
+                  <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEigth"
+                             (click)="toggleClass.isSubbrandExpanded = !toggleClass.isSubbrandExpanded"
+                             aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="font-weight-bold">Sub Brand<i class="fa float-right"
+                                                                                   [ngClass]="[ toggleClass.isSubbrandExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseEigth" class="panel-collapse collapse in" role="tabpanel"
+                           aria-labelledby="headingOne">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let subbrand of Subbrand; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="subbrand.isChecked" [name]="'subbrand-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ subbrand.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+    
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSixth"
+                           (click)="toggleClass.isUnitperpackExpanded = !toggleClass.isUnitperpackExpanded"
+                           aria-expanded="true" aria-controls="collapseOne">
+                                      <span class="font-weight-bold">Unit Per Pack <i class="fa float-right"
+                                                                                      [ngClass]="[ toggleClass.isUnitperpackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSixth" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="headingOne">
+                      <div class="panel-body p-0">
+                        <div class="brand-selector">
+                          <ul>
+                            <ng-container *ngFor="let unit of Unitperpack; let i=index">
+                              <li><input type="checkbox" [(ngModel)]="unit.isChecked" [name]="'unit-'+i"
+                                         (change)="onFilterCheckboxClick($event)">{{ unit.name }}</li>
+                            </ng-container>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+    
+    
+    
+    
+    
+                  <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFifth"
+                             (click)="toggleClass.isAlcPExpanded = !toggleClass.isAlcPExpanded"
+                             aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="font-weight-bold">Alcohol Percentage <i class="fa float-right"
+                                                                                             [ngClass]="[ toggleClass.isAlcPExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFifth" class="panel-collapse collapse in" role="tabpanel"
+                           aria-labelledby="headingOne">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let alcp of AlcP; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="alcp.isChecked" [name]="'alcp-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ alcp.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                             (click)="toggleClass.isSegmentExpanded = !toggleClass.isSegmentExpanded">
+                                        <span class="font-weight-bold">Segments<i class="fa float-right"
+                                                                                  [ngClass]="[ toggleClass.isSegmentExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" #collapseTwo class="panel-collapse collapse in" role="tabpanel"
+                           aria-labelledby="headingTwo">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let segment of segments; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="segment.isChecked" [name]="'segment-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ segment.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                             href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span class="font-weight-bold">Packs <i class="fa float-right"
+                                                                                [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                           aria-labelledby="headingThree">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let pack of packs; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree1">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                             href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span class="font-weight-bold">Global beverage category <i class="fa float-right"
+                                                                                [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree1" class="panel-collapse collapse" role="tabpanel"
+                           aria-labelledby="headingThree">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let pack of packs; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree1">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                             href="#collapseThree" aria-expanded="false" aria-controls="collapseThree3">
+                                        <span class="font-weight-bold">Primary pack size <i class="fa float-right"
+                                                                                [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel"
+                           aria-labelledby="headingThree">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let pack of packs; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+    
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree1">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                             (click)="toggleClass.isPackExpanded = !toggleClass.isPackExpanded"
+                             href="#collapseThree" aria-expanded="false" aria-controls="collapseThree31">
+                                        <span class="font-weight-bold"> Secondary pack size <i class="fa float-right"
+                                                                                [ngClass]="[ toggleClass.isPackExpanded ? 'fa-minus' : 'fa-plus' ]"></i></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree31" class="panel-collapse collapse" role="tabpanel"
+                           aria-labelledby="headingThree">
+                        <div class="panel-body p-0">
+                          <div class="brand-selector">
+                            <ul>
+                              <ng-container *ngFor="let pack of packs; let i=index">
+                                <li><input type="checkbox" [(ngModel)]="pack.isChecked" [name]="'pack-'+i"
+                                           (change)="onFilterCheckboxClick($event)">{{ pack.name }}</li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+       
+    
+    
+    
+    
+                </div>
+              </div>
+              <div class="btm-url d-flex justify-content-between">
+                <a href="javascript:void(0);" (click)="selectOrClearAll()">Select All</a>
+                <a href="javascript:void(0);" (click)="selectOrClearAll(true)">Clear All</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box-main">
+              <span>Showing {{ searchText.trim() ? getFilteredSKUCount() : SKUs.length }} Result</span>
+              <div class="last-box">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" style="padding: 15px 0 0 0" role="tab">
+                      <h4 class="panel-title">
+                        <div class="form-group has-feedback">
+                          <input type="text" class="form-control search-box-l" [(ngModel)]="searchText"
+                                 placeholder="Search SKU">
+                        </div>
+                      </h4>
+                    </div>
+                    <div class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <div class="brand-selector brand-selector2">
+                          <ul>
+                            <li *ngFor="let SKU of SKUs| filter: getCallback() ;let i=index">
+                              <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(SKU.id)"><i
+                                class="fa fa-plus-circle" aria-hidden="true"></i></a>{{SKU.name}}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btm-url"><a href="javascript:void(0);" (click)="addItemsAll()">Add All</a></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box-main">
+              <span>Product Added</span>
+              <div class="last-box">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" style="padding: 15px 0 0 0;" role="tab">
+                      <h4 class="panel-title">
+                        <div class="form-group has-feedback">
+                          <input type="text" class="form-control search-box-l" [(ngModel)]="selectedSearchText"
+                                 placeholder="Search Selected SKU">
+                        </div>
+                      </h4>
+                    </div>
+                    <div class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body" style="border-top: 0;">
+                        <div class="brand-selector brand-selector2">
+                          <ul>
+                            <li class="d-flex"
+                                *ngFor="let selectedSKU of selectedSKUs| filter: getCallback(true);let i=index">
+                              <a href="javascript:void(0);" class="text-danger pr-1"
+                                 (click)="removeItems(selectedSKU.id)"><i
+                                class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                              {{ selectedSKU.name }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btm-url"><a href="javascript:void(0);" (click)="removeItemsAll()">Remove All</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 d-flex flex-column align-items-center">
+          <button class="btn btn-primary nextBtn p-2 mb-4" type="button" style="min-width: 200px;"
+                  [class.disabled]="!this.selectedSKUs.length"
+                  [disabled]="!this.selectedSKUs.length" (click)="createPlan()">Create Plan
+          </button>
+        </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="portfolioMgmt" *ngIf="showPanels.showPortfolioMgmt">
+  <div *ngIf="activeStepOrder === 2" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Sample Text 1</h3>
+    </div>
+  </div>
+  <div *ngIf="activeStepOrder === 3" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Sample Text 2</h3>
+    </div>
+  </div>
+  <div *ngIf="activeStepOrder === 4" class="mt-5 d-flex flex-column align-items-center">
+    <div>
+      <h3 class="text-center">Sample Text 3</h3>
+    </div>
+  </div>
+</div>
