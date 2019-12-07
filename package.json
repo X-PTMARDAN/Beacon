@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "build-prod":"ng build --prod",
+    "build-prod": "ng serve",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -17,8 +17,8 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.2",
-    "@angular/common": "^8.2.2",
     "@angular/cli": "^8.3.0",
+    "@angular/common": "^8.2.2",
     "@angular/compiler": "^8.2.2",
     "@angular/core": "^8.2.2",
     "@angular/forms": "^8.2.2",
@@ -29,7 +29,7 @@
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
-    "ng-multiselect-dropdown": "^0.2.3",
+    "ng-multiselect-dropdown": "^0.2.10",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "simplebar": "^4.1.0",
