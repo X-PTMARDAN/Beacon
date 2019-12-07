@@ -444,25 +444,11 @@
     <form #CPGAndPlantForm='ngForm' class="d-flex mt-4">
       <div class="form-group mr-1" style="width:210px;">
         <label for="plants" style="font-weight:normal;">Plant</label>
-        <ng-multiselect-dropdown
-          [placeholder]="'Please Select'"
-          [data]="plants"
-          id="plants"
-          name="plants"
-          [(ngModel)]="selectedPlants"
-          [settings]="dropdownSettings" required>
-        </ng-multiselect-dropdown>
+       
       </div>
       <div class="form-group ml-1" style="width:210px;">
         <label for="customerPlanningGroups" style="width: 200px; font-weight:normal;">Customer Planning Group</label>
-        <ng-multiselect-dropdown
-          [placeholder]="'Please Select'"
-          [data]="customerPlanningGroups"
-          [(ngModel)]="selectedCustomerPlanningGroups"
-          name="customerPlanningGroups"
-          id="customerPlanningGroups"
-          [settings]="dropdownSettings" required>
-        </ng-multiselect-dropdown>
+       
       </div>
     </form>
     <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="activeStepOrder=5"
@@ -580,25 +566,11 @@
           <form #CPGAndPlantForm='ngForm' class="d-flex mt-4">
             <div class="form-group mr-1" style="width:210px;">
               <label for="plants" style="font-weight:normal;">Plant</label>
-              <ng-multiselect-dropdown
-                [placeholder]="'Please Select'"
-                [data]="plants"
-                id="plants"
-                name="plants"
-                [(ngModel)]="selectedPlants"
-                [settings]="dropdownSettings" required>
-              </ng-multiselect-dropdown>
+         
             </div>
             <div class="form-group ml-1" style="width:210px;">
               <label for="customerPlanningGroups" style="width: 200px; font-weight:normal;">Customer Planning Group</label>
-              <ng-multiselect-dropdown
-                [placeholder]="'Please Select'"
-                [data]="customerPlanningGroups"
-                [(ngModel)]="selectedCustomerPlanningGroups"
-                name="customerPlanningGroups"
-                id="customerPlanningGroups"
-                [settings]="dropdownSettings" required>
-              </ng-multiselect-dropdown>
+            
             </div>
           </form>
           <button class="btn btn-primary nextBtn p-2 mt-3" style="min-width: 200px;" type="button" (click)="createPlan()"

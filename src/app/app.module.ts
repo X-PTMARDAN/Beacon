@@ -32,7 +32,6 @@ import {BrandPipe} from './pipe/brand.pipe';
 
 import {LoadFilter} from './pipe/loadfilter.pipe';
 
-import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { LoginComponent } from './components/login/login.component';
 
 import { SettingComponent} from './components/setting/setting.component';
@@ -69,8 +68,7 @@ import { ComingsoonComponent } from './components/comingsoon/comingsoon.componen
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
