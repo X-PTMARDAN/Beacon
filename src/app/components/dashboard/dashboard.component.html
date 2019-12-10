@@ -575,7 +575,7 @@
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
                                [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
-                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0 || this.role==='View' || this.role===View || this.role=='View' || this.role==View"
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
                                [(ngModel)]="data.fcstValueAdd"
@@ -877,7 +877,7 @@
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
                                [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
-                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0 || this.role==='View' || this.role===View || this.role=='View' || this.role==View"
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
                                [(ngModel)]="data.fcstValueAdd"

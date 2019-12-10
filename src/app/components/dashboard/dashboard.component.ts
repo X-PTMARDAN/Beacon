@@ -51,6 +51,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public createPlanRequestData_temp: any;
 
   public inter: any;
+
+
+  public role;
   public reactivate_filter_button = 0;
 
 public up=0;
@@ -328,6 +331,10 @@ public sameName=false;
   ngOnInit() {
 
 
+
+    this.role=sessionStorage.getItem("role");
+
+    console.log("TYTMANANANAAN"+this.role);
     this.skuService.getPlants().subscribe((response: any) => {
       this.plants = response;
       // this.filters_plant=response;

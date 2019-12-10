@@ -20,7 +20,19 @@ export class SettingComponent implements OnInit {
   public allLogs: any = [];
 
 
+  public allusers: any = [];
+
+
   public allComments;
+  public username;
+
+  public password;
+  public role;
+
+
+  public block;
+
+  public final_role;
 
   public allCommentshtml;
   public comments_table=false;
@@ -34,6 +46,18 @@ export class SettingComponent implements OnInit {
   public horizon=false;
   ngOnInit() {
 
+
+    this.final_role=sessionStorage.getItem("role");
+
+    console.log("TYTMANANANAAN"+this.role);
+
+    if(this.final_role==='Admin' || this.final_role=="Admin")
+    {
+        this.block=true;
+    }
+    else{
+      this.block=false;
+    }
 
 
     this.skuService.getCommnents().subscribe((res: any) => {
@@ -70,9 +94,57 @@ export class SettingComponent implements OnInit {
     });
 
 
+
+    this.skuService.fetchuser().subscribe((res: any) => {
+      this.allusers=res;
+
+      console.log("sjkhfgksfgrg---"+JSON.stringify(this.allLogs));
+  
+    });
+
+
   }
 
+public adduser()
+{
+    var a={
+      username:this.username,
+      password:this.password,
+      role:this.role
+    }
 
+    console.log("dsfs--"+JSON.stringify(a));
+
+ 
+    this.skuService.adduser(a).subscribe((res: any) => {
+
+
+
+      // this.allComments = res.map((item) => {
+      //   item.isSelected = false;
+      //   item.isFiltered=false;
+      //   return item;
+      // });
+
+      // for (const g of this.allComments) {
+      //   this.allCommentshtml.push(g.name);
+      // }
+
+
+ console.log("sjkhfgksfgrg234---"+JSON.stringify(res));
+
+    }, (error) => {
+      // this.allComments = res.map((item) => {
+      //   item.isSelected = false;
+      //   item.isFiltered=false;
+      //   return item;
+      // });
+      // console.log("fgfgfgfg-----"+this.allComments);
+    });
+
+
+
+}
 
   public download()
   {

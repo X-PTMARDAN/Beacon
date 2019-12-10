@@ -1,9 +1,36 @@
 
 <div style="margin-left: 40px;margin-top:50px"><div class="row">
+
+    <div *ngIf="block">
   <div class="column" style="background-color:#ccc;width:100%;">
     <h2>User management</h2>
-    <p>Coming soon</p>
   </div>
+
+ 
+
+  <div >
+    <br>
+      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
+          <tr style="background-color: #ddd;">
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Username</th>
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Password</th>
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Role</th>
+          
+          </tr>
+      </table>
+    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allusers; let i=index">
+      <tr style="background-color: #fff;">
+        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{ fi.username }}</th>
+        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.password}}</th>
+        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.role}}</th>
+      
+      </tr>
+  
+    </table>
+  </div>
+  </div>
+<br/>
+
   <br>
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px">
     <h2>How to run this application?</h2>
@@ -48,6 +75,23 @@
 
 
 </div>
+
+<div *ngIf="block">
+
+<input type="text"  placeholder="Username" [(ngModel)]="username"><br>
+<input type="text" placeholder="Password" [(ngModel)]="password"><br>
+<select #t5 name="plant" [(ngModel)]="role">
+  <option value="Admin">Admin</option>
+  <option value="Demand">Demand Planner</option>
+  <option value="View">Viewer</option>
+
+</select>
+<br>
+
+<button (click)=adduser()>Add user</button>
+</div>
+
+
 
 <div *ngIf="horizon" style="height:260px;overflow: auto;margin-left: 30px;">
 
