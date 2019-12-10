@@ -383,6 +383,19 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}sales`, data);
   }
 
+  public fetchuser(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}fetchuser`, data);
+  }
+
+
+  public fetchuser1(data = {}) {
+    return this.http.post(`http://localhost:8080/v1/fetchuser`, data);
+  }
+
+  public adduser(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}saveuser`, data);
+  }
+
 
   public deletefilter(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}deletefilter`, data);
