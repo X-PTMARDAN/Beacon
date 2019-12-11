@@ -175,6 +175,8 @@ public allselectedweek: any=[];
 
   public filters1_brands = [];
 
+  public filters1_brands_1 = [];
+
   public filters_plant = [];
 
   public filters2 = [];
@@ -556,6 +558,17 @@ public sameName=false;
 
 
 
+
+        this.filters1_brands_1.push({
+          name: 'Category',
+          key: 'brands_1',
+          isExpanded: false,
+          values: [{"name":"L","isChecked":false},{"name":"KEG","isChecked":false},{"name":"CAR","isChecked":false},{"name":"CRT","isChecked":false},{"name":"TRA","isChecked":false},{"name":"QPL","isChecked":false},{"name":"HPL","isChecked":false},{"name":"PAL","isChecked":false}]
+
+        });
+
+
+
         this.skuService.fetchHorizon().subscribe((response: any) => {
           this.prevactuals_val=response;
           console.log("DEBUG0909---"+this.prevactuals);
@@ -593,12 +606,15 @@ public sameName=false;
 
           this.skuService.getbaseunit().subscribe((response: any) => {
 
+
+            console.log("9889989--"+JSON.stringify(response));
             this.filters1.push({
               name: 'Primary Unit',
               key: 'baseunit',
               isExpanded: false,
               values: response
             });
+
 
 
             this.skuService.getpacksize().subscribe((response: any) => {
@@ -2680,7 +2696,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -3150,7 +3166,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -3641,7 +3657,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -4124,7 +4140,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -4576,7 +4592,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -5032,7 +5048,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -5409,7 +5425,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -5876,7 +5892,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -6348,7 +6364,7 @@ public sameName=false;
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -6821,7 +6837,7 @@ this.granular1="week";
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -7294,7 +7310,7 @@ this.granular1="week";
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -7502,6 +7518,7 @@ this.granular1="week";
 
     this.filters1[5].isExpanded = false;
     this.filters1_brands[0].isExpanded = false;
+    this.filters1_brands_1[0].isExpanded = false;
     // this.filters1[7].isExpanded=false;
     //this.filters1[6].isExpanded=false;
 
@@ -8025,7 +8042,7 @@ if(this.color_tick==0)
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
@@ -8394,7 +8411,7 @@ if(this.color_tick==0)
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {
           animationEnabled: true,
-          exportEnabled: true,
+         
           backgroundColor: '#fff',
           
           title:{
@@ -8678,7 +8695,7 @@ if(this.color_tick==0)
       console.log('hsfgerbe->' + this.currentWeek);
       this.chart1 = new CanvasJS.Chart('chartContainer1', {
         animationEnabled: true,
-        exportEnabled: true,
+       
         backgroundColor: '#FFFFFF',
         legend: {
           cursor: 'pointer',
@@ -10617,7 +10634,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //       console.log('132456->' + this.createPlanRequestData.startWeek);
 //       this.chart1 = new CanvasJS.Chart('chartContainer1', {
 //         animationEnabled: true,
-//         exportEnabled: true,
+//        
 //         backgroundColor: '#FFFFFF',
 //         legend: {
 //           cursor: 'pointer',
@@ -11009,6 +11026,30 @@ console.log("Checkiiigg--"+this.sumselected)
     }
 
 
+
+
+
+    for (const brand of this.filters1_brands_1) {
+
+      if (brand.key == 'brands_1') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            console.log('JKNFBJHBFHJBHJFBVHFF');
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('brands_1').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('brands_1').style.background = '#05d7be';
+        }
+      } 
+
+    }
+
+
     return {
       brands: brands,
       alcoholper: AlcoholPercentage,
@@ -11123,6 +11164,18 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
       if (brand.key == 'brands') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            brands.push(aa.name);
+          }
+        }
+      } 
+    }
+
+    for (const brand of this.filters1_brands_1) {
+
+
+      if (brand.key == 'brands_1') {
         for (const aa of brand.values) {
           if (aa.isChecked) {
             brands.push(aa.name);
@@ -12957,6 +13010,29 @@ console.log("Checkiiigg--"+this.sumselected)
           }
         }
         document.getElementById('brands').style.background = '#f4f5f9';
+
+      }
+
+    }
+
+
+
+
+
+
+    for (const brand of this.filters1_brands_1) {
+
+      if (brand.key == 'brands_1') {
+        console.log("poopoo");
+        var flag = 1;
+        for (const aa of brand.values) {
+          console.log("poopoo12121");
+          if (aa.isChecked) {
+            console.log("fgetgte");
+            aa.isChecked = false;
+          }
+        }
+        document.getElementById('brands_1').style.background = '#f4f5f9';
 
       }
 

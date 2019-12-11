@@ -701,11 +701,19 @@
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" id="forecastinganalysis" [(ngModel)]="forecastinganalysis">Forecast Analysis
-              (HL)  <span class="input-group-text" style="float: right !important;margin-right:20px"><i
-                (click)="download_graph()" class="fa fa-clone"></i></span> </p>
+              (HL)   </p>
 
 
             <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+          <div class="form-group m-0">
+          </div>
+
+          <div class="form-group m-0">
+   
+
+              <span class="input-group-text" style="float: right !important;margin-right:20px"><i
+                (click)="download_graph()" class="fa fa-clone"></i></span>
           </div>
 
         </div>
@@ -1302,7 +1310,7 @@
                       <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                              (change)="reactivate_filter(1)">
                     </div>
-                    <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
+                    <p class="m-0" style="font-size:0.75rem">{{ value.name.name }} - Rhelidern</p>
                   </li>
                   </ng-container>
                 </ul>
