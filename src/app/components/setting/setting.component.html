@@ -1,15 +1,27 @@
 
 <div style="margin-left: 40px;margin-top:50px"><div class="row">
 
+  <br>
     <div *ngIf="block">
-  <div class="column" style="background-color:#ccc;width:100%;">
+  <div class="column" style="background-color:#ccc;width:100%;" (click)="openuser()">
     <h2>User management</h2>
   </div>
 
- 
-
-  <div >
+  <div *ngIf="block12">
     <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  placeholder="Username" [(ngModel)]="username"><br><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <select #t5 name="plant" [(ngModel)]="role">
+        <option value="Admin">Admin</option>
+        <option value="Demand">Demand Planner</option>
+        <option value="View">Viewer</option>
+      
+      </select>
+      <br>
+      <br/><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button (click)=adduser()>Add user</button>
+     
+    <br><br><br/>
       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
           <tr style="background-color: #ddd;">
             <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Username</th>
@@ -76,20 +88,7 @@
 
 </div>
 
-<div *ngIf="block">
 
-<input type="text"  placeholder="Username" [(ngModel)]="username"><br>
-<input type="text" placeholder="Password" [(ngModel)]="password"><br>
-<select #t5 name="plant" [(ngModel)]="role">
-  <option value="Admin">Admin</option>
-  <option value="Demand">Demand Planner</option>
-  <option value="View">Viewer</option>
-
-</select>
-<br>
-
-<button (click)=adduser()>Add user</button>
-</div>
 
 
 

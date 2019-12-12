@@ -560,7 +560,7 @@ public sameName=false;
 
 
         this.filters1_brands_1.push({
-          name: 'Category',
+          name: 'Local Material Group',
           key: 'brands_1',
           isExpanded: false,
           values: [{"name":"L","isChecked":false},{"name":"KEG","isChecked":false},{"name":"CAR","isChecked":false},{"name":"CRT","isChecked":false},{"name":"TRA","isChecked":false},{"name":"QPL","isChecked":false},{"name":"HPL","isChecked":false},{"name":"PAL","isChecked":false}]
@@ -1292,10 +1292,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
 
@@ -1433,8 +1458,33 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
                 color: '#F2F3F5'
               },
             ]
@@ -1578,8 +1628,33 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
                 color: '#F2F3F5'
               },
             ]
@@ -1729,7 +1804,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
               },
@@ -1862,8 +1962,33 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
                 color: '#F2F3F5'
               },
             ]
@@ -1984,7 +2109,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
               },
@@ -2103,8 +2253,33 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
                 color: '#F2F3F5'
               },
             ]
@@ -2222,10 +2397,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
 
@@ -2554,10 +2754,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -2758,10 +2983,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
 
             ]
           },
@@ -3024,10 +3274,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -3219,10 +3494,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
 
             ]
           },
@@ -3473,10 +3773,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -3711,10 +4036,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
 
@@ -4079,10 +4429,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -4198,10 +4573,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
 
@@ -4531,10 +4931,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -4650,10 +5075,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
             ]
           },
 
@@ -4988,10 +5438,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
 
             ]
           },
@@ -5106,10 +5581,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
             ]
           },
 
@@ -5363,10 +5863,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -5487,10 +6012,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
 
@@ -5826,10 +6376,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -5954,10 +6529,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
 
             ]
           },
@@ -6220,10 +6820,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
 
             ]
           },
@@ -6422,10 +7047,35 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
 
             ]
           },
@@ -6691,10 +7341,35 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -6895,11 +7570,35 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
-
+              },
             ]
           },
 
@@ -7167,11 +7866,35 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
-
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
             ]
           },
           axisY: {
@@ -7368,10 +8091,35 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
 
             ]
           },
@@ -7983,10 +8731,35 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 2020,
-                endValue: 201910,
+                startValue: 201400,
+                endValue: 201453,
                 color: '#F2F3F5'
-              }
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201946,
+                color: '#F2F3F5'
+              },
             ]
           },
           axisY: {
@@ -8351,10 +9124,35 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
-              }
+              },
             ]
           },
           axisY: {
@@ -8475,7 +9273,32 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 2020,
+                startValue: 201400,
+                endValue: 201453,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201553,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201653,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201753,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201853,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
                 endValue: 201946,
                 color: '#F2F3F5'
               },
@@ -8752,10 +9575,35 @@ if(this.color_tick==0)
           },
           stripLines: [
             {
-              startValue: 2020,
+              startValue: 201400,
+              endValue: 201453,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201500,
+              endValue: 201553,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201600,
+              endValue: 201653,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201700,
+              endValue: 201753,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201800,
+              endValue: 201853,
+              color: '#F2F3F5'
+            },
+            {
+              startValue: 201900,
               endValue: 201946,
               color: '#F2F3F5'
-            }
+            },
           ]
         },
         axisY: {
@@ -8840,7 +9688,7 @@ if(this.color_tick==0)
 
   public down() {
     console.log('Fsgfsg');
-    this.downloadCSV({filename: 'planning_table.xlsx'});
+    this.downloadCSV({filename: 'planning_table.csv'});
   }
 
   // Download CSV Handlers

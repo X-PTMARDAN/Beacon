@@ -26,8 +26,10 @@ export class SettingComponent implements OnInit {
   public allComments;
   public username;
 
+  public block12=false;
+
   public password;
-  public role;
+  public role="Admin";
 
 
   public block;
@@ -304,6 +306,22 @@ public adduser()
     }
     else{
       this.comments_table=false;
+    }
+      
+  }
+
+
+
+
+  public openuser()
+  {
+
+    if(this.block12==false)
+    {
+      this.block12=true;
+    }
+    else{
+      this.block12=false;
     }
       
   }
