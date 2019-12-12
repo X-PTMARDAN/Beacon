@@ -1487,7 +1487,10 @@
             <div style="margin-top: 3px;">
               <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
             </div>
-            <p class="m-0" style="font-size: 0.75rem;">{{ sku.name }}</p>
+            
+
+           <p class="m-0" style="font-size: 0.75rem;"  (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()" >{{ sku.name }}</p>
+             
           </div>
 
           <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
@@ -1531,6 +1534,7 @@
                 </div> -->
 
         <hr>
+        <p [innerText]="skuname_down" ></p>
         <a href="javascript:void(0);" id="apply_filter" class="btn btn-primary custom-link btn-xs"
            style="background:#bec1c1;margin-left: 15%;" (click)='onFilterCheckBoxChange();deactivate();'>Plan
           Selection</a>

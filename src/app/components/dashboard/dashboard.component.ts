@@ -72,7 +72,7 @@ public commentsall_combination : any =[];
 
 
 
-
+public skuname_down='';
 
 public tables;
 
@@ -2470,6 +2470,34 @@ public sameName=false;
     window.location.reload();
   }
 
+  public bigImg(s)
+  {
+    console.log("fs--"+s);
+
+    var a={
+      material:s
+    };
+
+    this.skuService.fetchmaterialname(a).subscribe((res: any) => {
+  
+
+      console.log('sjkhfgksfgrg---' + JSON.stringify(res[0]));
+      this.skuname_down=res[0];
+
+
+    }, (error) => {
+      
+
+
+    });
+
+
+  }
+  public normalImg()
+  {
+
+  }
+
 
   public addItems(itemId: number) {
 
@@ -2479,7 +2507,7 @@ public sameName=false;
 
     var arr = item1.name.split('-');
 
-    var fin_item = arr[2];
+    var fin_item = arr[0];
 
     item1.name = fin_item;
 

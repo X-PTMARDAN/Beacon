@@ -392,6 +392,18 @@ export class SKUService {
     return this.http.post(`http://localhost:8080/v1/fetchuser`, data);
   }
 
+
+
+  
+
+
+  public fetchmaterialname(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}fetchmaterialname`, data);
+  }
+
+
+  
+
   public adduser(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}saveuser`, data);
   }
