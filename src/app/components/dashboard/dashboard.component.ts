@@ -2479,7 +2479,7 @@ public sameName=false;
 
     var arr = item1.name.split('-');
 
-    var fin_item = arr[0];
+    var fin_item = arr[2];
 
     item1.name = fin_item;
 
@@ -9684,6 +9684,8 @@ if(this.color_tick==0)
       this.selectOptionsModalCancel.nativeElement.click();
     });
   }
+
+  
 
 
   public down() {
