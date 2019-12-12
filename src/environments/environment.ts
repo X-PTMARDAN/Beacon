@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: 'http://63.33.46.20:8081/v1/',
+  apiGatewayUrl: 'http://63.33.46.20:8082/v1/',
 };
 
 
 /*
-  apiGatewayUrl: 'http://54.229.62.82:5470/v1/',
+  apiGatewayUrl: 'http://63.33.46.20:5470/v1/',
 
   
  * For easier debugging in development mode, you can import the following file
