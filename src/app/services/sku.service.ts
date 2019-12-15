@@ -89,6 +89,17 @@ export class SKUService {
   }
 
 
+  public getlocalcat() {
+    return this.http.get(`${this.apiGatewayUrl}localcat`).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
 
 
   public getbaseunit() {

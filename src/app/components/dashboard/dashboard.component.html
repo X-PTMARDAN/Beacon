@@ -1497,7 +1497,7 @@
             <div style="margin-top: 3px;">
               <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
             </div>
-            <p style="font-size: 0.75rem;" class="m-0">{{ sku.name }}</p>
+            <p style="font-size: 0.75rem;" class="m-0"  (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">{{ sku.name }}</p>
           </div>
 
 

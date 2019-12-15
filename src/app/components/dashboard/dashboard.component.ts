@@ -137,6 +137,8 @@ public allselectedweek: any=[];
 
   public fgssselected;
 
+  public sku_semi: any=[];
+
 
   public createdata: any = [];
 
@@ -350,7 +352,7 @@ public sameName=false;
         key: 'plant',
         isExpanded: false,
         values: response.map(item => {
-          return {name: item, isChecked: false};
+          return {name: item, isChecked: false, isFiltered:true};
         })
       });
 
@@ -475,7 +477,7 @@ public sameName=false;
 
 
       const a = response.map(item => {
-        return {name: item, isChecked: false};
+        return {name: item, isChecked: false, isFiltered:true};
       });
 
       console.log('JKHFRR---' + JSON.stringify(response));
@@ -512,7 +514,7 @@ public sameName=false;
         key: 'salesoffice',
         isExpanded: false,
         values: response.map(item => {
-          return {name: item, isChecked: false};
+          return {name: item, isChecked: false, isFiltered:true};
         })
       });
 
@@ -559,13 +561,13 @@ public sameName=false;
 
 
 
-        this.filters1_brands_1.push({
-          name: 'Local Material Group',
-          key: 'brands_1',
-          isExpanded: false,
-          values: [{"name":"L","isChecked":false},{"name":"KEG","isChecked":false},{"name":"CAR","isChecked":false},{"name":"CRT","isChecked":false},{"name":"TRA","isChecked":false},{"name":"QPL","isChecked":false},{"name":"HPL","isChecked":false},{"name":"PAL","isChecked":false}]
+        // this.filters1_brands_1.push({
+        //   name: 'Local Material Group',
+        //   key: 'brands_1',
+        //   isExpanded: false,
+        //   values: [{"name":"L","isChecked":false},{"name":"KEG","isChecked":false},{"name":"CAR","isChecked":false},{"name":"CRT","isChecked":false},{"name":"TRA","isChecked":false},{"name":"QPL","isChecked":false},{"name":"HPL","isChecked":false},{"name":"PAL","isChecked":false}]
 
-        });
+        // });
 
 
 
@@ -602,6 +604,18 @@ public sameName=false;
             isExpanded: false,
             values: response
           });
+
+
+
+          
+          this.skuService.getlocalcat().subscribe((response: any) => {
+
+            this.filters1.push({
+              name: 'Local Category',
+              key: 'localcat',
+              isExpanded: false,
+              values: response
+            });
 
 
           this.skuService.getbaseunit().subscribe((response: any) => {
@@ -851,6 +865,8 @@ public sameName=false;
 
 
             });
+
+          });
 
           });
 
@@ -8303,6 +8319,8 @@ this.granular1="week";
 
     document.getElementById('globalbevfilter').className = 'panel-collapse collapse';
 
+    document.getElementById('localcatfilter').className = 'panel-collapse collapse';
+
       document.getElementById('subbrandfilter').className='panel-collapse collapse';
 
 
@@ -9539,6 +9557,7 @@ if(this.color_tick==0)
       this.skus = data.forecastingGroups.map((item) => {
         return {
           isChecked: true,
+          isFiltered:true,
           name: item
         };
       });
@@ -10681,7 +10700,7 @@ if(this.color_tick==0)
       key: 'subbrand',
       isExpanded: false,
       values: forecastingGroups.map(item => {
-        return {name: item, isChecked: true};
+        return {name: item, isChecked: true, isFiltered:true};
       })
     });
 
@@ -10856,6 +10875,7 @@ if(this.color_tick==0)
           return {
             name: item,
             isChecked: true
+            , isFiltered:true
           };
         });
         this.fgssselected=JSON.parse(JSON.stringify(this.skus));
@@ -11217,12 +11237,68 @@ console.log("Checkiiigg--"+this.sumselected)
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
-    
+    var fgssss = this.skus.filter(item => true).map(item => item.name);
+
+
+
 
     for (const abc of fgssselected2) {
       fgssselected1.push(abc);
     }
     this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+
+    console.log("All Previous SKUs-----"+JSON.stringify(fgssss));
+
+    for(const abc of fgssss)
+    {
+      for(const abc1 of this.fgssselected)
+      {
+        //console.log("Fdfd--"+abc1);
+        if(abc===abc1 || abc==abc1.toString())
+        {
+          console.log("Delete krna hai");
+          const index: number = fgssss.indexOf(abc);
+          fgssss.splice(index, 1);
+        }
+      }
+    }
+
+    this.sku_semi = this.fgssselected.map(item => {
+      return {name: item, isChecked: true,isFiltered:true};
+    });
+
+
+    var abgh = fgssss.map(item => {
+      return {name: item, isChecked: false, isFiltered:true};
+    });
+
+
+    for(const abcd of abgh)
+    {
+        this.sku_semi.push(abcd);
+    }
+
+    this.skus=JSON.parse(JSON.stringify(this.sku_semi));
+
+
+
+
+
+
+    // for (const abc of this.fgssselected) {
+    //   this.sku_semi.push(abc);
+    // }
+
+    // for (const abc of fgssss) {
+    //   this.sku_semi.push(abc);
+    // }
+
+   //  this.sku_semi=JSON.parse(JSON.stringify(this.fgssselected))+JSON.parse(JSON.stringify(fgssss));
+
+    console.log("Checkkkk---"+JSON.stringify(this.sku_semi));
+    //this.skus=JSON.parse(JSON.stringify(this.skus));
+
+   // console.log("skusskusskusskus----"+JSON.stringify(fgssss));
 
     if(this.cpgss.length==0 || this.plantss.length==0 || this.fgssselected.length==0)
     {
@@ -11231,9 +11307,13 @@ console.log("Checkiiigg--"+this.sumselected)
       return;
     }
     this.fgssselected = this.fgssselected.map(item => {
-      return {name: item, isChecked: true};
+      return {name: item, isChecked: true, isFiltered:true};
     });
 
+
+    // this.skus=this.sku_semi.map(item => {
+    //   return {name: item, isChecked: true};
+    // });
 
     console.log('FGSSSSS---' + JSON.stringify(this.fgssselected));
 
@@ -11670,7 +11750,7 @@ console.log("Checkiiigg--"+this.sumselected)
     this.skuService.getCPGlist(reqBody).subscribe((response: any) => {
 
       response = response.map(item => {
-        return {name: item, isChecked: true};
+        return {name: item, isChecked: true, isFiltered:true};
       });
 
       console.log('REsss--' + JSON.stringify(response));
@@ -11725,6 +11805,8 @@ console.log("Checkiiigg--"+this.sumselected)
     const cpgname = [];
 
     const globalbev = [];
+
+    const localcat = [];
 
     console.log('TESTTT-----' + JSON.stringify(this.filters1));
     for (const brand of this.filters1) {
@@ -11860,6 +11942,23 @@ console.log("Checkiiigg--"+this.sumselected)
       }
 
 
+      else if (brand.key == 'localcat') {
+
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('localcat').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('localcat').style.background = '#05d7be';
+        }
+      }
+
+
 
 
 
@@ -11937,7 +12036,8 @@ console.log("Checkiiigg--"+this.sumselected)
       animalFlag: AnimalFlag,
       packType: packtype,
       baseunit: baseunit,
-      globalbev: globalbev
+      globalbev: globalbev,
+      productcategory:localcat
 
     };
   }
@@ -11967,6 +12067,9 @@ console.log("Checkiiigg--"+this.sumselected)
     const cpgname = [];
 
     const globalbev = [];
+
+    const localcat = [];
+
     const packsize = [];
 
 
@@ -12034,6 +12137,14 @@ console.log("Checkiiigg--"+this.sumselected)
         }
       }
 
+      else if (brand.key == 'localcat') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            localcat.push(aa.name);
+          }
+        }
+      }
+
 
     }
 
@@ -12071,7 +12182,8 @@ console.log("Checkiiigg--"+this.sumselected)
       packType: packtype,
       packsize: packsize,
       baseunit: baseunit,
-      globalbev: globalbev
+      globalbev: globalbev,
+      productcategory:localcat
 
     };
   }
@@ -12310,12 +12422,12 @@ console.log("Checkiiigg--"+this.sumselected)
 
       console.log('jkdsfks----' + JSON.stringify(response1));
       let response2 = response1.map(item => {
-        return {name: {name: item}, isChecked: false};
+        return {name: {name: item}, isChecked: false,isFiltered:true};
       });
 
 
       let response3 = response1.map(item => {
-        return {name: item, isChecked: false};
+        return {name: item, isChecked: false, isFiltered:true};
       });
 
       // let response3=response1.map(item,index => {
@@ -12539,7 +12651,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
         console.log('jkdsfks----' + JSON.stringify(response1));
         response1 = response1.map(item => {
-          return {name: item, isChecked: true};
+          return {name: item, isChecked: true, isFiltered:true};
         });
 
         console.log('REsss--' + JSON.stringify(response1));
@@ -13739,7 +13851,8 @@ console.log("Checkiiigg--"+this.sumselected)
     this.skus = selectedFilter.sku.map(item => {
       return {
         name: item,
-        isChecked: true
+        isChecked: true,
+        isFiltered:true
       };
     });
 
@@ -13747,7 +13860,8 @@ console.log("Checkiiigg--"+this.sumselected)
     this.fgssselected = selectedFilter.sku.map(item => {
       return {
         name: item,
-        isChecked: true
+        isChecked: true,
+        isFiltered:true
       };
     });
 
@@ -13871,6 +13985,19 @@ console.log("Checkiiigg--"+this.sumselected)
       }
 
 
+      else if (brand.key == 'localcat') {
+
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            aa.isChecked = false;
+          }
+        }
+        document.getElementById('localcat').style.background = '#f4f5f9';
+
+      }
+
+
     }
 
 
@@ -13942,7 +14069,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
       const a = response.map(item => {
-        return {name: item, isChecked: false};
+        return {name: item, isChecked: false, isFiltered:true};
       });
 
       console.log('JKHFRR---' + JSON.stringify(response));
@@ -13997,7 +14124,7 @@ console.log("Checkiiigg--"+this.sumselected)
         key: 'plant',
         isExpanded: false,
         values: response.map(item => {
-          return {name: item, isChecked: false};
+          return {name: item, isChecked: false, isFiltered:true};
         })
       });
 
@@ -14035,7 +14162,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
     data.forecastingGroups = data.forecastingGroups.map(item => {
-      return {name: item, isChecked: true};
+      return {name: item, isChecked: true, isFiltered:true};
     });
     console.log('sfsgf435tyhgns--' + JSON.stringify(data));
 
