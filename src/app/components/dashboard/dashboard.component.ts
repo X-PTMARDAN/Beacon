@@ -1136,7 +1136,7 @@ public sameName=false;
 
 
     this.cpgss = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
-    this.plantss = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
+    this.plantss = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
 
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
@@ -2663,7 +2663,7 @@ public sameName=false;
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
       this.loading = true;
@@ -3176,7 +3176,7 @@ public sameName=false;
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
       this.loading = true;
@@ -3688,7 +3688,7 @@ public sameName=false;
         prevactuals: this.createPlanRequestData.prevactuals,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
 
       //this.skus=JSON.parse(JSON.stringify(this.fgssselected));
@@ -4313,7 +4313,7 @@ public sameName=false;
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])
       };
       //this.test();
       this.loading = true;
@@ -4747,7 +4747,7 @@ public sameName=false;
         prevactuals: 201901,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
 
@@ -5263,7 +5263,7 @@ public sameName=false;
         prevactuals: this.createPlanRequestData.prevactuals,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
 
@@ -6197,7 +6197,7 @@ public sameName=false;
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
       this.loading = true;
@@ -6717,7 +6717,7 @@ public sameName=false;
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
       this.loading = true;
@@ -7247,7 +7247,7 @@ public sameName=false;
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
       this.loading = true;
@@ -7766,7 +7766,7 @@ this.granular1="week";
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       //this.test();
       this.loading = true;
@@ -11232,7 +11232,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
     console.log('Sfsgf34sg---' + JSON.stringify(this.createPlanRequestData));
     this.cpgss = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
-    this.plantss = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
+    this.plantss = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
@@ -11322,7 +11322,7 @@ console.log("Checkiiigg--"+this.sumselected)
     //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name);
     data.forecastingGroups = JSON.parse(JSON.stringify(this.fgssselected));
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
-    data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name);
+    data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
     data.startWeek = 201946;
     data.endWeek = this.createPlanRequestData.endWeek;
@@ -13018,7 +13018,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
       const reqBody = {
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
 
         sku: this.fgssselected.map(item => item.name),
 
@@ -13306,7 +13306,7 @@ console.log("Checkiiigg--"+this.sumselected)
             sku: JSON.parse(JSON.stringify(this.fgssselected)),
             user: 'admin',
             cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
             comments1:data.comments[0].split('|')[0]
           });
       }
@@ -13338,7 +13338,7 @@ console.log("Checkiiigg--"+this.sumselected)
           sku: JSON.parse(JSON.stringify(this.fgssselected)),
           user: 'admin',
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-          plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+          plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         };
         reqBody.data.push(Object.assign(obj, commentsObj));
       }
@@ -13361,7 +13361,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
           const reqBody = {
             cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
     
             sku: JSON.parse(JSON.stringify(this.fgssselected)),
     
@@ -13385,7 +13385,7 @@ console.log("Checkiiigg--"+this.sumselected)
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       reqBody.data.push(Object.assign(obj, null));
       console.log('Debug -->' + reqBody.data);
@@ -13461,7 +13461,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
             const reqBody = {
               cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-              plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+              plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       
               sku: this.fgssselected.map(item => item.name),
       
@@ -13481,7 +13481,7 @@ console.log("Checkiiigg--"+this.sumselected)
           sku: JSON.parse(JSON.stringify(this.fgssselected)),
           user: 'admin',
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-          plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+          plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         };
         
       }
@@ -13492,7 +13492,7 @@ console.log("Checkiiigg--"+this.sumselected)
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name),
+        plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
       reqBody.data.push(Object.assign(obj, null));
       console.log('Debug -->' + reqBody.data);
@@ -13587,7 +13587,7 @@ console.log("Checkiiigg--"+this.sumselected)
     const ahg = {
       user: 'admin',
       filterName,
-      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     };
@@ -13597,7 +13597,7 @@ console.log("Checkiiigg--"+this.sumselected)
     var data12 = {
       user: 'admin',
       filterName,
-      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))
     };
@@ -13611,7 +13611,7 @@ console.log("Checkiiigg--"+this.sumselected)
     // this.filterService.saveFilter({
     //   user: 'admin',
     //   filterName,
-    //   plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
+    //   plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
     //   cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])),
     //   sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
     // }).subscribe((res: any) => {
