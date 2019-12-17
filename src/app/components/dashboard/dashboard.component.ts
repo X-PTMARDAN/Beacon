@@ -5115,11 +5115,11 @@ public sameName=false;
                   endValue: 202200
                 },
                 {
-                  startValue: 202253,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
-                  startValue: 202353,
+                  startValue: 202313,
                   endValue: 202400
                 }
               ]
@@ -5127,27 +5127,27 @@ public sameName=false;
             stripLines: [
               {
                 startValue: 201400,
-                endValue: 201453,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201500,
-                endValue: 201553,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201600,
-                endValue: 201653,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201700,
-                endValue: 201753,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201800,
-                endValue: 201853,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
