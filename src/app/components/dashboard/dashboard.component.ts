@@ -842,6 +842,13 @@ public sameName=false;
                       console.log("00000----"+abc);
                       this.createdata.customerPlanningGroup[abc]=this.createdata.customerPlanningGroup[abc].split('-')[0];
                     }
+
+
+                    for(const abc in this.createdata.plants)
+                    {
+                      console.log("00000----"+abc);
+                      this.createdata.plants[abc]=this.createdata.plants[abc].split('-')[0];
+                    }
                     
                 //    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
                     // console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
@@ -13587,7 +13594,7 @@ console.log("Checkiiigg--"+this.sumselected)
     const ahg = {
       user: 'admin',
       filterName,
-      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
+      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
     };
@@ -13597,7 +13604,7 @@ console.log("Checkiiigg--"+this.sumselected)
     var data12 = {
       user: 'admin',
       filterName,
-      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
+      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))
     };
@@ -14171,6 +14178,13 @@ console.log("Checkiiigg--"+this.sumselected)
     {
        console.log("Loadingggggggg---"+a);
        data.customerPlanningGroup[a]=data.customerPlanningGroup[a].split("-")[0];
+       
+    }
+
+    for(const a in data.plants)
+    {
+       console.log("Loadingggggggg---"+a);
+       data.plants[a]=data.plants[a].split("-")[0];
        
     }
     console.log('FINAL_LOADING_DDD--' + JSON.stringify(data));
