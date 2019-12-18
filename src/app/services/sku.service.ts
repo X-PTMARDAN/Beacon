@@ -383,6 +383,16 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable_UOM`, data);
   }
 
+
+
+
+  public getGraphData_week_ppu(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_PPU`, data);
+  }
+
+
+
+
   public getGraphData_week_uom_monthly(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}demandTable_UOM_monthly`, data);
   }
