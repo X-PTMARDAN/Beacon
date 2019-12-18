@@ -4832,7 +4832,9 @@ public sameName=false;
     }
     console.log('Harsh134->' + feature);
 
-    console.log('GRANUALLLL---' + this.granular1);
+    console.log('GRANUALLLL---' + JSON.stringify(this.fgssselected));
+
+    console.log('GRANUALLLL121---' + JSON.stringify(this.createdata));
 
 
     if (feature == 'year' && this.granular1 == 'week') {
@@ -4847,7 +4849,7 @@ public sameName=false;
         endWeek: 201952,
         prevactuals: 201901,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])
       };
