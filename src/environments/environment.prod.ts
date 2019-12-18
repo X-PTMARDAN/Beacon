@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiGatewayUrl: 'http://localhost:8095/v1/',
+  apiGatewayUrl: 'http://63.33.46.20:8096/v1/',
 };
 
 
