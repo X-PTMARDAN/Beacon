@@ -603,7 +603,7 @@ public sameName=false;
         this.skuService.getglobalbev().subscribe((response: any) => {
 
           this.filters1.push({
-            name: 'Category -  Global Category',
+            name: 'Global Category',
             key: 'globalbev',
             isExpanded: false,
             values: response
@@ -12411,13 +12411,16 @@ console.log("Checkiiigg--"+this.sumselected)
     console.log("Data structure --- "+JSON.stringify(data.forecastingGroups));
     for(const abc in data.forecastingGroups)
     {
-      console.log("SUCIDDDDDD----"+abc);
+     
       data.forecastingGroups[abc]=data.forecastingGroups[abc].split('-')[0];
+      console.log("SUCIDDDDDD----"+data.forecastingGroups[abc].split('-')[0]);
     }
 
 
+    console.log("Data structure12 --- "+JSON.stringify(data.forecastingGroups));
 
-    this.fgssselected = this.fgssselected.map(item => {
+
+    this.fgssselected = data.forecastingGroups.map(item => {
       return {name: item, isChecked: true, isFiltered:true};
     });
 
@@ -15188,6 +15191,10 @@ console.log("Checkiiigg--"+this.sumselected)
     this.plantss = selectedFilter.plant;
 
     console.log('CPG-----' + JSON.stringify(this.cpgss));
+
+    console.log('PLANTETERT-----' + JSON.stringify(this.plantss[0]));
+
+    var fgfh=JSON.parse(JSON.stringify(this.plantss));
     this.filters = [];
     this.filters_plant = [];
 
@@ -15241,6 +15248,8 @@ console.log("Checkiiigg--"+this.sumselected)
 
     this.skuService.getPlants().subscribe((response: any) => {
       this.plants = response;
+
+
       // this.filters_plant=response;
 
 
@@ -15255,12 +15264,16 @@ console.log("Checkiiigg--"+this.sumselected)
           return {name: item, isChecked: false, isFiltered:true};
         })
       });
+console.log("ksdhafksa----"+JSON.stringify(this.plantss));
 
-      for (const a of this.plantss) {
+console.log("ksdhafksa1212----"+JSON.stringify(fgfh));
+
+
+      for (const a of fgfh) {
         for (const b of this.filters_plant[0].values) {
           console.log('4354674-' + JSON.stringify(b));
           console.log('4354674-  plants-' + JSON.stringify(a));
-          if (b.name == a) {
+          if (b.name.name == a) {
             b.isChecked = true;
           }
         }
@@ -15314,6 +15327,14 @@ console.log("Checkiiigg--"+this.sumselected)
        data.forecastingGroups[a].name=data.forecastingGroups[a].name.split("-")[0];
        
     }
+
+
+    var fgssselected1 = data.forecastingGroups.filter(item => item.isChecked).map(item => item.name);
+
+
+    this.fgssselected =fgssselected1.map(item => {
+      return {name: item, isChecked: true, isFiltered:true};
+    });
 
 
     
