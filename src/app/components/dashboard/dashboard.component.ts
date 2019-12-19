@@ -14542,6 +14542,10 @@ console.log("Checkiiigg--"+this.sumselected)
 
     });
 
+    this.fgssselected =  this.fgssselected .map(item => {
+      return {name: item, isChecked: true, isFiltered:true};
+    });
+
 
     this.skuService.savePlan(abc).subscribe((res: any) => {
       console.log(res);
