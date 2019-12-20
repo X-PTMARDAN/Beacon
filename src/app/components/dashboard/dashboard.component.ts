@@ -554,13 +554,7 @@ public sameName=false;
 
 
 
-        // this.filters1_brands_1.push({
-        //   name: 'Local Material Group',
-        //   key: 'brands_1',
-        //   isExpanded: false,
-        //   values: [{"name":"L","isChecked":false},{"name":"KEG","isChecked":false},{"name":"CAR","isChecked":false},{"name":"CRT","isChecked":false},{"name":"TRA","isChecked":false},{"name":"QPL","isChecked":false},{"name":"HPL","isChecked":false},{"name":"PAL","isChecked":false}]
-
-        // });
+     
 
 
 
@@ -633,6 +627,14 @@ public sameName=false;
                 key: 'packsize',
                 isExpanded: false,
                 values: response
+              });
+
+              this.filters1.push({
+                name: 'OwnProduced/3PP',
+                key: 'brands_1',
+                isExpanded: false,
+                values: [{"name":"Carlsberg Brand","isChecked":false}]
+      
               });
 
 
@@ -9369,7 +9371,7 @@ this.granular1="week";
     this.filters1[6].isExpanded = false;
     this.filters1[7].isExpanded = false;
     this.filters1[8].isExpanded = false;
-   // this.filters1[9].isExpanded = false;
+    this.filters1[9].isExpanded = false;
 
     this.filters1[5].isExpanded = false;
     this.filters1_brands[0].isExpanded = false;
@@ -9381,6 +9383,8 @@ this.granular1="week";
     document.getElementById('brandsfilter').className = 'panel-collapse collapse';
 
     document.getElementById('globalbevfilter').className = 'panel-collapse collapse';
+
+    document.getElementById('brands_1').className = 'panel-collapse collapse';
 
     document.getElementById('localcatfilter').className = 'panel-collapse collapse';
 
