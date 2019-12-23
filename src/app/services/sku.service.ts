@@ -374,6 +374,22 @@ export class SKUService {
 
 
 
+  public getGraphData_ppu_month(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_PPU_monthly`, data);
+  }
+
+
+  public getGraphData_pal(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_PAL`, data);
+  }
+
+
+  public getGraphData_pal_monthly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_PAL_monthly`, data);
+  }
+
+
+
   
 
   

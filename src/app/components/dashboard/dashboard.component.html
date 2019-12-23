@@ -185,7 +185,7 @@
         </div>
       </div>
 
-      <h6 class="mt-3 font-weight-bold">Forecasting Filters</h6> 
+      <h6 class="mt-3 font-weight-bold">Forecasting Group Filters</h6> 
       <hr style="margin-top: 0.2rem;">
       
 
@@ -359,6 +359,8 @@
                 <option value="PC">PC</option>
 
                 <option value="L">L</option>
+
+                <option value="PPU">PPU</option>
 
               
 
@@ -554,7 +556,7 @@
           <div class="table-content-col">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
-                <table class="table table-striped" [(ngModel)]="tables">
+                <table class="table table-striped" [(ngModel)]="tables" #table>
                   <thead>
                   <tr>
                     <th class="font-weight-bold" *ngFor="let data of graphData" >
@@ -1985,4 +1987,4 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.8/angular-locale_eu.js"></script>
+<script lang="javascript" src="dist/xlsx.full.min.js"></script>
