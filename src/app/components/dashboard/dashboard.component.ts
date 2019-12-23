@@ -9,7 +9,7 @@ import {SidebarService} from '../../services/sidebar.service';
 import {FilterService} from '../../services/filter.service';
 import {ViewService} from '../../services/view.service';
 
-import * as XLSX from 'xlsx';
+//import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-dashboard',
@@ -13379,18 +13379,18 @@ if(this.color_tick==0)
   public down() {
     console.log('Fsgfsg');
 
-    const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    // const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
+    // const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    // XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
-    /* save to file */
-    XLSX.writeFile(wb, 'SheetJS.xlsx');
-
-
+    // /* save to file */
+    // XLSX.writeFile(wb, 'SheetJS.xlsx');
 
 
 
-    this.downloadCSV({filename: 'planning_table.csv'});
+
+
+    // this.downloadCSV({filename: 'planning_table.csv'});
   }
 
   // Download CSV Handlers
