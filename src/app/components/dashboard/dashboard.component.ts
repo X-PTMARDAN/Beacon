@@ -3218,7 +3218,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -16448,11 +16448,17 @@ console.log("Checkiiigg--"+this.sumselected)
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
+    var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name);
+
     var fgssss = this.skus.filter(item => true).map(item => item.name);
 
     var fgssss1 = this.second_sku.filter(item => true).map(item => item.name);
 
     for (const abc of fgssselected2) {
+      fgssselected1.push(abc);
+    }
+
+    for (const abc of fgssselected3) {
       fgssselected1.push(abc);
     }
 
@@ -16514,6 +16520,10 @@ console.log("Checkiiigg--"+this.sumselected)
     });
 
 
+    this.fgssselected=JSON.parse(JSON.stringify(this.sku_semi));
+
+   
+
     this.tickedskus = fgssss.map(item => {
       return {name: item, isChecked: false, isFiltered:true};
     });
@@ -16554,21 +16564,21 @@ console.log("Checkiiigg--"+this.sumselected)
     }
 
     data.forecastingGroups = JSON.parse(JSON.stringify(this.fgssselected));
-    console.log("Data structure --- "+JSON.stringify(data.forecastingGroups));
-    for(const abc in data.forecastingGroups)
+    console.log("Data structure --- "+JSON.stringify(this.fgssselected));
+    for(const abc in this.fgssselected)
     {
      
-      data.forecastingGroups[abc]=data.forecastingGroups[abc].split('-')[0];
-      console.log("SUCIDDDDDD----"+data.forecastingGroups[abc].split('-')[0]);
+      this.fgssselected[abc].name=this.fgssselected[abc].name.split('-')[0];
+      //console.log("SUCIDDDDDD----"+data.forecastingGroups[abc].split('-')[0]);
     }
 
+    this.hh=JSON.parse(JSON.stringify(this.sku_semi));
+    console.log("Data structure12 --- "+JSON.stringify(this.fgssselected));
 
-    console.log("Data structure12 --- "+JSON.stringify(data.forecastingGroups));
 
-
-    this.fgssselected = data.forecastingGroups.map(item => {
-      return {name: item, isChecked: true, isFiltered:true};
-    });
+    // this.fgssselected = data.forecastingGroups.map(item => {
+    //   return {name: item, isChecked: true, isFiltered:true};
+    // });
 
 
     // this.skus=this.sku_semi.map(item => {
@@ -16612,11 +16622,11 @@ console.log("Checkiiigg--"+this.sumselected)
 
     this.loading = true;
 
-    for(const abc in data.forecastingGroups)
-    {
-      console.log("SUCIDDDDDD----"+abc);
-      data.forecastingGroups[abc]=data.forecastingGroups[abc].split('-')[0];
-    }
+    // for(const abc in data.forecastingGroups)
+    // {
+    //   console.log("SUCIDDDDDD----"+abc);
+    //   data.forecastingGroups[abc]=data.forecastingGroups[abc].split('-')[0];
+    // }
 
     console.log('CHECKKKK---' + JSON.stringify(data));
 
@@ -18567,9 +18577,16 @@ console.log("Checkiiigg--"+this.sumselected)
      var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
      var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
+
+     var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
+
      for (const abc of fgssselected2) {
        fgssselected1.push(abc);
      }
+
+     for (const abc of fgssselected3) {
+      fgssselected1.push(abc);
+    }
      this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 
@@ -18603,9 +18620,17 @@ console.log("Checkiiigg--"+this.sumselected)
       var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
       var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
+      var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
+
+
       for (const abc of fgssselected2) {
         fgssselected1.push(abc);
       }
+
+      for (const abc of fgssselected3) {
+        fgssselected1.push(abc);
+      }
+
       this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 
@@ -18726,7 +18751,14 @@ console.log("Checkiiigg--"+this.sumselected)
       var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
       var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
+      var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
+
       for (const abc of fgssselected2) {
+        fgssselected1.push(abc);
+      }
+
+
+      for (const abc of fgssselected3) {
         fgssselected1.push(abc);
       }
       this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
@@ -18880,11 +18912,17 @@ console.log("Checkiiigg--"+this.sumselected)
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))
+      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.sku_semi.filter(item => item.isChecked).map(item => item.name))
     };
 
 
     if(this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]).length==0)
+    {
+      console.log("0990909----");
+      data12.sku=data12.sku.substr(1);
+    }
+
+    if(this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]).length==0)
     {
       console.log("0990909----");
       data12.sku=data12.sku.substr(1);
@@ -19148,6 +19186,8 @@ console.log("Checkiiigg--"+this.sumselected)
 
     this.second_sku = [];
 
+    this.sku_semi = [];
+
 
     console.log('TOCKKKK--' + JSON.stringify(this.skus));
 
@@ -19155,176 +19195,189 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
     console.log('TJHGHYKJH---' + JSON.stringify(this.fgssselected));
-    for (const brand of this.filters2) {
+ 
 
-      if (brand.key == 'tradetype') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
+
+    // for (const brand of this.filters1) {
+
+    //   if (brand.key == 'brands') {
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('brands').style.background = '#f4f5f9';
+
+    //   } else if (brand.key == 'alcoholper') {
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('brands').style.background = '#f4f5f9';
+
+    //   } else if (brand.key == 'subbrand') {
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+
+    //     document.getElementById('subbrand').style.background = '#f4f5f9';
+
+    //   } else if (brand.key == 'Animal_Flags') {
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('Animal_Flags').style.background = '#f4f5f9';
+
+    //   } else if (brand.key == 'packtype') {
+
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('packtype').style.background = '#f4f5f9';
+
+    //   } else if (brand.key == 'baseunit') {
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+
+
+    //     document.getElementById('baseunit').style.background = '#f4f5f9';
+
+    //   } else if (brand.key == 'materialgroup') {
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('materialgroup').style.background = '#f4f5f9';
+
+
+    //   } else if (brand.key == 'globalbev') {
+
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('globalbev').style.background = '#f4f5f9';
+
+    //   }
+
+
+    //   else if (brand.key == 'localcat') {
+
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       if (aa.isChecked) {
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('localcat').style.background = '#f4f5f9';
+
+    //   }
+
+
+    // }
+
+
+
+    // for (const brand of this.filters1_brands) {
+
+    //   if (brand.key == 'brands') {
+    //     console.log("poopoo");
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       console.log("poopoo12121");
+    //       if (aa.isChecked) {
+    //         console.log("fgetgte");
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('brands').style.background = '#f4f5f9';
+
+    //   }
+
+    // }
+
+
+
+
+
+
+    // for (const brand of this.filters1_brands_1) {
+
+    //   if (brand.key == 'brands_1') {
+    //     console.log("poopoo");
+    //     var flag = 1;
+    //     for (const aa of brand.values) {
+    //       console.log("poopoo12121");
+    //       if (aa.isChecked) {
+    //         console.log("fgetgte");
+    //         aa.isChecked = false;
+    //       }
+    //     }
+    //     document.getElementById('brands_1').style.background = '#f4f5f9';
+
+    //   }
+
+    // }
+
+    this.skuService.getPlants().subscribe((response: any) => {
+      this.plants = response;
+      // this.filters_plant=response;
+
+      this.filters_plant=[];
+      console.log('Dfsfg---' + JSON.stringify(response));
+      const plant = this.plants;
+      console.log('HAHA---' + JSON.stringify(plant));
+      this.filters_plant.push({
+        name: 'Plants',
+        key: 'plant',
+        isExpanded: false,
+        values: response.map(item => {
+          return {name: item, isChecked: false, isFiltered:true};
+        })
+      });
+
+      for (const b of this.filters_plant[0].values) {
+        for (const c of temp_plant) {
+        console.log('fgsfg12345-' + JSON.stringify(b));
+        if (b.name.name == c) {
+          b.isChecked = true;
         }
-        document.getElementById('tradetype').style.background = '#f4f5f9';
-
-
-      } else if (brand.key == 'salesoffice') {
-
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('salesoffice').style.background = '#f4f5f9';
-
       }
-
-
     }
 
 
-    for (const brand of this.filters1) {
-
-      if (brand.key == 'brands') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('brands').style.background = '#f4f5f9';
-
-      } else if (brand.key == 'alcoholper') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('brands').style.background = '#f4f5f9';
-
-      } else if (brand.key == 'subbrand') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-
-        document.getElementById('subbrand').style.background = '#f4f5f9';
-
-      } else if (brand.key == 'Animal_Flags') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('Animal_Flags').style.background = '#f4f5f9';
-
-      } else if (brand.key == 'packtype') {
-
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('packtype').style.background = '#f4f5f9';
-
-      } else if (brand.key == 'baseunit') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
+      // for (const b of this.filters_plant[0].values) {
+      //   console.log('fgsfg12345-' + JSON.stringify(b));
+      //   if (b.name.name == 'G001') {
+      //     b.isChecked = true;
+      //   }
+      // }
 
 
-        document.getElementById('baseunit').style.background = '#f4f5f9';
-
-      } else if (brand.key == 'materialgroup') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('materialgroup').style.background = '#f4f5f9';
+      this.createdata.plants;
 
 
-      } else if (brand.key == 'globalbev') {
-
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('globalbev').style.background = '#f4f5f9';
-
-      }
-
-
-      else if (brand.key == 'localcat') {
-
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('localcat').style.background = '#f4f5f9';
-
-      }
-
-
-    }
-
-
-
-    for (const brand of this.filters1_brands) {
-
-      if (brand.key == 'brands') {
-        console.log("poopoo");
-        var flag = 1;
-        for (const aa of brand.values) {
-          console.log("poopoo12121");
-          if (aa.isChecked) {
-            console.log("fgetgte");
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('brands').style.background = '#f4f5f9';
-
-      }
-
-    }
-
-
-
-
-
-
-    for (const brand of this.filters1_brands_1) {
-
-      if (brand.key == 'brands_1') {
-        console.log("poopoo");
-        var flag = 1;
-        for (const aa of brand.values) {
-          console.log("poopoo12121");
-          if (aa.isChecked) {
-            console.log("fgetgte");
-            aa.isChecked = false;
-          }
-        }
-        document.getElementById('brands_1').style.background = '#f4f5f9';
-
-      }
-
-    }
-
-
+    });
     
 
 
@@ -19345,8 +19398,84 @@ console.log("Checkiiigg--"+this.sumselected)
     console.log('PLANTETERT-----' + JSON.stringify(this.plantss[0]));
 
     var fgfh=JSON.parse(JSON.stringify(this.plantss));
-    this.filters = [];
-    this.filters_plant = [];
+    // this.filters = [];
+    // this.filters_plant = [];
+
+
+
+
+
+
+
+   
+
+
+// for(const b of this.filters[0].values)
+// {
+//      for(const a of this.cpgss) {
+//       console.log("fgsfg12345-"+JSON.stringify(b));
+//             if(b.name.name==a)
+//             {
+//               console.log("Kuch aur");
+//               b.isChecked=true;
+//             }
+//           }
+// }
+
+
+
+
+    this.granular1 = 'week';
+
+  var temp_cpg=selectedFilter.cpg;
+
+  var temp_plant=selectedFilter.plant;
+
+  var temp_fg=selectedFilter.sku;
+
+   
+  var cpg: any = [];
+
+
+  var plant: any = [];
+
+  var a: any = [];
+  var index = 0;
+
+    for (const abc of temp_cpg) {
+      cpg.push({
+        id: index,
+        name: abc,
+        isFiltered: true,
+        isChecked: true
+      });
+      index++;
+    }
+
+
+    for (const abc of temp_plant) {
+      plant.push({
+        id: index,
+        name: abc,
+        isFiltered: true,
+        isChecked: true
+      });
+      index++;
+    }
+
+
+
+    for (const abc of temp_fg) {
+      a.push({
+        id: index,
+        name: abc,
+        isFiltered: true,
+        isChecked: true
+      });
+      index++;
+    }
+
+    this.filters=[];
 
     this.skuService.getCustomerPlanningGroup().subscribe((response: any) => {
 
@@ -19368,81 +19497,69 @@ console.log("Checkiiigg--"+this.sumselected)
       });
 
 
-      console.log('khguyg-' + JSON.stringify(this.filters[0].values));
+      console.log('khguyg-' + JSON.stringify(this.filters));
 
-      console.log('Sgfgsg--' + JSON.stringify(this.cpgss));
-      for (const a of this.cpgss) {
-        for (const b of this.filters[0].values) {
-          console.log('32r34435345-' + JSON.stringify(b));
-          console.log('32r34435345-  cpgss-' + JSON.stringify(a));
-          if (b.name.name == a) {
+      for (const b of this.filters[0].values) {
+        console.log('fgsfg12345-' + JSON.stringify(b));
+        for (const c of temp_cpg) {
+          console.log('fgsfg12345-' + JSON.stringify(b));
+          if (b.name.name == c) {
             b.isChecked = true;
           }
         }
+   
       }
     });
 
 
-// for(const b of this.filters[0].values)
-// {
-//      for(const a of this.cpgss) {
-//       console.log("fgsfg12345-"+JSON.stringify(b));
-//             if(b.name.name==a)
-//             {
-//               console.log("Kuch aur");
-//               b.isChecked=true;
-//             }
-//           }
-// }
+    //this.createdata.forecastingGroups = JSON.parse(JSON.stringify(a));
+
+    // for (const abc of temp_fg) {
+    //   a.push({
+    //     id: index,
+    //     name: abc,
+    //     isFiltered: true,
+    //     isChecked: true
+    //   });
+    //   index++;
+    // }
+   this.createdata.forecastingGroups = JSON.parse(JSON.stringify(a));
+    this.createdata.plants = JSON.parse(JSON.stringify(temp_plant));
+    this.createdata.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
+  //  console.log("dfsdfhdf-------"+JSON.stringify(this.filters[0].values));
+
+  //   for (const b of this.filters[0].values) {
+     
+  // }
 
 
-    this.skuService.getPlants().subscribe((response: any) => {
-      this.plants = response;
 
 
-      // this.filters_plant=response;
 
-
-      console.log('Dfsfg---' + JSON.stringify(response));
-      const plant = this.plants;
-      console.log('HAHA---' + JSON.stringify(plant));
-      this.filters_plant.push({
-        name: 'Plants',
-        key: 'plant',
-        isExpanded: false,
-        values: response.map(item => {
-          return {name: item, isChecked: false, isFiltered:true};
-        })
-      });
-console.log("ksdhafksa----"+JSON.stringify(this.plantss));
-
-console.log("ksdhafksa1212----"+JSON.stringify(fgfh));
-
-
-      for (const a of fgfh) {
-        for (const b of this.filters_plant[0].values) {
-          console.log('4354674-' + JSON.stringify(b));
-          console.log('4354674-  plants-' + JSON.stringify(a));
-          if (b.name.name == a) {
-            b.isChecked = true;
-          }
-        }
-      }
-
-
-    });
-
-
-    this.granular1 = 'week';
 
 
 //this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
 
     // console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])));
-    data.forecastingGroups = selectedFilter.sku;
-    data.customerPlanningGroup = selectedFilter.cpg;
-    data.plants = selectedFilter.plant;
+   // data.forecastingGroups = selectedFilter.sku;
+    //data.customerPlanningGroup = selectedFilter.cpg;
+   // data.plants = selectedFilter.plant;
+
+
+
+   this.cpgss = JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
+
+   this.plantss = JSON.parse(JSON.stringify(this.createdata.plants));
+
+  // this.fgssselected = this.createdata.forecastingGroups;
+
+   this.skus = JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
+
+
+   data.plants = JSON.parse(JSON.stringify(temp_plant));
+   data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
+
 
     data.startWeek = 201946;
     data.endWeek = 202004;
@@ -19452,9 +19569,9 @@ console.log("ksdhafksa1212----"+JSON.stringify(fgfh));
     console.log('sfsgfs--' + JSON.stringify(data.forecastingGroups));
 
 
-    data.forecastingGroups = data.forecastingGroups.map(item => {
-      return {name: item, isChecked: true, isFiltered:true};
-    });
+    // data.forecastingGroups = data.forecastingGroups.map(item => {
+    //   return {name: item, isChecked: true, isFiltered:true};
+    // });
     console.log('sfsgf435tyhgns--' + JSON.stringify(data));
 
 
@@ -19471,20 +19588,25 @@ console.log("ksdhafksa1212----"+JSON.stringify(fgfh));
        data.plants[a]=data.plants[a].split("-")[0];
        
     }
-    for(const a in data.forecastingGroups)
+    console.log("!@#$asdfgh12---"+JSON.stringify(data.forecastingGroups));
+    for(const a in this.fgssselected)
     {
        console.log("Loadingggggggg---"+a);
-       data.forecastingGroups[a].name=data.forecastingGroups[a].name.split("-")[0];
+       console.log("Loadingggggggg121121---"+data.forecastingGroups[a]);
+       this.fgssselected[a].name=this.fgssselected[a].name.split("-")[0];
        
     }
+    console.log("!@#$asdfgh12---"+JSON.stringify(data.forecastingGroups));
 
 
-    var fgssselected1 = data.forecastingGroups.filter(item => item.isChecked).map(item => item.name);
+ // this.fgssselected=JSON.parse(JSON.stringify(data.forecastingGroups));
+  //  fgssselected
+    // var fgssselected1 = data.forecastingGroups.filter(item => item.isChecked).map(item => item.name);
 
 
-    this.fgssselected =fgssselected1.map(item => {
-      return {name: item, isChecked: true, isFiltered:true};
-    });
+    // this.fgssselected =fgssselected1.map(item => {
+    //   return {name: item, isChecked: true, isFiltered:true};
+    // });
 
 
     
