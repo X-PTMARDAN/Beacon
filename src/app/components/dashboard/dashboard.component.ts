@@ -9,7 +9,7 @@ import {SidebarService} from '../../services/sidebar.service';
 import {FilterService} from '../../services/filter.service';
 import {ViewService} from '../../services/view.service';
 
-
+// import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-dashboard',
@@ -14929,7 +14929,19 @@ if(this.color_tick==0)
   public down() {
     console.log('Fsgfsg');
 
-  
+    // const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    // //var workSheet = XLSX.utils.json_to_sheet(records);
+
+    // const ws1: XLSX.WorkSheet=XLSX.utils.json_to_sheet(this.createPlanRequestData.forecastingGroups);
+    // XLSX.utils.book_append_sheet(wb, ws1, "Sheet2");
+    // const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
+
+    // console.log("CHECKK--"+JSON.stringify(ws));
+ 
+    // XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+    // /* save to file */
+    // XLSX.writeFile(wb, 'SheetJS.xlsx');
 
 
 
