@@ -378,6 +378,24 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable_PPU_monthly`, data);
   }
 
+  public getGraphData_week_ppu(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_PPU`, data);
+  }
+
+
+
+
+
+  public getGraphData_bot_month(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_BOT_monthly`, data);
+  }
+
+  public getGraphData_week_bot(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_BOT`, data);
+  }
+
+
+
 
   public getGraphData_pal(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}demandTable_PAL`, data);
@@ -402,9 +420,6 @@ export class SKUService {
 
 
 
-  public getGraphData_week_ppu(data = {}) {
-    return this.http.post(`${this.apiGatewayUrl}demandTable_PPU`, data);
-  }
 
 
 
