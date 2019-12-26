@@ -3801,18 +3801,18 @@ public sameName=false;
     else if (feature == 'PPU') {
 
 
-      this.planningtable = 'Planning table (PPU)';
+      this.planningtable = 'Planning table (PPU 000s)';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (PPU)';
-      this.featureanalysis='Feature Analysis (PPU)';
+      this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
+      this.featureanalysis='Feature Analysis (PPU 000s)';
     
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
@@ -4316,18 +4316,18 @@ public sameName=false;
     else if (feature == 'BOT') {
 
 
-      this.planningtable = 'Planning table (BOT)';
+      this.planningtable = 'Planning table (BOT 000s)';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (BOT)';
-      this.featureanalysis='Feature Analysis (BOT)';
+      this.forecastinganalysis = 'Forecast Analysis (BOT 000s)';
+      this.featureanalysis='Feature Analysis (BOT 000s)';
     
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
@@ -8423,16 +8423,16 @@ public sameName=false;
     {
 
  
-     this.planningtable = 'Planning table (PPU)';
+     this.planningtable = 'Planning table (PPU 000s)';
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (PPU)';
+      this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
 
-      this.featureanalysis='Feature Analysis (PPU)';
+      this.featureanalysis='Feature Analysis (PPU 000s)';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -8957,16 +8957,16 @@ public sameName=false;
     {
 
  
-     this.planningtable = 'Planning table (BOT)';
+     this.planningtable = 'Planning table (BOT 000s)';
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (BOT)';
+      this.forecastinganalysis = 'Forecast Analysis (BOT 000s)';
 
-      this.featureanalysis='Feature Analysis (BOT)';
+      this.featureanalysis='Feature Analysis (BOT 000s)';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -11643,8 +11643,8 @@ public sameName=false;
 
       this.featureanalysis='Feature Analysis (PC)';
 
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
@@ -12172,8 +12172,8 @@ this.granular1="week";
 
       this.featureanalysis='Feature Analysis (PC)';
 
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
@@ -12685,23 +12685,23 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="PPU") {
 
 
-      this.planningtable = 'Planning table (PPU)';
+      this.planningtable = 'Planning table (PPU 000s)';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (PPU)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
 
 
-      this.featureanalysis='Feature Analysis (PPU)';
+      this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
 
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+
+      this.featureanalysis='Feature Analysis (PPU 000s)';
+
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
@@ -14279,8 +14279,8 @@ this.granular1="week";
 
       this.featureanalysis='Feature Analysis (PC)';
 
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
@@ -14791,23 +14791,23 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="BOT") {
 
 
-      this.planningtable = 'Planning table (BOT)';
+      this.planningtable = 'Planning table (BOT 000s)';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (BOT)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s)';
 
 
-      this.featureanalysis='Feature Analysis (BOT)';
+      this.forecastinganalysis = 'Forecast Analysis (BOT 000s)';
 
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+
+      this.featureanalysis='Feature Analysis (BOT 000s)';
+
+      // this.prevactuals = '2019-W01';
+      // this.endWeek = '2019-W52';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
