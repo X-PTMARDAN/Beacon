@@ -33,7 +33,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('lockModalCancel', {static: false}) lockModalCancel: ElementRef;
 
+  //@ViewChild('table', {static: false}) table: ElementRef;
 
+  //@ViewChild('table') table: ElementRef;
   @ViewChild('lockModal', {static: false}) lockModal: ElementRef;
 
   @ViewChild('editCommentModalBtn', {static: false}) editCommentModalBtn: ElementRef;
@@ -68,7 +70,7 @@ public checking=0;
 
 public allComments_harshit;
 
-
+public fals=false;
 public enabled=1;
 
 public commentsall_combination : any =[];
@@ -16822,8 +16824,8 @@ if(this.color_tick==0)
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     //var workSheet = XLSX.utils.json_to_sheet(records);
 
-    const ws1: XLSX.WorkSheet=XLSX.utils.json_to_sheet(this.createPlanRequestData.forecastingGroups);
-    XLSX.utils.book_append_sheet(wb, ws1, "Sheet2");
+    // const ws1: XLSX.WorkSheet=XLSX.utils.json_to_sheet(this.createPlanRequestData.forecastingGroups);
+    // XLSX.utils.book_append_sheet(wb, ws1, "Sheet2");
     const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
 
     console.log("CHECKK--"+JSON.stringify(ws));
