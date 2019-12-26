@@ -1268,32 +1268,32 @@ public sameName=false;
       {
         this.featureanalysis='Feature Analysis (HL)';
       }
-      else if(this.UOM='PC')
+      else if(this.UOM=='PC')
       {
         this.featureanalysis='Feature Analysis (PC)';
       }
 
-      else if(this.UOM='L')
+      else if(this.UOM=='L')
       {
         this.featureanalysis='Feature Analysis (L)';
       }
 
-      else if(this.UOM='PAL')
+      else if(this.UOM=='PAL')
       {
         this.featureanalysis='Feature Analysis (PAL)';
       }
 
-      else if(this.UOM='PPU')
+      else if(this.UOM=='PPU')
       {
         this.featureanalysis='Feature Analysis (PPU)';
       }
       
 
-      else if(this.UOM='BOT')
+      else if(this.UOM=='BOT')
       {
         this.featureanalysis='Feature Analysis (BOT)';
       }
-      else if(this.UOM='CU')
+      else if(this.UOM=='CU')
       {
         this.featureanalysis='Feature Analysis (CU)';
       }
@@ -1455,14 +1455,34 @@ public sameName=false;
       {
         this.featureanalysis='Feature Analysis (HL)';
       }
-      else if(this.UOM='PC')
+      else if(this.UOM=='PC')
       {
         this.featureanalysis='Feature Analysis (PC)';
       }
 
-      else if(this.UOM='L')
+      else if(this.UOM=='L')
       {
         this.featureanalysis='Feature Analysis (L)';
+      }
+
+      else if(this.UOM=='PAL')
+      {
+        this.featureanalysis='Feature Analysis (PAL)';
+      }
+
+      else if(this.UOM=='PPU')
+      {
+        this.featureanalysis='Feature Analysis (PPU)';
+      }
+      
+
+      else if(this.UOM=='BOT')
+      {
+        this.featureanalysis='Feature Analysis (BOT)';
+      }
+      else if(this.UOM=='CU')
+      {
+        this.featureanalysis='Feature Analysis (CU)';
       }
 
       this.createPlanRequestData.which_feature = 'Open';
