@@ -408,6 +408,22 @@ export class SKUService {
 
 
 
+
+
+
+
+
+  public getGraphData_cu(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_CU`, data);
+  }
+
+
+  public getGraphData_cu_monthly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_CU_monthly`, data);
+  }
+
+
+
   
 
   
