@@ -1277,6 +1277,26 @@ public sameName=false;
       {
         this.featureanalysis='Feature Analysis (L)';
       }
+
+      else if(this.UOM='PAL')
+      {
+        this.featureanalysis='Feature Analysis (PAL)';
+      }
+
+      else if(this.UOM='PPU')
+      {
+        this.featureanalysis='Feature Analysis (PPU)';
+      }
+      
+
+      else if(this.UOM='BOT')
+      {
+        this.featureanalysis='Feature Analysis (BOT)';
+      }
+      else if(this.UOM='CU')
+      {
+        this.featureanalysis='Feature Analysis (CU)';
+      }
       
       this.createPlanRequestData.which_feature = 'Open';
 
