@@ -15596,6 +15596,17 @@ if(this.color_tick==0)
       return;
     }
 
+   
+    if(DashboardComponent.transformWeek(this.prevactuals)<201553)
+    {
+      this.prevactuals="2015-W53";
+    }
+
+    if(DashboardComponent.transformWeek(this.endWeek)>202123)
+    {
+      this.endWeek="2021-W23";
+    }
+
     this.createPlanRequestData.endWeek = DashboardComponent.transformWeek(this.endWeek);
 
 
