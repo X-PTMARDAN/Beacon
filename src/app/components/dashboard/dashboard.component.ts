@@ -7517,17 +7517,17 @@ public sameName=false;
 
    
 
-      this.planningtable = 'Planning table (HL)';
+      this.planningtable = 'Planning table (HL) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (HL) Month ';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL) Month';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (HL)';
+      this.forecastinganalysis = 'Forecast Analysis (HL) Month';
 
 
 
@@ -11138,16 +11138,16 @@ public sameName=false;
     {
 
      
-      this.planningtable = 'Planning table (L)';
+      this.planningtable = 'Planning table (L) Month';
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (L)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (L) Month';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (L)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (L) Month';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (L)';
+      this.forecastinganalysis = 'Forecast Analysis (L) Month';
 
-      this.featureanalysis='Feature Analysis (L)';
+      this.featureanalysis='Feature Analysis (L) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -12205,20 +12205,20 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="PC") {
 
 
-      this.planningtable = 'Planning table (PC)';
+      this.planningtable = 'Planning table (PC) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PC) Month';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (PC)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC) Month';
 
 
-      this.featureanalysis='Feature Analysis (PC)';
+      this.forecastinganalysis = 'Forecast Analysis (PC) Month';
+
+
+      this.featureanalysis='Feature Analysis (PC) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -12733,20 +12733,20 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="PPU") {
 
 
-      this.planningtable = 'Planning table (PPU 000s)';
+      this.planningtable = 'Planning table (PPU 000s) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s) Month';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s) Month';
 
 
-      this.featureanalysis='Feature Analysis (PPU 000s)';
+      this.forecastinganalysis = 'Forecast Analysis (PPU 000s) Month' ;
+
+
+      this.featureanalysis='Feature Analysis (PPU 000s) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -13257,20 +13257,20 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="PAL") {
 
 
-      this.planningtable = 'Planning table (PAL)';
+      this.planningtable = 'Planning table (PAL) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PAL)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PAL)  Month';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PAL)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (PAL)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PAL) Month';
 
 
-      this.featureanalysis='Feature Analysis (PAL)';
+      this.forecastinganalysis = 'Forecast Analysis (PAL) Month';
+
+
+      this.featureanalysis='Feature Analysis (PAL) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -13787,20 +13787,20 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="CU") {
 
 
-      this.planningtable = 'Planning table (CU)';
+      this.planningtable = 'Planning table (CU) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (CU)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (CU) Month';
 
       document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (CU)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (CU)';
+      this.forecastinganalysis = 'Forecast Analysis (CU) Month';
 
 
-      this.featureanalysis='Feature Analysis (CU)';
+      this.featureanalysis='Feature Analysis (CU) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -14312,20 +14312,20 @@ this.granular1="week";
      if (feature =='month' && this.UOM=="PPU") {
 
 
-      this.planningtable = 'Planning table (PC)';
+      this.planningtable = 'Planning table (PC) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PC) Month';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (PC)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC) Month';
 
 
-      this.featureanalysis='Feature Analysis (PC)';
+      this.forecastinganalysis = 'Forecast Analysis (PC) Month';
+
+
+      this.featureanalysis='Feature Analysis (PC) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
@@ -14839,20 +14839,20 @@ this.granular1="week";
     if (feature =='month' && this.UOM=="BOT") {
 
 
-      this.planningtable = 'Planning table (BOT 000s)';
+      this.planningtable = 'Planning table (BOT 000s) Month';
 
 
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s) Month';
 
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s)';
-
-
-      this.forecastinganalysis = 'Forecast Analysis (BOT 000s)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s) Month';
 
 
-      this.featureanalysis='Feature Analysis (BOT 000s)';
+      this.forecastinganalysis = 'Forecast Analysis (BOT 000s) Month';
+
+
+      this.featureanalysis='Feature Analysis (BOT 000s) Month';
 
       // this.prevactuals = '2019-W01';
       // this.endWeek = '2019-W52';
