@@ -913,18 +913,13 @@
                     </tr>
                     <tr>
                       <td>Forecast Add</td>
-                      <ng-container *ngFor="let data of graphData; let i=index">
-                        <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
-                            [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
-                          <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
-                                 [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
-                                 (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
-                                 [class.disabled]="greystart> data.calenderYearWeek"
-                                 [class.highlight]="data.lockcell?.length"
-                                 [(ngModel)]="data.fcstValueAdd"
-                                 [innerText]="data.fcstValueAdd">
-                        </td>
-                      </ng-container>
+                
+
+                      <td *ngFor="let data of graphData ; let i=index"
+                      [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                      [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
+                      {{data.fcstValueAdd}}
+                  </td>
                     </tr>
                     <tr>
                         <td>ML</td>
