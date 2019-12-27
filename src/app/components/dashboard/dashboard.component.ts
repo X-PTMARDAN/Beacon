@@ -21160,7 +21160,7 @@ console.log("Checkiiigg--"+this.sumselected)
     console.log('TJHGHYKJH---' + JSON.stringify(this.fgssselected));
  
 
-
+this.UOM='HL';
     // for (const brand of this.filters1) {
 
     //   if (brand.key == 'brands') {
