@@ -18394,6 +18394,8 @@ console.log("Checkiiigg--"+this.sumselected)
 
     var fgssss1 = this.second_sku.filter(item => true).map(item => item.name);
 
+    var fgssss2= this.sku_semi.filter(item => true).map(item => item.name);
+
     for (const abc of fgssselected2) {
       fgssselected1.push(abc);
     }
@@ -18404,6 +18406,10 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
     for (const abc of fgssss1) {
+      fgssss.push(abc);
+    }
+
+    for (const abc of fgssss2) {
       fgssss.push(abc);
     }
     this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
