@@ -20283,9 +20283,14 @@ console.log("Checkiiigg--"+this.sumselected)
 
   public commenting() {
 
+   if(this.granular1=="month")
+   {
 
+   }
+   else{
     this.lockModalCancel.nativeElement.click();
     this.finalForecastCommentModalBtn.nativeElement.click();
+   }
   }
 
 
