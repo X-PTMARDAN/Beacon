@@ -855,6 +855,40 @@
                 <div class="center-block fix-width scroll-inner">
                   <table class="table table-striped"  [(ngModel)]="tables" #table>
                     <thead>
+                      <tr>
+                        <th>Forecasting Group</th>
+                        
+                        
+                        <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.forecastingGroups" >
+                            <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
+                          </th>
+                        
+                        
+                        <!-- <th>{{createPlanRequestData.forecastingGroups}}</th></tr> -->
+
+                        <tr>
+                            <th>Plant</th>
+                            
+                            
+                            <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.plants" >
+                                <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
+                              </th>
+                            
+                            
+
+                            <tr>
+                                <th>Customer Planning Group</th>
+                                
+                                <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.customerPlanningGroup" >
+                                    <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
+                                  </th>
+                                
+                                
+                                
+                         
+    
+
+                          
                     <tr>
                         <th class="font-weight-bold" >
                             <p class="m-0 week-block" > Week</p>
@@ -1692,7 +1726,7 @@
 
         <div>
           <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }}
-            /{{skus.length + second_sku.length}}</span>
+            /{{skus.length + second_sku.length+sku_semi.length}}</span>
 
           <input type="file" (change)="changeListener($event.target.files)">
 
