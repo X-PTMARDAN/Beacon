@@ -8491,7 +8491,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -9025,7 +9025,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -9555,7 +9555,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -10091,7 +10091,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -10628,7 +10628,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -11158,7 +11158,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -11700,7 +11700,7 @@ public sameName=false;
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -12229,7 +12229,7 @@ this.granular1="week";
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -12757,7 +12757,7 @@ this.granular1="week";
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -13281,7 +13281,7 @@ this.granular1="week";
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -13811,7 +13811,7 @@ this.granular1="week";
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -14336,7 +14336,7 @@ this.granular1="week";
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
@@ -14863,7 +14863,7 @@ this.granular1="week";
         endWeek: this.createPlanRequestData.endWeek,
         prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
-        forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };
