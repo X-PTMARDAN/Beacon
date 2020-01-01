@@ -20302,9 +20302,16 @@ console.log("Checkiiigg--"+this.sumselected)
 
     console.log('Sgsfgsfgsg1234');
 
+    if(this.granular1=="month")
+   {
+
+   }
+   else{
+
     this.selecteddblclick = selectedWeekIndex;
     this.lockModal.nativeElement.click();
     this.selectedWeekIndex = selectedWeekIndex;
+  }
     //   this.finalForecastCommentModalBtn.nativeElement.click();
   }
 
