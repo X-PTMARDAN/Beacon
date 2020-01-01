@@ -591,7 +591,7 @@ public sameName=false;
 
 
           this.filters1.push({
-            name: 'OwnProduced/3PP',
+            name: 'Own/3PP',
             key: 'brands_1',
             isExpanded: false,
             values: [{"name":"Carlsberg Brand","isChecked":false}]
@@ -630,7 +630,17 @@ public sameName=false;
             });
 
 
-          
+            this.skuService.getbaseunit().subscribe((response: any) => {
+
+
+              console.log("9889989--"+JSON.stringify(response));
+              this.filters1.push({
+                name: 'Primary Unit',
+                key: 'baseunit',
+                isExpanded: false,
+                values: response
+              });
+
 
 
 
@@ -666,17 +676,7 @@ public sameName=false;
                 });
 
 
-              this.skuService.getbaseunit().subscribe((response: any) => {
-
-
-                console.log("9889989--"+JSON.stringify(response));
-                this.filters1.push({
-                  name: 'Primary Unit',
-                  key: 'baseunit',
-                  isExpanded: false,
-                  values: response
-                });
-
+    
 
               this.skuService.getAlcP().subscribe((response: any) => {
 
@@ -15663,6 +15663,7 @@ if(this.color_tick==0)
 
     console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
 
+    this.deactivate();
     this.featureanalysis='Feature Analysis (HL)';
     // document.getElementById('apply_filter').style.background='#17b169';
     this.loading = true;
@@ -17973,19 +17974,19 @@ if(this.color_tick==0)
     console.log(files);
     if (files && files.length > 0) {
       let file: File = files.item(0);
-      console.log(file.name);
-      console.log(file.size);
-      console.log(file.type);
+      // console.log(file.name);
+      // console.log(file.size);
+      // console.log(file.type);
       let reader: FileReader = new FileReader();
       reader.readAsText(file);
       reader.onload = (e) => {
         let csv: string = reader.result as string;
-        console.log('harshit---' + csv);
-        console.log('harshit1212----' + csv.split('\n').length);
+        //console.log('harshit---' + csv);
+        //console.log('harshit1212----' + csv.split('\n').length);
         var g = csv.split('\n');
-        console.log('popop---' + g);
+        //console.log('popop---' + g);
         var g = csv.split('\n').splice(1);
-        console.log('popop121---' + g);
+       // console.log('popop121---' + g);
         var g1 = [];
 
 
@@ -17995,35 +17996,80 @@ if(this.color_tick==0)
           } else {
             this.second_sku = [];
             this.skus = [];
-            console.log('SFsgfg---' + ab);
+          //  console.log('SFsgfg---' + ab);
               var flag=0;
             for (var i = 0; i < ab.length; i++) {
-              console.log("OWO4567WOWO"+ab.charAt(i));
+            //  console.log("OWO4567WOWO"+ab.charAt(i));
               if(ab.charAt(i)=='\r')
               {
-                console.log("OWOWOWO");
+               // console.log("OWOWOWO");
                 flag=1;
               }
             }
 
             if(ab.substring(ab.length - 1,ab.length)=='\r')
             {
-              console.log("2121212----");
+            //  console.log("2121212----");
             }
 
             if(ab.length<3)
             {
-              console.log("return121---");
+            //  console.log("return121---");
               continue;
             }
             if(flag==0 && ab!=null)
             {
-              console.log("without cuttt---");
+            //  console.log("without cuttt---");
               g1.push(ab);
+
+
+
+              var a={
+                material:ab
+              };
+          
+ 
+
+
+
             }
             else if(ab!=null && flag==1){
-              console.log("cutttt---"+ab.substring(0, ab.length - 1));
+              //console.log("cutttt---"+ab.substring(0, ab.length - 1));
               g1.push(ab.substring(0, ab.length - 1));
+
+
+
+              var a={
+                material:ab.substring(0, ab.length - 1)
+              };
+          
+              // this.skuService.fetchmaterialname(a).subscribe((res: any) => {
+            
+          
+               
+              //     for(const abc1 in this.skus)
+              //     {
+
+              //       console.log("Testing--"+JSON.stringify(this.skus[abc1]));
+              //       console.log("Testing121--"+JSON.stringify(this.skus[abc1]));
+              //         if(this.skus[abc1].name==a.material)
+              //         {
+              //           this.skus[abc1].name= this.skus[abc1].name+"-"+res[0];
+              //         }
+              //     }
+    
+              //   //g1[abc]=g[abc]+"-"+res[0];
+    
+    
+              //  // console.log('sjkhfgksfgrg12------ '+abc+'--' + JSON.stringify(g1));
+              //  // this.skuname_down=res[0];
+          
+          
+              // }, (error) => {
+                
+          
+          
+              // });
             }
           // ab1= str.substring(0, str.length - 1);
        
@@ -18031,6 +18077,15 @@ if(this.color_tick==0)
           }
           //this.skus
         }
+
+        this.skuService.skuname(g1).subscribe((res: any) => {
+
+         // console.log("Fdfdfd")
+        }, (error) => {
+
+        });
+
+        
         this.reactivate_filter(1);
         this.skus = g1.map(item => {
           return {
@@ -21125,6 +21180,20 @@ console.log("Checkiiigg--"+this.sumselected)
     }
 
 
+    this.planningtable = 'Planning table (HL)';
+
+
+
+
+    document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+    this.forecastinganalysis = 'Forecast Analysis (HL)';
+
+    this.featureanalysis='Feature Analysis (HL)';
+    
     console.log('Tftdfwfvc46v675gg7uuubjy---' + JSON.stringify(selectedFilter));
     // Todo: Change keys
     // this.filters_plant[0].values = selectedFilter.plant.map(item => {
