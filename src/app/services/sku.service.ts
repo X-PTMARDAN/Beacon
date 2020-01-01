@@ -470,6 +470,14 @@ export class SKUService {
   }
 
 
+
+
+
+  public skuname(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}skuname`, data);
+  }
+
+
   
 
   public adduser(data = {}) {
