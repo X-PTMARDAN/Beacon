@@ -397,7 +397,7 @@ public sameName=false;
       // this.prevactuals="2019-W11";
       //   this.createdata = {
       //     prevactuals:201911,
-      //   startWeek: 201949,
+      //   startWeek: 201950,
       //   endWeek: 202004,
       //   forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
       //   customerPlanningGroup: ['G01'],
@@ -730,7 +730,7 @@ public sameName=false;
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
                       prevactuals: this.prevactuals_val,
-                      startWeek: 201949,
+                      startWeek: 201950,
                       endWeek: 202004,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                       customerPlanningGroup: [],
@@ -948,7 +948,7 @@ public sameName=false;
 //     this.prevactuals="2019-W11";
 //       this.createdata = {
 //         prevactuals:201911,
-//       startWeek: 201949,
+//       startWeek: 201950,
 //       endWeek: 202004,
 //       forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
 //       customerPlanningGroup: ['G01'],
@@ -1101,7 +1101,7 @@ public sameName=false;
    // this.prevactuals = '2019-W35';
     this.createdata = {
       prevactuals: this.prevactuals_val,
-      startWeek: 201949,
+      startWeek: 201950,
       endWeek: 202004,
       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
       customerPlanningGroup: ['G01'],
@@ -1410,7 +1410,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -1606,7 +1606,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -1786,7 +1786,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -1972,7 +1972,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -2140,7 +2140,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -2297,7 +2297,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -2451,7 +2451,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -2605,7 +2605,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -3000,7 +3000,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -3239,7 +3239,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -3530,7 +3530,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -3760,7 +3760,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -4041,7 +4041,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -4271,7 +4271,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -4556,7 +4556,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -4786,7 +4786,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -5074,7 +5074,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -5304,7 +5304,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -5602,7 +5602,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -5832,7 +5832,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -6118,7 +6118,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -6381,7 +6381,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -6524,7 +6524,7 @@ public sameName=false;
     //       },
     //       stripLines: [
     //         {
-    //           startValue: 201949,
+    //           startValue: 201950,
     //           endValue: 201953,
     //           color: '#F2F3F5'
     //         },
@@ -6776,7 +6776,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -6920,7 +6920,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -7019,7 +7019,7 @@ public sameName=false;
       this.UOM='HL';
 
       this.createPlanRequestData = {
-        startWeek: 201949,
+        startWeek: 201950,
         endWeek: 201952,
         prevactuals: 201901,
         forecastingGroups: this.fgssselected.map(item => item.name),
@@ -8222,7 +8222,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -8381,7 +8381,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -8744,7 +8744,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -8907,7 +8907,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -9278,7 +9278,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -9441,7 +9441,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -9808,7 +9808,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -9971,7 +9971,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -10344,7 +10344,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -10507,7 +10507,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -10881,7 +10881,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -11044,7 +11044,7 @@ public sameName=false;
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
 
@@ -11868,7 +11868,7 @@ this.granular1="week";
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -12107,7 +12107,7 @@ this.granular1="week";
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -15587,11 +15587,11 @@ if(this.color_tick==0)
 }
     this.color_tick=0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 201949) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 201950) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 201949) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 201950) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -15945,7 +15945,7 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -16348,7 +16348,7 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
             ]
@@ -16503,7 +16503,7 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201901,
-                endValue: 201949,
+                endValue: 201950,
                 color: '#F2F3F5'
               },
               
@@ -16806,7 +16806,7 @@ if(this.color_tick==0)
             },
             {
               startValue: 201901,
-              endValue: 201949,
+              endValue: 201950,
               color: '#F2F3F5'
             },
           ]
@@ -18634,7 +18634,7 @@ console.log("Checkiiigg--"+this.sumselected)
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
-    data.startWeek = 201949;
+    data.startWeek = 201950;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -20728,7 +20728,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201949,
+        calendarWeek: 201950,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -20846,7 +20846,7 @@ console.log("Checkiiigg--"+this.sumselected)
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201949,
+        calendarWeek: 201950,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -21628,7 +21628,7 @@ this.UOM='HL';
    data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
 
 
-    data.startWeek = 201949;
+    data.startWeek = 201950;
     data.endWeek = 202004;
 
     this.loading = true;
