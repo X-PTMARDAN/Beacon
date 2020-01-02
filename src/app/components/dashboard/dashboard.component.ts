@@ -2876,7 +2876,7 @@ public sameName=false;
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         console.log('GREYSTART--' + this.greystart);
 
@@ -3407,7 +3407,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -3924,7 +3924,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -4445,7 +4445,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -4969,7 +4969,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -5503,7 +5503,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -6042,7 +6042,7 @@ interval:this.inter,
                 this.inter = (res.res.length / 13);
               }
               else{
-                this.inter=1;
+                this.inter=2;
               }
                console.log('GREYSTART--' + this.greystart);
 
@@ -6692,7 +6692,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
 
 
@@ -7113,7 +7113,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -7616,7 +7616,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         
         console.log('GREYSTART--' + this.inter);
@@ -8150,7 +8150,7 @@ interval:this.inter,
                 this.inter = (res.res.length / 13);
               }
               else{
-                this.inter=1;
+                this.inter=2;
               }
 
                
@@ -8585,7 +8585,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -9124,7 +9124,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -9659,7 +9659,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -10200,7 +10200,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -10742,7 +10742,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=1;
+          this.inter=2;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -11277,7 +11277,7 @@ interval:this.inter,
               this.inter = (res.res.length / 10);
             }
             else{
-              this.inter=1;
+              this.inter=2;
             }
              console.log('GREYSTART--' + this.greystart);
 
@@ -11820,7 +11820,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -12355,7 +12355,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -12883,7 +12883,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -13407,7 +13407,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -13937,7 +13937,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -14462,7 +14462,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -14989,7 +14989,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -15823,7 +15823,7 @@ if(this.color_tick==0)
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=1;
+                  this.inter=2;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
