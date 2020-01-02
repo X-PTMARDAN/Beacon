@@ -1332,7 +1332,7 @@ public sameName=false;
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1346,31 +1346,31 @@ public sameName=false;
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -1384,32 +1384,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -1520,7 +1520,7 @@ public sameName=false;
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1529,39 +1529,39 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202301
                 },
                 {
@@ -1580,32 +1580,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -1700,7 +1700,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1709,39 +1709,39 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202301
                 },
                 {
@@ -1760,32 +1760,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -1894,7 +1894,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1908,31 +1908,31 @@ public sameName=false;
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -1946,32 +1946,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -2066,7 +2066,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2075,71 +2075,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -2223,7 +2223,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2237,31 +2237,31 @@ public sameName=false;
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -2271,32 +2271,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -2377,7 +2377,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2386,71 +2386,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -2531,7 +2531,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2545,31 +2545,31 @@ public sameName=false;
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -2579,32 +2579,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -2931,7 +2931,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
 interval:this.inter,
@@ -2945,31 +2945,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -2979,32 +2979,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -3079,7 +3079,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -3088,15 +3088,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -3162,7 +3162,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -3176,31 +3176,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -3218,32 +3218,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -3462,7 +3462,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -3476,31 +3476,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -3514,32 +3514,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -3614,7 +3614,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -3623,15 +3623,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -3697,7 +3697,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval:this.inter,
@@ -3711,31 +3711,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -3745,32 +3745,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -3979,7 +3979,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -3993,31 +3993,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -4031,32 +4031,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -4131,7 +4131,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -4140,15 +4140,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -4214,7 +4214,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -4228,31 +4228,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -4262,32 +4262,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -4500,7 +4500,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -4514,31 +4514,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -4552,32 +4552,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -4652,7 +4652,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -4661,15 +4661,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -4735,7 +4735,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -4749,31 +4749,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -4783,32 +4783,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -5024,7 +5024,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -5038,31 +5038,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -5076,32 +5076,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -5176,7 +5176,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -5185,15 +5185,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -5259,7 +5259,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -5273,31 +5273,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -5307,32 +5307,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -5558,7 +5558,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -5572,31 +5572,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -5610,32 +5610,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -5710,7 +5710,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -5719,15 +5719,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -5793,7 +5793,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -5807,31 +5807,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -5841,32 +5841,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -6085,7 +6085,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -6099,31 +6099,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -6133,32 +6133,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -6233,7 +6233,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
 
@@ -6243,19 +6243,19 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201852,
-        //           endValue: 201901
+        //           endValue: 201900
         //         },
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -6348,7 +6348,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -6362,31 +6362,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -6396,32 +6396,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -6538,7 +6538,7 @@ interval:this.inter,
     //       cursor: 'pointer',
     //       itemclick: this.toggleDataSeries.bind(this)
     //     },
-    //     axisX: {  minimum:res.res[0].calenderYearWeek-1,
+    //     axisX: {  
     //       valueFormatString: '######',
     //       gridColor: '#ffffff',
     //       scaleBreaks: {
@@ -6547,15 +6547,15 @@ interval:this.inter,
     //         customBreaks: [
     //           {
     //             startValue: 201952,
-    //             endValue: 202001
+    //             endValue: 202000
     //           },
     //           {
     //             startValue: 202052,
-    //             endValue: 202101
+    //             endValue: 202100
     //           },
     //           {
     //             startValue: 202152,
-    //             endValue: 202201
+    //             endValue: 202200
     //           },
     //           {
     //             startValue: 202253,
@@ -6744,7 +6744,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval:this.inter,
@@ -6754,35 +6754,35 @@ interval:this.inter,
               customBreaks: [
                 {
                   startValue: 201451,
-                  endValue: 2015021
+                  endValue: 2015011
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -6790,38 +6790,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -6888,7 +6888,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -6902,31 +6902,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -6934,38 +6934,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -7157,7 +7157,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -7165,16 +7165,16 @@ interval:this.inter,
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201912,
-        //           endValue: 202001
+        //           startValue: 201913,
+        //           endValue: 202000
         //         },
         //         {
-        //           startValue: 202012,
-        //           endValue: 202101
+        //           startValue: 202013,
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -7238,7 +7238,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7247,83 +7247,83 @@ interval:this.inter,
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -7392,7 +7392,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7401,75 +7401,75 @@ interval:this.inter,
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
+                  startValue: 202013,
                   endValue: 202099
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -7674,7 +7674,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -7682,16 +7682,16 @@ interval:this.inter,
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201912,
-        //           endValue: 202001
+        //           startValue: 201913,
+        //           endValue: 202000
         //         },
         //         {
-        //           startValue: 202012,
-        //           endValue: 202101
+        //           startValue: 202013,
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -7755,7 +7755,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7764,75 +7764,75 @@ interval:this.inter,
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
-                  endValue: 201501
+                  startValue: 201413,
+                  endValue: 201500
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
-                  startValue: 202312,
-                  endValue: 202400
+                  startValue: 202313,
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -7908,7 +7908,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7917,75 +7917,75 @@ interval:this.inter,
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -8195,7 +8195,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8209,31 +8209,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -8241,38 +8241,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -8350,7 +8350,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8368,31 +8368,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -8400,38 +8400,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -8636,7 +8636,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -8645,15 +8645,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -8722,7 +8722,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8736,31 +8736,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -8768,38 +8768,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -8881,7 +8881,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8895,31 +8895,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -8927,7 +8927,7 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 },
                 {
                   startValue: 202453,
@@ -8937,32 +8937,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -9175,7 +9175,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -9184,15 +9184,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -9261,7 +9261,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9275,31 +9275,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -9307,38 +9307,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -9420,7 +9420,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9434,31 +9434,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -9466,7 +9466,7 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 },
                 {
                   startValue: 202453,
@@ -9476,32 +9476,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -9710,7 +9710,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -9719,15 +9719,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -9796,7 +9796,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9810,31 +9810,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -9842,38 +9842,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -9955,7 +9955,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9969,31 +9969,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -10001,7 +10001,7 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 },
                 {
                   startValue: 202453,
@@ -10011,32 +10011,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -10253,7 +10253,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -10262,15 +10262,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -10339,7 +10339,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -10353,31 +10353,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -10385,38 +10385,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -10498,7 +10498,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -10512,31 +10512,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -10544,7 +10544,7 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 },
                 {
                   startValue: 202453,
@@ -10554,32 +10554,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -10795,7 +10795,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -10804,15 +10804,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -10881,7 +10881,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -10895,31 +10895,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -10927,38 +10927,38 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -11040,7 +11040,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11054,31 +11054,31 @@ interval:this.inter,
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -11086,7 +11086,7 @@ interval:this.inter,
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 },
                 {
                   startValue: 202453,
@@ -11096,32 +11096,32 @@ interval:this.inter,
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -11335,7 +11335,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11344,75 +11344,75 @@ interval:this.inter,
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -11489,7 +11489,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -11498,15 +11498,15 @@ interval:this.inter,
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -11572,7 +11572,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11581,75 +11581,75 @@ interval:this.inter,
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -11877,7 +11877,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11891,31 +11891,31 @@ this.granular1="week";
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -11925,32 +11925,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -12029,7 +12029,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -12038,15 +12038,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -12112,7 +12112,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12126,31 +12126,31 @@ this.granular1="week";
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -12158,38 +12158,38 @@ this.granular1="week";
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -12412,7 +12412,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12421,71 +12421,71 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -12560,7 +12560,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -12569,15 +12569,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -12643,7 +12643,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12652,75 +12652,75 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -12940,7 +12940,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12949,71 +12949,71 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13088,7 +13088,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -13097,15 +13097,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -13171,7 +13171,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13180,75 +13180,75 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13464,7 +13464,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13473,36 +13473,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202213,
@@ -13512,32 +13512,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13612,7 +13612,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -13621,15 +13621,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -13695,7 +13695,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13704,36 +13704,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202113,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202213,
@@ -13741,38 +13741,38 @@ this.granular1="week";
                 },
                 {
                   startValue: 202313,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13994,7 +13994,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14003,71 +14003,71 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14142,7 +14142,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -14151,15 +14151,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -14225,7 +14225,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14234,36 +14234,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202113,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202213,
@@ -14271,38 +14271,38 @@ this.granular1="week";
                 },
                 {
                   startValue: 202313,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14519,7 +14519,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14528,36 +14528,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202213,
@@ -14567,32 +14567,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14667,7 +14667,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -14676,15 +14676,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -14750,7 +14750,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14759,36 +14759,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202113,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202213,
@@ -14796,38 +14796,38 @@ this.granular1="week";
                 },
                 {
                   startValue: 202313,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -15046,7 +15046,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -15055,36 +15055,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202213,
@@ -15094,32 +15094,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -15194,7 +15194,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -15203,15 +15203,15 @@ this.granular1="week";
         //       customBreaks: [
         //         {
         //           startValue: 201952,
-        //           endValue: 202001
+        //           endValue: 202000
         //         },
         //         {
         //           startValue: 202052,
-        //           endValue: 202101
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -15277,7 +15277,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -15286,75 +15286,75 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202012,
-                  endValue: 202101
+                  startValue: 202013,
+                  endValue: 202100
                 },
                 {
-                  startValue: 202112,
-                  endValue: 202201
+                  startValue: 202113,
+                  endValue: 202200
                 },
                 {
-                  startValue: 202212,
+                  startValue: 202213,
                   endValue: 202300
                 },
                 {
                   startValue: 202312,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -15870,7 +15870,7 @@ if(this.color_tick==0)
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        //   axisX: {  
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -15878,16 +15878,16 @@ if(this.color_tick==0)
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201912,
-        //           endValue: 202001
+        //           startValue: 201913,
+        //           endValue: 202000
         //         },
         //         {
-        //           startValue: 202012,
-        //           endValue: 202101
+        //           startValue: 202013,
+        //           endValue: 202100
         //         },
         //         {
         //           startValue: 202152,
-        //           endValue: 202201
+        //           endValue: 202200
         //         },
         //         {
         //           startValue: 202253,
@@ -15953,7 +15953,7 @@ if(this.color_tick==0)
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             theme: 'light2',
@@ -15963,36 +15963,36 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -16002,32 +16002,32 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 201401,
-                endValue: 201412,
+                startValue: 201400,
+                endValue: 201413,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
-                endValue: 201512,
+                startValue: 201500,
+                endValue: 201513,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
-                endValue: 201612,
+                startValue: 201600,
+                endValue: 201613,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
-                endValue: 201712,
+                startValue: 201700,
+                endValue: 201713,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
-                endValue: 201812,
+                startValue: 201800,
+                endValue: 201813,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -16102,7 +16102,7 @@ if(this.color_tick==0)
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             // labelFormatter: function(e){
             //   return e.value.toString.slice(4, 6) + '-' + e.value.toString.slice(0, 4);
             // },
@@ -16114,36 +16114,36 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201412,
+                  startValue: 201413,
                   endValue: 201501
                 },
                 {
-                  startValue: 201512,
-                  endValue: 201601
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201612,
-                  endValue: 201701
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201712,
-                  endValue: 201801
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201812,
-                  endValue: 201901
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201912,
-                  endValue: 202001
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -16151,7 +16151,7 @@ if(this.color_tick==0)
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
@@ -16304,7 +16304,12 @@ if(this.color_tick==0)
 
 
 
-        this.inter = (res.res.length / 10);
+       if(res.res.length>20){
+        this.inter = (res.res.length / 13);
+      }
+      else{
+        this.inter=1;
+      }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -16356,7 +16361,7 @@ if(this.color_tick==0)
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
           
             // labelFormatter: function(e){
 
@@ -16377,31 +16382,31 @@ if(this.color_tick==0)
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202252,
@@ -16411,32 +16416,32 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -16514,7 +16519,7 @@ if(this.color_tick==0)
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -16528,31 +16533,31 @@ if(this.color_tick==0)
                 },
                 {
                   startValue: 201552,
-                  endValue: 201601
+                  endValue: 201600
                 },
                 {
                   startValue: 201652,
-                  endValue: 201701
+                  endValue: 201700
                 },
                 {
                   startValue: 201752,
-                  endValue: 201801
+                  endValue: 201800
                 },
                 {
                   startValue: 201852,
-                  endValue: 201901
+                  endValue: 201900
                 },
                 {
                   startValue: 201952,
-                  endValue: 202001
+                  endValue: 202000
                 },
                 {
                   startValue: 202052,
-                  endValue: 202101
+                  endValue: 202100
                 },
                 {
                   startValue: 202152,
-                  endValue: 202201
+                  endValue: 202200
                 },
                 {
                   startValue: 202253,
@@ -16560,38 +16565,38 @@ if(this.color_tick==0)
                 },
                 {
                   startValue: 202353,
-                  endValue: 202400
+                  endValue: 202402
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201401,
+                startValue: 201400,
                 endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201501,
+                startValue: 201500,
                 endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201601,
+                startValue: 201600,
                 endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201701,
+                startValue: 201700,
                 endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201801,
+                startValue: 201800,
                 endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201901,
+                startValue: 201900,
                 endValue: 201950,
                 color: '#F2F3F5'
               },
@@ -16818,7 +16823,7 @@ if(this.color_tick==0)
           cursor: 'pointer',
           itemclick: this.toggleDataSeries.bind(this)
         },
-        axisX: {  minimum:res.res[0].calenderYearWeek-1,
+        axisX: {  
           valueFormatString: '######',
           gridColor: '#ffffff',
           scaleBreaks: {
@@ -16831,31 +16836,31 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201552,
-                endValue: 201601
+                endValue: 201600
               },
               {
                 startValue: 201652,
-                endValue: 201701
+                endValue: 201700
               },
               {
                 startValue: 201752,
-                endValue: 201801
+                endValue: 201800
               },
               {
                 startValue: 201852,
-                endValue: 201901
+                endValue: 201900
               },
               {
                 startValue: 201952,
-                endValue: 202001
+                endValue: 202000
               },
               {
                 startValue: 202052,
-                endValue: 202101
+                endValue: 202100
               },
               {
                 startValue: 202152,
-                endValue: 202201
+                endValue: 202200
               },
               {
                 startValue: 202253,
@@ -16863,38 +16868,38 @@ if(this.color_tick==0)
               },
               {
                 startValue: 202353,
-                endValue: 202400
+                endValue: 202402
               }
             ]
           },
           stripLines: [
             {
-              startValue: 201401,
+              startValue: 201400,
               endValue: 201452,
               color: '#F2F3F5'
             },
             {
-              startValue: 201501,
+              startValue: 201500,
               endValue: 201552,
               color: '#F2F3F5'
             },
             {
-              startValue: 201601,
+              startValue: 201600,
               endValue: 201652,
               color: '#F2F3F5'
             },
             {
-              startValue: 201701,
+              startValue: 201700,
               endValue: 201752,
               color: '#F2F3F5'
             },
             {
-              startValue: 201801,
+              startValue: 201800,
               endValue: 201852,
               color: '#F2F3F5'
             },
             {
-              startValue: 201901,
+              startValue: 201900,
               endValue: 201950,
               color: '#F2F3F5'
             },
@@ -18832,7 +18837,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //       //     cursor: 'pointer',
 //       //     itemclick: this.toggleDataSeries.bind(this)
 //       //   },
-//       //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
+//       //   axisX: {  
 //       //     valueFormatString: '######',
 //       //     gridColor: '#ffffff',
 //       //     scaleBreaks: {
@@ -18840,16 +18845,16 @@ console.log("Checkiiigg--"+this.sumselected)
 //       //       spacing: 0,
 //       //       customBreaks: [
 //       //         {
-//       //           startValue: 201912,
-//       //           endValue: 202001
+//       //           startValue: 201913,
+//       //           endValue: 202000
 //       //         },
 //       //         {
-//       //           startValue: 202012,
-//       //           endValue: 202101
+//       //           startValue: 202013,
+//       //           endValue: 202100
 //       //         },
 //       //         {
 //       //           startValue: 202152,
-//       //           endValue: 202201
+//       //           endValue: 202200
 //       //         },
 //       //         {
 //       //           startValue: 202253,
@@ -18913,7 +18918,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //           fontSize: 10,
 //           itemclick: this.toggleDataSeries1.bind(this)
 //         },
-//         axisX: {  minimum:res.res[0].calenderYearWeek-1,
+//         axisX: {  
 //           valueFormatString: '######',
 //           gridColor: '#ffffff',
 //           theme: "light2",
@@ -18922,20 +18927,20 @@ console.log("Checkiiigg--"+this.sumselected)
 //             spacing: 0,
 //             customBreaks: [
 //               {
-//                 startValue: 201812,
-//                 endValue: 201901
+//                 startValue: 201813,
+//                 endValue: 201900
 //               },
 //               {
-//                 startValue: 201912,
-//                 endValue: 202001
+//                 startValue: 201913,
+//                 endValue: 202000
 //               },
 //               {
 //                 startValue: 202052,
-//                 endValue: 202101
+//                 endValue: 202100
 //               },
 //               {
 //                 startValue: 202152,
-//                 endValue: 202201
+//                 endValue: 202200
 //               },
 //               {
 //                 startValue: 202253,
@@ -19003,7 +19008,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //           cursor: 'pointer',
 //           itemclick: this.toggleDataSeries.bind(this)
 //         },
-//         axisX: {  minimum:res.res[0].calenderYearWeek-1,
+//         axisX: {  
 //           valueFormatString: '######',
 //           gridColor: '#ffffff',
 //           interval: 1,
@@ -19012,16 +19017,16 @@ console.log("Checkiiigg--"+this.sumselected)
 //             spacing: 0,
 //             customBreaks: [
 //               {
-//                 startValue: 201912,
+//                 startValue: 201913,
 //                 endValue: 201999
 //               },
 //               {
 //                 startValue: 202052,
-//                 endValue: 202101
+//                 endValue: 202100
 //               },
 //               {
 //                 startValue: 202152,
-//                 endValue: 202201
+//                 endValue: 202200
 //               },
 //               {
 //                 startValue: 202253,
