@@ -1332,7 +1332,7 @@ public sameName=false;
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1520,7 +1520,7 @@ public sameName=false;
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1700,7 +1700,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -1894,7 +1894,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2066,7 +2066,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2223,7 +2223,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2377,7 +2377,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2531,7 +2531,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 
@@ -2876,7 +2876,7 @@ public sameName=false;
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         console.log('GREYSTART--' + this.greystart);
 
@@ -2931,7 +2931,7 @@ public sameName=false;
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
 interval:this.inter,
@@ -3079,7 +3079,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -3162,7 +3162,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -3407,7 +3407,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -3462,7 +3462,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -3614,7 +3614,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -3697,7 +3697,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval:this.inter,
@@ -3924,7 +3924,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -3979,7 +3979,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -4131,7 +4131,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -4214,7 +4214,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -4445,7 +4445,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -4500,7 +4500,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -4652,7 +4652,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -4735,7 +4735,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -4969,7 +4969,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -5024,7 +5024,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -5176,7 +5176,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -5259,7 +5259,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -5503,7 +5503,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -5558,7 +5558,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -5710,7 +5710,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -5793,7 +5793,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -6042,7 +6042,7 @@ interval:this.inter,
                 this.inter = (res.res.length / 13);
               }
               else{
-                this.inter=2;
+                this.inter=1;
               }
                console.log('GREYSTART--' + this.greystart);
 
@@ -6085,7 +6085,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             interval:this.inter,
             gridColor: '#ffffff',
@@ -6233,7 +6233,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
 
@@ -6348,7 +6348,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -6538,7 +6538,7 @@ interval:this.inter,
     //       cursor: 'pointer',
     //       itemclick: this.toggleDataSeries.bind(this)
     //     },
-    //     axisX: {
+    //     axisX: {  minimum:res.res[0].calenderYearWeek-1,
     //       valueFormatString: '######',
     //       gridColor: '#ffffff',
     //       scaleBreaks: {
@@ -6692,7 +6692,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
 
 
@@ -6744,7 +6744,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval:this.inter,
@@ -6888,7 +6888,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7113,7 +7113,7 @@ interval:this.inter,
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -7157,7 +7157,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -7238,7 +7238,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7392,7 +7392,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7616,7 +7616,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         
         console.log('GREYSTART--' + this.inter);
@@ -7674,7 +7674,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -7755,7 +7755,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -7908,7 +7908,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8150,7 +8150,7 @@ interval:this.inter,
                 this.inter = (res.res.length / 13);
               }
               else{
-                this.inter=2;
+                this.inter=1;
               }
 
                
@@ -8195,7 +8195,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8350,7 +8350,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8585,7 +8585,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -8636,7 +8636,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -8722,7 +8722,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -8881,7 +8881,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9124,7 +9124,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -9175,7 +9175,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -9261,7 +9261,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9420,7 +9420,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9659,7 +9659,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -9710,7 +9710,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -9796,7 +9796,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -9955,7 +9955,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -10196,11 +10196,13 @@ interval:this.inter,
 
         this.greystart = res.start;
         this.greystart = res.start;
+
+        
         if(res.res.length>20){
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -10251,7 +10253,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -10337,7 +10339,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -10490,13 +10492,13 @@ interval:this.inter,
         console.log('132456->' + this.createPlanRequestData.startWeek);
         this.chart1 = new CanvasJS.Chart('chartContainer1', {            title:{             text: " ",             fontStyle: "no",                },
           animationEnabled: true,
-         
+           
           backgroundColor: '#FFFFFF',
           legend: {
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -10742,7 +10744,7 @@ interval:this.inter,
           this.inter = (res.res.length / 13);
         }
         else{
-          this.inter=2;
+          this.inter=1;
         }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
@@ -10793,7 +10795,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -10879,7 +10881,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11038,7 +11040,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11277,7 +11279,7 @@ interval:this.inter,
               this.inter = (res.res.length / 10);
             }
             else{
-              this.inter=2;
+              this.inter=1;
             }
              console.log('GREYSTART--' + this.greystart);
 
@@ -11333,7 +11335,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11487,7 +11489,7 @@ interval:this.inter,
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -11570,7 +11572,7 @@ interval:this.inter,
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -11820,7 +11822,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 13);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -11875,7 +11877,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12027,7 +12029,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -12110,7 +12112,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12355,7 +12357,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -12410,7 +12412,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12558,7 +12560,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -12641,7 +12643,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -12883,7 +12885,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -12938,7 +12940,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13086,7 +13088,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -13169,7 +13171,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13407,7 +13409,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -13462,7 +13464,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13610,7 +13612,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -13693,7 +13695,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -13937,7 +13939,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -13992,7 +13994,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14140,7 +14142,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -14223,7 +14225,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14462,7 +14464,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -14517,7 +14519,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14665,7 +14667,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -14748,7 +14750,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -14989,7 +14991,7 @@ this.granular1="week";
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -15044,7 +15046,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -15192,7 +15194,7 @@ this.granular1="week";
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -15275,7 +15277,7 @@ this.granular1="week";
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -15823,7 +15825,7 @@ if(this.color_tick==0)
                   this.inter = (res.res.length / 10);
                 }
                 else{
-                  this.inter=2;
+                  this.inter=1;
                 }
                  console.log('GREYSTART--' + this.greystart);
 
@@ -15868,7 +15870,7 @@ if(this.color_tick==0)
         //     cursor: 'pointer',
         //     itemclick: this.toggleDataSeries.bind(this)
         //   },
-        //   axisX: {
+        //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
         //     valueFormatString: '######',
         //     gridColor: '#ffffff',
         //     scaleBreaks: {
@@ -15951,7 +15953,7 @@ if(this.color_tick==0)
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             theme: 'light2',
@@ -16100,7 +16102,7 @@ if(this.color_tick==0)
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             // labelFormatter: function(e){
             //   return e.value.toString.slice(4, 6) + '-' + e.value.toString.slice(0, 4);
             // },
@@ -16297,6 +16299,11 @@ if(this.color_tick==0)
       
                this.createPlanRequestData.brands = res.req.brands;
         this.greystart = res.start;
+
+       // var abc = res.res[0].calenderYearWeek;
+
+
+
         this.inter = (res.res.length / 10);
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -16349,7 +16356,8 @@ if(this.color_tick==0)
             fontSize: 10,
             itemclick: this.toggleDataSeries1.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
+          
             // labelFormatter: function(e){
 
             //   console.log("Checking--1212-"+e);
@@ -16506,7 +16514,7 @@ if(this.color_tick==0)
             cursor: 'pointer',
             itemclick: this.toggleDataSeries.bind(this)
           },
-          axisX: {
+          axisX: {  minimum:res.res[0].calenderYearWeek-1,
             valueFormatString: '######',
             gridColor: '#ffffff',
             interval: this.inter,
@@ -16810,7 +16818,7 @@ if(this.color_tick==0)
           cursor: 'pointer',
           itemclick: this.toggleDataSeries.bind(this)
         },
-        axisX: {
+        axisX: {  minimum:res.res[0].calenderYearWeek-1,
           valueFormatString: '######',
           gridColor: '#ffffff',
           scaleBreaks: {
@@ -18824,7 +18832,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //       //     cursor: 'pointer',
 //       //     itemclick: this.toggleDataSeries.bind(this)
 //       //   },
-//       //   axisX: {
+//       //   axisX: {  minimum:res.res[0].calenderYearWeek-1,
 //       //     valueFormatString: '######',
 //       //     gridColor: '#ffffff',
 //       //     scaleBreaks: {
@@ -18905,7 +18913,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //           fontSize: 10,
 //           itemclick: this.toggleDataSeries1.bind(this)
 //         },
-//         axisX: {
+//         axisX: {  minimum:res.res[0].calenderYearWeek-1,
 //           valueFormatString: '######',
 //           gridColor: '#ffffff',
 //           theme: "light2",
@@ -18995,7 +19003,7 @@ console.log("Checkiiigg--"+this.sumselected)
 //           cursor: 'pointer',
 //           itemclick: this.toggleDataSeries.bind(this)
 //         },
-//         axisX: {
+//         axisX: {  minimum:res.res[0].calenderYearWeek-1,
 //           valueFormatString: '######',
 //           gridColor: '#ffffff',
 //           interval: 1,
