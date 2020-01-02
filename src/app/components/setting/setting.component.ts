@@ -164,7 +164,7 @@ for(const abc of this.allusers)
 
       //console.log("sjkhfgksfgrg234---"+JSON.stringify(res));
 
-      window.alert("Successfully added"+JSON.stringify(error));
+      window.alert("Successfully added");
      
       this.skuService.fetchuser().subscribe((res: any) => {
        this.allusers=res;
