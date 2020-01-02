@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: 'https://aurora-springboot.azurewebsites.net/v1/',
+  apiGatewayUrl: 'http://63.33.46.20:8108/v1/',
 };
 
 
