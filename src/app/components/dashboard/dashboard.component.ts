@@ -2872,7 +2872,12 @@ public sameName=false;
         this.greystart = res.start;
 
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
         console.log('GREYSTART--' + this.greystart);
 
 
@@ -2929,7 +2934,7 @@ public sameName=false;
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -3398,7 +3403,12 @@ public sameName=false;
                  this.greystart = res.start;
 
                  this.greystart = res.start;
-                 this.inter = (res.res.length / 10);
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 13);
+                }
+                else{
+                  this.inter=1;
+                }
                  console.log('GREYSTART--' + this.greystart);
 
 
@@ -3690,6 +3700,7 @@ public sameName=false;
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -3909,7 +3920,12 @@ public sameName=false;
                  this.greystart = res.start;
 
                  this.greystart = res.start;
-                 this.inter = (res.res.length / 10);
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 13);
+                }
+                else{
+                  this.inter=1;
+                }
                  console.log('GREYSTART--' + this.greystart);
 
 
@@ -4200,6 +4216,7 @@ public sameName=false;
           },
           axisX: {
             valueFormatString: '######',
+            interval:this.inter,
             gridColor: '#ffffff',
             scaleBreaks: {
               type: 'blank',
@@ -4424,7 +4441,12 @@ public sameName=false;
                  this.greystart = res.start;
 
                  this.greystart = res.start;
-                 this.inter = (res.res.length / 10);
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 13);
+                }
+                else{
+                  this.inter=1;
+                }
                  console.log('GREYSTART--' + this.greystart);
 
 
@@ -4715,6 +4737,7 @@ public sameName=false;
           },
           axisX: {
             valueFormatString: '######',
+            interval:this.inter,
             gridColor: '#ffffff',
             scaleBreaks: {
               type: 'blank',
@@ -4942,7 +4965,12 @@ public sameName=false;
                  this.greystart = res.start;
 
                  this.greystart = res.start;
-                 this.inter = (res.res.length / 10);
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 13);
+                }
+                else{
+                  this.inter=1;
+                }
                  console.log('GREYSTART--' + this.greystart);
 
 
@@ -5233,6 +5261,7 @@ public sameName=false;
           },
           axisX: {
             valueFormatString: '######',
+            interval:this.inter,
             gridColor: '#ffffff',
             scaleBreaks: {
               type: 'blank',
@@ -5470,7 +5499,12 @@ public sameName=false;
                  this.greystart = res.start;
 
                  this.greystart = res.start;
-                 this.inter = (res.res.length / 10);
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 13);
+                }
+                else{
+                  this.inter=1;
+                }
                  console.log('GREYSTART--' + this.greystart);
 
 
@@ -5761,6 +5795,7 @@ public sameName=false;
           },
           axisX: {
             valueFormatString: '######',
+            interval:this.inter,
             gridColor: '#ffffff',
             scaleBreaks: {
               type: 'blank',
@@ -6003,7 +6038,12 @@ public sameName=false;
                this.granular1="week";
 
                this.greystart = res.start;
-               this.inter = (res.res.length / 10);
+               if(res.res.length>20){
+                this.inter = (res.res.length / 13);
+              }
+              else{
+                this.inter=1;
+              }
                console.log('GREYSTART--' + this.greystart);
 
 
@@ -6047,6 +6087,7 @@ public sameName=false;
           },
           axisX: {
             valueFormatString: '######',
+            interval:this.inter,
             gridColor: '#ffffff',
             scaleBreaks: {
               type: 'blank',
@@ -6647,8 +6688,12 @@ public sameName=false;
         this.granular1="week";
 
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
-        console.log('GREYSTART--' + this.greystart);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
 
 
         this.createPlanRequestData.brands = res.req.brands;
@@ -6702,6 +6747,7 @@ public sameName=false;
           axisX: {
             valueFormatString: '######',
             gridColor: '#ffffff',
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -8083,6 +8129,8 @@ public sameName=false;
         }
 
       
+        this.inter = (res.res.length / 10);
+        console.log('GREYSTART--' + this.greystart);
                this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
        
                this.allComments_harshit=[];
@@ -8098,9 +8146,12 @@ public sameName=false;
 
                this.granular1="week";
 
-               this.greystart = res.start;
-               this.inter = (res.res.length / 10);
-               console.log('GREYSTART--' + this.greystart);
+               if(res.res.length>20){
+                this.inter = (res.res.length / 13);
+              }
+              else{
+                this.inter=1;
+              }
 
                
         this.createPlanRequestData.brands = res.req.brands;
@@ -8530,7 +8581,12 @@ public sameName=false;
 
         this.greystart = res.start;
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -9064,7 +9120,12 @@ public sameName=false;
 
         this.greystart = res.start;
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -9594,7 +9655,12 @@ public sameName=false;
 
         this.greystart = res.start;
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -10130,7 +10196,12 @@ public sameName=false;
 
         this.greystart = res.start;
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -10667,7 +10738,12 @@ public sameName=false;
 
         this.greystart = res.start;
         this.greystart = res.start;
-        this.inter = (res.res.length / 10);
+        if(res.res.length>20){
+          this.inter = (res.res.length / 13);
+        }
+        else{
+          this.inter=1;
+        }
         console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.brands = res.req.brands;
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -11740,7 +11816,12 @@ this.granular1="week";
                  this.greystart = res.start;
 
                  this.greystart = res.start;
-                 this.inter = (res.res.length / 10);
+                 if(res.res.length>20){
+                  this.inter = (res.res.length / 13);
+                }
+                else{
+                  this.inter=1;
+                }
                  console.log('GREYSTART--' + this.greystart);
 
 

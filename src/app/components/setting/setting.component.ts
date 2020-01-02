@@ -114,7 +114,7 @@ for(const abc of this.allusers)
 {
   if(this.username == abc.username)
   {
-      window.alert("Please enter a different username");
+      window.alert("User already exists, please try a different username");
       return;
   }
 }
