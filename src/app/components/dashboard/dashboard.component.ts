@@ -342,7 +342,9 @@ public sameName=false;
 
   ngOnInit() {
 
+    this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
 
+    console.log('Hhsdfh--' + JSON.stringify(this.update));
 
     this.role=sessionStorage.getItem("role");
 
@@ -1339,75 +1341,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -1528,82 +1530,82 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201412,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
                   startValue: 201512,
-                  endValue: 201600
+                  endValue: 201601
                 },
                 {
                   startValue: 201612,
-                  endValue: 201700
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
-                  endValue: 202300
+                  startValue: 202212,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202313,
-                  endValue: 202400
+                  startValue: 202312,
+                  endValue: 202401
                 },
                 {
-                  startValue: 202413,
-                  endValue: 202500
+                  startValue: 202412,
+                  endValue: 202501
                 },
                 {
-                  startValue: 202513,
-                  endValue: 202600
+                  startValue: 202512,
+                  endValue: 202601
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -1707,83 +1709,83 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
-                  endValue: 202300
+                  startValue: 202212,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202313,
-                  endValue: 202400
+                  startValue: 202312,
+                  endValue: 202401
                 },
                 {
-                  startValue: 202413,
-                  endValue: 202500
+                  startValue: 202412,
+                  endValue: 202501
                 },
                 {
-                  startValue: 202513,
-                  endValue: 202600
+                  startValue: 202512,
+                  endValue: 202601
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -1901,75 +1903,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -2073,71 +2075,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
-                  endValue: 202300
+                  startValue: 202212,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -2230,71 +2232,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -2384,71 +2386,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -2539,35 +2541,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -2577,32 +2579,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -2933,71 +2935,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -3080,16 +3082,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -3164,79 +3166,79 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 },
                 {
-                  startValue: 202453,
-                  endValue: 202500
+                  startValue: 202452,
+                  endValue: 202501
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -3459,75 +3461,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -3610,16 +3612,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -3693,71 +3695,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -3970,75 +3972,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -4121,16 +4123,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -4205,35 +4207,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -4243,32 +4245,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -4485,75 +4487,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -4636,16 +4638,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -4719,71 +4721,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -5003,75 +5005,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -5154,16 +5156,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -5237,71 +5239,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -5531,75 +5533,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 },
                 {
-                  startValue: 202353,
-                  endValue: 202400
+                  startValue: 202352,
+                  endValue: 202401
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -5682,16 +5684,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -5765,71 +5767,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -6051,71 +6053,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -6199,20 +6201,20 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201853,
-        //           endValue: 201900
+        //           startValue: 201852,
+        //           endValue: 201901
         //         },
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -6314,71 +6316,71 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -6503,16 +6505,16 @@ public sameName=false;
     //         spacing: 0,
     //         customBreaks: [
     //           {
-    //             startValue: 201953,
-    //             endValue: 202000
+    //             startValue: 201952,
+    //             endValue: 202001
     //           },
     //           {
-    //             startValue: 202053,
-    //             endValue: 202100
+    //             startValue: 202052,
+    //             endValue: 202101
     //           },
     //           {
-    //             startValue: 202153,
-    //             endValue: 202200
+    //             startValue: 202152,
+    //             endValue: 202201
     //           },
     //           {
     //             startValue: 202253,
@@ -6705,36 +6707,36 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201451,
+                  endValue: 2015021
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -6748,32 +6750,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -6850,35 +6852,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -6892,32 +6894,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -7117,16 +7119,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201913,
-        //           endValue: 202000
+        //           startValue: 201912,
+        //           endValue: 202001
         //         },
         //         {
         //           startValue: 202012,
-        //           endValue: 202100
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -7199,83 +7201,83 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -7354,27 +7356,27 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201412,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
                   startValue: 201512,
-                  endValue: 201600
+                  endValue: 201601
                 },
                 {
                   startValue: 201612,
-                  endValue: 201700
+                  endValue: 201701
                 },
                 {
                   startValue: 201712,
-                  endValue: 201800
+                  endValue: 201801
                 },
                 {
                   startValue: 201812,
-                  endValue: 201900
+                  endValue: 201901
                 },
                 {
                   startValue: 201912,
-                  endValue: 202000
+                  endValue: 202001
                 },
                 {
                   startValue: 202012,
@@ -7382,7 +7384,7 @@ public sameName=false;
                 },
                 {
                   startValue: 202112,
-                  endValue: 202200
+                  endValue: 202201
                 },
                 {
                   startValue: 202212,
@@ -7396,32 +7398,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
+                startValue: 201401,
                 endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
+                startValue: 201501,
                 endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
+                startValue: 201601,
                 endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
+                startValue: 201701,
                 endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
+                startValue: 201801,
                 endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -7634,16 +7636,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201913,
-        //           endValue: 202000
+        //           startValue: 201912,
+        //           endValue: 202001
         //         },
         //         {
         //           startValue: 202012,
-        //           endValue: 202100
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -7717,35 +7719,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201412,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
                   startValue: 201512,
-                  endValue: 201600
+                  endValue: 201601
                 },
                 {
                   startValue: 201612,
-                  endValue: 201700
+                  endValue: 201701
                 },
                 {
                   startValue: 201712,
-                  endValue: 201800
+                  endValue: 201801
                 },
                 {
                   startValue: 201812,
-                  endValue: 201900
+                  endValue: 201901
                 },
                 {
                   startValue: 201912,
-                  endValue: 202000
+                  endValue: 202001
                 },
                 {
                   startValue: 202012,
-                  endValue: 202100
+                  endValue: 202101
                 },
                 {
                   startValue: 202112,
-                  endValue: 202200
+                  endValue: 202201
                 },
                 {
                   startValue: 202212,
@@ -7759,32 +7761,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
+                startValue: 201401,
                 endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
+                startValue: 201501,
                 endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
+                startValue: 201601,
                 endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
+                startValue: 201701,
                 endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
+                startValue: 201801,
                 endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -7869,75 +7871,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -8151,36 +8153,36 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -8194,32 +8196,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -8306,40 +8308,40 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201353,
-                  endValue: 201400
+                  startValue: 201352,
+                  endValue: 201401
                 },
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -8353,32 +8355,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -8586,16 +8588,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -8674,35 +8676,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -8716,32 +8718,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -8833,35 +8835,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -8879,32 +8881,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -9120,16 +9122,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -9208,35 +9210,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -9250,32 +9252,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -9367,35 +9369,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -9413,32 +9415,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -9650,16 +9652,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -9738,35 +9740,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -9780,32 +9782,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -9897,35 +9899,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -9943,32 +9945,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -10186,16 +10188,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -10274,35 +10276,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -10316,32 +10318,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -10433,35 +10435,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -10479,32 +10481,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -10723,16 +10725,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -10810,36 +10812,36 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -10853,32 +10855,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -10970,35 +10972,35 @@ public sameName=false;
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -11016,32 +11018,32 @@ public sameName=false;
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -11264,75 +11266,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -11417,16 +11419,16 @@ public sameName=false;
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -11501,75 +11503,75 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -11802,35 +11804,35 @@ this.granular1="week";
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -11840,32 +11842,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -11952,16 +11954,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -12037,35 +12039,35 @@ this.granular1="week";
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -12079,32 +12081,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -12336,71 +12338,71 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -12483,16 +12485,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -12567,75 +12569,75 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -12864,71 +12866,71 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
-                  endValue: 202300
+                  startValue: 202212,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13011,16 +13013,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -13095,75 +13097,75 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13388,36 +13390,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202213,
@@ -13427,32 +13429,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13535,16 +13537,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -13619,36 +13621,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
                   startValue: 202113,
-                  endValue: 202200
+                  endValue: 202201
                 },
                 {
                   startValue: 202213,
@@ -13662,32 +13664,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -13918,71 +13920,71 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
-                  endValue: 202300
+                  startValue: 202212,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14065,16 +14067,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -14149,36 +14151,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
                   startValue: 202113,
-                  endValue: 202200
+                  endValue: 202201
                 },
                 {
                   startValue: 202213,
@@ -14192,32 +14194,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14443,36 +14445,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202213,
@@ -14482,32 +14484,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14590,16 +14592,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -14674,36 +14676,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
                   startValue: 202113,
-                  endValue: 202200
+                  endValue: 202201
                 },
                 {
                   startValue: 202213,
@@ -14717,32 +14719,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -14970,36 +14972,36 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202213,
@@ -15009,32 +15011,32 @@ this.granular1="week";
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -15117,16 +15119,16 @@ this.granular1="week";
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201953,
-        //           endValue: 202000
+        //           startValue: 201952,
+        //           endValue: 202001
         //         },
         //         {
-        //           startValue: 202053,
-        //           endValue: 202100
+        //           startValue: 202052,
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -15201,75 +15203,75 @@ this.granular1="week";
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202013,
-                  endValue: 202100
+                  startValue: 202012,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202113,
-                  endValue: 202200
+                  startValue: 202112,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202300
                 },
                 {
-                  startValue: 202313,
+                  startValue: 202312,
                   endValue: 202400
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201413,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201513,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201613,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201713,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201813,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201910,
                 color: '#F2F3F5'
               },
@@ -15482,9 +15484,7 @@ this.granular1="week";
     document.getElementById('c').style.background = '';
     document.getElementById('w').style.background = '';
 
-    this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
 
-    console.log('Hhsdfh--' + JSON.stringify(this.update));
     this.main = true;
     this.comment12 = false;
     this.weeklycomment = false;
@@ -15663,6 +15663,21 @@ if(this.color_tick==0)
 
     console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
 
+
+
+    this.planningtable = 'Planning table (HL)';
+
+
+
+
+    document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+    this.forecastinganalysis = 'Forecast Analysis (HL)';
+    this.featureanalysis='Feature Analysis (HL)';
+
     this.deactivate();
     this.featureanalysis='Feature Analysis (HL)';
     // document.getElementById('apply_filter').style.background='#17b169';
@@ -15780,16 +15795,16 @@ if(this.color_tick==0)
         //       spacing: 0,
         //       customBreaks: [
         //         {
-        //           startValue: 201913,
-        //           endValue: 202000
+        //           startValue: 201912,
+        //           endValue: 202001
         //         },
         //         {
         //           startValue: 202012,
-        //           endValue: 202100
+        //           endValue: 202101
         //         },
         //         {
-        //           startValue: 202153,
-        //           endValue: 202200
+        //           startValue: 202152,
+        //           endValue: 202201
         //         },
         //         {
         //           startValue: 202253,
@@ -15865,36 +15880,36 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -15904,32 +15919,32 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -16016,36 +16031,36 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
-                  endValue: 201500
+                  startValue: 201412,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201513,
-                  endValue: 201600
+                  startValue: 201512,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201613,
-                  endValue: 201700
+                  startValue: 201612,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201713,
-                  endValue: 201800
+                  startValue: 201712,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201813,
-                  endValue: 201900
+                  startValue: 201812,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201913,
-                  endValue: 202000
+                  startValue: 201912,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -16060,22 +16075,22 @@ if(this.color_tick==0)
             stripLines: [
               {
                 startValue: 201910,
-                endValue: 201913,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
               {
                 startValue: 202000,
-                endValue: 202013,
+                endValue: 202012,
                 color: '#F2F3F5'
               },
               {
                 startValue: 202100,
-                endValue: 202113,
+                endValue: 202112,
                 color: '#F2F3F5'
               },
               {
                 startValue: 202200,
-                endValue: 202213,
+                endValue: 202212,
                 color: '#F2F3F5'
               }
             ]
@@ -16268,71 +16283,71 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201453,
-                  endValue: 201500
+                  startValue: 201452,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
-                  startValue: 202253,
-                  endValue: 202300
+                  startValue: 202252,
+                  endValue: 202301
                 }
               ]
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -16420,35 +16435,35 @@ if(this.color_tick==0)
               customBreaks: [
                 {
                   startValue: 201453,
-                  endValue: 201500
+                  endValue: 201501
                 },
                 {
-                  startValue: 201553,
-                  endValue: 201600
+                  startValue: 201552,
+                  endValue: 201601
                 },
                 {
-                  startValue: 201653,
-                  endValue: 201700
+                  startValue: 201652,
+                  endValue: 201701
                 },
                 {
-                  startValue: 201753,
-                  endValue: 201800
+                  startValue: 201752,
+                  endValue: 201801
                 },
                 {
-                  startValue: 201853,
-                  endValue: 201900
+                  startValue: 201852,
+                  endValue: 201901
                 },
                 {
-                  startValue: 201953,
-                  endValue: 202000
+                  startValue: 201952,
+                  endValue: 202001
                 },
                 {
-                  startValue: 202053,
-                  endValue: 202100
+                  startValue: 202052,
+                  endValue: 202101
                 },
                 {
-                  startValue: 202153,
-                  endValue: 202200
+                  startValue: 202152,
+                  endValue: 202201
                 },
                 {
                   startValue: 202253,
@@ -16462,32 +16477,32 @@ if(this.color_tick==0)
             },
             stripLines: [
               {
-                startValue: 201400,
-                endValue: 201453,
+                startValue: 201401,
+                endValue: 201452,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201500,
-                endValue: 201553,
+                startValue: 201501,
+                endValue: 201552,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201600,
-                endValue: 201653,
+                startValue: 201601,
+                endValue: 201652,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201700,
-                endValue: 201753,
+                startValue: 201701,
+                endValue: 201752,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201800,
-                endValue: 201853,
+                startValue: 201801,
+                endValue: 201852,
                 color: '#F2F3F5'
               },
               {
-                startValue: 201900,
+                startValue: 201901,
                 endValue: 201949,
                 color: '#F2F3F5'
               },
@@ -16723,35 +16738,35 @@ if(this.color_tick==0)
             customBreaks: [
               {
                 startValue: 201453,
-                endValue: 201500
+                endValue: 201501
               },
               {
-                startValue: 201553,
-                endValue: 201600
+                startValue: 201552,
+                endValue: 201601
               },
               {
-                startValue: 201653,
-                endValue: 201700
+                startValue: 201652,
+                endValue: 201701
               },
               {
-                startValue: 201753,
-                endValue: 201800
+                startValue: 201752,
+                endValue: 201801
               },
               {
-                startValue: 201853,
-                endValue: 201900
+                startValue: 201852,
+                endValue: 201901
               },
               {
-                startValue: 201953,
-                endValue: 202000
+                startValue: 201952,
+                endValue: 202001
               },
               {
-                startValue: 202053,
-                endValue: 202100
+                startValue: 202052,
+                endValue: 202101
               },
               {
-                startValue: 202153,
-                endValue: 202200
+                startValue: 202152,
+                endValue: 202201
               },
               {
                 startValue: 202253,
@@ -16765,32 +16780,32 @@ if(this.color_tick==0)
           },
           stripLines: [
             {
-              startValue: 201400,
-              endValue: 201453,
+              startValue: 201401,
+              endValue: 201452,
               color: '#F2F3F5'
             },
             {
-              startValue: 201500,
-              endValue: 201553,
+              startValue: 201501,
+              endValue: 201552,
               color: '#F2F3F5'
             },
             {
-              startValue: 201600,
-              endValue: 201653,
+              startValue: 201601,
+              endValue: 201652,
               color: '#F2F3F5'
             },
             {
-              startValue: 201700,
-              endValue: 201753,
+              startValue: 201701,
+              endValue: 201752,
               color: '#F2F3F5'
             },
             {
-              startValue: 201800,
-              endValue: 201853,
+              startValue: 201801,
+              endValue: 201852,
               color: '#F2F3F5'
             },
             {
-              startValue: 201900,
+              startValue: 201901,
               endValue: 201949,
               color: '#F2F3F5'
             },
@@ -18080,21 +18095,23 @@ if(this.color_tick==0)
 
         this.skuService.skuname(g1).subscribe((res: any) => {
 
-         // console.log("Fdfdfd")
+         console.log("Fdfdfd" +JSON.stringify(res));
+
+         this.reactivate_filter(1);
+         this.skus = res.map(item => {
+           return {
+             name: item,
+             isChecked: true
+             , isFiltered:true
+           };
+         });
+         this.fgssselected=JSON.parse(JSON.stringify(this.skus));
         }, (error) => {
 
         });
 
         
-        this.reactivate_filter(1);
-        this.skus = g1.map(item => {
-          return {
-            name: item,
-            isChecked: true
-            , isFiltered:true
-          };
-        });
-        this.fgssselected=JSON.parse(JSON.stringify(this.skus));
+       
 
         console.log('harshit1212----' + csv.split('\n')[1]);
       };
@@ -18734,16 +18751,16 @@ console.log("Checkiiigg--"+this.sumselected)
 //       //       spacing: 0,
 //       //       customBreaks: [
 //       //         {
-//       //           startValue: 201913,
-//       //           endValue: 202000
+//       //           startValue: 201912,
+//       //           endValue: 202001
 //       //         },
 //       //         {
 //       //           startValue: 202012,
-//       //           endValue: 202100
+//       //           endValue: 202101
 //       //         },
 //       //         {
-//       //           startValue: 202153,
-//       //           endValue: 202200
+//       //           startValue: 202152,
+//       //           endValue: 202201
 //       //         },
 //       //         {
 //       //           startValue: 202253,
@@ -18816,20 +18833,20 @@ console.log("Checkiiigg--"+this.sumselected)
 //             spacing: 0,
 //             customBreaks: [
 //               {
-//                 startValue: 201813,
-//                 endValue: 201900
+//                 startValue: 201812,
+//                 endValue: 201901
 //               },
 //               {
-//                 startValue: 201913,
-//                 endValue: 202000
+//                 startValue: 201912,
+//                 endValue: 202001
 //               },
 //               {
-//                 startValue: 202053,
-//                 endValue: 202100
+//                 startValue: 202052,
+//                 endValue: 202101
 //               },
 //               {
-//                 startValue: 202153,
-//                 endValue: 202200
+//                 startValue: 202152,
+//                 endValue: 202201
 //               },
 //               {
 //                 startValue: 202253,
@@ -18906,16 +18923,16 @@ console.log("Checkiiigg--"+this.sumselected)
 //             spacing: 0,
 //             customBreaks: [
 //               {
-//                 startValue: 201913,
+//                 startValue: 201912,
 //                 endValue: 201999
 //               },
 //               {
-//                 startValue: 202053,
-//                 endValue: 202100
+//                 startValue: 202052,
+//                 endValue: 202101
 //               },
 //               {
-//                 startValue: 202153,
-//                 endValue: 202200
+//                 startValue: 202152,
+//                 endValue: 202201
 //               },
 //               {
 //                 startValue: 202253,
@@ -20389,23 +20406,25 @@ console.log("Checkiiigg--"+this.sumselected)
     this.dropdown_table = 'week';
     this.finn = [];
 
+    
+
     console.log("previouscheck---"+JSON.stringify(this.graphData));
     this.selectedWeekComments = this.graphData[i].userComment;
-
+    let thyh=this.graphData[i].newweek;
     console.log('Pyar--' + JSON.stringify(this.selectedWeekComments));
     console.log('Check01234567---' + JSON.stringify(this.selectedWeekComments));
     for (var p = 0; p < this.selectedWeekComments.length; p++) {
       console.log('yj-:' + p);
       this.comm1 = this.selectedWeekComments[p].split('|');
 
-      console.log('KJKHU---' + this.comm1[1]);
+      console.log('KJKHU---' + JSON.stringify(this.comm1));
       if (this.comm1[1] == undefined || this.comm1 == null) {
         console.log('@$#%^&*');
 
         this.comm1[1] = 'All SKU';
       }
-      console.log('Test133--' + JSON.stringify(this.fgssselected));
-      console.log('Test133443--' + JSON.stringify(this.skus));
+      console.log('Test13334567896789678--' + thyh);
+  
       for(const pl of this.plantss)
       {
         for(const cpg of this.cpgss)
@@ -20414,6 +20433,7 @@ console.log("Checkiiigg--"+this.sumselected)
             console.log('Chefking---' + JSON.stringify(ab));
             if (ab.isChecked) {
               this.finn.push({
+                week:thyh,
                 sku: ab.name,
                 plant: pl,
                 cpg: cpg,
@@ -20442,6 +20462,7 @@ console.log("Checkiiigg--"+this.sumselected)
     {
       console.log("ewewe--"+fg);
       this.finn.push({
+        week:thyh,
         sku: fg.split('|')[1],
         plant: fg.split('|')[2],
         cpg: fg.split('|')[3],
@@ -20725,7 +20746,7 @@ console.log("Checkiiigg--"+this.sumselected)
     }
 
 
-    const login = {
+    var login = {
       Username: 'admin',
       activity: 'Saved Plan',
       datetimestamp: JSON.stringify(this.update)
@@ -21195,7 +21216,7 @@ console.log("Checkiiigg--"+this.sumselected)
     this.featureanalysis='Feature Analysis (HL)';
 
 
-    
+
     console.log('Tftdfwfvc46v675gg7uuubjy---' + JSON.stringify(selectedFilter));
     // Todo: Change keys
     // this.filters_plant[0].values = selectedFilter.plant.map(item => {

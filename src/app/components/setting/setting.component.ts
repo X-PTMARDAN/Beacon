@@ -109,6 +109,16 @@ export class SettingComponent implements OnInit {
 
 public adduser()
 {
+
+for(const abc of this.allusers)
+{
+  if(this.username == abc.username)
+  {
+      window.alert("Please enter a different username");
+      return;
+  }
+}
+ 
     var a={
       username:this.username,
       password:this.password,
@@ -135,6 +145,15 @@ public adduser()
 
  console.log("sjkhfgksfgrg234---"+JSON.stringify(res));
 
+ window.alert("Successfully added");
+
+ this.skuService.fetchuser().subscribe((res: any) => {
+  this.allusers=res;
+
+  console.log("sjkhfgksfgrg---"+JSON.stringify(this.allLogs));
+
+});
+
     }, (error) => {
       // this.allComments = res.map((item) => {
       //   item.isSelected = false;
@@ -142,6 +161,19 @@ public adduser()
       //   return item;
       // });
       // console.log("fgfgfgfg-----"+this.allComments);
+
+      //console.log("sjkhfgksfgrg234---"+JSON.stringify(res));
+
+      window.alert("Successfully added"+JSON.stringify(error));
+     
+      this.skuService.fetchuser().subscribe((res: any) => {
+       this.allusers=res;
+     
+       console.log("sjkhfgksfgrg---"+JSON.stringify(this.allLogs));
+     
+     });
+
+
     });
 
 
