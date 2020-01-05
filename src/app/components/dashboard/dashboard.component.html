@@ -858,11 +858,11 @@
                       <tr>
                         <th>Forecasting Group</th>
                         
-                        
-                        <!-- <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.forecastingGroups" >
+<!--                         
+                        <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.forecastingGroups" >
                             <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
-                          </th> -->
-                        
+                          </th> 
+                         -->
                         
                         <!-- <th>{{createPlanRequestData.forecastingGroups}}</th></tr> -->
 
@@ -870,10 +870,10 @@
                             <th>Plant</th>
                             
                             
-                            <!-- <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.plants" >
+                           <!-- <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.plants" >
                                 <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
-                              </th>
-                             -->
+                              </th> -->
+                             
                             
 
                             <tr>
@@ -881,7 +881,7 @@
                                 
                                 <!-- <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.customerPlanningGroup" >
                                     <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
-                                  </th> -->
+                                  </th>  -->
                                 
                                 
                                 
@@ -2280,7 +2280,7 @@
               <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                    (click)="filterItemClick(i)">
                 {{ i + 1 }}<span> {{ filter.name }} <span
-                style="color: #17b169;margin-left:20px">{{filter.default_Val}}</span><span><i class="fa fa-close" (click)="delfilter(i)"></i></span></span>
+                style="color: #17b169;margin-left:20px">{{filter.default_Val}}</span><span><i style="float:right;"class="fa fa-close" (click)="delfilter(i)"></i></span></span>
 
 
               </div>

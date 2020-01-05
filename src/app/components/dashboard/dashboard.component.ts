@@ -21769,7 +21769,9 @@ this.UOM='HL';
     //   return {name: item, isChecked: true, isFiltered:true};
     // });
 
-
+    data.prevactuals=this.createPlanRequestData.prevactuals;
+data.endWeek=this.createPlanRequestData.endWeek;
+    
     
     console.log('FINAL_LOADING_DDD--' + JSON.stringify(data));
     this.createPlan(data);
