@@ -1606,7 +1606,7 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -1662,14 +1662,34 @@ public sameName=false;
       {
         this.featureanalysis='Feature Analysis (HL)';
       }
-      else if(this.UOM='PC')
+      else if(this.UOM=='PC')
       {
         this.featureanalysis='Feature Analysis (PC)';
       }
 
-      else if(this.UOM='L')
+      else if(this.UOM=='L')
       {
         this.featureanalysis='Feature Analysis (L)';
+      }
+
+      else if(this.UOM=='PAL')
+      {
+        this.featureanalysis='Feature Analysis (PAL)';
+      }
+
+      else if(this.UOM=='PPU')
+      {
+        this.featureanalysis='Feature Analysis (PPU)';
+      }
+      
+
+      else if(this.UOM=='BOT')
+      {
+        this.featureanalysis='Feature Analysis (BOT)';
+      }
+      else if(this.UOM=='CU')
+      {
+        this.featureanalysis='Feature Analysis (CU)';
       }
       this.createPlanRequestData.which_feature = 'Baseline';
       this.skuService.getFeatureGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
@@ -1709,39 +1729,39 @@ public sameName=false;
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
+                  startValue: 201412,
                   endValue: 201501
                 },
                 {
-                  startValue: 201513,
+                  startValue: 201512,
                   endValue: 201600
                 },
                 {
-                  startValue: 201613,
+                  startValue: 201612,
                   endValue: 201700
                 },
                 {
-                  startValue: 201713,
+                  startValue: 201712,
                   endValue: 201800
                 },
                 {
-                  startValue: 201813,
+                  startValue: 201812,
                   endValue: 201900
                 },
                 {
-                  startValue: 201913,
+                  startValue: 201912,
                   endValue: 202000
                 },
                 {
-                  startValue: 202013,
+                  startValue: 202012,
                   endValue: 202100
                 },
                 {
-                  startValue: 202113,
+                  startValue: 202112,
                   endValue: 202200
                 },
                 {
-                  startValue: 202213,
+                  startValue: 202212,
                   endValue: 202301
                 },
                 {
@@ -1761,32 +1781,32 @@ public sameName=false;
             stripLines: [
               {
                 startValue: 201400,
-                endValue: 201452,
+                endValue: 201412,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201500,
-                endValue: 201552,
+                endValue: 201512,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201600,
-                endValue: 201652,
+                endValue: 201612,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201700,
-                endValue: 201752,
+                endValue: 201712,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201800,
-                endValue: 201852,
+                endValue: 201812,
                 color: '#F2F3F5'
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -1854,14 +1874,35 @@ public sameName=false;
       {
         this.featureanalysis='Feature Analysis (HL)';
       }
-      else if(this.UOM='PC')
+      else if(this.UOM=='PC')
       {
         this.featureanalysis='Feature Analysis (PC)';
       }
 
-      else if(this.UOM='L')
+      else if(this.UOM=='L')
       {
         this.featureanalysis='Feature Analysis (L)';
+      }
+
+
+      else if(this.UOM=='PAL')
+      {
+        this.featureanalysis='Feature Analysis (PAL)';
+      }
+
+      else if(this.UOM=='PPU')
+      {
+        this.featureanalysis='Feature Analysis (PPU)';
+      }
+      
+
+      else if(this.UOM=='BOT')
+      {
+        this.featureanalysis='Feature Analysis (BOT)';
+      }
+      else if(this.UOM=='CU')
+      {
+        this.featureanalysis='Feature Analysis (CU)';
       }
 
 
@@ -2140,7 +2181,7 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -7324,7 +7365,7 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -7470,7 +7511,7 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -7833,7 +7874,7 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -7986,7 +8027,7 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -11413,7 +11454,7 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -11650,7 +11691,7 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -12486,7 +12527,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -12721,7 +12762,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -13014,7 +13055,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -13249,7 +13290,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -13538,7 +13579,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -13773,7 +13814,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -14068,7 +14109,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -14303,7 +14344,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -14593,7 +14634,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -14828,7 +14869,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -15120,7 +15161,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
             ]
@@ -15355,7 +15396,7 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201910,
+                endValue: 201911,
                 color: '#F2F3F5'
               },
 
@@ -16114,35 +16155,35 @@ if(this.color_tick==0)
               spacing: 0,
               customBreaks: [
                 {
-                  startValue: 201413,
+                  startValue: 201412,
                   endValue: 201501
                 },
                 {
-                  startValue: 201513,
+                  startValue: 201512,
                   endValue: 201600
                 },
                 {
-                  startValue: 201613,
+                  startValue: 201612,
                   endValue: 201700
                 },
                 {
-                  startValue: 201713,
+                  startValue: 201712,
                   endValue: 201800
                 },
                 {
-                  startValue: 201813,
+                  startValue: 201812,
                   endValue: 201900
                 },
                 {
-                  startValue: 201913,
+                  startValue: 201912,
                   endValue: 202000
                 },
                 {
-                  startValue: 202052,
+                  startValue: 202012,
                   endValue: 202100
                 },
                 {
-                  startValue: 202152,
+                  startValue: 202112,
                   endValue: 202200
                 },
                 {
@@ -16993,7 +17034,7 @@ if(this.color_tick==0)
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     //var workSheet = XLSX.utils.json_to_sheet(records);
 
-    // const ws1: XLSX.WorkSheet=XLSX.utils.json_to_sheet(this.createPlanRequestData.forecastingGroups);
+   //  const ws1: XLSX.WorkSheet=XLSX.utils.json_to_sheet(this.createPlanRequestData.forecastingGroups);
     // XLSX.utils.book_append_sheet(wb, ws1, "Sheet2");
     const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
 
