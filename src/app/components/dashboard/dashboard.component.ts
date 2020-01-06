@@ -568,8 +568,8 @@ public sameName=false;
 
 
 
-        this.skuService.fetchHorizon().subscribe((response: any) => {
-          this.prevactuals_val=response;
+      //  this.skuService.fetchHorizon().subscribe((response: any) => {
+          this.prevactuals_val=201910;
           console.log("DEBUG0909---"+this.prevactuals);
 
           this.prevactuals=response.toString().substr(0,4)+"-W"+response.toString().substr(4,6);
@@ -915,7 +915,7 @@ public sameName=false;
 
           });
 
-          });
+        //  });
 
 
 
