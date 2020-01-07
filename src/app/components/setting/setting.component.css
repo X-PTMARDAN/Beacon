@@ -10,6 +10,26 @@
   padding: 10px;
 }
 
+
+.first-container {
+
+  width: 60%!important;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.login-container {
+ /* background-color: #264A35;*/
+ 
+  width:40%!important;
+  color: #ffffff;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+
 /* Clear floats after the columns */
 .row:after {
   content: "";

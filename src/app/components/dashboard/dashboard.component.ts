@@ -124,6 +124,9 @@ public allselectedweek: any=[];
 
   public searchcpg;
 
+
+  public plan;
+
   public UOM = 'HL';
   public loading = false;
   // Filters
@@ -154,7 +157,7 @@ public allselectedweek: any=[];
 
   public allComments: any = [];
 
-
+public plan_val;
   public main = true;
   public plant_string;
   public cpg_string;
@@ -568,16 +571,33 @@ public sameName=false;
 
 
 
-        this.skuService.fetchHorizon().subscribe((response: any) => {
-          this.prevactuals_val=response;
-          console.log("DEBUG0909---"+this.prevactuals);
+    //  this.skuService.fetchHorizon().subscribe((response: any) => {
 
-          this.prevactuals=response.toString().substr(0,4)+"-W"+response.toString().substr(4,6);
+    //       console.log("DEBUG0909---"+this.prevactuals);
+
+    //        console.log("DEBUG09091---"+this.plan);
+    //       this.prevactuals_val=parseInt(response.split('|')[0]);
+    //     console.log("DEBUG0909---"+this.prevactuals);
+
+    //     console.log("DEBUG09091---"+this.plan);
+
+    //        this.plan_val=parseInt(response.split('|')[1]);
+    //        console.log("DEBUG0909---"+this.prevactuals);
+
+    //        console.log("DEBUG09091---"+this.plan);
+    //     console.log("DEBUG0909---"+this.prevactuals);
+
+    //       console.log("DEBUG09091---"+this.plan);
+
+    //       this.prevactuals=response.split('|')[0].toString().substr(0,4)+"-W"+response.toString().substr(4,6);
+
+
+    //       this.plan=response.split('|')[1].toString().substr(0,4)+"-W"+response.toString().substr(4,6);
 
         
 
 
-          console.log("DEBUG0909121---"+this.prevactuals);
+    //     //   console.log("DEBUG0909121---"+this.prevactuals);
 
 
 
@@ -729,7 +749,7 @@ public sameName=false;
                     this.endWeek = '2020-W04';
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
-                      prevactuals: this.prevactuals_val,
+                      prevactuals: 201910,
                       startWeek: 201950,
                       endWeek: 202004,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
@@ -911,7 +931,7 @@ public sameName=false;
             });
 
 
-            });
+           });
 
           });
 
@@ -919,7 +939,7 @@ public sameName=false;
 
 
 
-          });
+        //  });
         });
 
 
@@ -15792,7 +15812,7 @@ if(this.color_tick==0)
     this.planningtable = 'Planning table (HL)';
 
 
-
+    // window.scrollBy(4000, 0);
 
     document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
 
@@ -20747,6 +20767,12 @@ console.log("Checkiiigg--"+this.sumselected)
 
 
   public savePlan() {
+
+    if(this.role=='View' || this.role==='View')
+    {
+      window.alert("You are not allowed to save plan");
+      return;
+    }
     this.savePlanLoader = true;
     const reqBody = {
       data: []

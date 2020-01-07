@@ -44,6 +44,8 @@ export class SettingComponent implements OnInit {
 
   public prevactuals;
 
+  public plan;
+
 
   public horizon=false;
   ngOnInit() {
@@ -60,6 +62,20 @@ export class SettingComponent implements OnInit {
     else{
       this.block=false;
     }
+
+
+
+
+   // Fetch horizon and sets to the horizon block 
+
+   this.skuService.fetchHorizon().subscribe((response: any) => {
+
+        this.prevactuals=parseInt(response.split("|")[0]);
+
+
+        this.plan=parseInt(response.split("|")[1]);
+   });
+
 
 
     this.skuService.getCommnents().subscribe((res: any) => {
@@ -294,11 +310,17 @@ for(const abc of this.allusers)
     var b=this.prevactuals.substr(0,4);
     var c=b+a;
 
+
+    var a1=this.plan.substr(6);
+    var b1=this.plan.substr(0,4);
+    var c1=b1+a1;
+
     console.log("fdfdf--"+c);
 
     var y={
       user:"admin",
-      horizon:parseInt(c)
+      horizon:parseInt(c),
+      plan:parseInt(c1)
     };
 
     console.log("TYUI--"+JSON.stringify(y));

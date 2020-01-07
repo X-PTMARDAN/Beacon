@@ -2,24 +2,64 @@
 <div style="margin-left: 40px;margin-top:50px"><div class="row">
 
   <br>
-    <div *ngIf="block">
+
+    <div class="column" style="background-color:#ccc;width:100%;" *ngIf="block">
   <div class="column" style="background-color:#ccc;width:100%;" (click)="openuser()">
     <h2>User management</h2>
   </div>
 
   <div *ngIf="block12">
     <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  placeholder="Username" [(ngModel)]="username"><br><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <select #t5 name="plant" [(ngModel)]="role">
-        <option value="Admin">Admin</option>
+
+    <div class="login-container" style="margin-left: 13px;">
+      <div class="w-50">
+    
+        <div>
+          <form #loginForm="ngForm">
+            <div class="form-group">
+              <label for="username" class="d-none">
+                Username
+              </label>
+              <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username"
+              [(ngModel)]="username">
+            </div>
+            <div class="form-group">
+              <label for="password" class="d-none">
+                Password
+              </label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password"
+              [(ngModel)]="password">
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="d-none">
+                Role
+              </label>
+              <select #t5 name="plant" [(ngModel)]="role">
+              <option value="Admin">Admin</option>
         <option value="Demand">Demand Planner</option>
         <option value="View">Viewer</option>
       
       </select>
-      <br>
+            </div>
+
+
+            
+            <div>
+              <button type="button" style="font-size: 16px;"[disabled]="!loginForm.valid" class="btn btn-light" [class.disabled]="!loginForm.valid" (click)=adduser()>Add User</button>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  placeholder="Username" [(ngModel)]="username"><br><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br/> -->
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <select #t5 name="plant" [(ngModel)]="role"> -->
+        
+      <!-- <br>
       <br/><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button (click)=adduser()>Add user</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button (click)=adduser()>Add user</button> -->
      
     <br><br><br/>
       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
@@ -51,7 +91,7 @@
 </div>
 <br>
 <div class="row" style="cursor: pointer">
-  <div class="column" style="background-color:#aaa;width:100%;" (click)="download()">
+  <div class="column" style="background-color:#ccc;width:100%;" (click)="download()">
     <h2>Download</h2>
     <p>Click here</p>
   </div>
@@ -93,10 +133,21 @@
 
 
 <div *ngIf="horizon" style="height:260px;overflow: auto;margin-left: 30px;">
+  <br/>
+  <h5> Default Setting</h5>
+<br/>
 
-  <input type="week" value="2019-W38" max="2019-W38" id="prevactuals" [(ngModel)]="prevactuals"  name="prevactuals">
+  <h6>Start -   <input type="week" value="2019-W38"  style="width: 15%;
+    border-radius: 6px;" max="2019-W38" id="prevactuals"  [(ngModel)]="prevactuals"  name="prevactuals"></h6> <span style="margin-left: 10px"></span>
 
- <br> <br><br><button (click)="done()"> SUBMIT </button>
+
+
+<h6>End -  &nbsp;&nbsp;<input type="week" style="width: 15%;
+  border-radius: 6px;" id="plan" [(ngModel)]="plan"  name="plan"></h6> <span style="margin-left: 10px"></span>
+
+ 
+
+ <br> <button (click)="done()"> SUBMIT </button>
 
 </div>
 
