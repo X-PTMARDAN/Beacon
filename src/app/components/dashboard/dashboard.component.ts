@@ -750,9 +750,9 @@ public sameName=false;
                     this.endWeek = '2020-W04';
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
-                      prevactuals: 201910,
+                      prevactuals: this.prevactuals_val,
                       startWeek: 201950,
-                      endWeek: 202004,
+                      endWeek: this.plan_val,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                       customerPlanningGroup: [],
                       plants: ['G001']
