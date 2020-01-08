@@ -70,10 +70,10 @@ export class SettingComponent implements OnInit {
 
    this.skuService.fetchHorizon().subscribe((response: any) => {
 
-        this.prevactuals=parseInt(response.split("|")[0]);
+    this.prevactuals=response.horizon.toString().substr(0,4)+"-W"+response.horizon.toString().substr(4,6);
 
 
-        this.plan=parseInt(response.split("|")[1]);
+    this.plan=response.plan.toString().substr(0,4)+"-W"+response.plan.toString().substr(4,6);
    });
 
 
