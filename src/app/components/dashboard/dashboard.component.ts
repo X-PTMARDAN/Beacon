@@ -571,33 +571,34 @@ public sameName=false;
 
 
 
-    //  this.skuService.fetchHorizon().subscribe((response: any) => {
+     this.skuService.fetchHorizon().subscribe((response: any) => {
+    
 
-    //       console.log("DEBUG0909---"+this.prevactuals);
+          console.log("DEBUG0909---"+response);
 
-    //        console.log("DEBUG09091---"+this.plan);
-    //       this.prevactuals_val=parseInt(response.split('|')[0]);
-    //     console.log("DEBUG0909---"+this.prevactuals);
+           console.log("DEBUG09091---"+response);
+          this.prevactuals_val=parseInt(response.horizon);
+        console.log("DEBUG0909---"+this.prevactuals);
 
-    //     console.log("DEBUG09091---"+this.plan);
+        console.log("DEBUG09091---"+this.plan);
 
-    //        this.plan_val=parseInt(response.split('|')[1]);
-    //        console.log("DEBUG0909---"+this.prevactuals);
+           this.plan_val=parseInt(response.plan);
+           console.log("DEBUG0909---"+this.prevactuals);
 
-    //        console.log("DEBUG09091---"+this.plan);
-    //     console.log("DEBUG0909---"+this.prevactuals);
+           console.log("DEBUG09091---"+this.plan);
+        console.log("DEBUG0909---"+this.prevactuals);
 
-    //       console.log("DEBUG09091---"+this.plan);
+          console.log("DEBUG09091---"+this.plan);
 
-    //       this.prevactuals=response.split('|')[0].toString().substr(0,4)+"-W"+response.toString().substr(4,6);
+          this.prevactuals=response.horizon.toString().substr(0,4)+"-W"+response.horizon.toString().substr(4,6);
 
 
-    //       this.plan=response.split('|')[1].toString().substr(0,4)+"-W"+response.toString().substr(4,6);
+          this.plan=response.plan.toString().substr(0,4)+"-W"+response.plan.toString().substr(4,6);
 
         
 
 
-    //     //   console.log("DEBUG0909121---"+this.prevactuals);
+        //   console.log("DEBUG0909121---"+this.prevactuals);
 
 
 
@@ -749,9 +750,9 @@ public sameName=false;
                     this.endWeek = '2020-W04';
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
-                      prevactuals: 201910,
+                      prevactuals: this.prevactuals_val,
                       startWeek: 201950,
-                      endWeek: 202004,
+                      endWeek: this.plan_val,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                       customerPlanningGroup: [],
                       plants: ['G001']
@@ -939,7 +940,7 @@ public sameName=false;
 
 
 
-        //  });
+           });
         });
 
 
