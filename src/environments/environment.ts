@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: 'https://ygroup.swiss.ngrok.io/v1/',
+  apiGatewayUrl: 'https://aurora-springboot.azurewebsites.net/v1/',
 };
 
 
 /*
   apiGatewayUrl: 'http://63.33.46.20:5470/v1/',
 
-  
+  https://aurora-springboot.azurewebsites.net/v1/fetchHorizon
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

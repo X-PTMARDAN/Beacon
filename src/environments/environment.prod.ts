@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiGatewayUrl: 'https://ygroup.swiss.ngrok.io/v1/',
+  apiGatewayUrl: 'https://aurora-springboot.azurewebsites.net/v1/',
 };
 
 

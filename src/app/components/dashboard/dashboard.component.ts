@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('saveFilterModalCancel', {static: false}) saveFilterModalCancel: ElementRef;
   @ViewChild('loadFilterModalCancel', {static: false}) loadFilterModalCancel: ElementRef;
 
-  public createPlanRequestData: any;
+  
 
 
   public avgselected=0;
@@ -228,6 +228,7 @@ public plan_val;
 
   // Graph Data Data points
   public graphData: any = [];
+  public createPlanRequestData: any =[];
   public finalForecastArray: any = [];
   private actualDataPoints: any = [];
 
@@ -591,11 +592,11 @@ public sameName=false;
           console.log("DEBUG09091---"+this.plan);
 
           this.prevactuals=response.horizon.toString().substr(0,4)+"-W"+response.horizon.toString().substr(4,6);
+          console.log("Kalia12---"+this.prevactuals);
 
+          this.endWeek=response.plan.toString().substr(0,4)+"-W"+response.plan.toString().substr(4,6);
 
-          this.plan=response.plan.toString().substr(0,4)+"-W"+response.plan.toString().substr(4,6);
-
-        
+          console.log("Kalia123---"+this.plan);
 
 
         //   console.log("DEBUG0909121---"+this.prevactuals);
@@ -772,7 +773,10 @@ public sameName=false;
                     }
 
                     console.log("DEFAULT--------"+JSON.stringify(temp_cpg));
+                    this.skuService.skuname(temp_fg).subscribe((res: any) => {
 
+
+                      temp_fg=JSON.parse(JSON.stringify(res));
                     if (temp_cpg.length > 0) {
                       //   this.createdata.forecastingGroups=JSON.parse(JSON.stringify());
 
@@ -915,7 +919,7 @@ public sameName=false;
                     // console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
                     // console.log('sdfshbr---' + JSON.stringify(this.createdata));
                     this.createPlan(this.createdata);
-
+                    });
 
                   });
 
