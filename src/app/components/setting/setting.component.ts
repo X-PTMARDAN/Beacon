@@ -327,6 +327,7 @@ for(const abc of this.allusers)
 
     this.skuService.saveHorizon(y).subscribe((res: any) => {
             console.log("Done --");
+            window.alert("Updated horizon");
     });
 
 

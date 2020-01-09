@@ -21121,11 +21121,12 @@ console.log("Checkiiigg--"+this.sumselected)
     console.log('CHECKING---' + JSON.stringify(ahg));
 
     var data12 = {
+      id:null,
       user: 'admin',
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString(this.sku_semi.filter(item => item.isChecked).map(item => item.name))
+      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]))+','+this.createFilterString(this.sku_semi.filter(item => item.isChecked).map(item => item.name.split('-')[0]))
     };
 
 
@@ -21140,6 +21141,15 @@ console.log("Checkiiigg--"+this.sumselected)
       console.log("0990909----");
       data12.sku=data12.sku.substr(1);
     }
+
+
+    console.log("00000----"+JSON.stringify(data12));
+
+    // for(const abc in data12)
+    // {
+      
+    //   data12[abc].sku=data12[abc].sku.split('-')[0];
+    // }
     // this.filterService.saveFilter({
     //   user: 'admin',
     //   filterName,
@@ -21396,6 +21406,26 @@ console.log("Checkiiigg--"+this.sumselected)
     // });;
 
 
+    this.skuService.skuname(selectedFilter.sku).subscribe((res: any) => {
+
+
+      selectedFilter.sku=JSON.parse(JSON.stringify(res))
+      // this.skus = res.map(item => {
+      //   return {
+      //     name: item,
+      //     isChecked: true
+      //     , isFiltered:true
+      //   };
+      // });
+      // this.fgssselected=JSON.parse(JSON.stringify(this.skus));
+   
+
+    // for(const abc in selectedFilter)
+    // {
+    //   selectedFilter[abc].skus
+    // }
+
+
     this.skus = selectedFilter.sku.map(item => {
       return {
         name: item,
@@ -21426,7 +21456,9 @@ console.log("Checkiiigg--"+this.sumselected)
     console.log('TJHGHYKJH---' + JSON.stringify(this.fgssselected));
  
 
-this.UOM='HL';
+     this.UOM='HL';
+
+
     // for (const brand of this.filters1) {
 
     //   if (brand.key == 'brands') {
@@ -21852,5 +21884,7 @@ data.endWeek=this.createPlanRequestData.endWeek;
     // });
 
     this.loadFilterModalCancel.nativeElement.click();
+
+  });
   }
 }

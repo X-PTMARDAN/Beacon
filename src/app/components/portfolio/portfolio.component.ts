@@ -527,16 +527,18 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
   }
 
 
-  public gantchart(num: number)
+  public gantchart1(num: number)
   {
 
 
-    console.log("Fdfd--");
-    this.fromsku_transistion_apply=this.pipoMapping[num].fromid.split('-')[0];
+    console.log("Fdfd--"+JSON.stringify(this.pipoMapping[num]));
+    this.fromsku_transistion_apply=this.pipoMapping[num].fromid;
+
+    this.tosku_transistion_apply=this.pipoMapping[num].toid;
 
     console.log("12345678----"+JSON.stringify(this.pipoMapping[num]));
 
-    this.forecasting_fgid=this.pipoMapping[num].fromid.split('-')[1];
+    this.forecasting_fgid=this.pipoMapping[num].fgid;
 
     this.startweek_transistion_apply=this.pipoMapping[num].fromweek;
 
@@ -549,13 +551,9 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
     this.logic=this.pipoMapping[num].state;
 
 
-    if(this.pipoMapping[num].state=="Transistion")
-    {
       this.saveFilterModal.nativeElement.click();
-    }
-    else{
-      this.saveFilterModal12.nativeElement.click();
-    }
+    
+    
 
   }
 public apply()
