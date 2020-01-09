@@ -748,7 +748,7 @@ public sameName=false;
                     });
 
 
-                    this.endWeek = '2020-W04';
+                   // this.endWeek = '2020-W04';
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
                       prevactuals: this.prevactuals_val,
@@ -1122,7 +1122,7 @@ public sameName=false;
     });
 
 
-    this.endWeek = '2020-W04';
+    //this.endWeek = '2020-W04';
    // this.prevactuals = '2019-W35';
     this.createdata = {
       prevactuals: this.prevactuals_val,
