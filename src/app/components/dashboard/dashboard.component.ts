@@ -186,6 +186,8 @@ public plan_val;
 
   public filters1 = [];
 
+  public usertext;
+
   public filters1_brands = [];
 
   public filters1_brands_1 = [];
@@ -351,6 +353,14 @@ public sameName=false;
     console.log('Hhsdfh--' + JSON.stringify(this.update));
 
     this.role=sessionStorage.getItem("role");
+
+
+    this.usertext=sessionStorage.getItem("username");
+
+
+
+
+    
 
     console.log("TYTMANANANAAN"+this.role);
     this.skuService.getPlants().subscribe((response: any) => {
@@ -618,8 +628,10 @@ public sameName=false;
             name: 'Own/3PP',
             key: 'brands_1',
             isExpanded: false,
-            values: [{"name":"Carlsberg Brand","isChecked":false}]
-  
+            values: [{"name":"Carlsberg Brand","isChecked":false},
+            {"name":"3rd party Brand","isChecked":false}]
+           
+
           });
           this.skuService.getMaterialgroup().subscribe((response: any) => {
 

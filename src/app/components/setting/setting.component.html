@@ -107,12 +107,93 @@
     <p>Click here</p>
   </div>
 
+  <div *ngIf="up_table" style="width:90%;height:260px;overflow: auto;margin-left: 15px;">
+    <br>
+      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
+          <tr style="background-color: #ddd;">
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Username</th>
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Activity</th>
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Date-Time Stamp</th>
+          
+          </tr>
+      </table>
+    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allLogs; let i=index">
+      <tr style="background-color: #fff;">
+        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{ fi.username }}</th>
+        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{ fi.activity }}</th>
+        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{fi.datetimestamp}}</th>
+      
+      </tr>
+  
+    </table>
+  </div>
+
 
 
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" (click)="comments1()">
     <h2>Comments</h2>
     <p>Click here</p>
   </div>
+
+
+
+
+<div *ngIf="comments_table" style="width:90%;height:260px;overflow: auto;margin-left: 15px;">
+
+  <br>
+    <table
+      style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+      <tr style="background-color: #fff">
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
+          class="mt-3 font-weight-bold">Week</h6></td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
+          class="mt-3 font-weight-bold">Comment</h6></td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
+          class="mt-3 font-weight-bold">Forecasting Group</h6></td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
+          class="mt-3 font-weight-bold">CPG</h6></td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
+          class="mt-3 font-weight-bold">Plant</h6></td>
+      </tr>
+  
+  
+  
+    </table>
+  
+  
+    <table
+      style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+      <ng-container *ngFor="let g of allComments ;let i=index ">
+        <tr style="background-color: #fff">
+          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
+                                                                                             style="font-size:0.75rem">{{g.name.split('|')[1] }}</p>
+          </td>
+          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
+                                                                                             style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
+          </td>
+          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
+                                                                                             style="font-size:0.75rem">{{g.name.split('|')[2]}}</p>
+          </td>
+          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
+                                                                                             style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
+          </td>
+          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
+                                                                                             style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
+          </td>
+        </tr>
+  
+  
+  
+  
+      </ng-container>
+  
+    </table>
+  </div>
+  
+
+
+
+
 
 
 
@@ -153,75 +234,5 @@
 
 
 
-<div *ngIf="comments_table" style="height:260px;overflow: auto;margin-left: 15px;">
-
-<br>
-  <table
-    style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
-    <tr style="background-color: #fff">
-      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
-        class="mt-3 font-weight-bold">Week</h6></td>
-      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
-        class="mt-3 font-weight-bold">Comment</h6></td>
-      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
-        class="mt-3 font-weight-bold">Forecasting Group</h6></td>
-      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
-        class="mt-3 font-weight-bold">CPG</h6></td>
-      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
-        class="mt-3 font-weight-bold">Plant</h6></td>
-    </tr>
 
 
-
-  </table>
-
-
-  <table
-    style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
-    <ng-container *ngFor="let g of allComments ;let i=index ">
-      <tr style="background-color: #fff">
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
-                                                                                           style="font-size:0.75rem">{{g.name.split('|')[1] }}</p>
-        </td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
-                                                                                           style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
-        </td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
-                                                                                           style="font-size:0.75rem">{{g.name.split('|')[2]}}</p>
-        </td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
-                                                                                           style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
-        </td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
-                                                                                           style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
-        </td>
-      </tr>
-
-
-
-
-    </ng-container>
-
-  </table>
-</div>
-
-
-
-<div *ngIf="up_table">
-  <br>
-    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
-        <tr style="background-color: #ddd;">
-          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Activity</th>
-          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Date-Time Stamp</th>
-        
-        </tr>
-    </table>
-  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allLogs; let i=index">
-    <tr style="background-color: #fff;">
-      <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{ fi.activity }}</th>
-      <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.datetimestamp}}</th>
-    
-    </tr>
-
-  </table>
-</div>
