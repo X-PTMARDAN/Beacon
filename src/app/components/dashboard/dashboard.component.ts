@@ -15822,7 +15822,7 @@ if(this.color_tick==0)
   public createPlan(data: any) {
 
 
-    console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
+  //  console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
 
 
 
@@ -15857,7 +15857,7 @@ if(this.color_tick==0)
 
     // this.skus=JSON.parse(JSON.stringify(this.fgssselected))
 
-    console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
+   // console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
     //this.test();
 
 
@@ -15872,7 +15872,7 @@ if(this.color_tick==0)
 
 
 
-        console.log('CHCHHCHCHC-----' + JSON.stringify(res));
+   //     console.log('CHCHHCHCHC-----' + JSON.stringify(res));
         this.loading = false;
 
 
@@ -16363,7 +16363,7 @@ if(this.color_tick==0)
           this.enabled=0;
         }
         
-               this.allComments= res.combinedcomment;console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+               this.allComments= res.combinedcomment;//console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
       
                this.allComments_harshit=[];
                for(const abc of this.allComments)
@@ -16388,7 +16388,7 @@ if(this.color_tick==0)
       else{
         this.inter=1;
       }
-        console.log('GREYSTART--' + this.greystart);
+      //  console.log('GREYSTART--' + this.greystart);
         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
         this.createPlanRequestData.subbrand = res.req.subbrand;
         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
@@ -16408,7 +16408,7 @@ if(this.color_tick==0)
 
         this.loading = false;
 
-        console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
+      //  console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
 
 
         this.processGraphData(res);
@@ -19536,6 +19536,9 @@ console.log("Checkiiigg--"+this.sumselected)
     const brands = [];
 
     const Subbrand = [];
+
+
+    const own3 = [];
     // const Unitperpack = [];
 
 
@@ -19572,13 +19575,14 @@ console.log("Checkiiigg--"+this.sumselected)
             brands.push(aa.name);
           }
         }
-      } else if (brand.key == 'alcoholper') {
+      }else if (brand.key == 'brands_1') {
         for (const aa of brand.values) {
           if (aa.isChecked) {
-            AlcoholPercentage.push(aa.name);
+            own3.push(aa.name);
           }
         }
-      } else if (brand.key == 'subbrand') {
+      }  
+      else if (brand.key == 'subbrand') {
         for (const aa of brand.values) {
           if (aa.isChecked) {
             Subbrand.push(aa.name);
@@ -19671,7 +19675,8 @@ console.log("Checkiiigg--"+this.sumselected)
       packsize: packsize,
       baseunit: baseunit,
       globalbev: globalbev,
-      productcategory:localcat
+      productcategory:localcat,
+      own3pp:own3
 
     };
   }
