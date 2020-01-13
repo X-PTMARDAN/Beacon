@@ -15825,6 +15825,16 @@ if(this.color_tick==0)
   //  console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
 
 
+  var login = {
+    Username: 'admin',
+    activity: 'Create Plan',
+    datetimestamp: JSON.stringify(this.update)
+  };
+
+  this.skuService.sendLog(login).subscribe((res: any) => {
+      console.log("fdfdf--"+res);
+  });
+
 
     this.planningtable = 'Planning table (HL)';
 
@@ -20950,7 +20960,7 @@ console.log("Checkiiigg--"+this.sumselected)
     };
 
     this.skuService.sendLog(login).subscribe((res: any) => {
-
+        console.log("fdfdf--"+res);
     });
 
     this.fgssselected =  this.fgssselected .map(item => {
@@ -21126,8 +21136,8 @@ console.log("Checkiiigg--"+this.sumselected)
     };
 
     this.skuService.sendLog(login).subscribe((res: any) => {
-
-    });
+      console.log("fdfdf2134--"+res);
+  });
 
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
@@ -21394,9 +21404,8 @@ console.log("Checkiiigg--"+this.sumselected)
     };
 
     this.skuService.sendLog(login).subscribe((res: any) => {
-
-    });
-
+      console.log("fdfdf--"+res);
+  });
 
     this.second_sku = [];
     let selectedFilter;
