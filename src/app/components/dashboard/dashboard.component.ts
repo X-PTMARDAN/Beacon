@@ -6698,14 +6698,14 @@ interval:this.inter,
     if (feature == 'year' && this.granular1 == 'week') {
 
       console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+      this.prevactuals = '2020-W01';
+      this.endWeek = '2020-W52';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
-        endWeek: 201952,
-        prevactuals: 201901,
+        endWeek: 202052,
+        prevactuals: 202001,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -7137,15 +7137,15 @@ interval:this.inter,
 
       console.log('Create_Plan1234->' + JSON.stringify(this.hh));
 
-      this.prevactuals = '2019-W01';
-      this.endWeek = '2019-W52';
+      this.prevactuals = '2020-W01';
+      this.endWeek = '2020-W52';
 
       this.UOM='HL';
 
       this.createPlanRequestData = {
         startWeek: 201950,
-        endWeek: 201952,
-        prevactuals: 201901,
+        endWeek: 202052,
+        prevactuals: 202001,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -20795,6 +20795,20 @@ console.log("Checkiiigg--"+this.sumselected)
       window.alert("You are not allowed to save plan");
       return;
     }
+
+
+    if(this.reactivate_filter_button == 1)
+    {
+      return;
+    }
+
+    if(this.role=='View' || this.role==='View')
+    {
+      window.alert("You are not allowed to save plan");
+      return;
+    }
+
+
     this.savePlanLoader = true;
     const reqBody = {
       data: []
