@@ -410,8 +410,8 @@ public sameName=false;
       // this.endWeek="2020-W04";
       // this.prevactuals="2019-W11";
       //   this.createdata = {
-      //     prevactuals:201911,
-      //   startWeek: 201950,
+      //     prevactuals:201912,
+      //   startWeek: 202002,
       //   endWeek: 202004,
       //   forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
       //   customerPlanningGroup: ['G01'],
@@ -764,7 +764,7 @@ public sameName=false;
                     //this.prevactuals = '2019-W35';
                     this.createdata = {
                       prevactuals: this.prevactuals_val,
-                      startWeek: 201950,
+                      startWeek: 202002,
                       endWeek: this.plan_val,
                       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                       customerPlanningGroup: [],
@@ -984,8 +984,8 @@ public sameName=false;
 //     this.endWeek="2020-W04";
 //     this.prevactuals="2019-W11";
 //       this.createdata = {
-//         prevactuals:201911,
-//       startWeek: 201950,
+//         prevactuals:201912,
+//       startWeek: 201952,
 //       endWeek: 202004,
 //       forecastingGroups: [{"id":0,"name":"Grimb Blonde BOT 4X6X0_25  ","isFiltered":true,"isChecked":true}],
 //       customerPlanningGroup: ['G01'],
@@ -1138,7 +1138,7 @@ public sameName=false;
    // this.prevactuals = '2019-W35';
     this.createdata = {
       prevactuals: this.prevactuals_val,
-      startWeek: 201950,
+      startWeek: 202002,
       endWeek: 202004,
       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
       customerPlanningGroup: ['G01'],
@@ -1372,7 +1372,7 @@ public sameName=false;
           axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -1447,9 +1447,15 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+             
             ]
           },
 
@@ -1560,7 +1566,7 @@ public sameName=false;
           axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -1643,9 +1649,10 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+  
             ]
           },
 
@@ -1760,7 +1767,7 @@ public sameName=false;
           axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -1843,9 +1850,10 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+            
             ]
           },
 
@@ -1975,7 +1983,7 @@ public sameName=false;
           axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -2050,9 +2058,15 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+             
             ]
           },
 
@@ -2147,7 +2161,7 @@ public sameName=false;
           axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -2218,9 +2232,10 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+      
             ]
           },
 
@@ -2304,7 +2319,7 @@ public sameName=false;
           axisX: {  
             valueFormatString: '######',
             gridColor: '#ffffff',
-
+            interval:this.inter,
             scaleBreaks: {
               type: 'blank',
               spacing: 0,
@@ -2375,9 +2390,15 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+              
             ]
           },
 
@@ -2529,9 +2550,15 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
             ]
           },
 
@@ -2683,9 +2710,15 @@ public sameName=false;
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
             ]
           },
 
@@ -3083,9 +3116,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+          
             ]
           },
           axisY: {
@@ -3322,9 +3361,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+         
 
             ]
           },
@@ -3618,9 +3663,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
             ]
           },
           axisY: {
@@ -3849,9 +3900,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
 
             ]
           },
@@ -4135,9 +4192,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
             ]
           },
           axisY: {
@@ -4366,9 +4429,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+       
 
             ]
           },
@@ -4656,9 +4725,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+         
             ]
           },
           axisY: {
@@ -4887,9 +4962,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
 
             ]
           },
@@ -5180,9 +5261,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
             ]
           },
           axisY: {
@@ -5411,10 +5498,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
-
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+          
             ]
           },
 
@@ -5714,9 +5806,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+     
             ]
           },
           axisY: {
@@ -5945,9 +6043,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+         
 
             ]
           },
@@ -6237,9 +6341,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+    
             ]
           },
           axisY: {
@@ -6500,9 +6610,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+      
             ]
           },
 
@@ -6643,7 +6759,7 @@ interval:this.inter,
     //       },
     //       stripLines: [
     //         {
-    //           startValue: 201950,
+    //           startValue: 202002,
     //           endValue: 201953,
     //           color: '#F2F3F5'
     //         },
@@ -6900,9 +7016,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
             ]
           },
           axisY: {
@@ -7044,9 +7166,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+             
             ]
           },
 
@@ -7143,7 +7271,7 @@ interval:this.inter,
       this.UOM='HL';
 
       this.createPlanRequestData = {
-        startWeek: 201950,
+        startWeek: this.createPlanRequestData.startWeek,
         endWeek: 202052,
         prevactuals: 202001,
         forecastingGroups: this.fgssselected.map(item => item.name),
@@ -7402,9 +7530,10 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+           
             ]
           },
           axisY: {
@@ -7548,9 +7677,10 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+          
             ]
           },
 
@@ -7911,9 +8041,10 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+          
 
             ]
           },
@@ -8064,9 +8195,10 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+        
             ]
           },
 
@@ -8351,9 +8483,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
             ]
           },
           axisY: {
@@ -8510,9 +8648,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
             ]
           },
 
@@ -8878,9 +9022,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+        
             ]
           },
           axisY: {
@@ -9041,10 +9191,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
-
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
             ]
           },
 
@@ -9417,9 +9572,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+           
             ]
           },
           axisY: {
@@ -9580,9 +9741,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+    
 
             ]
           },
@@ -9952,9 +10119,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+    
             ]
           },
           axisY: {
@@ -10115,10 +10288,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
-
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+     
             ]
           },
 
@@ -10495,9 +10673,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+      
             ]
           },
           axisY: {
@@ -10658,10 +10842,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
-
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+        
             ]
           },
 
@@ -11037,9 +11226,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+      
             ]
           },
           axisY: {
@@ -11200,9 +11395,15 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+        
 
             ]
           },
@@ -11491,9 +11692,10 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+          
 
             ]
           },
@@ -11728,9 +11930,10 @@ interval:this.inter,
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+          
 
             ]
           },
@@ -12029,9 +12232,15 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+      
             ]
           },
           axisY: {
@@ -12268,9 +12477,15 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+     
             ]
           },
 
@@ -12564,9 +12779,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+           
             ]
           },
           axisY: {
@@ -12799,9 +13015,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+          
 
             ]
           },
@@ -13092,9 +13309,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+        
             ]
           },
           axisY: {
@@ -13327,9 +13545,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+       
 
             ]
           },
@@ -13616,9 +13835,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+        
             ]
           },
           axisY: {
@@ -13851,9 +14071,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+       
 
             ]
           },
@@ -14146,9 +14367,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+     
             ]
           },
           axisY: {
@@ -14381,9 +14603,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+       
 
             ]
           },
@@ -14671,9 +14894,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+       
             ]
           },
           axisY: {
@@ -14906,9 +15130,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+       
 
             ]
           },
@@ -15198,9 +15423,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
+          
             ]
           },
           axisY: {
@@ -15433,10 +15659,10 @@ this.granular1="week";
               },
               {
                 startValue: 201900,
-                endValue: 201911,
+                endValue: 201912,
                 color: '#F2F3F5'
               },
-
+         
             ]
           },
 
@@ -15748,11 +15974,11 @@ if(this.color_tick==0)
 }
     this.color_tick=0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 201950) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 202002) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 201950) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 202002) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -16116,9 +16342,15 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
             ]
           },
           axisY: {
@@ -16244,13 +16476,9 @@ if(this.color_tick==0)
               ]
             },
             stripLines: [
+             
               {
-                startValue: 201910,
-                endValue: 201912,
-                color: '#F2F3F5'
-              },
-              {
-                startValue: 202000,
+                startValue: 202001,
                 endValue: 202012,
                 color: '#F2F3F5'
               },
@@ -16530,9 +16758,15 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
             ]
           },
           axisY: {
@@ -16685,9 +16919,15 @@ if(this.color_tick==0)
               },
               {
                 startValue: 201900,
-                endValue: 201950,
+                endValue: 201952,
                 color: '#F2F3F5'
               },
+              {
+                startValue: 202000,
+                endValue: 202001,
+                color: '#F2F3F5'
+              },
+            
               
             ]
           },
@@ -16988,9 +17228,15 @@ if(this.color_tick==0)
             },
             {
               startValue: 201900,
-              endValue: 201950,
+              endValue: 201952,
               color: '#F2F3F5'
             },
+            {
+              startValue: 202000,
+              endValue: 202001,
+              color: '#F2F3F5'
+            },
+   
           ]
         },
         axisY: {
@@ -18681,51 +18927,81 @@ console.log("Checkiiigg--"+this.sumselected)
 
     console.log("All Previous SKUs-----"+JSON.stringify(fgssss));
 
-    // for(const abc of this.second_sku)
-    // {
-    //   for(const abc1 of this.fgssselected)
-    //   {
-    //     //console.log("Fdfd--"+abc1);
-    //     if(abc.name===abc1 || abc.name==abc1.toString())
-    //     {
-    //       console.log("Delete krna hai");
-    //       const index: number = this.second_sku.indexOf(abc);
-    //       this.second_sku.splice(index, 1);
-    //     }
-    //   }
-    // }
-
-    this.second_sku=[];
-
-    console.log("FIRST THING1---"+fgssss.length);
-
-    console.log("ALL---"+JSON.stringify(fgssss));
-
-
-
-    console.log("ALL---"+JSON.stringify(this.fgssselected));
-
-    var temp1=JSON.parse(JSON.stringify(fgssss));
-
-    var temp2=JSON.parse(JSON.stringify(this.fgssselected));
-
-    for(const abc of temp1)
+    if(this.selectallskus == 1)
     {
-      for(const abc1 of temp2)
+        console.log("5678908765----");
+    }
+    else{
+
+
+      for(const abc of this.second_sku)
+    {
+      for(const abc1 of this.fgssselected)
       {
-        console.log("all--"+abc);
-        console.log("selected--"+abc1);
-        if(abc===abc1 || abc==abc1.toString())
+        //console.log("Fdfd--"+abc1);
+        if(abc.name===abc1 || abc.name==abc1.toString())
         {
           console.log("Delete krna hai");
-          const index: number = fgssss.indexOf(abc);
-          fgssss.splice(index, 1);
+          const index: number = this.second_sku.indexOf(abc);
+          this.second_sku.splice(index, 1);
         }
       }
     }
 
 
-    console.log("FIRST THING2---"+fgssss.length);
+
+    }
+
+    
+
+    this.second_sku=[];
+
+    // console.log("FIRST THING1---"+fgssss.length);
+
+    // console.log("ALL---"+JSON.stringify(fgssss));
+
+
+
+    // console.log("ALL---"+JSON.stringify(this.fgssselected));
+
+    var temp1=JSON.parse(JSON.stringify(fgssss));
+
+    var temp2=JSON.parse(JSON.stringify(this.fgssselected));
+
+
+console.log("Harshit -- "+temp2.length);
+
+if(temp2.length==2221)
+{
+
+}
+   // if(temp1.)
+else{
+    // for(const abc of temp1)
+    // {
+    //   for(const abc1 of temp2)
+    //   {
+    //     console.log("all--"+abc);
+    //     console.log("selected--"+abc1);
+    //     if(abc===abc1 || abc==abc1.toString())
+    //     {
+    //       console.log("Delete krna hai");
+    //       const index: number = fgssss.indexOf(abc);
+    //       fgssss.splice(index, 1);
+    //     }
+    //   }
+    // }
+
+  }
+
+
+  fgssss = fgssss.filter( function( el ) {
+    return temp2.indexOf( el ) < 0;
+  } );
+
+
+
+   // console.log("FIRST THING2---"+fgssss.length);
     this.sku_semi = this.fgssselected.map(item => {
       return {name: item, isChecked: true,isFiltered:true};
     });
@@ -18816,7 +19092,7 @@ console.log("Checkiiigg--"+this.sumselected)
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
-    data.startWeek = 201950;
+    data.startWeek = 202002;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -20935,7 +21211,7 @@ console.log("Checkiiigg--"+this.sumselected)
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201950,
+        calendarWeek: 202002,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -21053,7 +21329,7 @@ console.log("Checkiiigg--"+this.sumselected)
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 201950,
+        calendarWeek: 202002,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -21866,7 +22142,7 @@ console.log("Checkiiigg--"+this.sumselected)
    data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
 
 
-    data.startWeek = 201950;
+    data.startWeek = 202002;
     data.endWeek = 202004;
 
     this.loading = true;

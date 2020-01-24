@@ -327,7 +327,7 @@
 
                         <ng-container *ngFor="let data of pipoMapping; let i=index">
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" aria-disabled="" data-toggle="modal" data-target="#saveFilterModal" (click)="gantchart1(i)">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
