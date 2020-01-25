@@ -20252,6 +20252,8 @@ else{
 
 
     this.fgssselected = [];
+
+    this.sku_semi = [];
     //     //SKU
     //     const reqBody = this.getFiltersObject();
 
