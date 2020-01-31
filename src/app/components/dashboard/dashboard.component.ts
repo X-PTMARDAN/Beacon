@@ -785,10 +785,10 @@ public sameName=false;
                     }
 
                     console.log("DEFAULT--------"+JSON.stringify(temp_cpg));
-                    this.skuService.skuname(temp_fg).subscribe((res: any) => {
+                  //  this.skuService.skuname(temp_fg).subscribe((res: any) => {
 
 
-                      temp_fg=JSON.parse(JSON.stringify(res));
+                   //   temp_fg=JSON.parse(JSON.stringify(res));
                     if (temp_cpg.length > 0) {
                       //   this.createdata.forecastingGroups=JSON.parse(JSON.stringify());
 
@@ -885,6 +885,9 @@ public sameName=false;
 
                     this.plantss = JSON.parse(JSON.stringify(this.createdata.plants));
 
+                    console.log("1121212-----qe1212"+JSON.stringify(this.createdata.forecastingGroups));
+
+
                     this.fgssselected = this.createdata.forecastingGroups;
 
                     this.skus = JSON.parse(JSON.stringify(this.createdata.forecastingGroups));
@@ -956,7 +959,7 @@ public sameName=false;
 
 
 
-          });
+        //  });
         });
 
 
@@ -21418,9 +21421,17 @@ else{
   });
 
     var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
+
+    console.log("First 1--"+fgssselected1);
+
+
     var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
+    console.log("Second 2--"+JSON.stringify(fgssselected2));
+
     var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name);
+
+    console.log("Third 3--"+JSON.stringify(fgssselected3));
 
     
     for (const abc of fgssselected2) {
@@ -21430,18 +21441,15 @@ else{
     for (const abc of fgssselected3) {
       fgssselected1.push(abc);
     }
+
+
+
     this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
-    console.log('SUfdf--' + JSON.stringify(this.filters[0].values));
-    const ahg = {
-      user: 'admin',
-      filterName,
-      plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])),
-      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name))
-    };
+    console.log("Fourth 4--"+JSON.stringify( this.fgssselected));
 
-    console.log('CHECKING---' + JSON.stringify(ahg));
+    //console.log('SUfdf--' + JSON.stringify(this.filters[0].values));
+ 
 
     var data12 = {
       id:null,
@@ -21449,17 +21457,17 @@ else{
       filterName,
       plant: this.createFilterString(this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name)),
       cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name)),
-      sku: this.createFilterString(this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]))+','+this.createFilterString(this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]))+','+this.createFilterString(this.sku_semi.filter(item => item.isChecked).map(item => item.name.split('-')[0]))
+      sku: this.createFilterString1(this.skus.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString1(this.second_sku.filter(item => item.isChecked).map(item => item.name))+','+this.createFilterString1(this.sku_semi.filter(item => item.isChecked).map(item => item.name))
     };
 
 
-    if(this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]).length==0)
+    if(this.skus.filter(item => item.isChecked).map(item => item.name.length==0))
     {
       console.log("0990909----");
       data12.sku=data12.sku.substr(1);
     }
 
-    if(this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]).length==0)
+    if(this.second_sku.filter(item => item.isChecked).map(item => item.name.length==0))
     {
       console.log("0990909----");
       data12.sku=data12.sku.substr(1);
@@ -21497,7 +21505,7 @@ else{
 
     for(const ab of this.loadedFilters)
     {
-      console.log("fdfdfd--"+JSON.stringify(ab));
+      //console.log("fdfdfd--"+JSON.stringify(ab));
        if(ab.name===filterName)
        {
          window.alert("Please choose a different name");
@@ -21541,6 +21549,14 @@ else{
     let resultString = '';
     for (const filter of filters) {
       resultString = `${resultString},${filter}`;
+    }
+    return resultString.slice(1);
+  }
+
+  public createFilterString1(filters: string[]): string {
+    let resultString = '';
+    for (const filter of filters) {
+      resultString = `${resultString};${filter}`;
     }
     return resultString.slice(1);
   }
@@ -21728,10 +21744,10 @@ else{
     // });;
 
 
-    this.skuService.skuname(selectedFilter.sku).subscribe((res: any) => {
+   // this.skuService.skuname(selectedFilter.sku).subscribe((res: any) => {
 
 
-      selectedFilter.sku=JSON.parse(JSON.stringify(res))
+     // selectedFilter.sku=JSON.parse(JSON.stringify(res))
       // this.skus = res.map(item => {
       //   return {
       //     name: item,
@@ -22207,6 +22223,6 @@ data.endWeek=this.createPlanRequestData.endWeek;
 
     this.loadFilterModalCancel.nativeElement.click();
 
-  });
+  //});
   }
 }

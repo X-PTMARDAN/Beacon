@@ -575,6 +575,12 @@ export class SKUService {
   }
 
 
+
+  public download1(data = {}) {
+    return this.http.get(`http://localhost:5000/`, data);
+  }
+
+
   public mapFG(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}mapFG`, data);
   }

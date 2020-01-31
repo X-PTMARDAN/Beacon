@@ -196,6 +196,14 @@ for(const abc of this.allusers)
 
 }
 
+public download1()
+{
+  this.skuService.download1('{}').subscribe((res: any) => {
+
+  });
+  
+}
+
   public download()
   {
     this.skuService.download('{}').subscribe((res: any) => {
