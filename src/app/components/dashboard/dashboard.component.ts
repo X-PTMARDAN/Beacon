@@ -20386,11 +20386,13 @@ else{
     // });
 
 
+    this.loading = true;
+    
     this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
 
       console.log('JSss--' + JSON.stringify(this.skus));
       this.skus = response;
-
+      this.loading = false;
       this.fgssselected = [];
 
 
