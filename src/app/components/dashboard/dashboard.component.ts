@@ -19755,6 +19755,25 @@ else{
         }
       }
 
+
+
+
+      else if (brand.key == 'brands_1') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            console.log('JKNFBJHBFHJBHJFBVHFF');
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('brands_1').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('brands_1').style.background = '#05d7be';
+        }
+      } 
+
     }
 
 
@@ -19785,21 +19804,7 @@ else{
 
     for (const brand of this.filters1_brands_1) {
 
-      if (brand.key == 'brands_1') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            console.log('JKNFBJHBFHJBHJFBVHFF');
-            flag = 0;
-          }
-        }
-
-        if (flag == 1) {
-          document.getElementById('brands_1').style.background = '#f4f5f9';
-        } else {
-          document.getElementById('brands_1').style.background = '#05d7be';
-        }
-      } 
+     
 
     }
 
