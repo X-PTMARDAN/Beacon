@@ -112,6 +112,21 @@ export class SKUService {
     );
   }
 
+  public brandssub(data={}) {
+    return this.http.post(`${this.apiGatewayUrl}brandsub`,data).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
+
+  
 
 
 
@@ -476,6 +491,10 @@ export class SKUService {
   public skuname(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}skuname`, data);
   }
+
+
+
+
 
 
   

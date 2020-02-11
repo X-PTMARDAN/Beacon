@@ -186,6 +186,8 @@ public plan_val;
 
   public filters1 = [];
 
+  public filters1_subbrand = [];
+
   public usertext;
 
   public filters1_brands = [];
@@ -616,7 +618,7 @@ public sameName=false;
         this.loading = true;
          this.skuService.getSubbrand().subscribe((response: any) => {
 
-          this.filters1.push({
+          this.filters1_subbrand.push({
             name: 'Sub-Brand',
             key: 'subbrand',
             isExpanded: false,
@@ -1251,6 +1253,60 @@ public sameName=false;
     //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
 
+  }
+
+
+
+  public brandsub(feature: any)
+  {
+    var t=this.getFiltersObject_brands();
+    console.log("dgcfhj----"+feature);
+      if(feature=='brand')
+      {
+
+        
+        var g=this.getFiltersObject_brands();
+        var h={
+          what:"brand",
+          brandssub:t
+        };
+
+        console.log("gfhjh--"+JSON.stringify(h));
+        this.skuService.brandssub(h).subscribe((res: any) => {
+
+          this.filters1_subbrand=[];
+
+          this.filters1_subbrand.push({
+            name: 'Sub-Brand',
+            key: 'subbrand',
+            isExpanded: false,
+            values: res
+          });
+
+        });
+      }
+      else{
+
+
+        var g=this.getFiltersObject_subbrands();
+        var h={
+          what:"subbrand",
+          brandssub:g
+        };
+        this.skuService.brandssub(h).subscribe((res: any) => {
+
+          this.filters1_brands=[];
+
+          this.filters1_brands.push({
+            name: 'Brand',
+            key: 'brands',
+            isExpanded: false,
+            values: res
+          });
+
+        });
+
+      }
   }
 
   public deactivate() {
@@ -15807,7 +15863,9 @@ this.granular1="week";
     this.filters1[6].isExpanded = false;
     this.filters1[7].isExpanded = false;
     this.filters1[8].isExpanded = false;
-    this.filters1[9].isExpanded = false;
+
+    this.filters1_subbrand[0].isExpanded=false;
+//    this.filters1[9].isExpanded = false;
 
     
     this.filters1[5].isExpanded = false;
@@ -19802,9 +19860,22 @@ else{
 
 
 
-    for (const brand of this.filters1_brands_1) {
+    for (const brand of this.filters1_subbrand) {
 
-     
+       if (brand.key == 'subbrand') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('subbrand').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('subbrand').style.background = '#05d7be';
+        }
+      }
 
     }
 
@@ -19823,6 +19894,60 @@ else{
 
     };
   }
+
+
+
+
+
+
+
+  private getFiltersObject_subbrands() {
+
+    
+
+    const Subbrand = [];
+
+    
+    for (const brand of this.filters1_subbrand) {
+
+
+      if (brand.key == 'subbrand') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            Subbrand.push(aa.name);
+          }
+        }
+      } 
+    }
+
+    return Subbrand;
+  }
+
+
+  private getFiltersObject_brands() {
+
+    const brands = [];
+
+    const Subbrand = [];
+
+    
+    for (const brand of this.filters1_brands) {
+
+
+      if (brand.key == 'brands') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            brands.push(aa.name);
+          }
+        }
+      } 
+    }
+
+    return brands;
+  }
+
+
+
 
 
   private getFiltersObject() {
@@ -19954,6 +20079,19 @@ else{
         for (const aa of brand.values) {
           if (aa.isChecked) {
             brands.push(aa.name);
+          }
+        }
+      } 
+    }
+
+
+    for (const brand of this.filters1_subbrand) {
+
+
+       if (brand.key == 'subbrand') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            Subbrand.push(aa.name);
           }
         }
       } 
