@@ -5,10 +5,10 @@
       <img src="https://keshavchawlabucket.s3-eu-west-1.amazonaws.com/manavbhai.gif" alt="Smiley facg">
 
     </div>
-  </div>   
+  </div>
 
 
- 
+
   <div class="filter-col p-3" data-simplebar *ngIf="abc123">
 
     <h6 class="mt-3 font-weight-bold">Filter Options</h6>
@@ -28,7 +28,7 @@
         <span class="text-muted">Clear</span>
       </div>
     </div>
-  
+
     <!-- <div class="mb-2">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search">
@@ -42,11 +42,11 @@
     </div> -->
 
 
-    <div style="height: 650px; overflow: auto;"> 
+    <div style="height: 650px; overflow: auto;">
 
 
- 
-      <h6 class="mt-3 font-weight-bold">CPG Filters</h6> 
+
+      <h6 class="mt-3 font-weight-bold">CPG Filters</h6>
       <br/>
       <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
         <ng-container *ngFor="let filter of filters2; let filterIndex=index">
@@ -165,7 +165,7 @@
           </div> -->
 
       <hr style="margin-top: 0.1rem;">
-      
+
 
       <div class="input-group mt-2">
         <input type="text" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()' name="searchSKU"
@@ -188,9 +188,9 @@
         </div>
       </div>
 
-      <h6 class="mt-3 font-weight-bold">Forecasting Group Filters</h6> 
+      <h6 class="mt-3 font-weight-bold">Forecasting Group Filters</h6>
       <hr style="margin-top: 0.2rem;">
-      
+
 
       <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
           <ng-container *ngFor="let filter of filters1_brands; let filterIndex=index">
@@ -211,7 +211,7 @@
                    [attr.aria-labelledby]="filter.key">
                 <div class="panel-body" style="height: 150px; overflow: auto;">
                   <ul class="m-0">
-                      <input type="text" class="form-control" [(ngModel)]="brandstext" name="brandstext" 
+                      <input type="text" class="form-control" [(ngModel)]="brandstext" name="brandstext"
                       placeholder="Search Brand">
                     <ng-container *ngFor="let value of filter.values | filter_brand : getCallback_brands() ;let i=index ">
                     <li class="d-flex">
@@ -226,10 +226,10 @@
                 </div>
               </div>
             </div>
-  
-  
+
+
           </ng-container>
-  
+
         </div>
 
 
@@ -266,10 +266,10 @@
                 </div>
               </div>
             </div>
-  
-  
+
+
           </ng-container>
-  
+
         </div>
 
 
@@ -328,7 +328,7 @@
 
             <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
             <div style="font-size: 30px;margin-left: 5px;">
-              <h6 class="mt-3 font-weight-bold" style="margin-bottom: 3px;">Save</h6> 
+              <h6 class="mt-3 font-weight-bold" style="margin-bottom: 3px;">Save</h6>
               <i style="color: #000;padding-top: 3px" class="fa fa-save fa-8x" data-toggle="modal"
                  data-target="#saveAPlansModal"></i>
             </div>
@@ -359,7 +359,7 @@
             </div>
 
 
-            &nbsp;&nbsp; 
+            &nbsp;&nbsp;
             <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Plan</h6>
               <input type="week" id="endWeek"  min="2019-W50" max="2021-W23" name="endWeek" [(ngModel)]="endWeek"
                      (change)="color_change()" required></div>
@@ -371,7 +371,7 @@
                             <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;margin-left:15px;" class="vl"></div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-           
+
 
 
 
@@ -386,7 +386,7 @@
                       margin-bottom: 0rem;
                      font-size: 1.55rem;
                       color: #000;
-                     
+
                       border: 0.5px #ecf0f1;" (click)="test1('year')"><i class="fa fa-calendar " aria-hidden="true"></i><span style="font-size: 15px;
     margin-left: 8px;">2020</span></p>
 
@@ -414,15 +414,15 @@
 
                 <option value="PPU">PPU</option>
 
-               
 
-              
-            
+
+
+
 
 
                 <option value="CU">CU</option>
 
-                
+
 
 
               </select>
@@ -458,7 +458,7 @@
              <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Logged in as</h6>
 
               <h6>{{usertext}}</h6>
-            
+
             </div>
           <div class="d-flex " style="margin-right: 4px;">
 
@@ -496,7 +496,7 @@
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-         
+
             <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
             <!-- <p class="font-weight-bold" ></p> -->
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -521,14 +521,14 @@
           <table style='font-family: arial, sans-serif;
           border-collapse: collapse;
           width: 40%;margin-left: 17%'>
-            <tr> 
-             
+            <tr>
+
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Sum</p></td>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Avg</p></td>
                <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Count</p></td>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Max</p></td>
                <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Min</p></td>
-              
+
             </tr>
             <tr>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
@@ -537,7 +537,7 @@
               <td style="width: 20%;  text-align: center;" >   <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
             </tr>
-          
+
           </table>
           <div class="form-group m-0">
           </div>
@@ -777,23 +777,23 @@
             <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
               <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
               <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-           
+
               <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
               <!-- <p class="font-weight-bold" ></p> -->
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <!-- <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  
+
               <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  
+
               <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  
-  
+
+
               <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-  
-  
+
+
               <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
             </div>
-  
+
             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -802,14 +802,14 @@
             <table style='font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 40%;margin-left: 17%'>
-              <tr> 
-               
+              <tr>
+
                 <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Sum</p></td>
                 <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Avg</p></td>
                  <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Count</p></td>
                 <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Max</p></td>
                  <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Min</p></td>
-                
+
               </tr>
               <tr>
                 <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
@@ -818,23 +818,23 @@
                 <td style="width: 20%;  text-align: center;" >   <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
                 <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
               </tr>
-            
+
             </table>
             <div class="form-group m-0">
             </div>
-  
+
             <div class="form-group m-0">
               <span class="input-group-text" style="float: right !important;margin-right:20px"><i
                 (click)="table_up_click()" class="fa fa-clone"></i></span>
-  
+
               <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
                                                                                                   class="fa fa-download"></i></span>
             </div>
-  
-  
+
+
             <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
                data-target="#saveAViewsModal">Save View</a> -->
-  
+
           </div>
           <div class="d-flex">
             <div class="table-header-col">
@@ -876,22 +876,22 @@
                     <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
                   </th>
                 </tr>
-  
+
                 <tr class="header-text">
                   <th class="font-weight-bold">
                     <p class="m-0 week-block">Open Orders</p>
                   </th>
                 </tr>
-  
-  
-  
+
+
+
                 <tr class="header-text">
                   <th class="font-weight-bold">
                     <p class="m-0 week-block">Promo</p>
                   </th>
                 </tr>
-  
-  
+
+
                 </thead>
               </table>
             </div>
@@ -902,38 +902,38 @@
                     <thead>
                       <tr>
                         <th>Forecasting Group</th>
-                        
-                     
+
+
                         <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.forecastingGroups" >
                             <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
-                          </th> 
-                         
-                        
+                          </th>
+
+
                         <!-- <th>{{createPlanRequestData.forecastingGroups}}</th></tr> -->
 
                         <tr>
                             <th>Plant</th>
-                            
-                         
+
+
                    <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.plants" >
                                 <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
-                              </th> 
-                             
-                            
+                              </th>
+
+
 
                             <tr>
                                 <th>Customer Planning Group</th>
-                                
+
                      <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.customerPlanningGroup" >
                                     <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
                                   </th>
-                                
-                                
-                                
-                         
-    
 
-                          
+
+
+
+
+
+
                     <tr>
                         <th class="font-weight-bold" >
                             <p class="m-0 week-block" > Week</p>
@@ -958,7 +958,7 @@
                     </tr>
                     <tr>
                       <td>Forecast Add</td>
-                
+
 
                       <td *ngFor="let data of graphData ; let i=index"
                       [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
@@ -996,8 +996,8 @@
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
                         {{ data.actualslastyear | currency: "€ " :" "}}
                       </td>
-  
-  
+
+
                     </tr>
                     <tr>
                         <td>OPEN ORDER</td>
@@ -1005,21 +1005,21 @@
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
                         {{ data.harshit | currency: "€ ":" "}}
                       </td>
-  
-  
+
+
                     </tr>
-  
-  
-  
-  
+
+
+
+
                     <tr>
                         <td>PROMO VALUE</td>
                       <td *ngFor="let data of graphData ; let i=index"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
                         {{ data.promovalue | currency: "€ ":" "}}
                       </td>
-  
-  
+
+
                     </tr>
                     </tbody>
                   </table>
@@ -1068,13 +1068,13 @@
                     <p class="m-0 week-block">{{ totalData.harshit | currency: "€ ":" "}}</p>
                   </th>
                 </tr>
-  
+
                 <tr>
                   <th class="font-weight-bold">
                     <p class="m-0 week-block">{{ totalData.promovalue | currency: "€ ":" "}}</p>
                   </th>
                 </tr>
-  
+
               </table>
             </div>
           </div>
@@ -1085,7 +1085,7 @@
                data-target="#saveAViewsModal">Save View</a> -->
           </div>
         </div>
-  
+
 
 
 
@@ -1105,7 +1105,7 @@
           </div>
 
           <div class="form-group m-0">
-   
+
 
               <span class="input-group-text" style="float: right !important;margin-right:20px"><i
                 (click)="download_graph()" class="fa fa-download"></i></span>
@@ -1115,7 +1115,7 @@
 
 
         <!-- <div class="form-group m-0">
-        
+
 
           <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
                                                                                               class="fa fa-download"></i></span>
@@ -1128,12 +1128,12 @@
 
 
       <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_down">
-    
+
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
             <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-         
+
             <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
             <!-- <p class="font-weight-bold" ></p> -->
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1158,14 +1158,14 @@
           <table style='font-family: arial, sans-serif;
           border-collapse: collapse;
           width: 40%;margin-left: 17%'>
-            <tr> 
-             
+            <tr>
+
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Sum</p></td>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Avg</p></td>
                <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Count</p></td>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Max</p></td>
                <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Min</p></td>
-              
+
             </tr>
             <tr>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
@@ -1174,7 +1174,7 @@
               <td style="width: 20%;  text-align: center;" >   <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
               <td style="width: 20%;  text-align: center;">   <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p></td>
             </tr>
-          
+
           </table>
           <div class="form-group m-0">
           </div>
@@ -1403,7 +1403,7 @@
           <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
              data-target="#saveAViewsModal">Save View</a> -->
         </div>
-     
+
       </div>
 
 
@@ -1417,7 +1417,7 @@
               border: 1px solid #ced4da;
               background-color: #fff;
               height: calc(1.5em + .30rem + 2px);">
-             
+
            </div>
           <!-- <span class="input-group-text" style="float: right !important;margin-right:2px"><i (click)="hide_all_comments()" class="fa fa-clone"></i></span> -->
 
@@ -1439,15 +1439,15 @@
           <table
             style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
             <tr style="background-color: #fff">
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;" (click)="sortComments(1)"><h6
                 class="mt-3 font-weight-bold">Week</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
-                class="mt-3 font-weight-bold">Comment</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;" (click)="sortComments(0)"><h6
                 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(2)"><h6
+                class="mt-3 font-weight-bold">Comment</h6></td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;" (click)="sortComments(3)"><h6
                 class="mt-3 font-weight-bold">CPG</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(4)"><h6
                 class="mt-3 font-weight-bold">Plant</h6></td>
             </tr>
 
@@ -1545,10 +1545,10 @@
 
 
 
-             
-           
+
+
             </tr>
-        
+
           </table> -->
         </div>
       </div>
@@ -1701,13 +1701,13 @@
               <div class="panel-body" style="height: 100px; overflow: auto;background: #fff;">
 
                 <ul class="m-0" style="padding-inline-start: 15px;">
-                  <input type="text" class="form-control" [(ngModel)]="searchplant" name="searchplant" 
+                  <input type="text" class="form-control" [(ngModel)]="searchplant" name="searchplant"
                          placeholder="Search Plant">
              <ng-container *ngFor="let value of filter.values | filter_plant : getCallback_plant() ;let i=index ">
 
                   <li class="d-flex" >
 
-                    
+
                     <div>
                       <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
                              (change)="reactivate_filter(1)">
@@ -1728,7 +1728,7 @@
         <ng-container *ngFor="let filter of filters; let filterIndex=index">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" [id]="filter.key">
-                
+
                 <span class="panel-title" class="mt-3 font-weight-bold" style="color: #000">
                   <a style="color: #000" role="button" data-toggle="collapse" data-parent="#filterAccordion"
                      [href]="'#' + filter.key + 'filter'"
@@ -1737,7 +1737,7 @@
                     {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
                     <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
                   </a>
-                
+
 
                 </span>
 
@@ -1844,10 +1844,10 @@
             <div style="margin-top: 3px;">
               <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
             </div>
-            
+
 
            <p class="m-0" style="font-size: 0.75rem;"  (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()" >{{ sku.name }}</p>
-             
+
           </div>
           <hr style="margin-top: 0.2rem;color: #000">
 
@@ -1855,10 +1855,10 @@
             <div style="margin-top: 3px;">
               <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
             </div>
-            
+
 
            <p class="m-0" style="font-size: 0.75rem;"  (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()" >{{ sku.name }}</p>
-             
+
           </div>
 
           <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
@@ -2269,7 +2269,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Save Filter</h5> 
+          <h5 class="modal-title">Save Filter</h5>
           <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
             <span aria-hidden="true">&times;</span>
           </button>
@@ -2320,7 +2320,7 @@
           <form #saveFilterModalForm="ngForm">
 
             <div style="height: 200px; overflow: auto;">
-            
+
             <ng-container *ngFor="let filter of loadedFilters | loadfilter : getCallback_filter() ;let i=index ">
               <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
                    (click)="filterItemClick(i)">
