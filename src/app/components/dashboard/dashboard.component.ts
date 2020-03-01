@@ -19905,9 +19905,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   console.log("JSss--"+JSON.stringify(this.skus));
     //   this.skus = response;
 
+    this.loading = true;
+
     this.skuService.getCPGlist2(reqBody1).subscribe((response1: any) => {
 
-
+      this.loading = false;
       console.log('jkdsfks----' + JSON.stringify(response1));
       let response2 = response1.map(item => {
         return {name: {name: item}, isChecked: false, isFiltered: true};
@@ -20189,6 +20191,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         sku.isChecked = true;
 
       }
+
+      for (const sku of this.sku_semi) {
+        sku.isChecked = true;
+
+      }
+
+
+      
     } else if (this.selectallskus == 1) {
       this.selectallskus = 0;
       let requestData = false;
@@ -20201,6 +20211,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         sku.isChecked = false;
 
       }
+      for (const sku of this.sku_semi) {
+        sku.isChecked = false;
+
+      }
     }
     this.reactivate_filter(1);
   }
@@ -20209,22 +20223,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public selectAllplant() {
 
 
-    if (this.selectallplant == 1) {
+    if (this.selectallplant == 0) {
       let requestData = false;
-      this.selectallplant = 0;
+      this.selectallplant = 1;
       console.log('dfsdf12--' + JSON.stringify(this.filters_plant[0]));
       for (const sku of this.filters_plant[0].values) {
         sku.isChecked = true;
       }
 
-      // for (const sku of this.second_sku) {
-      //   sku.isChecked=true;
-
-      // }
+   
       this.reactivate_filter(1);
-    } else if (this.selectallplant == 0) {
+    } else if (this.selectallplant == 1) {
       let requestData = false;
-      this.selectallplant = 1;
+      this.selectallplant = 0;
       console.log('dfsdf12--' + JSON.stringify(this.filters_plant[0]));
 
       for (const sku of this.filters_plant[0].values) {
