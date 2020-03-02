@@ -198,6 +198,7 @@ public table=false;
               }
 
               this.material_len=this.drop.length;
+              this.material_len=932;
               console.log("Dfdfdfd---"+JSON.stringify(response));
           });
 
