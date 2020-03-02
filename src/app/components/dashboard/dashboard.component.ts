@@ -728,7 +728,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //this.prevactuals = '2019-W35';
                             this.createdata = {
                               prevactuals: this.prevactuals_val,
-                              startWeek: 202002,
+                              startWeek: 202010,
                               endWeek: this.plan_val,
                               forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                               customerPlanningGroup: [],
@@ -1090,7 +1090,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     // this.prevactuals = '2019-W35';
     this.createdata = {
       prevactuals: this.prevactuals_val,
-      startWeek: 202002,
+      startWeek: 2020,
       endWeek: 202004,
       forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
       customerPlanningGroup: ['G01'],
@@ -1429,7 +1429,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -1608,7 +1608,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -1794,7 +1794,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -1988,7 +1988,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -2161,7 +2161,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -2324,7 +2324,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -2488,7 +2488,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -2648,7 +2648,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -3044,7 +3044,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -3290,7 +3290,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -3585,7 +3585,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -3823,7 +3823,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -4115,7 +4115,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -4353,7 +4353,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -4645,7 +4645,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -4883,7 +4883,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -5175,7 +5175,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -5413,7 +5413,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -5704,7 +5704,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -5942,7 +5942,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -6225,7 +6225,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -6488,7 +6488,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -6694,7 +6694,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: 202052,
-        prevactuals: 202001,
+        prevactuals: 202009,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -6891,7 +6891,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -7042,7 +7042,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -7144,7 +7144,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: 202052,
-        prevactuals: 202001,
+        prevactuals: 202009,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -7266,7 +7266,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     // stripLines: [
         //     //   {
         //     //     startValue: 201909,
-        //     //     endValue: 201912,
+        //     //     endValue: 20202,
         //     //     color: '#F2F3F5'
         //     //   },
         //     //   {
@@ -7405,7 +7405,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -7553,7 +7553,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -7786,7 +7786,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     // stripLines: [
         //     //   {
         //     //     startValue: 201909,
-        //     //     endValue: 201912,
+        //     //     endValue: 20202,
         //     //     color: '#F2F3F5'
         //     //   },
         //     //   {
@@ -7917,7 +7917,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -8072,7 +8072,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -8361,7 +8361,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -8527,7 +8527,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -8899,7 +8899,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -9065,7 +9065,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -9438,7 +9438,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -9604,7 +9604,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -9978,7 +9978,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -10144,7 +10144,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -10519,7 +10519,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -10685,7 +10685,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -11058,7 +11058,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -11224,7 +11224,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -11515,7 +11515,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -11753,7 +11753,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -12048,7 +12048,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -12291,7 +12291,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -12580,7 +12580,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -12817,7 +12817,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -13107,7 +13107,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -13344,7 +13344,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -13634,7 +13634,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -13871,7 +13871,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -14161,7 +14161,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -14398,7 +14398,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -14688,7 +14688,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -14925,7 +14925,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -15215,7 +15215,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -15452,7 +15452,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 201900,
-                endValue: 201912,
+                endValue: 20202,
                 color: '#F2F3F5'
               },
 
@@ -15766,11 +15766,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.color_tick = 0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 202002) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 202010) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 202002) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 202010) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -16003,7 +16003,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     // stripLines: [
         //     //   {
         //     //     startValue: 201909,
-        //     //     endValue: 201912,
+        //     //     endValue: 20202,
         //     //     color: '#F2F3F5'
         //     //   },
         //     //   {
@@ -16138,7 +16138,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -16549,7 +16549,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -16711,7 +16711,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
               },
               {
                 startValue: 202000,
-                endValue: 202001,
+                endValue: 202009,
                 color: '#F2F3F5'
               },
 
@@ -17019,7 +17019,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             },
             {
               startValue: 202000,
-              endValue: 202001,
+              endValue: 202009,
               color: '#F2F3F5'
             },
 
@@ -18767,7 +18767,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
-    data.startWeek = 202002;
+    data.startWeek = 202010;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -20776,6 +20776,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
 
+
+
     if (this.reactivate_filter_button == 1) {
       return;
     }
@@ -20810,6 +20812,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     for (const data of this.graphData) {
+
+      console.log("Dfsadfasdfdsfsdf324---"+JSON.stringify(data.comments));
       if (data.comments.length > 0) {
         com.push({
           calendarWeek: data.calenderYearWeek,
@@ -20893,7 +20897,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202002,
+        calendarWeek: 202010,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -21005,7 +21009,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202002,
+        calendarWeek: 202010,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -21797,7 +21801,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
 
 
-    data.startWeek = 202002;
+    data.startWeek = 202010;
     data.endWeek = 202004;
 
     this.loading = true;
