@@ -20321,7 +20321,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     for (const i in s) {
       var ch = s.charAt(i);
       console.log('Checking--' + ch);
-      if (ch >= '0' && ch <= '9' || ch == '%') {
+      if (ch >= '0' && ch <= '9' || ch == '%' || ch=='-') {
         continue;
       }
       if (ch == '.') {
