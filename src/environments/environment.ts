@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: 'http://localhost:8216/v1/',
+  apiGatewayUrl: 'http://34.254.255.254:8216/v1/',
 };
 
 
