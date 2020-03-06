@@ -11,6 +11,10 @@ strategy:
       CountryName: 'russia'
     Aurora:
       CountryName: 'aurora'
+    France:
+      CountryName: 'france'
+    Switzerland:
+      CountryName: 'switzerland'
 
 
 pool:
@@ -19,9 +23,18 @@ pool:
   demands: npm
 
 steps:
+- task: DownloadGitHubRelease@0
+  inputs:
+    connection: 'GitHub connection 1'
+    userRepository: 'ygroup-carlsberg/Beacon'
+    defaultVersionType: 'latest'
+    downloadPath: '$(System.ArtifactsDirectory)'
+    
 - powershell: |
+   Get-ChildItem -Include environment.ts
    $text= Get-Content -Path "/home/vsts/work/1/s/src/environments/environment.ts"
    $text=$text -replace 'http://63.33.46.20:8080','https://$(CountryName)-springboot.azurewebsites.net' | Set-Content '/home/vsts/work/1/s/src/environments/environment.ts'
+   "Propriedades> "+$text
   displayName: 'PowerShell Script'
 
 - task: Npm@1
@@ -34,7 +47,7 @@ steps:
   inputs:
     command: custom
     verbose: false
-    customCommand: 'run build-prod'
+    customCommand: 'run build --prod'
 
 - task: ArchiveFiles@2
   displayName: 'Archive files'
@@ -44,5 +57,9 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/ygroup.zip'
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish artifacts: drop'
+  displayName: 'Publish Artifact: $(CountryName)-drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    artifactName: beacon-$(CountryName)
+  condition: succeededOrFailed()
 
