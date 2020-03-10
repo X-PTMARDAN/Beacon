@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
 
 
-    window.alert(window.location.hostname);
+    //window.alert(window.location.hostname);
     
     if(window.location.href==window.location.hostname+'/portfolio')
     {
