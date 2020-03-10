@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
 
     //window.alert(window.location.hostname);
     
-    if(window.location.href==window.location.hostname+'/portfolio')
+    if(window.location.href=='http://'+window.location.hostname+'/portfolio')
     {
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#797F87';
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href==window.location.hostname+'/comingsoon?b=')
+    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?b=')
     {
       document.getElementById("npd").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("planscene").style.background='#5A5F66';
     }
 
-    else if(window.location.href=='http://france-aurora.azurewebsites.net/comingsoon?bcd=')
+    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?bcd=')
     {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#797F87';
     }
-    else if(window.location.href=='http://france-aurora.azurewebsites.net/comingsoon?a=')
+    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?a=')
     {
       document.getElementById("snop").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -63,7 +63,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://france-aurora.azurewebsites.net/setting')
+    else if(window.location.href=='http://'+window.location.hostname+'/setting')
     {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -98,9 +98,9 @@ export class SidebarComponent implements OnInit {
   public onClick(name: string) {
     console.log("Harshit-->"+name);
     console.log("YHYHY-->"+window.location.href);
-    if(window.location.href=="http://france-aurora.azurewebsites.net/portfolio?%2F=")
+    if(window.location.href=='http://'+window.location.hostname+"/portfolio?%2F=")
     {
-      window.location.href="http://france-aurora.azurewebsites.net/dashboard";
+      window.location.href='http://'+window.location.hostname+"/dashboard";
     }
     this.sidebarService.emit(name);
   }
@@ -188,30 +188,30 @@ export class SidebarComponent implements OnInit {
     if(pageName=='a')
     {
       this.num=1;
-      window.location.href="http://france-aurora.azurewebsites.net/comingsoon?a"
+      window.location.href='http://'+window.location.hostname+"/comingsoon?a"
      // this.router.navigate([`/portfolio`]);
     }
     else if(pageName=='b')
     {
       this.num=2;
-      window.location.href="http://france-aurora.azurewebsites.net/comingsoon?b"
+      window.location.href='http://'+window.location.hostname+"/comingsoon?b"
     }
 
     else if(pageName=='bcd')
     {
       this.num=56;
-      window.location.href="http://france-aurora.azurewebsites.net/comingsoon?bcd"
+      window.location.href='http://'+window.location.hostname+"/comingsoon?bcd"
     }
 
     else if(pageName=='ab')
     {
       this.num=2;
-      window.location.href="http://france-aurora.azurewebsites.net/portfolio"
+      window.location.href='http://'+window.location.hostname+"/portfolio"
     }
     else if(pageName=='c')
     {
       this.num=3;
-      window.location.href="http://france-aurora.azurewebsites.net/dashboard"
+      window.location.href='http://'+window.location.hostname+"/dashboard"
     }
     else if(pageName=='d')
     {
@@ -222,7 +222,7 @@ export class SidebarComponent implements OnInit {
     else if(pageName=='e')
     {
       this.num=5;
-      window.location.href="http://france-aurora.azurewebsites.net/setting"
+      window.location.href='http://'+window.location.hostname+"/setting"
     }
 
 
@@ -230,7 +230,7 @@ export class SidebarComponent implements OnInit {
     {
       this.num=5;
       sessionStorage.removeItem('username');
-      window.location.href="http://france-aurora.azurewebsites.net/login"
+      window.location.href='http://'+window.location.hostname+"/login"
     }
 
     
