@@ -228,6 +228,31 @@ public table=false;
   }
 
 
+  public sortComments1(keyIndex: number) {
+    this.pipo = this.pipo.sort((a, b) => {
+      var value1;
+      var value2;
+      if(keyIndex==1)
+      {
+        value1=a.fgid;
+        value2=b.fgid;
+      }
+      else{
+        value1=a.material;
+        value2=b.material;
+      }
+ 
+      console.log("Checking12121--"+value1);
+
+      if (value1 === value2) {
+        return 0;
+      }
+
+      return value1 > value2 ? 1 : -1;
+    });
+  }
+
+
   public test1()
   {
     this.materialidnumber='';
@@ -381,19 +406,15 @@ console.log("dsfheg---"+JSON.stringify(a));
     this.pipo_map=true;
     this.sku_map=false;
     document.getElementById('pipo_bar').style.background='#17b169';
-
     document.getElementById('sku_bar').style.background='#f4f5f9';
   }
 
 
   public sku_click()
   {
-
     this.pipo_map=false;
     this.sku_map=true;
-
     document.getElementById('sku_bar').style.background='#17b169';
-
     document.getElementById('pipo_bar').style.background='#f4f5f9';
   }
 
@@ -406,7 +427,7 @@ console.log("dsfheg---"+JSON.stringify(a));
 
 
     var data={
-      material: this.skuname,
+     material: this.skuname,
       fg:this.mappedFG
     };
 

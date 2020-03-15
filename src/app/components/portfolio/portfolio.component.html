@@ -84,9 +84,9 @@
                   <br>
                   <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><h6 class="mt-3 font-weight-bold">SKU Name</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
