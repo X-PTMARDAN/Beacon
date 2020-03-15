@@ -1145,7 +1145,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private static parseStringToFloat(text) {
-    return parseFloat(parseFloat(text).toFixed(2));
+    return parseFloat(parseFloat(text).toFixed(0));
   }
 
   public download_graph() {
@@ -7144,7 +7144,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: 202052,
-        prevactuals: 202009,
+        prevactuals: 202001,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -15776,8 +15776,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
 
-    if (DashboardComponent.transformWeek(this.prevactuals) < 201553) {
-      this.prevactuals = '2015-W53';
+    if (DashboardComponent.transformWeek(this.prevactuals) < 201710) {
+      this.prevactuals = '2017-W10';
     }
 
     if (DashboardComponent.transformWeek(this.endWeek) > 202123) {
@@ -17397,7 +17397,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
-        newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2));
+        newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0));
         this.mlDataPoints.push({
 
           x: key,
@@ -17412,10 +17412,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.ml !== undefined) {
-        newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2)) + parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2)));
+        newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0)) + parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0)));
 
         //newPoint.finalForecast = newData;
-        newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(2));
+        newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
         console.log('Debug -' + newPoint.finalForecast);
 
 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
@@ -17433,7 +17433,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.actuals !== undefined) {
-        newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(2));
+        newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0));
         this.actualDataPoints.push({
           x: key,
           y: newPoint.actuals,
@@ -17446,7 +17446,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
       if (week.promo !== undefined) {
-        newPoint.promovalue = parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(2));
+        newPoint.promovalue = parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0));
         if (newPoint.promovalue == null || newPoint.promovalue === null || newPoint.promovalue == undefined || newPoint.promovalue === undefined) {
           newPoint.promovalue = 0;
         }
@@ -17466,7 +17466,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       if (week.fva !== undefined) {
 
 
-        const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2));
+        const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
         // newPoint.fcstValueAdd = value ? '' : value.toString();
         // console.log('MAN RAMTA->' + value);
         if (value !== undefined) {
@@ -17479,7 +17479,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
           console.log('dfghjk1-->' + this.forecastadd);
 
-          this.forecastadd = parseFloat(this.forecastadd.toFixed(2)) + parseFloat(value.toFixed(2));
+          this.forecastadd = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
           console.log('dfghjk345-->' + this.forecastadd);
@@ -17542,15 +17542,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     }
 
-    this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
-    this.totalData.lastYearTotal = parseFloat(this.totalData.lastYearTotal.toFixed(2));
-    this.totalData.actuals = parseFloat(this.totalData.actuals.toFixed(2));
-    this.totalData.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(2));
-    this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+    this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(0));
+    this.totalData.lastYearTotal = parseFloat(this.totalData.lastYearTotal.toFixed(0));
+    this.totalData.actuals = parseFloat(this.totalData.actuals.toFixed(0));
+    this.totalData.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(0));
+    this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(0));
 
-    this.totalData.harshit = parseFloat(this.totalData.harshit.toFixed(2));
+    this.totalData.harshit = parseFloat(this.totalData.harshit.toFixed(0));
 
-    // this.totalData.fcstValueAdd = parseFloat(this.totalData.fcstValueAdd.toFixed(2));
+    // this.totalData.fcstValueAdd = parseFloat(this.totalData.fcstValueAdd.toFixed(0));
   }
 
 
@@ -17614,7 +17614,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newPoint.calenderYear = key;
 
       if (week.ml !== undefined) {
-        newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2));
+        newPoint.ml = parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0));
         this.mlDataPoints_table.push({
 
           x: key,
@@ -17629,10 +17629,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.ml !== undefined) {
-        newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(2)) + parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2)));
+        newPoint.initialFinalForecast = week.fva === undefined ? newPoint.ml : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0)) + parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0)));
 
         //newPoint.finalForecast = newData;
-        newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(2));
+        newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
         console.log('Debug -' + newPoint.finalForecast);
 
 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
@@ -17650,7 +17650,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
 
       if (week.actuals !== undefined) {
-        newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(2));
+        newPoint.actuals = parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0));
         this.actualDataPoints_table.push({
           x: key,
           y: newPoint.actuals,
@@ -17666,7 +17666,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       if (week.fva !== undefined) {
 
 
-        const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(2));
+        const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
         // newPoint.fcstValueAdd = value ? '' : value.toString();
         // console.log('MAN RAMTA->' + value);
         if (value !== undefined) {
@@ -17679,7 +17679,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
           console.log('dfghjk1-->' + this.forecastadd_table);
 
-          this.forecastadd_table = parseFloat(this.forecastadd.toFixed(2)) + parseFloat(value.toFixed(2));
+          this.forecastadd_table = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
           console.log('dfghjk345-->' + this.forecastadd_table);
@@ -17740,15 +17740,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.graphData.push(newPoint);
     }
 
-    this.totalData_table.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
-    this.totalData_table.lastYearTotal = parseFloat(this.totalData.lastYearTotal.toFixed(2));
-    this.totalData_table.actuals = parseFloat(this.totalData.actuals.toFixed(2));
-    this.totalData_table.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(2));
-    this.totalData_table.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+    this.totalData_table.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(0));
+    this.totalData_table.lastYearTotal = parseFloat(this.totalData.lastYearTotal.toFixed(0));
+    this.totalData_table.actuals = parseFloat(this.totalData.actuals.toFixed(0));
+    this.totalData_table.mlTotal = parseFloat(this.totalData.mlTotal.toFixed(0));
+    this.totalData_table.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(0));
 
-    this.totalData_table.harshit = parseFloat(this.totalData.harshit.toFixed(2));
+    this.totalData_table.harshit = parseFloat(this.totalData.harshit.toFixed(0));
 
-    // this.totalData.fcstValueAdd = parseFloat(this.totalData.fcstValueAdd.toFixed(2));
+    // this.totalData.fcstValueAdd = parseFloat(this.totalData.fcstValueAdd.toFixed(0));
   }
 
 
@@ -17837,7 +17837,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       // this.graphData.push(newPoint);
     }
 
-    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(0));
 
   }
 
@@ -17933,7 +17933,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       // this.graphData.push(newPoint);
     }
 
-    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(0));
 
   }
 
@@ -18019,7 +18019,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       // this.graphData.push(newPoint);
     }
 
-    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(2));
+    //   this.totalData.apoTotal = parseFloat(this.totalData.apoTotal.toFixed(0));
 
   }
 
@@ -18306,8 +18306,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
-    //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    //  this.avgselected=parseFloat((this.avgselected).toFixed(0));
+    //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
     this.up = 1;
   }
 
@@ -18323,8 +18323,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
-    //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    //  this.avgselected=parseFloat((this.avgselected).toFixed(0));
+    //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
     this.up = 1;
   }
 
@@ -18340,8 +18340,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
-    //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    //  this.avgselected=parseFloat((this.avgselected).toFixed(0));
+    //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
     this.up = 1;
   }
 
@@ -18357,8 +18357,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
-    //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    //  this.avgselected=parseFloat((this.avgselected).toFixed(0));
+    //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
     this.up = 1;
   }
 
@@ -18375,8 +18375,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
-    //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    //  this.avgselected=parseFloat((this.avgselected).toFixed(0));
+    //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
     this.up = 1;
   }
 
@@ -18393,8 +18393,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   this.sumselected=this.sumselected+num1;
     this.selected_array.push(num1);
 
-    //  this.avgselected=parseFloat((this.avgselected).toFixed(2));
-    //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+    //  this.avgselected=parseFloat((this.avgselected).toFixed(0));
+    //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
     this.up = 1;
   }
 
@@ -18413,8 +18413,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.countselected = this.selected_array.length;
 
 
-    this.avgselected = parseFloat((this.avgselected).toFixed(2));
-    this.sumselected = parseFloat((this.sumselected).toFixed(2));
+    this.avgselected = parseFloat((this.avgselected).toFixed(0));
+    this.sumselected = parseFloat((this.sumselected).toFixed(0));
 
   }
 
@@ -18428,12 +18428,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       //   this.sumselected=this.sumselected+num1;
 
 
-      //   this.avgselected=parseFloat((this.avgselected).toFixed(2));
-      //   this.sumselected=parseFloat((this.sumselected).toFixed(2));
+      //   this.avgselected=parseFloat((this.avgselected).toFixed(0));
+      //   this.sumselected=parseFloat((this.sumselected).toFixed(0));
 
 
       this.selected_array.push(num1);
-      // (this.avgselected).toFixed(2);
+      // (this.avgselected).toFixed(0);
       //this.avgselected=
       console.log('Checkiiigg--' + this.sumselected);
       //  this.sumselected=this.fetch_values.bind(this);
@@ -18448,7 +18448,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       var num1 = this.graphData[cell].actuals;
       //  console.log("Graph----"+JSON.stringify(this.graphData));
       this.selected_array.push(num1);
-      // (this.avgselected).toFixed(2);
+      // (this.avgselected).toFixed(0);
       //this.avgselected=
       console.log('Checkiiigg--' + this.sumselected);
       //  this.sumselected=this.fetch_values.bind(this);
@@ -18463,7 +18463,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       var num1 = this.graphData[cell].harshit;
       //  console.log("Graph----"+JSON.stringify(this.graphData));
       this.selected_array.push(num1);
-      // (this.avgselected).toFixed(2);
+      // (this.avgselected).toFixed(0);
       //this.avgselected=
       console.log('Checkiiigg--' + this.sumselected);
       //  this.sumselected=this.fetch_values.bind(this);
@@ -18477,7 +18477,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       var num1 = this.graphData[cell].actualslastyear;
       //  console.log("Graph----"+JSON.stringify(this.graphData));
       this.selected_array.push(num1);
-      // (this.avgselected).toFixed(2);
+      // (this.avgselected).toFixed(0);
       //this.avgselected=
       console.log('Checkiiigg--' + this.sumselected);
       //  this.sumselected=this.fetch_values.bind(this);
@@ -18495,7 +18495,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       var num1 = this.graphData[cell].apo;
 
       this.selected_array.push(num1);
-      // (this.avgselected).toFixed(2);
+      // (this.avgselected).toFixed(0);
       //this.avgselected=
       console.log('Checkiiigg--' + this.sumselected);
       //  this.sumselected=this.fetch_values.bind(this);
@@ -18510,7 +18510,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       var num1 = this.graphData[cell].ml;
 //  console.log("Graph----"+JSON.stringify(this.graphData));
       this.selected_array.push(num1);
-      // (this.avgselected).toFixed(2);
+      // (this.avgselected).toFixed(0);
       //this.avgselected=
       console.log('Checkiiigg--' + this.sumselected);
 //  this.sumselected=this.fetch_values.bind(this);
@@ -20380,7 +20380,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         console.log('ffgfgfgfg12--' + h);
 
-        h = parseFloat(h.toFixed(2));
+        h = parseFloat(h.toFixed(0));
 
         this.graphData[index].fcstValueAdd = h;
         value = h;
@@ -20410,14 +20410,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         } else {
           this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast + value;
           // console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
-          //   console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(2));
-          this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
+          //   console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(0));
+          this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(0));
 
 
           this.finalForecastDataPoints[index].y = this.graphData[index].initialFinalForecast + value;
           //  console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
-          //console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(2));
-          this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(2));
+          //console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(0));
+          this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(0));
         }
       } else {
 
@@ -20471,9 +20471,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
       //  this.forecastadd = this.totalData.finalCastTotal;
 
-      this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+      this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(0));
 
-      this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(2));
+      this.totalData.finalCastTotal = parseFloat(this.totalData.finalCastTotal.toFixed(0));
     }
     this.chart1.render();
   }
@@ -20915,13 +20915,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
 
-    var login = {
+    var login1 = {
       Username: 'admin',
-      activity: 'Saved Plan',
+      activity: 'Save Plan',
       datetimestamp: JSON.stringify(this.update)
     };
 
-    this.skuService.sendLog(login).subscribe((res: any) => {
+
+    this.skuService.sendLog(login1).subscribe((res: any) => {
       console.log('fdfdf--' + res);
     });
 

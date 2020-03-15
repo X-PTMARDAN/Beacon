@@ -1,3 +1,6 @@
+<script lang="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
+
+
 <div id="content">
  <div *ngIf="loading"
        style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
@@ -344,7 +347,7 @@
             &nbsp;&nbsp;
 
             <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Actuals</h6>
-              <input type="week" value="2019-W38"  style="width:150px;" max="2019-W48" min="2015-W53" id="prevactuals" [(ngModel)]="prevactuals"
+              <input type="week" value="2019-W38"  style="width:150px;" max="2019-W48" min="2017-W10" id="prevactuals" [(ngModel)]="prevactuals"
                      (change)="color_change()" name="prevactuals"></div>
             &nbsp;&nbsp;
             <div>
@@ -455,7 +458,7 @@
 
           <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
              data-target="#saveAViewsModal">Save View</a> -->
-             <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Logged in as</h6>
+             <div style="padding-top: 3px;margin-bottom:15px;"><h6 class="mt-3 font-weight-bold">Logged in as</h6>
 
               <h6>{{usertext}}</h6>
 
@@ -632,7 +635,7 @@
                           [class.highlight]="data.lockcell?.length"
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                           (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
-                        {{ data.finalForecast | currency: "€ " :" "}}
+                        {{ data.finalForecast |  number:'1.0-0'}}
                       </td>
                     </ng-container>
                   </tr>
@@ -654,26 +657,26 @@
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
-                      {{ data.ml | currency: "€ ":" " }}
+                      {{ data.ml |  number:'1.0-0'}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
                         [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
-                      {{ data.apo | currency: "€ ":" "}}
+                      {{ data.apo |  number:'1.0-0'}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
-                      {{ data.actuals | currency: "€ ":" "}}
+                      {{ data.actuals |  number:'1.0-0'}}
                     </td>
                   </tr>
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
-                      {{ data.actualslastyear | currency: "€ " :" "}}
+                      {{ data.actualslastyear |  number:'1.0-0'}}
                     </td>
 
 
@@ -681,7 +684,7 @@
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
-                      {{ data.harshit | currency: "€ ":" "}}
+                      {{ data.harshit |  number:'1.0-0'}}
                     </td>
 
 
@@ -693,7 +696,7 @@
                   <tr>
                     <td *ngFor="let data of graphData ; let i=index"
                         [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
-                      {{ data.promovalue | currency: "€ ":" "}}
+                      {{ data.promovalue |  number:'1.0-0'}}
                     </td>
 
 
@@ -712,43 +715,43 @@
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.finalCastTotal | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.finalCastTotal |  number:'1.0-0'}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ forecastadd.toFixed(2) | currency: "€ ":" " }}</p>
+                  <p class="m-0 week-block">{{ forecastadd.toFixed(2) |  number:'1.0-0'}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.mlTotal | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.mlTotal |  number:'1.0-0'}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.apoTotal | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.apoTotal |  number:'1.0-0'}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.actuals | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.actuals |  number:'1.0-0'}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.lastYearTotal | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal |  number:'1.0-0'}}</p>
                 </th>
               </tr>
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.harshit | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.harshit |  number:'1.0-0'}}</p>
                 </th>
               </tr>
 
               <tr>
                 <th class="font-weight-bold">
-                  <p class="m-0 week-block">{{ totalData.promovalue | currency: "€ ":" "}}</p>
+                  <p class="m-0 week-block">{{ totalData.promovalue |  number:'1.0-0'}}</p>
                 </th>
               </tr>
 
@@ -2396,3 +2399,4 @@
 </div>
 
 <script lang="javascript" src="dist/xlsx.full.min.js"></script>
+<script lang="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
