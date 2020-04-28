@@ -20883,6 +20883,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             sku: JSON.parse(JSON.stringify(this.fgssselected)),
 
             user: 'admin',
+            ml:data.ml,
             finalForecast: data.finalForecast,
             fva: data.fcstValueAdd,
             calendarWeek: data.week
