@@ -20858,6 +20858,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           calendarWeek: data.calenderYearWeek,
           sku: JSON.parse(JSON.stringify(this.fgssselected)),
           user: 'admin',
+          uom:this.UOM,
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         };
@@ -20881,7 +20882,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
 
             sku: JSON.parse(JSON.stringify(this.fgssselected)),
-
+            uom:this.UOM,
+  
             user: 'admin',
             ml:data.ml,
             finalForecast: data.finalForecast,
@@ -20901,6 +20903,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         calendarWeek: 202010,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
+        uom:this.UOM,
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
       };

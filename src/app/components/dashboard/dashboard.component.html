@@ -356,7 +356,7 @@
               <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Load week</h6>
                 <p
                   style="    margin-top: 0.9rem;color: #000;font-size: 0.75rem;padding-left: 4px;font-weight: 700!important;">
-                  - 09 - 2020 - </p></div>
+                  - 16 - 2020 - </p></div>
 
 
             </div>
@@ -645,7 +645,7 @@
                           [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
                         <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
                                [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
-                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek"
                                [class.disabled]="greystart> data.calenderYearWeek"
                                [class.highlight]="data.lockcell?.length"
                                [(ngModel)]="data.fcstValueAdd"
