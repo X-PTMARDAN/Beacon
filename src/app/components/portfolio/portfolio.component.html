@@ -204,7 +204,7 @@
 
                   <br/>
 
-                  <h3 class="text-center">New Phase In Phase Out rule</h3>
+                  <!-- <h3 class="text-center">New Phase In Phase Out rule</h3>
                   <div style="display:flex;flex-direction: row;justify-content: space-around;">
             
             
@@ -268,7 +268,7 @@
                             </label>
                             <div class="input-group input-append date" style="width: 50%">
                               <span class="pr-1">From:</span>
-                              <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
+                             <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> 
                   
                               <input type="week" value="2019-W39" id="startWeek" [value]="startweek" [(ngModel)]="startweek" name="startWeek" style="height: 43px;
                               width: 300px;
@@ -293,14 +293,14 @@
 
 
                   <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"    type="button" (click)="apply()" > Apply</button></div>  
-
+ -->
 
 
 
 
                   <div>
                       <br>
-                      <h3 class="text-center">All Phase In Phase Out rules</h3>
+                      <h3 class="text-center">All Phase In Phase Out rules</h3>  <button class="btn btn-primary nextBtn"    type="button" (click)="apply1()" > Add</button>
 
                       <div >
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
@@ -553,6 +553,402 @@
 
 
 
+
+
+
+
+
+
+
+    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew" data-toggle="modal" #AddNew>Add New Schedule</a>
+    <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Schedule</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+            
+                
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+                <label>Current SKU</label>
+                <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                border: 1px solid #ced4da;
+                background-color: #fff;">
+                    <option value="select"  selected>Select current SKU</option>
+                    <ng-container *ngFor="let filter of drop; let filterIndex=index" >
+                            <option [value]="filter">{{filter}}</option>
+                      </ng-container>
+                  </select>
+                </div>
+
+             
+            </div>
+
+            <div class="row">              
+                 <div class="form-group col-sm-12 " style="width:70%" align="center">
+                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
+                  
+                  <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;">
+                      <option value="select" disabled selected>Select Phase in SKU</option>
+                  <ng-container *ngFor="let filter of drop2; let filterIndex=index">
+                      <option [value]="filter">{{filter}}</option>
+                </ng-container>
+              </select>
+              </div>
+
+            </div>
+
+            <div class="row phaseout" *ngIf="first_type">
+
+              <ul>
+
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(1)"><img src="assets/images/1.png"></li>
+
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(2)"><img src="assets/images/2.png"></li>
+
+
+
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(3)"><img src="assets/images/3.png"></li>
+
+
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(4)"><img src="assets/images/4.png"></li>
+
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(5)"><img src="assets/images/5.png"></li>
+
+
+
+              </ul>
+
+              
+
+             
+
+
+            </div>
+
+
+
+            <div class="row phaseout" *ngIf="second_type">
+
+              <ul>
+
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(6)"><img src="assets/images/6.png"></li>
+
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(7)"><img src="assets/images/7.png"></li>
+
+
+
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(8)"><img src="assets/images/8.png"></li>
+
+
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(9)"><img src="assets/images/9.png"></li>
+
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(10)"><img src="assets/images/5.png"></li>
+
+
+
+              </ul>
+
+              
+
+             
+
+
+            </div>
+
+
+            <div class="row" align="center"  style="margin-left: 10px" *ngIf="newsku">
+
+       
+
+                        <div class="form-group col-sm-5">
+                          <label>From</label>
+                          
+                          <input type="week" (change)="from_date_table()"  [(ngModel)]="from_date">
+                       </div>
+
+                     <div class="form-group col-sm-5" style="margin-left: 5px">
+                        <label>Date</label>
+                        
+                            <input type="week" (change)="from_date_table()"  [(ngModel)]="to_date" >
+                      </div>
+
+              
+            </div>
+
+
+
+              <div class="row" *ngIf="date_table">
+
+
+                  <div class="col-sm-12"  align="center">
+                      <table class="table" style="width: 100%"  >
+                        <thead>
+                        <tr>
+                          <th> <span class="text-muted">Week</span></th>
+                          <th ><span class="text-muted">Ratio 1</span></th>
+                          <th ><span class="text-muted">Ratio 2</span></th>
+                          </tr>
+                        </thead>
+
+                        <tbody *ngFor="let data of dates; let i=index">
+                              <tr>
+                                <td>{{data.week}}</td>
+                                <td><input type="number" (change)="hello2(i)" [(ngModel)]="data.one"
+                                  [innerText]="data.one"></td>
+                                <td>{{data.two}}</td>
+
+                              </tr>
+
+                        </tbody>
+                    
+                      </table>
+                    </div>
+
+                    <button style="height: 40px;
+                    padding: 0 !important;
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Submit</button>
+                <!-- <div >
+                  <table class="table"  *ngFor="let data of dates; let i=index">
+                    <tr style="background-color: #fff">
+                      <th > <span class="text-muted">{{data}}</span></th>
+                      <th ><span class="text-muted"></span></th>
+                      <th ><span class="text-muted"></span></th>
+                    </tr>
+                
+                  </table>
+                </div> -->
+
+
+              </div>
+
+              
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    
+    <a href="javascript:void(0);" [hidden]="true" data-target="#UpdateNew" data-toggle="modal" #UpdateNew>Check</a>
+    <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"> Schedule</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+            
+                
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+                <label>Current SKU</label>
+                <!-- <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                border: 1px solid #ced4da;
+                background-color: #fff;">
+                    <option value="select"  selected>Select current SKU</option>
+                    <ng-container *ngFor="let filter of drop; let filterIndex=index" >
+                            <option [value]="filter">{{filter}}</option>
+                      </ng-container>
+                  </select> -->
+
+                  <input type="text" [innerText]="dates1[0].fromid" disabled>
+
+                </div>
+
+             
+            </div>
+
+            <div class="row">              
+                 <div class="form-group col-sm-12 " style="width:70%" align="center">
+                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
+                  
+                  <!-- <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;">
+                      <option value="select" disabled selected>Select Phase in SKU</option>
+                  <ng-container *ngFor="let filter of drop2; let filterIndex=index">
+                      <option [value]="filter">{{filter}}</option>
+                </ng-container>
+              </select> -->
+
+
+              <input type="text" [innerText]="dates1[0].toid" disabled>
+              </div>
+
+            </div>
+<!-- 
+            <div class="row phaseout" *ngIf="first_type">
+
+              <ul>
+
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(1)"><img src="assets/images/1.png"></li>
+
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(2)"><img src="assets/images/2.png"></li>
+
+
+
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(3)"><img src="assets/images/3.png"></li>
+
+
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(4)"><img src="assets/images/4.png"></li>
+
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(5)"><img src="assets/images/5.png"></li>
+
+
+
+              </ul>
+
+              
+
+             
+
+
+            </div>
+
+
+
+            <div class="row phaseout" *ngIf="second_type">
+
+              <ul>
+
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(6)"><img src="assets/images/6.png"></li>
+
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(7)"><img src="assets/images/7.png"></li>
+
+
+
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(8)"><img src="assets/images/8.png"></li>
+
+
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(9)"><img src="assets/images/9.png"></li>
+
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(10)"><img src="assets/images/5.png"></li>
+
+
+
+              </ul>
+
+              
+
+             
+
+
+            </div> -->
+
+<!-- 
+            <div class="row" align="center"  style="margin-left: 10px" *ngIf="newsku">
+
+       
+
+                        <div class="form-group col-sm-5">
+                          <label>From</label>
+                          
+                          <input type="week" (change)="from_date_table()"  [(ngModel)]="from_date">
+                       </div>
+
+                     <div class="form-group col-sm-5" style="margin-left: 5px">
+                        <label>Date</label>
+                        
+                            <input type="week" (change)="from_date_table()"  [(ngModel)]="to_date" >
+                      </div>
+
+              
+            </div> -->
+
+
+
+              <div class="row" *ngIf="date_table">
+
+
+                  <div class="col-sm-12"  align="center">
+                      <table class="table" style="width: 100%"  >
+                        <thead>
+                        <tr>
+                          <th> <span class="text-muted">Week</span></th>
+                          <th ><span class="text-muted">Ratio 1</span></th>
+                          <th ><span class="text-muted">Ratio 2</span></th>
+                          </tr>
+                        </thead>
+
+                        <tbody *ngFor="let data of dates1; let i=index">
+                              <tr>
+                                <td>{{data.week}}</td>
+                                <td><input type="number" (change)="hello2(i)" [(ngModel)]="data.one"
+                                  [innerText]="data.one"></td>
+                                <td>{{data.two}}</td>
+
+                              </tr>
+
+                        </tbody>
+                    
+                      </table>
+                    </div>
+
+                    <!-- <button style="height: 40px;
+                    padding: 0 !important;
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Submit</button> -->
+                <!-- <div >
+                  <table class="table"  *ngFor="let data of dates; let i=index">
+                    <tr style="background-color: #fff">
+                      <th > <span class="text-muted">{{data}}</span></th>
+                      <th ><span class="text-muted"></span></th>
+                      <th ><span class="text-muted"></span></th>
+                    </tr>
+                
+                  </table>
+                </div> -->
+
+
+              </div>
+
+              
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 

@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {SKUService} from '../../services/sku.service';
 import {Router} from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 
 
@@ -36,8 +37,16 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   @ViewChild('saveFilterModal', {static: false}) saveFilterModal: ElementRef;
 
+  @ViewChild('AddNew', {static: false}) AddNew: ElementRef;
 
 
+
+  @ViewChild('UpdateNew', {static: false}) UpdateNew: ElementRef;
+
+
+
+  
+  
   @ViewChild('saveFilterModal12', {static: false}) saveFilterModal12: ElementRef;
 
 
@@ -54,7 +63,17 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
 
+public from_date;
 
+public to_date;
+
+public dates1=[{
+  fromid:"0",
+  toid:0,
+  week:0,
+  one:0,
+  two:0
+}];
 
 
 
@@ -72,7 +91,7 @@ public forecasting_fgid;
 
 
 
-
+public val_selected=0;
 
 
 
@@ -88,6 +107,23 @@ public forecasting_fgid;
 
 public maxweek;
   public newsku=false;
+
+  public od=1;
+
+
+
+
+  public second_type=false;
+
+  public first_type=true;
+
+
+ 
+
+  public date_table=false;
+
+
+  
 
   public abc12='fshjg';
 
@@ -106,6 +142,8 @@ public drop2;
   public option='sku';
 
   public drop =[];
+
+  public dates=[];
 
   public phase =false;
 
@@ -419,6 +457,9 @@ console.log("dsfheg---"+JSON.stringify(a));
   }
 
 
+
+
+
   public map_sku()
   {
     this.materialid;
@@ -499,6 +540,35 @@ console.log("dsfheg---"+JSON.stringify(a));
 
   }
 
+  public second_type1()
+  {
+
+      if(this.od%2==0)
+      {
+        this.first_type=true;
+        this.second_type=false;
+        this.od=1;
+        document.getElementById('harshit').style.backgroundColor='#fff';
+     
+        
+      }
+      else{
+
+        this.first_type=false;
+        this.second_type=true;
+      this.od=0;
+      document.getElementById('harshit').style.backgroundColor='#f1f1f1';
+     
+      }
+  }
+
+
+  public type(a)
+  {
+    this.val_selected=a;
+    this.newsku=true;
+  }
+
 
 
   // NOT TO BE USED
@@ -558,34 +628,127 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
     this.tosku_transistion_apply=this.pipoMapping[num].toid;
 
-    console.log("12345678----"+JSON.stringify(this.pipoMapping[num]));
+    var abc={
+      from:this.fromsku_transistion_apply,
+      to:this.tosku_transistion_apply
+    };
+    this.skuService.getPIPOvalue(abc).subscribe((response2: any) => {  
+      console.log("DFdf---");
 
-    this.forecasting_fgid=this.pipoMapping[num].fgid;
+      this.dates1=response2;
 
-    this.startweek_transistion_apply=this.pipoMapping[num].fromweek;
+      this.UpdateNew.nativeElement.click();
 
+      //window.alert("Done!");
+    });
 
-
-   
-
-    console.log("DFdfdf---"+this.date);
-
-    this.logic=this.pipoMapping[num].state;
-
-
-      this.saveFilterModal.nativeElement.click();
+    //  this.saveFilterModal.nativeElement.click();
     
     
 
   }
+
+
+  public apply1()
+  {
+    this.AddNew.nativeElement.click();
+
+
+    
+  }
+
+
+  public from_date_table()
+  {
+        if(!(this.from_date==" " || this.from_date==" " || this.from_date==null || this.to_date==null || this.to_date==""))
+        {
+              this.date_table=true;
+              var str = this.from_date;
+
+              str=str.substring(0, 4);
+
+
+              var str1 = this.from_date;
+
+              str1=str1.substring(6,str1.length);
+
+             // alert(str+"-"+str1);
+              
+              var str2=str+str1;
+
+              var str3=parseInt(str2);
+
+
+
+
+              var str_1 = this.to_date;
+
+              str_1=str_1.substring(0, 4);
+
+
+              var str1_1 = this.to_date;
+
+              str1_1=str1_1.substring(6,str1_1.length);
+
+             // alert(str_1+"-"+str1_1);
+              
+              var str2_1=str_1+str1_1;
+
+              var str3_1=parseInt(str2_1);
+
+
+             this.dates=[];
+
+            if(this.val_selected<6)
+            {
+              for(var i=str3;i<=str3_1;i++)
+              {
+                
+                var a={
+                  week:i,
+                  one:10,
+                  two:90,
+                  fromid:this.fromsku.split("-")[0],
+                  toid:this.tosku
+                };
+                console.log("Harshit - "+i);
+           
+                this.dates.push(a);
+              }
+            }
+            else{
+
+              for(var i=str3;i<=str3_1;i++)
+              {
+                
+                var a={
+                  week:i,
+                  one:10,
+                  two:0,
+                  fromid:this.fromsku.split("-")[0],
+                  toid:this.tosku
+                };
+                console.log("Harshit - "+i);
+           
+                this.dates.push(a);
+              }
+
+
+            }
+
+              
+        }
+  }
+
+  public hello2(i)
+  {
+    var a=this.dates[i].one;
+    this.dates[i].two=100-a;
+  }
 public apply()
 {
 
-  if(this.fromsku=='' ||  this.fromsku===null || state===null || state=='' || this.date===null || this.date=='' || this.fromsku=='select' )
-{
-  window.alert("Please select all the values");
-  return;
-}
+ 
 
 
 
@@ -597,7 +760,7 @@ console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 console.log("Dfsfgfsg1---"+JSON.stringify(this.tosku));
 console.log("Dfsfgfsg2---"+JSON.stringify(this.logic));
 console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek));
-console.log("Dfsfgfsg3---"+JSON.stringify(this.startweek.substr(0,4)));
+
 
 
 
@@ -617,27 +780,21 @@ this.forecasting_fgid=this.fromsku.split('-')[1];
 console.log("3434343--"+this.tosku_transistion_apply);
 
 var state;
- this.date=parseInt(this.startweek.substr(0,4)+this.startweek.substr(6));
+ this.date=parseInt(this.from_date.substr(0,4)+this.from_date.substr(6));
 
 //this.final=201952;
 
 console.log("34354ythrgbfd---"+this.date);
-if(this.logic=='delist')
-{
-   state="Delist";
-   this.saveFilterModal12.nativeElement.click();
-}
-else {
+
   state ="Transistion";
-  this.saveFilterModal.nativeElement.click();
-}
+
 var data={
   fromid:this.fromsku.split("-")[0],
   toid:this.tosku,
   state:state,
   fromweek:this.date,
   fgid:this.fromsku.split("-")[1]
-}
+};
 
 
 
@@ -646,13 +803,22 @@ var data={
 console.log("CHEK000--"+JSON.stringify(data));
 
 //this.myModal_gant.nativeElement.click();
-
+this.skuService.savePIPOvalue(this.dates).subscribe((response2: any) => {  
+  console.log("DFdf---");
+  //window.alert("Done!");
+});
 
 
 this.skuService.savePIPOsku(data).subscribe((res: any) => {
   //this.editCommentModalBtnCancel.nativeElement.click();
 
  
+
+
+ 
+
+
+  
   this.skuService.getPIPO().subscribe((response1: any) => {    
     this.pipo=response1;
     console.log("Check--------"+JSON.stringify(response1));
@@ -675,15 +841,15 @@ this.skuService.savePIPOsku(data).subscribe((res: any) => {
   });
 
 
-this.skuService.getPIPOMapping().subscribe((response2: any) => {  
-  this.pipoMapping=response2;
-  this.fromsku='';
-  this.tosku='';
-  this.logic=''
-  this.startweek='';
-  console.log("DFdf---");
-  window.alert("Done!");
-});
+                this.skuService.getPIPOMapping().subscribe((response2: any) => {  
+                  this.pipoMapping=response2;
+                  this.fromsku='';
+                  this.tosku='';
+                  this.logic=''
+                  this.startweek='';
+                  console.log("DFdf---");
+                  window.alert("Done!");
+                });
 
 }, (error) => {
 
