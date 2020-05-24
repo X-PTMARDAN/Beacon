@@ -541,10 +541,28 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}savePIPOsku`, data);
   }
 
+
+  public savePIPOvalue(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savePIPOvalue`, data);
+  }
+
+
+
+  public getPIPOvalue(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}getPIPOvalue`, data);
+  }
+
+
+
+
   public getPIPOMapping(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}fetchpipoMapping`, data);
   }
 
+
+
+
+  
   
 
   public getPIPO(data = {}) {
