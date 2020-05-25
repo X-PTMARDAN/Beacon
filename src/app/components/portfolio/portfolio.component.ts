@@ -62,10 +62,12 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public date;
 
 
-
+public loading=false;
 public from_date;
 
 public to_date;
+
+public second_week;
 
 public dates1=[{
   fromid:"0",
@@ -118,7 +120,7 @@ public maxweek;
   public first_type=true;
 
 
- 
+ public type_value=0;
 
   public date_table=false;
 
@@ -566,7 +568,16 @@ console.log("dsfheg---"+JSON.stringify(a));
   public type(a)
   {
     this.val_selected=a;
+
+    this.type_value=a;
     this.newsku=true;
+
+    this.second_week=true;
+
+    if(a==4)
+    {
+      this.second_week=false;
+    }
   }
 
 
@@ -660,6 +671,10 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
   public from_date_table()
   {
+        if(this.val_selected==4)
+        {
+            this.to_date="202020";
+        }
         if(!(this.from_date==" " || this.from_date==" " || this.from_date==null || this.to_date==null || this.to_date==""))
         {
               this.date_table=true;
@@ -699,7 +714,80 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
              this.dates=[];
 
-            if(this.val_selected<6)
+
+              if(this.val_selected==1)
+              {
+                        var j=0
+                        for(var i=str3;i<=str3_1;i++)
+                        {
+                        j++;
+                        var k=Math.round(100*j/(str3_1-str3+1));
+                      
+                            var a={
+                              week:i,
+                              one:k,
+                              two:100-k,
+                              fromid:this.fromsku.split("-")[0],
+                              toid:this.tosku
+                            };
+                            console.log("Harshit - "+i);
+                  
+                           this.dates.push(a);
+                        }
+              }
+
+
+              else if(this.val_selected==2)
+              {
+                        var j=0
+                        for(var i=str3;i<=str3_1;i++)
+                        {
+                        j++;
+                        var k=(str3_1-str3+1);
+                        
+                          var f=Math.log(j)/Math.log(k);
+
+
+                            f=f*100;
+                            f=Math.round(f);
+
+
+                            var a={
+                              week:i,
+                              one:f,
+                              two:100-f,
+                              fromid:this.fromsku.split("-")[0],
+                              toid:this.tosku
+                            };
+                            console.log("Harshit - "+i);
+                  
+                           this.dates.push(a);
+                        }
+              }
+
+
+              else if(this.val_selected==4)
+              {
+                        var j=0
+                        
+                        j++;
+                        var k=(str3_1-str3+1);
+                        //var k=Math.log(str3,h);
+                      
+                            var a={
+                              week:str3,
+                              one:0,
+                              two:100,
+                              fromid:this.fromsku.split("-")[0],
+                              toid:this.tosku
+                            };
+                            console.log("Harshit - "+i);
+                  
+                           this.dates.push(a);
+                        
+              }
+
+            else if(this.val_selected<6)
             {
               for(var i=str3;i<=str3_1;i++)
               {
@@ -753,7 +841,7 @@ public apply()
 
 
 
-
+  this.loading = true;
 
 console.log("Dfsfgfsg---"+JSON.stringify(this.fromsku));
 
@@ -805,82 +893,86 @@ console.log("CHEK000--"+JSON.stringify(data));
 //this.myModal_gant.nativeElement.click();
 this.skuService.savePIPOvalue(this.dates).subscribe((response2: any) => {  
   console.log("DFdf---");
+
+
+  this.skuService.savePIPOsku(data).subscribe((res: any) => {
+    //this.editCommentModalBtnCancel.nativeElement.click();
+    this.skuService.getPIPO().subscribe((response1: any) => {    
+      this.pipo=response1;
+      console.log("Check--------"+JSON.stringify(response1));
+      for(const abc of this.pipo)
+      {
+        var g=abc.material + "-" + abc.fgid;
+        //console.log("121---"+JSON.stringify(abc));
+  
+        console.log("Fdfdfdfdfd---"+abc.prime);
+        if(abc.prime==='PRIMARY')
+        {
+          this.drop.push(g);
+        }
+        else{
+          console.log("0909we3434343");
+        }
+      
+      }
+      console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+    });
+  
+  
+                  this.skuService.getPIPOMapping().subscribe((response2: any) => {  
+                    this.pipoMapping=response2;
+                    this.fromsku='';
+                    this.tosku='';
+                    this.logic=''
+                    this.startweek='';
+                    console.log("DFdf---");
+                    window.alert("Done!");
+  
+                    this.loading=false;
+  
+                    window.location.reload();
+                  });
+  
+  }, (error) => {
+  
+    
+    console.log("Check--------");
+    this.skuService.getPIPO().subscribe((response1: any) => {    
+      this.pipo=response1;
+      for(const abc of this.pipo)
+      {
+        var g=abc.material + "-" + abc.fgid;
+        console.log("121---"+g);
+        this.drop.push(g);
+      }
+      console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+    });
+  
+  
+  this.skuService.getPIPOMapping().subscribe((response2: any) => {  
+    this.pipoMapping=response2;
+    this.fromsku='';
+    this.tosku='';
+    this.logic=''
+    this.startweek='';
+    console.log("DFdf---");
+    window.alert("Done!");
+  
+    window.location.reload();
+    this.loading=false;
+  });
+  
+  
+   // this.editCommentModalBtnCancel.nativeElement.click();
+  
+  });
+
+
   //window.alert("Done!");
 });
 
 
-this.skuService.savePIPOsku(data).subscribe((res: any) => {
-  //this.editCommentModalBtnCancel.nativeElement.click();
 
- 
-
-
- 
-
-
-  
-  this.skuService.getPIPO().subscribe((response1: any) => {    
-    this.pipo=response1;
-    console.log("Check--------"+JSON.stringify(response1));
-    for(const abc of this.pipo)
-    {
-      var g=abc.material + "-" + abc.fgid;
-      //console.log("121---"+JSON.stringify(abc));
-
-      console.log("Fdfdfdfdfd---"+abc.prime);
-      if(abc.prime==='PRIMARY')
-      {
-        this.drop.push(g);
-      }
-      else{
-        console.log("0909we3434343");
-      }
-    
-    }
-    console.log("Dfdfdfd---"+JSON.stringify(this.drop));
-  });
-
-
-                this.skuService.getPIPOMapping().subscribe((response2: any) => {  
-                  this.pipoMapping=response2;
-                  this.fromsku='';
-                  this.tosku='';
-                  this.logic=''
-                  this.startweek='';
-                  console.log("DFdf---");
-                  window.alert("Done!");
-                });
-
-}, (error) => {
-
-  
-  console.log("Check--------");
-  this.skuService.getPIPO().subscribe((response1: any) => {    
-    this.pipo=response1;
-    for(const abc of this.pipo)
-    {
-      var g=abc.material + "-" + abc.fgid;
-      console.log("121---"+g);
-      this.drop.push(g);
-    }
-    console.log("Dfdfdfd---"+JSON.stringify(this.drop));
-  });
-
-
-this.skuService.getPIPOMapping().subscribe((response2: any) => {  
-  this.pipoMapping=response2;
-  this.fromsku='';
-  this.tosku='';
-  this.logic=''
-  this.startweek='';
-  console.log("DFdf---");
-  window.alert("Done!");
-});
-
-
- // this.editCommentModalBtnCancel.nativeElement.click();
-
-});
 
 
 
