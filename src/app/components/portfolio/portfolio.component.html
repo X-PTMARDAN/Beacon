@@ -95,6 +95,7 @@
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Segment</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
@@ -117,6 +118,7 @@
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.animal_FLAG2}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>

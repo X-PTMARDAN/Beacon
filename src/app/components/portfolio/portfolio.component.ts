@@ -725,8 +725,8 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
                       
                             var a={
                               week:i,
-                              one:k,
-                              two:100-k,
+                              one:100-k,
+                              two:k,
                               fromid:this.fromsku.split("-")[0],
                               toid:this.tosku
                             };
@@ -754,8 +754,8 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
                             var a={
                               week:i,
-                              one:f,
-                              two:100-f,
+                              one:100-f,
+                              two:f,
                               fromid:this.fromsku.split("-")[0],
                               toid:this.tosku
                             };
