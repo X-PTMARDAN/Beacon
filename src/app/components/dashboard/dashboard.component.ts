@@ -733,7 +733,7 @@ public expand=true;
                             //this.prevactuals = '2019-W35';
                             this.createdata = {
                               prevactuals: this.prevactuals_val,
-                              startWeek: 202010,
+                              startWeek: 202021,
                               endWeek: this.plan_val,
                               forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                               customerPlanningGroup: [],
@@ -1434,7 +1434,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -1993,7 +1993,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -2329,7 +2329,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -2493,7 +2493,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -2653,7 +2653,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -3049,7 +3049,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -3295,7 +3295,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -3590,7 +3590,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -3828,7 +3828,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -4120,7 +4120,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -4358,7 +4358,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -4650,7 +4650,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -4888,7 +4888,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -5180,7 +5180,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -5418,7 +5418,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -5709,7 +5709,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -5947,7 +5947,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -6230,7 +6230,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -6493,7 +6493,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -6699,7 +6699,7 @@ public expand=true;
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: 202052,
-        prevactuals: 202009,
+        prevactuals: 202020,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -6896,7 +6896,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -7047,7 +7047,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -8366,7 +8366,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -8532,7 +8532,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -8904,7 +8904,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -9070,7 +9070,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -9443,7 +9443,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -9609,7 +9609,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -9983,7 +9983,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -10149,7 +10149,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -10524,7 +10524,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -10690,7 +10690,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -11063,7 +11063,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -11229,7 +11229,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -12053,7 +12053,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -12296,7 +12296,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -15778,11 +15778,11 @@ public expand=true;
     }
     this.color_tick = 0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 202010) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 202021) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 202010) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 202021) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -16150,7 +16150,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -16561,7 +16561,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -16723,7 +16723,7 @@ public expand=true;
               },
               {
                 startValue: 202000,
-                endValue: 202009,
+                endValue: 202020,
                 color: '#F2F3F5'
               },
 
@@ -17031,7 +17031,7 @@ public expand=true;
             },
             {
               startValue: 202000,
-              endValue: 202009,
+              endValue: 202020,
               color: '#F2F3F5'
             },
 
@@ -18779,7 +18779,7 @@ public expand=true;
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
-    data.startWeek = 202010;
+    data.startWeek = 202021;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -20912,7 +20912,7 @@ public expand=true;
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202010,
+        calendarWeek: 202021,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         uom:this.UOM,
@@ -21026,7 +21026,7 @@ public expand=true;
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202010,
+        calendarWeek: 202021,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -21818,7 +21818,7 @@ public expand=true;
     data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
 
 
-    data.startWeek = 202010;
+    data.startWeek = 202021;
     data.endWeek = 202004;
 
     this.loading = true;
@@ -21893,3 +21893,5 @@ public expand=true;
     });
   }
 }
+
+
