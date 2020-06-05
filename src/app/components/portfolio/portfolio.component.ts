@@ -41,6 +41,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
 
+  @ViewChild('AddNew_1', {static: false}) AddNew_1: ElementRef;
+
+
+
   @ViewChild('UpdateNew', {static: false}) UpdateNew: ElementRef;
 
 
@@ -69,6 +73,11 @@ public to_date;
 
 public second_week;
 
+public dates_1;
+
+public dates_1_prev=[];
+public dates_1_next=[];
+
 public dates1=[{
   fromid:"0",
   toid:0,
@@ -86,6 +95,12 @@ public tosku_transistion_apply;
 public logic_transistion_apply;
   
   
+
+public material_1;
+
+
+public lead_sku;
+
 public startweek_transistion_apply;
   
   
@@ -162,6 +177,10 @@ public sku_map=true;
   public tosku='select';
 
   public mappedFG;
+
+
+  public mappedFG_1;
+
   public logic='select';
 
 
@@ -177,6 +196,10 @@ public selectedPlants=[];
 
 
 public mappingdrop;
+
+
+public mappingdrop_1;
+
   public fgname_column;
   public material_column;
   public fgid_column;
@@ -259,6 +282,15 @@ public table=false;
           this.skuService.getfgid().subscribe((response: any) => { 
            
             this.mappingdrop=response;
+            this.fg_len=this.mappingdrop.length; 
+          });
+
+
+
+
+          this.skuService.getanimal().subscribe((response: any) => { 
+           
+            this.mappingdrop_1=response;
             this.fg_len=this.mappingdrop.length; 
           });
 
@@ -460,7 +492,75 @@ console.log("dsfheg---"+JSON.stringify(a));
 
 
 
+public map_sku_1()
+{
+  var data={
+    lead: this.lead_sku,
+     animal:this.mappedFG_1,
+     material:this.material_1
+   };
 
+
+
+
+
+   this.skuService.mapFG_1(data).subscribe((res: any) => {
+    //this.editCommentModalBtnCancel.nativeElement.click();
+
+    window.alert("Mapped");
+    window.location.reload();
+
+    this.skuService.getPIPO().subscribe((response: any) => {    
+      this.pipo=response;
+      for(const abc of this.pipo)
+      {
+
+        var g=abc.material + "-" + abc.fgid;
+        console.log("121---"+g);
+        this.drop.push(g);
+      }
+      console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+  });
+
+  this.skuService.getPIPOMapping().subscribe((response: any) => {  
+    this.pipoMapping=response;
+  });
+
+
+  
+  }, (error) => {
+  
+    window.alert("Mapped");
+
+
+    this.skuService.getPIPO().subscribe((response: any) => {    
+      this.pipo=response;
+      for(const abc of this.pipo)
+      {
+        var g=abc.material + "-" + abc.fgid;
+        console.log("121---"+g);
+        this.drop.push(g);
+      }
+      console.log("Dfdfdfd---"+JSON.stringify(this.drop));
+  });
+
+  this.skuService.getPIPOMapping().subscribe((response: any) => {  
+    this.pipoMapping=response;
+  });
+  
+   // this.editCommentModalBtnCancel.nativeElement.click();
+  
+  });
+
+
+
+
+
+
+
+
+
+}
 
   public map_sku()
   {
@@ -578,6 +678,10 @@ console.log("dsfheg---"+JSON.stringify(a));
     {
       this.second_week=false;
     }
+
+    this.dates=[];
+    this.from_date='';
+    this.to_date='';
   }
 
 
@@ -630,6 +734,19 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
   }
 
 
+
+
+
+  public edit_1(num: string,num2: string)
+  {
+
+
+    this.lead_sku=num;
+
+    this.material_1=num2
+  }
+
+
   public gantchart1(num: number)
   {
 
@@ -666,6 +783,76 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
 
     
+  }
+
+  public delete_1(a,b)
+  {
+
+
+  var abc={
+    from:a,
+    to:b
+  }
+    this.skuService.delete_value(abc).subscribe((response2: any) => {  
+      console.log("DFdf---");
+      window.location.reload();
+
+      //window.alert("Done!");
+    });
+
+
+  }
+
+
+  public schedule_1(a,b)
+  {
+
+
+  var abc={
+    from:a,
+    to:b
+  }
+    this.skuService.getschedule_value(abc).subscribe((response2: any) => {  
+      console.log("DFdf---");
+      this.dates_1=[];
+      this.dates_1_next=[];
+      this.dates_1_prev=[];
+      this.dates_1=response2;
+
+      var h=this.dates_1[0].fromweek;
+      for(var y=0;y<this.dates_1.length;y++)
+      {
+        console.log("Dfdfd--"+y);
+        
+//alert(this.dates_1[y].fromweek);
+        if(parseInt(this.dates_1[y].fromweek)<=202023)
+        {
+          
+          var gh={
+            fromweek:h,
+            one:this.dates_1[y].one,
+            two:this.dates_1[y].two
+          };
+          this.dates_1_prev.push(gh);
+        }
+        else{
+          var gh={
+            fromweek:h,
+            one:this.dates_1[y].one,
+            two:this.dates_1[y].two
+          };
+          this.dates_1_next.push(gh);
+        }
+        h++;
+      }
+      
+     
+      this.AddNew_1.nativeElement.click();
+
+      //window.alert("Done!");
+    });
+
+
   }
 
 
@@ -833,6 +1020,14 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
     var a=this.dates[i].one;
     this.dates[i].two=100-a;
   }
+
+
+  public hello2_1(i)
+  {
+    var a=this.dates_1[i].one;
+    this.dates_1[i].two=100-a;
+  }
+
 public apply()
 {
 
@@ -925,6 +1120,9 @@ this.skuService.savePIPOvalue(this.dates).subscribe((response2: any) => {
                     this.tosku='';
                     this.logic=''
                     this.startweek='';
+                    this.dates=[];
+                    this.from_date='';
+                    this.to_date='';
                     console.log("DFdf---");
                     window.alert("Done!");
   

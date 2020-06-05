@@ -88,18 +88,20 @@
               <div class="center-block fix-width scroll-inner">
                   <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button>
                   <br>
-                  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
+                  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Segment</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Segment</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
                     </tr>
                 
                   </table>
@@ -111,18 +113,20 @@
 
 
 
-                <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
+                <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
                     <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.animal_FLAG2}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.animal_FLAG2}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4_1" (click)=edit_1(data.fgid,data.material)>Edit2</a></td>
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
                     </tr>
                 
                   </table>
@@ -313,13 +317,22 @@
                       <div >
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
 
 
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
+
+
+
+
+
                           </tr>
                       
                         </table>
@@ -335,12 +348,16 @@
 
                         <ng-container *ngFor="let data of pipoMapping; let i=index">
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
 
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success"  (click)=schedule_1(data.fromid,data.toid)>Edit</a></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-warning"  (click)=delete_1(data.fromid,data.toid)>Delete</a></td>
+
                           </tr>
                           </ng-container>
                          
@@ -470,6 +487,61 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="myModal4_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" #mapsku aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+        <div class="modal-body">
+  <div class="table-responsive mt-3">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th scope="col">Lead Sku</th>
+        <th scope="col">Animal</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+
+          <td [innerText]='material_1' style="display: none;"></td>
+<td [innerText]='lead_sku' disabled></td>
+
+                <td >  
+          <select [(ngModel)]="mappedFG_1">
+          <ng-container *ngFor="let filter of mappingdrop_1; let filterIndex=index" >
+            <option [value]="filter">{{filter}}</option>
+      </ng-container></select></td>
+      
+        
+      </tr>
+    
+
+    </tbody>
+  </table>
+  
+  
+  
+  </div>
+  <div class="col-sm-12 text-center" (click)="map_sku_1();"><a href="javascript:void(0)" class="btn">Add</a></div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 
 
@@ -691,13 +763,13 @@
                         <div class="form-group col-sm-5">
                           <label>From</label>
                           
-                          <input type="week" (change)="from_date_table()"  [(ngModel)]="from_date">
+                          <input type="week" min="2020-W23" (change)="from_date_table()"  [(ngModel)]="from_date">
                        </div>
 
                      <div class="form-group col-sm-5" style="margin-left: 5px" *ngIf='second_week'>
                         <label>Date</label>
                         
-                            <input type="week" (change)="from_date_table()"  [(ngModel)]="to_date" >
+                            <input type="week" min="2020-W24"(change)="from_date_table()"  [(ngModel)]="to_date" >
                       </div>
 
               
@@ -762,6 +834,87 @@
 
 
 
+
+    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew_1" data-toggle="modal" #AddNew_1>Add New Schedule</a>
+    <div class="modal fade save-filter-modal" id="AddNew_1" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"> Schedule</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+
+              <div class="row">
+
+
+                  <div class="col-sm-12"  align="center">
+                      <table class="table" style="width: 100%"  >
+                        <thead>
+                        <tr>
+                          <th> <span class="text-muted">Week</span></th>
+                          <th ><span class="text-muted">Ratio 1</span></th>
+                          <th ><span class="text-muted">Ratio 2</span></th>
+                          </tr>
+                        </thead>
+
+                        <tbody *ngFor="let data of dates_1_prev; let i=index">
+                              <tr>
+                                <td>{{data.fromweek}}</td>
+                                <td>{{data.one}}</td>
+                                <td>{{data.two}}</td>
+
+                              </tr>
+
+                        </tbody>
+
+                        <tbody *ngFor="let data of dates_1_next; let i=index">
+                            <tr>
+                              <td>{{data.fromweek}}</td>
+                              <td><input type="number" (change)="hello2_1(i)" [(ngModel)]="data.one"
+                                [innerText]="data.one"></td>
+                              <td>{{data.two}}</td>
+
+                            </tr>
+
+                      </tbody>
+                    
+                      </table>
+                    </div>
+
+                    <button style="height: 40px;
+                    padding: 0 !important;
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Submit</button>
+                <!-- <div >
+                  <table class="table"  *ngFor="let data of dates; let i=index">
+                    <tr style="background-color: #fff">
+                      <th > <span class="text-muted">{{data}}</span></th>
+                      <th ><span class="text-muted"></span></th>
+                      <th ><span class="text-muted"></span></th>
+                    </tr>
+                
+                  </table>
+                </div> -->
+
+
+              </div>
+
+              
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
     
     <a href="javascript:void(0);" [hidden]="true" data-target="#UpdateNew" data-toggle="modal" #UpdateNew>Check</a>
     <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
@@ -778,7 +931,8 @@
             
                 
               <div class="form-group col-sm-12 " style="width:70%" align="center">
-                <label>Current SKU</label>
+                <label style="float: left;
+                margin-left: 30px;">Current SKU</label>
                 <!-- <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
                 border: 1px solid #ced4da;
                 background-color: #fff;">
@@ -796,8 +950,10 @@
             </div>
 
             <div class="row">              
-                 <div class="form-group col-sm-12 " style="width:70%" align="center">
-                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
+                 <div class="form-group col-sm-12 " style="width:70%" align="center" style="    float: left;
+                 margin-left: 30px;">
+                  <span style="    float: left;
+                  margin-left: 30px;">Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
                   
                   <!-- <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
                   border: 1px solid #ced4da;
