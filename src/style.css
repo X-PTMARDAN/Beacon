@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+.canvasjs-chart-credit {
+  display: none;
+}
+
+.canvasjs-chart-toolbar > button {
+  margin-top: -40px;
+  margin-right: -21px;
+  background-color: transparent !important;
+  /* border: 1px solid black !important; */
+}
+
+/* .canvasjs-chart-toolbar > button:hover {
+} */
+
+.canvasjs-chart-toolbar button {
+  width: 100px !important;
+
+}
+
+body {
+  background-color: #E4E5E9;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
