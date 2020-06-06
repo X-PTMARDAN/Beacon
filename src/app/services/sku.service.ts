@@ -555,6 +555,19 @@ export class SKUService {
 
 
 
+
+  public getschedule_value(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}schedule_value`, data);
+  }
+
+
+  public delete_value(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}delete_value`, data);
+  }
+
+
+
+
   public getPIPOMapping(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}fetchpipoMapping`, data);
   }
@@ -585,6 +598,12 @@ export class SKUService {
 
   public getfgid(data = {}) {
     return this.http.get(`${this.apiGatewayUrl}forecastinggroup`);
+  }
+
+
+
+  public getanimal(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}animal_1`);
   }
 
 
@@ -621,6 +640,14 @@ export class SKUService {
   public mapFG(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}mapFG`, data);
   }
+
+
+
+
+  public mapFG_1(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}mapFG_1`, data);
+  }
+
 
   public addSKU_pipo_final(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}addSKU_pipo_final`, data);
