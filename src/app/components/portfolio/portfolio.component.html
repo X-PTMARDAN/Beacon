@@ -90,10 +90,12 @@
                   <br>
                   <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
+
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Segment</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
@@ -114,17 +116,20 @@
 
 
                 <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
-                    <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
+                    <tr style="background-color: #fff" >
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
+
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
+
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.animal_FLAG2}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4_1" (click)=edit_1(data.fgid,data.material)>Edit2</a></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4_1" (click)=edit_1(data.fgid,data.material)>Edit Segment</a></td>
 
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
                     </tr>
@@ -312,18 +317,21 @@
 
                   <div>
                       <br>
-                      <h3 class="text-center">All Phase In Phase Out rules</h3>  <button class="btn btn-primary nextBtn"    type="button" (click)="apply1()" > Add</button>
+                      <h3 class="text-center">All Phase In Phase Out rules</h3>  <button class="btn btn-primary nextBtn" style="height:46px !important"   type="button" (click)="apply1()" > Add New Rule</button>
+
+                      <button class="btn btn-primary nextBtn" style="float: right;"   type="button" > Filter</button>
 
                       <div >
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                           <tr style="background-color: #fff">
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
 
 
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Date</h6></td>
 
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
 
@@ -350,10 +358,12 @@
                           <tr style="background-color: #fff">
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
 
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.Date}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success"  (click)=schedule_1(data.fromid,data.toid)>Edit</a></td>
 
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-warning"  (click)=delete_1(data.fromid,data.toid)>Delete</a></td>
@@ -645,7 +655,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">New Schedule</h5>
+            <h5 class="modal-title">New Phase in Phase out rule</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
               <span aria-hidden="true">&times;</span>
             </button>
@@ -767,7 +777,7 @@
                        </div>
 
                      <div class="form-group col-sm-5" style="margin-left: 5px" *ngIf='second_week'>
-                        <label>Date</label>
+                        <label>Until</label>
                         
                             <input type="week" min="2020-W24"(change)="from_date_table()"  [(ngModel)]="to_date" >
                       </div>
@@ -785,8 +795,8 @@
                         <thead>
                         <tr>
                           <th> <span class="text-muted">Week</span></th>
-                          <th ><span class="text-muted">Ratio 1</span></th>
-                          <th ><span class="text-muted">Ratio 2</span></th>
+                          <th ><span class="text-muted">Out SKU</span></th>
+                          <th ><span class="text-muted">In SKU</span></th>
                           </tr>
                         </thead>
 
@@ -806,7 +816,7 @@
 
                     <button style="height: 40px;
                     padding: 0 !important;
-                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Submit</button>
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Save</button>
                 <!-- <div >
                   <table class="table"  *ngFor="let data of dates; let i=index">
                     <tr style="background-color: #fff">

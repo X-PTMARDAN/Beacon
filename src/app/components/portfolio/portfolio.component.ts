@@ -248,7 +248,7 @@ public table=false;
               console.log("Checking-----"+JSON.stringify(this.pipo));
               for(const abc of this.pipo)
               {
-                var g=abc.material + "-" + abc.fgid;
+                var g=abc.material +"-"+abc.sku + "-" + abc.fgid;
                 console.log("121---"+g);
                 if(abc.prime=="PRIMARY")
                 {
@@ -515,7 +515,7 @@ public map_sku_1()
       for(const abc of this.pipo)
       {
 
-        var g=abc.material + "-" + abc.fgid;
+        var g=abc.material + "-" + abc.sku+"-" +abc.fgid;
         console.log("121---"+g);
         this.drop.push(g);
       }
@@ -537,7 +537,7 @@ public map_sku_1()
       this.pipo=response;
       for(const abc of this.pipo)
       {
-        var g=abc.material + "-" + abc.fgid;
+        var g=abc.material +"-"+ abc.sku+"-" + abc.fgid;
         console.log("121---"+g);
         this.drop.push(g);
       }
@@ -589,7 +589,7 @@ public map_sku_1()
         for(const abc of this.pipo)
         {
 
-          var g=abc.material + "-" + abc.fgid;
+          var g=abc.material + "-" +abc.sku+"-"+ abc.fgid;
           console.log("121---"+g);
           this.drop.push(g);
         }
@@ -611,7 +611,7 @@ public map_sku_1()
         this.pipo=response;
         for(const abc of this.pipo)
         {
-          var g=abc.material + "-" + abc.fgid;
+          var g=abc.material + "-" + abc.sku+"-"+ abc.fgid;
           console.log("121---"+g);
           this.drop.push(g);
         }
@@ -675,6 +675,10 @@ public map_sku_1()
     this.second_week=true;
 
     if(a==4)
+    {
+      this.second_week=false;
+    }
+    if(a==9)
     {
       this.second_week=false;
     }
@@ -974,6 +978,82 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
                         
               }
 
+
+
+
+              else if(this.val_selected==6)
+              {
+                        var j=0
+                        for(var i=str3;i<=str3_1;i++)
+                        {
+                        j++;
+                        var k=Math.round(100*j/(str3_1-str3+1));
+                      
+                            var a1={
+                              week:i,
+                              one:100-k,
+                              two:0,
+                              fromid:this.fromsku.split("-")[0],
+                              toid:0
+                            };
+                            console.log("Harshit - "+i);
+                  
+                           this.dates.push(a1);
+                        }
+              }
+
+              else if(this.val_selected==7)
+              {
+                        var j=0
+                        for(var i=str3;i<=str3_1;i++)
+                        {
+                        j++;
+                        var k=(str3_1-str3+1);
+                        
+                          var f=Math.log(j)/Math.log(k);
+
+
+                            f=f*100;
+                            f=Math.round(f);
+
+
+                            var a2={
+                              week:i,
+                              one:100-f,
+                              two:0,
+                              fromid:this.fromsku.split("-")[0],
+                              toid:0
+                            };
+                            console.log("Harshit - "+i);
+                  
+                           this.dates.push(a2);
+                        }
+              }
+
+                
+              else if(this.val_selected==9)
+              {
+                alert(this.val_selected);
+                        var j=0;
+
+                        
+                        j++;
+                        var k=(str3_1-str3+1);
+                        //var k=Math.log(str3,h);
+                      
+                            var a90={
+                              week:str3,
+                              one:100,
+                              two:0,
+                              fromid:this.fromsku.split("-")[0],
+                              toid:this.tosku
+                            };
+                            console.log("Harshit - "+i);
+                  
+                           this.dates.push(a90);
+                        
+              }
+
             else if(this.val_selected<6)
             {
               for(var i=str3;i<=str3_1;i++)
@@ -1058,7 +1138,7 @@ this.logic_transistion_apply=this.logic;
 this.startweek_transistion_apply=this.startweek;
 
 
-this.forecasting_fgid=this.fromsku.split('-')[1];
+this.forecasting_fgid=this.fromsku.split('-')[2];
 
 console.log("3434343--"+this.tosku_transistion_apply);
 
@@ -1071,12 +1151,53 @@ console.log("34354ythrgbfd---"+this.date);
 
   state ="Transistion";
 
+
+
+var gh=this.val_selected;
+
+
+if(gh==1)
+{
+  state="Linear Transistion";
+}
+else if(gh==2){
+  state="Log Transistion";
+}
+
+else if(gh==3){
+  state="Log Transistion";
+}
+
+else if(gh==4){
+  state="Step Transistion";
+}
+else if(gh==5){
+  state="Custom Transistion";
+}
+else if(gh==6){
+  state="Linear Delisting";
+}
+else if(gh==7){
+  state="Log Delisting";
+}
+
+else if(gh==8){
+  state="Log Delisting";
+}
+else if(gh==9){
+  state="Step Delisting";
+}
+else if(gh==10){
+  state="Custom Delisting";
+}
+
+
 var data={
   fromid:this.fromsku.split("-")[0],
   toid:this.tosku,
   state:state,
   fromweek:this.date,
-  fgid:this.fromsku.split("-")[1]
+  fgid:this.fromsku.split("-")[2]
 };
 
 
@@ -1097,13 +1218,13 @@ this.skuService.savePIPOvalue(this.dates).subscribe((response2: any) => {
       console.log("Check--------"+JSON.stringify(response1));
       for(const abc of this.pipo)
       {
-        var g=abc.material + "-" + abc.fgid;
+        var g=abc.material + "-" + abc.sku+ "-" + abc.fgid;
         //console.log("121---"+JSON.stringify(abc));
   
         console.log("Fdfdfdfdfd---"+abc.prime);
         if(abc.prime==='PRIMARY')
         {
-          this.drop.push(g);
+           this.drop.push(g);
         }
         else{
           console.log("0909we3434343");
@@ -1137,9 +1258,21 @@ this.skuService.savePIPOvalue(this.dates).subscribe((response2: any) => {
     console.log("Check--------");
     this.skuService.getPIPO().subscribe((response1: any) => {    
       this.pipo=response1;
+
+      // let xi=0;
+
+      // let xy=0;
+      
+      // for(const abc1 of this.pipo)
+      // {
+
+      //     if(xi==)
+      // }
+
+
       for(const abc of this.pipo)
       {
-        var g=abc.material + "-" + abc.fgid;
+        var g=abc.material + "-" + abc.sku+ "-" + abc.fgid;
         console.log("121---"+g);
         this.drop.push(g);
       }
