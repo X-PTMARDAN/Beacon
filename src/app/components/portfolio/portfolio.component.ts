@@ -3,8 +3,14 @@ import {SKUService} from '../../services/sku.service';
 import {Router} from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 
+import {Observable} from 'rxjs';
+import {ViewService} from '../../services/view.service';
+import {FilterService} from 'src/app/services/filter.service';
 
 
+enum STEPS {
+  'SELECT_OPTION' = 1,
+}
 
 
 @Component({
@@ -17,6 +23,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private skuService: SKUService,
+    private viewService: ViewService,
+    private filterService: FilterService
   ) {
   }
 
@@ -64,6 +72,17 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public events: any = [];
 
   public date;
+
+  public items:Array<string> = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
+    'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
+    'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
+    'Düsseldorf', 'Essen', 'Frankfurt', 'Genoa', 'Glasgow', 'Gothenburg',
+    'Hamburg', 'Hannover', 'Helsinki', 'Kraków', 'Leeds', 'Leipzig', 'Lisbon',
+    'London', 'Madrid', 'Manchester', 'Marseille', 'Milan', 'Munich', 'Málaga',
+    'Naples', 'Palermo', 'Paris', 'Poznań', 'Prague', 'Riga', 'Rome',
+    'Rotterdam', 'Seville', 'Sheffield', 'Sofia', 'Stockholm', 'Stuttgart',
+    'The Hague', 'Turin', 'Valencia', 'Vienna', 'Vilnius', 'Warsaw', 'Wrocław',
+    'Zagreb', 'Zaragoza', 'Łódź'];
 
 
 public loading=false;
@@ -140,7 +159,16 @@ public maxweek;
   public date_table=false;
 
 
-  
+  public edit_fromsku='';
+  public edit_tosku='';
+
+  public edit_from_sku='';
+
+  public edit_to_sku='';
+
+
+
+
 
   public abc12='fshjg';
 
@@ -161,6 +189,9 @@ public drop2;
   public drop =[];
 
   public dates=[];
+  public edit_type_2='';
+
+  public edit_type='';
 
   public phase =false;
 
@@ -808,10 +839,19 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
   }
 
 
-  public schedule_1(a,b)
+  public schedule_1(a,b,c)
   {
 
 
+    this.edit_from_sku=a;
+    this.edit_fromsku=a;
+    this.edit_to_sku=b;
+    this.edit_tosku=b;
+
+    this.edit_type_2=c;
+    this.edit_type=c;
+
+window.alert(this.edit_to_sku);
   var abc={
     from:a,
     to:b
@@ -833,17 +873,21 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
         {
           
           var gh={
-            fromweek:h,
+            week:h,
             one:this.dates_1[y].one,
-            two:this.dates_1[y].two
+            two:this.dates_1[y].two,
+            fromid:this.dates_1[y].fromid,
+            toid:this.dates_1[y].toid
           };
           this.dates_1_prev.push(gh);
         }
         else{
           var gh={
-            fromweek:h,
+            week:h,
             one:this.dates_1[y].one,
-            two:this.dates_1[y].two
+            two:this.dates_1[y].two,
+            fromid:this.dates_1[y].fromid,
+             toid:this.dates_1[y].toid
           };
           this.dates_1_next.push(gh);
         }
@@ -866,8 +910,17 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
         {
             this.to_date="202020";
         }
+
+
+
         if(!(this.from_date==" " || this.from_date==" " || this.from_date==null || this.to_date==null || this.to_date==""))
         {
+
+          if(this.from_date>this.to_date)
+{
+  window.alert("Please choose valid dates");
+  return;
+}
               this.date_table=true;
               var str = this.from_date;
 
@@ -1104,9 +1157,24 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
   public hello2_1(i)
   {
-    var a=this.dates_1[i].one;
-    this.dates_1[i].two=100-a;
+    var a=this.dates_1_next[i].one;
+    this.dates_1_next[i].two=100-a;
   }
+
+
+
+public apply_1()
+{
+  this.loading = true;
+  this.skuService.savePIPOvalue_1(this.dates_1_next).subscribe((response2: any) => { 
+
+    this.loading=false;
+    window.alert("Value Updated");
+    window.location.reload();
+  });
+}
+
+
 
 public apply()
 {

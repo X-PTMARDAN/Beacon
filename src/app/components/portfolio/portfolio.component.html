@@ -364,7 +364,7 @@
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
 
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.date}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success"  (click)=schedule_1(data.fromid,data.toid)>Edit</a></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success"  (click)=schedule_1(data.fromid,data.toid,data.state)>Edit</a></td>
 
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-warning"  (click)=delete_1(data.fromid,data.toid)>Delete</a></td>
 
@@ -681,7 +681,7 @@
 
             <div class="row">              
                  <div class="form-group col-sm-12 " style="width:70%" align="center">
-                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
+                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout" checked>
                   
                   <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
                   border: 1px solid #ced4da;
@@ -690,6 +690,16 @@
                   <ng-container *ngFor="let filter of drop2; let filterIndex=index">
                       <option [value]="filter">{{filter}}</option>
                 </ng-container>
+
+                <!-- <ng-select [allowClear]="true"
+                [items]="items"
+                [disabled]="disabled"
+                (data)="refreshValue($event)"
+                (selected)="selected($event)"
+                (removed)="removed($event)"
+                (typed)="typed($event)"
+                placeholder="No city selected">
+        </ng-select> -->
               </select>
               </div>
 
@@ -858,6 +868,84 @@
           <div class="modal-body">
            
 
+
+
+            <div class="row">
+            
+                
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+                <label>Current SKU</label>
+                <input type="text" disabled id="select1" [(ngModel)]="edit_fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                border: 1px solid #ced4da;
+                background-color: #fff;
+                border-radius: 4px;width: 90%;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;"  
+                >
+                    <!-- <option value="select" [innerText]="edit_from_sku" selected>{{edit_from_sku}}</option>
+                  
+                  </select> -->
+                </div>
+
+             
+            </div>
+
+            <div class="row">              
+                 <div class="form-group col-sm-12 " style="width:70%" align="center">
+                  <span>Phase in SKU</span> 
+                  
+                  <input type="text" disabled [(ngModel)]="edit_tosku" [innerText]="edit_to_sku" id="harshit" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;width: 90%;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;" >
+                      <!-- <option value="select"  selected>{{edit_to_sku}}</option> -->
+                
+               
+              <!-- </select> -->
+              </div>
+
+            </div>
+
+
+
+
+
+            <div class="row">              
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+               <span>Type</span> 
+               
+               <input type="text" disabled [(ngModel)]="edit_type" [innerText]="edit_type_2" id="harshit12" style="background-clip: padding-box;
+               border: 1px solid #ced4da;
+               background-color: #fff;width: 90%;
+ border-radius: 4px;
+ display: inline-block;
+ font: inherit;
+ line-height: 1.5em;
+ padding: 0.5em 3.5em 0.5em 1em;
+ margin: 0;
+ box-sizing: border-box;
+ -webkit-appearance: none;" >
+                   <!-- <option value="select"  selected>{{edit_to_sku}}</option> -->
+             
+            
+           <!-- </select> -->
+           </div>
+
+         </div>
+
+
               <div class="row">
 
 
@@ -873,7 +961,7 @@
 
                         <tbody *ngFor="let data of dates_1_prev; let i=index">
                               <tr>
-                                <td>{{data.fromweek}}</td>
+                                <td>{{data.week}}</td>
                                 <td>{{data.one}}</td>
                                 <td>{{data.two}}</td>
 
@@ -883,7 +971,7 @@
 
                         <tbody *ngFor="let data of dates_1_next; let i=index">
                             <tr>
-                              <td>{{data.fromweek}}</td>
+                              <td>{{data.week}}</td>
                               <td><input type="number" (change)="hello2_1(i)" [(ngModel)]="data.one"
                                 [innerText]="data.one"></td>
                               <td>{{data.two}}</td>
@@ -897,7 +985,7 @@
 
                     <button style="height: 40px;
                     padding: 0 !important;
-                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Submit</button>
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply_1()" > Submit</button>
                 <!-- <div >
                   <table class="table"  *ngFor="let data of dates; let i=index">
                     <tr style="background-color: #fff">
