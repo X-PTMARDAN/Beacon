@@ -548,6 +548,12 @@ export class SKUService {
 
 
 
+  public savePIPOvalue_1(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savePIPOvalue_1`, data);
+  }
+
+
+
   public getPIPOvalue(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}getPIPOvalue`, data);
   }
