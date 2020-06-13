@@ -8,6 +8,10 @@ import {SidebarService} from '../../services/sidebar.service';
 import {FilterService} from '../../services/filter.service';
 import {ViewService} from '../../services/view.service';
 
+import { AgGridAngular } from 'ag-grid-angular';
+
+import { HttpClient } from '@angular/common/http';
+
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -46,7 +50,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Save and Load Filter
   @ViewChild('saveFilterModalCancel', {static: false}) saveFilterModalCancel: ElementRef;
   @ViewChild('loadFilterModalCancel', {static: false}) loadFilterModalCancel: ElementRef;
-
+  @ViewChild('agGrid',{static: false}) agGrid: AgGridAngular;
 
   public avgselected = 0;
 
@@ -308,6 +312,7 @@ public expand=true;
     lastYearTotal: 0,
   };
 
+ 
   // Filter Options
   public skus: any = [];
   public filters: any = [];
@@ -315,6 +320,23 @@ public expand=true;
   public comm1: any = [];
 
   public finn: any = [];
+
+  title = 'app';
+
+	columnDefs = [
+    {headerName: '202020', field: '202020', sortable: true, filter: true },
+    {headerName: '202021', field: '202021', sortable: true, filter: true},
+    {headerName: '202022', field: '202022', sortable: true, filter: true}
+];
+
+
+
+rowData = [
+  { "202020": 3400, "202021": 1000, "202022": 35000 },
+  { "202020": 300, "202021": 2000, "202022": 32000 },
+  { "202020": 1000, "202021": 3000, "202022": 72000 }
+];
+
 
   public allCommentshtml: any = [];
 
@@ -335,12 +357,13 @@ public expand=true;
   public selectedDataPoint: any = {};
   public selectedWeekComments: any = [];
 
-  constructor(
+  constructor (
     private router: Router,
     private skuService: SKUService,
     private sidebarService: SidebarService,
     private filterService: FilterService,
-    private viewService: ViewService
+    private viewService: ViewService,
+    private http: HttpClient
   ) {
   }
 
@@ -349,6 +372,7 @@ public expand=true;
     this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
 
     console.log('Hhsdfh--' + JSON.stringify(this.update));
+
 
     this.role = sessionStorage.getItem('role');
 
@@ -712,12 +736,6 @@ public expand=true;
                               name: 'Testing'
                             });
                           });
-
-
-                          //////////////////////////////////////////
-
-                          // Load Filters
-                          //  this.loadFilters();
 
 
                           this.filterService.getFilters({
@@ -19692,6 +19710,14 @@ public expand=true;
   }
 
 
+  public    getSelectedRows() {
+        const selectedNodes = this.agGrid.api.getSelectedNodes();
+        const selectedData = selectedNodes.map( node => node.data );
+        const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
+        alert(`Selected nodes: ${selectedDataStringPresentation}`);
+    }
+
+
   private getFiltersObject1_sku() {
 
     const Sales = [];
@@ -20885,9 +20911,9 @@ public expand=true;
 
       if (data.fcstValueAdd) {
 
-        if (data.comments.length > 1) {
+        // if (data.comments.length > 1) {
 
-        } else {
+        // } else {
 
           const reqBody = {
             cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -20905,7 +20931,7 @@ public expand=true;
 
 
           abc.push(reqBody);
-        }
+       // }
       }
     }
 
