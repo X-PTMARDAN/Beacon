@@ -8,7 +8,7 @@ import {SidebarService} from '../../services/sidebar.service';
 import {FilterService} from '../../services/filter.service';
 import {ViewService} from '../../services/view.service';
 
-import { AgGridAngular } from 'ag-grid-angular';
+
 
 import { HttpClient } from '@angular/common/http';
 
@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   // Save and Load Filter
   @ViewChild('saveFilterModalCancel', {static: false}) saveFilterModalCancel: ElementRef;
   @ViewChild('loadFilterModalCancel', {static: false}) loadFilterModalCancel: ElementRef;
-  @ViewChild('agGrid',{static: false}) agGrid: AgGridAngular;
+
 
   public avgselected = 0;
 
@@ -19710,12 +19710,7 @@ rowData = [
   }
 
 
-  public    getSelectedRows() {
-        const selectedNodes = this.agGrid.api.getSelectedNodes();
-        const selectedData = selectedNodes.map( node => node.data );
-        const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
-        alert(`Selected nodes: ${selectedDataStringPresentation}`);
-    }
+
 
 
   private getFiltersObject1_sku() {
