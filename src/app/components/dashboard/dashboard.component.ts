@@ -94,6 +94,8 @@ public expand=true;
   public maxselected = 0;
   public brandstext;
 
+  public type123="week";
+
   public selectallcpg = 0;
 
   public allselectedweek: any = [];
@@ -6709,6 +6711,8 @@ rowData = [
 
     if (feature == 'year' && this.granular1 == 'week') {
 
+
+      this.type123="week";
       console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
       this.prevactuals = '2020-W01';
       this.endWeek = '2020-W52';
@@ -7156,7 +7160,7 @@ rowData = [
       console.log('MONTH-234567>' + JSON.stringify(this.hh));
       //  const data=this.createPlanRequestData;
 
-
+      this.type123="month";
       console.log('Create_Plan1234->' + JSON.stringify(this.hh));
 
       this.prevactuals = '2020-W01';
@@ -7670,7 +7674,7 @@ rowData = [
       console.log('MONTH->' + JSON.stringify(this.hh));
       //  const data=this.createPlanRequestData;
 
-
+      this.type123="month";
       this.planningtable = 'Planning table (HL) Month';
 
 
@@ -8190,7 +8194,7 @@ rowData = [
         return;
       }
 
-
+      this.type123="week";
       this.planningtable = 'Planning table (HL)';
 
 
@@ -8646,7 +8650,7 @@ rowData = [
       document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
 
       document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
-
+      this.type123="week";
 
       this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
 
@@ -9179,7 +9183,7 @@ rowData = [
 
     if (feature == 'week' && this.UOM == 'BOT') {
 
-
+      this.type123="week";
       this.planningtable = 'Planning table (BOT 000s)';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
@@ -9719,7 +9723,7 @@ rowData = [
 
     if (feature == 'week' && this.UOM == 'PAL') {
 
-
+      this.type123="week";
       this.planningtable = 'Planning table (PAL)';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (PAL)';
@@ -10258,7 +10262,7 @@ rowData = [
 
     if (feature == 'week' && this.UOM == 'CU') {
 
-
+      this.type123="week";
       this.planningtable = 'Planning table (CU)';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (CU)';
@@ -10799,7 +10803,7 @@ rowData = [
 
     if (feature == 'week' && this.UOM == 'L') {
 
-
+      this.type123="week";
       this.planningtable = 'Planning table (L)';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (L)';
@@ -11339,7 +11343,7 @@ rowData = [
 
     if (feature == 'month' && this.UOM == 'L') {
 
-
+      this.type123="month";
       this.planningtable = 'Planning table (L) Month';
 
       document.getElementById('planningtable').innerHTML = 'Planning table (L) Month';
@@ -11872,7 +11876,7 @@ rowData = [
 
       this.planningtable = 'Planning table (PC)';
 
-
+      this.type123="week";
       document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
 
       document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
@@ -12408,7 +12412,7 @@ rowData = [
 
       this.planningtable = 'Planning table (PC) Month';
 
-
+      this.type123="month";
       document.getElementById('planningtable').innerHTML = 'Planning table (PC) Month';
 
       document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC) Month';
@@ -12932,7 +12936,7 @@ rowData = [
 
     if (feature == 'month' && this.UOM == 'PPU') {
 
-
+      this.type123="month";
       this.planningtable = 'Planning table (PPU 000s) Month';
 
 
@@ -13459,7 +13463,7 @@ rowData = [
 
     if (feature == 'month' && this.UOM == 'PAL') {
 
-
+      this.type123="month";
       this.planningtable = 'Planning table (PAL) Month';
 
 
@@ -13985,7 +13989,7 @@ rowData = [
 
 
     if (feature == 'month' && this.UOM == 'CU') {
-
+      this.type123="month";
 
       this.planningtable = 'Planning table (CU) Month';
 
@@ -14513,7 +14517,7 @@ rowData = [
 
     if (feature == 'month' && this.UOM == 'PPU') {
 
-
+      this.type123="month";
       this.planningtable = 'Planning table (PC) Month';
 
 
@@ -15042,7 +15046,7 @@ rowData = [
 
 
       this.planningtable = 'Planning table (BOT 000s) Month';
-
+      this.type123="month";
 
       document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s) Month';
 
@@ -20915,8 +20919,9 @@ rowData = [
             plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
 
             sku: JSON.parse(JSON.stringify(this.fgssselected)),
+            type:this.type123,
             uom:this.UOM,
-  
+            
             user: 'admin',
             ml:data.ml,
             finalForecast: data.finalForecast,
