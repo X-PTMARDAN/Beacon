@@ -18,13 +18,32 @@ export class SettingComponent implements OnInit {
   ) { }
 
   public allLogs: any = [];
+  columnDefs = [
+    {headerName: 'Activity', field: 'activity',filter:true,sortable:true },
+    {headerName: 'Datetimestamp', field: 'datetimestamp',filter:true,sortable:true },
+    {headerName: 'Username', field: 'username',filter:true,sortable:true}
+];
 
+
+columnDefs1 = [
+  {headerName: 'week', field: 'week' },
+  {headerName: 'comment', field: 'comment' },
+  {headerName: 'forecasting group', field: 'forecasting'},
+  {headerName: 'cpg', field: 'cpg'},
+  {headerName: 'plant', field: 'plant'}
+];
+
+rowData: any;
+
+rowData1: any;
 
   public allusers: any = [];
 
 
   public allComments;
   public username;
+
+public datafetch1;
 
   public block12=false;
 
@@ -64,8 +83,25 @@ export class SettingComponent implements OnInit {
     }
 
 
+ 
+ 
+//window.alert("12");
+    this.skuService.fetchData().subscribe((response: any) => {
 
-
+    //  this.prevactuals=response.horizon.toString().substr(0,4)+"-W"+response.horizon.toString().substr(4,6);
+      this.datafetch1=response;
+     // this.plan=response.plan.toString().substr(0,4)+"-W"+response.plan.toString().substr(4,6);
+    }, (error) => {
+      // this.allComments = res.map((item) => {
+      //   item.isSelected = false;
+      //   item.isFiltered=false;
+     // window.alert("1234"+JSON.stringify(error));
+    // alert(JSON.stringify(error));
+      this.datafetch1=error.error.text;
+      //   return item;
+      // });
+      // console.log("fgfgfgfg-----"+this.allComments);
+    });
    // Fetch horizon and sets to the horizon block 
 
    this.skuService.fetchHorizon().subscribe((response: any) => {
@@ -80,6 +116,27 @@ export class SettingComponent implements OnInit {
 
     this.skuService.getCommnents().subscribe((res: any) => {
 
+var ghj=[];
+
+
+for (const yh in this.allComments)
+{
+  console.log("1111",yh);
+}
+
+// for (const yh of this.allComments)
+// {
+//   ghj.push({
+//     week:yh.name.split('|')[1],
+//     comment:yh.name.split('|')[0],
+//     forecasting:yh.name.split('|')[2],
+//     cpg:yh.name.split('|')[3],
+//     plant:yh.name.split('|')[4],
+
+//   });
+// }
+
+console.log("urfuer",this.rowData1);
 
 
       this.allComments = res.map((item) => {
@@ -88,11 +145,21 @@ export class SettingComponent implements OnInit {
         return item;
       });
 
-      // for (const g of this.allComments) {
-      //   this.allCommentshtml.push(g.name);
-      // }
+      for (const g of this.allComments) {
+        console.log("dsfdfsfsdf------"+JSON.stringify(g));
+
+          ghj.push({
+    week:g.name.split('|')[1],
+    comment:g.name.split('|')[0],
+    forecasting:g.name.split('|')[2],
+    cpg:g.name.split('|')[3],
+    plant:g.name.split('|')[4],
+
+  });
+      }
 
 
+      this.rowData1=ghj;
  console.log("sjkhfgksfgrg234---"+JSON.stringify(this.allComments));
 
     }, (error) => {
@@ -106,6 +173,7 @@ export class SettingComponent implements OnInit {
 
     this.skuService.getlogs().subscribe((res: any) => {
       this.allLogs=res;
+      this.rowData=res;
 
       console.log("sjkhfgksfgrg---"+JSON.stringify(this.allLogs));
   
