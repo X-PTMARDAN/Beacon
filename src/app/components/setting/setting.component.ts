@@ -84,25 +84,6 @@ public datafetch1;
 
 
  
- 
-//window.alert("12");
-    this.skuService.fetchData().subscribe((response: any) => {
-
-    //  this.prevactuals=response.horizon.toString().substr(0,4)+"-W"+response.horizon.toString().substr(4,6);
-      this.datafetch1=response;
-     // this.plan=response.plan.toString().substr(0,4)+"-W"+response.plan.toString().substr(4,6);
-    }, (error) => {
-      // this.allComments = res.map((item) => {
-      //   item.isSelected = false;
-      //   item.isFiltered=false;
-     // window.alert("1234"+JSON.stringify(error));
-    // alert(JSON.stringify(error));
-      this.datafetch1=error.error.text;
-      //   return item;
-      // });
-      // console.log("fgfgfgfg-----"+this.allComments);
-    });
-   // Fetch horizon and sets to the horizon block 
 
    this.skuService.fetchHorizon().subscribe((response: any) => {
 
