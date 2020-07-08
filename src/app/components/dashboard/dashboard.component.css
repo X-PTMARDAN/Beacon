@@ -16,17 +16,7 @@ td, th {
   
 }
 
-table table-striped ::-webkit-scrollbar {
-  width: 7px;
-}
 
-.scroll-inner ::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar {
-  width: 7px;
-}
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -401,3 +391,4 @@ select.form-control {
   
   
 }
+
