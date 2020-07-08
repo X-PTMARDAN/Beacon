@@ -37,6 +37,10 @@ import { LoginComponent } from './components/login/login.component';
 import { SettingComponent} from './components/setting/setting.component';
 import {PropercasePipe} from './pipe/propercase.pipe';
 import { ComingsoonComponent } from './components/comingsoon/comingsoon.component';
+import { AgGridModule } from 'ag-grid-angular';
+
+
+import 'ag-grid-enterprise';
 
 
 
@@ -46,6 +50,7 @@ import { ComingsoonComponent } from './components/comingsoon/comingsoon.componen
     DashboardComponent,
     CreatePlanComponent,
     PortfolioComponent,
+
     PhaseComponent,
     FilterPipe,
     LoadFilter,
@@ -67,6 +72,7 @@ import { ComingsoonComponent } from './components/comingsoon/comingsoon.componen
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AgGridModule.withComponents([]),
     FormsModule,
     ReactiveFormsModule
   ],
