@@ -450,6 +450,20 @@ export class SKUService {
 
 
 
+  public getGraphData_week_uom2(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM2`, data);
+  }
+
+
+
+
+
+  public getGraphData_week_uom3(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM3`, data);
+  }
+
+
+
 
 
 
@@ -515,6 +529,10 @@ export class SKUService {
     return this.http.get(`${this.apiGatewayUrl}fetchHorizon`, data);
   }
 
+  public fetchData(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}fetchdata1`, data);
+  }
+
   public saveHorizon(data = {}) {
    
     return this.http.post(`${this.apiGatewayUrl}saveHorizon`, data);
@@ -541,14 +559,56 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}savePIPOsku`, data);
   }
 
+
+  public savePIPOvalue(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savePIPOvalue`, data);
+  }
+
+
+
+  public savePIPOvalue_1(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}savePIPOvalue_1`, data);
+  }
+
+
+
+  public getPIPOvalue(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}getPIPOvalue`, data);
+  }
+
+
+
+
+
+  public getschedule_value(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}schedule_value`, data);
+  }
+
+
+  public delete_value(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}delete_value`, data);
+  }
+
+
+
+
   public getPIPOMapping(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}fetchpipoMapping`, data);
   }
 
+
+
+
+  
   
 
   public getPIPO(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}pipo`, data);
+  }
+
+
+  public getMaterialRatio(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}fetchmaterialratio`, data);
   }
 
 
@@ -567,6 +627,12 @@ export class SKUService {
 
   public getfgid(data = {}) {
     return this.http.get(`${this.apiGatewayUrl}forecastinggroup`);
+  }
+
+
+
+  public getanimal(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}animal_1`);
   }
 
 
@@ -589,6 +655,19 @@ export class SKUService {
 
 
 
+  public getGraphData1234(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable1234`, data);
+  }
+
+
+
+
+  public getGraphData12345(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable12345`, data);
+  }
+
+
+
   public download(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}download`, data);
   }
@@ -603,6 +682,14 @@ export class SKUService {
   public mapFG(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}mapFG`, data);
   }
+
+
+
+
+  public mapFG_1(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}mapFG_1`, data);
+  }
+
 
   public addSKU_pipo_final(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}addSKU_pipo_final`, data);
