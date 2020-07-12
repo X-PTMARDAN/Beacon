@@ -26939,13 +26939,29 @@ this.columnDefs6=columndef_clone;
       
       console.log("aa!@#$4",rowNode1.data[a]);
 
-
+    
 
       var g=parseInt(rowNode1.data[a])+parseInt(b);
-   
+      alert(g);
    // var newPrice = Math.floor(Math.random() * 100000);
     rowNode.setDataValue(a, g);
     this.main_1=1;
+
+
+
+    for(var y=0;y<this.graphData.length;y++)
+    {
+     console.log("fsgs---11",this.graphData[y].calenderYear);
+      if(this.graphData[y].calenderYear==a)
+      {
+
+        this.graphData[y].fcstValueAdd=parseInt(b);
+        alert(this.graphData[y].fcstValueAdd);
+       // this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
+      }
+      
+    }
+
     return;
       
   //      for (var i=0;i<this.rowData.length;i++)
@@ -27188,7 +27204,7 @@ this.columnDefs6=columndef_clone;
         console.log('harshit---',this.finalForecastDataPoints);
         if(this.finalForecastDataPoints[y].x==f)
         {
-          this.graphData[y].fcstValueAdd=parseInt(th);
+         
           this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
         }
         
