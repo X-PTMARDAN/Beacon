@@ -2963,7 +2963,7 @@ rowData3 = [
       return;
     }
 
-    if(this.views=="Sku View" && (feature =="PC" || feature=="BOT" || feature=="PAL"))
+    if(this.views=="Sku View" && (feature =="PC" || feature=="BOT" || feature=="PAL" ||  feature=="L" || feature=="CU" || feature=="PPU"))
     {
 
 
@@ -2998,6 +2998,1088 @@ rowData3 = [
         //this.test();
         this.loading = true;
         this.skuService.getGraphData_week_uom2(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_2(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+    else if(this.views=="Sku View" && (feature =="HL"))
+    {
+
+
+        this.planningtable = 'Planning table (HL)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+  
+
+        try{
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (HL)';
+        }catch(err)
+        {
+          
+        }
+        this.featureanalysis = 'Feature Analysis (HL)';
+  
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData12345(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_2(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+   else if(this.views=="Detailed View" && (feature =="PC" || feature=="BOT" || feature=="PAL" ||  feature=="L" || feature=="CU" || feature=="PPU"))
+    {
+
+        try{
+        this.planningtable = 'Planning table (PC)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+  
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (PC)';
+        this.featureanalysis = 'Feature Analysis (PC)';
+        }catch(err)
+        {
+
+        }
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
           this.eventsSubject.next({
             page: null,
             reset: true,
@@ -3506,23 +4588,20 @@ rowData3 = [
 
 
 
-
-
-
-    if(this.views=="Detailed View" && (feature =="PC" || feature=="BOT" || feature=="PAL"))
+    else if(this.views=="Detailed View" && (feature =="HL"))
     {
 
         try{
-        this.planningtable = 'Planning table (PC)';
+        this.planningtable = 'Planning table (HL)';
   
   
-        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
   
-        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
   
   
-        this.forecastinganalysis = 'Forecast Analysis (PC)';
-        this.featureanalysis = 'Feature Analysis (PC)';
+        this.forecastinganalysis = 'Forecast Analysis (HL)';
+        this.featureanalysis = 'Feature Analysis (HL)';
         }catch(err)
         {
 
@@ -3540,7 +4619,7 @@ rowData3 = [
         };
         //this.test();
         this.loading = true;
-        this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
+        this.skuService.getGraphData1234(this.createPlanRequestData).subscribe((res: any) => {
           this.eventsSubject.next({
             page: null,
             reset: true,
@@ -7916,14 +8995,2740 @@ rowData3 = [
       window.alert('Please try to choose plan selection first');
       return;
     }
+
+    this.main_graph=true;
+
+    this.first_ag=true;
+
+    this.second_ag=false;
+    this.third_ag=false;
+
+    this.loading=true;
+
     console.log('Harsh134->' + feature);
 
     console.log('GRANUALLLL---' + JSON.stringify(this.fgssselected));
 
     console.log('GRANUALLLL121---' + JSON.stringify(this.createdata));
 
+    if(this.views=="Sku View" && this.granular1=="week" && (feature =="PC" || feature=="BOT" || feature=="PAL" ||  feature=="L" || feature=="CU" || feature=="PPU"))
+    {
 
-    if (feature == 'year' && this.granular1 == 'week') {
+
+        this.planningtable = 'Planning table (PC)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+  
+
+        try{
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (PC)';
+        }catch(err)
+        {
+          
+        }
+        this.featureanalysis = 'Feature Analysis (PC)';
+  
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData_week_uom2(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_1(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+    else if(this.views=="Sku View" && this.granular1=="week"  && (feature =="HL"))
+    {
+
+
+        this.planningtable = 'Planning table (HL)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+  
+
+        try{
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (HL)';
+        }catch(err)
+        {
+          
+        }
+        this.featureanalysis = 'Feature Analysis (HL)';
+  
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData12345(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_1(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+
+
+
+
+    else if(this.views=="Sku View" && this.granular1=="month"  && (feature =="HL"))
+    {
+
+
+        this.planningtable = 'Planning table (HL)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+  
+
+        try{
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (HL)';
+        }catch(err)
+        {
+          
+        }
+        this.featureanalysis = 'Feature Analysis (HL)';
+  
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData12345(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_1(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+
+
+    else if(this.views=="Detailed View" && this.granular1=="week"  && (feature =="PC" || feature=="BOT" || feature=="PAL" ||  feature=="L" || feature=="CU" || feature=="PPU"))
+    {
+
+        try{
+        this.planningtable = 'Planning table (PC)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+  
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (PC)';
+        this.featureanalysis = 'Feature Analysis (PC)';
+        }catch(err)
+        {
+
+        }
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_1(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+    else if(this.views=="Detailed View" && this.granular1=="week"  && (feature =="HL"))
+    {
+
+        try{
+        this.planningtable = 'Planning table (HL)';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+  
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis (HL)';
+        this.featureanalysis = 'Feature Analysis (HL)';
+        }catch(err)
+        {
+
+        }
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData1234(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+          this.granular1 = 'week';
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_1(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  },
+                  {
+                    startValue: 202352,
+                    endValue: 202401
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+  
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+  
+          this.secondgraph = 'Baseline';
+          this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202020,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+
+
+    else if (feature == 'year' && this.granular1 == 'week') {
 
 
       this.type123="week";
@@ -16893,469 +20698,488 @@ try{
 
          if(feature=="Aggregated")
          {
-           //  window.alert(feature);
-             console.log('Harsh134->' + feature);
-         
-             console.log('GRANUALLLL---' + JSON.stringify(this.fgssselected));
-         
-             console.log('GRANUALLLL121---' + JSON.stringify(this.createdata));
-         
-         
-         
-         
-             //  this.type123="week";
-               console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
-               this.prevactuals = '2020-W01';
-               this.endWeek = '2020-W52';
-               //const data=this.createPlanRequestData;
-               console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
-               this.createPlanRequestData = {
-                 startWeek: this.createPlanRequestData.startWeek,
-                 endWeek: 202052,
-                 prevactuals: 202020,
-                 // forecastingGroups: data.forecastingGroups,
-                 forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
-                 customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                 plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])
-               };
-         
-         
-       //  window.alert('gjh-'+JSON.stringify(this.createPlanRequestData));
-         
-               //this.test();
-               this.loading = true;
-               this.skuService.getGraphData12345(this.createPlanRequestData).subscribe((res: any) => {
-                 this.eventsSubject.next({
-                   page: null,
-                   reset: true,
-                 });
-                 this.loading = false;
-                
-                 // if (res.res.length == 0) {
-                 //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-                 //   window.alert('No Combination is available');
-                 //   this.loading = false;
-                 //   return;
-                 // }
-         
-                 this.UOM = 'HL';
-         
-                 this.allComments = res.combinedcomment;
-                 console.log('SAVEPLAN---' + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
-         
-                 this.allComments_harshit = [];
-                 for (const abc of this.allComments) {
-         
-                   this.allComments_harshit.push({
-                     name: abc,
-                     isSelected: false,
-                     isFiltered: false
-                   });
-                 }
-         
-         try{
-                 this.planningtable = 'Planning table (HL)';
-         
-                 document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
-         try{
-                 document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
-         
-         
-                 this.forecastinganalysis = 'Forecast Analysis (HL)';
-         
-                 this.featureanalysis = 'Feature Analysis (HL)';
+              
 
-                }catch(err)
-                {
-                  
-                }
-         
-         
-                 this.greystart = res.start;
-         
-                 this.granular1 = 'week';
-         
-                 this.greystart = res.start;
-                 if (res.res.length > 20) {
-                   this.inter = (res.res.length / 13);
-                 } else {
-                   this.inter = 1;
-                 }
-                }catch(err)
-                {
+          this.planningtable = 'Planning table (HL)';
 
+
+          // window.scrollBy(4000, 0);
+      try{
+          document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+      try{
+          document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+      
+      
+      
+          this.forecastinganalysis = 'Forecast Analysis (HL)';
+          this.featureanalysis = 'Feature Analysis (HL)';
+        }catch(err)
+        {
+          
+        }
+          this.deactivate();
+          this.featureanalysis = 'Feature Analysis (HL)';
+        }catch(err)
+        {
+      
+        }
+          // document.getElementById('apply_filter').style.background='#17b169';
+          this.loading = true;
+          //this.reactivate_filter(2);
+          this.createPlanRequestData = {
+            startWeek: this.createPlanRequestData.startWeek,
+            endWeek: this.createPlanRequestData.endWeek,
+            prevactuals: this.createPlanRequestData.prevactuals,
+            // forecastingGroups: data.forecastingGroups,
+            forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+            customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+            plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])
+          };
+      
+     
+      
+          // this.skus=JSON.parse(JSON.stringify(this.fgssselected))
+      
+          // console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
+          //this.test();
+      
+      
+          this.loading = true;
+
+
+
+          this.main_graph=true;
+      this.skuService.getGraphData(this.createPlanRequestData).subscribe((res: any) => {
+        this.eventsSubject.next({
+          page: null,
+          reset: true,
+        });
+
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
+
+        if (this.UOM == 'HL' && this.granular1 == 'week') {
+          this.enabled = 1;
+        } else {
+          this.enabled = 0;
+        }
+
+        this.allComments = res.combinedcomment;//console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+
+        this.allComments_harshit = [];
+        for (const abc of this.allComments) {
+
+          this.allComments_harshit.push({
+            name: abc,
+            isSelected: false,
+            isFiltered: false
+          });
+        }
+
+        this.createPlanRequestData.brands = res.req.brands;
+        this.greystart = res.start;
+
+        // var abc = res.res[0].calenderYearWeek;
+
+
+        if (res.res.length > 20) {
+          this.inter = (res.res.length / 13);
+        } else {
+          this.inter = 1;
+        }
+        //  console.log('GREYSTART--' + this.greystart);
+        this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+        this.createPlanRequestData.subbrand = res.req.subbrand;
+        this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+        this.createPlanRequestData.Trade = res.req.trade;
+        this.createPlanRequestData.Sales = res.req.sales;
+
+        this.createPlanRequestData.globalBev = res.req.globalBev;
+        this.createPlanRequestData.materialgroup = res.req.materialgroup;
+        this.createPlanRequestData.baseunit = res.req.baseunit;
+        this.createPlanRequestData.pack_type = res.req.pack_type;
+
+        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
+
+        this.loading = false;
+
+        //  console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
+
+
+        this.processGraphData(res);
+        //this.processgraphData(res);
+        document.getElementById('arrow').style.color = 'grey';
+
+        this.processFeatureGraphData(res);
+        this.valuestring = 'Promo';
+        this.createFilterObject(res);
+        // this.skus = data.forecastingGroups.map((item) => {
+        //   item.isChecked = true;
+        //   return item;
+        // });
+        this.commentsall();
+
+        console.log('thhh->' + this.createPlanRequestData.startWeek);
+        console.log('ISSE PTA--' + this.greystart);
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+
+
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            fontSize: 10,
+            itemclick: this.toggleDataSeries1.bind(this)
+          },
+          axisX: {
+
+            // labelFormatter: function(e){
+
+            //   console.log("Checking--1212-"+e);
+            //  // return e.value.slice(4, 6);
+            // },
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            interval: this.inter,
+            theme: 'light2',
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201452,
+                  endValue: 201501
+                },
+                {
+                  startValue: 201552,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201652,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201752,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201852,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201952,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202052,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202152,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202252,
+                  endValue: 202301
                 }
-         
-                 this.createPlanRequestData.brands = res.req.brands;
-                 this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-                 this.createPlanRequestData.subbrand = res.req.subbrand;
-         
-                 this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-                 this.createPlanRequestData.Trade = res.req.trade;
-                 this.createPlanRequestData.Sales = res.req.sales;
-         
-         
-                 this.createPlanRequestData.globalBev = res.req.globalBev;
-                 this.createPlanRequestData.materialgroup = res.req.materialgroup;
-                 this.createPlanRequestData.baseunit = res.req.baseunit;
-                 this.createPlanRequestData.pack_type = res.req.pack_type;
-         
-                 this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-         
-                 this.createPlanRequestData.pack_size = res.req.pack_size;
-                 this.createPlanRequestData.cpgname = res.req.cpgname;
-         
-         
-                 this.processGraphData(res);
-                 //this.processgraphData(res);
-         
-                 this.processFeatureGraphData(res);
-                 this.createFilterObject(res);
-                 //  this.skus=data.forecastingGroups;
-         
-                 // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
-                 //     item.isChecked = true;
-                 //     return item;
-                 //   });
-         
-         
-                 // this.skus = data.forecastingGroups.map((item) => {
-                 //   item.isChecked = true;
-                 //   return item;
-                 // });
-         
-                 this.commentsall();
-                 console.log('thhh->' + this.createPlanRequestData.startWeek);
-                 // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                 //   animationEnabled: true,
-         
-                 //   backgroundColor: '#FFFFFF',
-                 //   legend: {
-                 //     cursor: 'pointer',
-                 //     itemclick: this.toggleDataSeries.bind(this)
-                 //   },
-                 //   axisX: {
-                 //     valueFormatString: '######',
-                 //     gridColor: '#ffffff',
-                 //     interval: this.inter,
-                 //     scaleBreaks: {
-                 //       type: 'blank',
-                 //       spacing: 0,
-                 //       customBreaks: [
-                 //         {
-                 //           startValue: 201451,
-                 //           endValue: 2015011
-                 //         },
-                 //         {
-                 //           startValue: 201552,
-                 //           endValue: 201600
-                 //         },
-                 //         {
-                 //           startValue: 201652,
-                 //           endValue: 201700
-                 //         },
-                 //         {
-                 //           startValue: 201752,
-                 //           endValue: 201800
-                 //         },
-                 //         {
-                 //           startValue: 201852,
-                 //           endValue: 201900
-                 //         },
-                 //         {
-                 //           startValue: 201952,
-                 //           endValue: 202000
-                 //         },
-                 //         {
-                 //           startValue: 202052,
-                 //           endValue: 202100
-                 //         },
-                 //         {
-                 //           startValue: 202152,
-                 //           endValue: 202200
-                 //         },
-                 //         {
-                 //           startValue: 202253,
-                 //           endValue: 202300
-                 //         },
-                 //         {
-                 //           startValue: 202353,
-                 //           endValue: 202402
-                 //         }
-                 //       ]
-                 //     },
-                 //     stripLines: [
-                 //       {
-                 //         startValue: 201400,
-                 //         endValue: 201452,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201500,
-                 //         endValue: 201552,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201600,
-                 //         endValue: 201652,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201700,
-                 //         endValue: 201752,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201800,
-                 //         endValue: 201852,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201900,
-                 //         endValue: 201952,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 202000,
-                 //         endValue: 202020,
-                 //         color: '#F2F3F5'
-                 //       },
-         
-                 //     ]
-                 //   },
-                 //   axisY: {
-         
-                 //     valueFormatString: '######',
-                 //     gridColor: '#ffffff',
-                 //   },
-         
-                 //   toolTip: {
-                 //     content: 'Value: {y}'
-                 //   },
-         
-                 //   // toolTip: {
-                 //   //   shared: true,
-                 //   //   contentFormatter: function(e) {
-                 //   //     var content = ' ';
-                 //   //     console.log(JSON.stringify(e));
-                 //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                 //   //     for (var i = 0; i < e.entries.length; i++) {
-                 //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                 //   //       content += '<br/>';
-                 //   //     }
-                 //   //     return content;
-                 //   //   }
-                 //   // },
-         
-                 //   data: [
-                 //     {
-                 //       name: 'Baseline',
-                 //       type: 'stackedArea',
-                 //       gridColor: '#ffffff',
-         
-                 //       showInLegend: true,
-                 //       color: '#17b169',
-                 //       lineColor: '#17b169',
-                 //       dataPoints: this.property
-                 //     },
-                 //     {
-                 //       name: 'Promo Effect',
-                 //       type: 'stackedArea',
-                 //       gridColor: '#ffffff',
-         
-                 //       showInLegend: true,
-                 //       color: ' #46a6b9',
-                 //       lineColor: '#46a6b9',
-                 //       dataPoints: this.property3
-                 //     }
-         
-                 //   ]
-                 // });
-                 // this.secondgraph = 'Baseline';
-                 // this.chart2.render();
-         
-         
-                 // console.log('132456->' + this.createPlanRequestData.startWeek);
-                 // this.chart1 = new CanvasJS.Chart('chartContainer1', {
-                 //   title: {text: ' ', fontStyle: 'no',},
-                 //   animationEnabled: true,
-         
-                 //   backgroundColor: '#FFFFFF',
-                 //   legend: {
-                 //     cursor: 'pointer',
-                 //     itemclick: this.toggleDataSeries.bind(this)
-                 //   },
-                 //   axisX: {
-                 //     valueFormatString: '######',
-                 //     gridColor: '#ffffff',
-                 //     interval: this.inter,
-                 //     scaleBreaks: {
-                 //       type: 'blank',
-                 //       spacing: 0,
-                 //       customBreaks: [
-                 //         {
-                 //           startValue: 201453,
-                 //           endValue: 201501
-                 //         },
-                 //         {
-                 //           startValue: 201552,
-                 //           endValue: 201600
-                 //         },
-                 //         {
-                 //           startValue: 201652,
-                 //           endValue: 201700
-                 //         },
-                 //         {
-                 //           startValue: 201752,
-                 //           endValue: 201800
-                 //         },
-                 //         {
-                 //           startValue: 201852,
-                 //           endValue: 201900
-                 //         },
-                 //         {
-                 //           startValue: 201952,
-                 //           endValue: 202000
-                 //         },
-                 //         {
-                 //           startValue: 202052,
-                 //           endValue: 202100
-                 //         },
-                 //         {
-                 //           startValue: 202152,
-                 //           endValue: 202200
-                 //         },
-                 //         {
-                 //           startValue: 202253,
-                 //           endValue: 202300
-                 //         },
-                 //         {
-                 //           startValue: 202353,
-                 //           endValue: 202402
-                 //         }
-                 //       ]
-                 //     },
-                 //     stripLines: [
-                 //       {
-                 //         startValue: 201400,
-                 //         endValue: 201452,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201500,
-                 //         endValue: 201552,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201600,
-                 //         endValue: 201652,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201700,
-                 //         endValue: 201752,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201800,
-                 //         endValue: 201852,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 201900,
-                 //         endValue: 201952,
-                 //         color: '#F2F3F5'
-                 //       },
-                 //       {
-                 //         startValue: 202000,
-                 //         endValue: 202020,
-                 //         color: '#F2F3F5'
-                 //       },
-         
-                 //     ]
-                 //   },
-         
-                 //   axisY: {
-         
-         
-                 //     valueFormatString: '######',
-                 //     gridColor: '#ffffff',
-                 //   },
-         
-                 //   // toolTip: {
-                 //   //   content: 'Week: {x} | {name}: {y}'
-                 //   // },
-         
-                 //   toolTip: {
-                 //     shared: true,
-                 //     contentFormatter: function(e) {
-                 //       var content = ' ';
-                 //       //console.log(e.dataPoint);
-                 //       content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                 //       for (var i = 0; i < e.entries.length; i++) {
-                 //         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                 //         content += '<br/>';
-                 //       }
-                 //       return content;
-                 //     }
-                 //   },
-                 //   data: [
-                 //     {
-                 //       name: 'Actuals',
-                 //       showInLegend: true,
-                 //       type: 'line',
-                 //       color: this.actualDataPointColor,
-                 //       lineColor: this.actualDataPointColor,
-                 //       dataPoints: this.actualDataPoints
-                 //     },
-                 //     {
-                 //       name: 'Actual LY',
-                 //       showInLegend: true,
-                 //       type: 'line',
-                 //       visible: false,
-                 //       lineDashType: 'dash',
-                 //       color: this.lastyearDataPointColor,
-                 //       lineColor: this.lastyearDataPointColor,
-                 //       dataPoints: this.lastYearDataPoints
-                 //     },
-                 //     {
-                 //       name: 'ML Forecast',
-                 //       showInLegend: true,
-                 //       type: 'line',
-                 //       lineDashType: 'dash',
-                 //       color: this.mlDataPointColor,
-                 //       lineColor: this.mlDataPointColor,
-                 //       dataPoints: this.mlDataPoints
-                 //     },
-                 //     {
-                 //       name: 'APO Forecast',
-                 //       showInLegend: true,
-                 //       type: 'line',
-                 //       visible: false,
-                 //       lineDashType: 'dash',
-                 //       color: this.aopDataPointColor,
-                 //       lineColor: this.aopDataPointColor,
-                 //       dataPoints: this.aopDataPoints
-                 //     },
-                 //     {
-                 //       name: 'Final Forecast',
-                 //       showInLegend: true,
-                 //       type: 'line',
-                 //       lineDashType: 'dash',
-                 //       color: this.finalForecastPointColor,
-                 //       lineColor: this.finalForecastPointColor,
-                 //       dataPoints: this.finalForecastDataPoints
-                 //     }
-                 //   ]
-                 // });
-                 // this.chart1.render();
-                 this.CanvasJSDataAsCSV();
-                 this.selectOptionsModalCancel.nativeElement.click();
-               });
-         
-         
-         
-             
+              ]
+            },
+            stripLines: [
+              {
+                startValue: 201400,
+                endValue: 201452,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201552,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201652,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201752,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201852,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201952,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202020,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+          axisY: {
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            shared: true,
+            contentFormatter: function(e) {
+              var content = ' ';
+              //console.log(e.dataPoint);
+              content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+              for (var i = 0; i < e.entries.length; i++) {
+                content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                content += '<br/>';
+              }
+              return content;
+            }
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+        this.chart2.render();
+        this.secondgraph = 'Baseline';
+        this.loading = false;
+        console.log('132456->' + this.createPlanRequestData.startWeek);
+        this.chart1 = new CanvasJS.Chart('chartContainer1', {
+          title: {text: ' ', fontStyle: 'no',},
+          animationEnabled: true,
+
+          backgroundColor: '#fff',
+
+
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            interval: this.inter,
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201501
+                },
+                {
+                  startValue: 201552,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201652,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201752,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201852,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201952,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202052,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202152,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                },
+                {
+                  startValue: 202353,
+                  endValue: 202402
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: 201400,
+                endValue: 201452,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201552,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201652,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201752,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201852,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201952,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202020,
+                color: '#F2F3F5'
+              },
+
+
+            ]
+          },
+
+          axisY: {
+
+            valueFormatString: '######',
+
+            gridColor: '#ffffff',
+          },
+
+          // toolTip: {
+          //   content: 'Week: {x} | {name}: {y}'
+          // },
+
+          toolTip: {
+            shared: true,
+            contentFormatter: function(e) {
+              var content = ' ';
+              //console.log(e.dataPoint);
+              content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+              for (var i = 0; i < e.entries.length; i++) {
+                content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                content += '<br/>';
+              }
+              return content;
+            }
+          },
+          data: [
+            {
+              name: 'Actuals',
+              showInLegend: true,
+
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
+            },
+            {
+              name: 'Actual LY',
+              showInLegend: true,
+              visible: false,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.lastyearDataPointColor,
+              lineColor: this.lastyearDataPointColor,
+              dataPoints: this.lastYearDataPoints
+            },
+            {
+              name: 'ML Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.mlDataPointColor,
+              lineColor: this.mlDataPointColor,
+              dataPoints: this.mlDataPoints
+            },
+            {
+              name: 'APO Forecast',
+              showInLegend: true,
+              visible: false,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.aopDataPointColor,
+              lineColor: this.aopDataPointColor,
+              dataPoints: this.aopDataPoints
+            },
+            {
+              name: 'Final Forecast',
+              showInLegend: true,
+              type: 'line',
+              lineDashType: 'dash',
+              color: this.finalForecastPointColor,
+              lineColor: this.finalForecastPointColor,
+              dataPoints: this.finalForecastDataPoints
+            }
+          ]
+        });
+        this.chart1.render();
+        // this.CanvasJSDataAsCSV();
+        // this.selectOptionsModalCancel.nativeElement.click();
+      });
+      
+      
+
+
+
+
          }
 
 
@@ -17382,8 +21206,8 @@ try{
           console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
           this.createPlanRequestData = {
             startWeek: this.createPlanRequestData.startWeek,
-            endWeek: 202052,
-            prevactuals: 202020,
+            endWeek: this.createPlanRequestData.endWeek,
+            prevactuals: this.createPlanRequestData.prevactuals,
             // forecastingGroups: data.forecastingGroups,
             forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
             customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -17849,8 +21673,8 @@ try{
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
-        endWeek: 202052,
-        prevactuals: 202020,
+        endWeek: this.createPlanRequestData.endWeek,
+        prevactuals: this.createPlanRequestData.prevactuals,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -18609,7 +22433,7 @@ try{
 
 
     //  console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
-
+this.main_graph=true;
 
     var login = {
       Username: 'admin',
@@ -20119,7 +23943,11 @@ try{
 
 
     this.views="Aggregated";
-this.main_graph=true;
+    this.second_ag=false;
+    this.main_graph=true;
+
+    this.first_ag=true;
+    this.third_ag=false;
     // const abc12;
     //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
     // this.skus = res.req.forecastingGroups;
@@ -20185,7 +24013,7 @@ this.main_graph=true;
           field:JSON.stringify(week.calenderYearWeek),
           enableRowGroup:true,
           cellStyle: {'background-color': '#BEBEBE'}, 
-          width:100,
+          width:110,
           type: 'rightAligned',
            editable: true,
            
@@ -20195,7 +24023,7 @@ this.main_graph=true;
       columndef_clone.push({
         field:JSON.stringify(week.calenderYearWeek),
         enableRowGroup:true,
-        width:100,
+        width:110,
         type: 'rightAligned',
          editable: true,
          
