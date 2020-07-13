@@ -24085,11 +24085,6 @@ console.log("Harshititit----"+JSON.stringify(fv));
 
 
 
-//newPoint.finalForecast = newData;
-// newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
-// console.log('Debug -' + newPoint.finalForecast);
-
-
 
 
 var f123={key:'Total FVA'};
@@ -24289,8 +24284,12 @@ console.log("7764567676$%^^&&---",this.gridApi.getRowNode('Total FVA'));
 
      console.log("THIRD----"+JSON.stringify(row_clone));
 
-
-
+     var params = {
+      force: false,
+      suppressFlash:false,
+    };
+    this.gridApi.refreshCells(params);
+   //  this.gridOptions.api.refreshView();
 
 
 
@@ -25384,39 +25383,39 @@ var fg1=data[0].calenderYearWeek;
   
 
 
-  columndef_clone.push({
-    field: 'Total',
-    pinned: 'right',
-    width:100,
-    valueGetter: function(params) {
-      var f=0;
-      var g=0;
+//   columndef_clone.push({
+//     field: 'Total',
+//     pinned: 'right',
+//     width:100,
+//     valueGetter: function(params) {
+//       var f=0;
+//       var g=0;
 
 
-for(let row of ghj)
-{
+// for(let row of ghj)
+// {
 
-  for(let week of data)
-  {
-      if(week.sku==row.sku )
-      {
-        if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
-        {
-          f=f+0;
-        }
-        else{
+//   for(let week of data)
+//   {
+//       if(week.sku==row.sku )
+//       {
+//         if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
+//         {
+//           f=f+0;
+//         }
+//         else{
 
   
 
-          f=f+parseInt(params.data[week.calenderYearWeek]);
-        }
-      }
-  }
-  return f;
-}
-    //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202027'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202027'])+parseInt(params.data['202028'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
-    },
-  });
+//           f=f+parseInt(params.data[week.calenderYearWeek]);
+//         }
+//       }
+//   }
+//   return f;
+// }
+//     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202027'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202027'])+parseInt(params.data['202028'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
+//     },
+//   });
 
 
    
