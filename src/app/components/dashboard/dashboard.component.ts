@@ -26941,7 +26941,15 @@ this.columnDefs6=columndef_clone;
   }
 
   
-
+onGridReady1(params)
+{
+  this.gridApi = params.api;
+  this.gridColumnApi = params.columnApi;
+  this.gridColumnApi.setRowGroupColumns(['key']);
+  this.gridColumnApi.setRowGroupColumns(['sku']);
+  this.gridColumnApi.setRowGroupColumns(['plant']);
+  this.gridColumnApi.setRowGroupColumns(['cpg']);
+}
   onGridReady(params) {
 
    
