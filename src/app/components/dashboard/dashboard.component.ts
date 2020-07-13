@@ -24547,13 +24547,13 @@ columndef_clone.push({
   field:JSON.stringify(data[0].calenderYearWeek),
   cellStyle: {'background-color': '#BEBEBE'}, 
   aggFunc: 'sum',
-  width:100,
+  width:150,
 });
     for (const week of data) {
 
 
 
-      if(week.calenderYearWeek<=202035)
+      if(week.calenderYearWeek<=202027)
       {
        
 
@@ -24564,7 +24564,7 @@ columndef_clone.push({
           columndef_clone.push({
             field:JSON.stringify(week.calenderYearWeek),
             cellStyle: {'background-color': '#BEBEBE'}, 
-            width:100,
+            width:150,
             aggFunc: 'sum',
              
           });
@@ -24586,7 +24586,7 @@ columndef_clone.push({
         columndef_clone.push({
           field:JSON.stringify(week.calenderYearWeek),
        
-          width:100,
+          width:150,
           aggFunc: 'sum',
            
         });
@@ -24622,45 +24622,7 @@ var fg1=data[0].calenderYearWeek;
     }
 
 
-  columndef_clone.push( {
-    field: 'Total',
-pinned: 'right',
-width:100,
-valueGetter: function(params){
-  var f=0;
-  
-  for(let row of ghj)
-{
 
-  for(let week of data)
-  {
-      if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
-      {
-        try{
-        if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN || params.data[week.calenderYearWeek]==undefined)
-        {
-          f=f+0;
-        }
-        else{
-
-  
-
-          f=f+parseInt(params.data[week.calenderYearWeek]);
-        }
-      }catch(err)
-      {
-        f=f+0;
-      }
-       // f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
-      }
-  }
-  
-}
-return  parseInt(params.data['202040']) +parseInt(params.data['202041']);
-
-
-}
-});
 
 
   
@@ -24697,12 +24659,27 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        this.summ2=this.summ2=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0));
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
+
+
+        
+        if(week.ml===NaN || week.ml===NaN || week.ml===undefined || week.ml===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
+
       }
   }
   row_clone5.push(f123);
 }
+
+
+
 
 
 
@@ -24716,8 +24693,17 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        this.summ2=this.summ2=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0));
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0))
+        if(week.fva===NaN || week.fva===NaN || week.fva===undefined || week.fva===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
+
       }
   }
   row_clone5.push(f123);
@@ -24752,7 +24738,17 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0))
+        if(week.actuals===NaN || week.actuals===NaN || week.actuals===undefined || week.actuals===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
+
       }
   }
   row_clone5.push(f123);
@@ -24771,7 +24767,16 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
+        if(week.actualslastyear===NaN || week.actualslastyear===NaN || week.actualslastyear===undefined || week.actualslastyear===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
       }
   }
   row_clone5.push(f123);
@@ -24788,7 +24793,16 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
+        if(week.actualslastyear===NaN || week.actualslastyear===NaN || week.actualslastyear===undefined || week.actualslastyear===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
       }
   }
   row_clone5.push(f123);
@@ -24806,7 +24820,16 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.harshit).toFixed(0))
+        if(week.harshit===NaN || week.harshit===NaN || week.harshit===undefined || week.harshit===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.harshit).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
       }
   }
   row_clone5.push(f123);
@@ -24824,7 +24847,16 @@ for(let row of ghj)
   {
       if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
       {
-        f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0))
+        if(week.promo===NaN || week.promo===NaN || week.promo===undefined || week.promo===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
       }
   }
   row_clone5.push(f123);
