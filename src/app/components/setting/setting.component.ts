@@ -19,23 +19,33 @@ export class SettingComponent implements OnInit {
 
   public allLogs: any = [];
   columnDefs = [
-    {headerName: 'Activity', field: 'activity',filter:true,sortable:true },
-    {headerName: 'Datetimestamp', field: 'datetimestamp',filter:true,sortable:true },
-    {headerName: 'Username', field: 'username',filter:true,sortable:true}
+    {headerName: 'Activity', field: 'activity',filter:true,sortable:true,width:510 },
+    {headerName: 'Datetimestamp', field: 'datetimestamp',filter:true,sortable:true,width:510 },
+    {headerName: 'Username', field: 'username',filter:true,sortable:true,width:510}
+];
+
+
+columnDefs2 = [
+  {headerName: 'Username', field: 'username',filter:true,sortable:true,width:590 },
+  {headerName: 'Password', field: 'password',filter:true,sortable:true,width:590 },
+  {headerName: 'Role', field: 'role',filter:true,sortable:true,width:590}
 ];
 
 
 columnDefs1 = [
-  {headerName: 'week', field: 'week' },
-  {headerName: 'comment', field: 'comment' },
-  {headerName: 'forecasting group', field: 'forecasting'},
-  {headerName: 'cpg', field: 'cpg'},
-  {headerName: 'plant', field: 'plant'}
+  {headerName: 'Week', field: 'week' ,width:300,sortable:true,filter:true},
+  {headerName: 'Comment', field: 'comment',width:300,sortable:true,filter:true },
+  {headerName: 'Forecasting group', field: 'forecasting',width:300,sortable:true,filter:true},
+  {headerName: 'Cpg', field: 'cpg',width:300,sortable:true,filter:true},
+  {headerName: 'Plant', field: 'plant',width:300,sortable:true,filter:true}
 ];
 
 rowData: any;
 
 rowData1: any;
+
+
+rowData2: any;
 
   public allusers: any = [];
 
@@ -164,6 +174,7 @@ console.log("urfuer",this.rowData1);
 
     this.skuService.fetchuser().subscribe((res: any) => {
       this.allusers=res;
+      this.rowData2=res;
 
       console.log("sjkhfgksfgrg---"+JSON.stringify(this.allLogs));
   

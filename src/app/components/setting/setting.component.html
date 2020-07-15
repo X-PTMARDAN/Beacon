@@ -61,7 +61,7 @@
       <br/><br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button (click)=adduser()>Add user</button> -->
      
-    <br><br><br/>
+    <!-- <br><br><br/>
       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
           <tr style="background-color: #ddd;">
             <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Username</th>
@@ -78,7 +78,39 @@
       
       </tr>
   
-    </table>
+    </table> -->
+
+<br><br><br>
+
+
+  <ag-grid-angular
+  style=" height: 400px;overflow:scroll"
+  class="ag-theme-alpine"
+  [rowData]="rowData2"
+  rowSelection="multiple"
+  [columnDefs]="columnDefs2"
+  rowSelection="multiple"
+  
+  [rowGroupPanelShow]="always"
+  [statusBar]="statusBar"
+  [suppressMakeColumnVisibleAfterUnGroup]="true"
+  (cellValueChanged)="onCellValueChanged($event)"
+  (pasteStart)="onPasteStart($event)"
+  (pasteEnd)="onPasteEnd($event)"
+  [autoGroupColumnDef]="autoGroupColumnDef"
+  [groupMultiAutoColumn]="true"
+  [getRowNodeId]="getRowNodeId"
+  [rowGroupPanelShow]="always"
+  [enableRangeSelection]="true"
+  [statusBar]="statusBar"
+  [autoGroupColumnDef]="autoGroupColumnDef"
+  [suppressDragLeaveHidesColumns]="false"
+  (gridReady)="onGridReady($event)"
+
+  >
+</ag-grid-angular>
+
+
   </div>
   </div>
 <br/>
@@ -116,7 +148,38 @@
   </div>
 
   <div *ngIf="up_table" style="width:90%;height:260px;overflow: auto;margin-left: 15px;">
-    <br>
+
+
+
+
+    <ag-grid-angular
+    style=" height: 400px;overflow:scroll"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    rowSelection="multiple"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    
+    [rowGroupPanelShow]="always"
+    [statusBar]="statusBar"
+    [suppressMakeColumnVisibleAfterUnGroup]="true"
+    (cellValueChanged)="onCellValueChanged($event)"
+    (pasteStart)="onPasteStart($event)"
+    (pasteEnd)="onPasteEnd($event)"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [groupMultiAutoColumn]="true"
+    [getRowNodeId]="getRowNodeId"
+    [rowGroupPanelShow]="always"
+    [enableRangeSelection]="true"
+    [statusBar]="statusBar"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [suppressDragLeaveHidesColumns]="false"
+    (gridReady)="onGridReady($event)"
+  
+    >
+  </ag-grid-angular>
+
+    <!-- <br>
       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
           <tr style="background-color: #ddd;">
             <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Username</th>
@@ -133,7 +196,7 @@
       
       </tr>
   
-    </table>
+    </table> -->
   </div>
 
 
@@ -149,7 +212,41 @@
 <div *ngIf="comments_table" style="width:90%;height:260px;overflow: auto;margin-left: 15px;">
 
   <br>
-    <table
+
+
+
+
+
+  <ag-grid-angular
+  style=" height: 400px;overflow:scroll"
+  class="ag-theme-alpine"
+  [rowData]="rowData1"
+  rowSelection="multiple"
+  [columnDefs]="columnDefs1"
+  rowSelection="multiple"
+  
+  [rowGroupPanelShow]="always"
+  [statusBar]="statusBar"
+  [suppressMakeColumnVisibleAfterUnGroup]="true"
+  (cellValueChanged)="onCellValueChanged($event)"
+  (pasteStart)="onPasteStart($event)"
+  (pasteEnd)="onPasteEnd($event)"
+  [autoGroupColumnDef]="autoGroupColumnDef"
+  [groupMultiAutoColumn]="true"
+  [getRowNodeId]="getRowNodeId"
+  [rowGroupPanelShow]="always"
+  [enableRangeSelection]="true"
+  [statusBar]="statusBar"
+  [autoGroupColumnDef]="autoGroupColumnDef"
+  [suppressDragLeaveHidesColumns]="false"
+  (gridReady)="onGridReady($event)"
+
+  >
+</ag-grid-angular>
+
+
+
+    <!-- <table
       style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
       <tr style="background-color: #fff">
         <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
@@ -195,7 +292,7 @@
   
       </ng-container>
   
-    </table>
+    </table> -->
   </div>
   
 
@@ -213,13 +310,13 @@
 
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" >
     <h2>Last APO Upload</h2>
-    <p>19/06/2020</p>
+    <p>10/07/2020</p>
   </div>
 
 
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" >
     <h2>Last Data Upload</h2>
-    <p>2020-06-17 22:47:36.0</p>
+    <p>2020-07-09 14:42:54</p>
   </div>
 
 
