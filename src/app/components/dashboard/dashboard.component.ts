@@ -25267,7 +25267,7 @@ this.columnDefs5=columndef_clone;
 var temp_date=data[0].calenderYearWeek;
 columndef_clone.push({
   field:JSON.stringify(data[0].calenderYearWeek),
-  width:100,
+  width:130,
   cellStyle: {'background-color': '#BEBEBE'}, 
 
 });
@@ -25286,7 +25286,7 @@ columndef_clone.push({
             field:JSON.stringify(week.calenderYearWeek),
             editable:true,
             cellStyle: {'background-color': '#BEBEBE'}, 
-            width:100
+            width:130
            
              
           });
@@ -25302,7 +25302,7 @@ columndef_clone.push({
           columndef_clone.push({
             field:JSON.stringify(week.calenderYearWeek),
             editable:true,
-            width:100
+            width:130
            
              
           });
