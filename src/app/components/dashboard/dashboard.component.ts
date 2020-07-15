@@ -352,6 +352,8 @@ public fourth_ag;
   public skus: any = [];
   public filters: any = [];
 
+  
+
   public comm1: any = [];
 
   public finn: any = [];
@@ -23982,7 +23984,7 @@ try{
  
 
 
-    console.log('Testing->' + JSON.stringify(data));
+    console.log('Testing_BHU->' + JSON.stringify(res));
     const newData = [];
 
     this.aopDataPoints.length = 0;
@@ -24042,16 +24044,6 @@ try{
         width:110,
         type: 'rightAligned',
          editable: true,
-          cellEditorSelector: function (params) {
-          if (params.data.KeyFigure != 'FVA') {
-              return {
-                  component: 'numericCellEditor'
-              };
-          }
-
-
-          return null;
-      }
          
       });
     }
@@ -24111,9 +24103,27 @@ console.log("Harshititit----"+JSON.stringify(fv));
 
 
 
+var aab: any = [];
+// this.allselectedweek=[];
+//this.selectedWeekComments = this.graphData[i].comments;
 
 
 
+
+// this.allselectedweek = this.allselectedweek.map((item) => {
+//   item.isSelected = false;
+//   item.isFiltered=false;
+//   return item;
+// });
+
+console.log('dsfkhsdkhfsd---' + JSON.stringify(this.allselectedweek));
+
+
+
+
+
+
+var f12={key:'Comments'};
 
 var f123={key:'Final Forecast',  cellStyle: {'color': '#4CAF50'}};
 var f1234={key:'FVA'};
@@ -24128,6 +24138,22 @@ for (const week of data) {
  f123['sku']=week.sku;
  f123['plant']=week.plant;
  var t;
+
+
+try{
+  if(week.comment.length>0)
+  {
+    f12[week.calenderYearWeek]=week.comment[0];
+  }
+  else{
+    f12[week.calenderYearWeek]="";
+  }
+}
+catch(err)
+{
+  f12[week.calenderYearWeek]="";
+}
+
 var th = week.fva === undefined ? parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0)) : (parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0)) + parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0)));
  
 
@@ -24195,6 +24221,7 @@ t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed
 
 
 }
+row_clone.push(f12);
 row_clone.push(f123);
 row_clone.push(f1234);
 row_clone.push(f12345);
@@ -27228,7 +27255,25 @@ onGridReady1(params)
       
   }
 
+public onCellClicked(params)
+{
 
+  console.log("eleye---",params);
+  if(params.node.id=="Comments")
+  {
+
+  
+  var f=params.colDef.field;
+  for(var y=0;y<this.finalForecastDataPoints.length;y++)
+  {
+    if(this.finalForecastDataPoints[y].x==f)
+    {
+        this.comments(y);
+        break;
+    }
+  }
+}
+}
 
   public onCellValueChanged(params)
   {

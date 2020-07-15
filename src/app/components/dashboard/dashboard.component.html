@@ -781,6 +781,7 @@
         [statusBar]="statusBar"
         [suppressMakeColumnVisibleAfterUnGroup]="true"
         (cellValueChanged)="onCellValueChanged($event)"
+        (cellClicked)="onCellClicked($event)"
         (pasteStart)="onPasteStart($event)"
         (pasteEnd)="onPasteEnd($event)"
         [autoGroupColumnDef]="autoGroupColumnDef"
