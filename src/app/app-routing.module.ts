@@ -21,8 +21,7 @@ const routes: Routes = [
         {path: 'dashboard', component: DashboardComponent},
         {path: 'portfolio', component: PortfolioComponent},
         {path: 'phase', component: PhaseComponent},
-        {path: 'setting', component: SettingComponent},
-        {path: 'comingsoon', component: ComingsoonComponent}
+        {path: 'setting', component: SettingComponent}
 
       ]
   },
