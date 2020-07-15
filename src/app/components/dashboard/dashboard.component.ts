@@ -24031,7 +24031,7 @@ try{
           cellStyle: {'background-color': '#BEBEBE'}, 
           width:110,
           type: 'rightAligned',
-           editable: true,
+       
            
         });
       }
@@ -24042,6 +24042,16 @@ try{
         width:110,
         type: 'rightAligned',
          editable: true,
+          cellEditorSelector: function (params) {
+          if (params.data.KeyFigure != 'FVA') {
+              return {
+                  component: 'numericCellEditor'
+              };
+          }
+
+
+          return null;
+      }
          
       });
     }
