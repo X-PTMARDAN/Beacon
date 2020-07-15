@@ -803,6 +803,40 @@
 
 
     <ag-grid-angular
+    style=" height: 400px;overflow:scroll"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    *ngIf="fourth_ag"
+    rowSelection="multiple"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    
+    [rowGroupPanelShow]="always"
+    [statusBar]="statusBar"
+    [suppressMakeColumnVisibleAfterUnGroup]="true"
+    (cellValueChanged)="onCellValueChanged($event)"
+    (pasteStart)="onPasteStart($event)"
+    (pasteEnd)="onPasteEnd($event)"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [groupMultiAutoColumn]="true"
+    [getRowNodeId]="getRowNodeId"
+    [rowGroupPanelShow]="always"
+    [enableRangeSelection]="true"
+    [statusBar]="statusBar"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [suppressDragLeaveHidesColumns]="false"
+    (gridReady)="onGridReady($event)"
+
+    >
+</ag-grid-angular>
+
+
+
+
+
+
+
+    <ag-grid-angular
     style=" height: 750px;width:100%;overflow:scroll"
     class="ag-theme-alpine"
     [rowData]="rowData5"

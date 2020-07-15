@@ -142,7 +142,7 @@ public getRowNodeId;
 public third_ag=false;
 public first_ag = true;
 
-
+public fourth_ag;
   public selectallskus = 0;
   public skus_search = [];
 
@@ -850,7 +850,7 @@ rowData3 = [
                             //this.prevactuals = '2019-W35';
                             this.createdata = {
                               prevactuals: this.prevactuals_val,
-                              startWeek: 202021,
+                              startWeek: 202027,
                               endWeek: this.plan_val,
                               forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                               customerPlanningGroup: [],
@@ -22356,11 +22356,11 @@ try{
     }
     this.color_tick = 0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 202021) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 202028) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 202021) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 202028) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -23941,10 +23941,20 @@ try{
 
 
     this.views="Aggregated";
+
+    
     this.second_ag=false;
     this.main_graph=true;
-
-    this.first_ag=true;
+    if(this.granular1=="week")
+    {
+      this.first_ag=true;
+      this.fourth_ag=false;
+    }
+    else{
+      this.first_ag=false;
+      this.fourth_ag=true;
+    }
+  
     this.third_ag=false;
     // const abc12;
     //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
@@ -23999,13 +24009,13 @@ try{
 
 
     columndef_clone.push(
-      { field: 'key', enableRowGroup: true,pinned: 'left', filter: true,width:100 },
+      { field: 'key', enableRowGroup: true,pinned: 'left', filter: true, width:100  },
     );
 
 
 
     for (const week of data) {
-      if(week.calenderYearWeek<=202027)
+      if(week.calenderYearWeek<=res.start)
       {
         columndef_clone.push({
           field:JSON.stringify(week.calenderYearWeek),
@@ -24087,7 +24097,14 @@ console.log("Harshititit----"+JSON.stringify(fv));
 
 
 
-var f123={key:'Total FVA'};
+var f123={key:'Total FVA',  cellStyle: {'color': '#4CAF50'}};
+var f1234={key:'FVA'};
+var f12345={key:'ML'};
+var f123456={key:'APO',  cellStyle: {'color': '#4CAF50'}};
+var f1234567={key:'Actual'};
+var f12345678={key:'Actual LY'};
+var f123456789={key:'Open'};
+var f1234567890={key:'Promo'};
 for (const week of data) {
  f123['cpg']=week.cpg;
  f123['sku']=week.sku;
@@ -24097,16 +24114,8 @@ var th = week.fva === undefined ? parseFloat(DashboardComponent.parseStringToFlo
  
 
  f123[week.calenderYearWeek]=th;
-}
-row_clone.push(f123);
 
 
-var f123={key:'FVA'};
-for (const week of data) {
- f123['cpg']=week.cpg;
- f123['sku']=week.sku;
- f123['plant']=week.plant;
- var t;
 
  if(week.fva===NaN || week.fva===NaN || week.fva===undefined || week.fva===null ) 
  {
@@ -24117,16 +24126,11 @@ for (const week of data) {
 t=parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0))
  }
 
- f123[week.calenderYearWeek]=t;
-}
-row_clone.push(f123);
+ f1234[week.calenderYearWeek]=t;
 
-var f123={key:'ML'};
-for (const week of data) {
- f123['cpg']=week.cpg;
- f123['sku']=week.sku;
- f123['plant']=week.plant;
- var t;
+
+
+
  if(parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))==null || parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))==NaN)
  {
    t=0;
@@ -24135,25 +24139,57 @@ for (const week of data) {
 t=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
  }
 
- f123[week.calenderYearWeek]=t;
+ f12345[week.calenderYearWeek]=t;
+
+ f123456[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.apo).toFixed(0))
+
+
+
+
+
+ if(week.actuals===NaN || week.actuals===NaN || week.actuals===undefined || week.actuals===null)
+ {
+   t=0;
+ }
+ else{
+t=parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0))
+ }
+
+ f1234567[week.calenderYearWeek]=t;
+
+ 
+ if(week.actualslastyear===NaN || week.actualslastyear===NaN || week.actualslastyear===undefined || week.actualslastyear===null)
+ {
+   t=0;
+ }
+ else{
+t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
+ }
+
+ f12345678[week.calenderYearWeek]=t;
+
+
+ f123456789[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.harshit).toFixed(0))
+
+
+ f1234567890[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0))
+
+
+
 }
 row_clone.push(f123);
+row_clone.push(f1234);
+row_clone.push(f12345);
+row_clone.push(f123456);
+row_clone.push(f1234567);
+row_clone.push(f12345678);
+row_clone.push(f123456789);
+row_clone.push(f1234567890);
 
 
 
 
 
-
-var f123={key:'APO'};
-for (const week of data) {
-  f123['cpg']=week.cpg;
-  f123['sku']=week.sku;
-  f123['plant']=week.plant;
-   f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.apo).toFixed(0))
-}
-
-
-row_clone.push(f123);
 
 
 
@@ -24166,104 +24202,15 @@ row_clone.push(f123);
 console.log("popop----"+row_clone);
 
 
-      var f123={key:'Actual'};
-   for (const week of data) {
-    f123['cpg']=week.cpg;
-    f123['sku']=week.sku;
-    f123['plant']=week.plant;
-    var t;
-    if(week.actuals===NaN || week.actuals===NaN || week.actuals===undefined || week.actuals===null)
-    {
-      t=0;
-    }
-    else{
-   t=parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0))
-    }
-   
-    f123[week.calenderYearWeek]=t;
-
-  }
-
-  row_clone.push(f123);
-
-
-
- 
 
 
 
 
 
 
-var f123={key:'Actual LY'};
-for (const week of data) {
-  f123['cpg']=week.cpg;
-  f123['sku']=week.sku;
-  f123['plant']=week.plant;
-
-  if(week.actualslastyear===NaN || week.actualslastyear===NaN || week.actualslastyear===undefined || week.actualslastyear===null)
-  {
-    t=0;
-  }
-  else{
- t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
-  }
- 
-  f123[week.calenderYearWeek]=t;
-
-}
-
-
-row_clone.push(f123);
 
 
 
-
-
-var f123={key:'Open'};
-for (const week of data) {
-  f123['cpg']=week.cpg;
-  f123['sku']=week.sku;
-  f123['plant']=week.plant;
-   f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.harshit).toFixed(0))
-}
-
-
-row_clone.push(f123);
-
-
-var f123={key:'Promo'};
-for (const week of data) {
-  f123['cpg']=week.cpg;
-  f123['sku']=week.sku;
-  f123['plant']=week.plant;
-  var t;
-  if(parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0))==null || parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0))==NaN)
-  {
-    t=0;
-  }
-  else{
- t=parseFloat(DashboardComponent.parseStringToFloat(week.promo).toFixed(0))
-  }
- 
-  f123[week.calenderYearWeek]=t;
-}
-
-
-row_clone.push(f123);
-
-
-
-var f123={key:'FVA'};
-for (const week of data) {
-  f123['cpg']=week.cpg;
-  f123['sku']=week.sku;
-  f123['plant']=week.plant;
-   f123[week.calenderYearWeek]=parseFloat(DashboardComponent.parseStringToFloat(week.harshit).toFixed(0))
-}
-
-
-row_clone1.push(f123);
 
 
 this.rowData4=row_clone1;
@@ -26981,7 +26928,7 @@ onGridReady1(params)
     
 
       var g=parseInt(rowNode1.data[a])+parseInt(b);
-      alert(g);
+
    // var newPrice = Math.floor(Math.random() * 100000);
     rowNode.setDataValue(a, g);
     this.main_1=1;
@@ -26995,7 +26942,7 @@ onGridReady1(params)
       {
 
         this.graphData[y].fcstValueAdd=parseInt(b);
-        alert(this.graphData[y].fcstValueAdd);
+  
        // this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
       }
       
@@ -27240,7 +27187,7 @@ onGridReady1(params)
 
       for(var y=0;y<this.finalForecastDataPoints.length;y++)
       {
-        console.log('harshit---',this.finalForecastDataPoints);
+        //console.log('harshit---',this.finalForecastDataPoints);
         if(this.finalForecastDataPoints[y].x==f)
         {
          
@@ -27771,7 +27718,7 @@ try{
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
-    data.startWeek = 202021;
+    data.startWeek = 202027;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -29915,7 +29862,7 @@ try{
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202021,
+        calendarWeek: 202027,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         uom:this.UOM,
@@ -30029,7 +29976,7 @@ try{
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202021,
+        calendarWeek: 202027,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -30825,7 +30772,7 @@ try{
     data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
 
 
-    data.startWeek = 202021;
+    data.startWeek = 202027;
     data.endWeek = 202004;
 
     this.loading = true;
