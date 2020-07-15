@@ -64,6 +64,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public inter: any;
 
+  public lotCompleted=0;
   private gridApi;
 
   private defaultColDef;
@@ -83,6 +84,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public checking = 0;
 public summ2=0;
 
+public final_one=0;
+
 public rowGroupPanelShow;
 
   public allComments_harshit;
@@ -101,9 +104,14 @@ public expand=true;
   public skuname_down = '';
 
   public tables;
+
+  public arr12: any = [];
+
   public views="Aggregated";
 
   public main_1=0;
+
+  public main_1_cal=0;
 
   public greystart;
 
@@ -26868,12 +26876,49 @@ this.columnDefs6=columndef_clone;
 
   public onPasteEnd(params)
   {
-    
+   
+  
+
+        for(const abr of this.arr12)
+          {
+            this.lotCompleted=1;
+                var f=abr.week;
+                 var th=abr.value;
+
+              console.log("First array--"+f);
+
+              console.log("Week--"+th);
+
+                for(var y=0;y<this.finalForecastDataPoints.length;y++)
+                {
+                            if(this.finalForecastDataPoints[y].x==f)
+                            {
+                              this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
+                            }
+                }
+                    this.chart1.render();
+            
+                   
+                   
+                     // this.main_1_cal=params.column.colId;
+                        this.change1(f,th);
+                    
+          }
+          this.final_one=this.arr12.length;
+          console.log("Final Step---"+this.final_one);
+
+          // this.final_one=1;
+          // this.main_1_cal=0;
+          // this.arr12=[];
+          // this.main_1=0;
+          // this.lotCompleted=0;
   }
 
   public onPasteStart(params)
   {
-    
+    this.main_1_cal=1;
+    var gk=this.gridApi.getCellRanges(); 
+    console.log("Consoleee,",gk);
   }
 
   public onPasteEnd1(params)
@@ -26910,7 +26955,7 @@ onGridReady1(params)
 
   public change1(a,b)
   {
-    console.log("aad",this.gridApi.getSelectedRows());
+   
     var final_1=JSON.parse(JSON.stringify(this.rowData));
       var g=0;
       let f=0;
@@ -26925,6 +26970,8 @@ onGridReady1(params)
       
       console.log("aa!@#$4",rowNode1.data[a]);
 
+
+      
     
 
       var g=parseInt(rowNode1.data[a])+parseInt(b);
@@ -26937,7 +26984,6 @@ onGridReady1(params)
 
     for(var y=0;y<this.graphData.length;y++)
     {
-     console.log("fsgs---11",this.graphData[y].calenderYear);
       if(this.graphData[y].calenderYear==a)
       {
 
@@ -27176,45 +27222,80 @@ onGridReady1(params)
 
   public onCellValueChanged(params)
   {
-    console.log("bab",params);
-    
-      var f=params.colDef.field;
-      var th=params.newValue;
 
+    console.log("Cell Value Changed with Lot Completed--"+this.lotCompleted);
+    if(this.final_one>0)
+    {
+      this.final_one=this.final_one-1;
 
-      //this.rowData[f]
+          this.main_1_cal=0;
+          this.arr12=[];
+          this.main_1=0;
+          this.lotCompleted=0;
+
+    }
+    else if(this.lotCompleted==1)
+    {
+          console.log("Lot Compleyed==",params.column.colId);
+    }
+    else if(this.main_1_cal==1)
+    {
+
+        var to=0;
+      for(const ag of this.arr12)
+      {
+       
+            if(ag.week==params.column.colId)
+            {
+                to=1;
+            
+                this.lotCompleted=1;
+            }
+      }
+      if(to==1)
+      {
+          console.log("Entry");
+          
+        
+  
+      }
+      else{
+        this.arr12.push({
+          week:params.column.colId,
+          value:params.newValue
+        });
+
+       
+      }
      
 
+ 
+    }
+    else{
+      console.log("bab",params);
+      var f=params.colDef.field;
+      var th=params.newValue;
       for(var y=0;y<this.finalForecastDataPoints.length;y++)
       {
-        //console.log('harshit---',this.finalForecastDataPoints);
         if(this.finalForecastDataPoints[y].x==f)
         {
-         
           this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
         }
-        
       }
+        this.chart1.render();
 
-      this.chart1.render();
-      
-    
-    //   var rowNode = this.gridApi.getRowNode('aa');
-    // var newPrice = Math.floor(Math.random() * 100000);
-    // rowNode.setDataValue('price', newPrice);
-
-
+        console.log("Checking123P--"+params.column.colId);
         if(this.main_1==1)
         {
+            
             this.main_1=0;
         }
         else{
+          this.main_1_cal=params.column.colId;
             this.change1(params.column.colId,params.newValue);
         }
-        
-    
 
-
+      }
   }
 
 
