@@ -81,12 +81,16 @@ public gridColumnApi1;
 
   public up = 0;
 
+  public isEnabled_gran=true;
+
   public main_graph=true;
 
   public featureanalysis = 'Feature Analysis (HL)';
 
   public checking = 0;
 public summ2=0;
+
+public change_extra='';
 
 public final_one=0;
 
@@ -131,6 +135,8 @@ public expand=true;
   public allselectedweek: any = [];
   public searchplant;
   public selecteddblclick;
+
+  public jkl='';
 
   public granular1 = 'week';
   public createPlanRequestData_featurechange: any;
@@ -23953,8 +23959,9 @@ try{
   public processGraphData(res) {
 
 this.changed_weeks=[];
+this.isEnabled_gran=true;
     this.views="Aggregated";
-
+   
     
     this.second_ag=false;
     this.main_graph=true;
@@ -24479,6 +24486,9 @@ console.log("7764567676$%^^&&---",this.gridApi.getRowNode('Final Forecast'));
 
     this.second_ag=true;
     this.main_graph=false;
+
+
+    this.isEnabled_gran=false;
 
     this.first_ag=false;
     this.third_ag=false;
@@ -25260,7 +25270,7 @@ this.columnDefs5=columndef_clone;
     this.third_ag=true;
     this.second_ag=false;
     this.main_graph=false;
-
+this.isEnabled_gran=false;
     
     this.views="Sku View";
     this.first_ag=false;
@@ -25316,6 +25326,9 @@ this.columnDefs5=columndef_clone;
     };
 
     this.forecastadd = 0;
+
+
+
 
 
     columndef_clone.push(
@@ -25451,7 +25464,7 @@ return f/2;
 
     for(let row of ghj)
     {
-      var f123={key:'Final Forecast'};
+      var f123={key:'Final Forecast-'+row.sku};
     
       f123['sku']=row.sku;
       for(let week of data)
@@ -25495,9 +25508,12 @@ return f/2;
     
 
 
+
+
+    
 for(let row of ghj)
 {
-  var f123={key:'ML'};
+  var f123={key:'ML-'+row.sku};
 
   f123['sku']=row.sku;
   for(let week of data)
@@ -25551,7 +25567,7 @@ for(let row of ghj)
 
 for(let row of ghj)
 {
-  var f123={key:'Actual '};
+  var f123={key:'Actual'};
 
   f123['sku']=row.sku;
   for(let week of data)
@@ -25890,6 +25906,11 @@ this.columnDefs6=columndef_clone;
 
 
   
+    var params = {
+      force: false,
+      suppressFlash:false,
+    };
+    this.gridApi.refreshCells(params);
 
 
      console.log("THIRD----"+JSON.stringify(row_clone));
@@ -26952,7 +26973,7 @@ this.columnDefs6=columndef_clone;
   public onPasteEnd(params)
   {
    
-  
+    console.log("Paste end--",params);
 
         for(const abr of this.arr12)
           {
@@ -26976,7 +26997,7 @@ this.columnDefs6=columndef_clone;
                    
                    
                      // this.main_1_cal=params.column.colId;
-                        this.change1(f,th);
+                        this.change1(f,th,this.change_extra);
                     
           }
           this.final_one=this.arr12.length;
@@ -27009,12 +27030,9 @@ this.columnDefs6=columndef_clone;
   
 onGridReady1(params)
 {
-  this.gridApi1 = params.api;
-  this.gridColumnApi1 = params.columnApi;
-  this.gridColumnApi1.setRowGroupColumns(['key']);
-  this.gridColumnApi1.setRowGroupColumns(['sku']);
-  this.gridColumnApi1.setRowGroupColumns(['plant']);
-  this.gridColumnApi1.setRowGroupColumns(['cpg']);
+  this.gridApi = params.api;
+  this.gridColumnApi = params.columnApi;
+
 }
   onGridReady(params) {
 
@@ -27028,7 +27046,7 @@ onGridReady1(params)
 
   }
 
-  public change1(a,b)
+  public change1(a,b,c)
   {
    
     var final_1=JSON.parse(JSON.stringify(this.rowData));
@@ -27052,7 +27070,7 @@ onGridReady1(params)
       var g=parseInt(rowNode1.data[a])+parseInt(b);
 
    // var newPrice = Math.floor(Math.random() * 100000);
-    rowNode.setDataValue(a, g);
+    rowNode.setDataValue(a+c, g);
     this.main_1=1;
 
 
@@ -27333,6 +27351,25 @@ public onCellClicked(params)
 
 
     var bnm='';
+
+    this.change_extra='';
+
+    console.log("dfjhkvdgv12---",params.column.userProvidedColDef.field);
+
+    var ban=params.column.userProvidedColDef.field;
+
+    var added=params.column.colId.split('_')[1];
+    var extra='';
+    if(params.column.userProvidedColDef.field==params.column.colId)
+    {
+      extra='';
+    }
+    else{
+      extra='_'+added;
+    }
+
+
+    this.change_extra=extra;
     console.log("Cell Value Changed with Lot Completed--"+this.lotCompleted);
 
   //  console.log("090121----", params.newValue.charAt(params.newValue.length-1));
@@ -27365,7 +27402,7 @@ public onCellClicked(params)
     }
     else if(this.lotCompleted==1)
     {
-          console.log("Lot Compleyed==",params.column.colId);
+          console.log("Lot Compleyed==",ban);
     }
     else if(this.main_1_cal==1)
     {
@@ -27374,7 +27411,7 @@ public onCellClicked(params)
       for(const ag of this.arr12)
       {
        
-            if(ag.week==params.column.colId)
+            if(ag.week==ban)
             {
                 to=1;
             
@@ -27390,12 +27427,12 @@ public onCellClicked(params)
       }
       else{
         this.arr12.push({
-          week:params.column.colId,
+          week:ban,
           value:params.newValue
         });
 
         
-        this.changed_weeks.push(parseInt(params.column.colId));
+        this.changed_weeks.push(parseInt(ban));
 
         console.log("CPcihel--"+this.changed_weeks);
        
@@ -27425,13 +27462,15 @@ else if( bnm == "%")
 
   var rowNode = this.gridApi.getRowNode('FVA');
   this.main_1=1;
-  rowNode.setDataValue(params.colDef.field, vl.toFixed(0));
+  rowNode.setDataValue(params.colDef.field+extra, vl.toFixed(0));
 
-  this.changed_weeks.push(parseInt(params.column.colId));
+  this.changed_weeks.push(parseInt(ban));
 
-  this.main_1_cal=params.column.colId;
+  this.main_1_cal=ban;
+
   
-    this.change1(params.column.colId,vl);
+  
+    this.change1(ban,vl,extra);
 
 }
     else{
@@ -27457,10 +27496,15 @@ else if( bnm == "%")
             this.main_1=0;
         }
         else{
-           this.changed_weeks.push(parseInt(params.column.colId));
+           this.changed_weeks.push(parseInt(ban));
 
-          this.main_1_cal=params.column.colId;
-            this.change1(params.column.colId,params.newValue);
+          this.main_1_cal=ban;
+
+         
+
+
+
+            this.change1(ban,params.newValue,extra);
         }
 
       }
@@ -27482,20 +27526,31 @@ else if( bnm == "%")
 
     var idd=params.colDef.field;
 
-    var rowNode1 = this.gridApi1.getRowNode('Final Forecast');
-    var jkl;
+    var rowNode1 = this.gridApi1.getRowNode('FVA');
 
-    this.gridApi1.forEachNode(function(rowNode, index) {
-      console.log('node12 ' + JSON.stringify(rowNode.data)+ ' is in the grid--'+index);
+    console.log("Checking--",rowNode1);
 
-      if(rowNode.data.key=="ML" && rowNode.data.sku==h)
-      {
-        jkl=rowNode.data[idd];
-        alert("fsd-"+jkl);
-      }
-  });
+    
+
+    var h12=rowNode1.data[params.colDef.field];
+ 
 
   
+
+    var rowNode2 = this.gridApi1.getRowNode('Final Forecast-'+h);
+  
+  var hj=parseInt(h12)+parseInt(params.newValue);
+
+  rowNode2.setDataValue('Final Forecast-'+h, hj);
+
+
+
+  
+
+ 
+
+
+
 
     console.log("PAPAPA123---",rowNode1);
       var f=params.colDef.field;

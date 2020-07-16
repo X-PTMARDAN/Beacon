@@ -442,7 +442,7 @@
             <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">Granularity</h6>
 
 
-              <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [(ngModel)]="granular1"
+              <select class="form-control p-0 pr-1" #t1 name="plant" id="granular"  [disabled]="isEnabled_gran" [(ngModel)]="granular1"
                       (change)="test1(t1.value)">
                 <option selected value="week">Weekly View</option>
                 <option value="month">Monthly View</option>
