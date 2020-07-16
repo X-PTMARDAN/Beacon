@@ -75,6 +75,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public role;
   public reactivate_filter_button = 0;
 
+
+public gridApi1;
+public gridColumnApi1;
+
   public up = 0;
 
   public main_graph=true;
@@ -138,6 +142,11 @@ public expand=true;
   public currentWeek: number;
 
   public searchText1;
+
+
+  public change_comment=0;
+
+  public commented_week;
   public searchText34;
   public searchText345;
   public commentSearchText;
@@ -475,11 +484,7 @@ rowData3 = [
     this.defaultColDef = {
       filter: true,
     resizable: true,
-        enableValue: true,
-    // allow every column to be grouped
-    enableRowGroup: true,
-    // allow every column to be pivoted
-    enablePivot: true,
+      
     };
 
     this.rowGroupPanelShow = 'always';
@@ -24604,6 +24609,10 @@ columndef_clone.push({
  
   }
 
+
+
+
+
   var ghj=[];
 var fg1=data[0].calenderYearWeek;
 
@@ -24623,8 +24632,6 @@ var fg1=data[0].calenderYearWeek;
 
 
 
-
-  
 
 
 
@@ -24648,34 +24655,6 @@ for(let row of ghj)
   row_clone5.push(f123);
 }
 
-for(let row of ghj)
-{
-  var f123={key:'ML'};
-  f123['cpg']=row.cpg;
-  f123['plant']=row.plant;
-  f123['sku']=row.sku;
-  for(let week of data)
-  {
-      if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
-      {
-
-
-        
-        if(week.ml===NaN || week.ml===NaN || week.ml===undefined || week.ml===null ) 
-        {
-         
-          t=0;
-        }
-        else{
-       t=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
-        }
-       
-        f123[week.calenderYearWeek]=t;
-
-      }
-  }
-  row_clone5.push(f123);
-}
 
 
 
@@ -24710,6 +24689,34 @@ for(let row of ghj)
 
 
 
+for(let row of ghj)
+{
+  var f123={key:'ML'};
+  f123['cpg']=row.cpg;
+  f123['plant']=row.plant;
+  f123['sku']=row.sku;
+  for(let week of data)
+  {
+      if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
+      {
+
+
+        
+        if(week.ml===NaN || week.ml===NaN || week.ml===undefined || week.ml===null ) 
+        {
+         
+          t=0;
+        }
+        else{
+       t=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
+        }
+       
+        f123[week.calenderYearWeek]=t;
+
+      }
+  }
+  row_clone5.push(f123);
+}
 
 
 // for(let yh of data){
@@ -25383,39 +25390,60 @@ var fg1=data[0].calenderYearWeek;
   
 
 
-//   columndef_clone.push({
-//     field: 'Total',
-//     pinned: 'right',
-//     width:100,
-//     valueGetter: function(params) {
-//       var f=0;
-//       var g=0;
+  columndef_clone.push({
+    field: 'Total',
+    pinned: 'right',
+    width:100,
+    valueGetter: function(params) {
+      var f=0;
+      var g=0;
+try{
+      console.log("eant to ",params);
 
+      console.log("Break--"+params.data['202013']);
 
-// for(let row of ghj)
-// {
+      for(let row of ghj)
+{
 
-//   for(let week of data)
-//   {
-//       if(week.sku==row.sku )
-//       {
-//         if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
-//         {
-//           f=f+0;
-//         }
-//         else{
+  for(let week of data)
+  {
+      if(week.sku ==row.sku )
+      {
+        try{
+        if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
+        {
+          f=f+0;
+        }
+        else{
 
   
 
-//           f=f+parseInt(params.data[week.calenderYearWeek]);
-//         }
-//       }
-//   }
-//   return f;
-// }
-//     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202029'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
-//     },
-//   });
+          f=f+parseInt(params.data[week.calenderYearWeek]);
+        }
+      }catch(err)
+      {
+        f=f+0;
+      }
+      }
+  }
+
+}
+
+
+
+
+return f/2;
+
+}catch(err)
+{
+  return f/2;
+}
+    //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202029'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
+    },
+
+
+    
+  });
 
 
    
@@ -25439,6 +25467,32 @@ var fg1=data[0].calenderYearWeek;
       row_clone5.push(f123);
     }
 
+
+
+    for(let row of ghj)
+    {
+      var f123={key:'FVA'};
+    
+      f123['sku']=row.sku;
+      for(let week of data)
+      {
+          if(week.sku==row.sku )
+          {
+            if(week.fva===NaN || week.fva===NaN || week.fva===undefined || week.fva===null ) 
+            {
+             
+              t=0;
+            }
+            else{
+           t=parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0))
+            }
+           
+            f123[week.calenderYearWeek]=t;
+          }
+      }
+      row_clone5.push(f123);
+    }
+    
 
 
 for(let row of ghj)
@@ -25465,30 +25519,6 @@ for(let row of ghj)
   row_clone5.push(f123);
 }
 
-
-for(let row of ghj)
-{
-  var f123={key:'FVA'};
-
-  f123['sku']=row.sku;
-  for(let week of data)
-  {
-      if(week.sku==row.sku )
-      {
-        if(week.fva===NaN || week.fva===NaN || week.fva===undefined || week.fva===null ) 
-        {
-         
-          t=0;
-        }
-        else{
-       t=parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0))
-        }
-       
-        f123[week.calenderYearWeek]=t;
-      }
-  }
-  row_clone5.push(f123);
-}
 
 
 
@@ -26979,12 +27009,12 @@ this.columnDefs6=columndef_clone;
   
 onGridReady1(params)
 {
-  this.gridApi = params.api;
-  this.gridColumnApi = params.columnApi;
-  this.gridColumnApi.setRowGroupColumns(['key']);
-  this.gridColumnApi.setRowGroupColumns(['sku']);
-  this.gridColumnApi.setRowGroupColumns(['plant']);
-  this.gridColumnApi.setRowGroupColumns(['cpg']);
+  this.gridApi1 = params.api;
+  this.gridColumnApi1 = params.columnApi;
+  this.gridColumnApi1.setRowGroupColumns(['key']);
+  this.gridColumnApi1.setRowGroupColumns(['sku']);
+  this.gridColumnApi1.setRowGroupColumns(['plant']);
+  this.gridColumnApi1.setRowGroupColumns(['cpg']);
 }
   onGridReady(params) {
 
@@ -27263,25 +27293,7 @@ onGridReady1(params)
       
   }
 
-  public onCellDoubleClicked(params)
-  {
-    console.log("Double",params)
-    if(params.node.id=="FVA")
-    {
-      var f=params.colDef.field;
 
-      for(var y=0;y<this.finalForecastDataPoints.length;y++)
-      {
-        if(this.finalForecastDataPoints[y].x==f)
-        {
-            this.onDblClickInput(y);
-            break;
-        }
-      }
-    }
-
-  
-  }
 
 public onCellClicked(params)
 {
@@ -27309,7 +27321,7 @@ public onCellClicked(params)
     {
       if(this.finalForecastDataPoints[y].x==f)
       {
-          this.onDblClickInput(y);
+          this.onDblClickInput(y,params.colDef.field);
           break;
       }
     }
@@ -27331,7 +27343,11 @@ public onCellClicked(params)
     {
 
     }
-    if(this.thi>0)
+    if(this.change_comment==1)
+    {
+      this.change_comment=0;
+    }
+    else if(this.thi>0)
     {
         this.thi=this.thi-1;
         this.main_1=0;
@@ -27456,8 +27472,32 @@ else if( bnm == "%")
 
   public onCellValueChanged1(params)
   {
-    console.log("bab",params);
+
+
+    console.log("bab123",params);
     
+
+    var h=params.data.sku;
+    alert(h);
+
+    var idd=params.colDef.field;
+
+    var rowNode1 = this.gridApi1.getRowNode('Final Forecast');
+    var jkl;
+
+    this.gridApi1.forEachNode(function(rowNode, index) {
+      console.log('node12 ' + JSON.stringify(rowNode.data)+ ' is in the grid--'+index);
+
+      if(rowNode.data.key=="ML" && rowNode.data.sku==h)
+      {
+        jkl=rowNode.data[idd];
+        alert("fsd-"+jkl);
+      }
+  });
+
+  
+
+    console.log("PAPAPA123---",rowNode1);
       var f=params.colDef.field;
       var th=params.newValue;
 
@@ -29735,7 +29775,7 @@ try{
     //
   }
 
-  public onDblClickInput(selectedWeekIndex: number) {
+  public onDblClickInput(selectedWeekIndex: number,week) {
 
     console.log('Sgsfgsfgsg1234');
 
@@ -29746,6 +29786,8 @@ try{
       this.selecteddblclick = selectedWeekIndex;
       this.lockModal.nativeElement.click();
       this.selectedWeekIndex = selectedWeekIndex;
+
+      this.commented_week=week;
     }
     //   this.finalForecastCommentModalBtn.nativeElement.click();
   }
@@ -29835,10 +29877,26 @@ try{
   }
 
   public onFinalForecastCommentSubmit(data: any) {
+
+   
     if (this.selectedWeekIndex) {
+
+    
+
+      
+      var rowNode = this.gridApi.getRowNode('Comments');
+      rowNode.setDataValue(this.commented_week, data.comment);
+      this.change_comment=1;
+
+
       if (this.graphData[this.selectedWeekIndex].comments.length >= 1) {
         this.graphData[this.selectedWeekIndex].comments[0] = data.comment;
         this.graphData[this.selectedWeekIndex].userComment[0] = data.comment;
+
+
+        var rowNode = this.gridApi.getRowNode('Comments');
+        rowNode.setDataValue("202042", data.comment);
+
         while (this.graphData[this.selectedWeekIndex].comments.length > 1) {
           this.graphData[this.selectedWeekIndex].comments.pop();
         }
@@ -30097,7 +30155,7 @@ try{
             type:this.type123,
             uom:this.UOM,
             
-            user: 'admin',
+            user: data.comments[0],
             ml:data.ml,
             finalForecast: data.finalForecast,
             fva: data.fcstValueAdd,
@@ -30150,13 +30208,13 @@ try{
 
     this.skuService.savePlan(abc).subscribe((res: any) => {
       console.log(res);
-      this.skuService.confirmPlan(com).subscribe((res: any) => {
+      // this.skuService.confirmPlan(com).subscribe((res: any) => {
         this.savePlanLoader = false;
         this.PlanNameModalBtn.nativeElement.click();
-      }, (error) => {
+      // }, (error) => {
         this.savePlanLoader = false;
-        this.PlanNameModalBtn.nativeElement.click();
-      });
+       this.PlanNameModalBtn.nativeElement.click();
+      // });
     });
 
 
