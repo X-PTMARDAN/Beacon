@@ -174,6 +174,8 @@ public fourth_ag;
 
   public plants = [];
 
+  public changed_weeks=[];
+
   public selectallplant = 0;
 
   public selectedskus = [];
@@ -23949,7 +23951,7 @@ try{
 
   public processGraphData(res) {
 
-
+this.changed_weeks=[];
     this.views="Aggregated";
 
     
@@ -24044,6 +24046,16 @@ try{
         width:110,
         type: 'rightAligned',
          editable: true,
+          cellEditorSelector: function (params) {
+          if (params.data.key != 'FVA') {
+              return {
+                  component: 'numericCellEditor'
+              };
+          }
+
+
+          return null;
+      }
          
       });
     }
@@ -27255,6 +27267,26 @@ onGridReady1(params)
       
   }
 
+  public onCellDoubleClicked(params)
+  {
+    console.log("Double",params)
+    if(params.node.id=="FVA")
+    {
+      var f=params.colDef.field;
+
+      for(var y=0;y<this.finalForecastDataPoints.length;y++)
+      {
+        if(this.finalForecastDataPoints[y].x==f)
+        {
+            this.onDblClickInput(y);
+            break;
+        }
+      }
+    }
+
+  
+  }
+
 public onCellClicked(params)
 {
 
@@ -27272,13 +27304,28 @@ public onCellClicked(params)
         break;
     }
   }
-}
+  }
+  else if(params.node.id=="ML")
+  {
+    var f=params.colDef.field;
+
+    for(var y=0;y<this.finalForecastDataPoints.length;y++)
+    {
+      if(this.finalForecastDataPoints[y].x==f)
+      {
+          this.onDblClickInput(y);
+          break;
+      }
+    }
+  }
 }
 
   public onCellValueChanged(params)
   {
 
     console.log("Cell Value Changed with Lot Completed--"+this.lotCompleted);
+
+
     if(this.final_one>0)
     {
       this.final_one=this.final_one-1;
@@ -27320,6 +27367,10 @@ public onCellClicked(params)
           value:params.newValue
         });
 
+        
+        this.changed_weeks.push(parseInt(params.column.colId));
+
+        console.log("CPcihel--"+this.changed_weeks);
        
       }
      
@@ -27339,6 +27390,9 @@ public onCellClicked(params)
       }
         this.chart1.render();
 
+       
+        console.log("CPcihel--"+this.changed_weeks);
+
         console.log("Checking123P--"+params.column.colId);
         if(this.main_1==1)
         {
@@ -27346,6 +27400,8 @@ public onCellClicked(params)
             this.main_1=0;
         }
         else{
+           this.changed_weeks.push(parseInt(params.column.colId));
+
           this.main_1_cal=params.column.colId;
             this.change1(params.column.colId,params.newValue);
         }
@@ -29965,11 +30021,29 @@ try{
 
     var abc: any = [];
 
-    console.log('CHECK121ING----------' + JSON.stringify(this.graphData));
     for (const data of this.graphData) {
 
-      if (data.fcstValueAdd) {
 
+       
+      if (data.fcstValueAdd && (this.changed_weeks.indexOf(data.week)>-1)) {
+
+
+        console.log("dsfsdfs---"+JSON.stringify(this.changed_weeks));
+
+        console.log("PQPQPDF---"+data.week);
+
+        console.log("titotpn111111&&&&&"+this.changed_weeks.indexOf(data.week));
+
+        // for(const ah of this.changed_weeks)
+        // {
+        //   console.log("YHYH---"+ah);
+        //   if(ah.week==data.week)
+        //   {
+        //     console.log("titotpn111111"+this.changed_weeks.indexOf(data.week));
+        //   }
+        // }
+
+        // 
         // if (data.comments.length > 1) {
 
         // } else {
