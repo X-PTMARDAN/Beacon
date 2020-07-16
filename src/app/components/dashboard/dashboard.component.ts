@@ -27320,7 +27320,7 @@ public onCellClicked(params)
   {
 
 
-    var bnm=0;
+    var bnm='';
     console.log("Cell Value Changed with Lot Completed--"+this.lotCompleted);
 
   //  console.log("090121----", params.newValue.charAt(params.newValue.length-1));
@@ -27388,7 +27388,7 @@ public onCellClicked(params)
 
  
     }
-else if( bnm =='%')
+else if( bnm == "%")
 {
   var f=params.colDef.field;
 
