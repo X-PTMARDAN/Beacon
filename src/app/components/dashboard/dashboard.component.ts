@@ -3001,22 +3001,22 @@ rowData3 = [
     {
 
 
-        this.planningtable = 'Planning table (PC)';
+        this.planningtable = 'Planning table ('+feature+')';
   
   
-        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+        document.getElementById('planningtable').innerHTML = 'Planning table ('+feature+')';
   
 
         try{
-        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis ('+feature+')';
   
   
-        this.forecastinganalysis = 'Forecast Analysis (PC)';
+        this.forecastinganalysis = 'Forecast Analysis ('+feature+')';
         }catch(err)
         {
           
         }
-        this.featureanalysis = 'Feature Analysis (PC)';
+        this.featureanalysis = 'Feature Analysis ('+feature+')';
   
         //const data=this.createPlanRequestData;
         console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
@@ -3028,6 +3028,7 @@ rowData3 = [
           forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
           customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          uom1:this.UOM
         };
         //this.test();
         this.loading = true;
