@@ -1,9 +1,14 @@
 
-
 <div id="content">
  
 
+  <div *ngIf="loading"
+  style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+ <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" alt="Smiley facg">
 
+</div>
+</div>
 
   <div class="row content-col mb-2" id="upper_middle" style="margin-bottom: .0rem!important;margin: 0 20px"> 
       <div class="col-12 " >
@@ -82,17 +87,22 @@
               <div class="center-block fix-width scroll-inner">
                   <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button>
                   <br>
-                  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
+                  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><h6 class="mt-3 font-weight-bold">SKU Name</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><h6 class="mt-3 font-weight-bold">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">&nbsp;</td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
+
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Segment</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
                     </tr>
                 
                   </table>
@@ -104,17 +114,23 @@
 
 
 
-                <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
-                    <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 16%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 7%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
+                <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
+                    <tr style="background-color: #fff" >
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
+
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.animal_FLAG2}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4_1" (click)=edit_1(data.fgid,data.material)>Edit Segment</a></td>
+
+                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
                     </tr>
                 
                   </table>
@@ -128,9 +144,7 @@
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{data.fgid}}</span></th>
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;font: initial;"><span class="text-muted">{{data.forecastinggroup}}</span></th>
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></span></th>
-
                           <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></span></th>
-
                
                         </tr>
                     
@@ -204,7 +218,7 @@
 
                   <br/>
 
-                  <h3 class="text-center">New Phase In Phase Out rule</h3>
+                  <!-- <h3 class="text-center">New Phase In Phase Out rule</h3>
                   <div style="display:flex;flex-direction: row;justify-content: space-around;">
             
             
@@ -236,10 +250,6 @@
                         </ng-container>
                     </select>
                                 </div>
-
-
-
-
                     
               
               
@@ -268,7 +278,7 @@
                             </label>
                             <div class="input-group input-append date" style="width: 50%">
                               <span class="pr-1">From:</span>
-                              <!-- <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly>  -->
+                             <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> 
                   
                               <input type="week" value="2019-W39" id="startWeek" [value]="startweek" [(ngModel)]="startweek" name="startWeek" style="height: 43px;
                               width: 300px;
@@ -288,30 +298,38 @@
                               
                   
                   </div>
-
-
-
-
                   <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"    type="button" (click)="apply()" > Apply</button></div>  
-
+ -->
 
 
 
 
                   <div>
                       <br>
-                      <h3 class="text-center">All Phase In Phase Out rules</h3>
+                      <h3 class="text-center">All Phase In Phase Out rules</h3>  <button class="btn btn-primary nextBtn" style="height:46px !important"   type="button" (click)="apply1()" > Add New Rule</button>
+
+                      <button class="btn btn-primary nextBtn" style="float: right;"   type="button" > Filter</button>
 
                       <div >
                       <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
 
 
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Date</h6></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
+
+
+
+
+
                           </tr>
                       
                         </table>
@@ -327,12 +345,18 @@
 
                         <ng-container *ngFor="let data of pipoMapping; let i=index">
                           <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
                             <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
 
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.date}}</p></td>
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success"  (click)=schedule_1(data.fromid,data.toid,data.state)>Edit</a></td>
+
+                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-warning"  (click)=delete_1(data.fromid,data.toid)>Delete</a></td>
+
                           </tr>
                           </ng-container>
                          
@@ -469,6 +493,61 @@
 
 
 
+
+
+  <div class="modal fade" id="myModal4_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" #mapsku aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+        <div class="modal-body">
+  <div class="table-responsive mt-3">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th scope="col">Lead Sku</th>
+        <th scope="col">Animal</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+
+          <td [innerText]='material_1' style="display: none;"></td>
+<td [innerText]='lead_sku' disabled></td>
+
+                <td >  
+          <select [(ngModel)]="mappedFG_1">
+          <ng-container *ngFor="let filter of mappingdrop_1; let filterIndex=index" >
+            <option [value]="filter">{{filter}}</option>
+      </ng-container></select></td>
+      
+        
+      </tr>
+    
+
+    </tbody>
+  </table>
+  
+  
+  
+  </div>
+  <div class="col-sm-12 text-center" (click)="map_sku_1();"><a href="javascript:void(0)" class="btn">Add</a></div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
     <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
       Save Filter Modal</a>
     <div class="modal fade save-filter-modal" id="saveFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
@@ -553,6 +632,535 @@
 
 
 
+
+
+
+
+
+
+
+    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew" data-toggle="modal" #AddNew>Add New Schedule</a>
+    <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Phase in Phase out rule</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+            
+                
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+                <label>Current SKU</label>
+                <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                border: 1px solid #ced4da;
+                background-color: #fff;">
+                    <option value="select"  selected>Select current SKU</option>
+                    <ng-container *ngFor="let filter of drop; let filterIndex=index" >
+                            <option [value]="filter">{{filter}}</option>
+                      </ng-container>
+                  </select>
+                </div>
+
+             
+            </div>
+
+            <div class="row">              
+                 <div class="form-group col-sm-12 " style="width:70%" align="center">
+                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout" checked>
+                  
+                  <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;">
+                      <option value="select" disabled selected>Select Phase in SKU</option>
+                  <ng-container *ngFor="let filter of drop2; let filterIndex=index">
+                      <option [value]="filter">{{filter}}</option>
+                </ng-container>
+
+                <!-- <ng-select [allowClear]="true"
+                [items]="items"
+                [disabled]="disabled"
+                (data)="refreshValue($event)"
+                (selected)="selected($event)"
+                (removed)="removed($event)"
+                (typed)="typed($event)"
+                placeholder="No city selected">
+        </ng-select> -->
+              </select>
+              </div>
+
+            </div>
+
+            <div class="row phaseout" *ngIf="first_type">
+
+              <ul>
+
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(1)"><img src="assets/images/1.png"></li>
+
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(2)"><img src="assets/images/2.png"></li>
+
+
+
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(3)"><img src="assets/images/3.png"></li>
+
+
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(4)"><img src="assets/images/4.png"></li>
+
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(5)"><img src="assets/images/5.png"></li>
+
+
+
+              </ul>
+
+              
+
+             
+
+
+            </div>
+
+
+
+            <div class="row phaseout" *ngIf="second_type">
+
+              <ul>
+
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(6)"><img src="assets/images/6.png"></li>
+
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(7)"><img src="assets/images/7.png"></li>
+
+
+
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(8)"><img src="assets/images/8.png"></li>
+
+
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(9)"><img src="assets/images/9.png"></li>
+
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(10)"><img src="assets/images/5.png"></li>
+
+
+
+              </ul>
+
+              
+
+             
+
+
+            </div>
+
+
+            <div class="row" align="center"  style="margin-left: 10px" *ngIf="newsku">
+
+       
+
+                        <div class="form-group col-sm-5">
+                          <label>From</label>
+                          
+                          <input type="week" min="2020-W23" (change)="from_date_table()"  [(ngModel)]="from_date">
+                       </div>
+
+                     <div class="form-group col-sm-5" style="margin-left: 5px" *ngIf='second_week'>
+                        <label>Until</label>
+                        
+                            <input type="week" min="2020-W24"(change)="from_date_table()"  [(ngModel)]="to_date" >
+                      </div>
+
+              
+            </div>
+
+
+
+              <div class="row" *ngIf="date_table">
+
+
+                  <div class="col-sm-12"  align="center">
+                      <table class="table" style="width: 100%"  >
+                        <thead>
+                        <tr>
+                          <th> <span class="text-muted">Week</span></th>
+                          <th ><span class="text-muted">Ratio – Out SKU</span></th>
+                          <th ><span class="text-muted">Ratio - In SKU</span></th>
+                          </tr>
+                        </thead>
+
+                        <tbody *ngFor="let data of dates; let i=index">
+                              <tr>
+                                <td>{{data.week}}</td>
+                                <td><input type="number" (change)="hello2(i)" [(ngModel)]="data.one"
+                                  [innerText]="data.one"></td>
+                                <td>{{data.two}}</td>
+
+                              </tr>
+
+                        </tbody>
+                    
+                      </table>
+                    </div>
+
+                    <button style="height: 40px;
+                    padding: 0 !important;
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Save</button>
+                <!-- <div >
+                  <table class="table"  *ngFor="let data of dates; let i=index">
+                    <tr style="background-color: #fff">
+                      <th > <span class="text-muted">{{data}}</span></th>
+                      <th ><span class="text-muted"></span></th>
+                      <th ><span class="text-muted"></span></th>
+                    </tr>
+                
+                  </table>
+                </div> -->
+
+
+              </div>
+
+              
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew_1" data-toggle="modal" #AddNew_1>Add New Schedule</a>
+    <div class="modal fade save-filter-modal" id="AddNew_1" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"> Schedule</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+
+
+
+            <div class="row">
+            
+                
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+                <label>Current SKU</label>
+                <input type="text" disabled id="select1" [(ngModel)]="edit_fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                border: 1px solid #ced4da;
+                background-color: #fff;
+                border-radius: 4px;width: 90%;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;"  
+                >
+                    <!-- <option value="select" [innerText]="edit_from_sku" selected>{{edit_from_sku}}</option>
+                  
+                  </select> -->
+                </div>
+
+             
+            </div>
+
+            <div class="row">              
+                 <div class="form-group col-sm-12 " style="width:70%" align="center">
+                  <span>Phase in SKU</span> 
+                  
+                  <input type="text" disabled [(ngModel)]="edit_tosku" [innerText]="edit_to_sku" id="harshit" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;width: 90%;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;" >
+                      <!-- <option value="select"  selected>{{edit_to_sku}}</option> -->
+                
+               
+              <!-- </select> -->
+              </div>
+
+            </div>
+
+
+
+
+
+            <div class="row">              
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+               <span>Type</span> 
+               
+               <input type="text" disabled [(ngModel)]="edit_type" [innerText]="edit_type_2" id="harshit12" style="background-clip: padding-box;
+               border: 1px solid #ced4da;
+               background-color: #fff;width: 90%;
+ border-radius: 4px;
+ display: inline-block;
+ font: inherit;
+ line-height: 1.5em;
+ padding: 0.5em 3.5em 0.5em 1em;
+ margin: 0;
+ box-sizing: border-box;
+ -webkit-appearance: none;" >
+                   <!-- <option value="select"  selected>{{edit_to_sku}}</option> -->
+             
+            
+           <!-- </select> -->
+           </div>
+
+         </div>
+
+
+              <div class="row">
+
+
+                  <div class="col-sm-12"  align="center">
+                      <table class="table" style="width: 100%"  >
+                        <thead>
+                        <tr>
+                          <th> <span class="text-muted">Week</span></th>
+                          <th ><span class="text-muted">Ratio 1</span></th>
+                          <th ><span class="text-muted">Ratio 2</span></th>
+                          </tr>
+                        </thead>
+
+                        <tbody *ngFor="let data of dates_1_prev; let i=index">
+                              <tr>
+                                <td>{{data.week}}</td>
+                                <td>{{data.one}}</td>
+                                <td>{{data.two}}</td>
+
+                              </tr>
+
+                        </tbody>
+
+                        <tbody *ngFor="let data of dates_1_next; let i=index">
+                            <tr>
+                              <td>{{data.week}}</td>
+                              <td><input type="number" (change)="hello2_1(i)" [(ngModel)]="data.one"
+                                [innerText]="data.one"></td>
+                              <td>{{data.two}}</td>
+
+                            </tr>
+
+                      </tbody>
+                    
+                      </table>
+                    </div>
+
+                    <button style="height: 40px;
+                    padding: 0 !important;
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply_1()" > Submit</button>
+                <!-- <div >
+                  <table class="table"  *ngFor="let data of dates; let i=index">
+                    <tr style="background-color: #fff">
+                      <th > <span class="text-muted">{{data}}</span></th>
+                      <th ><span class="text-muted"></span></th>
+                      <th ><span class="text-muted"></span></th>
+                    </tr>
+                
+                  </table>
+                </div> -->
+
+
+              </div>
+
+              
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    
+    <a href="javascript:void(0);" [hidden]="true" data-target="#UpdateNew" data-toggle="modal" #UpdateNew>Check</a>
+    <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"> Schedule</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+            
+                
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+                <label style="float: left;
+                margin-left: 30px;">Current SKU</label>
+                <!-- <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
+                border: 1px solid #ced4da;
+                background-color: #fff;">
+                    <option value="select"  selected>Select current SKU</option>
+                    <ng-container *ngFor="let filter of drop; let filterIndex=index" >
+                            <option [value]="filter">{{filter}}</option>
+                      </ng-container>
+                  </select> -->
+
+                  <input type="text" [innerText]="dates1[0].fromid" disabled>
+
+                </div>
+
+             
+            </div>
+
+            <div class="row">              
+                 <div class="form-group col-sm-12 " style="width:70%" align="center" style="    float: left;
+                 margin-left: 30px;">
+                  <span style="    float: left;
+                  margin-left: 30px;">Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
+                  
+                  <!-- <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  background-color: #fff;">
+                      <option value="select" disabled selected>Select Phase in SKU</option>
+                  <ng-container *ngFor="let filter of drop2; let filterIndex=index">
+                      <option [value]="filter">{{filter}}</option>
+                </ng-container>
+              </select> -->
+
+
+              <input type="text" [innerText]="dates1[0].toid" disabled>
+              </div>
+
+            </div>
+<!-- 
+            <div class="row phaseout" *ngIf="first_type">
+              <ul>
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(1)"><img src="assets/images/1.png"></li>
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(2)"><img src="assets/images/2.png"></li>
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(3)"><img src="assets/images/3.png"></li>
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(4)"><img src="assets/images/4.png"></li>
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(5)"><img src="assets/images/5.png"></li>
+              </ul>
+              
+             
+            </div>
+            <div class="row phaseout" *ngIf="second_type">
+              <ul>
+                <li><input class="mr-1" type="radio" name="a" 
+                  (change)="type(6)"><img src="assets/images/6.png"></li>
+                  <li><input class="mr-1" type="radio" name="a" 
+                    (change)="type(7)"><img src="assets/images/7.png"></li>
+                    <li><input class="mr-1" type="radio" name="a" 
+                      (change)="type(8)"><img src="assets/images/8.png"></li>
+                      <li><input class="mr-1" type="radio" name="a"
+                        (change)="type(9)"><img src="assets/images/9.png"></li>
+                  
+                        <li><input class="mr-1" type="radio" name="a"
+                          (change)="type(10)"><img src="assets/images/5.png"></li>
+              </ul>
+              
+             
+            </div> -->
+
+<!-- 
+            <div class="row" align="center"  style="margin-left: 10px" *ngIf="newsku">
+       
+                        <div class="form-group col-sm-5">
+                          <label>From</label>
+                          
+                          <input type="week" (change)="from_date_table()"  [(ngModel)]="from_date">
+                       </div>
+                     <div class="form-group col-sm-5" style="margin-left: 5px">
+                        <label>Date</label>
+                        
+                            <input type="week" (change)="from_date_table()"  [(ngModel)]="to_date" >
+                      </div>
+              
+            </div> -->
+
+
+
+              <div class="row" *ngIf="date_table">
+
+
+                  <div class="col-sm-12"  align="center">
+                      <table class="table" style="width: 100%"  >
+                        <thead>
+                        <tr>
+                          <th> <span class="text-muted">Week</span></th>
+                          <th ><span class="text-muted">Ratio 1</span></th>
+                          <th ><span class="text-muted">Ratio 2</span></th>
+                          </tr>
+                        </thead>
+
+                        <tbody *ngFor="let data of dates1; let i=index">
+                              <tr>
+                                <td>{{data.week}}</td>
+                                <td><input type="number" (change)="hello2(i)" [(ngModel)]="data.one"
+                                  [innerText]="data.one"></td>
+                                <td>{{data.two}}</td>
+
+                              </tr>
+
+                        </tbody>
+                    
+                      </table>
+                    </div>
+
+                    <!-- <button style="height: 40px;
+                    padding: 0 !important;
+                    margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Submit</button> -->
+                <!-- <div >
+                  <table class="table"  *ngFor="let data of dates; let i=index">
+                    <tr style="background-color: #fff">
+                      <th > <span class="text-muted">{{data}}</span></th>
+                      <th ><span class="text-muted"></span></th>
+                      <th ><span class="text-muted"></span></th>
+                    </tr>
+                
+                  </table>
+                </div> -->
+
+
+              </div>
+
+              
+              
+              
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -738,6 +1346,4 @@
       </div>
     </div>
     
-
-
 

@@ -47,6 +47,12 @@ font-weight:normal;
 
 
 
+.phaseout ul li{
+  list-style: none;
+  display: inline;
+  margin: 15px;
+}
+
 
 
 
