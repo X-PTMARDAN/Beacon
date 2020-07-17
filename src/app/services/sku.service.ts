@@ -65,6 +65,19 @@ export class SKUService {
 
 
 
+  public getLeadSku() {
+    return this.http.get(`${this.apiGatewayUrl}allleadsku`).pipe(
+      map((LeadSku: any) => {
+        return LeadSku.map((LeadSku) => {
+          return {name: LeadSku, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
   public getMaterialgroup() {
     return this.http.get(`${this.apiGatewayUrl}materialgroup`).pipe(
       map((AlcP: any) => {
@@ -175,6 +188,9 @@ export class SKUService {
       })
     );
   }
+
+
+
 
   public getSegments() {
     return of([
