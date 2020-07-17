@@ -675,7 +675,21 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable1234`, data);
   }
 
+  public getGraphData1234_detail_month(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM_month_detail`, data);
+  }
 
+
+
+
+  public getDemandTable_UOM_skuview_month(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}getDemandTable_UOM_skuview_month`, data);
+  }
+
+
+
+
+  
 
 
   public getGraphData12345(data = {}) {
