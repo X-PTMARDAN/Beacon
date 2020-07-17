@@ -120,6 +120,9 @@ public expand=true;
   public main_1=0;
 
   public main_1_cal=0;
+  public copy_ml_week='';
+
+  public copy_ml='';
 
   public greystart;
 
@@ -751,6 +754,17 @@ rowData3 = [
           });
 
 
+
+          this.skuService.getLeadSku().subscribe((response: any) => {
+
+            this.filters1.push({
+              name: 'Lead Sku',
+              key: 'leadsku',
+              isExpanded: false,
+              values: response
+            });
+
+
           this.filters1.push({
             name: 'Own/3PP',
             key: 'brands_1',
@@ -1045,6 +1059,7 @@ rowData3 = [
                 });
 
               });
+            });
 
             });
 
@@ -4071,16 +4086,16 @@ rowData3 = [
     {
 
         try{
-        this.planningtable = 'Planning table (PC)';
+        this.planningtable = 'Planning table ('+feature+')';
   
   
-        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+        document.getElementById('planningtable').innerHTML = 'Planning table ('+feature+')';
   
-        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis ('+feature+')';
   
   
-        this.forecastinganalysis = 'Forecast Analysis (PC)';
-        this.featureanalysis = 'Feature Analysis (PC)';
+        this.forecastinganalysis = 'Forecast Analysis ('+feature+')';
+        this.featureanalysis = 'Feature Analysis ('+feature+')';
         }catch(err)
         {
 
@@ -4095,6 +4110,7 @@ rowData3 = [
           forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
           customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          uom1:this.UOM
         };
         //this.test();
         this.loading = true;
@@ -26972,7 +26988,20 @@ this.columnDefs6=columndef_clone;
 
   public onPasteEnd(params)
   {
-   
+
+    var rowNode = this.gridApi.getRowNode('ML');
+      
+    // console.log("aa!@#$4",rowNode1.data[a]);
+
+
+    
+  
+
+   console.log("Check3eing---"+this.copy_ml_week);
+
+ // var newPrice = Math.floor(Math.random() * 100000);
+  rowNode.setDataValue(this.copy_ml_week, this.copy_ml);
+  
     console.log("Paste end--",params);
 
         for(const abr of this.arr12)
@@ -27014,7 +27043,32 @@ this.columnDefs6=columndef_clone;
   {
     this.main_1_cal=1;
     var gk=this.gridApi.getCellRanges(); 
-    console.log("Consoleee,",gk);
+
+    console.log("htgt12,",params);
+
+    console.log("htgt,"+JSON.stringify(params));
+
+    console.log("Consoleee1,",params.startColumn);
+
+    console.log("Consoleee1,",params[0].startColumn);
+
+    this.copy_ml_week=params[0].startColumn.colId;
+
+
+
+    alert(params[0].startColumn.colId);
+
+    var rowNode1 = this.gridApi.getRowNode('ML');
+      
+    console.log("aa!@#$4",rowNode1.data[params.startColumn.colId]);
+
+    this.copy_ml=rowNode1.data[params.startColumn.colId];
+
+
+  
+
+
+
   }
 
   public onPasteEnd1(params)
@@ -28704,6 +28758,21 @@ try{
           document.getElementById('brands_1').style.background = '#05d7be';
         }
       }
+      else if (brand.key == 'leadsku') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            console.log('JKNFBJHBFHJBHJFBVHFF');
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('leadsku').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('leadsku').style.background = '#05d7be';
+        }
+      }
 
     }
 
@@ -28842,6 +28911,8 @@ try{
 
     const packsize = [];
 
+    const leadsku = [];
+
 
     console.log('TESTTT-----' + JSON.stringify(this.filters1));
     for (const brand of this.filters1) {
@@ -28864,7 +28935,16 @@ try{
             Subbrand.push(aa.name);
           }
         }
-      } else if (brand.key == 'Animal_Flags') {
+      } 
+      else if (brand.key == 'leadsku') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            leadsku.push(aa.name);
+          }
+        }
+      } 
+      
+      else if (brand.key == 'Animal_Flags') {
         for (const aa of brand.values) {
           if (aa.isChecked) {
             AnimalFlag.push(aa.name);
@@ -28956,6 +29036,8 @@ try{
       materialGroup: materialgroup,
       animalFlag: AnimalFlag,
       packType: packtype,
+
+      leadSku: leadsku,
       packsize: packsize,
       baseunit: baseunit,
       globalbev: globalbev,
