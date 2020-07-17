@@ -81,7 +81,7 @@ public gridColumnApi1;
 
   public up = 0;
 
-  public isEnabled_gran=true;
+ 
 
   public main_graph=true;
 
@@ -2991,7 +2991,7 @@ rowData3 = [
     console.log('Harsh134->' + feature);
 
     console.log('GRANUALLLL---' + this.granular1);
-
+    this.granular1 = 'week';
     if (this.reactivate_filter_button == 1) {
       window.alert('Please try to choose plan selection first');
       return;
@@ -9047,26 +9047,28 @@ rowData3 = [
 
     console.log('GRANUALLLL121---' + JSON.stringify(this.createdata));
 
-    if(this.views=="Sku View" && this.granular1=="week" && (feature =="PC" || feature=="BOT" || feature=="PAL" ||  feature=="L" || feature=="CU" || feature=="PPU"))
+
+
+    if(this.views=="Sku View" && this.granular1=="week" && (this.UOM =="PC" || this.UOM=="BOT" || this.UOM=="PAL" ||  this.UOM=="L" || this.UOM=="CU" || this.UOM=="PPU"))
     {
 
 
-        this.planningtable = 'Planning table (PC)';
+        this.planningtable = 'Planning table ('+this.UOM+')';
   
   
-        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
+        document.getElementById('planningtable').innerHTML = 'Planning table ('+this.UOM+')';
   
 
         try{
-        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis ('+this.UOM+')';
   
   
-        this.forecastinganalysis = 'Forecast Analysis (PC)';
+        this.forecastinganalysis = 'Forecast Analysis ('+this.UOM+')';
         }catch(err)
         {
           
         }
-        this.featureanalysis = 'Feature Analysis (PC)';
+        this.featureanalysis = 'Feature Analysis ('+this.UOM+')';
   
         //const data=this.createPlanRequestData;
         console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
@@ -9078,6 +9080,7 @@ rowData3 = [
           forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
           customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          uom1:this.UOM
         };
         //this.test();
         this.loading = true;
@@ -9146,7 +9149,7 @@ rowData3 = [
           this.createPlanRequestData.cpgname = res.req.cpgname;
   
   
-          this.processGraphData_1(res);
+          this.processGraphData_2(res);
           //this.processgraphData(res);
   
           this.processFeatureGraphData(res);
@@ -9590,7 +9593,7 @@ rowData3 = [
 
 
 
-    else if(this.views=="Sku View" && this.granular1=="week"  && (feature =="HL"))
+    else if(this.views=="Sku View" && this.granular1=="week"  && (this.UOM =="HL"))
     {
 
 
@@ -9689,7 +9692,7 @@ rowData3 = [
           this.createPlanRequestData.cpgname = res.req.cpgname;
   
   
-          this.processGraphData_1(res);
+          this.processGraphData_2(res);
           //this.processgraphData(res);
   
           this.processFeatureGraphData(res);
@@ -10137,26 +10140,30 @@ rowData3 = [
 
 
 
-    else if(this.views=="Sku View" && this.granular1=="month"  && (feature =="HL"))
+
+
+
+
+    else if(this.views=="Sku View" && this.granular1=="month" )
     {
 
 
-        this.planningtable = 'Planning table (HL)';
+        this.planningtable = 'Planning table ('+this.UOM+')';
   
   
-        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+        document.getElementById('planningtable').innerHTML = 'Planning table ('+this.UOM+')';
   
 
         try{
-        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis ('+this.UOM+')';
   
   
-        this.forecastinganalysis = 'Forecast Analysis (HL)';
+        this.forecastinganalysis = 'Forecast Analysis ('+this.UOM+')';
         }catch(err)
         {
           
         }
-        this.featureanalysis = 'Feature Analysis (HL)';
+        this.featureanalysis = 'Feature Analysis ('+this.UOM+')';
   
         //const data=this.createPlanRequestData;
         console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
@@ -10168,10 +10175,11 @@ rowData3 = [
           forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
           customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          uom1:this.UOM
         };
         //this.test();
         this.loading = true;
-        this.skuService.getGraphData12345(this.createPlanRequestData).subscribe((res: any) => {
+        this.skuService.getDemandTable_UOM_skuview_month(this.createPlanRequestData).subscribe((res: any) => {
           this.eventsSubject.next({
             page: null,
             reset: true,
@@ -10185,7 +10193,7 @@ rowData3 = [
           //   return;
           // }
   
-          this.granular1 = 'week';
+     
           if (this.UOM == 'HL' && this.granular1 == 'week') {
             this.enabled = 1;
           } else {
@@ -10236,7 +10244,7 @@ rowData3 = [
           this.createPlanRequestData.cpgname = res.req.cpgname;
   
   
-          this.processGraphData_1(res);
+          this.processGraphData_2(res);
           //this.processgraphData(res);
   
           this.processFeatureGraphData(res);
@@ -10256,166 +10264,171 @@ rowData3 = [
   
           this.commentsall();
           console.log('thhh->' + this.createPlanRequestData.startWeek);
-  
-  
-          this.chart2 = new CanvasJS.Chart('chartContainer2', {
-            animationEnabled: true,
-            showInLegend: true,
-            backgroundColor: '#FFFFFF',
-            legend: {
-              cursor: 'pointer',
-              itemclick: this.toggleDataSeries.bind(this)
-            },
-            axisX: {
-              valueFormatString: '######',
-              gridColor: '#ffffff',
-              interval: this.inter,
-              scaleBreaks: {
-                type: 'blank',
-                spacing: 0,
-                customBreaks: [
-                  {
-                    startValue: 201452,
-                    endValue: 201501
-                  },
-                  {
-                    startValue: 201552,
-                    endValue: 201600
-                  },
-                  {
-                    startValue: 201652,
-                    endValue: 201700
-                  },
-                  {
-                    startValue: 201752,
-                    endValue: 201800
-                  },
-                  {
-                    startValue: 201852,
-                    endValue: 201900
-                  },
-                  {
-                    startValue: 201952,
-                    endValue: 202000
-                  },
-                  {
-                    startValue: 202052,
-                    endValue: 202100
-                  },
-                  {
-                    startValue: 202152,
-                    endValue: 202200
-                  },
-                  {
-                    startValue: 202252,
-                    endValue: 202301
-                  },
-                  {
-                    startValue: 202352,
-                    endValue: 202401
-                  }
-                ]
-              },
-              stripLines: [
+
+          
+
+
+
+
+
+
+
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+          showInLegend: true,
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            interval: this.inter,
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
                 {
-                  startValue: 201400,
-                  endValue: 201452,
-                  color: '#F2F3F5'
+                  startValue: 201413,
+                  endValue: 201501
                 },
                 {
-                  startValue: 201500,
-                  endValue: 201552,
-                  color: '#F2F3F5'
+                  startValue: 201513,
+                  endValue: 201600
                 },
                 {
-                  startValue: 201600,
-                  endValue: 201652,
-                  color: '#F2F3F5'
+                  startValue: 201613,
+                  endValue: 201700
                 },
                 {
-                  startValue: 201700,
-                  endValue: 201752,
-                  color: '#F2F3F5'
+                  startValue: 201713,
+                  endValue: 201800
                 },
                 {
-                  startValue: 201800,
-                  endValue: 201852,
-                  color: '#F2F3F5'
+                  startValue: 201813,
+                  endValue: 201900
                 },
                 {
-                  startValue: 201900,
-                  endValue: 201952,
-                  color: '#F2F3F5'
+                  startValue: 201913,
+                  endValue: 202000
                 },
                 {
-                  startValue: 202000,
-                  endValue: 202029,
-                  color: '#F2F3F5'
+                  startValue: 202013,
+                  endValue: 202100
                 },
-  
+                {
+                  startValue: 202152,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202213,
+                  endValue: 202300
+                }
               ]
             },
-            axisY: {
-  
-              valueFormatString: '######',
-              gridColor: '#ffffff',
-            },
-  
-            toolTip: {
-              shared: true,
-              contentFormatter: function(e) {
-                var content = ' ';
-                //console.log(e.dataPoint);
-                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                for (var i = 0; i < e.entries.length; i++) {
-                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                  content += '<br/>';
-                }
-                return content;
-              }
-            },
-  
-            // toolTip: {
-            //   shared: true,
-            //   contentFormatter: function(e) {
-            //     var content = ' ';
-            //     console.log(JSON.stringify(e));
-            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-            //     for (var i = 0; i < e.entries.length; i++) {
-            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-            //       content += '<br/>';
-            //     }
-            //     return content;
-            //   }
-            // },
-  
-            data: [
+            stripLines: [
               {
-                name: 'Baseline',
-                type: 'stackedArea',
-                gridColor: '#ffffff',
-  
-                showInLegend: true,
-                color: '#17b169',
-                lineColor: '#17b169',
-                dataPoints: this.property
+                startValue: 201400,
+                endValue: 201413,
+                color: '#F2F3F5'
               },
               {
-                name: 'Promo Effect',
-                type: 'stackedArea',
-                gridColor: '#ffffff',
-  
-                showInLegend: true,
-                color: ' #46a6b9',
-                lineColor: '#46a6b9',
-                dataPoints: this.property3
-              }
-  
+                startValue: 201500,
+                endValue: 201513,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201613,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201713,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201813,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 20202,
+                color: '#F2F3F5'
+              },
+
             ]
-          });
-  
-          this.secondgraph = 'Baseline';
-          this.chart2.render();
+          },
+          axisY: {
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            shared: true,
+            contentFormatter: function(e) {
+              var content = ' ';
+              //console.log(e.dataPoint);
+              content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+              for (var i = 0; i < e.entries.length; i++) {
+                content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                content += '<br/>';
+              }
+              return content;
+            }
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+        this.chart2.render();
+        this.secondgraph = 'Baseline';
+
+
+
+
+
+
+
+
+
           // this.chart2 = new CanvasJS.Chart('chartContainer2', {
           //   animationEnabled: true,
   
@@ -10682,20 +10695,17 @@ rowData3 = [
 
 
 
-    else if(this.views=="Detailed View" && this.granular1=="week"  && (feature =="PC" || feature=="BOT" || feature=="PAL" ||  feature=="L" || feature=="CU" || feature=="PPU"))
+    else if(this.views=="Detailed View" && this.granular1=="week"  && (this.UOM =="PC" || this.UOM=="BOT" || this.UOM=="PAL" ||  this.UOM=="L" || this.UOM=="CU" || this.UOM=="PPU"))
     {
 
         try{
-        this.planningtable = 'Planning table (PC)';
+        this.planningtable = 'Planning table ('+this.UOM+')';
+        document.getElementById('planningtable').innerHTML = 'Planning table ('+this.UOM+')';
   
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis ('+this.UOM+')';
   
-        document.getElementById('planningtable').innerHTML = 'Planning table (PC)';
-  
-        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PC)';
-  
-  
-        this.forecastinganalysis = 'Forecast Analysis (PC)';
-        this.featureanalysis = 'Feature Analysis (PC)';
+        this.forecastinganalysis = 'Forecast Analysis ('+this.UOM+')';
+        this.featureanalysis = 'Feature Analysis ('+this.UOM+')';
         }catch(err)
         {
 
@@ -11222,7 +11232,7 @@ rowData3 = [
 
 
 
-    else if(this.views=="Detailed View" && this.granular1=="week"  && (feature =="HL"))
+    else if(this.views=="Detailed View" && this.granular1=="week"  && (this.UOM =="HL"))
     {
 
         try{
@@ -11250,6 +11260,7 @@ rowData3 = [
           forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
           customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          uom1:this.UOM
         };
         //this.test();
         this.loading = true;
@@ -11498,6 +11509,559 @@ rowData3 = [
   
           this.secondgraph = 'Baseline';
           this.chart2.render();
+          // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          //   animationEnabled: true,
+  
+          //   backgroundColor: '#FFFFFF',
+          //   legend: {
+          //     cursor: 'pointer',
+          //     itemclick: this.toggleDataSeries.bind(this)
+          //   },
+          //   axisX: {
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //     scaleBreaks: {
+          //       type: 'blank',
+          //       spacing: 0,
+          //       customBreaks: [
+          //         {
+          //           startValue: 201952,
+          //           endValue: 202000
+          //         },
+          //         {
+          //           startValue: 202052,
+          //           endValue: 202100
+          //         },
+          //         {
+          //           startValue: 202152,
+          //           endValue: 202200
+          //         },
+          //         {
+          //           startValue: 202253,
+          //           endValue: 202300
+          //         }
+          //       ]
+          //     },
+          //     stripLines: [
+          //       {
+          //         startValue: this.createPlanRequestData.startWeek,
+          //         endValue: 201953,
+          //         color: '#F2F3F5'
+          //       },
+          //       {
+          //         startValue: 202000,
+          //         endValue: this.createPlanRequestData.endWeek,
+          //         color: '#F2F3F5'
+          //       }
+          //     ]
+          //   },
+          //   axisY: {
+  
+          //     valueFormatString: '######',
+          //     gridColor: '#ffffff',
+          //   },
+  
+          //   toolTip: {
+          //     content: 'Value: {y}'
+          //   },
+  
+          //   // toolTip: {
+          //   //   shared: true,
+          //   //   contentFormatter: function(e) {
+          //   //     var content = ' ';
+          //   //     console.log(JSON.stringify(e));
+          //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //   //     for (var i = 0; i < e.entries.length; i++) {
+          //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //   //       content += '<br/>';
+          //   //     }
+          //   //     return content;
+          //   //   }
+          //  // },
+  
+          //   data: [{
+          //     type: 'line',
+          //     gridColor: '#ffffff',
+          //     labelFontColor: 'black',
+          //    color: '#000',
+          //     dataPoints: this.property
+          //   }]
+          // });
+          // this.secondgraph='Open order';
+          // this.chart2.render();
+  
+  
+          console.log('132456->' + this.createPlanRequestData.startWeek);
+          this.chart1 = new CanvasJS.Chart('chartContainer1', {
+            title: {text: ' ', fontStyle: 'no',},
+            animationEnabled: true,
+  
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201452,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201552,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201652,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201752,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201852,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201952,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202052,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202252,
+                    endValue: 202301
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201452,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201552,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201652,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201752,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201852,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 201952,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 202000,
+                  endValue: 202029,
+                  color: '#F2F3F5'
+                },
+  
+  
+              ]
+            },
+  
+            axisY: {
+  
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            // toolTip: {
+            //   content: 'Week: {x} | {name}: {y}'
+            // },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+            data: [
+              {
+                name: 'Actuals',
+                showInLegend: true,
+                type: 'line',
+                color: this.actualDataPointColor,
+                lineColor: this.actualDataPointColor,
+                dataPoints: this.actualDataPoints
+              },
+              {
+                name: 'Actual LY',
+                showInLegend: true,
+                type: 'line',
+                visible: false,
+                lineDashType: 'dash',
+                color: this.lastyearDataPointColor,
+                lineColor: this.lastyearDataPointColor,
+                dataPoints: this.lastYearDataPoints
+              },
+              {
+                name: 'ML Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.mlDataPointColor,
+                lineColor: this.mlDataPointColor,
+                dataPoints: this.mlDataPoints
+              },
+              {
+                name: 'APO Forecast',
+                showInLegend: true,
+                visible: false,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.aopDataPointColor,
+                lineColor: this.aopDataPointColor,
+                dataPoints: this.aopDataPoints
+              },
+              {
+                name: 'Final Forecast',
+                showInLegend: true,
+                type: 'line',
+                lineDashType: 'dash',
+                color: this.finalForecastPointColor,
+                lineColor: this.finalForecastPointColor,
+                dataPoints: this.finalForecastDataPoints
+              }
+            ]
+          });
+          this.chart1.render();
+          this.CanvasJSDataAsCSV();
+          this.selectOptionsModalCancel.nativeElement.click();
+        });
+  
+  
+      
+    }
+
+
+
+
+
+
+
+
+
+
+    else if(this.views=="Detailed View" && this.granular1=="month")
+    {
+
+
+
+        try{
+        this.planningtable = 'Planning table ('+this.UOM+')';
+  
+  
+        document.getElementById('planningtable').innerHTML = 'Planning table ('+this.UOM+')';
+  
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis ('+this.UOM+')';
+  
+  
+        this.forecastinganalysis = 'Forecast Analysis ('+this.UOM+')';
+        this.featureanalysis = 'Feature Analysis ('+this.UOM+')';
+        }catch(err)
+        {
+
+        }
+        //const data=this.createPlanRequestData;
+        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+        this.createPlanRequestData = {
+          startWeek: this.createPlanRequestData.startWeek,
+          endWeek: this.createPlanRequestData.endWeek,
+          prevactuals: this.createPlanRequestData.prevactuals,
+          // forecastingGroups: data.forecastingGroups,
+          forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+          customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+          uom1:this.UOM
+        };
+        //this.test();
+        this.loading = true;
+        this.skuService.getGraphData1234_detail_month(this.createPlanRequestData).subscribe((res: any) => {
+          this.eventsSubject.next({
+            page: null,
+            reset: true,
+          });
+          this.loading = false;
+  
+          // if (res.res.length == 0) {
+          //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          //   window.alert('No Combination is available');
+          //   this.loading = false;
+          //   return;
+          // }
+  
+       
+          if (this.UOM == 'HL' && this.granular1 == 'week') {
+            this.enabled = 1;
+          } else {
+            this.enabled = 0;
+          }
+  
+  
+          this.allComments = res.combinedcomment;
+          console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+  
+          this.allComments_harshit = [];
+          for (const abc of this.allComments) {
+  
+            this.allComments_harshit.push({
+              name: abc,
+              isSelected: false,
+              isFiltered: false
+            });
+          }
+          this.greystart = res.start;
+  
+          this.greystart = res.start;
+          if (res.res.length > 20) {
+            this.inter = (res.res.length / 13);
+          } else {
+            this.inter = 1;
+          }
+          console.log('GREYSTART--' + this.greystart);
+  
+  
+          this.createPlanRequestData.brands = res.req.brands;
+          this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+          this.createPlanRequestData.subbrand = res.req.subbrand;
+  
+          this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+          this.createPlanRequestData.Trade = res.req.trade;
+          this.createPlanRequestData.Sales = res.req.sales;
+  
+  
+          this.createPlanRequestData.globalBev = res.req.globalBev;
+          this.createPlanRequestData.materialgroup = res.req.materialgroup;
+          this.createPlanRequestData.baseunit = res.req.baseunit;
+          this.createPlanRequestData.pack_type = res.req.pack_type;
+  
+          this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+  
+          this.createPlanRequestData.pack_size = res.req.pack_size;
+          this.createPlanRequestData.cpgname = res.req.cpgname;
+  
+  
+          this.processGraphData_1(res);
+          //this.processgraphData(res);
+  
+          this.processFeatureGraphData(res);
+          this.createFilterObject(res);
+          //  this.skus=data.forecastingGroups;
+  
+          // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+          //     item.isChecked = true;
+          //     return item;
+          //   });
+  
+  
+          // this.skus = data.forecastingGroups.map((item) => {
+          //   item.isChecked = true;
+          //   return item;
+          // });
+  
+          this.commentsall();
+          console.log('thhh->' + this.createPlanRequestData.startWeek);
+  
+  
+        
+
+
+
+
+
+
+
+
+          this.chart2 = new CanvasJS.Chart('chartContainer2', {
+            animationEnabled: true,
+            showInLegend: true,
+            backgroundColor: '#FFFFFF',
+            legend: {
+              cursor: 'pointer',
+              itemclick: this.toggleDataSeries.bind(this)
+            },
+            axisX: {
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+              interval: this.inter,
+              scaleBreaks: {
+                type: 'blank',
+                spacing: 0,
+                customBreaks: [
+                  {
+                    startValue: 201413,
+                    endValue: 201501
+                  },
+                  {
+                    startValue: 201513,
+                    endValue: 201600
+                  },
+                  {
+                    startValue: 201613,
+                    endValue: 201700
+                  },
+                  {
+                    startValue: 201713,
+                    endValue: 201800
+                  },
+                  {
+                    startValue: 201813,
+                    endValue: 201900
+                  },
+                  {
+                    startValue: 201913,
+                    endValue: 202000
+                  },
+                  {
+                    startValue: 202013,
+                    endValue: 202100
+                  },
+                  {
+                    startValue: 202152,
+                    endValue: 202200
+                  },
+                  {
+                    startValue: 202213,
+                    endValue: 202300
+                  }
+                ]
+              },
+              stripLines: [
+                {
+                  startValue: 201400,
+                  endValue: 201413,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201500,
+                  endValue: 201513,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201600,
+                  endValue: 201613,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201700,
+                  endValue: 201713,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201800,
+                  endValue: 201813,
+                  color: '#F2F3F5'
+                },
+                {
+                  startValue: 201900,
+                  endValue: 20202,
+                  color: '#F2F3F5'
+                },
+  
+              ]
+            },
+            axisY: {
+  
+              valueFormatString: '######',
+              gridColor: '#ffffff',
+            },
+  
+            toolTip: {
+              shared: true,
+              contentFormatter: function(e) {
+                var content = ' ';
+                //console.log(e.dataPoint);
+                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                for (var i = 0; i < e.entries.length; i++) {
+                  content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                  content += '<br/>';
+                }
+                return content;
+              }
+            },
+  
+            // toolTip: {
+            //   shared: true,
+            //   contentFormatter: function(e) {
+            //     var content = ' ';
+            //     console.log(JSON.stringify(e));
+            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+            //     for (var i = 0; i < e.entries.length; i++) {
+            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+            //       content += '<br/>';
+            //     }
+            //     return content;
+            //   }
+            // },
+            data: [
+              {
+                name: 'Baseline',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: '#17b169',
+                lineColor: '#17b169',
+                dataPoints: this.property
+              },
+              {
+                name: 'Promo Effect',
+                type: 'stackedArea',
+                gridColor: '#ffffff',
+  
+                showInLegend: true,
+                color: ' #46a6b9',
+                lineColor: '#46a6b9',
+                dataPoints: this.property3
+              }
+  
+            ]
+          });
+          this.chart2.render();
+          this.secondgraph = 'Baseline';
+  
+
+
+
+
+
           // this.chart2 = new CanvasJS.Chart('chartContainer2', {
           //   animationEnabled: true,
   
@@ -13714,7 +14278,7 @@ try{
     }
 
 
-    if (feature == 'week' && this.UOM == 'PPU') {
+    else if (feature == 'week' && this.UOM == 'PPU') {
 
 
       this.planningtable = 'Planning table (PPU 000s)';
@@ -14259,7 +14823,7 @@ try{
     }
 
 
-    if (feature == 'week' && this.UOM == 'BOT') {
+    else if (feature == 'week' && this.UOM == 'BOT') {
 
       this.type123="week";
       this.planningtable = 'Planning table (BOT 000s)';
@@ -14805,7 +15369,7 @@ try{
     }
 
 
-    if (feature == 'week' && this.UOM == 'PAL') {
+    else if (feature == 'week' && this.UOM == 'PAL') {
 
       this.type123="week";
       this.planningtable = 'Planning table (PAL)';
@@ -15350,7 +15914,7 @@ try{
     }
 
 
-    if (feature == 'week' && this.UOM == 'CU') {
+    else if (feature == 'week' && this.UOM == 'CU') {
 
       this.type123="week";
       this.planningtable = 'Planning table (CU)';
@@ -15896,7 +16460,7 @@ try{
     }
 
 
-    if (feature == 'week' && this.UOM == 'L') {
+    else if (feature == 'week' && this.UOM == 'L') {
 
       this.type123="week";
       this.planningtable = 'Planning table (L)';
@@ -16441,7 +17005,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'L') {
+    else if (feature == 'month' && this.UOM == 'L') {
 
       this.type123="month";
       this.planningtable = 'Planning table (L) Month';
@@ -16976,7 +17540,7 @@ try{
     }
 
 
-    if (feature == 'week' && this.UOM == 'PC') {
+    else if (feature == 'week' && this.UOM == 'PC') {
 
 
       this.planningtable = 'Planning table (PC)';
@@ -17517,7 +18081,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'PC') {
+    else if (feature == 'month' && this.UOM == 'PC') {
 
 
       this.planningtable = 'Planning table (PC) Month';
@@ -18048,7 +18612,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'PPU') {
+    else if (feature == 'month' && this.UOM == 'PPU') {
 
       this.type123="month";
       this.planningtable = 'Planning table (PPU 000s) Month';
@@ -18580,7 +19144,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'PAL') {
+    else if (feature == 'month' && this.UOM == 'PAL') {
 
       this.type123="month";
       this.planningtable = 'Planning table (PAL) Month';
@@ -19111,7 +19675,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'CU') {
+   else if (feature == 'month' && this.UOM == 'CU') {
       this.type123="month";
 
       this.planningtable = 'Planning table (CU) Month';
@@ -19644,7 +20208,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'PPU') {
+    else if (feature == 'month' && this.UOM == 'PPU') {
 
       this.type123="month";
       this.planningtable = 'Planning table (PC) Month';
@@ -20175,7 +20739,7 @@ try{
     }
 
 
-    if (feature == 'month' && this.UOM == 'BOT') {
+    else if (feature == 'month' && this.UOM == 'BOT') {
 
 
       this.planningtable = 'Planning table (BOT 000s) Month';
@@ -22406,10 +22970,7 @@ try{
       this.prevactuals = '2017-W10';
     }
 
-    if (DashboardComponent.transformWeek(this.endWeek) > 202123) {
-      this.endWeek = '2021-W23';
-    }
-
+   
     this.createPlanRequestData.endWeek = DashboardComponent.transformWeek(this.endWeek);
 
 
@@ -23976,7 +24537,7 @@ try{
   public processGraphData(res) {
 
 this.changed_weeks=[];
-this.isEnabled_gran=true;
+
     this.views="Aggregated";
    
     
@@ -24505,7 +25066,7 @@ console.log("7764567676$%^^&&---",this.gridApi.getRowNode('Final Forecast'));
     this.main_graph=false;
 
 
-    this.isEnabled_gran=false;
+   
 
     this.first_ag=false;
     this.third_ag=false;
@@ -24584,7 +25145,7 @@ columndef_clone.push({
 
 
 
-      if(week.calenderYearWeek<=202029)
+      if(week.calenderYearWeek<=res.start)
       {
        
 
@@ -24806,7 +25367,7 @@ for(let row of ghj)
           t=0;
         }
         else{
-       t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
+           t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
         }
        
         f123[week.calenderYearWeek]=t;
@@ -24816,30 +25377,7 @@ for(let row of ghj)
 }
 
 
-for(let row of ghj)
-{
-  var f123={key:'Actual LY'};
-  f123['cpg']=row.cpg;
-  f123['plant']=row.plant;
-  f123['sku']=row.sku;
-  for(let week of data)
-  {
-      if(week.sku==row.sku && week.plant == row.plant && week.cpg == row.cpg)
-      {
-        if(week.actualslastyear===NaN || week.actualslastyear===NaN || week.actualslastyear===undefined || week.actualslastyear===null ) 
-        {
-         
-          t=0;
-        }
-        else{
-       t=parseFloat(DashboardComponent.parseStringToFloat(week.actualslastyear).toFixed(0))
-        }
-       
-        f123[week.calenderYearWeek]=t;
-      }
-  }
-  row_clone5.push(f123);
-}
+
 
 
 
@@ -25287,7 +25825,7 @@ this.columnDefs5=columndef_clone;
     this.third_ag=true;
     this.second_ag=false;
     this.main_graph=false;
-this.isEnabled_gran=false;
+
     
     this.views="Sku View";
     this.first_ag=false;
@@ -25365,7 +25903,7 @@ columndef_clone.push({
 
 
     for (const week of data) {
-      if(week.calenderYearWeek<202029)
+      if(week.calenderYearWeek<res.start)
       {
 
       
@@ -27264,7 +27802,7 @@ onGridReady1(params)
 
 
       var g=parseInt(rowNode1.data[a])+parseInt(b);
-      alert(g);
+   
    // var newPrice = Math.floor(Math.random() * 100000);
     rowNode.setDataValue(a, g);
     this.main_1=1;
@@ -27577,7 +28115,7 @@ else if( bnm == "%")
     
 
     var h=params.data.sku;
-    alert(h);
+
 
     var idd=params.colDef.field;
 
@@ -27594,9 +28132,9 @@ else if( bnm == "%")
 
     var rowNode2 = this.gridApi1.getRowNode('Final Forecast-'+h);
   
-  var hj=parseInt(h12)+parseInt(params.newValue);
+      var hj=parseInt(h12)+parseInt(params.newValue);
 
-  rowNode2.setDataValue('Final Forecast-'+h, hj);
+      rowNode2.setDataValue('Final Forecast-'+h, hj);
 
 
 
