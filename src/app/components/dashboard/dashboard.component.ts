@@ -81,6 +81,7 @@ public gridColumnApi1;
 
   public up = 0;
 
+  public main_1_cal_sku=0;
  
 
   public main_graph=true;
@@ -108,6 +109,9 @@ public expand=true;
 
   public commentsall_combination: any = [];
 
+  public skuview_save: any = [];
+
+  
 
   public skuname_down = '';
 
@@ -343,6 +347,12 @@ public fourth_ag;
 
 
   private lastYearDataPoints_table: any = [];
+
+
+  private arr12_sku: any = [];
+
+
+  
   public finalForecastDataPoints_table = [];
 
 
@@ -25966,10 +25976,7 @@ var fg1=data[0].calenderYearWeek;
       var f=0;
       var g=0;
 try{
-      console.log("eant to ",params);
-
-      console.log("Break--"+params.data['202013']);
-
+      
       for(let row of ghj)
 {
 
@@ -26465,7 +26472,7 @@ this.columnDefs6=columndef_clone;
       force: false,
       suppressFlash:false,
     };
-    this.gridApi.refreshCells(params);
+    this.gridApi1.refreshCells(params);
 
 
      console.log("THIRD----"+JSON.stringify(row_clone));
@@ -27538,8 +27545,6 @@ this.columnDefs6=columndef_clone;
 
    console.log("Check3eing---"+this.copy_ml_week);
 
- // var newPrice = Math.floor(Math.random() * 100000);
-  rowNode.setDataValue(this.copy_ml_week, this.copy_ml);
   
     console.log("Paste end--",params);
 
@@ -27580,22 +27585,18 @@ this.columnDefs6=columndef_clone;
 
   public onPasteStart(params)
   {
-    this.main_1_cal=1;
+  
+this.main_1_cal=1;
+    this.arr12_sku=[];
     var gk=this.gridApi.getCellRanges(); 
 
-    console.log("htgt12,",params);
-
-    console.log("htgt,"+JSON.stringify(params));
-
-    console.log("Consoleee1,",params.startColumn);
-
-    console.log("Consoleee1,",params[0].startColumn);
+    
 
     this.copy_ml_week=params[0].startColumn.colId;
 
 
 
-    alert(params[0].startColumn.colId);
+
 
     var rowNode1 = this.gridApi.getRowNode('ML');
       
@@ -27612,19 +27613,28 @@ this.columnDefs6=columndef_clone;
 
   public onPasteEnd1(params)
   {
-    
+      
+        
+          this.lotCompleted=1;
+          for(const ab1 of this.arr12_sku)
+          {
+                this.change123(ab1.week,ab1.value,ab1.sku);
+          }
+          this.lotCompleted=0;
+
+      
   }
 
   public onPasteStart1(params)
   {
-    
+    this.main_1_cal_sku=1;
   }
 
   
 onGridReady1(params)
 {
-  this.gridApi = params.api;
-  this.gridColumnApi = params.columnApi;
+  this.gridApi1 = params.api;
+  this.gridColumnApi1 = params.columnApi;
 
 }
   onGridReady(params) {
@@ -27942,7 +27952,36 @@ public onCellClicked(params)
   public onCellValueChanged(params)
   {
 
+    if (/^\d+$/.test(params.newValue)) {
+        
+    }
+    else{
 
+
+      
+      if(params.newValue.indexOf('-')>-1)
+      {
+
+      }
+      else{
+
+
+        var rowNode = this.gridApi.getRowNode('FVA');
+
+
+// var newPrice = Math.floor(Math.random() * 100000);
+ rowNode.setDataValue(params.colDef.field, 0);
+
+
+
+        window.alert("Please enter numerical value");
+        return;
+      }
+      
+
+      }
+      
+    
     var bnm='';
 
     this.change_extra='';
@@ -28105,11 +28144,62 @@ else if( bnm == "%")
 
 
 
-
-
   public onCellValueChanged1(params)
   {
 
+    var ban=params.column.userProvidedColDef.field;
+    if(this.lotCompleted==1)
+    {
+      this.lotCompleted=0;
+      console.log("lot_completed");
+    }
+    
+    else if(this.main_1_cal_sku==1)
+    {
+
+    
+    
+       var to=0;
+      for(const ag of this.arr12_sku)
+      {
+            console.log("First loop ---"+ag.week+'---'+ban);
+            if(ag.week==ban)
+            {
+                to=1;
+                console.log("to -1 ");
+                this.lotCompleted=1;
+            }
+      }
+      if(to==1)
+      {
+          console.log("Entry----"+JSON.stringify(this.arr12_sku));
+          
+           
+  
+      }
+      else{
+
+        
+        this.arr12_sku.push({
+          week:ban,
+          value:params.newValue,
+          sku:params.data.sku
+        });
+
+        console.log("Arryyy--"+JSON.stringify(this.arr12_sku));
+        
+       // this.changed_weeks.push(parseInt(ban));
+
+        console.log("CPcihel--"+this.changed_weeks);
+       
+      }
+    }
+else{
+       if(this.main_1==1)
+        {
+            this.main_1=0;
+            return;
+        }
 
     console.log("bab123",params);
     
@@ -28117,63 +28207,94 @@ else if( bnm == "%")
     var h=params.data.sku;
 
 
-    var idd=params.colDef.field;
+   // var idd=params.colDef.field;
 
-    var rowNode1 = this.gridApi1.getRowNode('FVA');
+        this.change123(params.colDef.field,params.newValue,h)
+      this.main_1=1;
+
+
+
+
+      }
+  }
+
+
+
+public change123(week,val,sku)
+{
+
+  var rowNode1 = this.gridApi1.getRowNode('ML-'+sku);
 
     console.log("Checking--",rowNode1);
 
     
 
-    var h12=rowNode1.data[params.colDef.field];
- 
-
-  
-
-    var rowNode2 = this.gridApi1.getRowNode('Final Forecast-'+h);
-  
-      var hj=parseInt(h12)+parseInt(params.newValue);
-
-      rowNode2.setDataValue('Final Forecast-'+h, hj);
-
-
-
-  
-
+    var h12=rowNode1.data[week];
  
 
 
+      var rowNode2 = this.gridApi1.getRowNode('Final Forecast-'+sku);
+  
+      var hj=parseInt(h12)+parseInt(val);
 
-
-    console.log("PAPAPA123---",rowNode1);
-      var f=params.colDef.field;
-      var th=params.newValue;
-
-
-      this.chart1.render();
-      
-    
-    //   var rowNode = this.gridApi.getRowNode('aa');
-    // var newPrice = Math.floor(Math.random() * 100000);
-    // rowNode.setDataValue('price', newPrice);
-
-
-        if(this.main_1==1)
-        {
-            this.main_1=0;
-        }
-        else{
-            this.change12(params.column.colId,params.newValue);
-        }
-        
-    
-
-
-  }
+      rowNode2.setDataValue(week, hj);
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      var com = [];
+
+      var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
+      var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
+  
+  
+      var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
+  
+      for (const abc of fgssselected2) {
+        fgssselected1.push(abc);
+      }
+  
+         for (const abc of fgssselected3) {
+        fgssselected1.push(abc);
+      }
+      this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
+
+
+        this.skuview_save.push({
+            cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+            plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+
+            sku: sku,
+            type:this.type123,
+            uom:this.UOM,
+            
+            user: '',
+            ml:h12,
+            finalForecast: 0,
+            fva: val,
+            calendarWeek: week
+          });
+
+
+          
+
+
+}
 
 //   public change1(a,b)
 // {
@@ -30881,7 +31002,22 @@ try{
       return {name: item, isChecked: true, isFiltered: true};
     });
 
+    if(this.views=="Sku View")
+    {
 
+      this.skuService.savePlan(this.skuview_save).subscribe((res: any) => {
+        console.log(res);
+        // this.skuService.confirmPlan(com).subscribe((res: any) => {
+          this.savePlanLoader = false;
+          this.PlanNameModalBtn.nativeElement.click();
+        // }, (error) => {
+          this.savePlanLoader = false;
+         this.PlanNameModalBtn.nativeElement.click();
+        // });
+      });
+
+    }
+    else{
     this.skuService.savePlan(abc).subscribe((res: any) => {
       console.log(res);
       // this.skuService.confirmPlan(com).subscribe((res: any) => {
@@ -30892,6 +31028,8 @@ try{
        this.PlanNameModalBtn.nativeElement.click();
       // });
     });
+
+  }
 
 
   }

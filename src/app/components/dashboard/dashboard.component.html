@@ -774,6 +774,7 @@
         [rowData]="rowData"
         *ngIf="first_ag"
         rowSelection="multiple"
+        [suppressRowClickSelection]="true"
         [columnDefs]="columnDefs"
         rowSelection="multiple"
         [suppressLastEmptyLineOnPaste]="true"
@@ -812,6 +813,7 @@
     rowSelection="multiple"
     [columnDefs]="columnDefs"
     rowSelection="multiple"
+    [suppressRowClickSelection]="true"
     [suppressLastEmptyLineOnPaste]="true"
     [rowGroupPanelShow]="always"
     [statusBar]="statusBar"
@@ -845,6 +847,7 @@
     rowSelection="multiple"
     [columnDefs]="columnDefs5"
     rowSelection="multiple"
+    [suppressRowClickSelection]="true"
     [suppressLastEmptyLineOnPaste]="true"
     *ngIf="second_ag"
     [rowGroupPanelShow]="rowGroupPanelShow"
@@ -864,29 +867,61 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <ag-grid-angular
 style=" height: 750px;overflow:scroll"
 class="ag-theme-alpine"
 [rowData]="rowData6"
+*ngIf="third_ag"
 rowSelection="multiple"
 [columnDefs]="columnDefs6"
 rowSelection="multiple"
+[suppressRowClickSelection]="true"
 [suppressLastEmptyLineOnPaste]="true"
-*ngIf="third_ag"
-
+[rowGroupPanelShow]="always"
 [statusBar]="statusBar"
+[suppressMakeColumnVisibleAfterUnGroup]="true"
 (cellValueChanged)="onCellValueChanged1($event)"
+(cellClicked)="onCellClicked($event)"
+(cellDoubleClicked)="onCellDoubleClicked($event)"
 (pasteStart)="onPasteStart1($event)"
-
 (pasteEnd)="onPasteEnd1($event)"
-
-(gridReady)="onGridReady1($event)"
+[autoGroupColumnDef]="autoGroupColumnDef"
+[groupMultiAutoColumn]="true"
+[getRowNodeId]="getRowNodeId"
+[rowGroupPanelShow]="always"
 [enableRangeSelection]="true"
 [statusBar]="statusBar"
-
+[autoGroupColumnDef]="autoGroupColumnDef"
+[suppressDragLeaveHidesColumns]="false"
+(gridReady)="onGridReady1($event)"
 
 >
 </ag-grid-angular>
+
+
+
 
 
 
