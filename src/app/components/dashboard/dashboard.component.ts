@@ -25076,7 +25076,7 @@ console.log("7764567676$%^^&&---",this.gridApi.getRowNode('Final Forecast'));
     this.main_graph=false;
 
 
-   
+    this.fourth_ag=false;
 
     this.first_ag=false;
     this.third_ag=false;
@@ -25835,7 +25835,9 @@ this.columnDefs5=columndef_clone;
     this.third_ag=true;
     this.second_ag=false;
     this.main_graph=false;
+    this.fourth_ag=false;
 
+   
     
     this.views="Sku View";
     this.first_ag=false;
@@ -27614,7 +27616,7 @@ this.main_1_cal=1;
   public onPasteEnd1(params)
   {
       
-        
+        console.log("End game--",this.arr12_sku);
           this.lotCompleted=1;
           for(const ab1 of this.arr12_sku)
           {
@@ -27622,11 +27624,14 @@ this.main_1_cal=1;
           }
           this.lotCompleted=0;
 
+          this.arr12_sku=[];
+
       
   }
 
   public onPasteStart1(params)
   {
+    this.arr12_sku=[];
     this.main_1_cal_sku=1;
   }
 
@@ -28112,12 +28117,25 @@ else if( bnm == "%")
     else{
       console.log("bab",params);
       var f=params.colDef.field;
+
+
+      var rowNode1 = this.gridApi.getRowNode('ML');
+      
+      console.log("aa!@#$4",rowNode1.data[f]);
+
+
+      
+    
+
+      
+
+
       var th=params.newValue;
       for(var y=0;y<this.finalForecastDataPoints.length;y++)
       {
         if(this.finalForecastDataPoints[y].x==f)
         {
-          this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
+          this.finalForecastDataPoints[y].y=parseInt(rowNode1.data[f])+parseInt(th)
         }
       }
         this.chart1.render();
@@ -28156,15 +28174,13 @@ else if( bnm == "%")
     var th1=params.data.sku;
     if(this.lotCompleted==1)
     {
+      this.main_1_cal_sku=0;
       this.lotCompleted=0;
       console.log("lot_completed");
     }
     
     else if(this.main_1_cal_sku==1)
     {
-
-    
-    
        var to=0;
       for(const ag of this.arr12_sku)
       {
