@@ -27963,6 +27963,10 @@ public onCellClicked(params)
       {
 
       }
+      else if(params.newValue.indexOf('%')>-1)
+      {
+
+      }
       else{
 
 
@@ -28148,6 +28152,8 @@ else if( bnm == "%")
   {
 
     var ban=params.column.userProvidedColDef.field;
+
+    var th1=params.data.sku;
     if(this.lotCompleted==1)
     {
       this.lotCompleted=0;
@@ -28163,7 +28169,7 @@ else if( bnm == "%")
       for(const ag of this.arr12_sku)
       {
             console.log("First loop ---"+ag.week+'---'+ban);
-            if(ag.week==ban)
+            if(ag.week==ban && ag.sku==th1)
             {
                 to=1;
                 console.log("to -1 ");
@@ -28259,6 +28265,8 @@ public change123(week,val,sku)
 
       var com = [];
 
+      com.push(sku);
+
       var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
       var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
   
@@ -28279,11 +28287,11 @@ public change123(week,val,sku)
             cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
             plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
 
-            sku: sku,
+            sku: com,
             type:this.type123,
             uom:this.UOM,
             
-            user: '',
+            user: null,
             ml:h12,
             finalForecast: 0,
             fva: val,
