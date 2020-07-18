@@ -9065,7 +9065,7 @@ rowData3 = [
 
         this.planningtable = 'Planning table ('+this.UOM+')';
   
-  
+        this.type123="week";
         document.getElementById('planningtable').innerHTML = 'Planning table ('+this.UOM+')';
   
 
@@ -9606,7 +9606,7 @@ rowData3 = [
     else if(this.views=="Sku View" && this.granular1=="week"  && (this.UOM =="HL"))
     {
 
-
+      this.type123="week";
         this.planningtable = 'Planning table (HL)';
   
   
@@ -10157,7 +10157,7 @@ rowData3 = [
     else if(this.views=="Sku View" && this.granular1=="month" )
     {
 
-
+      this.type123="month";
         this.planningtable = 'Planning table ('+this.UOM+')';
   
   
