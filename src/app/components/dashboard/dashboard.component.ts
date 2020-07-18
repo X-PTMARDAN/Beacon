@@ -27681,7 +27681,22 @@ onGridReady1(params)
     rowNode.setDataValue(a+c, g);
     this.main_1=1;
 
+  //   if(this.main_1==0)
+  //   {
 
+    
+  //   var th=params.newValue;
+  
+    for(var y=0;y<this.finalForecastDataPoints.length;y++)
+    {
+      if(this.finalForecastDataPoints[y].x==a)
+      {
+        this.finalForecastDataPoints[y].y=g;
+      }
+    }
+      
+
+  // }
 
     for(var y=0;y<this.graphData.length;y++)
     {
@@ -27689,12 +27704,13 @@ onGridReady1(params)
       {
 
         this.graphData[y].fcstValueAdd=parseInt(b);
+       
   
        // this.finalForecastDataPoints[y].y=parseInt(this.finalForecastDataPoints[y].y)+parseInt(th)
       }
       
     }
-
+    this.chart1.render();
     return;
       
   //      for (var i=0;i<this.rowData.length;i++)
@@ -28129,22 +28145,7 @@ else if( bnm == "%")
 
       
 
-      if(this.main_1==0)
-      {
-
-      
-      var th=params.newValue;
     
-      for(var y=0;y<this.finalForecastDataPoints.length;y++)
-      {
-        if(this.finalForecastDataPoints[y].x==f)
-        {
-          this.finalForecastDataPoints[y].y=parseInt(rowNode1.data[f])+parseInt(th)
-        }
-      }
-        this.chart1.render();
-
-    }
         console.log("CPcihel--"+this.changed_weeks);
 
         console.log("Checking123P--"+params.column.colId);
