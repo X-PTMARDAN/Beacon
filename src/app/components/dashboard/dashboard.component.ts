@@ -28129,8 +28129,12 @@ else if( bnm == "%")
 
       
 
+      if(this.main_1==0)
+      {
 
+      
       var th=params.newValue;
+    
       for(var y=0;y<this.finalForecastDataPoints.length;y++)
       {
         if(this.finalForecastDataPoints[y].x==f)
@@ -28140,7 +28144,7 @@ else if( bnm == "%")
       }
         this.chart1.render();
 
-       
+    }
         console.log("CPcihel--"+this.changed_weeks);
 
         console.log("Checking123P--"+params.column.colId);
