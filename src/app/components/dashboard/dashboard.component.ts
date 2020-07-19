@@ -25977,44 +25977,29 @@ var fg1=data[0].calenderYearWeek;
     valueGetter: function(params) {
       var f=0;
       var g=0;
-try{
-      
-      for(let row of ghj)
-{
+
+  for(let row of ghj)
+  {
 
   for(let week of data)
   {
       if(week.sku ==row.sku )
       {
-        try{
+  
         if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
         {
           f=f+0;
         }
         else{
-
-  
-
           f=f+parseInt(params.data[week.calenderYearWeek]);
         }
-      }catch(err)
-      {
-        f=f+0;
-      }
+    
       }
   }
-
+  return f;
 }
 
 
-
-
-return f/2;
-
-}catch(err)
-{
-  return f/2;
-}
     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202029'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
     },
 
@@ -27973,6 +27958,7 @@ public onCellClicked(params)
   public onCellValueChanged(params)
   {
 
+    console.log("Changed--",params);
     if (/^\d+$/.test(params.newValue)) {
         
     }
@@ -27987,6 +27973,10 @@ public onCellClicked(params)
       else if(params.newValue.indexOf('%')>-1)
       {
 
+      }
+      else if(params.node.id=="Comments")
+      {
+        
       }
       else{
 
@@ -31047,15 +31037,21 @@ try{
 
     }
     else{
+
+
+
+
+      console.log("ABABABA----"+JSON.stringify(abc));
+      
     this.skuService.savePlan(abc).subscribe((res: any) => {
       console.log(res);
-      // this.skuService.confirmPlan(com).subscribe((res: any) => {
+       this.skuService.confirmPlan(com).subscribe((res: any) => {
         this.savePlanLoader = false;
         this.PlanNameModalBtn.nativeElement.click();
-      // }, (error) => {
+      }, (error) => {
         this.savePlanLoader = false;
        this.PlanNameModalBtn.nativeElement.click();
-      // });
+       });
     });
 
   }
