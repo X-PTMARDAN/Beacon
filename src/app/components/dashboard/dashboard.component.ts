@@ -25970,42 +25970,57 @@ var fg1=data[0].calenderYearWeek;
   
 
 
-  columndef_clone.push({
-    field: 'Total',
-    pinned: 'right',
-    width:100,
-    valueGetter: function(params) {
-      var f=0;
-      var g=0;
-
-  for(let row of ghj)
-  {
-
-  for(let week of data)
-  {
-      if(week.sku ==row.sku )
-      {
+//   columndef_clone.push({
+//     field: 'Total',
+//     pinned: 'right',
+//     width:100,
+//     valueGetter: function(params) {
+//       var f=0;
+//       var g=0;
+//       console.log("Pragya",params);
   
-        if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
-        {
-          f=f+0;
-        }
-        else{
-          f=f+parseInt(params.data[week.calenderYearWeek]);
-        }
+//       var keys = [];
+//       for(var k in params.data)
+//       {
+//         console.log
+//         keys.push(k);
+//       }
+     
+//       // data.prevactuals = this.createPlanRequestData.prevactuals;
+//       // data.endWeek = this.createPlanRequestData.endWeek;
+
+
+
+//   for(let y=this.createPlanRequestData.prevactuals;y<this.createPlanRequestData.endWeek;y++)
+//   {
+ 
+
+//         if(params.data[y]==null || params.data[y]==NaN)
+//         {
+//           f=f+0;
+//         }
+//         else{
+//           if(params.data.sku=="21781" && params.data.key=="ML-21781")
+//           {
+//             console.log("Value--"+f+"---"+params.data.sku+"--Key-"+params.data.key +"-----Week--"+week.calenderYearWeek);
+
+//           }
+         
+//           f=f+parseInt(params.data[y]);
+//         }
     
-      }
-  }
-  return f;
-}
+
+// }
+// return f;
 
 
-    //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202029'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
-    },
+
+//     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202029'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
+//     },
 
 
     
-  });
+//   });
 
 
    
