@@ -135,6 +135,10 @@ public expand=true;
   public maxselected = 0;
   public brandstext;
 
+  public leadtext;
+
+  
+
   public type123="week";
 
   public selectallcpg = 0;
@@ -251,6 +255,10 @@ public fourth_ag;
   public filters1 = [];
 
   public filters1_subbrand = [];
+
+  public filters1_leadsku = [];
+
+
 
   public usertext;
 
@@ -767,7 +775,7 @@ rowData3 = [
 
           this.skuService.getLeadSku().subscribe((response: any) => {
 
-            this.filters1.push({
+            this.filters1_leadsku.push({
               name: 'Lead Sku',
               key: 'leadsku',
               isExpanded: false,
@@ -27239,6 +27247,12 @@ this.columnDefs6=columndef_clone;
   }
 
 
+
+  public getCallback_leadsku() {
+    return this.filterSKUs_leadsku.bind(this);
+  }
+
+
   public filterSKUs_brands(sku: string) {
     if (!this.brandstext || !this.brandstext.trim()) {
       return true;
@@ -27246,6 +27260,20 @@ this.columnDefs6=columndef_clone;
     const regex = new RegExp(this.brandstext && this.brandstext.trim(), 'ig');
     return regex.test(sku);
   }
+
+
+  public filterSKUs_leadsku(sku: string) {
+    if (!this.leadtext || !this.leadtext.trim()) {
+      return true;
+    }
+    const regex = new RegExp(this.leadtext && this.leadtext.trim(), 'ig');
+    return regex.test(sku);
+  }
+
+
+
+
+  
 
   public filterSKUs(sku: string) {
     if (!this.searchText || !this.searchText.trim()) {
@@ -29512,6 +29540,30 @@ try{
     }
 
 
+    for (const brand of this.filters1_leadsku) {
+
+      if (brand.key == 'leadsku') {
+        var flag = 1;
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            flag = 0;
+          }
+        }
+
+        if (flag == 1) {
+          document.getElementById('leadsku').style.background = '#f4f5f9';
+        } else {
+          document.getElementById('leadsku').style.background = '#05d7be';
+        }
+      }
+
+    }
+
+
+
+    
+
+
     return {
       brands: brands,
       alcoholper: AlcoholPercentage,
@@ -29538,6 +29590,32 @@ try{
 
 
       if (brand.key == 'subbrand') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            Subbrand.push(aa.name);
+          }
+        }
+      }
+    }
+
+    return Subbrand;
+  }
+
+
+
+
+
+
+  private getFiltersObject_leadsku() {
+
+
+    const Subbrand = [];
+
+
+    for (const brand of this.filters1_leadsku) {
+
+
+      if (brand.key == 'leadsku') {
         for (const aa of brand.values) {
           if (aa.isChecked) {
             Subbrand.push(aa.name);
@@ -29718,6 +29796,18 @@ try{
         for (const aa of brand.values) {
           if (aa.isChecked) {
             Subbrand.push(aa.name);
+          }
+        }
+      }
+    }
+
+    for (const brand of this.filters1_leadsku) {
+
+
+      if (brand.key == 'leadsku') {
+        for (const aa of brand.values) {
+          if (aa.isChecked) {
+            leadsku.push(aa.name);
           }
         }
       }
