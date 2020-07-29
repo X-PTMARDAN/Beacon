@@ -24553,16 +24553,7 @@ try{
   }
 
 
-  public formatNumber(number) {
-    // this puts commas into the number eg 1000 goes to 1,000,
-    // i pulled this from stack overflow, i have no idea how it works
-    return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-}
-
-  public currencyFormatter(params) {
-    return this.formatNumber(params.value);
-}
-
+  
 
 
   public processGraphData(res) {
@@ -24652,7 +24643,7 @@ this.changed_weeks=[];
           cellStyle: {'background-color': '#BEBEBE'}, 
           width:110,
           type: 'rightAligned',
-          valueFormatter: this.currencyFormatter
+          valueFormatter: currencyFormatter
          
       });
 
@@ -24677,14 +24668,20 @@ this.changed_weeks=[];
 
 
           return null;
-      }, valueFormatter: this.currencyFormatter
+      }, valueFormatter: currencyFormatter
          
       });
 
 
-     
+      function currencyFormatter(params) {
+        return formatNumber(params.value);
+    }
     
-   
+    function formatNumber(number) {
+        // this puts commas into the number eg 1000 goes to 1,000,
+        // i pulled this from stack overflow, i have no idea how it works
+        return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    }
 
 
     }
@@ -24710,12 +24707,20 @@ this.changed_weeks=[];
       return f;
     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202029'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202029'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
     },
-    valueFormatter: this.currencyFormatter
+    valueFormatter: currencyFormatter
          
       });
 
 
-   
+    function currencyFormatter(params) {
+        return formatNumber(params.value);
+    }
+    
+    function formatNumber(number) {
+        // this puts commas into the number eg 1000 goes to 1,000,
+        // i pulled this from stack overflow, i have no idea how it works
+        return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    }
 
 
 var fv=[{
@@ -25208,11 +25213,20 @@ columndef_clone.push({
             width:150,
             aggFunc: 'sum',
              
-            valueFormatter: this.currencyFormatter
+            valueFormatter: currencyFormatter
          
           });
     
     
+          function currencyFormatter(params) {
+            return formatNumber(params.value);
+        }
+        
+        function formatNumber(number) {
+            // this puts commas into the number eg 1000 goes to 1,000,
+            // i pulled this from stack overflow, i have no idea how it works
+            return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+        }
 
           temp_date=week.calenderYearWeek;
         }
@@ -25234,12 +25248,21 @@ columndef_clone.push({
           width:150,
           aggFunc: 'sum',
            
-           valueFormatter: this.currencyFormatter
+           valueFormatter: currencyFormatter
          
         });
   
   
-    
+        function currencyFormatter(params) {
+          return formatNumber(params.value);
+      }
+      
+      function formatNumber(number) {
+          // this puts commas into the number eg 1000 goes to 1,000,
+          // i pulled this from stack overflow, i have no idea how it works
+          return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+      }
+
         temp_date=week.calenderYearWeek;
       }
 
@@ -25974,12 +25997,20 @@ columndef_clone.push({
             editable:true,
             cellStyle: {'background-color': '#BEBEBE'}, 
             width:130,
-             valueFormatter: this.currencyFormatter
+             valueFormatter: currencyFormatter
          
           });
     
     
-       
+          function currencyFormatter(params) {
+            return formatNumber(params.value);
+        }
+        
+        function formatNumber(number) {
+            // this puts commas into the number eg 1000 goes to 1,000,
+            // i pulled this from stack overflow, i have no idea how it works
+            return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+        }
              
         
 
@@ -25995,12 +26026,20 @@ columndef_clone.push({
             field:JSON.stringify(week.calenderYearWeek),
             editable:true,
             width:130
-            , valueFormatter: this.currencyFormatter
+            , valueFormatter: currencyFormatter
          
           });
     
     
+          function currencyFormatter(params) {
+            return formatNumber(params.value);
+        }
         
+        function formatNumber(number) {
+            // this puts commas into the number eg 1000 goes to 1,000,
+            // i pulled this from stack overflow, i have no idea how it works
+            return Math.floor(number).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+        }
              
        
 
