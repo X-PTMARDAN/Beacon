@@ -23595,12 +23595,13 @@ try{
           reset: true,
         });
 
-        // if (res.res.length == 0) {
-        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-        //   window.alert('No Combination is available');
-        //   this.loading = false;
-        //   return;
-        // }
+       
+        if (res.res.length == 0) {
+          console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+          window.alert('No Combination is available');
+          this.loading = false;
+          return;
+        }
 
         if (this.UOM == 'HL' && this.granular1 == 'week') {
           this.enabled = 1;
@@ -26346,30 +26347,7 @@ for(let row of ghj)
 //   }
 //   
 // }
-for(let row of ghj)
-{
-  var f123={key:'Actual'};
-  f123['cpg']=row.cpg;
-  f123['plant']=row.plant;
-  f123['sku']=row.sku;
-  for(let week of data)
-  {
-      if(week.sku==row.sku)
-      {
-        if(week.actuals===NaN || week.actuals===NaN || week.actuals===undefined || week.actuals===null ) 
-        {
-         
-          t=0;
-        }
-        else{
-       t=parseFloat(DashboardComponent.parseStringToFloat(week.actuals).toFixed(0))
-        }
-       
-        f123[week.calenderYearWeek]=t;
-      }
-  }
-  row_clone5.push(f123);
-}
+
 
 
 console.log("JSON ROW CLONE---"+JSON.stringify(row_clone5));
