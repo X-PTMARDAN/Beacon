@@ -116,7 +116,17 @@ td, th {
   min-height: 32px;
   width: 94%;
   border: 0;
+  margin-bottom: 6px;
 }
+
+.filter-col .panel-default {
+
+  background: #fff;
+}
+
+
+
+
 
 .filter-col .panel a {
   color: #33373C;
@@ -129,6 +139,14 @@ td, th {
 .filter-col .panel .panel-body {
   background-color: white;
 }
+
+
+
+.filter-col .panel .panel-heading {
+  background-color: white;
+  padding : 5px;
+}
+
 
 .filter-col .panel .panel-body ul {
   list-style: none;
