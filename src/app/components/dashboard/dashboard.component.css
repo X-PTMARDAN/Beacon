@@ -118,18 +118,14 @@ td, th {
   border: 0;
   margin-bottom: 6px;
 }
-
-.filter-col .panel-default {
-
-  background: #fff;
+h6{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
-
-
-
-
 
 .filter-col .panel a {
   color: #33373C;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .filter-col .panel a:hover {
@@ -150,13 +146,18 @@ td, th {
 
 .filter-col .panel .panel-body ul {
   list-style: none;
-  font-size: 0.75rem; font-family: 'Roboto', sans-serif !important;font-weight: 500;
+  font-size: 0.75rem;
+  
+  
+ 
   padding: 5px 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Events Holidays Promo container */
 .events-container {
   font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 5px;
   height: 100%;
   
