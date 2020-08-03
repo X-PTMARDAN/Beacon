@@ -62,7 +62,7 @@
                    aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                    (click)="unexpanded1();filter.isExpanded = !filter.isExpanded">
                   {{ filter.name }}
-                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                 </a>
               </h4>
             </div>
@@ -98,7 +98,7 @@
                        aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                        (click)="filter.isExpanded = !filter.isExpanded">
                       {{ filter.name }}
-                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                     </a>
                   </h4>
                 </div>
@@ -141,7 +141,7 @@
                        aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                        (click)="filter.isExpanded = !filter.isExpanded">
                       {{ filter.name }}
-                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                     </a>
                   </h4>
                 </div>
@@ -185,7 +185,7 @@
         <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus_search | filter: getCallback(); let i=index">
 
           <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(sku.id)"><i
-            style="color: #17b169;" class="fa fa-plus-circle" aria-hidden="true"></i></a>
+            style="color: #17b169;" class="fa fa-chevron-down-circle" aria-hidden="true"></i></a>
           <p class="m-0">{{ sku.name }}</p>
 
 
@@ -206,7 +206,7 @@
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                   </a>
                 </h4>
               </div>
@@ -250,7 +250,7 @@
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                   </a>
                 </h4>
               </div>
@@ -293,7 +293,7 @@
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                   </a>
                 </h4>
               </div>
@@ -334,7 +334,7 @@
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                   </a>
                 </h4>
               </div>
@@ -378,7 +378,7 @@
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                   </a>
                 </h4>
               </div>
@@ -417,7 +417,7 @@
                    aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                    (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
                   {{ filter.name }}
-                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                 </a>
               </h4>
             </div>
@@ -1972,7 +1972,7 @@ rowSelection="multiple"
                aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                (click)="filter.isExpanded = !filter.isExpanded">
               {{ filter.name }}
-              <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+              <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
             </a>
           </h4>
         </div> -->
@@ -1985,7 +1985,7 @@ rowSelection="multiple"
 
              (click)="filter.isExpanded = !filter.isExpanded">
             Customer Planning Group
-            <i class="fa float-right fa-plus" ></i>
+            <i class="fa float-right fa-chevron-down" ></i>
           </a>
         </h4>
       </div>  -->
@@ -2005,7 +2005,7 @@ rowSelection="multiple"
                        aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                        (click)="filter.isExpanded = !filter.isExpanded">
                       {{ filter.name }} - {{plantss.length}}/{{filter.values.length}}
-                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                     </a>
                   </span>
             </div>
@@ -2055,7 +2055,7 @@ rowSelection="multiple"
                      aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
                      (click)="filter.isExpanded = !filter.isExpanded">
                     {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
                   </a>
 
 
@@ -2141,7 +2141,7 @@ rowSelection="multiple"
             aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
             (click)="filter.isExpanded = !filter.isExpanded">
            {{ filter.name }}
-           <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-minus' : 'fa-plus' ]"></i>
+           <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
          </a>
        </h4>
      </div> -->
@@ -2154,7 +2154,7 @@ rowSelection="multiple"
 
              (click)="filter.isExpanded = !filter.isExpanded">
             Customer Planning Group
-            <i class="fa float-right fa-plus" ></i>
+            <i class="fa float-right fa-chevron-down" ></i>
           </a>
         </h4>
       </div>  -->
