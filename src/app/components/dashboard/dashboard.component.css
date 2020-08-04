@@ -290,6 +290,14 @@ input[type="week"]::-webkit-calendar-picker-indicator {
   color: #000;
 }
 
+.circle-icon {
+  background: #72c577;
+  padding:3px;
+  border-radius: 50%;
+}
+
+
+
 
 input[type="week"] {
   -webkit-appearance: none;
