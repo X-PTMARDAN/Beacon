@@ -24649,7 +24649,7 @@ this.changed_weeks=[];
 
 
     columndef_clone.push(
-      { field: 'key', enableRowGroup: true,pinned: 'left', filter: true, width:100  },
+      { headerName: "Key Figure",field: 'key', enableRowGroup: true,pinned: 'left', filter: true, width:100  },
     );
 
 
@@ -24663,11 +24663,18 @@ this.changed_weeks=[];
           cellStyle: {'background-color': '#BEBEBE'}, 
           width:110,
           type: 'rightAligned',
-           valueFormatter: function(params)
-      {
-        return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+          valueFormatter: function(params)
+          {
 
-      }
+
+            if (params.data.key != 'Comments') {
+              console.log("fpfjsrhfkerf",params);
+            return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    
+          }
+
+            
+          }
          
       });
 
@@ -24692,10 +24699,18 @@ this.changed_weeks=[];
 
 
           return null;
-      }, valueFormatter: function(params)
+      },
+      valueFormatter: function(params)
       {
+
+
+        if (params.data.key != 'Comments') {
+          console.log("fpfjsrhfkerf",params);
         return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
+      }
+
+        
       }
          
       });
@@ -29541,21 +29556,7 @@ try{
           document.getElementById('brands_1').style.background = '#05d7be';
         }
       }
-      else if (brand.key == 'leadsku') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            console.log('JKNFBJHBFHJBHJFBVHFF');
-            flag = 0;
-          }
-        }
-
-        if (flag == 1) {
-          document.getElementById('leadsku').style.background = '#f4f5f9';
-        } else {
-          document.getElementById('leadsku').style.background = '#05d7be';
-        }
-      }
+    
 
     }
 
@@ -29601,25 +29602,7 @@ try{
     }
 
 
-    for (const brand of this.filters1_leadsku) {
-
-      if (brand.key == 'leadsku') {
-        var flag = 1;
-        for (const aa of brand.values) {
-          if (aa.isChecked) {
-            flag = 0;
-          }
-        }
-
-        if (flag == 1) {
-          document.getElementById('leadsku').style.background = '#f4f5f9';
-        } else {
-          document.getElementById('leadsku').style.background = '#05d7be';
-        }
-      }
-
-    }
-
+ 
 
 
     

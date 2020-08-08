@@ -283,45 +283,6 @@
 
 
 
-        <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
-          <ng-container *ngFor="let filter of filters1_leadsku; let filterIndex=index">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" [id]="filter.key">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
-                     [href]="'#' + filter.key + 'filter'"
-                     aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-                     (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
-                    {{ filter.name }}
-                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
-                  </a>
-                </h4>
-              </div>
-              <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
-                   role="tabpanel"
-                   [attr.aria-labelledby]="filter.key">
-                <div class="panel-body" style="height: 100px; overflow: auto;">
-                  <ul class="m-0">
-                    <li class="d-flex" *ngFor="let value of filter.values;">
-                      <div>
-                        <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                               (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();brandsub('subbrand');">
-                      </div>
-                      <p class="m-0">{{ value.name }}</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-
-          </ng-container>
-
-        </div>
-
-
-
-
 
 <!-- 
         <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
@@ -585,7 +546,7 @@
               <select class="form-control p-0 pr-1" #t12 name="plant" id="granular234" [(ngModel)]="views"
                       (change)="test12(t12.value)">
                 <option selected value="Aggregated">Aggregated</option>
-                <option value="Sku View">Sku View</option>
+                <option value="Sku View">Lead View</option>
                 <option value="Detailed View">Detailed View</option>
 
               </select>
@@ -2576,8 +2537,7 @@ rowSelection="multiple"
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"> 
 
 
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
 
 <script src="https://unpkg.com/@ag-grid-enterprise/all-modules@23.2.0/dist/ag-grid-enterprise.min.js"></script>
