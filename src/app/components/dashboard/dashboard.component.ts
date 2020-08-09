@@ -12376,7 +12376,7 @@ rowData3 = [
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
         endWeek: 202052,
-        prevactuals: 202029,
+        prevactuals: 202001,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
