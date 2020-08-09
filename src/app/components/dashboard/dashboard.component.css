@@ -119,7 +119,7 @@ td, th {
   margin-bottom: 6px;
 }
 h6{
-  font-family: 'Montserrat', sans-serif;
+ 
   font-weight: 500;
 }
 
@@ -396,6 +396,7 @@ select.form-control {
   background: #fff;
 
   
+  font-family: 'Montserrat', sans-serif;
   border-radius: 7px;
 
   font-weight: 700!important;
