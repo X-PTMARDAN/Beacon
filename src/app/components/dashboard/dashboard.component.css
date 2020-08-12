@@ -119,8 +119,8 @@ td, th {
   margin-bottom: 6px;
 }
 h6{
- 
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500 !important;
 }
 
 .filter-col .panel a {
@@ -161,6 +161,18 @@ h6{
   border-radius: 5px;
   height: 100%;
   
+}
+.ag-cell {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.ag-row{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.ag-theme-alpine
+{
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .events-container .block {
@@ -280,6 +292,13 @@ h6{
   background-color: lightgrey;
  
   border: 15px solid black;
+ 
+}
+
+
+.vl
+{
+  margin-left: 25px !important;
  
 }
 

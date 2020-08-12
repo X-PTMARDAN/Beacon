@@ -540,6 +540,15 @@
               </select>
             </div>
 
+
+            &nbsp;&nbsp;&nbsp;
+            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+            <div style="margin-right: 10px;">
+
+
+            </div>
+
+
             <div style="padding-top: 3px;margin-left:10px;"><h6 class="mt-3 font-weight-bold">Views</h6>
 
           
@@ -548,6 +557,8 @@
                 <option selected value="Aggregated">Aggregated</option>
                 <option value="Sku View">Forecasting Group View</option>
                 <option value="Detailed View">Detailed View</option>
+
+                <option value="Detailed View_material">Detailed View Material</option>
 
               </select>
             </div>
@@ -599,7 +610,7 @@
       <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_up">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
+            <p class="font-weight-bold" style="width: 20%;    font-family: 'Montserrat', sans-serif !important;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;font-family: 'Montserrat', sans-serif !important;"></p>
             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
             <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
@@ -1044,7 +1055,7 @@ rowSelection="multiple"
       <div class="bg-white shadow mt-2" style="border-radius: 6px;height: 0px;visibility: collapse">
           <div class="d-flex justify-content-between align-items-center p-1">
             <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-              <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
+              <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;font-family: 'Montserrat', sans-serif !important;"></p>
               <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
               <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
@@ -1375,7 +1386,7 @@ rowSelection="multiple"
       <div class="bg-white rounded shadow mt-2" *ngIf="main_graph" style="border-radius: 6px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold" id="forecastinganalysis" [(ngModel)]="forecastinganalysis">Forecast Analysis
+            <p class="font-weight-bold" style="    font-family: 'Montserrat', sans-serif !important; " id="forecastinganalysis" [(ngModel)]="forecastinganalysis">Forecast Analysis
               (HL)   </p>
 
 
@@ -1411,7 +1422,7 @@ rowSelection="multiple"
 
         <div class="d-flex justify-content-between align-items-center p-1">
           <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
-            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;"></p>
+            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable" style="margin-right:20px;font-family: 'Montserrat', sans-serif !important;"></p>
             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
             <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
