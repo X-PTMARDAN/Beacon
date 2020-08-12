@@ -27871,7 +27871,7 @@ this.changed_weeks=[];
 
 
     for (const week of data) {
-      if(week.calenderYearWeek<=res.start)
+      if(week.calenderYearWeek<res.start)
       {
         columndef_clone.push({
           field:JSON.stringify(week.calenderYearWeek),
@@ -28444,7 +28444,7 @@ columndef_clone.push({
 
 
 
-      if(week.calenderYearWeek<=res.start)
+      if(week.calenderYearWeek<res.start)
       {
        
 
@@ -29229,7 +29229,7 @@ columndef_clone.push({
 
 
 
-      if(week.calenderYearWeek<=res.start)
+      if(week.calenderYearWeek<res.start)
       {
        
 
