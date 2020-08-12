@@ -28537,6 +28537,35 @@ var fg1=data[0].calenderYearWeek;
 
 
 
+    let flah=0;
+    for(let yh of data){
+      flah=0;
+      for(let row of ghj)
+      {
+  
+        if(yh.sku==row.sku && yh.plant == row.plant && yh.cpg == row.cpg)
+        {
+            flah=1;
+        }
+        
+         
+        }
+  
+        if(flah==1)
+        {
+  
+        }
+        else{
+     
+          ghj.push({
+            sku:yh.sku,
+            plant:yh.plant,
+            cpg:yh.cpg
+          });
+        }
+      }
+  
+      
 
 
 for(let row of ghj)
@@ -29323,6 +29352,37 @@ var fg1=data[0].calenderYearWeek;
 
 
 
+    let flah=0;
+    for(let yh of data){
+      flah=0;
+      for(let row of ghj)
+      {
+  
+        if(yh.sku==row.sku && yh.plant == row.plant && yh.cpg == row.cpg)
+        {
+            flah=1;
+        }
+        
+         
+        }
+  
+        if(flah==1)
+        {
+  
+        }
+        else{
+     
+          ghj.push({
+            sku:yh.sku,
+            plant:yh.plant,
+            cpg:yh.cpg
+          });
+        }
+      }
+  
+      
+  
+  
 
 for(let row of ghj)
 {
