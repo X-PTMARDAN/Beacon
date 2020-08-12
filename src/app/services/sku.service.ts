@@ -483,6 +483,15 @@ export class SKUService {
 
 
 
+  public getGraphData_week_uom3_material(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM3_material`, data);
+  }
+
+
+
+
+
+
 
 
   public getGraphData_week_uom_monthly(data = {}) {
@@ -675,8 +684,20 @@ export class SKUService {
     return this.http.post(`${this.apiGatewayUrl}demandTable1234`, data);
   }
 
+
+  public getGraphData1234_material(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable1234_material`, data);
+  }
+
   public getGraphData1234_detail_month(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}demandTable_UOM_month_detail`, data);
+  }
+
+
+
+
+  public getGraphData1234_detail_month_material(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_UOM_month_detail_material`, data);
   }
 
 
