@@ -638,13 +638,13 @@
           <div class="form-group m-0">
           </div>
 
-          <div class="form-group m-0">
+          <!-- <div class="form-group m-0">
             <span class="input-group-text" style="float: right !important;margin-right:20px"><i
               (click)="table_up_click()" class="fa fa-clone"></i></span>
 
             <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
                                                                                                 class="fa fa-download"></i></span>
-          </div>
+          </div> -->
 
 
           <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
@@ -1700,13 +1700,14 @@ rowSelection="multiple"
 
       <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between pt-1 pr-1">
-          <p class="font-weight-bold ml-2 pt-2">Comments</p>
+          <p class="font-weight-bold ml-2 pt-2" style=" font-family: 'Montserrat', sans-serif !important;">Comments</p>
           <!-- <input placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"  style="height: 80%;padding:7px;margin-left:25px;" type="text"> -->
 
           <div class="input-group" style="margin-top: 5px;">
               <input type="text" placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"  style="border-radius:5px;height: 90%;padding:7px;margin-left:25px;    background-clip: padding-box;
               border: 1px solid #ced4da;
               background-color: #fff;
+              font-family: 'Montserrat', sans-serif !important;
               height: calc(1.5em + .30rem + 2px);">
 
            </div>
@@ -1717,7 +1718,7 @@ rowSelection="multiple"
 &nbsp;&nbsp;&nbsp;
 
           <select name="plant" #t4 class="minimal form-control" [(ngModel)]='dropdown_table' id="checking"
-                  (change)="changecomment(t4.value)" style="float: right!important;width: 20%;margin-right: 15px;margin-top: 5px;">
+                  (change)="changecomment(t4.value)" style="float: right!important;width: 20%;margin-right: 15px;margin-top: 5px; font-family: 'Montserrat', sans-serif !important;">
             <option value="week">Selected Week - Unsaved</option>
             <option selected value="allweek">All Comments</option>
           </select>
@@ -1847,10 +1848,10 @@ rowSelection="multiple"
 
       <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;">
         <div class="d-flex justify-content-between pt-1 pr-1">
-          <p class="font-weight-bold ml-2 pt-2" [innerText]="featureanalysis"></p>
+          <p class="font-weight-bold ml-2 pt-2" style=" font-family: 'Montserrat', sans-serif !important;" [innerText]="featureanalysis"></p>
           <select name="plant" #t class="minimal form-control" [(ngModel)]='secondgraph' id="checking"
                   (change)="test(t.value)"
-                  style="width:20%;float: right!important;margin-right:15px !important;margin-top: 5px ">
+                  style="width:20%;float: right!important;margin-right:15px !important;margin-top: 5px; font-family: 'Montserrat', sans-serif !important; ">
             <option value="Baseline">ML Split</option>
             <option selected value="Promo">Temperature</option>
             <option value="Weather">Events</option>

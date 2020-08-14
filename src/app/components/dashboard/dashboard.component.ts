@@ -1603,7 +1603,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -1782,7 +1782,11 @@ rowData3 = [
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -1968,7 +1972,11 @@ rowData3 = [
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -2162,7 +2170,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -2335,7 +2343,11 @@ rowData3 = [
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -2498,7 +2510,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -2662,7 +2674,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -2822,7 +2834,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -6495,7 +6507,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -6741,7 +6753,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -7041,7 +7053,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -7279,7 +7291,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -7576,7 +7588,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -7814,7 +7826,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -8112,7 +8124,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -8350,7 +8362,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -8648,7 +8660,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -8886,7 +8898,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -9183,7 +9195,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -9421,7 +9433,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -9710,7 +9722,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -9973,7 +9985,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -11489,7 +11501,11 @@ rowData3 = [
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -15312,7 +15328,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -15463,7 +15479,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -15495,14 +15511,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -15540,6 +15549,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -15826,7 +15843,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -15974,7 +15995,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -16006,14 +16031,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -16051,6 +16069,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -16344,7 +16370,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -16499,7 +16529,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -16531,14 +16565,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -16576,6 +16603,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -16796,7 +16831,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -16962,7 +16997,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -16994,14 +17029,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -17039,6 +17067,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -17340,7 +17376,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -17506,7 +17542,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -17538,14 +17574,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -17583,6 +17612,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -17885,7 +17922,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -18051,7 +18088,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -18084,14 +18121,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -18129,6 +18159,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -18431,7 +18469,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -18597,7 +18635,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -18629,14 +18667,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -18674,6 +18705,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -18977,7 +19016,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -19143,7 +19182,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -19175,14 +19214,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -19220,6 +19252,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -19521,7 +19561,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -19687,7 +19727,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -19720,14 +19760,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -19765,6 +19798,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -19983,7 +20024,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -20221,7 +20266,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -20254,14 +20303,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -20300,6 +20342,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -20521,7 +20571,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -20764,7 +20814,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -20796,14 +20846,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -20841,6 +20884,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -21057,7 +21108,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -21294,7 +21349,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -21327,14 +21386,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -21372,6 +21424,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -21589,7 +21649,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -21826,7 +21890,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -21859,14 +21927,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -21904,6 +21965,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -22120,7 +22189,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -22357,7 +22430,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -22390,14 +22467,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -22435,6 +22505,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -22653,7 +22731,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -22890,7 +22972,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -22923,14 +23009,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -22968,6 +23047,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -23184,7 +23271,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -23421,7 +23512,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -23454,14 +23549,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -23499,6 +23587,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -23715,7 +23811,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -23952,7 +24052,11 @@ try{
               },
               {
                 startValue: 201900,
-                endValue: 20202,
+                endValue: 201913,
+                color: '#F2F3F5'
+              },{
+                startValue: 202000,
+                endValue: 202007,
                 color: '#F2F3F5'
               },
 
@@ -23984,14 +24088,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+            
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -24029,6 +24126,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -24298,7 +24403,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -24460,7 +24565,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -24493,15 +24598,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+           
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -24539,6 +24636,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -26011,7 +26116,7 @@ try{
   public unexpanded1() {
 
 
-    // this.pressed = false;
+     this.pressed = false;
     // document.getElementById('salesofficefilter').className = 'panel-collapse collapse';
 
     // document.getElementById('tradetypefilter').className = 'panel-collapse collapse';
@@ -26021,7 +26126,8 @@ try{
   }
 
   public unexpanded() {
-//     this.pressed = false;
+    window.alert("Dsfsd");
+   this.pressed = false;
 
 
 //     this.filters1[0].isExpanded = false;
@@ -26589,7 +26695,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -26763,15 +26869,7 @@ try{
             }
           },
           data: [
-            {
-              name: 'Actuals',
-              showInLegend: true,
-
-              type: 'line',
-              color: this.actualDataPointColor,
-              lineColor: this.actualDataPointColor,
-              dataPoints: this.actualDataPoints
-            },
+          
             {
               name: 'Actual LY',
               showInLegend: true,
@@ -26809,6 +26907,14 @@ try{
               color: this.finalForecastPointColor,
               lineColor: this.finalForecastPointColor,
               dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
             }
           ]
         });
@@ -27001,7 +27107,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -27163,7 +27269,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202032,
+                endValue: 202031,
                 color: '#F2F3F5'
               },
 
@@ -27865,7 +27971,7 @@ this.changed_weeks=[];
 
 
     columndef_clone.push(
-      { headerName: "Key Figure",field: 'key', enableRowGroup: true,pinned: 'left', filter: true, width:100  },
+      { headerName: "Key Figure",field: 'key', enableRowGroup: true,pinned: 'left', filter: true, width:140  },
     );
 
 
