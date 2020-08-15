@@ -215,8 +215,13 @@
                    [attr.aria-labelledby]="filter.key">
                 <div class="panel-body" style="height: 150px; overflow: auto;">
                   <ul class="m-0">
+                    <span style="font-weight: 600;cursor: pointer;" (click)="selectallbrand();">Select all/deselect</span>
+                    <br>
                       <input type="text" class="form-control" [(ngModel)]="brandstext" name="brandstext"
                       placeholder="Search Brand">
+
+                      
+
                     <ng-container *ngFor="let value of filter.values | filter_brand : getCallback_brands() ;let i=index ">
                     <li class="d-flex">
                       <div>
@@ -258,6 +263,7 @@
                    role="tabpanel"
                    [attr.aria-labelledby]="filter.key">
                 <div class="panel-body" style="height: 100px; overflow: auto;">
+                  <span style="font-weight: 600;cursor: pointer;" (click)="selectallsub();">Select all/deselect</span>
                   <ul class="m-0">
                     <li class="d-flex" *ngFor="let value of filter.values;">
                       <div>

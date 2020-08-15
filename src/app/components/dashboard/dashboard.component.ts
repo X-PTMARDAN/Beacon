@@ -95,6 +95,12 @@ public change_extra='';
 
 public final_one=0;
 
+
+public allpacksize=0;
+public suballbrand=0;
+public allbrand=0;
+
+
 public rowGroupPanelShow;
 
   public allComments_harshit;
@@ -30156,8 +30162,8 @@ this.columnDefs5=columndef_clone;
 
 
     columndef_clone.push(
-      { field: 'key', filter: true,width:100,sortable:true,pinned:"left" },
-      {  headerName: "Forecasting Group",field: 'sku',filter: true,width:100,sortable:true,pinned:"left" },
+      { field: 'key', filter: true,width:150,sortable:true,pinned:"left" },
+      {  headerName: "Forecasting Group",field: 'sku',filter: true,width:190,sortable:true,pinned:"left" },
     );
 
 
@@ -34618,6 +34624,82 @@ try{
   }
 
 
+  public selectallbrand()
+  {
+    
+    if(this.allbrand==1)
+    {
+      for (const sku of this.filters1_brands[0].values) {
+        sku.isChecked = false;
+      }
+        this.allbrand=0;
+    }
+    else if(this.allbrand==0)
+    {
+      for (const sku of this.filters1_brands[0].values) {
+        sku.isChecked = true;
+      }
+      this.allbrand=1;
+    }
+
+    
+
+
+  }
+
+  public selectallsub()
+  {
+
+
+    if(this.suballbrand==1)
+    {
+      for (const sku of this.filters1_subbrand[0].values) {
+        sku.isChecked = false;
+      }
+        this.suballbrand=0;
+    }
+    else if(this.suballbrand==0)
+    {
+      for (const sku of this.filters1_subbrand[0].values) {
+        sku.isChecked = true;
+      }
+      this.suballbrand=1;
+    }
+
+
+   
+    
+  }
+  public selectallpacksize()
+  {
+
+
+    for (const brand of this.filters1) {
+
+      if (brand.key == 'packsize') {
+        
+        if(this.allpacksize==1)
+        {
+          for (const aa of brand.values) {
+            aa.isChecked = true;
+          }
+            this.allpacksize=0;
+        }
+        else if(this.allpacksize==0)
+        {
+          for (const aa of brand.values) {
+            aa.isChecked = true;
+          }
+          this.allpacksize=1;
+        }
+
+      } 
+
+    }
+
+  }
+
+  
   public selectAllcpg() {
 
 
