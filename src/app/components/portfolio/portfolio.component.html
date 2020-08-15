@@ -3,7 +3,7 @@
  
 
   <div *ngIf="loading"
-  style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
+  style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 175%; z-index: 100000">
 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" alt="Smiley facg">
 
@@ -85,6 +85,10 @@
           <div class="table-content-col" style="width: 100%;margin-left:15px;margin-right:15px;">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
+
+ 
+        
+             
                   <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button>
                   <br>
                   <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
@@ -110,7 +114,7 @@
       
 
 
-                  <div >
+                <div >
 
 
 
@@ -911,10 +915,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
             <div class="row">              
               <div class="form-group col-sm-12 " style="width:70%" align="center">
                <span>Type</span> 
-               
+               <br>
                <input type="text" disabled [(ngModel)]="edit_type" [innerText]="edit_type_2" id="harshit12" style="background-clip: padding-box;
                border: 1px solid #ced4da;
                background-color: #fff;width: 90%;
@@ -934,6 +949,28 @@
 
          </div>
 
+
+
+
+<!-- 
+            <div class="row">              
+              <div class="form-group col-sm-12 " style="width:70%" align="center">
+               <span>Type</span> 
+               
+               <input type="text" disabled [(ngModel)]="edit_type" [innerText]="edit_type_2" id="harshit12" style="background-clip: padding-box;
+               border: 1px solid #ced4da;
+               background-color: #fff;width: 90%;
+ border-radius: 4px;
+ display: inline-block;
+ font: inherit;
+ line-height: 1.5em;
+ padding: 0.5em 3.5em 0.5em 1em;
+ margin: 0;
+ box-sizing: border-box;
+ -webkit-appearance: none;" >
+             
+            
+              -->
 
               <div class="row">
 

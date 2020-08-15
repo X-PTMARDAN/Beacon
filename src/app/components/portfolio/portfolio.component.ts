@@ -851,7 +851,7 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
     this.edit_type_2=c;
     this.edit_type=c;
 
-window.alert(this.edit_to_sku);
+
   var abc={
     from:a,
     to:b
