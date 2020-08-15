@@ -28050,31 +28050,31 @@ this.changed_weeks=[];
   }
 
 
-  columndef_clone.push({
-    field: 'Total',
-    pinned: 'right',
-    width:100,
-    valueGetter: function(params) {
-      var f=0;
-      for (const week of data) {
+  // columndef_clone.push({
+  //   field: 'Total',
+  //   pinned: 'right',
+  //   width:100,
+  //   valueGetter: function(params) {
+  //     var f=0;
+  //     for (const week of data) {
 
-        if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
-        {
-          f=f+0;
-        }
-        else{
-          f=f+parseInt(params.data[week.calenderYearWeek]);
-        }
-      }
-      return f;
-    //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202032'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
-    },
-    valueFormatter: function(params)
-    {
-      return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-    },
+  //       if(params.data[week.calenderYearWeek]==null || params.data[week.calenderYearWeek]==NaN)
+  //       {
+  //         f=f+0;
+  //       }
+  //       else{
+  //         f=f+parseInt(params.data[week.calenderYearWeek]);
+  //       }
+  //     }
+  //     return f;
+  //   //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202032'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
+  //   },
+  //   valueFormatter: function(params)
+  //   {
+  //     return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+  //   },
          
-      });
+  //     });
 
 
     
