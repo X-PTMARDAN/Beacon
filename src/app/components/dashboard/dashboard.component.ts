@@ -15122,12 +15122,12 @@ rowData3 = [
       this.type123="week";
       console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
       this.prevactuals = '2020-W01';
-      this.endWeek = '2020-W52';
+      this.endWeek = '2020-W53';
       //const data=this.createPlanRequestData;
       console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
-        endWeek: 202052,
+        endWeek: 202053,
         prevactuals: 202001,
         // forecastingGroups: data.forecastingGroups,
         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
@@ -15575,13 +15575,13 @@ try{
       console.log('Create_Plan1234->' + JSON.stringify(this.hh));
 
       this.prevactuals = '2020-W01';
-      this.endWeek = '2020-W52';
+      this.endWeek = '2020-W53';
 
       this.UOM = 'HL';
 
       this.createPlanRequestData = {
         startWeek: this.createPlanRequestData.startWeek,
-        endWeek: 202052,
+        endWeek: 202053,
         prevactuals: 202001,
         forecastingGroups: this.fgssselected.map(item => item.name),
         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -26126,7 +26126,7 @@ try{
   }
 
   public unexpanded() {
-    window.alert("Dsfsd");
+    
    this.pressed = false;
 
 
