@@ -34642,7 +34642,8 @@ try{
       this.allbrand=1;
     }
 
-    
+    this.reactivate_filter(1);
+    this.onFilterCheckBoxChange121_sku();
 
 
   }

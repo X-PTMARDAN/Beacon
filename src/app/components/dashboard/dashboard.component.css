@@ -325,7 +325,16 @@ input[type="week"]::-webkit-calendar-picker-indicator {
 }
 
 
+.li1{
+  margin-top: 10px;
+}
 
+.l12
+{
+  margin-top: 8px !important;
+  background-color: #fff !important;
+  padding: 6px !important;
+}
 
 .circle-icon2 {
   background: #D5DBE2;
