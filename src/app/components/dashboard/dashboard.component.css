@@ -22,6 +22,10 @@ td, th {
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
+
+::-webkit-scrollbar {
+  width: 10px !important;
+}
  
 /* Handle */
 ::-webkit-scrollbar-thumb {

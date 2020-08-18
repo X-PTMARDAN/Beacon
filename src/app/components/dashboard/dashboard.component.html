@@ -50,7 +50,7 @@
 
 
 
-      <h6 class="mt-3 font-weight-bold">CPG Filters</h6>
+      <h6 class="mt-3 font-weight-bold">CPG </h6>
       <br/>
       <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
         <ng-container *ngFor="let filter of filters2; let filterIndex=index">
@@ -171,10 +171,12 @@
       <hr style="margin-top: 0.1rem;">
 
 
-      <h6 class="mt-3 font-weight-bold">Forecasting Group Filters</h6>
+      <h6 class="mt-3 font-weight-bold">Forecasting Group </h6>
       <hr style="margin-top: 0.2rem;">
 
-      
+      <button style="display:block;width:150px; height:30px;border-radius: 13px;" onclick="document.getElementById('getFile').click()">Upload   <i style="    margin-top: 4px;" class="fa float-right fa fa-upload" ></i></button>
+
+      <br>     
 
       <div class="input-group mt-2">
         <input type="text" style="border-radius: 18px;" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()' name="searchSKU"
@@ -184,9 +186,7 @@
       </div>
 
  <br>
-      <button style="display:block;width:150px; height:30px;border-radius: 13px;" onclick="document.getElementById('getFile').click()">Upload   <i style="    margin-top: 4px;" class="fa float-right fa fa-upload" ></i></button>
-
-  <br>
+  
 
       <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar *ngIf="pressed">
         <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
@@ -914,7 +914,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
         <ag-grid-angular
-        style=" height: 400px;overflow:scroll"
+        style=" height: 400px;overflow:scroll;padding-right: 10px;"
         class="ag-theme-alpine"
         [rowData]="rowData"
         *ngIf="first_ag"
@@ -952,7 +952,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
     <ag-grid-angular
-    style=" height: 400px;overflow:scroll"
+    style=" height: 400px;overflow:scroll;padding-right: 10px;"
     class="ag-theme-alpine"
     [rowData]="rowData"
     *ngIf="fourth_ag"
@@ -988,7 +988,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
     <ag-grid-angular
-    style=" height: 750px;width:100%;overflow:scroll"
+    style=" height: 750px;width:100%;overflow:scroll;padding-right: 10px;"
     class="ag-theme-alpine"
     [rowData]="rowData5"
     rowSelection="multiple"
@@ -1038,7 +1038,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
 <ag-grid-angular
-style=" height: 750px;overflow:scroll"
+style=" height: 750px;overflow:scroll;padding-right: 10px;"
 class="ag-theme-alpine"
 [rowData]="rowData6"
 *ngIf="third_ag"
@@ -2038,7 +2038,7 @@ rowSelection="multiple"
               <div class="panel-body" style="height: 170px; overflow: auto;background: #f4f5f9;">
 
                 <ul class="m-0" style="padding-inline-start: 15px;">
-                  <input type="text" style="border-radius: 38px !important;" class="form-control" [(ngModel)]="searchplant" name="searchplant"
+                  <input type="text" style="border-radius: 38px !important;font-size: 11px;" class="form-control" [(ngModel)]="searchplant" name="searchplant"
                          placeholder="Search Plant">
                          <li class="d-flex l12" >
 
@@ -2050,7 +2050,8 @@ rowSelection="multiple"
                           <p class="m-0" style="font-size:0.75rem">All</p>
                         </li>
 
-                        <hr>
+                        <hr style="margin-top: 0.5rem !important;
+                        margin-bottom: 0.5rem !important;">
              <ng-container *ngFor="let value of filter.values | filter_plant : getCallback_plant() ;let i=index ">
 
                   <li class="d-flex l12" >
@@ -2097,7 +2098,7 @@ rowSelection="multiple"
                  [attr.aria-labelledby]="filter.key">
               <div class="panel-body" style="height: 170px; overflow: auto;background: #f4f5f9;">
                 <ul class="m-0" style="padding-inline-start: 15px;">
-                  <input type="text" style="border-radius: 38px;" class="form-control" [(ngModel)]="searchcpg" name="searchcpg"
+                  <input type="text" style="border-radius: 38px;font-size: 11px;" class="form-control" [(ngModel)]="searchcpg" name="searchcpg"
                          placeholder="Search CPG">
 
 
@@ -2109,7 +2110,8 @@ rowSelection="multiple"
                           </div>
                           <p class="m-0" style="font-size:0.75rem">All</p>
                         </li>
-                        <hr>
+                        <hr style="margin-top: 0.5rem !important;
+                        margin-bottom: 0.5rem !important;">
 
             <ng-container *ngFor="let value of filter.values | filter_cpg : getCallback_cpg() ;let i=index ">
                   <li class="d-flex l12">
