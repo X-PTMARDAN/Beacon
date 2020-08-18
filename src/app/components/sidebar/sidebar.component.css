@@ -2,6 +2,10 @@ a {
   color: white;
 }
 
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
 a:focus, a:hover {
   text-decoration: none;
   color: white;
