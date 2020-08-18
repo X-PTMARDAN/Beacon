@@ -172,10 +172,9 @@
 
 
       <div class="input-group mt-2">
-        <input type="text" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()' name="searchSKU"
+        <input type="text" style="border-radius: 18px;" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()' name="searchSKU"
                placeholder="Search FG">
         <div class="input-group-append">
-          <span class="input-group-text"><i class="fa fa-search"></i></span>
         </div>
       </div>
 
@@ -426,9 +425,9 @@
           <div class="d-flex justify-content-between ml-2 " style="background:#f4f5f9;">
 
             <!-- <p class="ml-2 text-muted">Load Week 201937</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
-            <div style="font-size: 30px;margin-left: 5px;">
+            <div style="font-size: 21px;margin-left: 5px;">
               <h6 class="mt-3 font-weight-bold" style="margin-bottom: 3px;">Save</h6>
-              <i style="color: #000;padding-top: 3px" class="fa fa-save fa-8x circle-icon" data-toggle="modal"
+              <i style="color: #fff;padding-top: 8px" class="fa fa-save fa-8x circle-icon" data-toggle="modal"
                  data-target="#saveAPlansModal"></i>
             </div>
             <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
@@ -585,13 +584,21 @@
 
             <!-- <div style="padding-bottom: 18px;"><p style="margin: 0px !important;color: #ecf0f1;font-size: 0.75rem;">Actuals</p> -->
 
-            <i style="margin-left: 17px;color: #000;padding-top: 35px;font-size: 28px;" *ngIf='expand' class="fa fa-expand fa-lg"
+            <i style="margin-left: 17px;color: #000;padding-top: 35px;font-size: 28px;" *ngIf='expand' class="fa fa-expand fa-lg  circle-icon1" 
                (click)="abc12()"></i>&nbsp;
 
-               <i style="margin-left: 17px;color: #000;padding-top: 35px;font-size: 28px;" *ngIf='compress' class="fa fa-compress fa-lg"
+               <i style="margin-left: 17px;color: #000;padding-top: 35px;font-size: 28px; " *ngIf='compress' class="fa fa-compress fa-lg  circle-icon1"
                (click)="abc12()"></i>
             <!-- </div> -->
           </div>
+
+
+
+
+
+          
+
+
 
 
         </div>
