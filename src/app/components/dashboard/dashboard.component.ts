@@ -7388,16 +7388,16 @@ rowData3 = [
     } else if (feature == 'PPU') {
 
 
-      this.planningtable = 'Planning table (PPU 000s)';
+      this.planningtable = 'Planning table (PPU)';
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU)';
       try{
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
-      this.featureanalysis = 'Feature Analysis (PPU 000s)';
+      this.forecastinganalysis = 'Forecast Analysis (PPU)';
+      this.featureanalysis = 'Feature Analysis (PPU)';
 }catch(err)
 {
 
@@ -7923,16 +7923,16 @@ rowData3 = [
     } else if (feature == 'BOT') {
 
 
-      this.planningtable = 'Planning table (BOT 000s)';
+      this.planningtable = 'Planning table (BOT)';
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT)';
       try{
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (BOT 000s)';
-      this.featureanalysis = 'Feature Analysis (BOT 000s)';
+      this.forecastinganalysis = 'Forecast Analysis (BOT)';
+      this.featureanalysis = 'Feature Analysis (BOT)';
 
     }catch(err)
     {
@@ -17095,17 +17095,17 @@ try{
     else if (feature == 'week' && this.UOM == 'PPU') {
 
 
-      this.planningtable = 'Planning table (PPU 000s)';
+      this.planningtable = 'Planning table (PPU)';
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU)';
 
       try{
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU)';
       this.type123="week";
 
-      this.forecastinganalysis = 'Forecast Analysis (PPU 000s)';
+      this.forecastinganalysis = 'Forecast Analysis (PPU)';
 
-      this.featureanalysis = 'Feature Analysis (PPU 000s)';
+      this.featureanalysis = 'Feature Analysis (PPU)';
 
     }catch(err)
     {
@@ -17641,17 +17641,17 @@ try{
     else if (feature == 'week' && this.UOM == 'BOT') {
 
       this.type123="week";
-      this.planningtable = 'Planning table (BOT 000s)';
+      this.planningtable = 'Planning table (BOT)';
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s)';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT)';
 
       try{
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s)';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT)';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (BOT 000s)';
+      this.forecastinganalysis = 'Forecast Analysis (BOT)';
 
-      this.featureanalysis = 'Feature Analysis (BOT 000s)';
+      this.featureanalysis = 'Feature Analysis (BOT)';
 
     }catch(err)
     {
@@ -21453,19 +21453,19 @@ try{
     else if (feature == 'month' && this.UOM == 'PPU') {
 
       this.type123="month";
-      this.planningtable = 'Planning table (PPU 000s) Month';
+      this.planningtable = 'Planning table (PPU) Month';
 
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (PPU 000s) Month';
+      document.getElementById('planningtable').innerHTML = 'Planning table (PPU) Month';
 
       try{
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU 000s) Month';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (PPU) Month';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (PPU 000s) Month';
+      this.forecastinganalysis = 'Forecast Analysis (PPU) Month';
 
 
-      this.featureanalysis = 'Feature Analysis (PPU 000s) Month';
+      this.featureanalysis = 'Feature Analysis (PPU) Month';
     }catch(err)
     {
       
@@ -23616,18 +23616,18 @@ try{
     else if (feature == 'month' && this.UOM == 'BOT') {
 
 
-      this.planningtable = 'Planning table (BOT 000s) Month';
+      this.planningtable = 'Planning table (BOT) Month';
       this.type123="month";
 
-      document.getElementById('planningtable').innerHTML = 'Planning table (BOT 000s) Month';
+      document.getElementById('planningtable').innerHTML = 'Planning table (BOT) Month';
 try{
-      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT 000s) Month';
+      document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (BOT) Month';
 
 
-      this.forecastinganalysis = 'Forecast Analysis (BOT 000s) Month';
+      this.forecastinganalysis = 'Forecast Analysis (BOT) Month';
 
 
-      this.featureanalysis = 'Feature Analysis (BOT 000s) Month';
+      this.featureanalysis = 'Feature Analysis (BOT) Month';
     }catch(err)
     {
       
@@ -28152,7 +28152,7 @@ for (const week of data) {
 try{
   if(week.comment.length>0)
   {
-    f12[week.calenderYearWeek]=week.comment[0];
+    f12[week.calenderYearWeek]=week.comment[0].toFixed(6);
   }
   else{
     f12[week.calenderYearWeek]="";
@@ -30163,7 +30163,7 @@ this.columnDefs5=columndef_clone;
 
     columndef_clone.push(
       { field: 'key', filter: true,width:150,sortable:true,pinned:"left" },
-      {  headerName: "Forecasting Group",field: 'sku',filter: true,width:190,sortable:true,pinned:"left" },
+      {  headerName: "FG",field: 'sku',filter: true,width:90,sortable:true,pinned:"left" },
     );
 
 
