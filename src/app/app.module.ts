@@ -24,6 +24,9 @@ import {FilterPipe} from './pipe/filter.pipe';
 
 import {SearchPipe} from './pipe/search.pipe';
 
+
+import {LeadSkuPipe} from './pipe/leadsku.pipe';
+
 import {PlantPipe} from './pipe/plant.pipe';
 
 import {CPGPipe} from './pipe/cpg.pipe';
@@ -58,6 +61,7 @@ import 'ag-grid-enterprise';
     SearchPipe,
     PlantPipe,
     CPGPipe,
+    LeadSkuPipe,
     PropercasePipe,
     WizardComponent,
     SidebarComponent,
