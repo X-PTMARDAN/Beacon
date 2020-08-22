@@ -1,92 +1,91 @@
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-        <div class="w3-display-topleft w3-padding-large w3-xlarge">
-          .
-        </div>
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    .
+  </div>
 
 
-        <div *ngIf='first'>
+  <div *ngIf='first'>
 
-          <iframe src="https://app.powerbi.com/reportEmbed?reportId=bb68271a-e949-4ea3-8104-58164ba71b89&appId=a80c65d0-5140-4f36-8680-99c68aaa930c&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" height="800px" width="100%" title="Iframe Example"></iframe>
+    <iframe src="https://app.powerbi.com/reportEmbed?reportId=bb68271a-e949-4ea3-8104-58164ba71b89&appId=a80c65d0-5140-4f36-8680-99c68aaa930c&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-        </div>
+  </div>
 
-        <div *ngIf='second'>
+  <div *ngIf='second'>
 
-          <iframe src="https://app.powerbi.com/reportEmbed?reportId=8110c798-06de-4e1d-a1f2-7a0bddde66d0&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" height="800px" width="100%" title="Iframe Example"></iframe>
+    <iframe src="https://app.powerbi.com/reportEmbed?reportId=8110c798-06de-4e1d-a1f2-7a0bddde66d0&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-        </div>
-        <div *ngIf='third'>
+  </div>
+  <div *ngIf='third'>
 
-          <iframe src="https://app.powerbi.com/reportEmbed?reportId=67f0d834-a097-46e4-a1f5-c6efe674f583&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" height="800px" width="100%" title="Iframe Example"></iframe>
+    <iframe src="https://app.powerbi.com/reportEmbed?reportId=67f0d834-a097-46e4-a1f5-c6efe674f583&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-        </div>
+  </div>
 
-        <div *ngIf='fourth'>
+  <div *ngIf='fourth'>
 
-          <iframe src="https://app.powerbi.com/reportEmbed?reportId=5a81ac3a-8044-47c9-b60d-c74309748f87&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" height="800px" width="100%" title="Iframe Example"></iframe>
+    <iframe src="https://app.powerbi.com/reportEmbed?reportId=5a81ac3a-8044-47c9-b60d-c74309748f87&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-        </div>
+  </div>
 
-        <div *ngIf='iframe'>
-        <div class="row" style="display:inline">
-          <div class="card" (click)="graph('a')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            transition: 0.3s;
-            width: 20%;
-            float:left;
-            margin-left:50px;
-            margin-top:40px;
-            border-radius: 5px;">
-            <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Whole App</b></h4> 
-              <p>Click here</p> 
-            </div>
-          </div>
-          <div class="card"  (click)="graph('b')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            transition: 0.3s;
-            width: 20%;
-            float:left;
-            margin-left:50px;
-            margin-top:40px;
-            border-radius: 5px;">
-            <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Accuracy Report</b></h4> 
-              <p>Click here</p> 
-            </div>
-          </div>
-          </div>
-          <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>   
-          <div class="row" style="display:inline" >
-          <div class="card" (click)="graph('c')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            transition: 0.3s;
-            width: 20%;
-            float:left;
-            margin-left:50px;
-            margin-top:40px;
-            border-radius: 5px;">
-            <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Delta Report</b></h4> 
-              <p>Click here</p> 
-            </div>
-          </div>
-          <div class="card" (click)="graph('d')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            transition: 0.3s;
-            width: 20%;
-            float:left;
-            margin-left:50px;
-            margin-top:40px;
-            border-radius: 5px;">
-            <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Future Forecast Scenarios</b></h4> 
-              <p>Click here</p> 
-            </div>
-          </div>
-          </div>
-
-        </div>
-      
+  <div *ngIf='iframe'>
+  <div class="row" style="display:inline">
+    <div class="card" (click)="graph('a')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 20%;
+      float:left;
+      margin-left:50px;
+      margin-top:40px;
+      border-radius: 5px;">
+      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>Whole App</b></h4> 
+        <p>Click here</p> 
       </div>
-    
+    </div>
+    <div class="card"  (click)="graph('b')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 20%;
+      float:left;
+      margin-left:50px;
+      margin-top:40px;
+      border-radius: 5px;">
+      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>Accuracy Report</b></h4> 
+        <p>Click here</p> 
+      </div>
+    </div>
+    </div>
+    <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>  <br><br>   
+    <div class="row" style="display:inline" >
+    <div class="card" (click)="graph('c')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 20%;
+      float:left;
+      margin-left:50px;
+      margin-top:40px;
+      border-radius: 5px;">
+      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>Delta Report</b></h4> 
+        <p>Click here</p> 
+      </div>
+    </div>
+    <div class="card" (click)="graph('d')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 20%;
+      float:left;
+      margin-left:50px;
+      margin-top:40px;
+      border-radius: 5px;">
+      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>Future Forecast Scenarios</b></h4> 
+        <p>Click here</p> 
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+</div>
