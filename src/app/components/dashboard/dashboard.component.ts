@@ -105,6 +105,9 @@ public rowGroupPanelShow;
 
   public allComments_harshit;
 
+
+  public prev_year=0;
+
   public fals = false;
 
 public compress=false;
@@ -3025,7 +3028,7 @@ rowData3 = [
   public uom(feature: string) {
 
     console.log('Harsh134->' + feature);
-
+    this.prev_year=0;
     console.log('GRANUALLLL---' + this.granular1);
     this.granular1 = 'week';
     if (this.reactivate_filter_button == 1) {
@@ -15124,7 +15127,7 @@ rowData3 = [
 
     else if (feature == 'year' && this.granular1 == 'week') {
 
-
+      this.prev_year=1;
       this.type123="week";
       console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
       this.prevactuals = '2020-W01';
@@ -15572,7 +15575,466 @@ try{
       });
 
 
-    } else if (feature == 'year' && this.granular1 == 'month') {
+    } 
+    
+    
+    else if (this.prev_year==0 && feature == 'year') {
+
+      this.prev_year=1;
+      this.type123="week";
+      this.granular1 = 'week';
+      console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
+      this.prevactuals = '2020-W01';
+      this.endWeek = '2020-W53';
+      //const data=this.createPlanRequestData;
+      console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+      this.createPlanRequestData = {
+        startWeek: this.createPlanRequestData.startWeek,
+        endWeek: 202053,
+        prevactuals: 202001,
+        // forecastingGroups: data.forecastingGroups,
+        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0])
+      };
+      //this.test();
+      this.loading = true;
+      this.skuService.getGraphData_yearly(this.createPlanRequestData).subscribe((res: any) => {
+        this.eventsSubject.next({
+          page: null,
+          reset: true,
+        });
+        this.loading = false;
+        if (this.UOM == 'HL' && this.granular1 == 'week') {
+          this.enabled = 1;
+        } else {
+          this.enabled = 0;
+        }
+        // if (res.res.length == 0) {
+        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+        //   window.alert('No Combination is available');
+        //   this.loading = false;
+        //   return;
+        // }
+
+        this.UOM = 'HL';
+
+        this.allComments = res.combinedcomment;
+        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+
+        this.allComments_harshit = [];
+        for (const abc of this.allComments) {
+
+          this.allComments_harshit.push({
+            name: abc,
+            isSelected: false,
+            isFiltered: false
+          });
+        }
+
+try{
+        this.planningtable = 'Planning table (HL)';
+
+        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+        this.forecastinganalysis = 'Forecast Analysis (HL)';
+
+        this.featureanalysis = 'Feature Analysis (HL)';
+
+}catch(err)
+{
+
+}
+        this.greystart = res.start;
+
+        this.granular1 = 'week';
+
+        this.greystart = res.start;
+        if (res.res.length > 20) {
+          this.inter = (res.res.length / 13);
+        } else {
+          this.inter = 1;
+        }
+
+
+        this.createPlanRequestData.brands = res.req.brands;
+        this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+        this.createPlanRequestData.subbrand = res.req.subbrand;
+
+        this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+        this.createPlanRequestData.Trade = res.req.trade;
+        this.createPlanRequestData.Sales = res.req.sales;
+
+
+        this.createPlanRequestData.globalBev = res.req.globalBev;
+        this.createPlanRequestData.materialgroup = res.req.materialgroup;
+        this.createPlanRequestData.baseunit = res.req.baseunit;
+        this.createPlanRequestData.pack_type = res.req.pack_type;
+
+        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+        this.createPlanRequestData.pack_size = res.req.pack_size;
+        this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+        this.processGraphData(res);
+        //this.processgraphData(res);
+
+        this.processFeatureGraphData(res);
+        this.createFilterObject(res);
+        //  this.skus=data.forecastingGroups;
+
+        // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+        //     item.isChecked = true;
+        //     return item;
+        //   });
+
+
+        // this.skus = data.forecastingGroups.map((item) => {
+        //   item.isChecked = true;
+        //   return item;
+        // });
+
+        this.commentsall();
+        console.log('thhh->' + this.createPlanRequestData.startWeek);
+        this.chart2 = new CanvasJS.Chart('chartContainer2', {
+          animationEnabled: true,
+
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            interval: this.inter,
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201451,
+                  endValue: 2015011
+                },
+                {
+                  startValue: 201552,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201652,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201752,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201852,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201952,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202052,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202152,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                },
+                {
+                  startValue: 202353,
+                  endValue: 202402
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: 201400,
+                endValue: 201452,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201552,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201652,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201752,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201852,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201952,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202031,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+          axisY: {
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          toolTip: {
+            content: 'Value: {y}'
+          },
+
+          // toolTip: {
+          //   shared: true,
+          //   contentFormatter: function(e) {
+          //     var content = ' ';
+          //     console.log(JSON.stringify(e));
+          //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+          //     for (var i = 0; i < e.entries.length; i++) {
+          //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+          //       content += '<br/>';
+          //     }
+          //     return content;
+          //   }
+          // },
+
+          data: [
+            {
+              name: 'Baseline',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: '#17b169',
+              lineColor: '#17b169',
+              dataPoints: this.property
+            },
+            {
+              name: 'Promo Effect',
+              type: 'stackedArea',
+              gridColor: '#ffffff',
+
+              showInLegend: true,
+              color: ' #46a6b9',
+              lineColor: '#46a6b9',
+              dataPoints: this.property3
+            }
+
+          ]
+        });
+        this.secondgraph = 'Baseline';
+        this.chart2.render();
+
+
+        console.log('132456->' + this.createPlanRequestData.startWeek);
+        this.chart1 = new CanvasJS.Chart('chartContainer1', {
+          title: {text: ' ', fontStyle: 'no',},
+          animationEnabled: true,
+
+          backgroundColor: '#FFFFFF',
+          legend: {
+            cursor: 'pointer',
+            itemclick: this.toggleDataSeries.bind(this)
+          },
+          axisX: {
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+            interval: this.inter,
+            scaleBreaks: {
+              type: 'blank',
+              spacing: 0,
+              customBreaks: [
+                {
+                  startValue: 201453,
+                  endValue: 201501
+                },
+                {
+                  startValue: 201552,
+                  endValue: 201600
+                },
+                {
+                  startValue: 201652,
+                  endValue: 201700
+                },
+                {
+                  startValue: 201752,
+                  endValue: 201800
+                },
+                {
+                  startValue: 201852,
+                  endValue: 201900
+                },
+                {
+                  startValue: 201952,
+                  endValue: 202000
+                },
+                {
+                  startValue: 202052,
+                  endValue: 202100
+                },
+                {
+                  startValue: 202152,
+                  endValue: 202200
+                },
+                {
+                  startValue: 202253,
+                  endValue: 202300
+                },
+                {
+                  startValue: 202353,
+                  endValue: 202402
+                }
+              ]
+            },
+            stripLines: [
+              {
+                startValue: 201400,
+                endValue: 201452,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201500,
+                endValue: 201552,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201600,
+                endValue: 201652,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201700,
+                endValue: 201752,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201800,
+                endValue: 201852,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 201900,
+                endValue: 201952,
+                color: '#F2F3F5'
+              },
+              {
+                startValue: 202000,
+                endValue: 202031,
+                color: '#F2F3F5'
+              },
+
+            ]
+          },
+
+          axisY: {
+
+
+            valueFormatString: '######',
+            gridColor: '#ffffff',
+          },
+
+          // toolTip: {
+          //   content: 'Week: {x} | {name}: {y}'
+          // },
+
+          toolTip: {
+            shared: true,
+            contentFormatter: function(e) {
+              var content = ' ';
+              //console.log(e.dataPoint);
+              content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+              for (var i = 0; i < e.entries.length; i++) {
+                content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                content += '<br/>';
+              }
+              return content;
+            }
+          },
+          data: [
+           
+            {
+              name: 'Actual LY',
+              showInLegend: true,
+              type: 'line',
+              visible: false,
+              
+              color: this.lastyearDataPointColor,
+              lineColor: this.lastyearDataPointColor,
+              dataPoints: this.lastYearDataPoints
+            },
+            {
+              name: 'ML Forecast',
+              showInLegend: true,
+              type: 'line',
+              
+              color: this.mlDataPointColor,
+              lineColor: this.mlDataPointColor,
+              dataPoints: this.mlDataPoints
+            },
+            {
+              name: 'APO Forecast',
+              showInLegend: true,
+              type: 'line',
+              visible: false,
+              
+              color: this.aopDataPointColor,
+              lineColor: this.aopDataPointColor,
+              dataPoints: this.aopDataPoints
+            },
+            {
+              name: 'Final Forecast',
+              showInLegend: true,
+              type: 'line',
+              
+              color: this.finalForecastPointColor,
+              lineColor: this.finalForecastPointColor,
+              dataPoints: this.finalForecastDataPoints
+            },
+            {
+              name: 'Actuals',
+              showInLegend: true,
+              type: 'line',
+              color: this.actualDataPointColor,
+              lineColor: this.actualDataPointColor,
+              dataPoints: this.actualDataPoints
+            }
+          ]
+        });
+        this.chart1.render();
+        this.CanvasJSDataAsCSV();
+        this.selectOptionsModalCancel.nativeElement.click();
+      });
+
+
+    } 
+    
+    
+    
+    
+    else if (this.prev_year == 1 && this.granular1 == 'month') {
 
       console.log('MONTH-234567>' + JSON.stringify(this.hh));
       //  const data=this.createPlanRequestData;
@@ -15597,7 +16059,7 @@ try{
 
       console.log('WOW->' + JSON.stringify(this.createPlanRequestData));
       this.loading = true;
-      this.skuService.getGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
+      this.skuService.getGraphData_monthly_yearly(this.createPlanRequestData).subscribe((res: any) => {
         this.eventsSubject.next({
           page: null,
           reset: true,
@@ -24167,6 +24629,8 @@ try{
 
 
   public test12(feature: string) {
+
+    this.prev_year =0;
     
     try{
          this.granular1 = 'week';
@@ -28012,39 +28476,83 @@ this.changed_weeks=[];
     
       }
       else{
-      columndef_clone.push({
-        field:JSON.stringify(week.calenderYearWeek),
-        enableRowGroup:true,
-        width:110,
-        type: 'rightAligned',
-         editable: true,
-          cellEditorSelector: function (params) {
-          if (params.data.key != 'FVA') {
-              return {
-                  component: 'numericCellEditor'
-              };
+
+
+        if(this.prev_year == 1 && this.granular1 == 'month' )
+        {
+
+          if(week.calenderYearWeek != 202101)
+          {
+            columndef_clone.push({
+              field:JSON.stringify(week.calenderYearWeek),
+              enableRowGroup:true,
+              width:110,
+              type: 'rightAligned',
+               editable: true,
+                cellEditorSelector: function (params) {
+                if (params.data.key != 'FVA') {
+                    return {
+                        component: 'numericCellEditor'
+                    };
+                }
+      
+      
+                return null;
+            },
+            valueFormatter: function(params)
+            {
+      
+      
+              if (params.data.key != 'Comments') {
+                console.log("fpfjsrhfkerf",params);
+              return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+      
+            }
+      
+              
+            }
+               
+            });
           }
-
-
-          return null;
-      },
-      valueFormatter: function(params)
-      {
-
-
-        if (params.data.key != 'Comments') {
-          console.log("fpfjsrhfkerf",params);
-        return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-
-      }
-
-        
-      }
          
-      });
+        }
+        else{
 
 
+          columndef_clone.push({
+            field:JSON.stringify(week.calenderYearWeek),
+            enableRowGroup:true,
+            width:110,
+            type: 'rightAligned',
+             editable: true,
+              cellEditorSelector: function (params) {
+              if (params.data.key != 'FVA') {
+                  return {
+                      component: 'numericCellEditor'
+                  };
+              }
     
+    
+              return null;
+          },
+          valueFormatter: function(params)
+          {
+    
+    
+            if (params.data.key != 'Comments') {
+              console.log("fpfjsrhfkerf",params);
+            return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    
+          }
+    
+            
+          }
+             
+          });
+
+
+        }
+
 
     }
   }
@@ -28143,6 +28651,11 @@ var f12345678={key:'Actual LY'};
 var f123456789={key:'Open'};
 var f1234567890={key:'Promo'};
 for (const week of data) {
+
+
+
+
+
  f123['cpg']=week.cpg;
  f123['sku']=week.sku;
  f123['plant']=week.plant;
@@ -28189,6 +28702,8 @@ t=parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0))
    t=0;
  }
  else{
+
+
 t=parseFloat(DashboardComponent.parseStringToFloat(week.ml).toFixed(0))
  }
 
@@ -31406,6 +31921,7 @@ this.columnDefs6=columndef_clone;
   public color_change() {
 
     this.color_tick = 1;
+    this.prev_year=0;
     document.getElementById('arrow').style.color = 'green';
   }
 
@@ -32849,7 +33365,7 @@ public change123(week,val,sku)
 
   public onFilterCheckBoxChange() {
 
-
+    this.prev_year=0;
     if (this.reactivate_filter_button == 0) {
       return;
     }
