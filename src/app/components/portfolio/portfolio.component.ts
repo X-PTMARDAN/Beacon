@@ -153,6 +153,14 @@ columnDefs = [
 
 ];
 
+
+
+
+
+
+
+columnDefs3 :any =[];
+
 rowData = [
   { make: 'Toyota', model: 'Celica', price: 35000 },
   { make: 'Ford', model: 'Mondeo', price: 32000 },
@@ -262,7 +270,7 @@ public mappingdrop_1;
 
   rowData6:any;
 
-  columnDefs3 = [
+  columnDefs35 = [
     {field: 'make' },
     {field: 'model' },
     {field: 'price'}
@@ -284,6 +292,21 @@ public mappingdrop_1;
 public table=false;
   //table
   ngOnInit() {
+
+    this.columnDefs3=[
+      {headerName: 'From ID',field: 'fromid', sortable: true, filter: true,width:260   },
+      {headerName: 'To ID',field: 'toid' , sortable: true, filter: true,width:260  },
+      {headerName: 'State',field: 'state', sortable: true, filter: true,width:260},
+      {headerName: 'From Week',field: 'fromweek', sortable: true, filter: true,width:260},
+      {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:260},
+      {headerName: 'Date',field: 'date', sortable: true, filter: true,width:260},
+      { headerName: 'Edit', field: 'notes', width:260,
+         cellRenderer: function(params) {
+              return '<i class="fa fa-pencil" ></i>'
+         } }
+    ];
+
+
  
     let win = (window as any);
     console.log('dfdf->' + win.location.search);
@@ -343,7 +366,7 @@ public table=false;
             this.pipoMapping=response;
           });
 
-
+      
 
 
           this.skuService.getmaxweek().subscribe((response: any) => {  
@@ -370,6 +393,17 @@ public table=false;
 
 
           
+  }
+
+  public onCellClicked(params)
+  {
+
+    console.log("Checking123",params);
+    if(params.colDef.field=="notes")
+    {
+      this.schedule_1(params.data.fromid,params.data.toid,params.data.state);
+    }
+
   }
 
 
@@ -864,7 +898,7 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
   {
     this.AddNew.nativeElement.click();
 
-
+   
     
   }
 
