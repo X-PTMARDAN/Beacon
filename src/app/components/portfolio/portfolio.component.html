@@ -89,7 +89,7 @@
  
         
              
-                  <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button>
+                  <!-- <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button> -->
                   <br>
                   <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
@@ -117,6 +117,13 @@
                 <div >
 
 
+                  <input type="text" id="filter-text-box" style="width: 35%;
+                  border-radius: 26px;
+                  padding-left: 17px;
+                  height: 41px;
+                  font-family: 'Montserrat', sans-serif !important;
+                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search Forecasting Group" (input)="onFilterTextBoxChanged()"/>
+
 
 
                   <ag-grid-angular
@@ -124,6 +131,7 @@
     class="ag-theme-alpine"
     [rowData]="pipo"
     [columnDefs]="columnDefs"
+    (gridReady)="onGridReady($event)"
     >
 </ag-grid-angular>
 

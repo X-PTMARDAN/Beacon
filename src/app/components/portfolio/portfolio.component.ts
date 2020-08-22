@@ -90,9 +90,13 @@ public from_date;
 
 public to_date;
 
+
+
 public second_week;
 
 public dates_1;
+
+public searchfilter;
 
 public dates_1_prev=[];
 public dates_1_next=[];
@@ -138,14 +142,14 @@ public val_selected=0;
 
 
 columnDefs = [
-  {field: 'fgid' },
-  {field: 'forecastinggroup' },
-  {field: 'material'},
-  {field: 'sku'},
-  {field: 'prime'},
-  {field: 'animal_FLAG2'},
-  {field: 'minimum'},
-  {field: 'maximum'},
+  {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:140   },
+  {headerName: 'Forecasting group',field: 'forecastinggroup' , sortable: true, filter: true,width:350  },
+  {headerName: 'Material',field: 'material', sortable: true, filter: true,width:150},
+  {headerName: 'Sku',field: 'sku', sortable: true, filter: true,width:370},
+  {headerName: 'Primary',field: 'prime', sortable: true, filter: true,width:160},
+  {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:170},
+  {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:200},
+  {headerName: 'Week Last Seen',field: 'maximum', sortable: true, filter: true,width:200},
 
 ];
 
@@ -759,8 +763,11 @@ public map_sku_1()
     this.from_date='';
     this.to_date='';
   }
+  
 
-
+  public onFilterTextBoxChanged() {
+    this.gridApi.setQuickFilter(this.searchfilter);
+}
 
   // NOT TO BE USED
   public add_sku()

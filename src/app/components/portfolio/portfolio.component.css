@@ -5,6 +5,18 @@
 .step-2-content {
   margin-top: 30px;
 }
+.ag-cell {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.ag-row{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.ag-theme-alpine
+{
+  font-family: 'Montserrat', sans-serif !important;
+}
 .bg-green {
   min-height: 100px;
   display: flex;
