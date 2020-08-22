@@ -6,7 +6,7 @@ import { ThrowStmt } from '@angular/compiler';
 import {Observable} from 'rxjs';
 import {ViewService} from '../../services/view.service';
 import {FilterService} from 'src/app/services/filter.service';
-
+import { AgGridAngular } from 'ag-grid-angular';
 
 enum STEPS {
   'SELECT_OPTION' = 1,
@@ -52,7 +52,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   @ViewChild('AddNew_1', {static: false}) AddNew_1: ElementRef;
 
 
-
+  @ViewChild('agGrid', {static: false}) agGrid: AgGridAngular;
   @ViewChild('UpdateNew', {static: false}) UpdateNew: ElementRef;
 
 
@@ -97,6 +97,9 @@ public dates_1;
 public dates_1_prev=[];
 public dates_1_next=[];
 
+public gridApi;
+public gridColumnApi;
+
 public dates1=[{
   fromid:"0",
   toid:0,
@@ -134,7 +137,23 @@ public val_selected=0;
 
 
 
+columnDefs = [
+  {field: 'fgid' },
+  {field: 'forecastinggroup' },
+  {field: 'material'},
+  {field: 'sku'},
+  {field: 'prime'},
+  {field: 'animal_FLAG2'},
+  {field: 'minimum'},
+  {field: 'maximum'},
 
+];
+
+rowData = [
+  { make: 'Toyota', model: 'Celica', price: 35000 },
+  { make: 'Ford', model: 'Mondeo', price: 32000 },
+  { make: 'Porsche', model: 'Boxter', price: 72000 }
+];
 
 
   public material_len=0;
@@ -237,6 +256,25 @@ public mappingdrop_1;
   public min_column;
   public max_column;
 
+  rowData6:any;
+
+  columnDefs3 = [
+    {field: 'make' },
+    {field: 'model' },
+    {field: 'price'}
+  ];
+  
+  
+  rowData3 = [
+    { make: 'Toyota', model: 'Celica', price: 35000 },
+    { make: 'Ford', model: 'Mondeo', price: 32000 },
+    { make: 'Porsche', model: 'Boxter', price: 72000 }
+  ];
+  
+  
+  
+ 
+  
 
 
 public table=false;
@@ -313,7 +351,7 @@ public table=false;
           this.skuService.getfgid().subscribe((response: any) => { 
            
             this.mappingdrop=response;
-            this.fg_len=this.mappingdrop.length; 
+            //this.fg_len=this.mappingdrop.length; 
           });
 
 
@@ -322,7 +360,7 @@ public table=false;
           this.skuService.getanimal().subscribe((response: any) => { 
            
             this.mappingdrop_1=response;
-            this.fg_len=this.mappingdrop.length; 
+          //  this.fg_len=this.mappingdrop.length; 
           });
 
 
@@ -543,6 +581,9 @@ public map_sku_1()
 
     this.skuService.getPIPO().subscribe((response: any) => {    
       this.pipo=response;
+
+      this.rowData6=response;
+
       for(const abc of this.pipo)
       {
 
@@ -1175,7 +1216,12 @@ public apply_1()
 }
 
 
+public onGridReady(params)
+{
+  this.gridApi = params.api;
+  this.gridColumnApi = params.columnApi;
 
+}
 public apply()
 {
 

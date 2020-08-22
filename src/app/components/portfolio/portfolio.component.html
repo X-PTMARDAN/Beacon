@@ -91,7 +91,7 @@
              
                   <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button>
                   <br>
-                  <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
+                  <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
                     <tr style="background-color: #fff">
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
@@ -110,7 +110,7 @@
                     </tr>
                 
                   </table>
-      
+       -->
       
 
 
@@ -118,6 +118,18 @@
 
 
 
+
+                  <ag-grid-angular
+    style="width: 100%; height: 1450px;"
+    class="ag-theme-alpine"
+    [rowData]="pipo"
+    [columnDefs]="columnDefs"
+    >
+</ag-grid-angular>
+
+
+
+<!-- 
                 <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
                     <tr style="background-color: #fff" >
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
@@ -137,7 +149,7 @@
                       <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
                     </tr>
                 
-                  </table>
+                  </table> -->
 
 
 
@@ -1384,3 +1396,9 @@
     </div>
     
 
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"> 
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    
