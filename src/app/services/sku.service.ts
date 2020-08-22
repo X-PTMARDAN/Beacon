@@ -757,6 +757,12 @@ export class SKUService {
 
 
 
+  public getGraphData_monthly_yearly(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}demandTable_monthly_yearly`, data);
+  }
+
+
+
   public savePIPO(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}savePIPO`, data);
   }
