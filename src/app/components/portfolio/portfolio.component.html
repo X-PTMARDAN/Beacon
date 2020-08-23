@@ -135,7 +135,7 @@ margin-top: 26px;width:100%">
                   padding-left: 17px;
                   height: 41px;
                   font-family: 'Montserrat', sans-serif !important;
-                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search Forecasting Group" (input)="onFilterTextBoxChanged()"/>
+                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search Sku Mapping" (input)="onFilterTextBoxChanged()"/>
 
 
 
@@ -405,7 +405,7 @@ font-weight: bold;
 
                   <div>
                       <br>
-                      <h3 class="text-center">All Phase In Phase Out rules</h3>  <button class="btn btn-primary nextBtn" style="height:46px !important"   type="button" (click)="apply1()" > Add New Rule</button>
+                      <h3 class="text-center" style="font-family: 'Montserrat', sans-serif !important;">All Phase In Phase Out rules</h3>  <button class="btn btn-primary nextBtn" style="height:46px !important;font-family: 'Montserrat', sans-serif !important;"   type="button" (click)="apply1()" > Add New Rule</button>
 
                       <!-- <button class="btn btn-primary nextBtn" style="float: right;"   type="button" > Filter</button> -->
 
@@ -755,12 +755,12 @@ font-weight: bold;
 
 
 
-    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew" data-toggle="modal" #AddNew>Add New Schedule</a>
+    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew" data-toggle="modal" style="font-family: 'Montserrat', sans-serif !important;" #AddNew>Add New Schedule</a>
     <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">New Phase in Phase out rule</h5>
+            <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif !important;">New Phase in Phase out rule</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
               <span aria-hidden="true">&times;</span>
             </button>
@@ -770,26 +770,37 @@ font-weight: bold;
             
                 
               <div class="form-group col-sm-12 " style="width:70%" align="center">
-                <label>Current SKU</label>
+                <label style="font-family: 'Montserrat', sans-serif !important;">Current SKU</label>
                 <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
                 border: 1px solid #ced4da;
+                font-family: 'Montserrat', sans-serif !important;
                 background-color: #fff;">
                     <option value="select"  selected>Select current SKU</option>
                     <ng-container *ngFor="let filter of drop; let filterIndex=index" >
                             <option [value]="filter">{{filter}}</option>
                       </ng-container>
                   </select>
+                  
                 </div>
+
+                <script>
+                   $(document).ready(function () {
+      $('select').selectize({
+          sortField: 'text'
+      });
+  });
+                </script>
 
              
             </div>
 
             <div class="row">              
                  <div class="form-group col-sm-12 " style="width:70%" align="center">
-                  <span>Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout" checked>
+                  <span style="font-family: 'Montserrat', sans-serif !important;">Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout" checked>
                   
                   <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
                   border: 1px solid #ced4da;
+                  font-family: 'Montserrat', sans-serif !important;
                   background-color: #fff;">
                       <option value="select" disabled selected>Select Phase in SKU</option>
                   <ng-container *ngFor="let filter of drop2; let filterIndex=index">
@@ -886,15 +897,15 @@ font-weight: bold;
        
 
                         <div class="form-group col-sm-5">
-                          <label>From</label>
+                          <label style="font-family: 'Montserrat', sans-serif !important;">From</label>
                           
-                          <input type="week" min="2020-W23" (change)="from_date_table()"  [(ngModel)]="from_date">
+                          <input type="week" style="font-family: 'Montserrat', sans-serif !important;" min="2020-W23" (change)="from_date_table()"  [(ngModel)]="from_date">
                        </div>
 
                      <div class="form-group col-sm-5" style="margin-left: 5px" *ngIf='second_week'>
-                        <label>Until</label>
+                        <label style="font-family: 'Montserrat', sans-serif !important;">Until</label>
                         
-                            <input type="week" min="2020-W24"(change)="from_date_table()"  [(ngModel)]="to_date" >
+                            <input style="font-family: 'Montserrat', sans-serif !important;" type="week" min="2020-W24"(change)="from_date_table()"  [(ngModel)]="to_date" >
                       </div>
 
               
@@ -908,14 +919,14 @@ font-weight: bold;
                   <div class="col-sm-12"  align="center">
                       <table class="table" style="width: 100%"  >
                         <thead>
-                        <tr>
+                        <tr style="font-family: 'Montserrat', sans-serif !important;">
                           <th> <span class="text-muted">Week</span></th>
                           <th ><span class="text-muted">Ratio – Out SKU</span></th>
                           <th ><span class="text-muted">Ratio - In SKU</span></th>
                           </tr>
                         </thead>
 
-                        <tbody *ngFor="let data of dates; let i=index">
+                        <tbody style="font-family: 'Montserrat', sans-serif !important;" *ngFor="let data of dates; let i=index">
                               <tr>
                                 <td>{{data.week}}</td>
                                 <td><input type="number" (change)="hello2(i)" [(ngModel)]="data.one"
@@ -931,6 +942,7 @@ font-weight: bold;
 
                     <button style="height: 40px;
                     padding: 0 !important;
+                    font-family: 'Montserrat', sans-serif !important;
                     margin-left: 28% !important;" class="btn btn-primary nextBtn"  align="center"  type="button" (click)="apply()" > Save</button>
                 <!-- <div >
                   <table class="table"  *ngFor="let data of dates; let i=index">
@@ -960,12 +972,12 @@ font-weight: bold;
 
 
 
-    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew_1" data-toggle="modal" #AddNew_1>Add New Schedule</a>
+    <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew_1" data-toggle="modal" style="font-family: 'Montserrat', sans-serif !important;" #AddNew_1>Add New Schedule</a>
     <div class="modal fade save-filter-modal" id="AddNew_1" tabindex="-1" role="dialog" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title"> Schedule</h5>
+            <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif !important;"> Schedule</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
               <span aria-hidden="true">&times;</span>
             </button>
@@ -979,11 +991,12 @@ font-weight: bold;
             
                 
               <div class="form-group col-sm-12 " style="width:70%" align="center">
-                <label>Current SKU</label>
+                <label style="font-family: 'Montserrat', sans-serif !important;">Current SKU</label>
                 <input type="text" disabled id="select1" [(ngModel)]="edit_fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
                 border: 1px solid #ced4da;
                 background-color: #fff;
                 border-radius: 4px;width: 90%;
+                font-family: 'Montserrat', sans-serif !important;
     display: inline-block;
     font: inherit;
     line-height: 1.5em;
@@ -1002,13 +1015,14 @@ font-weight: bold;
 
             <div class="row">              
                  <div class="form-group col-sm-12 " style="width:70%" align="center">
-                  <span>Phase in SKU</span> 
+                  <span style="font-family: 'Montserrat', sans-serif !important;">Phase in SKU</span> 
                   
                   <input type="text" disabled [(ngModel)]="edit_tosku" [innerText]="edit_to_sku" id="harshit" style="background-clip: padding-box;
                   border: 1px solid #ced4da;
                   background-color: #fff;width: 90%;
     border-radius: 4px;
     display: inline-block;
+    font-family: 'Montserrat', sans-serif !important;
     font: inherit;
     line-height: 1.5em;
     padding: 0.5em 3.5em 0.5em 1em;
@@ -1040,7 +1054,7 @@ font-weight: bold;
 
             <div class="row">              
               <div class="form-group col-sm-12 " style="width:70%" align="center">
-               <span>Type</span> 
+               <span style="font-family: 'Montserrat', sans-serif !important;">Type</span> 
                <br>
                <input type="text" disabled [(ngModel)]="edit_type" [innerText]="edit_type_2" id="harshit12" style="background-clip: padding-box;
                border: 1px solid #ced4da;
@@ -1048,6 +1062,7 @@ font-weight: bold;
  border-radius: 4px;
  display: inline-block;
  font: inherit;
+ font-family: 'Montserrat', sans-serif !important;
  line-height: 1.5em;
  padding: 0.5em 3.5em 0.5em 1em;
  margin: 0;
@@ -1088,7 +1103,7 @@ font-weight: bold;
 
 
                   <div class="col-sm-12"  align="center">
-                      <table class="table" style="width: 100%"  >
+                      <table class="table" style="width: 100%;font-family: 'Montserrat', sans-serif !important;"  >
                         <thead>
                         <tr>
                           <th> <span class="text-muted">Week</span></th>
@@ -1152,12 +1167,12 @@ font-weight: bold;
 
 
     
-    <a href="javascript:void(0);" [hidden]="true" data-target="#UpdateNew" data-toggle="modal" #UpdateNew>Check</a>
+    <a href="javascript:void(0);" [hidden]="true" data-target="#UpdateNew" data-toggle="modal" #UpdateNew style="font-family: 'Montserrat', sans-serif !important;">Check</a>
     <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title"> Schedule</h5>
+            <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif !important;"> Schedule</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
               <span aria-hidden="true">&times;</span>
             </button>
@@ -1168,7 +1183,7 @@ font-weight: bold;
                 
               <div class="form-group col-sm-12 " style="width:70%" align="center">
                 <label style="float: left;
-                margin-left: 30px;">Current SKU</label>
+                margin-left: 30px;font-family: 'Montserrat', sans-serif !important;">Current SKU</label>
                 <!-- <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
                 border: 1px solid #ced4da;
                 background-color: #fff;">
@@ -1189,6 +1204,7 @@ font-weight: bold;
                  <div class="form-group col-sm-12 " style="width:70%" align="center" style="    float: left;
                  margin-left: 30px;">
                   <span style="    float: left;
+                  font-family: 'Montserrat', sans-serif !important;
                   margin-left: 30px;">Phase in SKU</span> <input type="checkbox" (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout">
                   
                   <!-- <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
@@ -1201,7 +1217,7 @@ font-weight: bold;
               </select> -->
 
 
-              <input type="text" [innerText]="dates1[0].toid" disabled>
+              <input style="font-family: 'Montserrat', sans-serif !important;" type="text" [innerText]="dates1[0].toid" disabled>
               </div>
 
             </div>
@@ -1263,7 +1279,7 @@ font-weight: bold;
 
 
                   <div class="col-sm-12"  align="center">
-                      <table class="table" style="width: 100%"  >
+                      <table class="table" style="width: 100%;font-family: 'Montserrat', sans-serif !important;"  >
                         <thead>
                         <tr>
                           <th> <span class="text-muted">Week</span></th>
@@ -1494,11 +1510,21 @@ font-weight: bold;
         </div>
       </div>
     </div>
-    
+
+      <script type="text/javascript">
+     $(document).ready(function () {
+      $('select').selectize({
+          sortField: 'text'
+      });
+  });
+
+    </script>
 
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"> 
     
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
