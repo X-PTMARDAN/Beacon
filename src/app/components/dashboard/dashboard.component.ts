@@ -28665,7 +28665,7 @@ for (const week of data) {
 try{
   if(week.comment.length>0)
   {
-    f12[week.calenderYearWeek]=week.comment[0].toFixed(6);
+    f12[week.calenderYearWeek]=week.comment[0].slice(0, 6);
   }
   else{
     f12[week.calenderYearWeek]="";
@@ -30677,7 +30677,7 @@ this.columnDefs5=columndef_clone;
 
 
     columndef_clone.push(
-      { field: 'key', filter: true,width:150,sortable:true,pinned:"left" },
+      { headerName: "Key Figure",field: 'key', filter: true,width:150,sortable:true,pinned:"left" },
       {  headerName: "FG",field: 'sku',filter: true,width:90,sortable:true,pinned:"left" },
     );
 
