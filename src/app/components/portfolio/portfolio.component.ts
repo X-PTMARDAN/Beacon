@@ -143,9 +143,9 @@ public val_selected=0;
 
 columnDefs = [
   {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:140   },
-  {headerName: 'Forecasting group',field: 'forecastinggroup' , sortable: true, filter: true,width:350  },
+  {headerName: 'Forecasting group Name',field: 'forecastinggroup' , sortable: true, filter: true,width:350  },
   {headerName: 'Material',field: 'material', sortable: true, filter: true,width:150},
-  {headerName: 'Sku',field: 'sku', sortable: true, filter: true,width:370},
+  {headerName: 'Material Name',field: 'sku', sortable: true, filter: true,width:370},
   {headerName: 'Primary',field: 'prime', sortable: true, filter: true,width:160},
   {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:170},
   {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:200},
