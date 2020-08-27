@@ -19,9 +19,9 @@ export class SettingComponent implements OnInit {
 
   public allLogs: any = [];
   columnDefs = [
+    {headerName: 'Username/Email', field: 'username',filter:true,sortable:true,width:510},
     {headerName: 'Activity', field: 'activity',filter:true,sortable:true,width:510 },
-    {headerName: 'Datetimestamp', field: 'datetimestamp',filter:true,sortable:true,width:510 },
-    {headerName: 'Username', field: 'username',filter:true,sortable:true,width:510}
+    {headerName: 'Date/Time Stamp', field: 'datetimestamp',filter:true,sortable:true,width:510 }
 ];
 
 
@@ -70,6 +70,8 @@ public datafetch1;
 
   public up_table=false;
 
+  public last_apo_display = false;
+  public last_data_display = false;
 
   public prevactuals;
 
@@ -404,14 +406,29 @@ public download1()
 
   public datefield()
   {
-    this.horizon=true;
+    if(this.horizon==false) {
+      this.last_apo_display=false;
+      this.last_data_display=false;
+      this.block12=false;
+      this.up_table=false;
+      this.comments_table=false;
+      this.horizon=true;
+    }
+    else {
+      this.horizon=false;
+    }
   }
 
   public logs1()
   {
     if(this.up_table==false)
     {
+      this.horizon=false;
+      this.block12=false;
       this.up_table=true;
+      this.comments_table=false;
+      this.last_data_display=false;
+      this.last_apo_display=false;
     }
     else{
       this.up_table=false;
@@ -419,13 +436,45 @@ public download1()
    
   }
 
+  public apo_display() {
+    if(this.last_apo_display==false) {
+      this.last_apo_display=true;
+      this.last_data_display=false;
+      this.block12=false;
+      this.up_table=false;
+      this.comments_table=false;
+      this.horizon=false;
+    }
+    else {
+      this.last_apo_display=false;
+    }
+  }
+
+  public data_display() {
+    if(this.last_data_display==false) {
+      this.last_apo_display=false;
+      this.last_data_display=true;
+      this.block12=false;
+      this.up_table=false;
+      this.comments_table=false;
+      this.horizon=false;
+    }
+    else {
+      this.last_data_display=false;
+    }
+  }
 
   public comments1()
   {
 
     if(this.comments_table==false)
     {
+      this.last_apo_display=false;
+      this.last_data_display=false;
+      this.block12=false;
+      this.up_table=false;
       this.comments_table=true;
+      this.horizon=false;
     }
     else{
       this.comments_table=false;
@@ -441,7 +490,12 @@ public download1()
 
     if(this.block12==false)
     {
+      this.last_apo_display=false;
+      this.last_data_display=false;
       this.block12=true;
+      this.up_table=false;
+      this.comments_table=false;
+      this.horizon=false;
     }
     else{
       this.block12=false;

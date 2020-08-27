@@ -1,331 +1,275 @@
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #f4f5f9; border-radius: 5px; margin-left: 25px; margin-right:125px;">
+    <div></div>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <h2>Settings</h2>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item" (click)="download1()">
+          <div><i class="fa fa-upload fa-2x" aria-hidden="true" data-toggle="tooltip" style="cursor: pointer; margin-right:30px;" data-placement="bottom" title="Upload"></i></div>
+        </li>
+        <li class="nav-item" (click)="download()">
+          <div><i class="fa fa-download fa-2x" aria-hidden="true" data-toggle="tooltip" style="cursor: pointer; margin-right:10px;" data-placement="bottom" title="Download"></i></div>
+        </li>
+    </ul>
+</nav>
 
-<div style="margin-left: 40px;margin-top:50px"><div class="row">
+<!--div class="container"-->
+  <div>
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <ul class="list-unstyled components mb-5" style="margin-bottom: 0px !important;">
+        <li (click)="openuser()">User Management <svg *ngIf="block12" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+        <li (click)="logs1()">Logs <svg *ngIf="up_table" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+        <li (click)="comments1()">Comments <svg *ngIf="comments_table" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+        <li (click)="apo_display()">Last APO Upload <svg *ngIf="last_apo_display" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+        <li (click)="data_display()">Last Data Upload <svg *ngIf="last_data_table" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+        <li (click)="datefield()">Default Settings <svg *ngIf="horizon" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+      </ul>
+    </nav>
+    <div class="colppp">
+      <!--admin ngif block-------->  
+      <div *ngIf="block12"  style="margin-left: 13px;">
+        <h3>User Management</h3>
+        <div class="login-container">
+          <div class="w-50">
+            <div>
+              <form #loginForm="ngForm">
+                <div class="form-group">
+                  <label for="username" class="d-none">
+                    Username
+                  </label>
+                  <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username"
+                    [(ngModel)]="username">
+                </div>
+                <div class="form-group">
+                  <label for="password" class="d-none">
+                    Password
+                  </label>
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password"
+                    [(ngModel)]="password">
+                </div>
+                <div class="form-group">
+                  <label for="password" class="d-none">
+                    Role
+                  </label>
+                  <select #t5 name="plant" [(ngModel)]="role">
+                    <option value="Admin">Admin</option>
+                    <option value="Demand">Demand Planner</option>
+                    <option value="View">Viewer</option>
+                  </select>
+                  <br><br>
+                </div>
+                <div>
+                    <button type="button" style="font-size: 16px;"[disabled]="!loginForm.valid" class="btn btn-light" [class.disabled]="!loginForm.valid" (click)=adduser()>Add User</button>  
+                </div>
+                <br><br>
+              </form>
+            </div>
+          </div>
+        </div>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  placeholder="Username" [(ngModel)]="username"><br><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br/> -->
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <select #t5 name="plant" [(ngModel)]="role"> -->
+              
+            <!-- <br>
+            <br/><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button (click)=adduser()>Add user</button> -->
+          
+          <!-- <br><br><br/>
+            <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
+                <tr style="background-color: #ddd;">
+                  <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Username</th>
+                  <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Password</th>
+                  <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Role</th>
+                
+                </tr>
+            </table>
+          <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allusers; let i=index">
+            <tr style="background-color: #fff;">
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{ fi.username }}</th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.password}}</th>
+              <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.role}}</th>
+            
+            </tr>
+        
+          </table> -->
+        <ag-grid-angular
+        style=" height: 400px; width: 1320px; overflow:scroll"
+        class="ag-theme-alpine"
+        [rowData]="rowData2"
+        rowSelection="multiple"
+        [columnDefs]="columnDefs2"
+        rowSelection="multiple"
+        [enableRangeSelection]="true"
+        [autoGroupColumnDef]="autoGroupColumnDef"
+        [suppressDragLeaveHidesColumns]="false"
+        >
+        </ag-grid-angular>
+      </div>
 
-  <br>
+      <!--admin ngif block ends------>
 
-    <div class="column" style="background-color:#ccc;width:100%;" >
+      <!-- maybe logs ngif------------>
+
+      <div *ngIf="up_table" style="width:90%;height:3000px;overflow: auto;margin-left: 15px;">
+        <h3>Logs</h3>
+        <ag-grid-angular
+        style=" height: 800px;overflow:scroll"
+        class="ag-theme-alpine"
+        [rowData]="rowData"
+        rowSelection="multiple"
+        [columnDefs]="columnDefs"
+        rowSelection="multiple"
+        [enableRangeSelection]="true"
+        >
+        </ag-grid-angular>
+        <!-- <br>
+          <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
+              <tr style="background-color: #ddd;">
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Username</th>
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Activity</th>
+                <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Date-Time Stamp</th>
+              
+              </tr>
+          </table>
+        <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allLogs; let i=index">
+          <tr style="background-color: #fff;">
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{ fi.username }}</th>
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{ fi.activity }}</th>
+            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{fi.datetimestamp}}</th>
+          
+          </tr>
+      
+        </table> -->
+      </div>
+
+      <!--maybe logs ngif ended---------------->
+
+      <!-------maybe comments ngif-------------->
+
+      <div *ngIf="comments_table" style="width:90%;height:3000px;overflow: auto;margin-left: 15px;">
+        <h3>Comments</h3>
+        <ag-grid-angular
+        style=" height: 800px;overflow:scroll"
+        class="ag-theme-alpine"
+        [rowData]="rowData1"
+        rowSelection="multiple"
+        [columnDefs]="columnDefs1"
+        rowSelection="multiple"
+        [enableRangeSelection]="true"
+        >
+        </ag-grid-angular>
+        <!-- <table
+          style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+          <tr style="background-color: #fff">
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
+              class="mt-3 font-weight-bold">Week</h6></td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
+              class="mt-3 font-weight-bold">Comment</h6></td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
+              class="mt-3 font-weight-bold">Forecasting Group</h6></td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
+              class="mt-3 font-weight-bold">CPG</h6></td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
+              class="mt-3 font-weight-bold">Plant</h6></td>
+          </tr>
+        </table>
+        <table
+          style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+          <ng-container *ngFor="let g of allComments ;let i=index ">
+            <tr style="background-color: #fff">
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
+                                                                                                style="font-size:0.75rem">{{g.name.split('|')[1] }}</p>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
+                                                                                                style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
+                                                                                                style="font-size:0.75rem">{{g.name.split('|')[2]}}</p>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
+                                                                                                style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
+                                                                                                style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
+              </td>
+            </tr>
+          </ng-container>
+        </table> -->
+      </div>
+
+      <!----maybe comments ngif ended------------>
+
+      <!-- horizon (default setting) ngif-------------------->
+
+      <div *ngIf="horizon" style="height:260px;overflow: auto;margin-left: 13px;">
+        <h3> Default Settings</h3>
+        <h6>Start -   <input type="week" value="2019-W38"  style="width: 15%; border-radius: 6px;" max="2019-W38" id="prevactuals"  [(ngModel)]="prevactuals"  name="prevactuals"></h6> <span style="margin-left: 10px"></span>
+        <h6>End -  &nbsp;&nbsp;<input type="week" style="width: 15%;border-radius: 6px;" id="plan" [(ngModel)]="plan"  name="plan"></h6> <span style="margin-left: 10px"></span>
+        <button (click)="done()"> SUBMIT </button>
+      </div>
+
+      <!-- horizon (default setting) ngif ended --------------->
+
+      <div *ngIf="last_apo_display" style="margin-left: 13px;">
+        <h3>Last APO Upload - 10/07/2020</h3>
+      </div>
+
+      <div *ngIf="last_data_display" style="margin-left: 13px;">
+        <h3>Last Data Upload - 2020-07-15 23:10:14</h3>
+      </div>
+    </div>
+  </div>
+<!--/div-->
+
+<!--
+<div style="display: flex;">
   <div class="column" style="background-color:#ccc;width:100%;" (click)="openuser()">
     <h2>Admin</h2>
   </div>
-
-  <div *ngIf="block12">
-    <br>
-
-    <div class="login-container" style="margin-left: 13px;">
-      <div class="w-50">
-    
-        <div>
-          <form #loginForm="ngForm">
-            <div class="form-group">
-              <label for="username" class="d-none">
-                Username
-              </label>
-              <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username"
-              [(ngModel)]="username">
-            </div>
-            <div class="form-group">
-              <label for="password" class="d-none">
-                Password
-              </label>
-              <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password"
-              [(ngModel)]="password">
-            </div>
-
-            <div class="form-group">
-              <label for="password" class="d-none">
-                Role
-              </label>
-              <select #t5 name="plant" [(ngModel)]="role">
-              <option value="Admin">Admin</option>
-        <option value="Demand">Demand Planner</option>
-        <option value="View">Viewer</option>
-      
-      </select>
-            </div>
-
-
-            
-            <div>
-              <button type="button" style="font-size: 16px;"[disabled]="!loginForm.valid" class="btn btn-light" [class.disabled]="!loginForm.valid" (click)=adduser()>Add User</button>
-              
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  placeholder="Username" [(ngModel)]="username"><br><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br/> -->
-      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <select #t5 name="plant" [(ngModel)]="role"> -->
-        
-      <!-- <br>
-      <br/><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button (click)=adduser()>Add user</button> -->
-     
-    <!-- <br><br><br/>
-      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
-          <tr style="background-color: #ddd;">
-            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Username</th>
-            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Password</th>
-            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">Role</th>
-          
-          </tr>
-      </table>
-    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allusers; let i=index">
-      <tr style="background-color: #fff;">
-        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{ fi.username }}</th>
-        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.password}}</th>
-        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 50%;">{{fi.role}}</th>
-      
-      </tr>
-  
-    </table> -->
-
-<br><br><br>
-
-
-  <ag-grid-angular
-  style=" height: 400px;overflow:scroll"
-  class="ag-theme-alpine"
-  [rowData]="rowData2"
-  rowSelection="multiple"
-  [columnDefs]="columnDefs2"
-  rowSelection="multiple"
-  
-
-
-  [enableRangeSelection]="true"
-
-  [autoGroupColumnDef]="autoGroupColumnDef"
-  [suppressDragLeaveHidesColumns]="false"
-
-
-  >
-</ag-grid-angular>
-
-
-  </div>
-  </div>
-<br/>
-
-  <br>
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px">
-    <h2>How to run this application?</h2>
-    <p>Coming soon</p>
+    <h2>How to run this application? - coming soon</h2>
   </div>
-</div>
-<br>
-<div class="row" style="cursor: pointer">
-  <div class="column" style="background-color:#ccc;width:100%;" (click)="download()">
-    <h2>Download</h2>
-    <p>Click here</p>
-  </div>
-
-
-  <div class="column" style="background-color:#ccc;width:100%;" (click)="download1()">
-    <h2>Upload</h2>
-    <p>Click here</p>
-  </div>
-
-
-  <br>
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;">
-    <h2>Support</h2>
-    <p>Coming soon</p>
+    <h2>Support - coming soon</h2>
   </div>
-
-
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" (click)="logs1()">
     <h2>Logs</h2>
-    <p>Click here</p>
   </div>
-
-  <div *ngIf="up_table" style="width:90%;height:260px;overflow: auto;margin-left: 15px;">
-
-
-
-
-    <ag-grid-angular
-    style=" height: 400px;overflow:scroll"
-    class="ag-theme-alpine"
-    [rowData]="rowData"
-    rowSelection="multiple"
-    [columnDefs]="columnDefs"
-    rowSelection="multiple"
-    
-  
-    [enableRangeSelection]="true"
-   
-  
-    >
-  </ag-grid-angular>
-
-    <!-- <br>
-      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;">
-          <tr style="background-color: #ddd;">
-            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Username</th>
-            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Activity</th>
-            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">Date-Time Stamp</th>
-          
-          </tr>
-      </table>
-    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 25px;margin-right: 1px;overflow: auto;"  *ngFor="let fi of allLogs; let i=index">
-      <tr style="background-color: #fff;">
-        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{ fi.username }}</th>
-        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{ fi.activity }}</th>
-        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 33%;">{{fi.datetimestamp}}</th>
-      
-      </tr>
-  
-    </table> -->
-  </div>
-
-
-
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" (click)="comments1()">
     <h2>Comments</h2>
-    <p>Click here</p>
   </div>
-
-
-
-
-<div *ngIf="comments_table" style="width:90%;height:260px;overflow: auto;margin-left: 15px;">
-
-  <br>
-
-
-
-
-
-  <ag-grid-angular
-  style=" height: 400px;overflow:scroll"
-  class="ag-theme-alpine"
-  [rowData]="rowData1"
-  rowSelection="multiple"
-  [columnDefs]="columnDefs1"
-  rowSelection="multiple"
-  
-  
- 
-  [enableRangeSelection]="true"
-
-
-  >
-</ag-grid-angular>
-
-
-
-    <!-- <table
-      style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
-      <tr style="background-color: #fff">
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
-          class="mt-3 font-weight-bold">Week</h6></td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
-          class="mt-3 font-weight-bold">Comment</h6></td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
-          class="mt-3 font-weight-bold">Forecasting Group</h6></td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
-          class="mt-3 font-weight-bold">CPG</h6></td>
-        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
-          class="mt-3 font-weight-bold">Plant</h6></td>
-      </tr>
-  
-  
-  
-    </table>
-  
-  
-    <table
-      style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
-      <ng-container *ngFor="let g of allComments ;let i=index ">
-        <tr style="background-color: #fff">
-          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
-                                                                                             style="font-size:0.75rem">{{g.name.split('|')[1] }}</p>
-          </td>
-          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
-                                                                                             style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
-          </td>
-          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
-                                                                                             style="font-size:0.75rem">{{g.name.split('|')[2]}}</p>
-          </td>
-          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
-                                                                                             style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
-          </td>
-          <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
-                                                                                             style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
-          </td>
-        </tr>
-  
-  
-  
-  
-      </ng-container>
-  
-    </table> -->
-  </div>
-  
-
-
-
-
-
-
-
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" (click)="datefield()">
-    <h2>Horizon</h2>
-    <p>Click here</p>
-  </div>
-
-
+    <h2>Horizon / Default Settings</h2>
+  </div>Last Data Upload - 2020-07-15 23:10:14
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" >
-    <h2>Last APO Upload</h2>
-    <p>10/07/2020</p>
+    <h2>Last APO Upload - 10/07/2020</h2>
   </div>
-
-
   <div class="column" style="background-color:#ccc;width:100%;margin-top: 20px;" >
-    <h2>Last Data Upload</h2>
-    <p>2020-07-15 23:10:14</p>
+    <h2>Last Data Upload - 2020-07-15 23:10:14</h2>
   </div>
-
-
 </div>
+-->
 
-
-
-</div>
-
-
-
-
-
-<div *ngIf="horizon" style="height:260px;overflow: auto;margin-left: 30px;">
-  <br/>
-  <h5> Default Setting</h5>
-<br/>
-
-  <h6>Start -   <input type="week" value="2019-W38"  style="width: 15%;
-    border-radius: 6px;" max="2019-W38" id="prevactuals"  [(ngModel)]="prevactuals"  name="prevactuals"></h6> <span style="margin-left: 10px"></span>
-
-
-
-<h6>End -  &nbsp;&nbsp;<input type="week" style="width: 15%;
-  border-radius: 6px;" id="plan" [(ngModel)]="plan"  name="plan"></h6> <span style="margin-left: 10px"></span>
-
- 
-
- <br> <button (click)="done()"> SUBMIT </button>
-
-</div>
 
 
 
 <script lang="javascript" src="dist/xlsx.full.min.js"></script>
 <script lang="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
-
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"> 
-
-
-
 <script src="https://unpkg.com/@ag-grid-enterprise/all-modules@23.2.0/dist/ag-grid-enterprise.min.js"></script>
