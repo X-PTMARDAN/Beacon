@@ -910,7 +910,7 @@ rowData3 = [
                             //this.prevactuals = '2019-W35';
                             this.createdata = {
                               prevactuals: this.prevactuals_val,
-                              startWeek: 202032,
+                              startWeek: 202034,
                               endWeek: this.plan_val,
                               forecastingGroups: [{'id': 0, 'name': 'EVE GrapefCosm BOT 6X4X0_275', 'isFiltered': true, 'isChecked': true}],
                               customerPlanningGroup: [],
@@ -1612,7 +1612,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -2179,7 +2179,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -2519,7 +2519,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -2683,7 +2683,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -2843,7 +2843,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -3249,7 +3249,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -3487,7 +3487,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -3793,7 +3793,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -4031,7 +4031,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -4334,7 +4334,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -4572,7 +4572,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -4886,7 +4886,7 @@ rowData3 = [
                },
                {
                  startValue: 202000,
-                 endValue: 202032,
+                 endValue: 202034,
                  color: '#F2F3F5'
                },
  
@@ -5124,7 +5124,7 @@ rowData3 = [
                },
                {
                  startValue: 202000,
-                 endValue: 202032,
+                 endValue: 202034,
                  color: '#F2F3F5'
                },
  
@@ -5432,7 +5432,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -5670,7 +5670,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -5977,7 +5977,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -6215,7 +6215,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -6516,7 +6516,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -6762,7 +6762,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -7062,7 +7062,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -7300,7 +7300,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -7597,7 +7597,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -7835,7 +7835,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -8133,7 +8133,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -8371,7 +8371,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -8669,7 +8669,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -8907,7 +8907,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -9204,7 +9204,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -9442,7 +9442,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -9731,7 +9731,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -9994,7 +9994,7 @@ rowData3 = [
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -10415,7 +10415,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -10653,7 +10653,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -10959,7 +10959,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -11197,7 +11197,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -11759,7 +11759,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -12061,7 +12061,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -12299,7 +12299,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -12600,7 +12600,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -12838,7 +12838,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -13142,7 +13142,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -13380,7 +13380,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -13687,7 +13687,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -13925,7 +13925,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -14479,7 +14479,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -15029,7 +15029,7 @@ rowData3 = [
                 },
                 {
                   startValue: 202000,
-                  endValue: 202032,
+                  endValue: 202034,
                   color: '#F2F3F5'
                 },
   
@@ -15337,7 +15337,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -15488,7 +15488,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -15791,7 +15791,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -15942,7 +15942,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -17299,7 +17299,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -17465,7 +17465,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -17844,7 +17844,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -18010,7 +18010,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -18390,7 +18390,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -18556,7 +18556,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -18937,7 +18937,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -19103,7 +19103,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -19484,7 +19484,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -19650,7 +19650,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -20029,7 +20029,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -20195,7 +20195,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -21039,7 +21039,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -21282,7 +21282,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -24873,7 +24873,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -25035,7 +25035,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -25360,7 +25360,7 @@ try{
             //       },
             //       {
             //         startValue: 202000,
-            //         endValue: 202032,
+            //         endValue: 202034,
             //         color: '#F2F3F5'
             //       },
     
@@ -25511,7 +25511,7 @@ try{
             //       },
             //       {
             //         startValue: 202000,
-            //         endValue: 202032,
+            //         endValue: 202034,
             //         color: '#F2F3F5'
             //       },
     
@@ -25825,7 +25825,7 @@ try{
         //       },
         //       {
         //         startValue: 202000,
-        //         endValue: 202032,
+        //         endValue: 202034,
         //         color: '#F2F3F5'
         //       },
 
@@ -25976,7 +25976,7 @@ try{
         //       },
         //       {
         //         startValue: 202000,
-        //         endValue: 202032,
+        //         endValue: 202034,
         //         color: '#F2F3F5'
         //       },
 
@@ -26305,7 +26305,7 @@ try{
           //       },
           //       {
           //         startValue: 202000,
-          //         endValue: 202032,
+          //         endValue: 202034,
           //         color: '#F2F3F5'
           //       },
   
@@ -26456,7 +26456,7 @@ try{
           //       },
           //       {
           //         startValue: 202000,
-          //         endValue: 202032,
+          //         endValue: 202034,
           //         color: '#F2F3F5'
           //       },
   
@@ -26784,11 +26784,11 @@ try{
     }
     this.color_tick = 0;
 
-    if (DashboardComponent.transformWeek(this.endWeek) < 202032) {
+    if (DashboardComponent.transformWeek(this.endWeek) < 202034) {
       window.alert('Please choose end week correctly');
       return;
     }
-    if (DashboardComponent.transformWeek(this.prevactuals) > 202032) {
+    if (DashboardComponent.transformWeek(this.prevactuals) > 202034) {
       window.alert('Please choose a valid Actual Week');
       return;
     }
@@ -27165,7 +27165,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -27410,6 +27410,7 @@ try{
           console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
           window.alert('No Combination is available');
           this.loading = false;
+          this.reactivate_filter(1);
           return;
         }
 
@@ -27577,7 +27578,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -27739,7 +27740,7 @@ try{
               },
               {
                 startValue: 202000,
-                endValue: 202031,
+                endValue: 202033,
                 color: '#F2F3F5'
               },
 
@@ -28048,7 +28049,7 @@ try{
             },
             {
               startValue: 202000,
-              endValue: 202032,
+              endValue: 202034,
               color: '#F2F3F5'
             },
 
@@ -28575,7 +28576,7 @@ this.changed_weeks=[];
   //       }
   //     }
   //     return f;
-  //   //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202032'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
+  //   //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202034'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202034'])+parseInt(params.data['202034'])+parseInt(params.data['202034'])+parseInt(params.data['202030'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
   //   },
   //   valueFormatter: function(params)
   //   {
@@ -30810,7 +30811,7 @@ var fg1=data[0].calenderYearWeek;
 
 
 
-//     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202032'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202032'])+parseInt(params.data['202030'])+parseInt(params.data['202031'])+parseInt(params.data['202032'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
+//     //  return parseInt(params.data['202015']) +parseInt(params.data['202016']) +parseInt(params.data['202017']) +parseInt(params.data['202018']) +parseInt(params.data['202019']) +parseInt(params.data['202034'])+parseInt(params.data['202021']) +parseInt(params.data['202022']) +parseInt(params.data['202023']) +parseInt(params.data['202024'])+parseInt(params.data['202025']) +parseInt(params.data['202026'])+parseInt(params.data['202034'])+parseInt(params.data['202034'])+parseInt(params.data['202034'])+parseInt(params.data['202030'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202033'])+parseInt(params.data['202034'])+parseInt(params.data['202035'])+parseInt(params.data['202036'])+parseInt(params.data['202037'])+parseInt(params.data['202038'])+parseInt(params.data['202039'])+parseInt(params.data['202040']);
 //     },
 
 
@@ -33587,7 +33588,7 @@ try{
     data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
     data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
 
-    data.startWeek = 202032;
+    data.startWeek = 202034;
     data.endWeek = this.createPlanRequestData.endWeek;
     // data.brands = this.filters[2].values.filter(item => item.isChecked).map(item => item.name);
 
@@ -35902,7 +35903,7 @@ try{
 
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202032,
+        calendarWeek: 202034,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         uom:this.UOM,
@@ -36039,7 +36040,7 @@ try{
     }
     if (reqBody.data.length == 0) {
       const obj = {
-        calendarWeek: 202032,
+        calendarWeek: 202034,
         sku: JSON.parse(JSON.stringify(this.fgssselected)),
         user: 'admin',
         cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -36835,7 +36836,7 @@ try{
     data.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
 
 
-    data.startWeek = 202032;
+    data.startWeek = 202034;
     data.endWeek = 202004;
 
     this.loading = true;
