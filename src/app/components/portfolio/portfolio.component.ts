@@ -57,6 +57,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
 
+  @ViewChild('myModal4_1', {static: false}) myModal4_1: ElementRef;
+
+
+
   
   
   @ViewChild('saveFilterModal12', {static: false}) saveFilterModal12: ElementRef;
@@ -148,8 +152,12 @@ columnDefs = [
   {headerName: 'Material Name',field: 'sku', sortable: true, filter: true,width:370},
   {headerName: 'Primary',field: 'prime', sortable: true, filter: true,width:160},
   {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:170},
-  {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:200},
-  {headerName: 'Week Last Seen',field: 'maximum', sortable: true, filter: true,width:200},
+  {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:100},
+  {headerName: 'Week Last Seen',field: 'maximum', sortable: true, filter: true,width:100},
+  { headerName: ' ', field: 'btn', width:260,
+  cellRenderer: function(params) {
+       return '<p>Edit Segment</p>'
+  } }
 
 ];
 
@@ -299,7 +307,8 @@ public table=false;
       {headerName: 'State',field: 'state', sortable: true, filter: true,width:260},
       {headerName: 'From Week',field: 'fromweek', sortable: true, filter: true,width:260},
       {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:260},
-      {headerName: 'Date',field: 'date', sortable: true, filter: true,width:260},
+      {headerName: 'Status',field: 'status', sortable: true, filter: true,width:150},
+      {headerName: 'Date',field: 'date', sortable: true, filter: true,width:110},
       { headerName: 'Edit', field: 'notes', width:260,
          cellRenderer: function(params) {
               return '<i class="fa fa-pencil" ></i>'
@@ -403,6 +412,25 @@ public table=false;
     {
       this.schedule_1(params.data.fromid,params.data.toid,params.data.state);
     }
+
+  }
+
+
+
+
+  public onCellClicked1(params)
+  {
+
+    console.log("Checking123",params);
+   
+      console.log("Checking");
+      if(params.colDef.field=="btn")
+      {
+        this.edit_1(params.data.fgid,params.data.material)
+
+      }
+     // this.schedule_1(params.data.fromid,params.data.toid,params.data.state);
+    
 
   }
 
@@ -860,7 +888,8 @@ this.skuService.savePIPO(a).subscribe((response: any) => {
 
     this.lead_sku=num;
 
-    this.material_1=num2
+    this.material_1=num2;
+    this.myModal4_1.nativeElement.click();
   }
 
 

@@ -131,7 +131,7 @@ margin-top: 26px;width:100%">
 
 
                   <input type="text" id="filter-text-box" style="width: 35%;
-                  border-radius: 26px;
+                  border-radius: 10px;
                   padding-left: 17px;
                   height: 41px;
                   font-family: 'Montserrat', sans-serif !important;
@@ -140,11 +140,13 @@ margin-top: 26px;width:100%">
 
 
                   <ag-grid-angular
-    style="width: 100%; height: 1450px;"
+    style="width: 100%; height: 21000px;"
     class="ag-theme-alpine"
     [rowData]="pipo"
     [columnDefs]="columnDefs"
     (gridReady)="onGridReady($event)"
+    (cellClicked)="onCellClicked1($event)"
+ 
     >
 </ag-grid-angular>
 
@@ -610,6 +612,7 @@ font-weight: bold;
 
 
 
+    <a href="javascript:void(0);" [hidden]="true" data-target="#myModal4_1" data-toggle="modal" #myModal4_1 style="font-family: 'Montserrat', sans-serif !important;">Check</a>
 
   <div class="modal fade" id="myModal4_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
