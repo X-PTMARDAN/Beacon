@@ -46,7 +46,7 @@
     </div> -->
 
 
-    <div style="height: 780px; overflow-y: scroll;overflow-x:hidden;width: 175px;">
+    <div style="height: 803px; overflow-y: scroll;overflow-x:hidden;width: 175px;">
 
 
 
@@ -176,7 +176,12 @@
 
       <button style="display:block;width:150px; height:30px;border-radius: 13px;" onclick="document.getElementById('getFile').click()">Upload   <i style="    margin-top: 4px;" class="fa float-right fa fa-upload" ></i></button>
 
-      <br>     
+      <p style="    font-weight: bold;
+      margin-bottom: 13px !important;
+      padding-top: 19px;
+      font-family: 'Montserrat', sans-serif !important;" (click)="selectallfg()">Select All FG</p>
+
+        
 
       <div class="input-group mt-2">
         <input type="text" style="border-radius: 18px;" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()' name="searchSKU"
@@ -1791,17 +1796,20 @@ rowSelection="multiple"
           <table
             style="font-family: 'Montserrat', sans-serif !important;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
             <tr style="background-color: #fff">
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;" (click)="sortComments(1)"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(1)"><h6
                 class="mt-3 font-weight-bold">Week</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;" (click)="sortComments(0)"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" (click)="sortComments(0)"><h6
                 class="mt-3 font-weight-bold">Comment</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;" (click)="sortComments(2)"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" (click)="sortComments(2)"><h6
                 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(3)"><h6
                 class="mt-3 font-weight-bold">CPG</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(4)"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 5%;" (click)="sortComments(4)"><h6
                 class="mt-3 font-weight-bold">Plant</h6></td>
-            </tr>
+          
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" (click)="sortComments(4)"><h6
+              class="mt-3 font-weight-bold">User</h6></td>
+          </tr>
 
           </table>
 
@@ -1810,21 +1818,25 @@ rowSelection="multiple"
             style="font-family: 'Montserrat', sans-serif !important;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
             <ng-container *ngFor="let g of allComments_harshit | filter_comment : getCallback_comm() ;let i=index ">
               <tr style="background-color: #fff">
-                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
                                                                                                    style="font-size:0.75rem">{{ g.name.split('|')[1] }}</p>
                 </td>
-                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0"
                                                                                                    style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
                 </td>
-                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0"
                                                                                                    style="font-size:0.75rem">{{ g.name.split('|')[2] }}</p>
                 </td>
                 <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
                                                                                                    style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
                 </td>
-                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 5%;"><p class="m-0"
                                                                                                    style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
                 </td>
+
+
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[5] }}</p>
+</td>
               </tr>
             </ng-container>
 
@@ -1842,13 +1854,17 @@ rowSelection="multiple"
                 class="mt-3 font-weight-bold">Week</h6></td>
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
                 class="mt-3 font-weight-bold">Comment</h6></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><h6
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><h6
                 class="mt-3 font-weight-bold">Forecasting Group</h6></td>
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6
                 class="mt-3 font-weight-bold">Plant</h6></td>
 
-                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><h6
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6
                   class="mt-3 font-weight-bold">CPG</h6></td>
+
+
+                  <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6
+                    class="mt-3 font-weight-bold">User</h6></td>
             </tr>
 
           </table>
@@ -1865,7 +1881,7 @@ rowSelection="multiple"
 
               <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;" (dblclick)="Dbledit(i)"><p
                 class="m-0" style="font-size:0.75rem">{{ fi.comment }}</p></td>
-              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 40%;"><p class="m-0"
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;"><p class="m-0"
                                                                                                  style="font-size:0.75rem">{{fi.sku}}</p>
               </td>
 
@@ -1875,8 +1891,12 @@ rowSelection="multiple"
 
 
 
-<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;"><p class="m-0"
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><p class="m-0"
   style="font-size:0.75rem">{{fi.cpg}}</p>
+</td>
+
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><p class="m-0"
+  style="font-size:0.75rem">{{fi.user}}</p>
 </td>
               <!-- <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><i class="fa fa-trash"
                                                                                                  aria-hidden="true"

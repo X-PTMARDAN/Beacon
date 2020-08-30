@@ -3105,6 +3105,8 @@ rowData3 = [
               isFiltered: false
             });
           }
+
+         
           this.greystart = res.start;
   
           this.greystart = res.start;
@@ -27420,7 +27422,9 @@ try{
           this.enabled = 0;
         }
 
-        this.allComments = res.combinedcomment;//console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+        this.allComments = res.combinedcomment;
+        
+        console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
         this.allComments_harshit = [];
         for (const abc of this.allComments) {
@@ -33110,7 +33114,7 @@ public change123(week,val,sku)
             sku: com,
             type:this.type123,
             uom:this.UOM,
-            
+            user1: this.usertext,
             user: null,
             ml:h12,
             finalForecast: 0,
@@ -35165,6 +35169,19 @@ try{
 
   }
 
+
+  public selectallfg()
+  {
+    for (const sku of this.filters1_brands[0].values) {
+      sku.isChecked = true;
+    }
+    this.allbrand=1;
+    this.reactivate_filter(1);
+    this.onFilterCheckBoxChange121_sku();
+
+    document.getElementById('brands').style.background = '#f4f5f9';
+  }
+
   public selectallsub()
   {
 
@@ -35571,6 +35588,7 @@ try{
                 sku: ab.name,
                 plant: pl,
                 cpg: cpg,
+                user: this.usertext,
                 comment: this.comm1[0]
               });
             }
@@ -35595,7 +35613,8 @@ try{
           sku: fg.split('|')[1],
           plant: fg.split('|')[2],
           cpg: fg.split('|')[3],
-          comment: fg.split('|')[0]
+          comment: fg.split('|')[0],
+          user:this.usertext,
         });
       }
     }
@@ -35802,7 +35821,8 @@ try{
         com.push({
           calendarWeek: data.calenderYearWeek,
           sku: JSON.parse(JSON.stringify(this.fgssselected)),
-          user: 'admin',
+          user: this.usertext,
+          user1: this.usertext,
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           comments1: data.comments[0].split('|')[0]
@@ -35841,8 +35861,9 @@ try{
         const obj = {
           calendarWeek: data.calenderYearWeek,
           sku: JSON.parse(JSON.stringify(this.fgssselected)),
-          user: 'admin',
+          user: this.usertext,
           uom:this.UOM,
+          user1: this.usertext,
           cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
           plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
         };
@@ -35886,7 +35907,7 @@ try{
             sku: JSON.parse(JSON.stringify(this.fgssselected)),
             type:this.granular1,
             uom:this.UOM,
-            
+            user1: this.usertext,
             user: data.comments[0],
             ml:data.ml,
             finalForecast: data.finalForecast,
