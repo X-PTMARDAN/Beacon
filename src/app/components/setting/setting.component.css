@@ -16,6 +16,9 @@
   width: 50%;
   padding: 10px;
 }
+*{
+  font-family: 'Montserrat', sans-serif !important;
+}
 
 
 .first-container {
