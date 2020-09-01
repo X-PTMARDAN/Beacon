@@ -33,11 +33,15 @@ columnDefs2 = [
 
 
 columnDefs1 = [
-  {headerName: 'Week', field: 'week' ,width:300,sortable:true,filter:true},
-  {headerName: 'Comment', field: 'comment',width:300,sortable:true,filter:true },
-  {headerName: 'Forecasting group', field: 'forecasting',width:300,sortable:true,filter:true},
-  {headerName: 'Cpg', field: 'cpg',width:300,sortable:true,filter:true},
-  {headerName: 'Plant', field: 'plant',width:300,sortable:true,filter:true}
+  {headerName: 'Week', field: 'week' ,width:200,sortable:true,filter:true},
+  {headerName: 'Comment', field: 'comment',width:200,sortable:true,filter:true },
+  {headerName: 'Forecasting group', field: 'forecasting',width:250,sortable:true,filter:true},
+  {headerName: 'Cpg', field: 'cpg',width:200,sortable:true,filter:true},
+  {headerName: 'Plant', field: 'plant',width:200,sortable:true,filter:true},
+  { headerName: 'User', field: 'btn', width:200,
+  cellRenderer: function(params) {
+       return '<p>admin@gmail.com</p>'
+  } }
 ];
 
 rowData: any;
