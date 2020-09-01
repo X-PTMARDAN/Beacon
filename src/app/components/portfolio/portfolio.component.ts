@@ -146,15 +146,15 @@ public val_selected=0;
 
 
 columnDefs = [
-  {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:140   },
-  {headerName: 'Forecasting group Name',field: 'forecastinggroup' , sortable: true, filter: true,width:350  },
-  {headerName: 'Material',field: 'material', sortable: true, filter: true,width:150},
+  {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:100   },
+  {headerName: 'Forecasting group Name',field: 'forecastinggroup' , sortable: true, filter: true,width:300  },
+  {headerName: 'Material',field: 'material', sortable: true, filter: true,width:100},
   {headerName: 'Material Name',field: 'sku', sortable: true, filter: true,width:370},
   {headerName: 'Primary',field: 'prime', sortable: true, filter: true,width:160},
-  {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:170},
+  {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:150},
   {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:100},
   {headerName: 'Week Last Seen',field: 'maximum', sortable: true, filter: true,width:100},
-  { headerName: ' ', field: 'btn', width:260,
+  { headerName: ' ', field: 'btn', width:200,
   cellRenderer: function(params) {
        return '<p>Edit Segment</p>'
   } }
