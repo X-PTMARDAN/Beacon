@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comingsoon',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComingsoonComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private router: Router) {
+    
   }
 
   public iframe=true;
@@ -22,6 +22,18 @@ export class ComingsoonComponent implements OnInit {
 
   public first=false;
 
+  public isReady=true;
+  public isNotReady=false;
+
+  ngOnInit() {
+    
+    if( window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?b=' || 
+    window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?bcd=')
+    {
+      this.isReady = false;
+      this.isNotReady=true;
+    }
+  }
 
   public graph(src1)
   {

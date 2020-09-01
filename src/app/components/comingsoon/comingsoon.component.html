@@ -3,89 +3,94 @@
     .
   </div>
 
+  <div *ngIf='isReady'>
 
-  <div *ngIf='first'>
+    <div *ngIf='first'>
 
-    <iframe src="https://app.powerbi.com/reportEmbed?reportId=234296ff-3f26-4acf-8cc3-55e27d680438&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
+      <iframe src="https://app.powerbi.com/reportEmbed?reportId=234296ff-3f26-4acf-8cc3-55e27d680438&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-  </div>
+    </div>
 
-  <div *ngIf='second'>
+    <div *ngIf='second'>
 
-    <iframe src="https://app.powerbi.com/reportEmbed?reportId=5996b430-3ede-49f6-84d7-1f9f63012abb&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
+      <iframe src="https://app.powerbi.com/reportEmbed?reportId=5996b430-3ede-49f6-84d7-1f9f63012abb&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-  </div>
-  <div *ngIf='third'>
+    </div>
+    <div *ngIf='third'>
 
-    <iframe src="https://app.powerbi.com/reportEmbed?reportId=aa507e4d-48e3-40a6-b71d-15840f84d02f&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
+      <iframe src="https://app.powerbi.com/reportEmbed?reportId=aa507e4d-48e3-40a6-b71d-15840f84d02f&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-  </div>
+    </div>
 
-  <div *ngIf='fourth'>
+    <div *ngIf='fourth'>
 
-    <iframe src="https://app.powerbi.com/reportEmbed?reportId=74702098-995a-4cef-8dca-47dadac6a79a&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
+      <iframe src="https://app.powerbi.com/reportEmbed?reportId=74702098-995a-4cef-8dca-47dadac6a79a&autoAuth=true&ctid=882d47f6-50f4-4554-9aa6-43a46416b0f0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1jLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" id="iframe_link" style="position:absolute; height:100%; width:100%; border: none"></iframe>
 
-  </div>
+    </div>
 
-  <div *ngIf='iframe'>
-  <div class="row" style="display:inline">
-    <div class="card" (click)="graph('a')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      width: 20%;
-      float:left;
-      margin-left:50px;
-      margin-top:40px;
-      border-radius: 5px;">
-      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>Feature Importance</b></h4> 
-        <p>Click here</p> 
+    <div *ngIf='iframe'>
+    <div class="row" style="display:inline">
+      <div class="card" (click)="graph('a')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 20%;
+        float:left;
+        margin-left:50px;
+        margin-top:40px;
+        border-radius: 5px;">
+        <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Feature Importance</b></h4> 
+          <p>Click here</p> 
+        </div>
       </div>
-    </div>
-    <div class="card"  (click)="graph('b')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      width: 20%;
-      float:left;
-      margin-left:50px;
-      margin-top:40px;
-      border-radius: 5px;">
-      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>Accuracy Report</b></h4> 
-        <p>Click here</p> 
+      <div class="card"  (click)="graph('b')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 20%;
+        float:left;
+        margin-left:50px;
+        margin-top:40px;
+        border-radius: 5px;">
+        <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Accuracy Report</b></h4> 
+          <p>Click here</p> 
+        </div>
       </div>
-    </div>
-    </div>
-    <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>  <br><br>   
-    <div class="row" style="display:inline" >
-    <div class="card" (click)="graph('c')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      width: 20%;
-      float:left;
-      margin-left:50px;
-      margin-top:40px;
-      border-radius: 5px;">
-      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>Delta Report</b></h4> 
-        <p>Click here</p> 
       </div>
-    </div>
-    <div class="card" (click)="graph('d')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      width: 20%;
-      float:left;
-      margin-left:50px;
-      margin-top:40px;
-      border-radius: 5px;">
-      <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>Future Forecast Scenarios</b></h4> 
-        <p>Click here</p> 
+      <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>     <br><br>  <br><br>   
+      <div class="row" style="display:inline" >
+      <div class="card" (click)="graph('c')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 20%;
+        float:left;
+        margin-left:50px;
+        margin-top:40px;
+        border-radius: 5px;">
+        <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Delta Report</b></h4> 
+          <p>Click here</p> 
+        </div>
       </div>
-    </div>
-    </div>
+      <div class="card" (click)="graph('d')" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 20%;
+        float:left;
+        margin-left:50px;
+        margin-top:40px;
+        border-radius: 5px;">
+        <img src="https://ghcu.ca/wp-content/uploads/2012/08/planning-graph.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Future Forecast Scenarios</b></h4> 
+          <p>Click here</p> 
+        </div>
+      </div>
+      </div>
 
+    </div>
   </div>
 
+  <div *ngIf='isNotReady'>
+    <h1 style='text-align: center'>Coming Soon</h1>
+  </div>
 </div>
