@@ -35576,11 +35576,43 @@ try{
 
         this.comm1[1] = 'All SKU';
       }
-      console.log('Test13334567896789678--' + thyh);
+
+
+
+
+      var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
+      var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
+  
+      var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name);
+  
+      var fgssss = this.skus;
+  
+      var fgssss1 = this.second_sku;
+  
+      var fgssss2 = this.sku_semi;
+
+      var tgh=[];
+  
+      for (const abc of fgssss) {
+        tgh.push(abc);
+      }
+
+      for (const abc of fgssss1) {
+        tgh.push(abc);
+      }
+
+      for (const abc of fgssss2) {
+        tgh.push(abc);
+      }
+
+
+
+
+      console.log('Test13334567896789678--' + JSON.stringify(this.plantss));
 
       for (const pl of this.plantss) {
         for (const cpg of this.cpgss) {
-          for (const ab of this.fgssselected) {
+          for (const ab of tgh) {
             console.log('Chefking---' + JSON.stringify(ab));
             if (ab.isChecked) {
               this.finn.push({
