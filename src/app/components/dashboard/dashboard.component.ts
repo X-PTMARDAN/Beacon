@@ -36287,6 +36287,12 @@ try{
   public delfilter(i) {
     console.log('dsdfdfd=----' + this.loadedFilters[i].name);
 
+    var t=confirm("Are you sure you want to delete this filter");
+    if(t==false)
+    {
+      return;
+    }
+    
 
     this.skuService.deletefilter(this.loadedFilters[i].name).subscribe((res: any) => {
       this.filterService.getFilters({
