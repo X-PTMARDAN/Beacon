@@ -27,11 +27,15 @@ export class ComingsoonComponent implements OnInit {
 
   ngOnInit() {
     
+
+console.log("fgaf"+window.location.href);
+
     if( window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?b=' || 
-    window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?bcd=')
+    window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?bcd=' ||  window.location.href == 'https://'+window.location.hostname+':4200/comingsoon?bcd=' ||  window.location.href == 'https://'+window.location.hostname+':4200/comingsoon?b=')
     {
       this.isReady = false;
       this.isNotReady=true;
+      console.log("Fgsdfgdgf");
     }
   }
 
