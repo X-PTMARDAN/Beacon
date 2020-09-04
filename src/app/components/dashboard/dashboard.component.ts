@@ -1410,6 +1410,26 @@ rowData3 = [
         });
 
       });
+
+      this.skuService.brandslead(h).subscribe((res: any) => {
+
+        this.filters1_leadsku = [];
+
+        this.filters1_leadsku.push({
+          name: 'Lead Sku',
+          key: 'leadsku',
+          isExpanded: false,
+          values: res
+        });
+
+      });
+
+
+
+
+
+
+
     } else {
 
 
@@ -1425,6 +1445,20 @@ rowData3 = [
         this.filters1_brands.push({
           name: 'Brand',
           key: 'brands',
+          isExpanded: false,
+          values: res
+        });
+
+      });
+
+
+      this.skuService.brandslead(h).subscribe((res: any) => {
+
+        this.filters1_leadsku = [];
+
+        this.filters1_leadsku.push({
+          name: 'Lead Sku',
+          key: 'leadsku',
           isExpanded: false,
           values: res
         });
@@ -3077,6 +3111,14 @@ rowData3 = [
             reset: true,
           });
           this.loading = false;
+
+          if (res.res.length == 0) {
+            console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+            window.alert('UOM Combination is not available');
+            this.loading = false;
+           // this.reactivate_filter(1);
+            return;
+          }
   
           // if (res.res.length == 0) {
           //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
