@@ -138,6 +138,19 @@ export class SKUService {
 
 
 
+  public brandslead(data={}) {
+    return this.http.post(`${this.apiGatewayUrl}brandslead`,data).pipe(
+      map((AlcP: any) => {
+        return AlcP.map((AlcP) => {
+          return {name: AlcP, isChecked: false};
+        });
+      })
+    );
+  }
+
+
+
+
 
   
 
