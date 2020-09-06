@@ -36,10 +36,10 @@ console.log("fgaf"+window.location.href);
 
 console.log("Real Deal---"+window.location.href);
 
-console.log('Calcualted----http://'+window.location.hostname+':4200/comingsoon?a=');
+console.log('Calcualted----http://'+window.location.hostname+'/comingsoon?a=');
 
 
-    if(!(window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?a=' || window.location.href == 'http://'+window.location.hostname+':4200/comingsoon?a' || window.location.href == 'https://'+window.location.hostname+':4200/comingsoon?a=' || window.location.href == 'https://'+window.location.hostname+':4200/comingsoon?a'))
+    if(!(window.location.href == 'http://'+window.location.hostname+'/comingsoon?a=' || window.location.href == 'http://'+window.location.hostname+'/comingsoon?a' || window.location.href == 'https://'+window.location.hostname+'/comingsoon?a=' || window.location.href == 'https://'+window.location.hostname+'/comingsoon?a'))
     {
       this.isReady = false;
       this.isNotReady=true;
