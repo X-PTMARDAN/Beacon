@@ -355,13 +355,9 @@ public table=false;
               {
                 var g=abc.material +"-"+abc.sku + "-" + abc.fgid;
                 console.log("121---"+g);
-                if(abc.prime=="PRIMARY")
-                {
+              
                   this.drop.push(g);
-                }
-                else{
-                  console.log("DFdfdfdf-");
-                }
+               
                 
               }
 
