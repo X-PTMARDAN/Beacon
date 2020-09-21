@@ -1,21 +1,5 @@
 <script lang="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
-<script lang="javascript" src="dist/xlsx.full.min.js"></script>
-<script lang="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
 
-
-<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css"> 
-<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"> 
-<!--
-<link rel="stylesheet" href="../../../assets/css/ag-theme-alpine.css"> -->
-
-<!--
-<link rel="stylesheet" href="../../../../node_modules/ag-grid/dist/styles/ag-grid.css">
-<link rel="stylesheet" href="../../../../node_modules/ag-grid/dist/styles/ag-theme-balham.css">
--->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-
-
-<script src="https://unpkg.com/@ag-grid-enterprise/all-modules@23.2.0/dist/ag-grid-enterprise.min.js"></script>
 
 <div id="content">
  <div *ngIf="loading"
@@ -556,7 +540,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
             <div style="padding-top: 3px;"><h6 class="mt-3 font-weight-bold">UOM</h6>
 
 
-              <select class="form-control p-0 pr-1" #t5 name="plant" [(ngModel)]="UOM" (change)="updateTheTable()">
+              <select class="form-control p-0 pr-1" #t5 name="plant" [(ngModel)]="UOM" (change)="uom(t5.value)">
                 <option selected value="HL">HL</option>
                 <option value="L">L</option>
                 <option value="PC">PC</option>
@@ -592,7 +576,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
               <select class="form-control p-0 pr-1" #t1 name="plant" id="granular"  [disabled]="isEnabled_gran" [(ngModel)]="granular1"
-                      (change)="updateTheTable()">
+                      (change)="test1(t1.value)">
                 <option selected value="week">Weekly View</option>
                 <option value="month">Monthly View</option>
 
@@ -612,7 +596,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
           
               <select class="form-control p-0 pr-1" #t12 name="plant" id="granular234" [(ngModel)]="views"
-                      (change)="updateTheTable()">
+                      (change)="test12(t12.value)">
                 <option selected value="Aggregated">Aggregated</option>
                 <option value="Sku View">Forecasting Group View</option>
                 <option value="Detailed View">Detailed View</option>
@@ -949,11 +933,10 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
         >
     </ag-grid-angular> -->
 
-<!--yahan-->
+
         <ag-grid-angular
-        style=" height: 510px;overflow:scroll;padding-right: 2px; padding-left: 2px;"
+        style=" height: 510px;overflow:scroll;padding-right: 10px;"
         class="ag-theme-alpine"
-        id="ag0"
         [rowData]="rowData"
         *ngIf="first_ag"
         rowSelection="multiple"
@@ -979,12 +962,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
         [autoGroupColumnDef]="autoGroupColumnDef"
         [suppressDragLeaveHidesColumns]="false"
         (gridReady)="onGridReady($event)"
-        (firstDataRendered)="firstDataRendered($event)"
-        (modelUpdated)="firstDataRendered($event)"
-        (rowDataUpdated)="firstDataRendered($event)"
-        (newColumnsLoaded)="firstDataRendered($event)"
-        (displayedColumnsChanged)="firstDataRendered($event)"
-        (virtualColumnsChanged)="firstDataRendered($event)"
+
         >
     </ag-grid-angular>
 
@@ -995,9 +973,8 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
     <ag-grid-angular
-    style=" height: 510px;overflow:scroll;padding-right: 2px; padding-left: 2px"
+    style=" height: 510px;overflow:scroll;padding-right: 10px;"
     class="ag-theme-alpine"
-    id="ag1"
     [rowData]="rowData"
     *ngIf="fourth_ag"
     rowSelection="multiple"
@@ -1021,12 +998,7 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
     [autoGroupColumnDef]="autoGroupColumnDef"
     [suppressDragLeaveHidesColumns]="false"
     (gridReady)="onGridReady($event)"
-    (firstDataRendered) ="firstDataRendered($event)"
-    (modelUpdated)="firstDataRendered($event)"
-    (rowDataUpdated)="firstDataRendered($event)"
-    (newColumnsLoaded)="firstDataRendered($event)"
-    (displayedColumnsChanged)="firstDataRendered($event)"
-    (virtualColumnsChanged)="firstDataRendered($event)"
+
     >
 </ag-grid-angular>
 
@@ -1037,9 +1009,8 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
     <ag-grid-angular
-    style=" height: 750px;width:100%;overflow:scroll;padding-right: 2px; padding-left: 2px"
+    style=" height: 750px;width:100%;overflow:scroll;padding-right: 10px;"
     class="ag-theme-alpine"
-    id="ag2"
     [rowData]="rowData5"
     rowSelection="multiple"
     [columnDefs]="columnDefs5"
@@ -1056,12 +1027,8 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
     [enableRangeSelection]="true"
     [statusBar]="statusBar"
 
-    (firstDataRendered) ="firstDataRendered($event)"
-    (modelUpdated)="firstDataRendered($event)"
-    (rowDataUpdated)="firstDataRendered($event)"
-    (newColumnsLoaded)="firstDataRendered($event)"
-    (displayedColumnsChanged)="firstDataRendered($event)"
-    (virtualColumnsChanged)="firstDataRendered($event)"
+
+
     >
 </ag-grid-angular>
 
@@ -1092,9 +1059,8 @@ class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
 
 
 <ag-grid-angular
-style=" height: 750px;overflow:scroll;padding-right: 2px; padding-left: 2px"
+style=" height: 750px;overflow:scroll;padding-right: 10px;"
 class="ag-theme-alpine"
-id="ag3"
 [rowData]="rowData6"
 *ngIf="third_ag"
 rowSelection="multiple"
@@ -1120,12 +1086,7 @@ rowSelection="multiple"
 [autoGroupColumnDef]="autoGroupColumnDef"
 [suppressDragLeaveHidesColumns]="false"
 (gridReady)="onGridReady1($event)"
-(firstDataRendered) ="firstDataRendered($event)"
-(modelUpdated)="firstDataRendered($event)"
-(rowDataUpdated)="firstDataRendered($event)"
-(newColumnsLoaded)="firstDataRendered($event)"
-(displayedColumnsChanged)="firstDataRendered($event)"
-(virtualColumnsChanged)="firstDataRendered($event)"
+
 >
 </ag-grid-angular>
 
@@ -2698,3 +2659,15 @@ rowSelection="multiple"
     </div>
   </div>
 </div>
+
+<script lang="javascript" src="dist/xlsx.full.min.js"></script>
+<script lang="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"> 
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+
+<script src="https://unpkg.com/@ag-grid-enterprise/all-modules@23.2.0/dist/ag-grid-enterprise.min.js"></script>
