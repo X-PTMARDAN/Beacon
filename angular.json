@@ -35,7 +35,8 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/simplebar/dist/simplebar.min.js",
               "node_modules/xlsx/dist/xlsx.full.min.js",
-              "node_modules/lodash/lodash.min.js"
+              "node_modules/lodash/lodash.min.js",
+              "src/assets/js/hotjarfile.js"
             ]
           },
           "configurations": {
