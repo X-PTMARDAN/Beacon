@@ -14,7 +14,7 @@ a:focus, a:hover {
 #sidebar {
   position: fixed;
   width: 80px;
-  height: 100vh;
+  height: 135vh;  //to remove that glitch, changed from 100 to 135
   background-color: #5A5F66;
   color: white;
   z-index: 1;
