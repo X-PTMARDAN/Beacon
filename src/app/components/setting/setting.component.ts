@@ -85,7 +85,7 @@ public datafetch1;
   public horizon=false;
   ngOnInit() {
 
-
+    document.body.style.zoom = "75%";
     this.final_role=sessionStorage.getItem("role");
 
     console.log("TYTMANANANAAN"+this.role);
