@@ -300,6 +300,8 @@ public mappingdrop_1;
 public table=false;
   //table
   ngOnInit() {
+    
+    document.body.style.zoom = "75%";
 
     this.columnDefs3=[
       {headerName: 'From ID',field: 'fromid', sortable: true, filter: true,width:260   },
