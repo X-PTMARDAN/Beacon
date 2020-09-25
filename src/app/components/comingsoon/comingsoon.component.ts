@@ -27,7 +27,7 @@ export class ComingsoonComponent implements OnInit {
 
   ngOnInit() {
     
-
+    document.body.style.zoom = "75%";
 console.log("fgaf"+window.location.href);
 
    
