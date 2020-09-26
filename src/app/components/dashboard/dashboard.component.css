@@ -45,7 +45,7 @@ td, th {
   left: 80px;
   width: 200px;
   position: fixed;
-  overflow: auto;
+  overflow: hidden;
   z-index: 1;
 }
 
