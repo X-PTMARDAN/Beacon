@@ -1,0 +1,472 @@
+/* Sidebar Styling */
+a:focus, a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+/* Content  Styling*/
+#content {
+  min-height: 100vh;
+  background-color: #E5E6EA;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  
+}
+
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar {
+  width: 10px !important;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+
+.filter-col {
+  background-color: #F4F5F9;
+  height: 100vh;
+  left: 80px;
+  width: 200px;
+  position: fixed;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.content-col {
+  margin: 0 200px; 
+}
+
+.canvasjs-chart-toolbar {
+  margin-top: -40px !important;
+}
+
+
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+
+.events-col {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0px;
+  width: 200px;
+  z-index: 1;
+}
+
+.filter-col .data-action {
+  color: white;
+  padding-top: 1px;
+  background-color: #5A5F66;
+  border-radius: 100%;
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.text-muted {
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.filter-col .panel .panel-title {
+  font-size: 0.75rem;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.filter-col .panel {
+
+  min-height: 32px;
+  width: 94%;
+  border: 0;
+  margin-bottom: 6px;
+}
+h6{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500 !important;
+}
+
+.filter-col .panel a {
+  color: #33373C;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.filter-col .panel a:hover {
+  text-decoration: none;
+}
+
+.filter-col .panel .panel-body {
+  background-color: white;
+}
+
+
+
+.filter-col .panel .panel-heading {
+  background-color: white;
+  padding : 5px;
+}
+
+
+.filter-col .panel .panel-body ul {
+  list-style: none;
+  font-size: 0.75rem;
+  
+  
+ 
+  padding: 5px 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Events Holidays Promo container */
+.events-container {
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  height: 100%;
+  
+}
+.ag-cell {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.ag-row{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.ag-theme-alpine
+{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.events-container .block {
+  background-color: #F4F5F9;
+  font-size: 14px;
+}
+
+/* .events-container div {
+  margin-top: 2px; 
+} */
+
+/* Modal Styling */
+.modal-footer {
+  display: none;
+}
+
+.select-options-modal .modal-header {
+  border: none;
+}
+
+#selectOptionsModal .modal-dialog {
+  max-width: 80vw;
+}
+
+#selectOptionsModal .modal-dialog .modal-content {
+  min-height: 90vh;
+}
+
+/* Table Styling */
+.fix-width {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-footer-col table,
+.table-header-col table {
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+  max-width: none;
+}
+
+.content-col .panel .table {
+  width: 100%;
+  margin-bottom: 0;
+  max-width: none;
+  table-layout: fixed;
+}
+
+
+.table-inputbox {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  text-align: center;
+}
+
+.colored-table-inputbox {
+  background-color: #F2F2F2;
+}
+
+.table-header-col th,
+.table-footer-col th {
+  border: none;
+  padding: 0.60rem !important;
+  font-weight: 500;
+  font-size: 0.7rem;
+}
+
+.table-footer-col th {
+  text-align: center;
+}
+
+.table-content-col .panel .table th {
+  border: none;
+  width: 70px;
+  text-align: center;
+  padding: 0.60rem !important;
+  font-weight: 500;
+  font-size: 0.6rem;
+}
+
+.table-content-col .panel .table td {
+  width: 70px;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.data-strip {
+  position: absolute;
+  width: 88%;
+  top: 67.1%;
+  background: #fff;
+  right: 14px;
+  height: 24px;
+}
+
+.data-strip ul {
+  list-style: none;
+  padding: 0;
+  font-size: 10px;
+  color: #666;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.year {
+  background-color: lightgrey;
+ 
+  border: 15px solid black;
+ 
+}
+
+
+.vl
+{
+  margin-left: 25px !important;
+ 
+}
+
+
+/* Always display the drop down caret */
+
+input[type="week"]::-webkit-calendar-picker-indicator {
+  color: #000;
+}
+
+.circle-icon {
+  background: #0fc49d;
+  padding:8px;
+  border-radius: 50%;
+}
+
+
+
+.circle-icon1 {
+  background: #1C2025;
+  padding:8px;
+  border-radius: 50%;
+}
+
+
+.li1{
+  margin-top: 10px;
+}
+
+.l12
+{
+  margin-top: 8px !important;
+  background-color: #fff !important;
+  padding: 6px !important;
+}
+
+.circle-icon2 {
+  background: #D5DBE2;
+  padding:4px;
+  border-radius: 50%;
+}
+
+
+
+
+input[type="week"] {
+  -webkit-appearance: none;
+
+
+
+
+  font-size: 0.75rem;
+
+
+  line-height: 1.5;
+  color: #000;
+  background:#fff;
+
+
+    font-family: "Helvetica", arial, sans-serif;
+
+    border-radius: 6px;
+ 
+    border:1px solid #ecf0f1;
+    background:#fff;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+
+ 
+}
+
+
+
+td {
+  background-color: white;
+}
+
+.colored-td {
+  background-color: #F2F2F2;
+}
+
+.header-text {
+  color: #81878E;
+}
+
+.actual-text {
+  color: #C0504E;
+}
+
+.ml-text {
+  color: #ADD8E6;
+}
+
+.aop-text {
+  color: #6499F2;
+}
+
+.table-footer-col {
+  min-width: 80px;
+}
+
+.table-header-col {
+  min-width: 100px;
+}
+
+.table-content-col {
+  width: calc(100% - 180px);
+}
+
+
+/* Load and Save Filter Modal Styling */
+
+.filter-item {
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+}
+
+.filter-item:hover {
+  border-color: #0AC39B;
+}
+
+.selected {
+  border-color: #27AE60;
+}
+
+.highlight {
+  padding: 1px;
+  background-color: #34495E;
+  border-radius: 3px;
+
+color:#fff;
+ 
+}
+
+select.form-control {
+  /* height: calc(1.5em + 0.2em); */
+  background: #fff;
+
+  
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 7px;
+
+  font-weight: 700!important;
+    font-size: 0.75rem;
+}
+
+
+
+
+
+.flex-container {
+  display: flex;
+  /* background-color: DodgerBlue; */
+}
+
+.flex-container > div {
+  height: 20px;
+  background-color: #bec1c1;
+  border: 2px solid black;
+  
+  
+}
+
