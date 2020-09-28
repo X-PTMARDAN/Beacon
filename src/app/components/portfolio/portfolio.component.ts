@@ -146,15 +146,15 @@ public val_selected=0;
 
 
 columnDefs = [
-  {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:100   },
-  {headerName: 'Forecasting group Name',field: 'forecastinggroup' , sortable: true, filter: true,width:300  },
-  {headerName: 'Material',field: 'material', sortable: true, filter: true,width:100},
-  {headerName: 'Material Name',field: 'sku', sortable: true, filter: true,width:370},
-  {headerName: 'Primary',field: 'prime', sortable: true, filter: true,width:160},
-  {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:150},
-  {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:100},
-  {headerName: 'Week Last Seen',field: 'maximum', sortable: true, filter: true,width:100},
-  { headerName: ' ', field: 'btn', width:200,
+  {headerName: 'FGID',field: 'fgid', sortable: true, filter: true,width:100,resizable:true   },
+  {headerName: 'Forecasting group Name',field: 'forecastinggroup' , sortable: true, filter: true,width:300,resizable:true   },
+  {headerName: 'Material',field: 'material', sortable: true, filter: true,width:130,resizable:true },
+  {headerName: 'Material Name',field: 'sku', sortable: true, filter: true,width:370,resizable:true },
+  {headerName: 'Primary',field: 'prime', sortable: true, filter: true,width:160,resizable:true },
+  {headerName: 'Segment',field: 'animal_FLAG2', sortable: true, filter: true,width:150,resizable:true },
+  {headerName: 'Week First Seen',field: 'minimum', sortable: true, filter: true,width:145,resizable:true },
+  {headerName: 'Week Last Seen',field: 'maximum', sortable: true, filter: true,width:145,resizable:true },
+  { headerName: ' ', field: 'btn', width:120,
   cellRenderer: function(params) {
        return '<p>Edit Segment</p>'
   } }
