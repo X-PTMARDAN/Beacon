@@ -917,9 +917,7 @@
           [undoRedoCellEditing]="true" [suppressRowClickSelection]="true" [suppressLastEmptyLineOnPaste]="true"
           *ngIf="second_ag" [rowGroupPanelShow]="rowGroupPanelShow" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [enableRangeSelection]="true" [statusBar]="statusBar"
-          (firstDataRendered)="firstDataRendered($event)" (modelUpdated)="firstDataRendered($event)"
-          (rowDataUpdated)="firstDataRendered($event)" (newColumnsLoaded)="firstDataRendered($event)"
-          (displayedColumnsChanged)="firstDataRendered($event)" (virtualColumnsChanged)="firstDataRendered($event)">
+        >
         </ag-grid-angular>
 
 
@@ -958,10 +956,7 @@
           [autoGroupColumnDef]="autoGroupColumnDef" [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId"
           [rowGroupPanelShow]="always" [enableRangeSelection]="true" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [suppressDragLeaveHidesColumns]="false"
-          (gridReady)="onGridReady1($event)" (firstDataRendered)="firstDataRendered($event)"
-          (modelUpdated)="firstDataRendered($event)" (rowDataUpdated)="firstDataRendered($event)"
-          (newColumnsLoaded)="firstDataRendered($event)" (displayedColumnsChanged)="firstDataRendered($event)"
-          (virtualColumnsChanged)="firstDataRendered($event)">
+          (gridReady)="onGridReady1($event)">
         </ag-grid-angular>
 
 
