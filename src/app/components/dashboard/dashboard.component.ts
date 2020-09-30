@@ -10514,6 +10514,22 @@ rowData3 = [
         else {
             window.alert("Something went wrong. Please try again - aggregated");
         }
+
+        //here
+        var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
+        for (var i = 0; i < threebars.length; i++) {
+        threebars[i].style.display = 'none';
+        }
+        var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
+        for (var i = 0; i < headercells.length; i++) {
+        headercells[i].style.paddingLeft = '0px';
+        headercells[i].style.paddingRight = '0px';
+        }
+        var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
+        for (var i = 0; i < agcells.length; i++) {
+        agcells[i].style.paddingLeft = '0px';
+        agcells[i].style.paddingRight = '0px';
+        }
     }
 
     else if (this.views == "Sku View") {
@@ -15295,22 +15311,6 @@ rowData3 = [
 
     else {
         window.alert("Something went wrong. Please try again");
-    }
-
-    //here
-    var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
-    for (var i = 0; i < threebars.length; i++) {
-      threebars[i].style.display = 'none';
-    }
-    var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
-    for (var i = 0; i < headercells.length; i++) {
-      headercells[i].style.paddingLeft = '0px';
-      headercells[i].style.paddingRight = '0px';
-    }
-    var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
-    for (var i = 0; i < agcells.length; i++) {
-      agcells[i].style.paddingLeft = '0px';
-      agcells[i].style.paddingRight = '0px';
     }
 
 }
