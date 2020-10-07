@@ -1,4 +1,4 @@
-/* Sidebar Styling */ 
+/* Sidebar Styling */
 a:focus, a:hover {
   text-decoration: none;
   color: white;
@@ -41,7 +41,7 @@ td, th {
 
 .filter-col {
   background-color: #F4F5F9;
-  height: 135vh;
+  height: 100vh;
   left: 80px;
   width: 200px;
   position: fixed;
@@ -469,3 +469,4 @@ select.form-control {
   
   
 }
+
