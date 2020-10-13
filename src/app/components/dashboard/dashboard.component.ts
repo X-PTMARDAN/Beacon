@@ -508,7 +508,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     ngOnInit() {
 
-        //document.body.style.zoom = "75% !important";
+        document.body.style.zoom = "75% !important";
 
 
         this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
