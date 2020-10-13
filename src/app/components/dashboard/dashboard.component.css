@@ -1,4 +1,4 @@
-/* Sidebar Styling */
+/* Sidebar Styling */ 
 a:focus, a:hover {
   text-decoration: none;
   color: white;
@@ -56,8 +56,6 @@ td, th {
 .canvasjs-chart-toolbar {
   margin-top: -40px !important;
 }
-
-
 
 
 .tooltip {
@@ -469,4 +467,3 @@ select.form-control {
   
   
 }
-

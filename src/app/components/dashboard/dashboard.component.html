@@ -434,7 +434,8 @@
             <div style="font-size: 21px;margin-left: 5px;">
               <i style="color: #fff;padding-top: 8px;margin-top: 25px;" class="fa fa-save fa-8x circle-icon"
                 data-toggle="modal" data-target="#saveAPlansModal"></i>
-              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    font-size: 13px !important;">Save<br>Plan</h6>
+              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    font-size: 13px !important;">
+                Save<br>Plan</h6>
 
             </div>
             <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
@@ -458,9 +459,10 @@
               <!-- <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:6px;font-weight: 700!important">Load Week</p> -->
 
               <div style="margin-top: 20px !important;">
-                <h6 class="mt-3" style="margin-right: 10px; margin-top: 20px !important; width:max-content;">Load Week</h6> 
+                <h6 class="mt-3" style="margin-right: 10px; margin-top: 20px !important; width:max-content;">Load Week
+                </h6>
                 <p style="    margin-top: 12px;color: #000;font-size: 0.70rem;padding-left: 4px;">
-                  - 40 - 2020 </p>  
+                  - 38 - 2020 </p>
               </div>
 
 
@@ -501,8 +503,7 @@
                      font-size: 1.55rem;
                       color: #000;
                       font-family: 'Montserrat', sans-serif !important;
-                      border: 0.5px #ecf0f1;"><i class="fa fa-calendar "
-                      aria-hidden="true"></i><span style="font-size: 15px;
+                      border: 0.5px #ecf0f1;"><i class="fa fa-calendar " aria-hidden="true"></i><span style="font-size: 15px;
                       margin-left: 8px;">2020</span>
               </p>
 
@@ -512,7 +513,8 @@
             padding-top: 8px; 
             margin-top: 47px;
             
-            margin-bottom: 20px;" id="arrow" class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="test1('year')"></i>
+            margin-bottom: 20px;" id="arrow" class="fa fa-long-arrow-right circle-icon2 fa-lg"
+              (click)="test1('year')"></i>
             &nbsp;&nbsp;&nbsp;
             <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
             <div style="margin-right: 20px;">
@@ -880,7 +882,7 @@
           (pasteStart)="onPasteStart($event)" (pasteEnd)="onPasteEnd($event)" [autoGroupColumnDef]="autoGroupColumnDef"
           [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId" [rowGroupPanelShow]="always"
           [enableRangeSelection]="true" [statusBar]="statusBar" [autoGroupColumnDef]="autoGroupColumnDef"
-          [suppressDragLeaveHidesColumns]="false" (gridReady)="onGridReady($event)"
+          [suppressDragLeaveHidesColumns]="false" (gridReady)="onGridReady($event)" 
           (firstDataRendered)="firstDataRendered($event)" (modelUpdated)="firstDataRendered($event)"
           (rowDataUpdated)="firstDataRendered($event)" (newColumnsLoaded)="firstDataRendered($event)"
           (displayedColumnsChanged)="firstDataRendered($event)" (virtualColumnsChanged)="firstDataRendered($event)">
@@ -900,7 +902,7 @@
           (pasteStart)="onPasteStart($event)" (pasteEnd)="onPasteEnd($event)" [autoGroupColumnDef]="autoGroupColumnDef"
           [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId" [rowGroupPanelShow]="always"
           [enableRangeSelection]="true" [statusBar]="statusBar" [autoGroupColumnDef]="autoGroupColumnDef"
-          [suppressDragLeaveHidesColumns]="false" (gridReady)="onGridReady($event)"
+          [suppressDragLeaveHidesColumns]="false" (gridReady)="onGridReady($event)" 
           (firstDataRendered)="firstDataRendered($event)" (modelUpdated)="firstDataRendered($event)"
           (rowDataUpdated)="firstDataRendered($event)" (newColumnsLoaded)="firstDataRendered($event)"
           (displayedColumnsChanged)="firstDataRendered($event)" (virtualColumnsChanged)="firstDataRendered($event)">
@@ -956,7 +958,7 @@
           [autoGroupColumnDef]="autoGroupColumnDef" [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId"
           [rowGroupPanelShow]="always" [enableRangeSelection]="true" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [suppressDragLeaveHidesColumns]="false"
-          (gridReady)="onGridReady1($event)">
+          (gridReady)="onGridReady1($event)" >
         </ag-grid-angular>
 
 
