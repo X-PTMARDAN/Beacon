@@ -888,5 +888,10 @@ export class SKUService {
   public editComment(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}editcomment`, data);
   }
+  
+    //dumdum
+  public getSomeMaterialDetails(material: number) {
+    return this.http.get(`${this.apiGatewayUrl}getsomematerialdetails/${material}`);
+  }
 
 }
