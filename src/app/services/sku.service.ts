@@ -893,5 +893,11 @@ export class SKUService {
   public getSomeMaterialDetails(material: number) {
     return this.http.get(`${this.apiGatewayUrl}getsomematerialdetails/${material}`);
   }
+  
+    //sparks
+  //dummy post request for testing
+  public getSomeYoyos(data = {}) {
+    return this.http.post(`${this.apiGatewayUrl}yoyoyo`, data);
+  }
 
 }
