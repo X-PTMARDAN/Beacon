@@ -451,7 +451,7 @@
 
             <div style="padding-top: 3px;">
               <h6 class="mt-3 font-weight-bold">Actuals</h6>
-              <input type="week" value="2019-W38" style="width:150px;" max="2020-W18" min="2017-W10" id="prevactuals"
+              <input type="week" value="2019-W38" style="width:150px;" id="prevactuals"
                 [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals">
             </div>
             &nbsp;&nbsp;
@@ -472,7 +472,7 @@
             &nbsp;&nbsp;
             <div style="padding-top: 3px;">
               <h6 class="mt-3 font-weight-bold">Plan</h6>
-              <input type="week" id="endWeek" min="2020-W19" max="2021-W23" name="endWeek" [(ngModel)]="endWeek"
+              <input type="week" id="endWeek" name="endWeek" [(ngModel)]="endWeek"
                 (change)="color_change()" required>
             </div>
 
