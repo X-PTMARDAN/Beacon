@@ -34,7 +34,7 @@
                    ngModel #username required>
           </div>
           <div>
-            <button type="button" [disabled]="!loginForm.valid" class="btn btn-light" [class.disabled]="!loginForm.valid" (click)="login(loginForm.value)">Login</button>
+            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-light" [class.disabled]="!loginForm.valid" (click)="login(loginForm.value)">Login</button>
             <a href="javascript:void(0);" class="text-white ml-2">Forgot password?</a>
           </div>
         </form>
