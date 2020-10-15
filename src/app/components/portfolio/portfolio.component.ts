@@ -148,14 +148,14 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   columnDefs = [
     { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 100 },
     { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 300 },
-    { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 150 },  //shud be 100
+    { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 160 },  //shud be 100
     { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 370 },
     { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 160 },
     { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150 },
     { headerName: 'Week First Seen', field: 'minimum', sortable: true, filter: true, width: 100 },
     { headerName: 'Week Last Seen', field: 'maximum', sortable: true, filter: true, width: 100 },
     {
-      headerName: ' ', field: 'btn', width: 200,  //shud be 100
+      headerName: ' ', field: 'btn', width: 140,  //shud be 100
       cellRenderer: function (params) {
         return '<p>Edit Segment</p>'
       }
@@ -165,7 +165,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       cellRenderer: function (params) {
         return '<p>PIPO Details</p>'
       }
-    } */
+    } 
+    */
   ];
 
 
@@ -300,10 +301,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
 
-  //dumdum
-  public gotten_material_details;
-
-
 
   public table = false;
   //table
@@ -312,13 +309,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     document.body.style.zoom = "75%";
 
     this.columnDefs3 = [
-      { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 260 },
-      { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 260 },
-      { headerName: 'State', field: 'state', sortable: true, filter: true, width: 260 },
-      { headerName: 'From Week', field: 'fromweek', sortable: true, filter: true, width: 260 },
-      { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 260 },
-      { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 150 },
-      { headerName: 'Date', field: 'date', sortable: true, filter: true, width: 110 },
+      { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
+      { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
+      { headerName: 'State', field: 'state', sortable: true, filter: true, width: 200 },  //260
+      { headerName: 'From Week', field: 'fromweek', sortable: true, filter: true, width: 190 },  //260
+      { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 190 },  //260
+      { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 150 },  //150
+      { headerName: 'Date', field: 'date', sortable: true, filter: true, width: 110 },  //110
       {
         headerName: 'Edit', field: 'notes', width: 260,
         cellRenderer: function (params) {
@@ -381,6 +378,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.pipoMapping = response;
     });
 
+    //window.alert("uiui   " + JSON.stringify(this.pipoMapping));
+
 
     this.skuService.getmaxweek().subscribe((response: any) => {
       this.maxweek = response;
@@ -402,9 +401,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.mappingdrop_1 = response;
       //  this.fg_len=this.mappingdrop.length; 
     });
-
-
-
 
   }
 
@@ -431,6 +427,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   */
 
   //dumdum
+  public gotten_material_details;
   public g_m_d;
   public thematerialid;
   public thefgname;
@@ -478,7 +475,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.loading = true;
 
     this.skuService.getSomeMaterialDetails(this.thematerialid).subscribe((response: any) => {
-      this.gotten_material_details = response;
+      this.gotten_material_details = JSON.stringify(response);
       window.alert(this.gotten_material_details);
       /*
       this.gotten_material_details = String(response);
