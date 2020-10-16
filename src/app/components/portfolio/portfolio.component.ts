@@ -306,7 +306,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   //table
   ngOnInit() {
 
-    document.body.style.zoom = "75%";
+    //document.body.style.zoom = "75%";
 
     this.columnDefs3 = [
       { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
@@ -378,6 +378,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.pipoMapping = response;
     });
 
+
     //window.alert("uiui   " + JSON.stringify(this.pipoMapping));
 
 
@@ -399,7 +400,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.skuService.getanimal().subscribe((response: any) => {
 
       this.mappingdrop_1 = response;
-      //  this.fg_len=this.mappingdrop.length; 
+      //  this.fg_len=this.mappingdrop.length;1
     });
 
   }
@@ -428,13 +429,16 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   //dumdum
   public gotten_material_details;
-  public g_m_d;
   public thematerialid;
   public thefgname;
   public thematerialname;
   public thesegment;
   public thesince;
-  //get the below from request
+  public thefgid;
+  public fromid;
+  public toid;
+  public fromweek=0;
+  //get the below from request 
   public thebrand;
   public theown3pp;
   public theprimaryunit;
@@ -454,7 +458,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.edit_1(params.data.fgid, params.data.material);
     }
     if (params.colDef.field == "btn2") {
-      this.displayPIPODetails(params.data.material, params.data.forecastinggroup, params.data.sku, params.data.animal_FLAG2, params.data.minimum);
+      this.displayPIPODetails(params.data.fgid, params.data.material, params.data.forecastinggroup, params.data.sku, params.data.animal_FLAG2, params.data.minimum);
     }
     // this.schedule_1(params.data.fromid,params.data.toid,params.data.state);
   }
@@ -465,7 +469,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.myModal4_1.nativeElement.click();
   }
 
-  public displayPIPODetails(materialid, fgname, materialname, segment, since) {
+  public displayPIPODetails(fgid, materialid, fgname, materialname, segment, since) {
     this.thematerialid = materialid;
     this.thefgname = fgname;
     this.thematerialname = materialname;
@@ -475,25 +479,33 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.loading = true;
 
     this.skuService.getSomeMaterialDetails(this.thematerialid).subscribe((response: any) => {
-      this.gotten_material_details = JSON.stringify(response);
-      window.alert(this.gotten_material_details);
-      /*
-      this.gotten_material_details = String(response);
-      this.g_m_d = this.gotten_material_details.split(",");
-      this.thebrand = this.g_m_d[0];
-      this.theown3pp = this.g_m_d[1];
-      this.theprimaryunit = this.g_m_d[2];
-      this.theabv = this.g_m_d[3];
-      this.thesubbrand = this.g_m_d[4];
-      this.theglobalcategory = this.g_m_d[5];
-      this.thepacksize = this.g_m_d[6];
-      this.thematerialgroup = this.g_m_d[7];
-      this.thelocalcategory = this.g_m_d[8];
-      this.thepacktype = this.g_m_d[9];
-  
-      this.myModal4_pipodetails.nativeElement.click();
-      */
+      this.gotten_material_details = response[0];
+      this.thebrand = this.gotten_material_details.a;
+      this.theown3pp = this.gotten_material_details.b;
+      this.theprimaryunit = this.gotten_material_details.c;
+      this.theabv = this.gotten_material_details.d;
+      this.thesubbrand = this.gotten_material_details.e;
+      this.theglobalcategory = this.gotten_material_details.f;
+      this.thepacksize = this.gotten_material_details.g;
+      this.thematerialgroup = this.gotten_material_details.h;
+      this.thelocalcategory = this.gotten_material_details.i;
+      this.thepacktype = this.gotten_material_details.j;
     })
+    var count=0;
+    window.alert(JSON.stringify(this.pipoMapping));
+    for (var key in this.pipoMapping) {
+      if (this.pipoMapping.hasOwnProperty(key)) {
+        if (this.thefgid == this.pipoMapping[key].fgid) {
+          if (this.pipoMapping[key].fromweek > this.fromweek) {
+            this.fromid = this.pipoMapping[key].fromid;
+            this.toid = this.pipoMapping[key].toid;
+          }
+        }
+      }
+    }
+    //ab hamare paas fromid aur toid hain to call that schedule_1 function ka service call.
+    //however, ye fromid aur toid id+name hain inko regex se sahi karna hai
+    this.myModal4_pipodetails.nativeElement.click();
     this.loading = false;
 
   }
@@ -827,8 +839,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.second_type = false;
       this.od = 1;
       document.getElementById('harshit').style.backgroundColor = '#fff';
-
-
     }
     else {
 
@@ -836,7 +846,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.second_type = true;
       this.od = 0;
       document.getElementById('harshit').style.backgroundColor = '#f1f1f1';
-
     }
   }
 
@@ -1026,7 +1035,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
   }
-
 
   public from_date_table() {
     if (this.val_selected == 4) {
@@ -1252,6 +1260,9 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       }
 
 
+    }
+    if (this.second_type == true && this.from_date != null && this.from_date != "" && this.from_date != " ") {
+      this.date_table = true;
     }
   }
 
