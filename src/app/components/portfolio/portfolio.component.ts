@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { ViewService } from '../../services/view.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { AgGridAngular } from 'ag-grid-angular';
+//import { timeStamp } from 'console';
+//import { timeStamp } from 'console';
 
 enum STEPS {
   'SELECT_OPTION' = 1,
@@ -150,7 +152,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 300 },
     { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 160 },  //shud be 100
     { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 370 },
-    { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 160 },
+    { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 150 },
     { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150 },
     { headerName: 'Week First Seen', field: 'minimum', sortable: true, filter: true, width: 100 },
     { headerName: 'Week Last Seen', field: 'maximum', sortable: true, filter: true, width: 100 },
@@ -161,11 +163,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       }
     }, /*
     {
-      headerName: ' ', field: 'btn2', width: 100,
+      headerName: ' ', field: 'btn2', width: 110,
       cellRenderer: function (params) {
         return '<p>PIPO Details</p>'
       }
-    } 
+    },  
     */
   ];
 
@@ -312,14 +314,20 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
       { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
       { headerName: 'State', field: 'state', sortable: true, filter: true, width: 200 },  //260
-      { headerName: 'From Week', field: 'fromweek', sortable: true, filter: true, width: 190 },  //260
-      { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 190 },  //260
-      { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 150 },  //150
+      { headerName: 'From Week', field: 'fromweek', sortable: true, filter: true, width: 150 },  //260
+      { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 170 },  //260
+      { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 140 },  //150
       { headerName: 'Date', field: 'date', sortable: true, filter: true, width: 110 },  //110
       {
-        headerName: 'Edit', field: 'notes', width: 260,
+        headerName: 'Edit', field: 'notes', width: 50,
         cellRenderer: function (params) {
           return '<i class="fa fa-pencil" ></i>'
+        }
+      },
+      {
+        headerName: 'Delete', field: 'deleteit', width: 50,
+        cellRenderer: function (params) {
+          return '<i class="fa fa-trash" ></i>'
         }
       }
     ];
@@ -375,7 +383,36 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
     this.skuService.getPIPOMapping().subscribe((response: any) => {
-      this.pipoMapping = response;
+      //this.pipoMapping = response;
+      
+      this.pipoMapping = [];
+      var fromids = [];
+      var toids = [];
+      var fmweeks = [];
+      var count=0;
+      var flag;
+      for (var key in response) {
+        console.log("key: " + key);
+        flag = 0;
+        if (response.hasOwnProperty(key)) {
+          var fid = response[key].fromid;
+          var tid = response[key].toid;
+          var wk = response[key].fromweek;
+          for (count=0; count<fromids.length; count++) {
+            if (fid == toids[count] && tid == fromids[count] && wk == fmweeks[count]) {
+              console.log("found one: " + fid + " ||| " + tid + " ||| " + wk)
+              flag = 1;
+            }
+          }
+          if (flag == 0) {
+            fromids.push(fid);
+            toids.push(tid);
+            fmweeks.push(wk);
+            this.pipoMapping.push(response[key]);
+          }
+        }
+      }
+      
     });
 
 
@@ -411,21 +448,77 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     if (params.colDef.field == "notes") {
       this.schedule_1(params.data.fromid, params.data.toid, params.data.state);
     }
+    if (params.colDef.field == "deleteit") {
+      if (confirm("Are you sure you want to delete this PIPO rule?")) {
+        this.reversepipo(params.data.fromid, params.data.toid, params.data.state, params.data.fgid);
+      }
+    }
+  }
+
+  public dates2;
+  public frweek;
+
+  public reversepipo(tpfromid, tptoid, pstate, pfgid) {
+
+    var pfromid = tpfromid.split(" - ")[0]; //reversing
+    var ptoid = tptoid.split(" - ")[0]; //reversing
+    
+    var abc = {
+      from: pfromid,
+      to: ptoid
+    }
+
+    this.dates2 = [];
+    var count=0;
+
+    this.skuService.getschedule_value(abc).subscribe((response2: any) => {
+      for (var key in response2) {
+        if (response2.hasOwnProperty(key)) {
+          count = count + 1;
+          var val = response2[key];
+          var a = {
+            week: val.fromweek,
+            one: val.one,
+            two: val.two,
+            fromid: val.toid,
+            toid: val.fromid
+          };
+          this.dates2.push(a);
+          if (count == 1) {
+            this.frweek = val.fromweek;
+          }
+        }
+      }
+
+      var data = {
+        fromid: ptoid,
+        toid: pfromid,
+        state: pstate,
+        fromweek: this.frweek,
+        fgid: pfgid
+      };
+
+      this.skuService.savePIPOvalue(this.dates2).subscribe((response2: any) => { 
+  
+        this.skuService.savePIPOsku(data).subscribe((res: any) => {
+          this.loading = false;
+          window.alert("Delete PIPO rule request successfully added to queue!");          
+        }, (error) => {
+  
+          var d = new Date();
+          var n = d.getTime();
+          
+          window.alert("Delete PIPO rule request successfully added to queue!");
+          this.loading = false;
+        });
+      }); 
+    });
 
   }
 
-  /*
-  //sparks
-  public yoyo;
-  public getSomeYoyos() {
-
-    this.skuService.getSomeYoyos().subscribe((response: String) => {
-      this.yoyo = response;
-      window.alert(this.yoyo);
-    })
-
+  public revpq() {
+    window.alert(JSON.stringify(this.dates));
   }
-  */
 
   //dumdum
   public gotten_material_details;
@@ -435,6 +528,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public thesegment;
   public thesince;
   public thefgid;
+  public fromFull;
+  public toFull;
   public fromid;
   public toid;
   public fromweek=0;
@@ -458,6 +553,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.edit_1(params.data.fgid, params.data.material);
     }
     if (params.colDef.field == "btn2") {
+      this.clearPIPOdetails();
       this.displayPIPODetails(params.data.fgid, params.data.material, params.data.forecastinggroup, params.data.sku, params.data.animal_FLAG2, params.data.minimum);
     }
     // this.schedule_1(params.data.fromid,params.data.toid,params.data.state);
@@ -469,14 +565,40 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.myModal4_1.nativeElement.click();
   }
 
+  public clearPIPOdetails() {
+    this.thematerialid = null;
+    this.thefgname = null;
+    this.thematerialname = null;
+    this.thesegment = null;
+    this.thesince = null;
+    this.thefgid = null;
+    this.thebrand = null;
+    this.theown3pp = null;
+    this.theprimaryunit = null;
+    this.theabv = null;
+    this.thesubbrand = null;
+    this.theglobalcategory = null;
+    this.thepacksize = null;
+    this.thematerialgroup = null;
+    this.thelocalcategory = null;
+    this.thepacktype = null;
+    this.fromid = null;
+    this.toid = null;
+    this.fromname = null;
+    this.toname = null;
+    this.fromwls = null;
+    this.towls = null;
+  }
+
   public displayPIPODetails(fgid, materialid, fgname, materialname, segment, since) {
     this.thematerialid = materialid;
     this.thefgname = fgname;
     this.thematerialname = materialname;
     this.thesegment = segment;
     this.thesince = since;
-
+    this.thefgid = fgid;
     this.loading = true;
+    
 
     this.skuService.getSomeMaterialDetails(this.thematerialid).subscribe((response: any) => {
       this.gotten_material_details = response[0];
@@ -492,23 +614,43 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.thepacktype = this.gotten_material_details.j;
     })
     var count=0;
-    window.alert(JSON.stringify(this.pipoMapping));
     for (var key in this.pipoMapping) {
-      if (this.pipoMapping.hasOwnProperty(key)) {
-        if (this.thefgid == this.pipoMapping[key].fgid) {
-          if (this.pipoMapping[key].fromweek > this.fromweek) {
-            this.fromid = this.pipoMapping[key].fromid;
-            this.toid = this.pipoMapping[key].toid;
-          }
+      if (this.thefgid == this.pipoMapping[key].fgid) {
+        if (this.pipoMapping[key].fromweek > this.fromweek) {
+          this.fromFull = this.pipoMapping[key].fromid;
+          this.toFull = this.pipoMapping[key].toid;
         }
       }
     }
-    //ab hamare paas fromid aur toid hain to call that schedule_1 function ka service call.
-    //however, ye fromid aur toid id+name hain inko regex se sahi karna hai
+    this.fromid = this.fromFull.split(" - ")[0];
+    this.toid = this.toFull.split(" - ")[0];
+    this.fromname = this.fromFull.split(" - ")[1];
+    this.toname = this.toFull.split(" - ")[1];
+    
+    var ids = {
+      from: this.fromid,
+      to: this.toid
+    }
+
+    this.skuService.getschedule_value(ids).subscribe((response2: any) => {
+      this.ssssss = response2;
+      window.alert(JSON.stringify(this.ssssss));
+      for (var key in this.ssssss) {
+        this.fromwls = this.ssssss[key].fromweek;
+      }
+      this.towls = 202208;
+    });
+    
     this.myModal4_pipodetails.nativeElement.click();
     this.loading = false;
 
   }
+
+  public ssssss;
+  public fromname;
+  public toname;
+  public fromwls;
+  public towls;
 
   public sortComments1(keyIndex: number) {
     this.pipo = this.pipo.sort((a, b) => {
@@ -1295,6 +1437,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.gridColumnApi = params.columnApi;
 
   }
+
   public apply() {
 
     this.loading = true;
@@ -1377,7 +1520,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     };
 
     console.log("CHEK000--" + JSON.stringify(data));
-
+    
     
     //this.myModal_gant.nativeElement.click();
     this.skuService.savePIPOvalue(this.dates).subscribe((response2: any) => {
@@ -1388,7 +1531,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         //this.editCommentModalBtnCancel.nativeElement.click();
         this.loading = false;
         window.alert("Save PIPO rule request successfully added to queue!");
-        window.location.reload();
         /*
         this.skuService.getPIPO().subscribe((response1: any) => {
           this.pipo = response1;
@@ -1434,7 +1576,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         var n = d.getTime();
         
         window.alert("Save PIPO rule request successfully added to queue!");
-        window.location.reload();
         this.loading = false;
         /*
         console.log("Check--------");
@@ -1483,7 +1624,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       //window.alert("Done!");
     });
     
-
     // this.skuService.savePIPOsku(data).subscribe((response: any) => {  
     //   this.fromsku='';
     //   this.tosku='';
@@ -1522,6 +1662,19 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.table = false;
     this.phase = true;
   }
+
+  /*
+  //sparks
+  public yoyo;
+  public getSomeYoyos() {
+
+    this.skuService.getSomeYoyos().subscribe((response: String) => {
+      this.yoyo = response;
+      window.alert(this.yoyo);
+    })
+
+  }
+  */
 
   ngOnDestroy(): void {
   }
