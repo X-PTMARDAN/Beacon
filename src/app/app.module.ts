@@ -41,6 +41,7 @@ import { SettingComponent} from './components/setting/setting.component';
 import {PropercasePipe} from './pipe/propercase.pipe';
 import { ComingsoonComponent } from './components/comingsoon/comingsoon.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { FusionChartsModule } from "angular-fusioncharts";
 
 
 import 'ag-grid-enterprise';
@@ -78,7 +79,8 @@ import 'ag-grid-enterprise';
     AppRoutingModule,
     AgGridModule.withComponents([]),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
