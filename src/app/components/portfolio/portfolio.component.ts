@@ -7,8 +7,22 @@ import { Observable } from 'rxjs';
 import { ViewService } from '../../services/view.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { AgGridAngular } from 'ag-grid-angular';
-//import { timeStamp } from 'console';
-//import { timeStamp } from 'console';
+import { FusionChartsModule } from "angular-fusioncharts";
+// Import FusionCharts library and chart modules
+import * as FusionCharts from "fusioncharts";
+import * as charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+/*
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FusionChartsModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+*/
 
 enum STEPS {
   'SELECT_OPTION' = 1,
@@ -150,25 +164,25 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   columnDefs = [
     { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 100 },
     { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 300 },
-    { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 160 },  //shud be 100
+    { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 100 },  //shud be 100
     { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 370 },
     { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 150 },
     { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150 },
     { headerName: 'Week First Seen', field: 'minimum', sortable: true, filter: true, width: 100 },
     { headerName: 'Week Last Seen', field: 'maximum', sortable: true, filter: true, width: 100 },
     {
-      headerName: ' ', field: 'btn', width: 140,  //shud be 100
+      headerName: ' ', field: 'btn', width: 100,  //shud be 100
       cellRenderer: function (params) {
         return '<p>Edit Segment</p>'
       }
-    }, /*
+    }, 
     {
       headerName: ' ', field: 'btn2', width: 110,
       cellRenderer: function (params) {
         return '<p>PIPO Details</p>'
       }
     },  
-    */
+    
   ];
 
 
@@ -455,6 +469,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     }
   }
 
+
+
   public dates2;
   public frweek;
 
@@ -521,6 +537,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   }
 
   //dumdum
+  public dataSource;
   public gotten_material_details;
   public thematerialid;
   public thefgname;
@@ -588,6 +605,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.toname = null;
     this.fromwls = null;
     this.towls = null;
+    this.fromFull = null;
+    this.toFull = null;
   }
 
   public displayPIPODetails(fgid, materialid, fgname, materialname, segment, since) {
@@ -612,37 +631,97 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.thematerialgroup = this.gotten_material_details.h;
       this.thelocalcategory = this.gotten_material_details.i;
       this.thepacktype = this.gotten_material_details.j;
-    })
-    var count=0;
-    for (var key in this.pipoMapping) {
-      if (this.thefgid == this.pipoMapping[key].fgid) {
-        if (this.pipoMapping[key].fromweek > this.fromweek) {
-          this.fromFull = this.pipoMapping[key].fromid;
-          this.toFull = this.pipoMapping[key].toid;
+    
+      var count=0;
+      for (var key in this.pipoMapping) {
+        if (this.thefgid == this.pipoMapping[key].fgid) {
+          if (this.pipoMapping[key].fromweek > this.fromweek) {
+            this.fromFull = this.pipoMapping[key].fromid;
+            this.toFull = this.pipoMapping[key].toid;
+          }
         }
       }
-    }
-    this.fromid = this.fromFull.split(" - ")[0];
-    this.toid = this.toFull.split(" - ")[0];
-    this.fromname = this.fromFull.split(" - ")[1];
-    this.toname = this.toFull.split(" - ")[1];
-    
-    var ids = {
-      from: this.fromid,
-      to: this.toid
-    }
 
-    this.skuService.getschedule_value(ids).subscribe((response2: any) => {
-      this.ssssss = response2;
-      window.alert(JSON.stringify(this.ssssss));
-      for (var key in this.ssssss) {
-        this.fromwls = this.ssssss[key].fromweek;
+      if (this.fromFull == null) {
+        this.loading = false;
       }
-      this.towls = 202208;
-    });
-    
+
+      if (this.fromFull != null && this.toFull != null) {
+        this.loading = true;
+        this.fromid = this.fromFull.split(" - ")[0];
+        this.toid = this.toFull.split(" - ")[0];
+        this.fromname = this.fromFull.split(" - ")[1];
+        this.toname = this.toFull.split(" - ")[1];
+        
+        var ids = {
+          from: this.fromid,
+          to: this.toid
+        }
+
+        this.skuService.getschedule_value(ids).subscribe((response2: any) => {
+          this.ssssss = response2;
+          
+          var cats = [];
+          var valuesfrom = [];
+          var valuesto = [];
+
+          for (var key in this.ssssss) {
+            this.fromwls = this.ssssss[key].fromweek;            
+            
+            var cat = {
+              "label": this.ssssss[key].fromweek
+            }
+            cats.push(cat);
+            var valfrom = {
+              "value": this.ssssss[key].one
+            }
+            valuesfrom.push(valfrom);
+            var valto = {
+              "value": this.ssssss[key].two
+            }
+            valuesto.push(valto);
+            
+          }
+          this.towls = 202208;
+          
+          
+          var categories = [{
+            "category": cats
+          }];
+
+          var dataset = [
+            {
+              "seriesname": this.fromid,
+              "data": valuesfrom
+            },
+            {
+              "seriesname": this.toid,
+              "data": valuesto
+            }
+          ]
+
+          var dataSource = {
+            "chart": {
+                "theme": "fusion",
+                "caption": "PIPO visualization",
+                "xAxisname": "Week",
+                "yAxisName": "Percentage",
+                //"numberPrefix": "$",
+                //"plotFillAlpha": "80",
+                //"divLineIsDashed": "1",
+                //"divLineDashLen": "1",
+                //"divLineGapLen": "1"
+                },
+                "categories": categories,
+                "dataset": dataset,
+          };
+
+          this.dataSource = dataSource;
+          this.loading = false;
+        });
+      }
+    })
     this.myModal4_pipodetails.nativeElement.click();
-    this.loading = false;
 
   }
 

@@ -719,7 +719,10 @@ font-weight: bold;
         <div class="modal-header">
           <p style="font-weight: bolder;">FG {{thefgname}}</p>
         </div>
-        <div class="modal-body">
+        <div *ngIf="!fromFull">
+          <p style="font-weight: bold;">---This FG has no PIPO rules associated with any of its materials---</p>
+        </div>
+        <div class="modal-body" *ngIf="fromFull">
           <div class="table-responsive mt-3">
             <table class="table">
               <thead class="thead-dark">
@@ -745,12 +748,17 @@ font-weight: bold;
                 </tr>
               </tbody>
             </table>
-
-
-
-          </div>
-          <div class="col-sm-12 text-center" (click)="map_sku_1();"><a href="javascript:void(0)" class="btn">Add</a>
-          </div>
+            <!--
+            <div fusioncharts width="600" height="400" type="mscolumn2d" datasource="{{dataSource}}">
+            </div>
+            -->
+            <fusioncharts
+              width="700"
+              height="400"
+              type="msline"
+              [dataSource]="dataSource"
+            >
+            </fusioncharts>
         </div>
 
       </div>
@@ -1644,7 +1652,6 @@ font-weight: bold;
 
   <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
   <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
-
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
