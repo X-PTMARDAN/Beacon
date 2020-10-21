@@ -899,5 +899,9 @@ export class SKUService {
   public getSomeYoyos(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}yoyoyo`, data);
   }
+  
+  public getLoadWeek(data = {}) {
+    return this.http.get(`${this.apiGatewayUrl}getLoadWeek`, data);
+  }
 
 }
