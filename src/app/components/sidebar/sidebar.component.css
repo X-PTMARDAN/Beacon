@@ -13,7 +13,7 @@ a:focus, a:hover {
 
 #sidebar {
   position: fixed;
-  width: 4.5% !important; /*80px*/
+  width: 80px; /*80px*/
   height: 100%; /*135vh*/
   background-color: #5A5F66;
   color: white;
@@ -25,7 +25,17 @@ a:focus, a:hover {
   font-weight: 700;
 }
 
+.aa {
+  height: 70%;
+}
+
+.bb {
+  height: 30%;
+}
+
 #sidebar .item {
+  width: auto;
+  align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
   cursor: pointer;
