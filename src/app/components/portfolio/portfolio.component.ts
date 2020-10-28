@@ -892,8 +892,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public pipo_click() {
     this.pipo_map = true;
     this.sku_map = false;
-    document.getElementById('pipo_bar').style.background = '#17b169';
-    document.getElementById('sku_bar').style.background = '#f4f5f9';
+    //document.getElementById('pipo_bar').style.background = '#17b169';
+    //document.getElementById('sku_bar').style.background = '#f4f5f9';
   }
 
 

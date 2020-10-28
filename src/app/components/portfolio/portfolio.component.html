@@ -654,117 +654,6 @@ font-weight: bold;
     </div>
   </div>
 
-  <!--pipodetails-->
-  <a href="javascript:void(0);" [hidden]="true" data-target="#myModal4_pipodetails" data-toggle="modal" #myModal4_pipodetails
-    style="font-family: 'Montserrat', sans-serif !important;">Check</a>
-
-  <div class="modal fade" id="myModal4_pipodetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <p style="font-weight: bolder;">SKU {{thematerialname}}</p>
-          <button type="button" class="close" data-dismiss="modal" #mapsku aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" *ngIf="gotten_material_details">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Brand</th>
-                <th scope="col">Own/3PP</th>
-                <th scope="col">Primary Unit</th>
-                <th scope="col">ABV</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>{{thebrand}}</td>
-              <td>{{theown3pp}}</td>
-              <td>{{theprimaryunit}}</td>
-              <td>{{theabv}}</td>
-            </tbody>
-            <thead>
-              <tr>
-                <th scope="col">Sub-Brand</th>
-                <th scope="col">Global Category</th>
-                <th scope="col">Pack Size</th>
-                <th scope="col">Segment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>{{thesubbrand}}</td>
-              <td>{{theglobalcategory}}</td>
-              <td>{{thepacksize}}</td>
-              <td>{{thesegment}}</td>
-            </tbody>
-            <thead>
-              <tr>
-                <th scope="col">Material Group</th>
-                <th scope="col">Local Category</th>
-                <th scope="col">Pack Type</th>
-                <th scope="col">Since</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>{{thematerialgroup}}</td>
-              <td>{{thelocalcategory}}</td>
-              <td>{{thepacktype}}</td>
-              <td>{{thesince}}</td>
-            </tbody>
-          </table>
-        </div>
-
-
-        <div class="modal-header">
-          <p style="font-weight: bolder;">FG {{thefgname}}</p>
-        </div>
-        <div *ngIf="!fromFull">
-          <p style="font-weight: bold;">---This FG has no PIPO rules associated with any of its materials---</p>
-        </div>
-        <div class="modal-body" *ngIf="fromFull">
-          <div class="table-responsive mt-3">
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">Material</th>
-                  <th scope="col">SKU name</th>
-                  <th scope="col">Segment</th>
-                  <th scope="col">Week last seen</th>
-                </tr>
-              </thead> 
-              <tbody>
-                <tr>
-                  <td>{{fromid}}</td>
-                  <td>{{fromname}}</td>
-                  <td>{{thesegment}}</td>
-                  <td>{{fromwls}}</td>
-                </tr>
-                <tr>
-                  <td>{{toid}}</td>
-                  <td>{{toname}}</td>
-                  <td>{{thesegment}}</td>
-                  <td>{{towls}}</td>
-                </tr>
-              </tbody>
-            </table>
-            <!--
-            <div fusioncharts width="600" height="400" type="mscolumn2d" datasource="{{dataSource}}">
-            </div>
-            -->
-            <fusioncharts
-              width="700"
-              height="400"
-              type="msline"
-              [dataSource]="dataSource"
-            >
-            </fusioncharts>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
 
 
 
@@ -1635,6 +1524,117 @@ font-weight: bold;
 
 
           </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!--pipodetails-->
+    <a href="javascript:void(0);" [hidden]="true" data-target="#myModal4_pipodetails" data-toggle="modal" #myModal4_pipodetails
+    style="font-family: 'Montserrat', sans-serif !important;">Check</a>
+
+  <div class="modal fade" id="myModal4_pipodetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <p style="font-weight: bolder;">SKU {{thematerialname}}</p>
+          <button type="button" class="close" data-dismiss="modal" #mapsku aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="gotten_material_details">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Brand</th>
+                <th scope="col">Own/3PP</th>
+                <th scope="col">Primary Unit</th>
+                <th scope="col">ABV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <td>{{thebrand}}</td>
+              <td>{{theown3pp}}</td>
+              <td>{{theprimaryunit}}</td>
+              <td>{{theabv}}</td>
+            </tbody>
+            <thead>
+              <tr>
+                <th scope="col">Sub-Brand</th>
+                <th scope="col">Global Category</th>
+                <th scope="col">Pack Size</th>
+                <th scope="col">Segment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <td>{{thesubbrand}}</td>
+              <td>{{theglobalcategory}}</td>
+              <td>{{thepacksize}}</td>
+              <td>{{thesegment}}</td>
+            </tbody>
+            <thead>
+              <tr>
+                <th scope="col">Material Group</th>
+                <th scope="col">Local Category</th>
+                <th scope="col">Pack Type</th>
+                <th scope="col">Since</th>
+              </tr>
+            </thead>
+            <tbody>
+              <td>{{thematerialgroup}}</td>
+              <td>{{thelocalcategory}}</td>
+              <td>{{thepacktype}}</td>
+              <td>{{thesince}}</td>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="modal-header">
+          <p style="font-weight: bolder;">FG {{thefgname}}</p>
+        </div>
+        <div *ngIf="!fromFull">
+          <p style="font-weight: bold;">---This FG has no PIPO rules associated with any of its materials---</p>
+        </div>
+        <div class="modal-body" *ngIf="fromFull">
+          <div class="table-responsive mt-3">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Material</th>
+                  <th scope="col">SKU name</th>
+                  <th scope="col">Segment</th>
+                  <th scope="col">Week last seen</th>
+                </tr>
+              </thead> 
+              <tbody>
+                <tr>
+                  <td>{{fromid}}</td>
+                  <td>{{fromname}}</td>
+                  <td>{{thesegment}}</td>
+                  <td>{{fromwls}}</td>
+                </tr>
+                <tr>
+                  <td>{{toid}}</td>
+                  <td>{{toname}}</td>
+                  <td>{{thesegment}}</td>
+                  <td>{{towls}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!--
+            <div fusioncharts width="600" height="400" type="mscolumn2d" datasource="{{dataSource}}">
+            </div>
+            -->
+            <fusioncharts
+              width="700"
+              height="400"
+              type="msline"
+              [dataSource]="dataSource"
+            >
+            </fusioncharts>
         </div>
 
       </div>
