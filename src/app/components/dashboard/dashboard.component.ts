@@ -503,10 +503,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
 
-
-
-
     ngOnInit() {
+
+        this.willusave = false;
 
         document.body.style.zoom = "75% !important";
 
@@ -1365,6 +1364,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     ngOnDestroy(): void {
 
+    }
+
+    public showAreusure() {
+        var tt = this.willusave;
+        window.addEventListener("beforeunload", function (e) {
+            if (!tt) {
+                return undefined;
+            }
+    
+            var confirmationMessage = 'Are you sure you want to leave this page without saving the plan? ' +
+                            'If you leave, your changes will not be saved.';
+    
+            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+        });
     }
 
     private static getCurrentWeek(date: Date) {
@@ -44957,7 +44971,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
     }
 
+    public willusave;
+
     public onCellValueChanged(params) {
+
+        this.willusave = true;
+        this.showAreusure();
 
         console.log("Changed--", params);
         if (/^\d+$/.test(params.newValue)) {
@@ -45149,6 +45168,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public onCellValueChanged1(params) {
 
+        this.willusave = true;
+        this.showAreusure();
+        
         var ban = params.column.userProvidedColDef.field;
 
         var th1 = params.data.sku;
