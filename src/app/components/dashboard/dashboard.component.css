@@ -43,7 +43,7 @@ td, th {
   background-color: #F4F5F9;
   height: 135vh;
   left: 80px;
-  width: 11.25% !important; /*200px*/
+  width: 200px; /*200px*/
   position: fixed;
   overflow: hidden;
   z-index: 1;
@@ -51,7 +51,6 @@ td, th {
 
 .content-col {
   margin: 0 200px; 
-  width: 77% !important; /*nothing*/
 }
 
 .canvasjs-chart-toolbar {
@@ -90,7 +89,7 @@ td, th {
   right: 0;
   top: 0;
   bottom: 0px;
-  width: 11.25% !important; /*200px*/
+  width: 200px; /*200px*/
   z-index: 1;
 }
 
