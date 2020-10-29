@@ -6848,7 +6848,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     };
                     //this.test();
 
-
                     //  this.skus=JSON.parse(JSON.stringify(this.fgssselected));
                     console.log('WOW->' + JSON.stringify(this.createPlanRequestData));
                     this.loading = true;
@@ -39185,6 +39184,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         console.log('SDfsfgsdg--' + JSON.stringify(this.createPlanRequestData));
 
+        if (this.reactivate_filter_button == 0) {
+            this.createPlanRequestData.forecastingGroups = JSON.parse(JSON.stringify(this.fgssselected));
+
+            this.updateTheTable();
+
+        } else {
+            window.alert('Please plan selection first, then only you can click this');
+        }
+        /*
         this.granular1 = 'week';
         this.UOM = 'HL';
 
@@ -39223,7 +39231,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         } else {
             window.alert('Please plan selection first, then only you can click this');
         }
-
+        */
 
     }
 
