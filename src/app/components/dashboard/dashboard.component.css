@@ -41,7 +41,7 @@ td, th {
 
 .filter-col {
   background-color: #F4F5F9;
-  height: 135vh;
+  height: 200vh;
   left: 80px;
   width: 200px; /*200px*/
   position: fixed;
@@ -301,8 +301,8 @@ h6{
 
 .vl
 {
-  margin-left: 25px !important;
- 
+  margin-left: 10px !important;
+  margin-right: 10px !important;
 }
 
 
@@ -467,3 +467,19 @@ select.form-control {
   
   
 }
+/*
+.ffbox {
+  flex-wrap: nowrap;
+}
+*/
+/*
+.ffitem {
+  flex-basis: 100%;
+  flex: 1;
+}
+*/
+/*
+.ffitem {
+  width: 100%;
+}
+*/
