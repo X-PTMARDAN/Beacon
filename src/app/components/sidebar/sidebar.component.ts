@@ -22,10 +22,10 @@ export class SidebarComponent implements OnInit {
   public num=45;
   
   ngOnInit() {
+    this.bgcolorChange();
+  }
 
-
-    //window.alert(window.location.hostname);
-    
+  public bgcolorChange() {
     if(window.location.href=='http://'+window.location.hostname+'/portfolio')
     {
       document.getElementById("plan").style.background='#5A5F66';
@@ -75,11 +75,6 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
     }
 
-
-    
-
-
-
     else{
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#797F87';
@@ -88,12 +83,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-  
-    
-
   }
-
-
 
   public onClick(name: string) {
     console.log("Harshit-->"+name);
@@ -188,41 +178,48 @@ export class SidebarComponent implements OnInit {
     if(pageName=='a')
     {
       this.num=1;
-      window.location.href='http://'+window.location.hostname+"/comingsoon?a"
+      window.location.href='http://'+window.location.hostname+"/comingsoon?a";
+      this.bgcolorChange();
      // this.router.navigate([`/portfolio`]);
     }
     else if(pageName=='b')
     {
       this.num=2;
-      window.location.href='http://'+window.location.hostname+"/comingsoon?b"
+      window.location.href='http://'+window.location.hostname+"/comingsoon?b";
+      this.bgcolorChange();
     }
 
     else if(pageName=='bcd')
     {
       this.num=56;
-      window.location.href='http://'+window.location.hostname+"/comingsoon?bcd"
+      window.location.href='http://'+window.location.hostname+"/comingsoon?bcd";
+      this.bgcolorChange();
     }
 
     else if(pageName=='ab')
     {
       this.num=2;
-      window.location.href='http://'+window.location.hostname+"/portfolio"
+      window.location.href='http://'+window.location.hostname+"/portfolio";
+      this.bgcolorChange();
     }
     else if(pageName=='c')
     {
       this.num=3;
-      window.location.href='http://'+window.location.hostname+"/dashboard"
+      window.location.href='http://'+window.location.hostname+"/dashboard";
+      this.bgcolorChange();
     }
     else if(pageName=='d')
     {
       this.num=4;
-      this.onClick('revisit-plan')
+      this.onClick('revisit-plan');
+      this.bgcolorChange();
     }
 
     else if(pageName=='e')
     {
       this.num=5;
-      window.location.href='http://'+window.location.hostname+"/setting"
+      window.location.href='http://'+window.location.hostname+"/setting";
+      this.bgcolorChange();
     }
 
 
@@ -230,7 +227,7 @@ export class SidebarComponent implements OnInit {
     {
       this.num=5;
       sessionStorage.removeItem('username');
-      window.location.href='http://'+window.location.hostname+"/login"
+      window.location.href='http://'+window.location.hostname+"/login";
     }
 
     
