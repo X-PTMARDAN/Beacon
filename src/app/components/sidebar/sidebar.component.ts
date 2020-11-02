@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   }
 
   public bgcolorChange() {
-    if(window.location.href=='http://'+window.location.hostname+'/portfolio')
+    if(window.location.href=='http://'+window.location.hostname+'/portfolio' || window.location.href=='https://'+window.location.hostname+'/portfolio')
     {
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#797F87';
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?b=')
+    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?b=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?b=')
     {
       document.getElementById("npd").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("planscene").style.background='#5A5F66';
     }
 
-    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?bcd=')
+    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?bcd=' || window.location.href=='http://'+window.location.hostname+'/comingsoon?bcd=')
     {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#797F87';
     }
-    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?a=')
+    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?a=' || window.location.href=='http://'+window.location.hostname+'/comingsoon?a=')
     {
       document.getElementById("snop").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -63,7 +63,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://'+window.location.hostname+'/setting')
+    else if(window.location.href=='http://'+window.location.hostname+'/setting' || window.location.href=='http://'+window.location.hostname+'/setting')
     {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
