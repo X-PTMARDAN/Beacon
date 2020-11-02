@@ -40830,7 +40830,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', enableRowGroup: true, pinned: 'left', filter: true, width: 110 },
+            { headerName: "Key Figure", field: 'key', enableRowGroup: true, pinned: 'left', filter: true, width: 110, cellStyle: { 'font-weight': 'bold'} },
         );
 
 
