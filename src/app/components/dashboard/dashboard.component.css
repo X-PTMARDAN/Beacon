@@ -467,6 +467,10 @@ select.form-control {
   
   
 }
+
+.ag-cell {
+  font-size: 12px !important;
+}
 /*
 .ffbox {
   flex-wrap: nowrap;

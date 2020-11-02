@@ -10577,11 +10577,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             for (var i = 0; i < headercells.length; i++) {
                 headercells[i].style.paddingLeft = '0px';
                 headercells[i].style.paddingRight = '0px';
+                headercells[i].style.border = '1px ridge';
             }
             var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
             for (var i = 0; i < agcells.length; i++) {
                 agcells[i].style.paddingLeft = '0px';
                 agcells[i].style.paddingRight = '0px';
+                agcells[i].style.border = '1px ridge';
+                agcells[i].style.fontSize = '12px';
             }
             
         }
@@ -15382,11 +15385,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         for (var i = 0; i < headercells.length; i++) {
             headercells[i].style.paddingLeft = '0px';
             headercells[i].style.paddingRight = '0px';
+            headercells[i].style.border = '1px ridge';
         }
         var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells.length; i++) {
             agcells[i].style.paddingLeft = '0px';
             agcells[i].style.paddingRight = '0px';
+            agcells[i].style.border = '1px ridge';
+            agcells[i].style.fontSize = '12px';
         }
 
         /*
