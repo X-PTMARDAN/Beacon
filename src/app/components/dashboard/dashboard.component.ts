@@ -1337,6 +1337,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     }
 
+    public editModalBD() {
+        //window.alert("yes im in");
+        var modalbd = Array.from(document.getElementsByClassName('modal-backdrop') as HTMLCollectionOf<HTMLElement>);
+        for (var i = 0; i < modalbd.length; i++) {
+            modalbd[i].style.height = '135vh';
+            modalbd[i].style.width = '135vw';
+        }
+    }
+
     ngAfterViewInit(): void {
 
         /*
@@ -10586,6 +10595,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 agcells[i].style.border = '1px ridge';
                 agcells[i].style.fontSize = '12px';
             }
+
             
         }
 
@@ -48096,9 +48106,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         for (const data of this.graphData) {
 
+            console.log("fcstValueAdd is " + data.fcstValueAdd + " 2nd one is " + this.changed_weeks.indexOf(data.week));
 
-
-            if (data.fcstValueAdd && (this.changed_weeks.indexOf(data.week) > -1)) {
+            if (typeof data.fcstValueAdd !== 'undefined' && (this.changed_weeks.indexOf(data.week) > -1)) {
 
 
                 console.log("dsfsdfs---" + JSON.stringify(this.changed_weeks));
@@ -48135,6 +48145,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     fva: data.fcstValueAdd,
                     calendarWeek: data.week
                 };
+
+                console.log("\n\n ullu fva is " + data.fcstValueAdd);
 
 
                 abc.push(reqBody);
