@@ -10596,13 +10596,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             for (var i = 0; i < headercells.length; i++) {
                 headercells[i].style.paddingLeft = '0px';
                 headercells[i].style.paddingRight = '0px';
-                headercells[i].style.border = '1px ridge';
             }
             var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
             for (var i = 0; i < agcells.length; i++) {
                 agcells[i].style.paddingLeft = '0px';
                 agcells[i].style.paddingRight = '0px';
-                agcells[i].style.border = '1px ridge';
                 agcells[i].style.fontSize = '12px';
             }
             var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
@@ -15408,13 +15406,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         for (var i = 0; i < headercells.length; i++) {
             headercells[i].style.paddingLeft = '0px';
             headercells[i].style.paddingRight = '0px';
-            headercells[i].style.border = '1px ridge';
         }
         var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells.length; i++) {
             agcells[i].style.paddingLeft = '0px';
             agcells[i].style.paddingRight = '0px';
-            agcells[i].style.border = '1px ridge';
             agcells[i].style.fontSize = '12px';
         }
         var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
@@ -17331,7 +17327,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', enableRowGroup: true, pinned: 'left', filter: true, width: 110, cellStyle: { 'font-weight': 'bold', 'position-left': '5px' } },
+            { headerName: "Key Figure", field: 'key', enableRowGroup: true, pinned: 'left', filter: true, width: 110, cellStyle: { 'font-weight': 'bold', 'position-left': '5px', 'border': '1px ridge' } },
         );
 
 
@@ -17341,7 +17337,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 columndef_clone.push({
                     field: JSON.stringify(week.calenderYearWeek),
                     enableRowGroup: true,
-                    cellStyle: { 'background-color': '#BEBEBE' },
+                    cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                     width: 62,
                     type: 'rightAligned',
                     valueFormatter: function (params) {
@@ -17372,6 +17368,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         columndef_clone.push({
                             field: JSON.stringify(week.calenderYearWeek),
                             enableRowGroup: true,
+                            cellStyle: { 'border': '1px ridge'},
                             width: 62,
                             type: 'rightAligned',
                             editable: function(params) {
@@ -17414,6 +17411,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
                         enableRowGroup: true,
+                        cellStyle: {'border': '1px ridge'},
                         width: 62,
                         type: 'rightAligned',
                         editable: function(params) {
@@ -17942,17 +17940,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true },
-            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true },
-            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true },
-            { headerName: "Forecasting Group", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true },
+            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Forecasting Group", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
         );
 
 
         var temp_date = data[0].calenderYearWeek;
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
-            cellStyle: { 'background-color': '#BEBEBE' },
+            cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
             width: 150,
         });
@@ -17968,7 +17966,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        cellStyle: { 'background-color': '#BEBEBE' },
+                        cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 150,
                         aggFunc: 'sum',
 
@@ -17997,7 +17995,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-
+                        cellStyle: {'border': '1px ridge'},
                         width: 150,
                         aggFunc: 'sum',
 
@@ -18713,17 +18711,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true },
-            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true },
-            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true },
-            { headerName: "Material", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true },
+            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Material", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
         );
 
 
         var temp_date = data[0].calenderYearWeek;
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
-            cellStyle: { 'background-color': '#BEBEBE' },
+            cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
             width: 150,
         });
@@ -18739,7 +18737,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        cellStyle: { 'background-color': '#BEBEBE' },
+                        cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 150,
                         aggFunc: 'sum',
 
@@ -18768,7 +18766,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-
+                        cellStyle: {'border': '1px ridge'},
                         width: 150,
                         aggFunc: 'sum',
 
@@ -19478,10 +19476,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-
+//kimheehee
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', filter: true, width: 150, sortable: true, pinned: "left" },
-            { headerName: "FG", field: 'sku', filter: true, width: 90, sortable: true, pinned: "left" },
+            { headerName: "Key Figure", field: 'key', filter: true, width: 150, sortable: true, pinned: "left", cellStyle: { 'font-weight': 'bold', 'position-left': '5px', 'border': '1px ridge' } },
+            { headerName: "FG", field: 'sku', filter: true, width: 90, sortable: true, pinned: "left", cellStyle: { 'font-weight': 'bold', 'position-left': '5px', 'border': '1px ridge' } },
         );
 
 
@@ -19489,7 +19487,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
             width: 130,
-            cellStyle: { 'background-color': '#BEBEBE' },
+            cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
 
         });
 
@@ -19511,7 +19509,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 return true;
                             }
                         },
-                        cellStyle: { 'background-color': '#BEBEBE' },
+                        cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 130,
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
@@ -19543,6 +19541,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             }
                         },
                         width: 130,
+                        cellStyle: {'border': '1px ridge'},
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
