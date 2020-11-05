@@ -545,9 +545,9 @@
 
             <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
 
-            <div class="ffitem" style="font-size: 21px;margin-right: 7px;">
+            <div class="ffitem" style="font-size: 15px;margin-right: 7px;">
   
-              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    ">View</h6>
+              <h6 class="mt-3 font-weight-bold" style="margin-top: 16px !important;    ">View</h6>
   
   
               <img style="color: #000;height: 37px;font-size: 28px;" (click)="abc12()" src='assets/images/expand.png'>
@@ -808,7 +808,7 @@
 
 
         <!--yahan-->
-        <ag-grid-angular style=" height: 510px;overflow:scroll;padding-right: 10px; padding-left: 10px;" class="ag-theme-alpine"
+        <ag-grid-angular style=" height: 520px;overflow:scroll;padding-right: 10px; padding-left: 10px;" class="ag-theme-alpine"
           [rowData]="rowData" *ngIf="first_ag" rowSelection="multiple" [suppressRowClickSelection]="true"
           [columnDefs]="columnDefs" [undoRedoCellEditing]="true" rowSelection="multiple"
           [suppressLastEmptyLineOnPaste]="true" [rowGroupPanelShow]="always" [statusBar]="statusBar"
@@ -829,7 +829,7 @@
 
 
 
-        <ag-grid-angular style=" height: 510px;overflow:scroll;padding-right: 10px; padding-left: 10px" class="ag-theme-alpine"
+        <ag-grid-angular style=" height: 520px;overflow:scroll;padding-right: 10px; padding-left: 10px" class="ag-theme-alpine"
           [rowData]="rowData" *ngIf="fourth_ag" rowSelection="multiple" [columnDefs]="columnDefs"
           rowSelection="multiple" [suppressRowClickSelection]="true" [suppressLastEmptyLineOnPaste]="true"
           [rowGroupPanelShow]="always" [statusBar]="statusBar" [undoRedoCellEditing]="true"
@@ -854,6 +854,9 @@
           [undoRedoCellEditing]="true" [suppressRowClickSelection]="true" [suppressLastEmptyLineOnPaste]="true"
           *ngIf="second_ag" [rowGroupPanelShow]="rowGroupPanelShow" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [enableRangeSelection]="true" [statusBar]="statusBar"
+          (firstDataRendered)="firstDataRenderedOtherViews($event)" (modelUpdated)="firstDataRenderedOtherViews($event)"
+          (rowDataUpdated)="firstDataRenderedOtherViews($event)" (newColumnsLoaded)="firstDataRenderedOtherViews($event)"
+          (displayedColumnsChanged)="firstDataRenderedOtherViews($event)" (virtualColumnsChanged)="firstDataRenderedOtherViews($event)"
         >
         </ag-grid-angular>
 
@@ -893,7 +896,11 @@
           [autoGroupColumnDef]="autoGroupColumnDef" [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId"
           [rowGroupPanelShow]="always" [enableRangeSelection]="true" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [suppressDragLeaveHidesColumns]="false"
-          (gridReady)="onGridReady1($event)" >
+          (gridReady)="onGridReady1($event)"
+          (firstDataRendered)="firstDataRenderedOtherViews($event)" (modelUpdated)="firstDataRenderedOtherViews($event)"
+          (rowDataUpdated)="firstDataRenderedOtherViews($event)" (newColumnsLoaded)="firstDataRenderedOtherViews($event)"
+          (displayedColumnsChanged)="firstDataRenderedOtherViews($event)" (virtualColumnsChanged)="firstDataRenderedOtherViews($event)"
+        >
         </ag-grid-angular>
 
 
@@ -2119,7 +2126,7 @@
   <!--Select Options Modal-->
   <a href="javascript:void(0);" [hidden]="true" data-target="#selectOptionsModal" data-toggle="modal"
     #selectOptionsModalBtn>Open Options Modal</a>
-  <div class="modal select-options-modal" id="selectOptionsModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal select-options-modal" id="selectOptionsModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2139,8 +2146,8 @@
   <a href="javascript:void(0);" [hidden]="true" data-target="#saveAPlansModal" data-toggle="modal"
     #saveAPlansModalBtn>Save
     a Plan Modal</a>
-  <div class="modal fade save-plan-modal" id="saveAPlansModal" tabindex="-1" role="dialog" data-backdrop="static"
-    aria-labelledby="saveAPlansModal">
+  <div class="modal fade save-plan-modal" id="saveAPlansModal"  role="dialog" data-backdrop="false"
+    aria-labelledby="saveAPlansModal" style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2168,7 +2175,7 @@
   <a href="javascript:void(0);" [hidden]="true" data-target="#saveAViewsModal" data-toggle="modal"
     #saveAViewsModalBtn>Save
     a View Modal</a>
-  <div class="modal fade save-plan-modal" id="saveAViewsModal" tabindex="-1" role="dialog" data-backdrop="static"
+  <div class="modal fade save-plan-modal" id="saveAViewsModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);"
     aria-labelledby="saveAViewsModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -2199,7 +2206,7 @@
   <a href="javascript:void(0);" [hidden]="true" data-target="#commentFormModal" data-toggle="modal"
     #commentFormModalBtn>Open
     Graph Comment Form Modal</a>
-  <div class="modal fade comment-modal" id="commentFormModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal fade comment-modal" id="commentFormModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2231,7 +2238,7 @@
   <a href="javascript:void(0);" [hidden]="true" data-target="#finalForecastCommentModal" data-toggle="modal"
     #finalForecastCommentModalBtn>Open Graph Comment Form Modal</a>
   <div class="modal fade final-comment-modal" id="finalForecastCommentModal" tabindex="-1" role="dialog"
-    data-backdrop="static">
+    data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2264,7 +2271,7 @@
   <!--EDIT Comment Modal-->
   <a href="javascript:void(0);" [hidden]="true" data-target="#editCommentModal" data-toggle="modal"
     #editCommentModalBtn>Open Graph Comment Form Modal</a>
-  <div class="modal fade final-comment-modal" id="editCommentModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal fade final-comment-modal" id="editCommentModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2297,7 +2304,7 @@
   <!--Save Filter Modal-->
   <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
     Save Filter Modal</a>
-  <div class="modal fade save-filter-modal" id="saveFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal fade save-filter-modal" id="saveFilterModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2334,7 +2341,7 @@
   <!--Load Filter Modal-->
   <a href="javascript:void(0);" [hidden]="true" data-target="#loadFilterModal" data-toggle="modal" #loadFilterModal>Open
     Load Filter Modal</a>
-  <div class="modal fade load-filter-modal" id="loadFilterModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal fade load-filter-modal" id="loadFilterModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -2383,7 +2390,7 @@
   <!--Load Filter Modal-->
   <a href="javascript:void(0);" [hidden]="true" data-target="#lockModal" data-toggle="modal" #lockModal>Open
     Options available</a>
-  <div class="modal fade load-filter-modal" id="lockModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal fade load-filter-modal" id="lockModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
