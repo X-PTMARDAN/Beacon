@@ -68,10 +68,8 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
       document.getElementById("plan").style.background='#5A5F66';
-
       document.getElementById("setting").style.background='#797F87';
       document.getElementById("planscene").style.background='#5A5F66';
-
       document.getElementById("npd").style.background='#5A5F66';
     }
 
