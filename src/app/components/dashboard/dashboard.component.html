@@ -429,15 +429,15 @@
             <div class="ffitem" style="font-size: 21px;margin-left: 1vw;">
               <i style="color: #fff;padding-top: 8px;margin-top: 25px;" class="fa fa-save fa-8x circle-icon"
                 data-toggle="modal" data-target="#saveAPlansModal"></i>
-              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    font-size: 13px !important;">
+              <h6 class="mt-3 font-weight-bold" style="margin-top: 3px !important;    font-size: 12px !important;">
                 Save<br>Plan</h6>
 
             </div>
 
-            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+            <div style="border-left: 1px ridge #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
 
             <div class="ffitem" style="padding-top: 3px;">
-              <h6 class="mt-3 font-weight-bold">Actuals</h6>
+              <h6 class="mt-3" style="font-weight: bolder !important;">Actuals</h6>
               <input type="week" value="2019-W38" style="width: 12vw;" id="prevactuals"
                 [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals">
             </div>
@@ -448,12 +448,12 @@
               <div style="margin-top: 20px !important;">
                 <h6 class="mt-3" style="margin-right: 10px; margin-top: 20px !important; width:max-content;">Load Week
                 </h6>
-                <p style="    margin-top: 12px;color: #000;font-size: 0.70rem;padding-left: 4px;">{{theLoadWeek}}</p>
+                <p style="margin-top: 12px; color: grey;font-size: 1rem;padding-left: 0.4vw;">{{theLoadWeek}}</p>
               </div>
             </div>
 
             <div class="ffitem" style="padding-top: 3px;">
-              <h6 class="mt-3 font-weight-bold">Plan</h6>
+              <h6 class="mt-3" style="font-weight: bolder !important;">Plan</h6>
               <input type="week" id="endWeek" style="width: 12vw;" name="endWeek" [(ngModel)]="endWeek"
                 (change)="color_change()" required>
             </div>
@@ -462,17 +462,19 @@
              <i title="Change horizon" style="cursor: pointer;
               color: grey;
               padding-top: 8px; 
-              margin-top: 47px;
-              margin-left: 10px;
-              margin-bottom: 20px;" id="arrow" class="fa fa-long-arrow-right circle-icon2 fa-lg" (click)="tick()"></i>
+              margin-top: 40px;
+              margin-left: 5px;
+              margin-bottom: 2px;" id="arrow" class="fa fa-long-arrow-right fa-xs moomoo" (click)="tick()"></i>
+              <p style="font-weight: lighter; font-size: 13px; margin-left: 0px">Submit</p>
             </div>
 
-            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;margin-left:15px;" class="vl">
+            <div style="border-left: 1px ridge #909196;margin-top: 15px;margin-bottom: 15px;margin-left:15px;" class="vl">
             </div>
 
 
-            <div class="ffitem" title="View whole 2020" style="padding-top: 0px; font-family: 'Montserrat', sans-serif !important;">
-              <h6 class="mt-3 font-weight-bold">Go To Year</h6>
+            <div class="ffitem" title="View whole 2020" style="padding-top: 3px; font-family: 'Montserrat', sans-serif !important;">
+              <h6 class="mt-3" style="font-weight: bolder !important;">Go To Year</h6>
+              <!--
               <p style="
                      padding-left:7px;
                       border-radius: 6px;
@@ -485,24 +487,28 @@
                       font-family: 'Montserrat', sans-serif !important;
                       border: 0.5px #ecf0f1;"><i class="fa fa-calendar " aria-hidden="true"></i><span style="font-size: 15px;
                       margin-left: 8px;">2020</span>
-              </p>
+              </p>                       -->
+              <select class="form-control p-0 pr-1">
+                <option selected>2020</option>
+              </select>
             </div>
 
             <div class="ffitem">
               <i title="Go to year 2020" style="cursor: pointer;
               color: grey;
               padding-top: 8px; 
-              margin-top: 47px;
-              
-              margin-bottom: 20px;" id="arrow" class="fa fa-long-arrow-right circle-icon2 fa-lg"
+              margin-top: 40px;
+              margin-left: 5px;
+              margin-bottom: 2px;" id="arrow" class="fa fa-long-arrow-right fa-xs moomoo"
                 (click)="test1('year')"></i>
+                <p style="font-weight: lighter; font-size: 13px; margin-left: 0px">Submit</p>
             </div>
 
-            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px; margin-right: 20px;" class="vl"></div>
+            <div style="border-left: 1px ridge #909196;margin-top: 15px;margin-bottom: 15px; margin-right: 20px;" class="vl"></div>
 
 
             <div class="ffitem" style="padding-top: 3px;">
-              <h6 class="mt-3 font-weight-bold">UOM</h6>
+              <h6 class="mt-3" style="font-weight: bolder !important;">UOM</h6>
               <select class="form-control p-0 pr-1" #t5 name="plant" [(ngModel)]="UOM" (change)="updateTheTable()">
                 <option selected value="HL">HL</option>
                 <option value="L">L</option>
@@ -514,11 +520,11 @@
               </select>
             </div>
 
-            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px; margin-right: 10px;" class="vl"></div>
+            <div style="border-left: 1px ridge #909196;margin-top: 15px;margin-bottom: 15px; margin-right: 10px;" class="vl"></div>
 
 
             <div class="ffitem" style="padding-top: 3px;">
-              <h6 class="mt-3 font-weight-bold">Granularity</h6>
+              <h6 class="mt-3" style="font-weight: bolder !important;">Granularity</h6>
 
               <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [disabled]="isEnabled_gran"
                 [(ngModel)]="granular1" (change)="updateTheTable()">
@@ -527,11 +533,11 @@
               </select>
             </div>
 
-            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px; margin-right: 10px;" class="vl"></div>
+            <div style="border-left: 1px ridge #909196;margin-top: 15px;margin-bottom: 15px; margin-right: 10px;" class="vl"></div>
 
 
             <div class="ffitem" style="padding-top: 3px;margin-left:10px;">
-              <h6 class="mt-3 font-weight-bold">Views</h6>
+              <h6 class="mt-3" style="font-weight: bolder !important;">Views</h6>
 
 
               <select class="form-control p-0 pr-1" #t12 name="plant" id="granular234" [(ngModel)]="views"
@@ -543,16 +549,16 @@
               </select>
             </div>
 
-            <div style="border-left: 1px solid #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+            <div style="border-left: 1px ridge #909196;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
 
             <div class="ffitem" style="font-size: 15px;margin-right: 7px;">
   
-              <h6 class="mt-3 font-weight-bold" style="margin-top: 16px !important;    ">View</h6>
+              <h6 class="mt-3" style="margin-top: 16px !important; font-weight: bolder !important;">View</h6>
   
   
               <img style="color: #000;height: 37px;font-size: 28px;" (click)="abc12()" src='assets/images/expand.png'>
   
-              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    font-size: 13px !important;margin-right: 5px;">Expand</h6>
+              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    font-size: 12px !important;margin-right: 5px;">Expand</h6>
   
             </div>
           <!--</div>-->

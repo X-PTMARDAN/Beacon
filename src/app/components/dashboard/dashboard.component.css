@@ -468,6 +468,13 @@ select.form-control {
   
 }
 
+.moomoo.fa {
+  display: inline-block;
+  background-color: rgba(179, 179, 179, 0.61);
+  border-radius: 120px;
+  padding: 0.5em 0.6em;
+}
+
 .ag-cell {
   font-size: 12px !important;
 }

@@ -524,7 +524,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             var z = this.DBloadWeek.toString();
             var x = z.substring(0,4);
             var y = z.substring(4,6);
-            this.theLoadWeek = " - " + y + " - " + x;
+            this.theLoadWeek = " W" + y + ", " + x;
         })
 
         this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
@@ -12166,7 +12166,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         else if (this.views == "Detailed View") {
 
             if (this.granular1 == "week") {
-
                 if (this.UOM == "HL") {
                     try {
                         this.planningtable = 'Planning table (HL)';
@@ -12718,6 +12717,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
                         prevactuals: this.createPlanRequestData.prevactuals,
+                        uom1: this.UOM,
                         // forecastingGroups: data.forecastingGroups,
                         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
                         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -14330,6 +14330,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
                         prevactuals: this.createPlanRequestData.prevactuals,
+                        uom1: this.UOM,
                         // forecastingGroups: data.forecastingGroups,
                         forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
                         customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -17371,6 +17372,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             cellStyle: { 'border': '1px ridge'},
                             width: 62,
                             type: 'rightAligned',
+                            editable: true, /*
                             editable: function(params) {
                                 if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                     return false;
@@ -17378,7 +17380,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 else {
                                     return true;
                                 }
-                            },
+                            },*/
                             cellEditorSelector: function (params) {
                                 if (params.data.key != 'FVA') {
                                     return {
@@ -17414,6 +17416,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         cellStyle: {'border': '1px ridge'},
                         width: 62,
                         type: 'rightAligned',
+                        editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                 return false;
@@ -17421,7 +17424,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             else {
                                 return true;
                             }
-                        },
+                        },*/
                         cellEditorSelector: function (params) {
                             if (params.data.key != 'FVA') {
                                 return {
@@ -19501,6 +19504,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
+                        editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                 return false;
@@ -19508,7 +19512,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             else {
                                 return true;
                             }
-                        },
+                        },*/
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 130,
                         valueFormatter: function (params) {
@@ -19532,6 +19536,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
+                        editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                 return false;
@@ -19539,7 +19544,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             else {
                                 return true;
                             }
-                        },
+                        },*/
                         width: 130,
                         cellStyle: {'border': '1px ridge'},
                         valueFormatter: function (params) {
@@ -21114,6 +21119,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         console.log("Paste end--", params);
 
+        console.log("\n\n hehehehehe arr12 is " + this.arr12);
+
         for (const abr of this.arr12) {
             this.lotCompleted = 1;
             var f = abr.week;
@@ -21125,7 +21132,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             for (var y = 0; y < this.finalForecastDataPoints.length; y++) {
                 if (this.finalForecastDataPoints[y].x == f) {
-                    this.finalForecastDataPoints[y].y = parseInt(this.finalForecastDataPoints[y].y) + parseInt(th)
+                    this.finalForecastDataPoints[y].y = parseInt(this.finalForecastDataPoints[y].y) + parseInt(th);
+                    console.log("\n\n finalforecast[y].y is " + this.finalForecastDataPoints[y].y);
                 }
             }
             this.chart1.render();
@@ -21148,9 +21156,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public onPasteStart(params) {
 
+        /*
         if (params.node.id == "ML" || params.node.id == "APO" || params.node.id == "Final Forecast" || params.node.id == "Actual" || params.node.id == "Actual LY" || params.node.id == "Open" || params.node.id == "Promo") {
 
         }
+        */
 
         this.main_1_cal = 1;
         this.arr12_sku = [];
