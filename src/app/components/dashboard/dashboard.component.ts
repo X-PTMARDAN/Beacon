@@ -1639,7 +1639,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     backgroundColor: '#FFFFFF',
                     legend: {
                         cursor: 'pointer',
-                        fontSize: 10,
+                        //fontSize: 10,
                         itemclick: this.toggleDataSeries1.bind(this)
                     },
                     axisX: {
@@ -1815,7 +1815,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     backgroundColor: '#FFFFFF',
                     legend: {
                         cursor: 'pointer',
-                        fontSize: 10,
+                        //fontSize: 10,
                         itemclick: this.toggleDataSeries1.bind(this)
                     },
                     axisX: {
@@ -3281,7 +3281,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             backgroundColor: '#FFFFFF',
                             legend: {
                                 cursor: 'pointer',
-                                fontSize: 10,
+                                //fontSize: 10,
                                 itemclick: this.toggleDataSeries1.bind(this)
                             },
                             axisX: {
@@ -17372,7 +17372,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             cellStyle: { 'border': '1px ridge'},
                             width: 62,
                             type: 'rightAligned',
-                            editable: true, /*
+                            //editable: true, /*
                             editable: function(params) {
                                 if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                     return false;
@@ -17380,7 +17380,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 else {
                                     return true;
                                 }
-                            },*/
+                            },
                             cellEditorSelector: function (params) {
                                 if (params.data.key != 'FVA') {
                                     return {
@@ -17416,7 +17416,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         cellStyle: {'border': '1px ridge'},
                         width: 62,
                         type: 'rightAligned',
-                        editable: true, /*
+                        //editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                 return false;
@@ -17424,7 +17424,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             else {
                                 return true;
                             }
-                        },*/
+                        },
                         cellEditorSelector: function (params) {
                             if (params.data.key != 'FVA') {
                                 return {
@@ -19504,7 +19504,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        editable: true, /*
+                        //editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                 return false;
@@ -19512,7 +19512,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             else {
                                 return true;
                             }
-                        },*/
+                        },
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 130,
                         valueFormatter: function (params) {
@@ -19536,7 +19536,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        editable: true, /*
+                        //editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
                                 return false;
@@ -19544,7 +19544,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             else {
                                 return true;
                             }
-                        },*/
+                        },
                         width: 130,
                         cellStyle: {'border': '1px ridge'},
                         valueFormatter: function (params) {
