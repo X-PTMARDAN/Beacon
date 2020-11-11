@@ -21106,52 +21106,35 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public onPasteEnd(params) {
 
-        var rowNode = this.gridApi.getRowNode('ML');
-
-        // console.log("aa!@#$4",rowNode1.data[a]);
-
-
-
-
-
-        console.log("Check3eing---" + this.copy_ml_week);
-
-
-        console.log("Paste end--", params);
-
-        console.log("\n\n hehehehehe arr12 is " + this.arr12);
-
-        for (const abr of this.arr12) {
-            this.lotCompleted = 1;
-            var f = abr.week;
-            var th = abr.value;
-
-            console.log("First array--" + f);
-
-            console.log("Week--" + th);
-
-            for (var y = 0; y < this.finalForecastDataPoints.length; y++) {
-                if (this.finalForecastDataPoints[y].x == f) {
-                    this.finalForecastDataPoints[y].y = parseInt(this.finalForecastDataPoints[y].y) + parseInt(th);
-                    console.log("\n\n finalforecast[y].y is " + this.finalForecastDataPoints[y].y);
+        if (params.node.id == 'FVA') {
+            var rowNode = this.gridApi.getRowNode('ML');
+            console.log("Check3eing---" + this.copy_ml_week);
+            console.log("Paste end--", params);
+            console.log("\n\n hehehehehe arr12 is " + this.arr12);
+            for (const abr of this.arr12) {
+                this.lotCompleted = 1;
+                var f = abr.week;
+                var th = abr.value;
+                console.log("First array--" + f);
+                console.log("Week--" + th);
+                for (var y = 0; y < this.finalForecastDataPoints.length; y++) {
+                    if (this.finalForecastDataPoints[y].x == f) {
+                        this.finalForecastDataPoints[y].y = parseInt(this.finalForecastDataPoints[y].y) + parseInt(th);
+                        console.log("\n\n finalforecast[y].y is " + this.finalForecastDataPoints[y].y);
+                    }
                 }
+                this.chart1.render();
+                // this.main_1_cal=params.column.colId;
+                this.change1(f, th, this.change_extra);
             }
-            this.chart1.render();
-
-
-
-            // this.main_1_cal=params.column.colId;
-            this.change1(f, th, this.change_extra);
-
+            this.final_one = this.arr12.length;
+            console.log("Final Step---" + this.final_one);
+            // this.final_one=1;
+            // this.main_1_cal=0;
+            // this.arr12=[];
+            // this.main_1=0;
+            // this.lotCompleted=0;
         }
-        this.final_one = this.arr12.length;
-        console.log("Final Step---" + this.final_one);
-
-        // this.final_one=1;
-        // this.main_1_cal=0;
-        // this.arr12=[];
-        // this.main_1=0;
-        // this.lotCompleted=0;
     }
 
     public onPasteStart(params) {
@@ -21162,29 +21145,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
         */
 
-        this.main_1_cal = 1;
-        this.arr12_sku = [];
-        var gk = this.gridApi.getCellRanges();
+        if (params.node.id == 'FVA') {
 
-
-
-        this.copy_ml_week = params[0].startColumn.colId;
-
-
-
-
-
-        var rowNode1 = this.gridApi.getRowNode('ML');
-
-        console.log("aa!@#$4", rowNode1.data[params.startColumn.colId]);
-
-        this.copy_ml = rowNode1.data[params.startColumn.colId];
-
-
-
-
-
-
+            this.main_1_cal = 1;
+            this.arr12_sku = [];
+            var gk = this.gridApi.getCellRanges();
+            this.copy_ml_week = params[0].startColumn.colId;
+            var rowNode1 = this.gridApi.getRowNode('ML');
+            console.log("aa!@#$4", rowNode1.data[params.startColumn.colId]);
+            this.copy_ml = rowNode1.data[params.startColumn.colId];
+        }
     }
 
     public onPasteEnd1(params) {
