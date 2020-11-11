@@ -464,19 +464,14 @@ select.form-control {
   height: 20px;
   background-color: #bec1c1;
   border: 2px solid black;
-  
-  
-}
-
-.moomoo.fa {
-  display: inline-block;
-  background-color: rgba(179, 179, 179, 0.61);
-  border-radius: 120px;
-  padding: 0.5em 0.6em;
 }
 
 .ag-cell {
   font-size: 12px !important;
+}
+
+.oomoom {
+  background-color:  rgba(179, 179, 179, 0.61);
 }
 /*
 .ffbox {
