@@ -110,6 +110,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public prev_year = 0;
 
+    public autoGroupColumnDef;
+
     public fals = false;
 
     public compress = false;
@@ -506,6 +508,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     ngOnInit() {
+
+        this.autoGroupColumnDef = {
+            pinned: 'left'
+        };
 
         this.willusave = false;
 
@@ -17940,7 +17946,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         };
 
         this.forecastadd = 0;
-
 
         columndef_clone.push(
             { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
