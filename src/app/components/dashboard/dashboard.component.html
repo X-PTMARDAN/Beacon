@@ -1977,108 +1977,62 @@
 
 
             <input type='file' id="getFile" style="display:none" (change)="changeListener($event.target.files)">
-
-            <!-- <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select/Deselect all
-            FG</a> -->
           </div>
           <br>
 
-          <!-- <div class="input-group mt-2">
-           <input type="text" class="form-control"  name="searchSKU1" placeholder="Search FG">
-          <div class="input-group-append">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
+
+
+          <div class="panel-body" style="height: auto; max-height: 70vh; overflow: auto;background: #f4f5f9;">
+            <div class="mb-2" style="font-size: 12px;" data-simplebar>
+
+
+              <div class=" mt-1 p-1 pl-2 d-flex l12">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" (change)="clearAllSKUs()">
+                </div>
+                <p style="font-size: 0.75rem;" class="m-0">All</p>
+              </div>
+
+
+
+
+
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12"
+                *ngFor="let sku of sku_semi; let i=index ">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+                </div>
+
+
+                <p class="m-0" style="font-size: 0.75rem;" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
+                  {{ sku.name }}</p>
+
+              </div>
+              <hr style="margin-top: 0.2rem;color: #000">
+
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12 " *ngFor="let sku of skus; let i=index ">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+                </div>
+
+
+                <p class="m-0" style="font-size: 0.75rem;" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
+                  {{ sku.name }}</p>
+
+              </div>
+
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12"
+                *ngFor="let sku of second_sku; let i=index">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+                </div>
+                <p style="font-size: 0.75rem;" class="m-0" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
+                  {{ sku.name  }}</p>
+              </div>
+
+
+            </div>
           </div>
-        </div> -->
-
-
-          <!-- <div class="mb-2" style="height: 200px; overflow: auto;font-size: 12px;" data-simplebar >
-           <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus; let i=index">
-         <div style="margin-top: 3px;">
-           <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
-         </div>
-         <p class="m-0">{{ sku.name }}</p>
-       </div>
-       <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex" *ngFor="let sku of second_sku; let i=index">
-           <div style="margin-top: 3px;">
-             <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
-           </div>
-           <p style="font-size: 0.75rem;" class="m-0">{{ sku.name }}</p>
-         </div>
-     </div>
-    <div class="panel-heading" role="tab" [id]="filter.key">
-       <h4 class="panel-title">
-         <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
-            [href]="'#' + filter.key + 'filter'"
-            aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
-            (click)="filter.isExpanded = !filter.isExpanded">
-           {{ filter.name }}
-           <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
-         </a>
-       </h4>
-     </div> -->
-
-
-          <!-- <div class="panel-heading" role="tab" >
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
-             (click)="filter.isExpanded = !filter.isExpanded">
-            Customer Planning Group
-            <i class="fa float-right fa-chevron-down" ></i>
-          </a>
-        </h4>
-      </div>  -->
-
-
-          <div class="mb-2" style="height: auto; max-height: 70vh; overflow: auto;font-size: 12px;" data-simplebar>
-
-
-            <div class=" mt-1 p-1 pl-2 d-flex l12">
-              <div style="margin-top: 3px;">
-                <input class="mr-1" type="checkbox" (change)="clearAllSKUs()">
-              </div>
-              <p style="font-size: 0.75rem;" class="m-0">All</p>
-            </div>
-
-
-
-
-
-            <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12"
-              *ngFor="let sku of sku_semi; let i=index ">
-              <div style="margin-top: 3px;">
-                <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
-              </div>
-
-
-              <p class="m-0" style="font-size: 0.75rem;" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
-                {{ sku.name }}</p>
-
-            </div>
-            <hr style="margin-top: 0.2rem;color: #000">
-
-            <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12 " *ngFor="let sku of skus; let i=index ">
-              <div style="margin-top: 3px;">
-                <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
-              </div>
-
-
-              <p class="m-0" style="font-size: 0.75rem;" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
-                {{ sku.name }}</p>
-
-            </div>
-
-            <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12"
-              *ngFor="let sku of second_sku; let i=index">
-              <div style="margin-top: 3px;">
-                <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
-              </div>
-              <p style="font-size: 0.75rem;" class="m-0" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
-                {{ sku.name  }}</p>
-            </div>
-
-
-          </div>
-
 
 
 
