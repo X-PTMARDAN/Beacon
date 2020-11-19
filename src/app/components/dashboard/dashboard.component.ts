@@ -1751,6 +1751,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -1934,6 +1940,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -2124,6 +2136,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -2318,6 +2336,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -2495,6 +2519,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -2658,6 +2688,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -2822,6 +2858,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -2982,6 +3024,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -3395,6 +3443,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -3564,6 +3618,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -3931,6 +4000,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -4104,6 +4179,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -4391,6 +4481,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -4640,6 +4736,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -4927,6 +5038,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -5172,6 +5289,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -5460,6 +5592,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -5705,6 +5843,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -5993,6 +6146,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -6237,6 +6396,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -6525,6 +6699,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -6770,6 +6950,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -7141,6 +7336,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -7305,6 +7506,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -7598,6 +7814,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -7846,6 +8068,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -8133,6 +8370,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -8381,6 +8624,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -8669,6 +8927,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -8917,6 +9181,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -9203,6 +9482,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -9450,6 +9735,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -9737,6 +10037,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -9985,6 +10291,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -10275,6 +10596,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -10523,6 +10850,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -11307,6 +11649,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -11552,6 +11900,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -11849,6 +12212,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
+                                    if (e.entries[i].dataSeries.name == 'Baseline') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                    }
                                     content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                     content += '<br/>';
                                 }
@@ -12101,6 +12470,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
+                                    if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Actuals') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                    }
                                     content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                     content += '<br/>';
                                 }
@@ -12398,6 +12782,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -12643,6 +13033,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -12928,6 +13333,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -13173,6 +13584,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -13465,6 +13891,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
+                                    if (e.entries[i].dataSeries.name == 'Baseline') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                    }
                                     content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                     content += '<br/>';
                                 }
@@ -13714,6 +14146,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
+                                    if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Actuals') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                    }
                                     content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                     content += '<br/>';
                                 }
@@ -14011,6 +14458,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -14256,6 +14709,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -14541,6 +15009,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Baseline') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -14786,6 +15260,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
+                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                        }
+                                        if (e.entries[i].dataSeries.name == 'Actuals') {
+                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                        }
                                         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                         content += '<br/>';
                                     }
@@ -15078,6 +15567,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
+                                    if (e.entries[i].dataSeries.name == 'Baseline') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                    }
                                     content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                     content += '<br/>';
                                 }
@@ -15327,6 +15822,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
+                                    if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                    }
+                                    if (e.entries[i].dataSeries.name == 'Actuals') {
+                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                    }
                                     content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                     content += '<br/>';
                                 }
@@ -16075,6 +16585,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -16223,6 +16739,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Actuals') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -16490,6 +17021,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Baseline') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -16659,6 +17196,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
+                                if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                }
+                                if (e.entries[i].dataSeries.name == 'Actuals') {
+                                    content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                }
                                 content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                                 content += '<br/>';
                             }
@@ -16965,6 +17517,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         console.log(JSON.stringify(e));
                         content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         for (var i = 0; i < e.entries.length; i++) {
+                            if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                            }
+                            if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                            }
+                            if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                            }
+                            if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                            }
+                            if (e.entries[i].dataSeries.name == 'Actuals') {
+                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                            }
                             content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
                             content += '<br/>';
                         }
