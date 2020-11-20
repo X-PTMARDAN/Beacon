@@ -1,0 +1,2413 @@
+<script lang="javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
+
+
+<div id="content">
+  <div *ngIf="loading"
+    style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" alt="Smiley facg">
+
+    </div>
+  </div>
+
+
+
+  <div class="filter-col p-3" data-simplebar *ngIf="abc123">
+
+    <h6 class="mt-0 font-weight-bold" style="    font-weight: 600 !important; font-family: 'Montserrat', sans-serif !important;
+    font-size: 18px;">Filter</h6>
+    <div class="mt-1 d-flex justify-content-around" style="overflow-y: auto;">
+      <div class="d-flex flex-column align-items-center">
+        <a href="javascript:void(0);" class="data-action" data-target="#loadFilterModal" data-toggle="modal">
+          <i class="fa fa-folder-open"></i></a>
+        <span class="text-muted" style=" font-family: 'Montserrat', sans-serif !important;">Load</span>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <a href="javascript:void(0);" class="data-action" data-target="#saveFilterModal" data-toggle="modal"><i
+            class="fa fa-save"></i></a>
+        <span class="text-muted" style=" font-family: 'Montserrat', sans-serif !important;">Save</span>
+      </div>
+      <div class="d-flex flex-column align-items-center" (click)="refresh()">
+        <a href="javascript:void(0);" class="data-action"><i class="fa fa-times"></i></a>
+        <span class="text-muted" style=" font-family: 'Montserrat', sans-serif !important;">Clear</span>
+      </div>
+    </div>
+
+    <!-- <div class="mb-2">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <a class="text-muted" href="javascript:void(0);">clear all of the filters</a>
+      </div>
+    </div> -->
+
+
+    <div style="height: 120vh; overflow-y: scroll;overflow-x:hidden;width: 175px;"> 
+
+
+
+      <h6 class="mt-3 font-weight-bold">CPG </h6>
+
+      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters2; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                  [href]="'#' + filter.key + 'filter'" aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                  (click)="unexpanded1();filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+              [attr.aria-labelledby]="filter.key">
+              <div class="panel-body" style="height: auto; overflow: auto;">
+                <ul class="m-0">
+                  <li class="d-flex" *ngFor="let value of filter.values;">
+                    <div>
+                      <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                        (change)="reactivate_filter(1);onFilterCheckBoxChange121()">
+                    </div>
+                    <p class="m-0">{{ value.name }}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+      </div>
+
+      <!--
+          <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+            <ng-container *ngFor="let filter of filters; let filterIndex=index">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" [id]="filter.key">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                       [href]="'#' + filter.key + 'filter'"
+                       aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                       (click)="filter.isExpanded = !filter.isExpanded">
+                      {{ filter.name }}
+                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                     [attr.aria-labelledby]="filter.key">
+                  <div class="panel-body">
+                    <ul class="m-0">
+                      <li class="d-flex" *ngFor="let value of filter.values;">
+                        <div>
+                          <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                          (change)="reactivate_filter(1)" >
+                        </div>
+                        <p class="m-0">{{ value.name }}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div> -->
+
+
+      <!--
+          <hr style="margin-top: 0.5rem;">
+          <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+            <ng-container *ngFor="let filter of filters_plant; let filterIndex=index">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" [id]="filter.key">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                       [href]="'#' + filter.key + 'filter'"
+                       aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                       (click)="filter.isExpanded = !filter.isExpanded">
+                      {{ filter.name }}
+                      <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                     [attr.aria-labelledby]="filter.key">
+                  <div class="panel-body">
+                    <ul class="m-0">
+                      <li class="d-flex" *ngFor="let value of filter.values;">
+                        <div>
+                          <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                               (change)="reactivate_filter(1)" >
+                        </div>
+                        <p class="m-0">{{ value.name.name }}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div> -->
+
+      <hr style="margin-top: 0.1rem;">
+
+
+      <h6 class="mt-0 font-weight-bold">Forecasting Group </h6>
+      <hr style="margin-top: 0.2rem;">
+
+      <button style="display:block;width:150px; height:30px;border-radius: 7px;"
+        onclick="document.getElementById('getFile').click()">Upload <i style="    margin-top: 4px;"
+          class="fa float-right fa fa-upload"></i></button>
+
+      <p style="    font-weight: bold;
+      margin-bottom: 13px !important;
+      padding-top: 19px;
+      font-family: 'Montserrat', sans-serif !important;cursor: pointer;" (click)="selectallfg()">Select All FG</p>
+
+
+
+      <div class="input-group mt-2">
+        <input type="text" style="border-radius: 18px;" class="form-control" [(ngModel)]="searchText" (focus)='fgshow()'
+          name="searchSKU" placeholder="Search FG">
+        <div class="input-group-append">
+        </div>
+      </div>
+
+      <br>
+
+      <div class="mb-2" style="height: 280px; overflow: auto;font-size: 12px;" data-simplebar *ngIf="pressed">
+        <!-- <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus | filter: getCallback(); let i=index"> -->
+        <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of skus_search | filter: getCallback(); let i=index">
+
+          <a href="javascript:void(0);" class="text-primary pr-1" (click)="addItems(sku.id)"><i style="color: #17b169;"
+              class="fa fa-plus-circle" aria-hidden="true"></i></a>
+          <p class="m-0">{{ sku.name }}</p>
+
+
+        </div>
+      </div>
+
+
+
+      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters1_brands; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                  [href]="'#' + filter.key + 'filter'" aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                  (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
+              role="tabpanel" [attr.aria-labelledby]="filter.key">
+              <div class="panel-body" style="height: auto; max-height: 30vh; overflow: auto;">
+                <ul class="m-0 ">
+                  <!-- <span style="font-weight: 600;cursor: pointer;" (click)="selectallbrand();">Select all/deselect</span>
+                    <br> -->
+                  <input type="text" style="border-radius: 38px !important" class="form-control"
+                    [(ngModel)]="brandstext" name="brandstext" placeholder="Search Brand">
+
+                  <li class="d-flex li1">
+                    <div>
+                      <input class="mr-1" type="checkbox" (change)="selectallbrand()">
+                    </div>
+                    <p class="m-0">All</p>
+                  </li>
+                  <hr>
+                  <ng-container *ngFor="let value of filter.values | filter_brand : getCallback_brands() ;let i=index ">
+                    <li class="d-flex li1">
+                      <div>
+                        <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                          (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();brandsub('brand');">
+                      </div>
+                      <p class="m-0">{{ value.name }}</p>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+
+      </div>
+
+
+
+
+
+      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters1_subbrand; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                  [href]="'#' + filter.key + 'filter'" aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                  (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
+              role="tabpanel" [attr.aria-labelledby]="filter.key">
+              <div class="panel-body" style="height: auto; max-height: 30vh; overflow: auto;">
+                <!-- <span style="font-weight: 600;cursor: pointer;" (click)="selectallsub();">Select all/deselect</span> -->
+
+                <ul class="m-0">
+                  <li class="d-flex li1">
+                    <div>
+                      <input class="mr-1" type="checkbox" (change)="selectallsub()">
+                    </div>
+                    <p class="m-0">All</p>
+                  </li>
+                  <hr>
+                  <li class="d-flex li1" *ngFor="let value of filter.values;">
+                    <div>
+                      <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                        (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();brandsub('subbrand');">
+                    </div>
+                    <p class="m-0">{{ value.name }}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- 
+        <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+          <ng-container *ngFor="let filter of filters1_leadsku; let filterIndex=index">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" [id]="filter.key">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                     [href]="'#' + filter.key + 'filter'"
+                     aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                     (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
+                    {{ filter.name }}
+                    <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                  </a>
+                </h4>
+              </div>
+              <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
+                   role="tabpanel"
+                   [attr.aria-labelledby]="filter.key">
+                <div class="panel-body" style="height: 150px; overflow: auto;">
+                  <ul class="m-0">
+                      <input type="text" class="form-control" [(ngModel)]="leadtext" name="leadtext"
+                      placeholder="Search Lead Sku">
+                    <ng-container *ngFor="let value of filter.values | filter_leadsku : getCallback_leadsku() ;let i=index ">
+                    <li class="d-flex">
+                      <div>
+                        <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                               (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();">
+                      </div>
+                      <p class="m-0">{{ value.name }}</p>
+                    </li>
+                    </ng-container>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div> -->
+
+
+
+
+
+      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters1_leadsku; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                  [href]="'#' + filter.key + 'filter'" aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                  (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
+              role="tabpanel" [attr.aria-labelledby]="filter.key">
+              <div class="panel-body" style="height: auto; max-height: 30vh; overflow: auto;">
+                <ul class="m-0">
+                  <input type="text" style="border-radius: 38px !important" class="form-control" [(ngModel)]="leadtext"
+                    name="leadtext" placeholder="Search Lead Sku">
+                  <ng-container
+                    *ngFor="let value of filter.values | filter_leadsku : getCallback_leadsku() ;let i=index ">
+                    <li class="d-flex">
+                      <div>
+                        <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                          (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();brandsub('leadsku');">
+                      </div>
+                      <p class="m-0">{{ value.name }}</p>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+
+      </div>
+
+
+
+
+      <div class="panel-group mt-1" role="tablist" id="filterAccordion" aria-multiselectable="true">
+        <ng-container *ngFor="let filter of filters1; let filterIndex=index">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" [id]="filter.key">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" id="filter.key" data-parent="#filterAccordion"
+                  [href]="'#' + filter.key + 'filter'" aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+                  (click)="unexpanded();filter.isExpanded = !filter.isExpanded">
+                  {{ filter.name }}
+                  <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                </a>
+              </h4>
+            </div>
+            <div [id]="filter.key + 'filter'" *ngIf="filter.key + 'filter'" class="panel-collapse collapse"
+              role="tabpanel" [attr.aria-labelledby]="filter.key">
+              <div class="panel-body" style="height: auto; max-height: 30vh; overflow: auto;">
+                <ul class="m-0">
+                  <li class="d-flex" *ngFor="let value of filter.values;">
+                    <div>
+                      <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                        (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku()">
+                    </div>
+                    <p class="m-0">{{ value.name }}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="row content-col mb-2" id="upper_middle" style="margin-bottom: .0rem!important;">
+    <div class="col-12 ">
+      <!--<div class="bg-white shadow mt-2" style="background: #f4f5f9;border-radius: 6px; ">-->
+        <div class="d-flex justify-content-between mt-2 shadow ffbox" style="background:#f4f5f9;border-radius: 6px;">
+          <!--<div class="d-flex justify-content-between ml-2 ffbox" style="background:#f4f5f9;">-->
+
+            <div class="ffitem" style="margin-left: 1vw;">
+              <i style="color: #fff;padding-top: 8px;margin-top: 28px;" class="fa fa-save fa-8x circle-icon"
+                data-toggle="modal" data-target="#saveAPlansModal"></i>
+              <h6 class="mt-3 font-weight-bold" style="margin-top: 5px !important;  margin-left: 2px;  font-size: 10px !important;">
+                Save<br>Plan</h6>
+
+            </div>
+
+            <div style="border-left: 1px solid; border-color:rgba(158, 145, 145, 0.192) ; margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+
+            <div class="ffitem" style="padding-top: 0px;">
+              <h6 class="mt-3" style="font-weight: bolder !important; font-size: 12px !important">Actuals</h6>
+              <input type="week" value="2019-W38" style="width: 12vw; height: 50px; font-family: 'Montserrat', sans-serif !important; padding: 0 0 0 12px !important;" id="prevactuals"
+                [(ngModel)]="prevactuals" (change)="color_change()" name="prevactuals">
+            </div>
+
+            <div class="ffitem">
+              <!-- <p style="color: #ecf0f1;font-weight: 300!important;font-size: 0.75rem;margin:0px !important;padding-left:6px;font-weight: 700!important">Load Week</p> -->
+
+              <div style="margin-top: 20px !important;">
+                <h6 class="mt-3" style="margin-right: 10px; margin-top: 20px !important; width:max-content; font-size: 12px !important">Load Week
+                </h6>
+                <p style="margin-top: 12px; color: #848A92;padding-left: 0.4vw;  font-size: 12px !important">{{theLoadWeek}}</p>
+              </div>
+            </div>
+
+            <div class="ffitem" style="padding-top: 0px;">
+              <h6 class="mt-3" style="font-weight: bolder !important;  font-size: 12px !important">Plan</h6>
+              <input type="week" id="endWeek" style="width: 12vw; height: 50px; font-family: 'Montserrat', sans-serif !important; padding: 0 0 0 12px !important;" name="endWeek" [(ngModel)]="endWeek"
+                (change)="color_change()" required>
+            </div>
+
+            <div class="ffitem">
+             <i title="Change horizon" style="cursor: pointer;
+              color: grey;
+              padding-top: 8px; 
+              margin-top: 40px;
+              margin-left: 5px;
+              margin-bottom: 2px;" id="arrow" class="fa fa-long-arrow-right circle-icon oomoom fa-xs" (click)="tick()"></i>
+              <p style="font-weight: lighter; font-size: 10px; margin-left: 5px">Submit</p>
+            </div>
+
+            <div style="border-left: 1px solid; border-color:rgba(158, 145, 145, 0.192) ;margin-top: 15px;margin-bottom: 15px;margin-left:15px;" class="vl">
+            </div>
+
+
+            <div class="ffitem" title="View whole 2020" style="padding-top: 0px; font-family: 'Montserrat', sans-serif !important;">
+              <h6 class="mt-3" style="font-weight: bolder !important;  font-size: 12px !important">Go To Year</h6>
+              <!--
+              <p style="
+                     padding-left:7px;
+                      border-radius: 6px;
+                      cursor: pointer;
+                      height: 20px;
+                      width: 90px;
+                      margin-bottom: 0rem;
+                     font-size: 1.55rem;
+                      color: #000;
+                      font-family: 'Montserrat', sans-serif !important;
+                      border: 0.5px #ecf0f1;"><i class="fa fa-calendar " aria-hidden="true"></i><span style="font-size: 15px;
+                      margin-left: 8px;">2020</span>
+              </p>                       -->
+              <select class="form-control" style="height: 50px; padding: 0 0 0 12px !important; font-size: 12px !important; font-weight: normal !important; font-family: 'Montserrat', sans-serif !important;">
+                <option selected>2020</option>
+              </select>
+            </div>
+
+            <div class="ffitem">
+              <i title="Go to year 2020" style="cursor: pointer;
+              color: grey;
+              padding-top: 8px; 
+              margin-top: 40px;
+              margin-left: 5px;
+              margin-bottom: 2px;" id="arrow" class="fa fa-long-arrow-right circle-icon oomoom fa-xs"
+                (click)="test1('year')"></i>
+                <p style="font-weight: lighter; font-size: 10px; margin-left: 5px">Submit</p>
+            </div>
+
+            <!--o
+              pp
+              ll
+              qq
+              zz-->
+
+            <div style="border-left: 1px solid; border-color:rgba(158, 145, 145, 0.192) ;margin-top: 15px;margin-bottom: 15px; margin-right: 20px;" class="vl"></div>
+
+
+            <div class="ffitem" style="padding-top: 0px;">
+              <h6 class="mt-3" style="font-weight: bolder !important;  font-size: 12px !important">UOM</h6>
+              <select class="form-control p-0 pr-1" #t5 name="plant" [(ngModel)]="UOM" (change)="updateTheTable()" style="height: 50px; padding: 0 0 0 12px !important; font-size: 12px !important; font-weight: normal !important; font-family: 'Montserrat', sans-serif !important;">
+                <option selected value="HL">HL</option>
+                <option value="L">L</option>
+                <option value="PC">PC</option>
+                <option value="PAL">PAL</option>
+                <option value="BOT">BOT</option>
+                <option value="PPU">PPU</option>
+                <option value="CU">CU</option>
+              </select>
+            </div>
+
+            <div style="border-left: 1px solid; border-color:rgba(158, 145, 145, 0.192) ;margin-top: 15px;margin-bottom: 15px; margin-right: 10px;" class="vl"></div>
+
+
+            <div class="ffitem" style="padding-top: 0px;">
+              <h6 class="mt-3" style="font-weight: bolder !important;  font-size: 12px !important">Granularity</h6>
+
+              <select class="form-control p-0 pr-1" #t1 name="plant" id="granular" [disabled]="isEnabled_gran"
+                [(ngModel)]="granular1" (change)="updateTheTable()" style="height: 50px; padding: 0 0 0 12px !important; font-size: 12px !important; font-weight: normal !important; font-family: 'Montserrat', sans-serif !important;">
+                <option selected value="week">Weekly View</option>
+                <option value="month">Monthly View</option>
+              </select>
+            </div>
+
+            <div style="border-left: 1px solid; border-color:rgba(158, 145, 145, 0.192) ;margin-top: 15px;margin-bottom: 15px; margin-right: 10px;" class="vl"></div>
+
+
+            <div class="ffitem" style="padding-top: 0px;margin-left:10px;">
+              <h6 class="mt-3" style="font-weight: bolder !important;  font-size: 12px !important">Views</h6>
+
+
+              <select class="form-control p-0 pr-1" #t12 name="plant" id="granular234" [(ngModel)]="views"
+                (change)="updateTheTable()" style="height: 50px; padding: 0 0 0 12px !important; font-size: 12px !important; font-weight: normal !important; font-family: 'Montserrat', sans-serif !important;">
+                <option selected value="Aggregated">Aggregated</option>
+                <option value="Sku View">Forecasting Group View</option>
+                <option value="Detailed View">Detailed View</option>
+                <option value="Detailed View_material">Detailed View Material</option>
+              </select>
+            </div>
+
+            <div style="border-left: 1px solid; border-color:rgba(158, 145, 145, 0.192) ;margin-top: 15px;margin-bottom: 15px;" class="vl"></div>
+
+            <div class="ffitem" style="margin-right: 7px;">
+  
+              <h6 class="mt-3" style="margin-top: 16px !important; font-weight: bolder !important;  font-size: 12px !important">View</h6>
+  
+  
+              <img style="color: #000;height: 37px;font-size: 28px;" (click)="abc12()" src='assets/images/expand.png'>
+  
+              <h6 class="mt-3 font-weight-bold" style="margin-top: 2px !important;    font-size: 10px !important;margin-right: 5px;">Expand</h6>
+  
+            </div>
+          <!--</div>-->
+        </div>
+      <!--</div>-->
+    </div>
+  </div>
+
+
+  <div class="row content-col " id="middle">
+    <div class="col-12">
+
+
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_up">
+        <div class="d-flex justify-content-between align-items-center p-1">
+          <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+            <p class="font-weight-bold" style="width: 20%;    font-family: 'Montserrat', sans-serif !important;"
+              id="planningtable" [innerText]="planningtable"
+              style="margin-right:20px;font-family: 'Montserrat', sans-serif !important;"></p>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+            <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
+            <!-- <p class="font-weight-bold" ></p> -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+
+            <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+          <div class="form-group m-0">
+          </div>
+
+          <!-- <div class="form-group m-0">
+            <span class="input-group-text" style="float: right !important;margin-right:20px"><i
+              (click)="table_up_click()" class="fa fa-clone"></i></span>
+            <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
+                                                                                                class="fa fa-download"></i></span>
+          </div> -->
+
+
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a> -->
+
+        </div>
+        <!-- <div class="d-flex">
+          <div class="table-header-col">
+            <table>
+              <thead>
+              <tr class="header-text invisible">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block"> XXXX</p>
+                </th>
+              </tr>
+              <tr class="header-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="color: #17b169">Final Forecast</p>
+                </th>
+              </tr>
+              <tr class="header-text">
+                <th class="font-weight-bold">
+               
+                  <p class="m-0 week-block"> FVA</p>
+                </th>
+              </tr>
+              <tr (click)="putValueInFinal('ML')" class="ml-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="color:#46a6b9"> ML Forecast</p>
+                </th>
+              </tr>
+              <tr (click)="putValueInFinal('APO')" class="aop-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="color:#b49132">APO Forecast</p>
+                </th>
+              </tr>
+              <tr class="actual-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="color:#00321e">Actuals</p>
+                </th>
+              </tr>
+              <tr class="header-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
+                </th>
+              </tr>
+              <tr class="header-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Open Orders</p>
+                </th>
+              </tr>
+              <tr class="header-text">
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">Promo</p>
+                </th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="table-content-col">
+            <div class="panel panel-default">
+              <div class="center-block fix-width scroll-inner">
+                <table class="table table-striped"  [(ngModel)]="tables">
+                  <thead>
+                  <tr>
+                    <th class="font-weight-bold" *ngFor="let data of graphData" >
+                      <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data.newweek}}</p>
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <ng-container *ngFor="let data of graphData; let i=index">
+                      <td id="i" class="font-weight-bold cursor-pointer"
+                          [class.highlight]="data.lockcell?.length"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                          (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
+                        {{ data.finalForecast |  number:'1.0-0'}}
+                      </td>
+                    </ng-container>
+                  </tr>
+                  <tr>
+                    <ng-container *ngFor="let data of graphData; let i=index">
+                      <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
+                        <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
+                               [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
+                               (input)="onValueInput(data.calenderYearWeek, i)" [disabled]="greystart> data.calenderYearWeek"
+                               [class.disabled]="greystart> data.calenderYearWeek"
+                               [class.highlight]="data.lockcell?.length"
+                               [(ngModel)]="data.fcstValueAdd"
+                               [innerText]="data.fcstValueAdd">
+                      </td>
+                    </ng-container>
+                  </tr>
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                        [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
+                      {{ data.ml |  number:'1.0-0'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                        [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
+                      {{ data.apo |  number:'1.0-0'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
+                      {{ data.actuals |  number:'1.0-0'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
+                      {{ data.actualslastyear |  number:'1.0-0'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                      {{ data.harshit |  number:'1.0-0'}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                      {{ data.promovalue |  number:'1.0-0'}}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="table-footer-col">
+            <table>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="font-size: 0.6rem;">Total</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.finalCastTotal |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ forecastadd.toFixed(2) |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.mlTotal |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.apoTotal |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.actuals |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.harshit |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.promovalue |  number:'1.0-0'}}</p>
+                </th>
+              </tr>
+            </table>
+          </div>
+        </div> -->
+        <!-- 
+        <ag-grid-angular
+        #agGrid
+        style=" height: 200px;overflow:scroll"
+        class="ag-theme-alpine"
+        [rowData]="rowData4"
+        [columnDefs]="columnDefs"
+        rowSelection="multiple"
+        [rowGroupPanelShow]="always"
+        [statusBar]="statusBar"
+        [suppressMakeColumnVisibleAfterUnGroup]="true"
+        [enableRangeSelection]="true"
+        [statusBar]="statusBar"
+        [suppressDragLeaveHidesColumns]="false"
+        >
+    </ag-grid-angular> -->
+
+
+        <!--yahan-->
+        <!--aggregated week-->
+        <ag-grid-angular style=" height: 520px;overflow:scroll;padding-right: 10px; padding-left: 10px;" class="ag-theme-alpine"
+          [rowData]="rowData" *ngIf="first_ag" rowSelection="multiple" [suppressRowClickSelection]="true"
+          [columnDefs]="columnDefs" [undoRedoCellEditing]="true" rowSelection="multiple"
+          [suppressLastEmptyLineOnPaste]="true" [rowGroupPanelShow]="always" [statusBar]="statusBar"
+          [suppressMakeColumnVisibleAfterUnGroup]="true" (cellValueChanged)="onCellValueChanged($event)"
+          (cellClicked)="onCellClicked($event)" (cellDoubleClicked)="onCellDoubleClicked($event)"
+          (pasteStart)="onPasteStart($event)" (pasteEnd)="onPasteEnd($event)" [autoGroupColumnDef]="autoGroupColumnDef"
+          [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId" [rowGroupPanelShow]="always"
+          [enableRangeSelection]="true" [statusBar]="statusBar" [autoGroupColumnDef]="autoGroupColumnDef"
+          [suppressDragLeaveHidesColumns]="false" (gridReady)="onGridReady($event)" 
+          (firstDataRendered)="firstDataRendered($event)" (modelUpdated)="firstDataRendered($event)"
+          (rowDataUpdated)="firstDataRendered($event)" (newColumnsLoaded)="firstDataRendered($event)"
+          (displayedColumnsChanged)="firstDataRendered($event)" (virtualColumnsChanged)="firstDataRendered($event)">
+        </ag-grid-angular>
+
+
+
+
+
+
+        <!--aggregated month-->
+        <ag-grid-angular style=" height: 520px;overflow:scroll;padding-right: 10px; padding-left: 10px" class="ag-theme-alpine"
+          [rowData]="rowData" *ngIf="fourth_ag" rowSelection="multiple" [columnDefs]="columnDefs"
+          rowSelection="multiple" [suppressRowClickSelection]="true" [suppressLastEmptyLineOnPaste]="true"
+          [rowGroupPanelShow]="always" [statusBar]="statusBar" [undoRedoCellEditing]="true"
+          [suppressMakeColumnVisibleAfterUnGroup]="true" (cellValueChanged)="onCellValueChanged($event)"
+          (pasteStart)="onPasteStart($event)" (pasteEnd)="onPasteEnd($event)" [autoGroupColumnDef]="autoGroupColumnDef"
+          [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId" [rowGroupPanelShow]="always"
+          [enableRangeSelection]="true" [statusBar]="statusBar" [autoGroupColumnDef]="autoGroupColumnDef"
+          [suppressDragLeaveHidesColumns]="false" (gridReady)="onGridReady($event)" 
+          (firstDataRendered)="firstDataRendered($event)" (modelUpdated)="firstDataRendered($event)"
+          (rowDataUpdated)="firstDataRendered($event)" (newColumnsLoaded)="firstDataRendered($event)"
+          (displayedColumnsChanged)="firstDataRendered($event)" (virtualColumnsChanged)="firstDataRendered($event)">
+        </ag-grid-angular>
+
+
+
+
+
+
+
+        <ag-grid-angular style=" height: 750px;width:100%;overflow:scroll;padding-right: 10px; padding-left: 10px" class="ag-theme-alpine"
+          [rowData]="rowData5" rowSelection="multiple" [columnDefs]="columnDefs5" rowSelection="multiple"
+          [undoRedoCellEditing]="true" [suppressRowClickSelection]="true" [suppressLastEmptyLineOnPaste]="true"
+          *ngIf="second_ag" [rowGroupPanelShow]="rowGroupPanelShow" [statusBar]="statusBar"
+          [autoGroupColumnDef]="autoGroupColumnDef" [enableRangeSelection]="true" [statusBar]="statusBar"
+          (firstDataRendered)="firstDataRenderedOtherViews($event)" (modelUpdated)="firstDataRenderedOtherViews($event)"
+          (rowDataUpdated)="firstDataRenderedOtherViews($event)" (newColumnsLoaded)="firstDataRenderedOtherViews($event)"
+          (displayedColumnsChanged)="firstDataRenderedOtherViews($event)" (virtualColumnsChanged)="firstDataRenderedOtherViews($event)"
+        >
+        </ag-grid-angular>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--sku view-->
+        <ag-grid-angular style=" height: 750px;overflow:scroll;padding-right: 10px; padding-left: 10px" class="ag-theme-alpine"
+          [rowData]="rowData6" *ngIf="third_ag" rowSelection="multiple" [columnDefs]="columnDefs6"
+          rowSelection="multiple" [undoRedoCellEditing]="true" [suppressRowClickSelection]="true"
+          [suppressLastEmptyLineOnPaste]="true" [rowGroupPanelShow]="always" [statusBar]="statusBar"
+          [suppressMakeColumnVisibleAfterUnGroup]="true" (cellValueChanged)="onCellValueChanged1($event)"
+          (cellClicked)="onCellClicked($event)" (cellDoubleClicked)="onCellDoubleClicked($event)"
+          (pasteStart)="onPasteStart1($event)" (pasteEnd)="onPasteEnd1($event)"
+          [autoGroupColumnDef]="autoGroupColumnDef" [groupMultiAutoColumn]="true" [getRowNodeId]="getRowNodeId"
+          [rowGroupPanelShow]="always" [enableRangeSelection]="true" [statusBar]="statusBar"
+          [autoGroupColumnDef]="autoGroupColumnDef" [suppressDragLeaveHidesColumns]="false"
+          (gridReady)="onGridReady1($event)"
+          (firstDataRendered)="firstDataRenderedOtherViews($event)" (modelUpdated)="firstDataRenderedOtherViews($event)"
+          (rowDataUpdated)="firstDataRenderedOtherViews($event)" (newColumnsLoaded)="firstDataRenderedOtherViews($event)"
+          (displayedColumnsChanged)="firstDataRenderedOtherViews($event)" (virtualColumnsChanged)="firstDataRenderedOtherViews($event)"
+        >
+        </ag-grid-angular>
+
+
+
+        <div class="p-2 text-center">
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+             data-target="#saveAPlansModal">Save Plan</a> -->
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a> -->
+        </div>
+      </div>
+
+
+
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;height: 0px;visibility: collapse">
+        <div class="d-flex justify-content-between align-items-center p-1">
+          <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable"
+              style="margin-right:20px;font-family: 'Montserrat', sans-serif !important;"></p>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+            <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
+            <!-- <p class="font-weight-bold" ></p> -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+
+            <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+          <table style='font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 40%;margin-left: 17%'>
+            <tr>
+
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Sum</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Avg</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Count</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Max</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Min</p>
+              </td>
+
+            </tr>
+            <tr>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="avgselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="countselected" style="font-size: 0.7rem;  text-align: center;">
+                </p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+            </tr>
+
+          </table>
+          <div class="form-group m-0">
+          </div>
+
+          <div class="form-group m-0">
+            <span class="input-group-text" style="float: right !important;margin-right:20px"><i
+                (click)="table_up_click()" class="fa fa-clone"></i></span>
+
+            <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
+                class="fa fa-download"></i></span>
+          </div>
+
+
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+               data-target="#saveAViewsModal">Save View</a> -->
+
+        </div>
+
+
+        <ag-grid-angular style=" height: 200px;overflow:scroll;" class="ag-theme-alpine" [rowData]="rowData2"
+          [columnDefs]="columnDefs2">
+        </ag-grid-angular>
+
+
+        <!-- <div class="d-flex">
+            <div class="table-header-col">
+              <table>
+                <thead>
+                <tr class="header-text invisible">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block"> XXXX</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color: #17b169">Final Forecast</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                  
+                    <p class="m-0 week-block"> FVA</p>
+                  </th>
+                </tr>
+                <tr (click)="putValueInFinal('ML')" class="ml-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#46a6b9"> ML Forecast</p>
+                  </th>
+                </tr>
+                <tr (click)="putValueInFinal('APO')" class="aop-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#b49132">APO Forecast</p>
+                  </th>
+                </tr>
+                <tr class="actual-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#00321e">Actuals</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">Open Orders</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">Promo</p>
+                  </th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="table-content-col">
+              <div class="panel panel-default">
+                <div class="center-block fix-width scroll-inner">
+                  <table class="table table-striped"  [(ngModel)]="tables" #table>
+                    <thead>
+                      <tr>
+                        <th>Forecasting Group</th>
+                        <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.forecastingGroups" >
+                            <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
+                          </th>
+                      
+                        <tr>
+                            <th>Plant</th>
+                   <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.plants" >
+                                <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
+                              </th>
+                            <tr>
+                                <th>Customer Planning Group</th>
+                     <th class="font-weight-bold" *ngFor="let data of createPlanRequestData.customerPlanningGroup" >
+                                    <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data}}</p>
+                                  </th>
+                    <tr>
+                        <th class="font-weight-bold" >
+                            <p class="m-0 week-block" > Week</p>
+                          </th>
+                      <th class="font-weight-bold" *ngFor="let data of graphData" >
+                        <p class="m-0 week-block" [class.highlight]="data.comments?.length">  {{data.newweek}}</p>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>FINAL FORECAST</td>
+                      <ng-container *ngFor="let data of graphData; let i=index">
+                        <td id="i" class="font-weight-bold cursor-pointer"
+                            [class.highlight]="data.lockcell?.length"
+                            [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                            (click)="comments(i)" (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);" (mouseup)="end_drag()">
+                          {{ data.finalForecast | currency: "€ " :" "}}
+                        </td>
+                      </ng-container>
+                    </tr>
+                    <tr>
+                      <td>Forecast Add</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                      [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                      [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
+                      {{data.fcstValueAdd}}
+                  </td>
+                    </tr>
+                    <tr>
+                        <td>ML</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                          [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)" (mouseover)="addvalues(i);" (mouseup)="end_drag()">
+                        {{ data.ml | currency: "€ ":" " }}
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>APO</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                          [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)" (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
+                        {{ data.apo | currency: "€ ":" "}}
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>ACTUALS</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
+                        {{ data.actuals | currency: "€ ":" "}}
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>ACTUALS LAST YEAR</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);" (mouseup)="end_drag()">
+                        {{ data.actualslastyear | currency: "€ " :" "}}
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>OPEN ORDER</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                        {{ data.harshit | currency: "€ ":" "}}
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>PROMO VALUE</td>
+                      <td *ngFor="let data of graphData ; let i=index"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)" (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                        {{ data.promovalue | currency: "€ ":" "}}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="table-footer-col">
+              <table>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="font-size: 0.6rem;">Total</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.finalCastTotal | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ forecastadd.toFixed(2) | currency: "€ ":" " }}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.mlTotal | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.apoTotal | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.actuals | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.lastYearTotal | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.harshit | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">{{ totalData.promovalue | currency: "€ ":" "}}</p>
+                  </th>
+                </tr>
+              </table>
+            </div>
+          </div> -->
+        <div class="p-2 text-center">
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+               data-target="#saveAPlansModal">Save Plan</a> -->
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+               data-target="#saveAViewsModal">Save View</a> -->
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="bg-white rounded shadow mt-2" *ngIf="main_graph"
+        style="border-radius: 6px !important;padding-bottom: 10px;">
+        <div class="d-flex justify-content-between align-items-center p-1">
+          <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+            <p class="font-weight-bold" style="    font-family: 'Montserrat', sans-serif !important; "
+              id="forecastinganalysis" [(ngModel)]="forecastinganalysis">Forecast Analysis
+              (HL) </p>
+
+
+            <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+          <div class="form-group m-0">
+          </div>
+
+          <div class="form-group m-0">
+
+
+            <span class="input-group-text" style="float: right !important;margin-right:20px"><i
+                (click)="download_graph()" class="fa fa-download"></i></span>
+          </div>
+
+        </div>
+
+
+        <!-- <div class="form-group m-0">
+          <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
+                                                                                              class="fa fa-download"></i></span>
+        </div> -->
+
+
+        <div id="chartContainer1"
+          style="height: 370px; width: 99%; border-radius: 6px !important;margin-left:8px;margin-right:100px;  zoom: 133% !important"></div>
+      </div>
+
+
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;" *ngIf="table_down">
+
+        <div class="d-flex justify-content-between align-items-center p-1">
+          <div class="d-flex justify-content-between align-items-center ml-2 pt-2">
+            <p class="font-weight-bold" style="width: 20%;" id="planningtable" [innerText]="planningtable"
+              style="margin-right:20px;font-family: 'Montserrat', sans-serif !important;"></p>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+            <!-- <p class="font-weight-bold"> Sum <span class="font-weight-bold"  [innerText]="sumselected" name="sumselected" id="sumselected"></span> </p> -->
+            <!-- <p class="font-weight-bold" ></p> -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <p class="font-weight-bold"> Average <span [innerText]="avgselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Count <span [innerText]="countselected" name="avgselected" id="avgselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Max <span [innerText]="maxselected" name="maxselected" id="maxselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="font-weight-bold"> Min <span [innerText]="minselected" name="minselected" id="minselected"></span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+
+            <!-- <p class="ml-2 text-muted">Load Week 25</p> -->
+          </div>
+
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+          <table style='font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 40%;margin-left: 17%'>
+            <tr>
+
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Sum</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Avg</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Count</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Max</p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" style="font-size: 0.7rem;  text-align: center;">Min</p>
+              </td>
+
+            </tr>
+            <tr>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="sumselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="avgselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="countselected" style="font-size: 0.7rem;  text-align: center;">
+                </p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="maxselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+              <td style="width: 20%;  text-align: center;">
+                <p class="m-0 week-block" [innerText]="minselected" style="font-size: 0.7rem;  text-align: center;"></p>
+              </td>
+            </tr>
+
+          </table>
+          <div class="form-group m-0">
+          </div>
+
+          <div class="form-group m-0">
+            <span class="input-group-text" style="float: right !important;margin-right:20px"><i
+                (click)="table_down_click()" class="fa fa-clone"></i></span>
+
+            <span class="input-group-text" style="float: right !important;margin-right:15px"><i (click)="down()"
+                class="fa fa-download"></i></span>
+          </div>
+
+
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a> -->
+
+        </div>
+
+        <div class="d-flex">
+          <div class="table-header-col">
+            <table>
+              <thead>
+                <tr class="header-text invisible">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block"> XXXX</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color: #17b169">Final Forecast</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <!-- <p class="m-0 week-block" style="font-size:10px">Fcst Value Add</p> -->
+                    <p class="m-0 week-block"> FVA</p>
+                  </th>
+                </tr>
+                <tr (click)="putValueInFinal('ML')" class="ml-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#46a6b9"> ML Forecast</p>
+                  </th>
+                </tr>
+                <tr (click)="putValueInFinal('APO')" class="aop-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#b49132">APO Forecast</p>
+                  </th>
+                </tr>
+                <tr class="actual-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color:#00321e">Actuals</p>
+                  </th>
+                </tr>
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block" style="color: #1e64aa">Actuals LY</p>
+                  </th>
+                </tr>
+
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">Open Orders</p>
+                  </th>
+                </tr>
+
+
+
+                <tr class="header-text">
+                  <th class="font-weight-bold">
+                    <p class="m-0 week-block">Promo</p>
+                  </th>
+                </tr>
+
+
+              </thead>
+            </table>
+          </div>
+          <div class="table-content-col">
+            <div class="panel panel-default">
+              <div class="center-block fix-width scroll-inner">
+                <table class="table table-striped" [(ngModel)]="tables">
+                  <thead>
+                    <tr>
+                      <th class="font-weight-bold" *ngFor="let data of graphData">
+                        <p class="m-0 week-block" [class.highlight]="data.comments?.length"> {{data.newweek}}</p>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <ng-container *ngFor="let data of graphData; let i=index">
+                        <td id="i" class="font-weight-bold cursor-pointer" [class.highlight]="data.lockcell?.length"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (click)="comments(i)"
+                          (mousedown)="start_drag_final(i)" (mouseover)="addvalues_finaldforecast(i);"
+                          (mouseup)="end_drag()">
+                          {{ data.finalForecast | currency: "€ " :" "}}
+                        </td>
+                      </ng-container>
+                    </tr>
+                    <tr>
+                      <ng-container *ngFor="let data of graphData; let i=index">
+                        <td (dblclick)="data.ml !== undefined && onDblClickInput(i)"
+                          [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }">
+                          <input type="text" class="table-inputbox" (blur)="onValueBlur(data.calenderYearWeek, i)"
+                            [ngClass]="{ 'colored-table-inputbox': data.calenderYearWeek < greystart }"
+                            (input)="onValueInput(data.calenderYearWeek, i)"
+                            [disabled]="greystart> data.calenderYearWeek || this.enabled===0"
+                            [class.disabled]="greystart> data.calenderYearWeek"
+                            [class.highlight]="data.lockcell?.length" [(ngModel)]="data.fcstValueAdd"
+                            [innerText]="data.fcstValueAdd">
+                        </td>
+                      </ng-container>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                        [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_ml(i)"
+                        (mouseover)="addvalues(i);" (mouseup)="end_drag()">
+                        {{ data.ml | currency: "€ ":" " }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                        [class.highlight]="data.lockcell?.length" (mousedown)="start_drag_apo(i)"
+                        (mouseover)="addvalues_apo(i);" (mouseup)="end_drag()">
+                        {{ data.apo | currency: "€ ":" "}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                        (mousedown)="start_drag_actuals(i)" (mouseover)="addvalues_actuals(i);" (mouseup)="end_drag()">
+                        {{ data.actuals | currency: "€ ":" "}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }"
+                        (mousedown)="start_drag_actualsly(i)" (mouseover)="addvalues_actualslastyear(i);"
+                        (mouseup)="end_drag()">
+                        {{ data.actualslastyear | currency: "€ " :" "}}
+                      </td>
+
+
+                    </tr>
+                    <tr>
+                      <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)"
+                        (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                        {{ data.harshit | currency: "€ ":" "}}
+                      </td>
+
+
+                    </tr>
+
+
+
+
+                    <tr>
+                      <td *ngFor="let data of graphData ; let i=index"
+                        [ngClass]="{ 'colored-td': data.calenderYearWeek < greystart }" (mousedown)="start_drag_open(i)"
+                        (mouseover)="addvalues_harshit(i);" (mouseup)="end_drag()">
+                        {{ data.promovalue | currency: "€ ":" "}}
+                      </td>
+
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="table-footer-col">
+            <table>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block" style="font-size: 0.6rem;">Total</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.finalCastTotal | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ forecastadd.toFixed(2) | currency: "€ ":" " }}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.mlTotal | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.apoTotal | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.actuals | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.lastYearTotal | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.harshit | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+
+              <tr>
+                <th class="font-weight-bold">
+                  <p class="m-0 week-block">{{ totalData.promovalue | currency: "€ ":" "}}</p>
+                </th>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+
+
+
+
+        <div class="p-2 text-center">
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
+             data-target="#saveAPlansModal">Save Plan</a> -->
+          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
+             data-target="#saveAViewsModal">Save View</a> -->
+        </div>
+
+      </div>
+
+
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;">
+        <div class="d-flex justify-content-between pt-1 pr-1">
+          <p class="font-weight-bold ml-2 pt-2" style=" font-family: 'Montserrat', sans-serif !important;">Comments</p>
+          <!-- <input placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"  style="height: 80%;padding:7px;margin-left:25px;" type="text"> -->
+
+          <div class="input-group" style="margin-top: 5px;">
+            <input type="text" placeholder="Search Comments" [(ngModel)]="commentSearchText" name="commentSearchText"
+              style="border-radius:5px;height: 90%;padding:7px;margin-left:25px;    background-clip: padding-box;
+              border: 1px solid #ced4da;
+              background-color: #fff;
+              font-family: 'Montserrat', sans-serif !important;
+              height: calc(1.5em + .30rem + 2px);">
+
+          </div>
+          <!-- <span class="input-group-text" style="float: right !important;margin-right:2px"><i (click)="hide_all_comments()" class="fa fa-clone"></i></span> -->
+
+          <span class="input-group-text" style="float: right!important;margin-left: 20%;height: 50%;margin-top: 5px"><i
+              (click)="hide_all_comments()" class="fa fa-low-vision"></i></span>
+          &nbsp;&nbsp;&nbsp;
+
+          <select name="plant" #t4 class="minimal form-control" [(ngModel)]='dropdown_table' id="checking"
+            (change)="changecomment(t4.value)"
+            style="float: right!important;width: 20%;margin-right: 15px;margin-top: 5px; font-family: 'Montserrat', sans-serif !important;">
+            <option value="week">Selected Week - Unsaved</option>
+            <option selected value="allweek">All Comments</option>
+          </select>
+
+        </div>
+
+        <div *ngIf="up_table" style="height:260px;overflow: auto">
+
+
+          <table
+            style="font-family: 'Montserrat', sans-serif !important;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+            <tr style="background-color: #fff">
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(1)">
+                <h6 class="mt-3 font-weight-bold">Week</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" (click)="sortComments(0)">
+                <h6 class="mt-3 font-weight-bold">Comment</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" (click)="sortComments(2)">
+                <h6 class="mt-3 font-weight-bold">Forecasting Group</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (click)="sortComments(3)">
+                <h6 class="mt-3 font-weight-bold">CPG</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 5%;" (click)="sortComments(4)">
+                <h6 class="mt-3 font-weight-bold">Plant</h6>
+              </td>
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;" (click)="sortComments(4)">
+                <h6 class="mt-3 font-weight-bold">User</h6>
+              </td>
+            </tr>
+
+          </table>
+
+
+          <table
+            style="font-family: 'Montserrat', sans-serif !important;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+            <ng-container *ngFor="let g of allComments_harshit | filter_comment : getCallback_comm() ;let i=index ">
+              <tr style="background-color: #fff">
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">
+                  <p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[1] }}</p>
+                </td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">
+                  <p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[0] }}</p>
+                </td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">
+                  <p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[2] }}</p>
+                </td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">
+                  <p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[3]}}</p>
+                </td>
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 5%;">
+                  <p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[4] }}</p>
+                </td>
+
+
+                <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;">
+                  <p class="m-0" style="font-size:0.75rem">{{ g.name.split('|')[5] }}</p>
+                </td>
+              </tr>
+            </ng-container>
+
+          </table>
+        </div>
+
+
+        <div *ngIf="down_table" style="overflow: auto">
+
+
+          <table
+            style="font-family: 'Montserrat', sans-serif !important;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
+            <tr style="background-color: #fff">
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">
+                <h6 class="mt-3 font-weight-bold">Week</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">
+                <h6 class="mt-3 font-weight-bold">Comment</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;">
+                <h6 class="mt-3 font-weight-bold">Forecasting Group</h6>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;">
+                <h6 class="mt-3 font-weight-bold">Plant</h6>
+              </td>
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">
+                <h6 class="mt-3 font-weight-bold">CPG</h6>
+              </td>
+
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">
+                <h6 class="mt-3 font-weight-bold">User</h6>
+              </td>
+            </tr>
+
+          </table>
+
+
+          <table
+            style="font-family: 'Montserrat', sans-serif !important;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;"
+            *ngFor="let fi of finn; let i=index">
+            <tr style="background-color: #fff">
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;" (dblclick)="Dbledit(i)">
+                <p class="m-0" style="font-size:0.75rem">{{ fi.week }}</p>
+              </td>
+
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;" (dblclick)="Dbledit(i)">
+                <p class="m-0" style="font-size:0.75rem">{{ fi.comment }}</p>
+              </td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 30%;">
+                <p class="m-0" style="font-size:0.75rem">{{fi.sku}}</p>
+              </td>
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 15%;">
+                <p class="m-0" style="font-size:0.75rem">{{fi.plant}}</p>
+              </td>
+
+
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">
+                <p class="m-0" style="font-size:0.75rem">{{fi.cpg}}</p>
+              </td>
+
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">
+                <p class="m-0" style="font-size:0.75rem">{{fi.user}}</p>
+              </td>
+              <!-- <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><i class="fa fa-trash"
+                                                                                                 aria-hidden="true"
+                                                                                                 (click)="deletecomment(i)"></i>
+              </td> -->
+
+            </tr>
+
+          </table>
+
+
+          <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let fi of finn; let i=index" >
+            <tr style="background-color: #fff">
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;" (dblclick)="Dbledit(i)">{{ fi.comment }}</td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{fi.sku}}</td>
+              <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> </td>
+            </tr>
+          </table> -->
+        </div>
+      </div>
+
+
+      <div class="bg-white rounded shadow mt-2" style="border-radius: 6px !important;padding-bottom: 10px;">
+        <div class="d-flex justify-content-between pt-1 pr-1">
+          <p class="font-weight-bold ml-2 pt-2" style=" font-family: 'Montserrat', sans-serif !important;"
+            [innerText]="featureanalysis"></p>
+          <select name="plant" #t class="minimal form-control" [(ngModel)]='secondgraph' id="checking"
+            (change)="test(t.value)"
+            style="width:20%;float: right!important;margin-right:15px !important;margin-top: 5px; font-family: 'Montserrat', sans-serif !important; ">
+            <option value="Baseline">ML Split</option>
+            <option selected value="Promo">Temperature</option>
+            <option value="Weather">Events</option>
+
+            <option value="Open">Open order</option>
+          </select>
+
+        </div>
+        <div id="chartContainer2"
+          style="height: 370px; width: 99%; border-radius: 6px !important;margin-left:8px;margin-right:100px; zoom: 133% !important">
+
+        </div>
+        <div class="data-strip d-none">
+          <ul>
+            <li>201910</li>
+            <li>201915</li>
+            <li>201920</li>
+            <li>201925</li>
+            <li>201930</li>
+            <li>201935</li>
+            <li>201940</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="events-col " *ngIf="second" style="background: #f4f5f9;">
+    <div class="events-container shadow mt-1 mb-1 p-2 " style="padding-right: 10px !important;">
+      <!-- <div class="mt-2">
+        <h4>Features</h4>
+        <div class="m-1 p-1 d-flex">
+          <div>
+            <input class="mr-1" type="checkbox">
+          </div>
+          <p class="m-0">Promo Effect</p>
+        </div>
+        <div class="m-1 p-1 d-flex">
+          <div>
+            <input class="mr-1" type="checkbox">
+          </div>
+          <p class="m-0">Weather Effect</p>
+        </div>
+      </div> -->
+      <!--
+            <button type="button" class="btn btn-primary d-block w-100" (click)="onChangeParameters('change-sku')">FG</button>
+            <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters('change-cpg-and-plant')">Cpg/Plant</button>
+            <button type="button" class="btn btn-primary d-block w-100 mt-2" (click)="onChangeParameters()">Horizon</button> -->
+      <div *ngIf="main" style="height: 93%;
+      overflow-y: scroll;overflow-x:hidden">
+        <!-- <div class="mb-2" style="margin-top: 20px;" >
+          <p>Plant-{{plantss}}</p>
+          <p>CPG-{{cpgss}}</p>
+            <div>
+              <span style="font-weight: bold;">Forecasting Group - {{ fgssselected.length }} - {{skus.length + second_sku.length}}</span>
+            </div>
+            <a class="text-muted float-right" href="javascript:void(0);" (click)="clearAllSKUs()">Select all FG</a>
+            <div class="input-group mt-2">
+               <input type="text" class="form-control"  name="searchSKU1" placeholder="Search FG">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+          </div> -->
+
+
+        <!-- <div class="panel-heading" role="tab" [id]="filter.key">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+               [href]="'#' + filter.key + 'filter'"
+               aria-expanded="true" [attr.aria-controls]="filter.key + 'filter'"
+               (click)="filter.isExpanded = !filter.isExpanded">
+              {{ filter.name }}
+              <i class="fa float-right" [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+            </a>
+          </h4>
+        </div> -->
+
+
+        <!-- <div class="panel-heading" role="tab" >
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#filterAccordion"
+             (click)="filter.isExpanded = !filter.isExpanded">
+            Customer Planning Group
+            <i class="fa float-right fa-chevron-down" ></i>
+          </a>
+        </h4>
+      </div>  -->
+        <div>
+          <h6 class="mt-3 font-weight-bold"
+            style="padding-left: 10px; font-weight: 600 !important; font-size: 18px;font-family: 'Montserrat', sans-serif !important;">
+            Combinations</h6>
+
+
+          <br>
+
+          <ng-container *ngFor="let filter of filters_plant  ;let filterIndex=index">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" [id]="filter.key">
+                <span class="panel-title" class="mt-3 font-weight-bold" style="color: #000">
+                  <a style="color: #000" role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                    [href]="'#' + filter.key + 'filter'" aria-expanded="true"
+                    [attr.aria-controls]="filter.key + 'filter'" (click)="filter.isExpanded = !filter.isExpanded">
+                    {{ filter.name }} - {{plantss.length}}/{{filter.values.length}}
+                    <i class="fa float-right"
+                      [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                  </a>
+                </span>
+              </div>
+              <!-- <a class="text-muted float-right" href="javascript:void(0);" (click)="selectAllplant()">Select/Deselect all
+              plants</a> -->
+
+
+              <!-- <br> -->
+              <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                [attr.aria-labelledby]="filter.key">
+
+
+                <div class="panel-body" style="height: auto; max-height: 25vh; overflow: auto;background: #f4f5f9;">
+
+                  <ul class="m-0" style="padding-inline-start: 15px;">
+                    <input type="text" style="border-radius: 38px !important;font-size: 11px;" class="form-control"
+                      [(ngModel)]="searchplant" name="searchplant" placeholder="Search Plant">
+                    <li class="d-flex l12">
+
+
+                      <div>
+                        <input class="mr-1" type="checkbox" (change)="selectAllplant()">
+                      </div>
+                      <p class="m-0" style="font-size:0.75rem">All</p>
+                    </li>
+
+                    <hr style="margin-top: 0.5rem !important;
+                        margin-bottom: 0.5rem !important;">
+                    <ng-container
+                      *ngFor="let value of filter.values | filter_plant : getCallback_plant() ;let i=index ">
+
+                      <li class="d-flex l12">
+
+
+                        <div>
+                          <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                            (change)="reactivate_filter(1)">
+                        </div>
+                        <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+
+          </ng-container>
+
+
+          <hr>
+          <ng-container *ngFor="let filter of filters; let filterIndex=index">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" [id]="filter.key">
+
+
+                <span class="panel-title" class="mt-3 font-weight-bold" style="color: #000">
+                  <a style="color: #000" role="button" data-toggle="collapse" data-parent="#filterAccordion"
+                    [href]="'#' + filter.key + 'filter'" aria-expanded="true"
+                    [attr.aria-controls]="filter.key + 'filter'" (click)="filter.isExpanded = !filter.isExpanded">
+                    {{ filter.name }}- {{cpgss.length}}/{{filter.values.length}}
+                    <i class="fa float-right"
+                      [ngClass]="[ filter.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down' ]"></i>
+                  </a>
+
+
+                </span>
+
+              </div>
+
+              <div [id]="filter.key + 'filter'" class="panel-collapse collapse" role="tabpanel"
+                [attr.aria-labelledby]="filter.key">
+                <div class="panel-body" style="height: auto; max-height: 25vh; overflow: auto;background: #f4f5f9;">
+                  <ul class="m-0" style="padding-inline-start: 15px;">
+                    <input type="text" style="border-radius: 38px;font-size: 11px;" class="form-control"
+                      [(ngModel)]="searchcpg" name="searchcpg" placeholder="Search CPG">
+
+
+
+                    <li class="d-flex l12">
+                      <div>
+                        <input class="mr-1" type="checkbox" (change)="selectAllcpg()">
+                      </div>
+                      <p class="m-0" style="font-size:0.75rem">All</p>
+                    </li>
+                    <hr style="margin-top: 0.5rem !important;
+                        margin-bottom: 0.5rem !important;">
+
+                    <ng-container *ngFor="let value of filter.values | filter_cpg : getCallback_cpg() ;let i=index ">
+                      <li class="d-flex l12">
+                        <div>
+                          <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                            (change)="reactivate_filter(1)">
+                        </div>
+                        <p class="m-0" style="font-size:0.75rem">{{ value.name.name }}</p>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </ng-container>
+          <hr>
+
+
+          <div>
+            <span style="font-weight: bold;">FG - {{ fgssselected.length }}
+              /{{skus.length + second_sku.length+sku_semi.length}}</span>
+
+
+
+            <input type='file' id="getFile" style="display:none" (change)="changeListener($event.target.files)">
+          </div>
+          <br>
+
+
+
+          <div class="panel-body" style="height: auto; max-height: 70vh; overflow: auto;background: #f4f5f9;">
+            <div class="mb-2" style="font-size: 12px;" data-simplebar>
+
+
+              <div class=" mt-1 p-1 pl-2 d-flex l12">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" (change)="clearAllSKUs()">
+                </div>
+                <p style="font-size: 0.75rem;" class="m-0">All</p>
+              </div>
+
+
+
+
+
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12"
+                *ngFor="let sku of sku_semi; let i=index ">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+                </div>
+
+
+                <p class="m-0" style="font-size: 0.75rem;" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
+                  {{ sku.name }}</p>
+
+              </div>
+              <hr style="margin-top: 0.2rem;color: #000">
+
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12 " *ngFor="let sku of skus; let i=index ">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+                </div>
+
+
+                <p class="m-0" style="font-size: 0.75rem;" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
+                  {{ sku.name }}</p>
+
+              </div>
+
+              <div style="background: #f4f5f9;" class=" mt-1 p-1 pl-2 d-flex l12"
+                *ngFor="let sku of second_sku; let i=index">
+                <div style="margin-top: 3px;">
+                  <input class="mr-1" type="checkbox" [(ngModel)]="sku.isChecked" (change)="reactivate_filter(1)">
+                </div>
+                <p style="font-size: 0.75rem;" class="m-0" (mouseover)="bigImg(sku.name)" (mouseout)="normalImg()">
+                  {{ sku.name  }}</p>
+              </div>
+
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!---COMMENTSS END-->
+
+
+
+
+      <!-- <div class="flex-container" style="width:100%">
+        <div (click)='main1()' id="m" style="width: 25%;text-align: center;    height: 28px;
+        cursor: pointer;margin-right: 3px; background: #fff;">P</div>
+           <div (click)='weeklycomment1()' id="w" style="width: 25%;text-align: center;    height: 28px;
+           cursor: pointer;">C</div>
+        <div (click)='log1()' id="l" style="width: 25%;text-align: center;    height: 28px;
+        cursor: pointer;margin-right: 3px;">L</div>
+        <div (click)='comment1()' id="c" style="width: 25%;text-align: center;    height: 28px;
+        cursor: pointer;">CL</div>
+      </div> -->
+
+
+      <!-- <div style="cursor: pointer;
+      position: absolute;
+      display:inline;
+      width:100%;
+      bottom: 0;
+      margin-bottom: 5px;">
+        <div style="width: 30%;background:white;">H</div>
+        <div style="width: 40%;background:white;">A</div>
+        <div style="width: 30%;background:white;">B</div>
+   <button (click)='main1()'>Main</button>&nbsp;
+      <button (click)='comment1()'>Coment</button>&nbsp;
+      <button (click)='log1()'>Log</button>&nbsp;
+    </div> -->
+
+
+
+
+      <a href="javascript:void(0);" id="apply_filter" class="btn btn-primary custom-link btn-xs"
+        style="background:#bec1c1;margin-left: 15%;margin-top: 2vh;" (click)='onFilterCheckBoxChange();deactivate();'>Plan
+        Selection</a>
+
+      <hr>
+    </div>
+
+
+
+
+  </div>
+
+
+  <!--Select Options Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#selectOptionsModal" data-toggle="modal"
+    #selectOptionsModalBtn>Open Options Modal</a>
+  <div class="modal select-options-modal" id="selectOptionsModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            [class.invisible]="!graphData.length" #selectOptionsModalCancel>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-create-plan [events]="eventsSubject.asObservable()" (submit)="eventListener($event)"></app-create-plan>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Save a Plan Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#saveAPlansModal" data-toggle="modal"
+    #saveAPlansModalBtn>Save
+    a Plan Modal</a>
+  <div class="modal fade save-plan-modal" id="saveAPlansModal"  role="dialog" data-backdrop="false"
+    aria-labelledby="saveAPlansModal" style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Save the Plan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #PlanNameModalBtn><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-center">
+            <button type="button" (click)="savePlan()" class="btn btn-secondary custom-link btn-xs mr-2">Yes
+              <ng-container *ngIf="savePlanLoader">
+                <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              </ng-container>
+            </button>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-secondary custom-link btn-xs">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save View modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#saveAViewsModal" data-toggle="modal"
+    #saveAViewsModalBtn>Save
+    a View Modal</a>
+  <div class="modal fade save-plan-modal" id="saveAViewsModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);"
+    aria-labelledby="saveAViewsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Save the View</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #ViewNameModalBtn><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form #saveViewForm="ngForm">
+            <input type="text" class="form-control" id="viewName" name="viewName"
+              placeholder="Please enter the view Name" #saveViewName ngModel required>
+            <p class="text-center mt-4">
+              <button type="submit" [disabled]="!saveViewForm.valid" (click)="saveView(saveViewName.value)"
+                class="btn btn-secondary custom-link btn-xs" [class.disabled]="!saveViewForm.valid">Ok
+                <ng-container *ngIf="saveViewLoader">
+                  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                </ng-container>
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Graph Comment Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#commentFormModal" data-toggle="modal"
+    #commentFormModalBtn>Open
+    Graph Comment Form Modal</a>
+  <div class="modal fade comment-modal" id="commentFormModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Comment6543</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #commentFormModalCancel>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #commentForm="ngForm">
+            <div class="form-group">
+              <label class="d-none" for="comment">
+                Comment4
+              </label>
+              <input type="text" class="form-control" id="comment" name="comment" placeholder="eg. Comment" ngModel
+                required>
+            </div>
+            <button type="submit" class="btn float-right btn-secondary" [disabled]="!commentForm.valid"
+              [ngClass]="{'disabled': !commentForm.valid}"
+              (click)="onCommentFormSubmit(commentForm,commentForm.value)">Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Final Forecast Comment Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#finalForecastCommentModal" data-toggle="modal"
+    #finalForecastCommentModalBtn>Open Graph Comment Form Modal</a>
+  <div class="modal fade final-comment-modal" id="finalForecastCommentModal" tabindex="-1" role="dialog"
+    data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Comment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #finalForecastCommentModalCancel
+            (click)="selectedWeekIndex=null;finalForecastCommentForm.resetForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #finalForecastCommentForm="ngForm">
+            <div class="form-group">
+              <label class="d-none" for="finalForecastComment">
+                Comments1
+              </label>
+              <input type="text" class="form-control" id="finalForecastComment" name="comment" placeholder="eg. Comment"
+                ngModel required>
+            </div>
+            <button type="submit" class="btn float-right btn-dark" [disabled]="!finalForecastCommentForm.valid"
+              [ngClass]="{'disabled': !finalForecastCommentForm.valid}"
+              (click)="onFinalForecastCommentSubmit(finalForecastCommentForm.value)">Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--EDIT Comment Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#editCommentModal" data-toggle="modal"
+    #editCommentModalBtn>Open Graph Comment Form Modal</a>
+  <div class="modal fade final-comment-modal" id="editCommentModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Comment1234</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #editCommentModalBtnCancel
+            (click)="selectedWeekIndex=null;editCommentForm.resetForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editCommentForm="ngForm">
+            <div class="form-group">
+              <label class="d-none" for="finalForecastComment">
+                Comment_new
+              </label>
+              <input type="text" class="form-control" value="{{comm1[0]}}" id="finalForecastComment" name="comment"
+                placeholder="eg. Comment" ngModel required>
+            </div>
+            <button type="submit" class="btn float-right btn-dark" [disabled]="!editCommentForm.valid"
+              [ngClass]="{'disabled': !editCommentForm.valid}"
+              (click)="editCommentSubmit(editCommentForm.value,selectedWeekIndex)">Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Save Filter Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
+    Save Filter Modal</a>
+  <div class="modal fade save-filter-modal" id="saveFilterModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Save Filter</h5>
+          <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #saveFilterModalCancel>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #saveFilterModalForm="ngForm">
+            <div>
+              <div class="form-group">
+                <label for="filterName">
+                  <span>Filter Name</span>
+                </label>
+                <input type="text" class="form-control" id="filterName" name="filterName" #filterName ngModel
+                  placeholder="eg. Green Bottles" required>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-dark" [disabled]="!filterName.value"
+                [ngClass]="{'disabled': !filterName.value}" (click)="saveFilter(filterName.value)">Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Load Filter Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#loadFilterModal" data-toggle="modal" #loadFilterModal>Open
+    Load Filter Modal</a>
+  <div class="modal fade load-filter-modal" id="loadFilterModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Load Filter</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #loadFilterModalCancel>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+            placeholder="Search Filters" [(ngModel)]="searchText_filter" type="text">
+          <br />
+          <br />
+          <form #saveFilterModalForm="ngForm">
+
+            <div style="height: 200px; overflow: auto;">
+
+              <ng-container *ngFor="let filter of loadedFilters | loadfilter : getCallback_filter() ;let i=index ">
+                <div class="filter-item shadow-sm cursor-pointer" [class.selected]="filter.isSelected"
+                  (click)="filterItemClick(i)">
+                  {{ i + 1 }}<span> {{ filter.name }} <span
+                      style="color: #17b169;margin-left:20px">{{filter.default_Val}}</span><span><i style="float:right;"
+                        class="fa fa-close" (click)="delfilter(i)"></i></span></span>
+
+
+                </div>
+              </ng-container>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+
+
+              <button type="button" class="btn btn-dark" (click)="default()">Make Default</button>
+              <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Load Selected</button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Load Filter Modal-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#lockModal" data-toggle="modal" #lockModal>Open
+    Options available</a>
+  <div class="modal fade load-filter-modal" id="lockModal" tabindex="-1" role="dialog" data-backdrop="false"  style="background: rgba(59, 59, 59, 0.5);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Load Filter</h5>
+          <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #lockModalCancel>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #loadForm="ngForm">
+
+
+            <div class="filter-item shadow-sm cursor-pointer" (click)="commenting()">
+              Comment
+
+
+            </div>
+
+
+            <div class="filter-item shadow-sm cursor-pointer">
+              Lock Cell
+
+
+            </div>
+
+
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+
+
+              <button type="button" class="btn btn-dark" (click)="loadSelectedFilter()">Yes</button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script lang="javascript" src="dist/xlsx.full.min.js"></script>
+<script lang="javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.7.9/angular-locale_en-de.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+
+<script src="https://unpkg.com/@ag-grid-enterprise/all-modules@23.2.0/dist/ag-grid-enterprise.min.js"></script>
