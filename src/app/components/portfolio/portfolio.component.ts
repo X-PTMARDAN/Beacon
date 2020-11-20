@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { ViewService } from '../../services/view.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { AgGridAngular } from 'ag-grid-angular';
+import 'ag-grid-enterprise';
 import { FusionChartsModule } from "angular-fusioncharts";
 // Import FusionCharts library and chart modules
 import * as FusionCharts from "fusioncharts";
@@ -93,6 +94,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public date;
 
+  public md_1 = [];
+
   public items: Array<string> = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
     'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
     'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
@@ -148,49 +151,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public lead_sku;
 
   public startweek_transistion_apply;
-
-
   public forecasting_fgid;
-
-
-
   public val_selected = 0;
 
-
-
-
-
-
-  columnDefs = [
-    { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 100 },
-    { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 300 },
-    { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 100 },  //shud be 100
-    { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 370 },
-    { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 150 },
-    { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150 },
-    { headerName: 'Week First Seen', field: 'minimum', sortable: true, filter: true, width: 100 },
-    { headerName: 'Week Last Seen', field: 'maximum', sortable: true, filter: true, width: 100 },
-    {
-      headerName: ' ', field: 'btn', width: 100,  //shud be 100
-      cellRenderer: function (params) {
-        return '<p>Edit Segment</p>'
-      }
-    }, 
-    {
-      headerName: ' ', field: 'btn2', width: 110,
-      cellRenderer: function (params) {
-        return '<p>PIPO Details</p>'
-      }
-    },  
-    
-  ];
-
-
-
-
-
-
-
+  columnDefs: any = [];
   columnDefs3: any = [];
 
   rowData = [
@@ -294,6 +258,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public mappingdrop_1;
 
+
+
   public fgname_column;
   public material_column;
   public fgid_column;
@@ -324,134 +290,128 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
     //document.body.style.zoom = "75%";
 
-    this.columnDefs3 = [
-      { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
-      { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
-      { headerName: 'State', field: 'state', sortable: true, filter: true, width: 200 },  //260
-      { headerName: 'From Week', field: 'fromweek', sortable: true, filter: true, width: 150 },  //260
-      { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 170 },  //260
-      { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 140 },  //150
-      { headerName: 'Date', field: 'date', sortable: true, filter: true, width: 110 },  //110
-      {
-        headerName: 'Edit', field: 'notes', width: 50,
-        cellRenderer: function (params) {
-          return '<i class="fa fa-pencil" ></i>'
-        }
-      },
-      {
-        headerName: 'Delete', field: 'deleteit', width: 50,
-        cellRenderer: function (params) {
-          return '<i class="fa fa-trash" ></i>'
-        }
-      }
-    ];
-
-
-
-    let win = (window as any);
-    console.log('dfdf->' + win.location.search);
-    // win.location.search = '/?loaded';
-    // if (win.location.search !== '?%2F=') {
-
-    //   if(win.location.search=='?a')
-    //   {
-    //     win.location.search = '/?a';
-    //   }
-    //   else if(win.location.search=='?b')
-    //   {
-    //     win.location.search = '/?b';
-    //   }
-    //   else{
-    //     win.location.search = '/';
-    //   }
-
-    //   //win.location.reload();
-    // }
-    //   setTimeout(function() {
-    //     let win = (window as any);
-    //   console.log("dfdf->"+win.location.search);
-    //   if(win.location.search !== '?%2F=' ) {
-    //       win.location.search = '/?loaded';
-    //       //win.location.reload();
-    //   }
-    // }, 8000);
-
-    this.skuService.getPIPO().subscribe((response: any) => {
-      this.pipo = response;
-      console.log("Checking-----" + JSON.stringify(this.pipo));
-      for (const abc of this.pipo) {
-        var g = abc.material + "-" + abc.sku + "-" + abc.fgid;
-        console.log("121---" + g);
-
-        this.drop.push(g);
-
-
-      }
-
-      this.material_len = this.drop.length;
-      this.material_len = 932;
-      console.log("Dfdfdfd---" + JSON.stringify(response));
-    });
-
-
-
-
-    this.skuService.getPIPOMapping().subscribe((response: any) => {
-      //this.pipoMapping = response;
-      
-      this.pipoMapping = [];
-      var fromids = [];
-      var toids = [];
-      var fmweeks = [];
-      var count=0;
-      var flag;
-      for (var key in response) {
-        console.log("key: " + key);
-        flag = 0;
-        if (response.hasOwnProperty(key)) {
-          var fid = response[key].fromid;
-          var tid = response[key].toid;
-          var wk = response[key].fromweek;
-          for (count=0; count<fromids.length; count++) {
-            if (fid == toids[count] && tid == fromids[count] && wk == fmweeks[count]) {
-              console.log("found one: " + fid + " ||| " + tid + " ||| " + wk)
-              flag = 1;
-            }
-          }
-          if (flag == 0) {
-            fromids.push(fid);
-            toids.push(tid);
-            fmweeks.push(wk);
-            this.pipoMapping.push(response[key]);
-          }
-        }
-      }
-      
-    });
-
-
-    //window.alert("uiui   " + JSON.stringify(this.pipoMapping));
-
-
-    this.skuService.getmaxweek().subscribe((response: any) => {
-      this.maxweek = response;
-    });
-
-
-
-    this.skuService.getfgid().subscribe((response: any) => {
-
-      this.mappingdrop = response;
-      //this.fg_len=this.mappingdrop.length; 
-    });
-
-
-
-
     this.skuService.getanimal().subscribe((response: any) => {
 
       this.mappingdrop_1 = response;
-      //  this.fg_len=this.mappingdrop.length;1
+      var str = this.mappingdrop_1.toString();
+      this.md_1 = str.split(",");
+      this.md_1 = Object.values(this.md_1);
+
+      this.columnDefs = [
+        { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 100 },
+        { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 300 }, //300
+        { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 100 },  //shud be 100
+        { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 370 }, //370
+        { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 130 },
+        { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150, editable: true,
+          cellEditor: 'agRichSelectCellEditor',
+          cellEditorParams: {
+            values: this.md_1,
+          },
+        },
+        { headerName: 'Week First Seen', field: 'minimum', sortable: true, filter: true, width: 155 },
+        { headerName: 'Week Last Seen', field: 'maximum', sortable: true, filter: true, width: 155 },
+        /*
+        {
+          headerName: ' ', field: 'btn', width: 100,  //shud be 100
+          cellRenderer: function (params) {
+            return '<p>Edit Segment</p>'
+          }
+        }, 
+        */
+        {
+          headerName: ' ', field: 'btn2', width: 120,
+          cellRenderer: function (params) {
+            return '<p>PIPO Details</p>'
+          }
+        },  
+        
+      ];
+  
+      this.columnDefs3 = [
+        { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
+        { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
+        { headerName: 'State', field: 'state', sortable: true, filter: true, width: 200 },  //260
+        { headerName: 'From Week', field: 'fromweek', sortable: true, filter: true, width: 150 },  //260
+        { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 170 },  //260
+        { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 140 },  //150
+        { headerName: 'Date', field: 'date', sortable: true, filter: true, width: 110 },  //110
+        {
+          headerName: 'Edit', field: 'notes', width: 50,
+          cellRenderer: function (params) {
+            return '<i class="fa fa-pencil" ></i>'
+          }
+        },
+        {
+          headerName: 'Delete', field: 'deleteit', width: 50,
+          cellRenderer: function (params) {
+            return '<i class="fa fa-trash" ></i>'
+          }
+        }
+      ];
+  
+      let win = (window as any);
+      console.log('dfdf->' + win.location.search);
+  
+      this.skuService.getPIPO().subscribe((response: any) => {
+        this.pipo = response;
+        console.log("Checking-----" + JSON.stringify(this.pipo));
+        for (const abc of this.pipo) {
+          var g = abc.material + "-" + abc.sku + "-" + abc.fgid;
+          console.log("121---" + g);
+  
+          this.drop.push(g);
+  
+  
+        }
+  
+        this.material_len = this.drop.length;
+        this.material_len = 932;
+        console.log("Dfdfdfd---" + JSON.stringify(response));
+      });
+  
+      this.skuService.getPIPOMapping().subscribe((response: any) => {
+        //this.pipoMapping = response;
+        
+        this.pipoMapping = [];
+        var fromids = [];
+        var toids = [];
+        var fmweeks = [];
+        var count=0;
+        var flag;
+        for (var key in response) {
+          console.log("key: " + key);
+          flag = 0;
+          if (response.hasOwnProperty(key)) {
+            var fid = response[key].fromid;
+            var tid = response[key].toid;
+            var wk = response[key].fromweek;
+            for (count=0; count<fromids.length; count++) {
+              if (fid == toids[count] && tid == fromids[count] && wk == fmweeks[count]) {
+                console.log("found one: " + fid + " ||| " + tid + " ||| " + wk)
+                flag = 1;
+              }
+            }
+            if (flag == 0) {
+              fromids.push(fid);
+              toids.push(tid);
+              fmweeks.push(wk);
+              this.pipoMapping.push(response[key]);
+            }
+          }
+        }
+        
+      });
+  
+      this.skuService.getmaxweek().subscribe((response: any) => {
+        this.maxweek = response;
+      });
+  
+      this.skuService.getfgid().subscribe((response: any) => {
+  
+        this.mappingdrop = response;
+        //this.fg_len=this.mappingdrop.length; 
+      });
     });
 
   }
@@ -473,6 +433,54 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public dates2;
   public frweek;
+
+  onCellDoubleClickedSM() {
+    //here
+    var virtualList = Array.from(document.getElementsByClassName('ag-virtual-list-viewport') as HTMLCollectionOf<HTMLElement>);
+    for (var i = 0; i < virtualList.length; i++) {
+      virtualList[i].style.zoom = '133%';
+    }
+  }
+
+  onCellValueChangedSM(params) {
+
+    if (params.colDef.field == "animal_FLAG2") {
+
+      var isLegit = false;
+
+      this.md_1.forEach(element => {
+        if (params.data.animal_FLAG2 == element) {
+          isLegit = true;
+        }
+      });
+
+      if (isLegit) {
+        var confirmationStr = "Change the segment to " + params.data.animal_FLAG2 + "?";
+        if (confirm(confirmationStr)) {
+
+          this.lead_sku = params.data.fgid;
+          this.material_1 = params.data.material;
+          this.mappedFG_1 = params.data.animal_FLAG2;
+          var data = {
+            lead: this.lead_sku,
+            animal: this.mappedFG_1,
+            material: this.material_1
+          }; 
+          this.loading = true;
+          this.skuService.mapFG_1(data).subscribe((res: any) => {
+            window.alert("Segment mapped");
+            this.loading = false;
+          }, (error) => {
+            window.alert("Segment mapped");
+            this.loading = false;
+          });
+        }
+      }
+      else {
+        window.alert("Segment cannot be edited to " + params.data.animal_FLAG2 + "\nPlease choose a valid segment.")
+      }
+    }
+  }
 
   public reversepipo(tpfromid, tptoid, pstate, pfgid) {
 
@@ -561,13 +569,22 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public thematerialgroup;
   public thelocalcategory;
   public thepacktype;
+  public gridOptions;
 
   public onCellClicked1(params) {
+
+    //here
+    var virtualList = Array.from(document.getElementsByClassName('ag-virtual-list-viewport') as HTMLCollectionOf<HTMLElement>);
+    for (var i = 0; i < virtualList.length; i++) {
+      virtualList[i].style.zoom = '133%';
+    }
+
+    console.log("\n\n\n khalid \n", params.node.id);
 
     console.log("Checking123", params);
     console.log("Checking");
     if (params.colDef.field == "btn") {
-      this.edit_1(params.data.fgid, params.data.material);
+      this.edit_1(params.data.fgid, params.data.material); 
     }
     if (params.colDef.field == "btn2") {
       this.clearPIPOdetails();
@@ -921,8 +938,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       //this.editCommentModalBtnCancel.nativeElement.click();
 
       window.alert("Mapped");
-      window.location.reload();
-
+      //window.location.reload();
+      /*
       this.skuService.getPIPO().subscribe((response: any) => {
         this.pipo = response;
 
@@ -940,14 +957,14 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.skuService.getPIPOMapping().subscribe((response: any) => {
         this.pipoMapping = response;
       });
-
+      */
 
 
     }, (error) => {
 
       window.alert("Mapped");
 
-
+      /*
       this.skuService.getPIPO().subscribe((response: any) => {
         this.pipo = response;
         for (const abc of this.pipo) {
@@ -963,7 +980,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       });
 
       // this.editCommentModalBtnCancel.nativeElement.click();
-
+      */
     });
 
 

@@ -140,7 +140,9 @@ margin-top: 26px;width:100%">
 
 
                   <ag-grid-angular style="width: 100%; height: 740px;" class="ag-theme-alpine" [rowData]="pipo"
-                    [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" (cellClicked)="onCellClicked1($event)">
+                    [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" (cellClicked)="onCellClicked1($event)"
+                    (cellDoubleClicked) = "onCellDoubleClickedSM($event)" (singleClickEdit) = "false"
+                    (cellValueChanged)="onCellValueChangedSM($event)">
                   </ag-grid-angular>
 
 
@@ -802,26 +804,27 @@ font-weight: bold;
             <div class="form-group col-sm-12 " style="width:70%" align="center">
               <span style="font-family: 'Montserrat', sans-serif !important;">Phase in SKU</span> <input type="checkbox"
                 (change)="second_type1()" style="float:right;margin-right: 28px;" id="phaseout" checked>
+              <div *ngIf="first_type">
+                <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
+                    border: 1px solid #ced4da;
+                    font-family: 'Montserrat', sans-serif !important;
+                    background-color: #fff;">
+                  <option value="select" disabled selected>Select Phase in SKU</option>
+                  <ng-container *ngFor="let filter of drop2; let filterIndex=index">
+                    <option [value]="filter">{{filter}}</option>
+                  </ng-container>
 
-              <select [(ngModel)]="tosku" id="harshit" style="background-clip: padding-box;
-                  border: 1px solid #ced4da;
-                  font-family: 'Montserrat', sans-serif !important;
-                  background-color: #fff;">
-                <option value="select" disabled selected>Select Phase in SKU</option>
-                <ng-container *ngFor="let filter of drop2; let filterIndex=index">
-                  <option [value]="filter">{{filter}}</option>
-                </ng-container>
-
-                <!-- <ng-select [allowClear]="true"
-                [items]="items"
-                [disabled]="disabled"
-                (data)="refreshValue($event)"
-                (selected)="selected($event)"
-                (removed)="removed($event)"
-                (typed)="typed($event)"
-                placeholder="No city selected">
-        </ng-select> -->
-              </select>
+                  <!-- <ng-select [allowClear]="true"
+                  [items]="items"
+                  [disabled]="disabled"
+                  (data)="refreshValue($event)"
+                  (selected)="selected($event)"
+                  (removed)="removed($event)"
+                  (typed)="typed($event)"
+                  placeholder="No city selected">
+                  </ng-select> -->
+                </select>
+              </div>
             </div>
 
           </div>
@@ -1625,14 +1628,15 @@ font-weight: bold;
               </tbody>
             </table>
           </div>
-          
-          <fusioncharts
-            width="700"
-            height="400"
-            type="msline"
-            [dataSource]="dataSource"
-          >
-          </fusioncharts>
+          <div style="zoom: 133% !important">
+            <fusioncharts
+              width="525"
+              height="300"
+              type="msline"
+              [dataSource]="dataSource"
+            >
+            </fusioncharts>
+          </div>
         </div>
 
       </div>
