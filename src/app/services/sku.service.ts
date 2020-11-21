@@ -888,20 +888,24 @@ export class SKUService {
   public editComment(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}editcomment`, data);
   }
-  
-    //dumdum
+
+  //dumdum
   public getSomeMaterialDetails(material: number) {
     return this.http.get(`${this.apiGatewayUrl}getsomematerialdetails/${material}`);
   }
-  
-    //sparks
+
+  //sparks
   //dummy post request for testing
   public getSomeYoyos(data = {}) {
     return this.http.post(`${this.apiGatewayUrl}yoyoyo`, data);
   }
-  
+
   public getLoadWeek(data = {}) {
     return this.http.get(`${this.apiGatewayUrl}getLoadWeek`, data);
   }
 
+  
+  public deleteuser(data={}) {
+    return this.http.post(`${this.apiGatewayUrl}deleteuser`, data);
+  }
 }
