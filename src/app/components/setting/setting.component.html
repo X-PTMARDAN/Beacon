@@ -117,6 +117,7 @@
         [enableRangeSelection]="true"
         [autoGroupColumnDef]="autoGroupColumnDef"
         [suppressDragLeaveHidesColumns]="false"
+        (cellClicked)="onCellClickedBro($event)"
         >
         </ag-grid-angular>
       </div>
