@@ -17907,7 +17907,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         for (const week of data) {
-            if (week.calenderYearWeek < res.start) {
+            if (week.calenderYearWeek <= res.start) {
                 columndef_clone.push({
                     field: JSON.stringify(week.calenderYearWeek),
                     enableRowGroup: true,
@@ -18533,7 +18533,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-            if (week.calenderYearWeek < res.start) {
+            if (week.calenderYearWeek <= res.start) {
 
 
 
@@ -19304,7 +19304,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-            if (week.calenderYearWeek < res.start) {
+            if (week.calenderYearWeek <= res.start) {
 
 
 
@@ -20069,7 +20069,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         for (const week of data) {
-            if (week.calenderYearWeek < res.start) {
+            if (week.calenderYearWeek <= res.start) {
 
 
                 if (week.calenderYearWeek != temp_date) {
