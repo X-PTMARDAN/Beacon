@@ -298,10 +298,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.md_1 = Object.values(this.md_1);
 
       this.columnDefs = [
-        { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 100 },
-        { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 300 }, //300
-        { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 100 },  //shud be 100
-        { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 370 }, //370
+        { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 90 },
+        { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 345 }, //300
+        { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 120 },  //shud be 100
+        { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 345 }, //370
         { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 130 },
         { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150, editable: true,
           cellEditor: 'agRichSelectCellEditor',
@@ -309,8 +309,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             values: this.md_1,
           },
         },
-        { headerName: 'Week First Seen', field: 'minimum', sortable: true, filter: true, width: 155 },
-        { headerName: 'Week Last Seen', field: 'maximum', sortable: true, filter: true, width: 155 },
+        { headerName: 'First Seen', field: 'minimum', sortable: true, filter: true, width: 140 },
+        { headerName: 'Last Seen', field: 'maximum', sortable: true, filter: true, width: 140 },
         /*
         {
           headerName: ' ', field: 'btn', width: 100,  //shud be 100
