@@ -488,8 +488,8 @@
                       border: 0.5px #ecf0f1;"><i class="fa fa-calendar " aria-hidden="true"></i><span style="font-size: 15px;
                       margin-left: 8px;">2020</span>
               </p>                       -->
-              <select class="form-control" style="height: 50px; padding: 0 0 0 12px !important; font-size: 12px !important; font-weight: normal !important; font-family: 'Montserrat', sans-serif !important;">
-                <option selected>2020</option>
+              <select class="form-control" [(ngModel)]="whichYear" style="height: 50px; padding: 0 0 0 12px !important; font-size: 12px !important; font-weight: normal !important; font-family: 'Montserrat', sans-serif !important;">
+                <option selected value="2020">2020</option>
               </select>
             </div>
 
@@ -500,7 +500,7 @@
               margin-top: 40px;
               margin-left: 5px;
               margin-bottom: 2px;" id="arrow" class="fa fa-long-arrow-right circle-icon oomoom fa-xs"
-                (click)="test1('year')"></i>
+                (click)="goToYear()"></i>
                 <p style="font-weight: lighter; font-size: 10px; margin-left: 5px">Submit</p>
             </div>
 
@@ -861,15 +861,15 @@
 
 
 
-
-        <ag-grid-angular style=" height: 750px;width:100%;overflow:scroll;padding-right: 10px; padding-left: 10px" class="ag-theme-alpine"
+        <!--detailed and detailed material-->
+        <ag-grid-angular style=" height: 700px;width:100%;overflow:scroll;padding-right: 10px; padding-left: 10px; zoom: 100%" class="ag-theme-alpine"
           [rowData]="rowData5" rowSelection="multiple" [columnDefs]="columnDefs5" rowSelection="multiple"
           [undoRedoCellEditing]="true" [suppressRowClickSelection]="true" [suppressLastEmptyLineOnPaste]="true"
           *ngIf="second_ag" [rowGroupPanelShow]="rowGroupPanelShow" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [enableRangeSelection]="true" [statusBar]="statusBar"
-          (firstDataRendered)="firstDataRenderedOtherViews($event)" (modelUpdated)="firstDataRenderedOtherViews($event)"
-          (rowDataUpdated)="firstDataRenderedOtherViews($event)" (newColumnsLoaded)="firstDataRenderedOtherViews($event)"
-          (displayedColumnsChanged)="firstDataRenderedOtherViews($event)" (virtualColumnsChanged)="firstDataRenderedOtherViews($event)"
+          (firstDataRendered)="firstDataRenderedDetailedViews($event)" (modelUpdated)="firstDataRenderedDetailedViews($event)"
+          (rowDataUpdated)="firstDataRenderedDetailedViews($event)" (newColumnsLoaded)="firstDataRenderedDetailedViews($event)"
+          (displayedColumnsChanged)="firstDataRenderedDetailedViews($event)" (virtualColumnsChanged)="firstDataRenderedDetailedViews($event)">
         >
         </ag-grid-angular>
 
@@ -910,9 +910,9 @@
           [rowGroupPanelShow]="always" [enableRangeSelection]="true" [statusBar]="statusBar"
           [autoGroupColumnDef]="autoGroupColumnDef" [suppressDragLeaveHidesColumns]="false"
           (gridReady)="onGridReady1($event)"
-          (firstDataRendered)="firstDataRenderedOtherViews($event)" (modelUpdated)="firstDataRenderedOtherViews($event)"
-          (rowDataUpdated)="firstDataRenderedOtherViews($event)" (newColumnsLoaded)="firstDataRenderedOtherViews($event)"
-          (displayedColumnsChanged)="firstDataRenderedOtherViews($event)" (virtualColumnsChanged)="firstDataRenderedOtherViews($event)"
+          (firstDataRendered)="firstDataRendered($event)" (modelUpdated)="firstDataRendered($event)"
+          (rowDataUpdated)="firstDataRendered($event)" (newColumnsLoaded)="firstDataRendered($event)"
+          (displayedColumnsChanged)="firstDataRendered($event)" (virtualColumnsChanged)="firstDataRendered($event)">
         >
         </ag-grid-angular>
 

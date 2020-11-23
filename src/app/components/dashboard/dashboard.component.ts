@@ -10933,29 +10933,27 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
             else {
                 window.alert("Something went wrong. Please try again - aggregated");
-            }
-
-            //here
-            var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < threebars.length; i++) {
-                threebars[i].style.display = 'none';
-            }
-            var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < headercells.length; i++) {
-                headercells[i].style.paddingLeft = '0px';
-                headercells[i].style.paddingRight = '0px';
-            }
-            var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < agcells.length; i++) {
-                agcells[i].style.paddingLeft = '0px';
-                agcells[i].style.paddingRight = '0px';
-                agcells[i].style.fontSize = '12px';
-            }
-            var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < agcells2.length; i++) {
-                agcells2[i].style.paddingLeft = '5px';
-            }
-            
+            }     
+                                //here
+                                var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < threebars.length; i++) {
+                                    threebars[i].style.display = 'none';
+                                }
+                                var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < headercells.length; i++) {
+                                    headercells[i].style.paddingLeft = '0px';
+                                    headercells[i].style.paddingRight = '0px';
+                                }
+                                var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < agcells.length; i++) {
+                                    agcells[i].style.paddingLeft = '0px';
+                                    agcells[i].style.paddingRight = '5px';
+                                    agcells[i].style.fontSize = '12px';
+                                }
+                                var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < agcells2.length; i++) {
+                                    agcells2[i].style.paddingLeft = '5px';
+                                }       
         }
 
         else if (this.views == "Sku View") {
@@ -14226,6 +14224,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             else {
                 window.alert("Something went wrong. Please try again - detailed view");
             }
+            //here2
+            var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < headercells.length; i++) {
+                headercells[i].style.paddingLeft = '0px';
+                headercells[i].style.paddingRight = '0px';
+            }
+            var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < agcells.length; i++) {
+                agcells[i].style.paddingLeft = '0px';
+                agcells[i].style.paddingRight = '5px';
+                agcells[i].style.fontSize = '12px';
+            }
+            var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < agcells2.length; i++) {
+                agcells2[i].style.paddingLeft = '5px';
+            }
+            var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < threebars.length; i++) {
+                threebars[i].style.zoom = '133%';
+            }
         }
 
         else if (this.views == "Detailed View_material") {
@@ -15902,11 +15920,32 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             else {
                 window.alert("Something went wrong. Please try again - detailed view material");
             }
+            //here2
+            var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < headercells.length; i++) {
+                headercells[i].style.paddingLeft = '0px';
+                headercells[i].style.paddingRight = '0px';
+            }
+            var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < agcells.length; i++) {
+                agcells[i].style.paddingLeft = '0px';
+                agcells[i].style.paddingRight = '5px';
+                agcells[i].style.fontSize = '12px';
+            }
+            var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < agcells2.length; i++) {
+                agcells2[i].style.paddingLeft = '5px';
+            }
+            var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal') as HTMLCollectionOf<HTMLElement>);
+            for (var i = 0; i < threebars.length; i++) {
+                threebars[i].style.zoom = '133%';
+            }
         }
 
         else {
             window.alert("Something went wrong. Please try again");
         }
+
 
     }
 
@@ -15915,7 +15954,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.gridColumnApi = params.columnApi;
 
         //here
-        var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
+        var threebars = Array.from(document.getElementsByClassName('ag-icon-menu') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < threebars.length; i++) {
             threebars[i].style.display = 'none';
         }
@@ -15927,24 +15966,38 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells.length; i++) {
             agcells[i].style.paddingLeft = '0px';
-            agcells[i].style.paddingRight = '0px';
+            agcells[i].style.paddingRight = '5px';
             agcells[i].style.fontSize = '12px';
         }
         var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells2.length; i++) {
             agcells2[i].style.paddingLeft = '5px';
         }
-
     }
 
-    firstDataRenderedOtherViews() {
+    firstDataRenderedDetailedViews(params) {
+        this.gridApi = params.api; // To access the grids API
+        this.gridColumnApi = params.columnApi;
+
+        //here2
         var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < headercells.length; i++) {
-            headercells[i].style.border = '1px ridge';
+            headercells[i].style.paddingLeft = '0px';
+            headercells[i].style.paddingRight = '0px';
         }
         var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells.length; i++) {
-            agcells[i].style.border = '1px ridge';
+            agcells[i].style.paddingLeft = '0px';
+            agcells[i].style.paddingRight = '5px';
+            agcells[i].style.fontSize = '12px';
+        }
+        var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
+        for (var i = 0; i < agcells2.length; i++) {
+            agcells2[i].style.paddingLeft = '5px';
+        }
+        var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal') as HTMLCollectionOf<HTMLElement>);
+        for (var i = 0; i < threebars.length; i++) {
+            threebars[i].style.zoom = '133%';
         }
     }
 
@@ -16169,13 +16222,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         return parseInt(year + week, 10);
     }
 
+    public whichYear;
+
+    public goToYear() {
+        if (this.whichYear) {
+            this.prevactuals = this.whichYear + '-W01';
+            this.endWeek = this.whichYear + '-W52';
+            if (this.whichYear == '2020') {
+                this.endWeek = this.whichYear + '-W53';
+            }
+            this.tick();
+        }   
+    }
+
 
     public tick() {
 
         console.log('THIS Prev--' + this.endWeek);
 
         if (this.color_tick == 0) {
-            return;
+            //return;
         }
         this.color_tick = 0;
 
@@ -18527,7 +18593,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             field: JSON.stringify(data[0].calenderYearWeek),
             cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
-            width: 150,
+            width: 105, //150
         });
         for (const week of data) {
 
@@ -18542,7 +18608,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
-                        width: 150,
+                        width: 105, //150
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -18571,7 +18637,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: {'border': '1px ridge'},
-                        width: 150,
+                        width: 105, //150
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -19298,7 +19364,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             field: JSON.stringify(data[0].calenderYearWeek),
             cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
-            width: 150,
+            width: 100, //150
         });
         for (const week of data) {
 
@@ -19313,7 +19379,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
-                        width: 150,
+                        width: 100,
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -19342,7 +19408,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: {'border': '1px ridge'},
-                        width: 150,
+                        width: 100,
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -20061,7 +20127,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         var temp_date = data[0].calenderYearWeek;
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
-            width: 130,
+            width: 100, //130
             cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
 
         });
@@ -20086,7 +20152,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             }
                         },
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
-                        width: 130,
+                        width: 100,
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
@@ -20117,7 +20183,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 return true;
                             }
                         },
-                        width: 130,
+                        width: 100,
                         cellStyle: {'border': '1px ridge'},
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
