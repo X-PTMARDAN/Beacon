@@ -388,7 +388,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             var wk = response[key].fromweek;
             for (count=0; count<fromids.length; count++) {
               if (fid == toids[count] && tid == fromids[count] && wk == fmweeks[count]) {
-                console.log("found one: " + fid + " ||| " + tid + " ||| " + wk)
+                console.log("found one jo delete ho raha hai: " + fid + " ||| " + tid + " ||| " + wk)
                 flag = 1;
               }
             }
@@ -396,6 +396,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
               fromids.push(fid);
               toids.push(tid);
               fmweeks.push(wk);
+              if (tid == '0 - null' || tid == '0 - ') {
+                console.log("found a 0-null one: fromid: " + fid);
+                response[key].toid = '';
+              }
               this.pipoMapping.push(response[key]);
             }
           }
@@ -1606,6 +1610,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       state = "Custom Delisting";
     }
 
+    if (this.tosku == 'select') {
+      window.alert("in it");
+      this.tosku = '0';
+    }
 
     var data = {
       fromid: this.fromsku.split("-")[0],
