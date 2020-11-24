@@ -139,7 +139,7 @@ margin-top: 26px;width:100%">
 
 
 
-                  <ag-grid-angular style="width: 100%; height: 680px;" class="ag-theme-alpine" [rowData]="pipo"
+                  <ag-grid-angular style="width: 100%; height: 100vh;" class="ag-theme-alpine" [rowData]="pipo"
                     [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" (cellClicked)="onCellClicked1($event)"
                     (cellDoubleClicked) = "onCellDoubleClickedSM($event)" (singleClickEdit) = "false"
                     (cellValueChanged)="onCellValueChangedSM($event)">
@@ -442,7 +442,7 @@ font-weight: bold;
 
 
 
-                    <ag-grid-angular style="width: 100%; height: 630px;" class="ag-theme-alpine"
+                    <ag-grid-angular style="width: 100%; height: 90vh;" class="ag-theme-alpine"
                       [rowData]="pipoMapping" [columnDefs]="columnDefs3" (cellClicked)="onCellClicked($event)"
                       (gridReady)="onGridReady($event)">
                     </ag-grid-angular>

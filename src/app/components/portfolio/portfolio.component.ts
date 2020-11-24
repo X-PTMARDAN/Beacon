@@ -296,7 +296,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       var str = this.mappingdrop_1.toString();
       this.md_1 = str.split(",");
       this.md_1 = Object.values(this.md_1);
-
+      
       this.columnDefs = [
         { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 90 },
         { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 345 }, //300
@@ -327,7 +327,39 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         },  
         
       ];
-  
+      
+      /*
+      this.columnDefs = [
+        { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, cellStyle: {'width': '12px'} },
+        { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 345 }, //300
+        { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 120 },  //shud be 100
+        { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 345 }, //370
+        { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 130 },
+        { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150, editable: true,
+          cellEditor: 'agRichSelectCellEditor',
+          cellEditorParams: {
+            values: this.md_1,
+          },
+        },
+        { headerName: 'First Seen', field: 'minimum', sortable: true, filter: true, width: 140 },
+        { headerName: 'Last Seen', field: 'maximum', sortable: true, filter: true, width: 140 },
+        /*
+        {
+          headerName: ' ', field: 'btn', width: 100,  //shud be 100
+          cellRenderer: function (params) {
+            return '<p>Edit Segment</p>'
+          }
+        }, 
+        */ /*
+        {
+          headerName: ' ', field: 'btn2', width: 120,
+          cellRenderer: function (params) {
+            return '<p>PIPO Details</p>'
+          }
+        },  
+        
+      ];
+  */
       this.columnDefs3 = [
         { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
         { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
@@ -1305,7 +1337,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
       var str2 = str + str1;
 
-      var str3 = parseInt(str2);
+      var str3 = parseInt(str2); //str3 = 202010
 
 
 
@@ -1321,20 +1353,25 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
       // alert(str_1+"-"+str1_1);
 
-      var str2_1 = str_1 + str1_1;
+      var str2_1 = str_1 + str1_1; 
 
-      var str3_1 = parseInt(str2_1);
+      var str3_1 = parseInt(str2_1); //str3_1 = 202023
 
 
       this.dates = [];
 
 
       if (this.val_selected == 1) {
-        var j = 0
+        var j = 0;
         for (var i = str3; i <= str3_1; i++) {
+
+          if(i>202053 && i<=202100) {
+            console.log("i in loop " + i);
+            continue;
+          }
+          console.log("in out of loop " + i);
           j++;
           var k = Math.round(100 * j / (str3_1 - str3 + 1));
-
           var a = {
             week: i,
             one: 100 - k,
@@ -1352,6 +1389,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       else if (this.val_selected == 2) {
         var j = 0
         for (var i = str3; i <= str3_1; i++) {
+          if(i>202053 && i<=202100) {
+            console.log("i in loop " + i);
+            continue;
+          }
+          console.log("in out of loop " + i);
           j++;
           var k = (str3_1 - str3 + 1);
 
@@ -1377,6 +1419,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
       else if (this.val_selected == 4) {
+        
         var j = 0
 
         j++;
@@ -1402,6 +1445,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       else if (this.val_selected == 6) {
         var j = 0
         for (var i = str3; i <= str3_1; i++) {
+          if(i>202053 && i<=202100) {
+            console.log("i in loop " + i);
+            continue;
+          }
+          console.log("in out of loop " + i);
           j++;
           var k = Math.round(100 * j / (str3_1 - str3 + 1));
 
@@ -1421,6 +1469,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       else if (this.val_selected == 7) {
         var j = 0
         for (var i = str3; i <= str3_1; i++) {
+          if(i>202053 && i<=202100) {
+            console.log("i in loop " + i);
+            continue;
+          }
+          console.log("in out of loop " + i);
           j++;
           var k = (str3_1 - str3 + 1);
 
@@ -1446,7 +1499,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
       else if (this.val_selected == 9) {
-        alert(this.val_selected);
         var j = 0;
 
 
@@ -1469,6 +1521,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
       else if (this.val_selected < 6) {
         for (var i = str3; i <= str3_1; i++) {
+          if(i>202053 && i<=202100) {
+            console.log("i in loop " + i);
+            continue;
+          }
+          console.log("in out of loop " + i);
 
           var a = {
             week: i,
@@ -1485,6 +1542,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       else {
 
         for (var i = str3; i <= str3_1; i++) {
+          if(i>202053 && i<=202100) {
+            console.log("i in loop " + i);
+            continue;
+          }
+          console.log("in out of loop " + i);
 
           var a = {
             week: i,
