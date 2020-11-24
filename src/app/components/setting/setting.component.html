@@ -1,16 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #f4f5f9; border-radius: 5px; margin-left: 25px; margin-right:125px;">
-    <div></div>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <h2>Settings</h2>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item" (click)="download1()">
-          <div><i class="fa fa-upload fa-2x" aria-hidden="true" data-toggle="tooltip" style="cursor: pointer; margin-right:30px;" data-placement="bottom" title="Upload"></i></div>
+        <li class="nav-item" (click)="download1()"  data-toggle="tooltip" style="cursor: pointer; margin-right:30px;" data-placement="bottom" title="Upload">
+          <!--<i class="fa fa-upload fa-2x" aria-hidden="true"></i>-->
+          <img src="assets/images/upload-icon-sized.png">
         </li>
-        <li class="nav-item" (click)="download()">
-          <div><i class="fa fa-download fa-2x" aria-hidden="true" data-toggle="tooltip" style="cursor: pointer; margin-right:10px;" data-placement="bottom" title="Download"></i></div>
+        <li class="nav-item" (click)="download()"  data-toggle="tooltip" style="cursor: pointer; margin-right:10px;" data-placement="bottom" title="Download">
+          <!--<i class="fa fa-download fa-2x" aria-hidden="true"></i>-->
+          <img src="assets/images/download-icon-sized.png">
         </li>
     </ul>
 </nav>
@@ -29,10 +30,15 @@
         <li (click)="comments1()">Comments <svg *ngIf="comments_table" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
         </svg></li>
+        <!--
         <li (click)="apo_display()">Last APO Upload <svg *ngIf="last_apo_display" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
         </svg></li>
         <li (click)="data_display()">Last Data Upload <svg *ngIf="last_data_table" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg></li>
+        -->
+        <li (click)="infopage()">Information Page <svg *ngIf="info_page" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
         </svg></li>
         <li (click)="datefield()">Default Settings <svg *ngIf="horizon" style="float:right;" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -233,6 +239,43 @@
       <div *ngIf="last_data_display" style="margin-left: 13px;">
         <h3>Last Data Upload - 2020-08-26 22:55:15</h3>
       </div>
+
+      <div *ngIf="info_page" style="margin-left: 13px;">
+        <h3>Information Page</h3>
+        <table class="infotable">
+          <tbody>
+            <tr>
+              <td class="htd" style="font-weight: bold;">Current Week</td>
+              <td class="datatd">2020 - Week 48</td>
+            </tr>
+            <tr>
+              <td class="htd" style="font-weight: bold;">APO Load Week</td>
+              <td class="datatd">2020 - Week 47</td>
+            </tr>
+            <tr>
+              <td class="htd" style="font-weight: bold;">ML Last Updated Week</td>
+              <td class="datatd">2020 - Week 47</td>
+            </tr>
+            <tr>
+              <td class="htd" style="font-weight: bold;">APO Last Updated Week</td>
+              <td class="datatd">2020 - Week 47</td>
+            </tr>
+            <tr>
+              <td class="htd" style="font-weight: bold;">UoM Last Updated</td>
+              <td class="datatd">2020 - Week 47</td>
+            </tr>
+            <tr>
+              <td class="htd" style="font-weight: bold;">SKU Characteristics Last Updated</td>
+              <td class="datatd">2020 - Week 47</td>
+            </tr>
+            <tr>
+              <td class="htd" style="font-weight: bold;">Last Upload to APO</td>
+              <td class="datatd">2020 - Week 47</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 <!--/div-->

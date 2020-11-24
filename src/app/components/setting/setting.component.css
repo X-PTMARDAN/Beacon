@@ -200,3 +200,38 @@
   min-width: 1250px;
   overflow: hidden;
 }
+
+.infotable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  border : 3px solid rgb(175, 175, 175);
+}
+
+.infotable td, .infotable th {
+  padding: .50rem;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.htd {
+  width: 70%;
+}
+
+.datatd {
+  width: 30%;
+}
+
+.infotable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.infotable tr:nth-child(even){background-color: #ffffff; border-bottom : 3px solid rgb(175, 175, 175);}
+
+.infotable tr:nth-child(odd){background-color: #ffffff; border-bottom : 3px solid rgb(175, 175, 175);}
+
+.infotable tr:hover {background-color: rgba(33, 150, 243, 0.2);}

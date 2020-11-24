@@ -79,17 +79,12 @@ export class SettingComponent implements OnInit {
 
   public allCommentshtml;
   public comments_table = false;
-
   public up_table = false;
-
   public last_apo_display = false;
   public last_data_display = false;
-
+  public info_page = false;
   public prevactuals;
-
   public plan;
-
-
   public horizon = false;
   ngOnInit() {
 
@@ -432,6 +427,7 @@ export class SettingComponent implements OnInit {
       this.up_table = false;
       this.comments_table = false;
       this.horizon = true;
+      this.info_page = false;
     }
     else {
       this.horizon = false;
@@ -446,6 +442,7 @@ export class SettingComponent implements OnInit {
       this.comments_table = false;
       this.last_data_display = false;
       this.last_apo_display = false;
+      this.info_page = false;
     }
     else {
       this.up_table = false;
@@ -461,6 +458,7 @@ export class SettingComponent implements OnInit {
       this.up_table = false;
       this.comments_table = false;
       this.horizon = false;
+      this.info_page = false;
     }
     else {
       this.last_apo_display = false;
@@ -475,6 +473,7 @@ export class SettingComponent implements OnInit {
       this.up_table = false;
       this.comments_table = false;
       this.horizon = false;
+      this.info_page = false;
     }
     else {
       this.last_data_display = false;
@@ -490,6 +489,7 @@ export class SettingComponent implements OnInit {
       this.up_table = false;
       this.comments_table = true;
       this.horizon = false;
+      this.info_page = false;
     }
     else {
       this.comments_table = false;
@@ -506,9 +506,27 @@ export class SettingComponent implements OnInit {
       this.up_table = false;
       this.comments_table = false;
       this.horizon = false;
+      this.info_page = false;
     }
     else {
       this.block12 = false;
+    }
+
+  }
+
+  public infopage() {
+
+    if (this.info_page == false) {
+      this.last_apo_display = false;
+      this.last_data_display = false;
+      this.block12 = false;
+      this.up_table = false;
+      this.comments_table = false;
+      this.horizon = false;
+      this.info_page = true;
+    }
+    else {
+      this.info_page = false;
     }
 
   }
