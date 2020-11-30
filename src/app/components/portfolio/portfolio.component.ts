@@ -13,6 +13,7 @@ import { FusionChartsModule } from "angular-fusioncharts";
 import * as FusionCharts from "fusioncharts";
 import * as charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { RowNode } from 'ag-grid-community';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
@@ -297,6 +298,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.md_1 = str.split(",");
       this.md_1 = Object.values(this.md_1);
       
+      
       this.columnDefs = [
         { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 90 },
         { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 345 }, //300
@@ -318,7 +320,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             return '<p>Edit Segment</p>'
           }
         }, 
-        */
+        */ 
         {
           headerName: ' ', field: 'btn2', width: 120,
           cellRenderer: function (params) {
@@ -327,39 +329,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         },  
         
       ];
-      
-      /*
-      this.columnDefs = [
-        { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, cellStyle: {'width': '12px'} },
-        { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 345 }, //300
-        { headerName: 'Material', field: 'material', sortable: true, filter: true, width: 120 },  //shud be 100
-        { headerName: 'Material Name', field: 'sku', sortable: true, filter: true, width: 345 }, //370
-        { headerName: 'Primary', field: 'prime', sortable: true, filter: true, width: 130 },
-        { headerName: 'Segment', field: 'animal_FLAG2', sortable: true, filter: true, width: 150, editable: true,
-          cellEditor: 'agRichSelectCellEditor',
-          cellEditorParams: {
-            values: this.md_1,
-          },
-        },
-        { headerName: 'First Seen', field: 'minimum', sortable: true, filter: true, width: 140 },
-        { headerName: 'Last Seen', field: 'maximum', sortable: true, filter: true, width: 140 },
-        /*
-        {
-          headerName: ' ', field: 'btn', width: 100,  //shud be 100
-          cellRenderer: function (params) {
-            return '<p>Edit Segment</p>'
-          }
-        }, 
-        */ /*
-        {
-          headerName: ' ', field: 'btn2', width: 120,
-          cellRenderer: function (params) {
-            return '<p>PIPO Details</p>'
-          }
-        },  
-        
-      ];
-  */
+
       this.columnDefs3 = [
         { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
         { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
@@ -420,8 +390,18 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             var wk = response[key].fromweek;
             for (count=0; count<fromids.length; count++) {
               if (fid == toids[count] && tid == fromids[count] && wk == fmweeks[count]) {
-                console.log("found one jo delete ho raha hai: " + fid + " ||| " + tid + " ||| " + wk)
+                console.log("found one jo delete ho raha hai: " + fid + " ||| " + tid + " ||| " + wk);
+                for (var key in this.pipoMapping) {
+                  if (response.hasOwnProperty(key)) {
+                    if (this.pipoMapping[key].fromid == tid && this.pipoMapping[key].toid == fid && this.pipoMapping[key].fromweek == wk) {
+                      console.log("also deleting " + this.pipoMapping[key].fromid + " ||| " + this.pipoMapping[key].toid + " ||| " + this.pipoMapping[key].fromweek);
+                      this.pipoMapping.splice(key, 1);
+                      break;
+                    }
+                  }
+                }
                 flag = 1;
+                break;
               }
             }
             if (flag == 0) {
