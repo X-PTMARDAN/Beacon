@@ -908,4 +908,12 @@ export class SKUService {
   public deleteuser(data={}) {
     return this.http.post(`${this.apiGatewayUrl}deleteuser`, data);
   }
+
+  public getCVC(data={}) {
+    return this.http.get(`${this.apiGatewayUrl}getCVC`, data);
+  }
+
+  public updateCVCState(data={}) {
+    return this.http.post(`${this.apiGatewayUrl}updateCVCState`, data);
+  }
 }
