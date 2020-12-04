@@ -1,134 +1,44 @@
 <div id="content">
 
-
   <div *ngIf="loading"
     style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 175%; z-index: 100000">
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" alt="Smiley facg">
-
     </div>
   </div>
 
   <div class="row content-col mb-2" id="upper_middle" style="margin-bottom: .0rem!important;margin: 0 20px">
     <div class="col-12 ">
       <div class="bg-white shadow mt-2" style="background: #f4f5f9;border-radius: 6px; ">
-
-
-
-
-
-
-        <!-- </div>
-      
-        </div> -->
-
-
       </div>
-
-
     </div>
   </div>
-
-
-
 
   <div class="row content-col " id="middle" style="margin: 0 20px" *ngIf='sku_map'>
     <div class="col-12 ">
       <div class="bg-white shadow mt-2" style="border-radius: 6px;">
-
-
-        <div class="d-flex justify-content-between align-items-center " style="background:#fff;border-radius: 6px;width: 18%;    padding-top: 36px;
-        height: 25px;">
-
-
-
-
-          <div class="row" style="    margin-left: 20px;
-margin-top: 26px;width:100%">
-            <div class="col-sm-6">
-              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;
-    font-weight: bold;
-">Sku Mapping</p>
-              <div style="width:100%;background:#17b169;height: 5px;"></div>
-
+        <div class="d-flex justify-content-between align-items-center " style="background:#fff;border-radius: 6px;width: 30%;    padding-top: 36px;height: 25px;">
+          <div class="row" style="    margin-left: 20px;margin-top: 26px;width:100%">
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important; font-size: 14px;font-weight: bold;">Sku Mapping</p>
+              <div style="width:100%;background:#17b169;height: 5px;">
+              </div>
             </div>
-            <div class="col-sm-6">
-              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;
-    font-weight: bold;cursor: pointer;
-" (click)='pipo_click()'>PIPO</p>
-
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)='pipo_click()'>PIPO Rules</p>
+            </div>
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)='cvc_click()'>CVC Rules</p>
             </div>
           </div>
-
-          <!-- <div style="width:50%;background:#17b169;border-radius: 10px;height: 10px;" id="sku_bar" (click)=sku_click()> 
-          
-              <p>hjsb</p>
-          
-            </div>
-
-              <br>
-
-              <p class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;cursor: pointer;">SKU Mapping </p>
-
-
-       
-
-
-         
-
-
-
-            <div style="border-left: 1px solid #e6e7ea;height:80px;"></div>
-
-          <div style="width:50%;border-radius: 10px;" id="pipo_bar" (click)='pipo_click()'> <div style="font-size: 40px;padding-top: 10px;  border-radius: 15px;  float: left;
-            margin-left: 25%;">
-           <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;cursor: pointer;">Phase in Phase Out</h5>
-            </div></div>
-   -->
-
-
-
-
-
-
         </div>
-
         <div class="d-flex">
           <div class="table-content-col" style="width: 100%;margin-left:15px;margin-right:15px;">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
-
-
                 <br><br>
-
-                <!-- <button aria-disabled="" data-toggle="modal" data-target="#myModal4_6" (click)='test1()'> ADD SKU</button> -->
                 <br>
-                <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
-                    <tr style="background-color: #fff">
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(1)">FGID - (Count: <span [innerText]='fg_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Forecasting Group - (Count: <span [innerText]='fg_len'></span>)</h6></td>
-
-
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold" (click)="sortComments1(2)" >Material- (Count: <span [innerText]='material_len'></span>)</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold" >SKU Name</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Primary</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Segment</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week First Seen</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><h6 class="mt-3 font-weight-bold">Week Last Seen</h6></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
-
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;">&nbsp;</td>
-                    </tr>
-                
-                  </table>
-       -->
-
-
-
                 <div>
-
-
                   <input type="text" id="filter-text-box" style="width: 35%;
                   border-radius: 10px;
                   padding-left: 17px;
@@ -144,415 +54,159 @@ margin-top: 26px;width:100%">
                     (cellDoubleClicked) = "onCellDoubleClickedSM($event)" (singleClickEdit) = "false"
                     (cellValueChanged)="onCellValueChangedSM($event)">
                   </ag-grid-angular>
-
-
-
-                  <!-- 
-                <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index">
-                    <tr style="background-color: #fff" >
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.forecastinggroup}}</p></td>
-
-
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;">  <p class="m-0" style="font-size:0.75rem">{{data.material}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.sku}}</p></td>
-
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.prime}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.animal_FLAG2}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.minimum}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><p class="m-0" style="font-size:0.75rem">{{data.maximum}}</p></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></td>
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4_1" (click)=edit_1(data.fgid,data.material)>Edit Segment</a></td>
-
-                      <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 9%;"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></td>
-                    </tr>
-                
-                  </table> -->
-
-
-
-                  <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" *ngFor="let data of pipo; let i=index" >
-                        <tr style="background-color: #fff">
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"> <span class="text-muted">{{data.material}}</span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;font: initial;"><span class="text-muted">{{data.sku}}</span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted">{{data.fgid}}</span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;font: initial;"><span class="text-muted">{{data.forecastinggroup}}</span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted"><a  class="btn btn-sm btn-success" aria-disabled="" data-toggle="modal" data-target="#myModal4" (click)=edit(i)>Edit</a></span></th>
-                          <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;font: initial;"><span class="text-muted"><a  class="btn btn-sm btn-danger" aria-disabled="">Remove</a></span></th>
-               
-                        </tr>
-                    
-                      </table> -->
                 </div>
-
-
-
-
-
-
-
-
-
-
               </div>
             </div>
           </div>
         </div>
-        <div class="p-2 text-center">
-          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-             data-target="#saveAPlansModal">Save Plan</a> -->
-          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
-             data-target="#saveAViewsModal">Save View</a> -->
-        </div>
       </div>
-
-
-
-
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="row content-col " id="middle" style="margin: 0 20px" *ngIf='pipo_map'>
     <div class="col-12 ">
       <div class="bg-white shadow mt-2" style="border-radius: 6px;">
-
-
-
-
-        <div class="d-flex justify-content-between align-items-center " style="background:#fff;border-radius: 6px;width: 18%;    padding-top: 36px;
-        height: 25px;">
-
-
-
-
-          <div class="row" style="    margin-left: 20px;
-margin-top: 26px;width:100%">
-            <div class="col-sm-6">
-              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;
-    font-weight: bold;cursor: pointer;
-" (click)=sku_click()>Sku Mapping</p>
+        <div class="d-flex justify-content-between align-items-center " style="background:#fff;border-radius: 6px;width: 30%;    padding-top: 36px;height: 25px;">
+          <div class="row" style="    margin-left: 20px;margin-top: 26px;width:100%">
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)=sku_click()>Sku Mapping</p>
             </div>
-            <div class="col-sm-6">
-
-
-              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;
-font-weight: bold;
-">PIPO</p>
-              <div style="width:69%;background:#17b169;height: 5px;"></div>
-
-
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;">PIPO Rules</p>
+              <div style="width:100%;background:#17b169;height: 5px;"></div>
+            </div>
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)=cvc_click()>CVC Rules</p>
             </div>
           </div>
-
-          <!-- <div style="width:50%;background:#17b169;border-radius: 10px;height: 10px;" id="sku_bar" (click)=sku_click()> 
-          
-              <p>hjsb</p>
-          
-            </div>
-
-              <br>
-
-              <p class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;cursor: pointer;">SKU Mapping </p>
-
-
-       
-
-
-         
-
-
-
-            <div style="border-left: 1px solid #e6e7ea;height:80px;"></div>
-
-          <div style="width:50%;border-radius: 10px;" id="pipo_bar" (click)='pipo_click()'> <div style="font-size: 40px;padding-top: 10px;  border-radius: 15px;  float: left;
-            margin-left: 25%;">
-           <h5 class="mt-3 font-weight-bold" style="padding-top: 5px;margin-bottom: 20px;cursor: pointer;">Phase in Phase Out</h5>
-            </div></div>
-   -->
-
-
-
-
-
-
         </div>
-
 
         <div class="d-flex">
           <div class="table-content-col" style="width: 100%;margin-left:15px;margin-right:15px;">
             <div class="panel panel-default">
               <div class="center-block fix-width scroll-inner">
-
-
-
-
-
-
-
-
                 <br />
-
-                <!-- <h3 class="text-center">New Phase In Phase Out rule</h3>
-                  <div style="display:flex;flex-direction: row;justify-content: space-around;">
-            
-            
-            
-            
-            
-                  <div class="form-group col-sm-3">
-                    <label>Phasing Logic</label>
-                    
-                                    <select  placeholder="harshit" #t5 [(ngModel)]="logic" (change)="changelogic(t5.value)" style="color: #000;background-clip: padding-box;
-                                    border: 1px solid #ced4da;
-                                    background-color: #fff;">
-                      <option value="select" selected>Select your option</option>
-                      <option value="transistion">Transition</option>
-                      <option value="delist">Delist</option>
-                    </select>
-                </div>
-            
-            
-            
-                  <div class="form-group col-sm-3">
-                  <label>Current SKU</label>
-                  <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
-                  border: 1px solid #ced4da;
-                  background-color: #fff;">
-                      <option value="select"  selected>Select current SKU</option>
-                      <ng-container *ngFor="let filter of drop; let filterIndex=index" >
-                              <option [value]="filter">{{filter}}</option>
-                        </ng-container>
-                    </select>
-                                </div>
-                    
-              
-              
-              
-                                <div class="form-group col-sm-3" *ngIf="newsku">
-                                    <label>Phase in SKU</label>
-                                    
-                                    <select [(ngModel)]="tosku" style="background-clip: padding-box;
-                                    border: 1px solid #ced4da;
-                                    background-color: #fff;">
-                                        <option value="select" disabled selected>Select Phase in SKU</option>
-                                    <ng-container *ngFor="let filter of drop2; let filterIndex=index">
-                                        <option [value]="filter">{{filter}}</option>
-                                  </ng-container>
-                                </select>
-                                                  </div>
-              
-                                               
-              
-              
-                    <div class="form-group col-sm-3">
-              
-                        <div class="custom-input mr-2 pt-1 pb-1 pr-1 pl-2" style="width: 160%;">
-                            <label for="startWeek" class="d-none">
-                              <span class="sr-only">Start Week</span>
-                            </label>
-                            <div class="input-group input-append date" style="width: 50%">
-                              <span class="pr-1">From:</span>
-                             <input type="week" id="startWeek" [(ngModel)]="startWeek" name="startWeek" readonly> 
-                  
-                              <input type="week" value="2019-W39" id="startWeek" [value]="startweek" [(ngModel)]="startweek" name="startWeek" style="height: 43px;
-                              width: 300px;
-                              border-radius: 5px;
-                              background-clip: padding-box;
-              border: 1px solid #ced4da;
-              background-color: #fff;
-                              margin-top: 3px;">
-                  
-                            
-                  
-                  
-                            </div>
-                          </div>
-                            
-                    </div>
-                              
-                  
-                  </div>
-                  <div class="col-sm-12 text-center"><button class="btn btn-primary nextBtn" type="button" >Cancel</button> <button class="btn btn-primary nextBtn"    type="button" (click)="apply()" > Apply</button></div>  
- -->
-
-
-
-
                 <div>
                   <br>
-                  <h3 class="text-center" style="font-family: 'Montserrat', sans-serif !important;">All Phase In Phase
-                    Out rules</h3> <button class="btn btn-primary nextBtn"
-                    style="height:46px !important;font-family: 'Montserrat', sans-serif !important;" type="button"
-                    (click)="apply1()"> Add New Rule</button>
-
-                  <!-- <button class="btn btn-primary nextBtn" style="float: right;"   type="button" > Filter</button> -->
-
+                  <h3 class="text-center" style="font-family: 'Montserrat', sans-serif !important;">All Phase In Phase Out rules</h3>
+                  <button class="btn btn-primary nextBtn" style="height:46px !important;font-family: 'Montserrat', sans-serif !important;" type="button" (click)="apply1()"> Add New Rule</button>
+                  
                   <div>
-                    <!-- <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
-                          <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">FROM ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"><h6 class="mt-3 font-weight-bold">TO ID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">State</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">From week</h6></td>
-
-
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">FGID</h6></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><h6 class="mt-3 font-weight-bold">Date</h6></td>
-
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
-
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"></td>
-
-
-
-
-
-                          </tr>
-                      
-                        </table> -->
-                  </div>
-
-
-
-                  <div>
-
-
-
-
-
                     <ag-grid-angular style="width: 100%; height: 90vh;" class="ag-theme-alpine"
                       [rowData]="pipoMapping" [columnDefs]="columnDefs3" (cellClicked)="onCellClicked($event)"
                       (gridReady)="onGridReady($event)">
                     </ag-grid-angular>
-
-
-
-
-
-                    <!--       
-                      <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;" >
-
-                        <ng-container *ngFor="let data of pipoMapping; let i=index">
-                          <tr style="background-color: #fff">
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;">  <p class="m-0" style="font-size:0.75rem;cursor: pointer" (click)="gantchart1(i)">{{data.fromid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 20%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.toid}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"   (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.state}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)"><p class="m-0" style="font-size:0.75rem">{{data.fromweek}}</p></td>
-
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.fgid}}</p></td>
-
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"    (click)="gantchart1(i)" ><p class="m-0" style="font-size:0.75rem">{{data.date}}</p></td>
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-success"  (click)=schedule_1(data.fromid,data.toid,data.state)>Edit</a></td>
-
-                            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 10%;"><a  class="btn btn-sm btn-warning"  (click)=delete_1(data.fromid,data.toid)>Delete</a></td>
-
-                          </tr>
-                          </ng-container>
-                         
-                      
-                        </table> -->
-
                   </div>
-
-                  <!-- <div >
-                        <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;">
-                          <tr style="background-color: #fff">
-                            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"> <span class="text-muted">From ID</span></th>
-                            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><span class="text-muted">To ID</span></th>
-                            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><span class="text-muted">STATE(1 - Transition & 0 - Delist)</span></th>
-                            <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;"><span class="text-muted">From week</span></th>
-                          </tr>
-                      
-                        </table>
-                      </div> -->
-
-
-                  <!-- 
-                  <div >
-                    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 97%;margin-left: 10px;margin-right: 10px;overflow: auto;"  *ngFor="let data of pipoMapping; let i=index">
-                      <tr style="background-color: #fff">
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;font: initial;"> <span class="text-muted">{{data.fromid}}</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;font: initial;"><span class="text-muted">{{data.toid}}</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;font: initial;"><span class="text-muted">{{data.state}}</span></th>
-                        <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;width: 25%;font: initial;"><span class="text-muted">{{data.fromweek}}</span></th>
-                      </tr>
-                  
-                    </table>
-                  </div> -->
-
-
-
-
-
-                  <!-- <table class="table table-striped">
-                          <thead class="thead-dark">
-                            <tr>
-                              <th scope="col" >FROM ID</th>
-                              <th scope="col">TO ID</th>
-                              <th scope="col">STATE(1 - Transition & 0 - Delist)</th>
-                              <th scope="col">Starting Week</th>
-                             
-                            </tr>
-                          </thead>
-                          <tbody > 
-        
-                            <ng-container *ngFor="let data of pipoMapping; let i=index">
-                          <tr>
-                            <th scope="row">{{data.fromid}}</th>
-                           <td>{{data.toid}}</td>
-                            <td>{{data.state}}</td>
-                            <td>{{data.fromweek}}</td>
-                  
-                          </tr>
-                      
-                          </ng-container>
-                        </tbody>
-                        </table> -->
-
                 </div>
-
-
               </div>
             </div>
           </div>
         </div>
         <div class="p-2 text-center">
-          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs" data-toggle="modal"
-             data-target="#saveAPlansModal">Save Plan</a> -->
-          <!-- <a href="javascript:void(0);" class="btn btn-primary custom-link btn-xs ml-1" disabled data-toggle="modal"
-             data-target="#saveAViewsModal">Save View</a> -->
         </div>
       </div>
-
-
-
-
     </div>
   </div>
 
+  <div class="row content-col " id="middle" style="margin: 0 20px" *ngIf='cvc_map'>
+    <div class="col-12 ">
+      <div class="bg-white shadow mt-2" style="border-radius: 6px;">
+        <div class="d-flex justify-content-between align-items-center " style="background:#fff;border-radius: 6px;width: 30%;    padding-top: 36px;height: 25px;">
+          <div class="row" style="    margin-left: 20px;margin-top: 26px;width:100%">
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important; font-size: 14px;font-weight: bold;" (click)='sku_click()'>Sku Mapping</p>
+            </div>
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)='pipo_click()'>PIPO Rules</p>
+            </div>
+            <div class="col-lg">
+              <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important; font-size: 14px;font-weight: bold;">CVC Rules</p>
+              <div style="width:100%;background:#17b169;height: 5px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="table-content-col" style="width: 100%;margin-left:15px;margin-right:15px;">
+            <div class="panel panel-default">
+              <div class="center-block fix-width scroll-inner">
+                <br><br>
+                <br>
+                <div> <!--three inputs
 
+                  <div class="input-group mt-2" style="width: 30%; border-radius: 10px; padding-left: 17px;
+                    margin-right: 15px; height: 41px; font-family: 'Montserrat', sans-serif !important;
+                    margin-bottom: 18px;" >
+                    <input type="text" class="form-control" [(ngModel)]="searchTextFG" (focus)='fgshow()'
+                      name="searchSKU" placeholder="Search Forecasting Group">
+                  </div>
+                  <div class="mb-2" style="height: 40%; overflow: auto;font-size: 12px;" data-simplebar *ngIf="pressed">
+                    <ul class="m-0 ">    
+                      <li class="d-flex li1">
+                        <div>
+                          <input class="mr-1" type="checkbox" (change)="selectallFG_CVC()">
+                        </div>
+                        <p class="m-0">All</p>
+                      </li>
+                      <hr>
+                      <ng-container *ngFor="let value of skus_search | filter: getCallbackFG(); let i=index">
+                        <li class="d-flex li1">
+                          <div>
+                            <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
+                              (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();brandsub('brand');">
+                          </div>
+                          <p class="m-0">{{ value.name }}</p>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </div>
+                  
+                    
+                  <input type="text" id="filter-text-box" style="width: 20%;
+                  border-radius: 10px;
+                  padding-left: 17px;
+                  margin-right: 15px;
+                  height: 41px;
+                  font-family: 'Montserrat', sans-serif !important;
+                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search CPG"
+                    (input)="onFilterTextBoxChanged()" />
+
+                  <input type="text" id="filter-text-box" style="width: 20%;
+                  border-radius: 10px;
+                  padding-left: 17px;
+                  margin-right: 15px;
+                  height: 41px;
+                  font-family: 'Montserrat', sans-serif !important;
+                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search Plant"
+                    (input)="onFilterTextBoxChanged()" />
+                  -->
+                  <p style="text-align: right; font-family: 'Montserrat', sans-serif !important; font-size: 14px;">Show Active State only
+                  <label class="switch">
+                    <input type="checkbox" (change) = "stateSwitch()">
+                    <span class="slider round"></span>
+                  </label>
+                  </p>
+
+                  <div *ngIf="hideSharedLinkCopyMessage" class="alert alert-success box-msg " role="alert">
+                    <p style="font-family: 'Montserrat', sans-serif !important; font-size: 18px; text-align: center;"><strong>CVC ID: {{zzzcvcID}}</strong> - State changed to {{zzzstate}}</p>
+                  </div>
+
+                  <ag-grid-angular style="width: 100%; height: 105vh;" class="ag-theme-alpine" [rowData]="cvcData"
+                    [columnDefs]="columnDefsCVC"  [pagination]="true" (gridReady)="onGridReady($event)" 
+                    (cellValueChanged)="onCellValueChangedCVC($event)" (cellClicked)="onCellClickedCVC($event)"
+                    (firstDataRendered)="firstDataRenderedCVC($event)" (modelUpdated)="firstDataRenderedCVC($event)"
+                    (rowDataUpdated)="firstDataRenderedCVC($event)" (newColumnsLoaded)="firstDataRenderedCVC($event)"
+                    (displayedColumnsChanged)="firstDataRenderedCVC($event)" (virtualColumnsChanged)="firstDataRenderedCVC($event)"
+                    (viewportChanged)="firstDataRenderedCVC($event)" (bodyScroll)="firstDataRenderedCVC($event)"
+                  >
+                  </ag-grid-angular>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -569,39 +223,29 @@ font-weight: bold;
                   <th scope="col">Material ID</th>
                   <th scope="col">SKU Name</th>
                   <th scope="col">Map</th>
-
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td scope="row"> <input type="text" class="form-control searchbox" [(ngModel)]="skuname"
                       placeholder="Material ID" aria-describedby="basic-addon1"></td>
-                  <td> <input type="text" class="form-control searchbox" [(ngModel)]="materialid" placeholder="SKU Name"
-                      aria-describedby="basic-addon1"></td>
+                  <td> <input type="text" class="form-control searchbox" [(ngModel)]="materialid" placeholder="SKU Name" aria-describedby="basic-addon1"></td>
                   <td>
                     <select [(ngModel)]="mappedFG">
                       <ng-container *ngFor="let filter of mappingdrop; let filterIndex=index">
                         <option [value]="filter">{{filter}}</option>
                       </ng-container>
-                    </select></td>
-
-
+                    </select>
+                  </td>
                 </tr>
-
-
               </tbody>
             </table>
-
-
-
           </div>
           <div class="col-sm-12 text-center" (click)="map_sku();"><a href="javascript:void(0)" class="btn">Add</a></div>
         </div>
-
       </div>
     </div>
   </div>
-
 
   <a href="javascript:void(0);" [hidden]="true" data-target="#myModal4_1" data-toggle="modal" #myModal4_1
     style="font-family: 'Montserrat', sans-serif !important;">Check</a>
@@ -655,10 +299,6 @@ font-weight: bold;
       </div>
     </div>
   </div>
-
-
-
-
 
   <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal" data-toggle="modal" #saveFilterModal>Open
     Save Filter Modal</a>
@@ -742,23 +382,6 @@ font-weight: bold;
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew" data-toggle="modal"
     style="font-family: 'Montserrat', sans-serif !important;" #AddNew>Add New Schedule</a>
   <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="false" style="background: rgba(59, 59, 59, 0.5);">
@@ -813,16 +436,6 @@ font-weight: bold;
                   <ng-container *ngFor="let filter of drop2; let filterIndex=index">
                     <option [value]="filter">{{filter}}</option>
                   </ng-container>
-
-                  <!-- <ng-select [allowClear]="true"
-                  [items]="items"
-                  [disabled]="disabled"
-                  (data)="refreshValue($event)"
-                  (selected)="selected($event)"
-                  (removed)="removed($event)"
-                  (typed)="typed($event)"
-                  placeholder="No city selected">
-                  </ng-select> -->
                 </select>
               </div>
             </div>
@@ -966,12 +579,6 @@ font-weight: bold;
       </div>
     </div>
   </div>
-
-
-
-
-
-
 
   <a href="javascript:void(0);" [hidden]="true" data-target="#AddNew_1" data-toggle="modal"
     style="font-family: 'Montserrat', sans-serif !important;" #AddNew_1>Add New Schedule</a>
@@ -1162,12 +769,6 @@ font-weight: bold;
     </div>
   </div>
 
-
-
-
-
-
-
   <a href="javascript:void(0);" [hidden]="true" data-target="#UpdateNew" data-toggle="modal" #UpdateNew
     style="font-family: 'Montserrat', sans-serif !important;">Check</a>
   <div class="modal fade save-filter-modal" id="AddNew" tabindex="-1" role="dialog" data-backdrop="false" style="background: rgba(59, 59, 59, 0.5);">
@@ -1330,16 +931,8 @@ font-weight: bold;
     </div>
   </div>
 
-
-
-
-
-
-
-
   <a href="javascript:void(0);" [hidden]="true" data-target="#saveFilterModal12" data-toggle="modal"
-    #saveFilterModal12>Open
-    Save Filter Modal</a>
+    #saveFilterModal12>Open Save Filter Modal</a>
   <div class="modal fade save-filter-modal" id="saveFilterModal12" tabindex="-1" role="dialog" data-backdrop="false" style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -1406,14 +999,6 @@ font-weight: bold;
     </div>
   </div>
 
-
-
-
-
-
-
-
-
   <div class="modal fade" id="myModal4_6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_6">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -1453,17 +1038,6 @@ font-weight: bold;
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="modal fade" id="myModal_gant" #myModal_gant tabindex="-1" role="dialog" aria-labelledby="myModal_gant">
     <div class="modal-dialog modal-lg" role="document">
@@ -1533,10 +1107,9 @@ font-weight: bold;
     </div>
   </div>
 
-    <!--pipodetails-->
-    <a href="javascript:void(0);" [hidden]="true" data-target="#myModal4_pipodetails" data-toggle="modal" #myModal4_pipodetails
-    style="font-family: 'Montserrat', sans-serif !important;">Check</a>
-
+  <!--pipodetails-->
+  <a href="javascript:void(0);" [hidden]="true" data-target="#myModal4_pipodetails" data-toggle="modal" #myModal4_pipodetails
+  style="font-family: 'Montserrat', sans-serif !important;">Check</a>
   <div class="modal fade" id="myModal4_pipodetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" style="background: rgba(59, 59, 59, 0.5);">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">

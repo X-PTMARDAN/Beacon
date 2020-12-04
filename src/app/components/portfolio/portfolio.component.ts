@@ -95,6 +95,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public date;
 
+  public zzzcvcID;
+  public zzzstate;
+  public zzzdateModified;
+
   public md_1 = [];
 
   public items: Array<string> = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
@@ -121,6 +125,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public dates_1;
 
   public searchfilter;
+  public skus_search = [];
 
   public dates_1_prev = [];
   public dates_1_next = [];
@@ -136,7 +141,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     two: 0
   }];
 
-
+  public searchTextFG = '';
 
   public fromsku_transistion_apply;
 
@@ -154,6 +159,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public startweek_transistion_apply;
   public forecasting_fgid;
   public val_selected = 0;
+  public hideSharedLinkCopyMessage = false;
 
   columnDefs: any = [];
   columnDefs3: any = [];
@@ -216,6 +222,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public drop = [];
 
+  public pressed = false;
+
   public dates = [];
   public edit_type_2 = '';
 
@@ -231,6 +239,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public pipo_map = false;
   public sku_map = true;
+  public cvc_map = false;
 
   public fromsku = 'select';
   public tosku = 'select';
@@ -253,19 +262,20 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   public fgid;
   public fgname;
 
-
   public mappingdrop;
 
-
+  public columnDefsCVC;
   public mappingdrop_1;
 
-
+  public cvcData: any = [];
+  public cvcDataAll: any = [];
 
   public fgname_column;
   public material_column;
   public fgid_column;
   public min_column;
   public max_column;
+  public switch;
 
   rowData6: any;
 
@@ -286,10 +296,28 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
   public table = false;
+
+  public rowStateChange() {
+    window.alert("throughout his life the same \nhe's battled constantly");
+    //window.alert("id " + this.zzzcvcID + "dm " + this.zzzdateModified + "st " + this.zzzstate);
+  }
   //table
   ngOnInit() {
 
     //document.body.style.zoom = "75%";
+    this.switch = false;
+
+    this.skuService.getForecastingGroup().subscribe((res: any) => {
+      //  this.plants = response;
+      console.log('767868675-' + JSON.stringify(res));
+      this.skus_search = res;
+
+      this.skus_search.push({
+          isChecked: true,
+          isFiltered: true,
+          name: 'Testing'
+      });
+    });
 
     this.skuService.getanimal().subscribe((response: any) => {
 
@@ -351,10 +379,39 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           }
         }
       ];
-  
+
+      this.columnDefsCVC = [
+        { width: 10 },
+        { headerName: 'FGID', field: 'leadSku', sortable: true, filter: true, width: 110 }, //260
+        { headerName: 'Forecasting Group', field: 'leadSkuName', sortable: true, filter: true, width: 360 }, //260
+        { headerName: 'CPG', field: 'cpg', sortable: true, filter: true, width: 360 },  //260
+        { headerName: 'Plant', field: 'plant', sortable: true, filter: true, width: 360 },  //260
+        { headerName: 'CVC ID', field: 'id', sortable: true, filter: true, width: 110 },  //260
+        { headerName: 'Date Modified', field: 'dateModified', sortable: true, filter: true, width: 200 },  //150
+        // { headerName: 'State', field: 'state', sortable: true, filter: true, width: 100 },  //110
+        {
+          headerName: 'State', field: 'state', 
+          width: 32,
+          //width: 67,
+          cellRenderer: function (params) {
+            if (params.data.state == 'active') {
+              return '<style>.switch { margin-top: 10px; position: relative; display: inline-block; width: 32px; height: 18px; margin-left: 0px; } .switch input { opacity: 0; width: 0; height: 0; } .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; } .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 2px; bottom: 2px; background-color: white; -webkit-transition: .4s; transition: .4s; } input:checked + .slider { background-color: #2196F3; } input:focus + .slider { box-shadow: 0 0 1px #2196F3; } input:checked + .slider:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); } /* Rounded sliders */ .slider.round { border-radius: 18px; } .slider.round:before { border-radius: 50%; }</style><label class="switch"><input type="checkbox" onchange="this.rowStateChange()" checked><span class="slider round"></span></label>';
+              //return '<style>.switch {  position: relative; display: inline-block; width: 65px; height: 40px; margin-left: 0px; } .switch input { opacity: 0; width: 0; height: 0; } .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; } .slider:before { position: absolute; content: ""; height: 34px; width: 30px; left: 2px; bottom: 2px; background-color: white; -webkit-transition: .4s; transition: .4s; } input:checked + .slider { background-color: #2196F3; } input:focus + .slider { box-shadow: 0 0 1px #2196F3; } input:checked + .slider:before { -webkit-transform: translateX(30px); -ms-transform: translateX(30px); transform: translateX(30px); } /* Rounded sliders */ .slider.round { border-radius: 18px; } .slider.round:before { border-radius: 50%; }</style><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>';
+              }
+            else if(params.data.state == 'inactive') {
+              return '<style>.switch { margin-top: 10px; position: relative; display: inline-block; width: 32px; height: 18px; margin-left: 0px; } .switch input { opacity: 0; width: 0; height: 0; } .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; } .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 2px; bottom: 2px; background-color: white; -webkit-transition: .4s; transition: .4s; } input:checked + .slider { background-color: #2196F3; } input:focus + .slider { box-shadow: 0 0 1px #2196F3; } input:checked + .slider:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); } /* Rounded sliders */ .slider.round { border-radius: 18px; } .slider.round:before { border-radius: 50%; }</style><label class="switch"><input type="checkbox" onchange="this.rowStateChange()"><span class="slider round"></span></label>';
+              //return '<style>.switch {  position: relative; display: inline-block; width: 65px; height: 40px; margin-left: 0px; } .switch input { opacity: 0; width: 0; height: 0; } .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; } .slider:before { position: absolute; content: ""; height: 34px; width: 30px; left: 2px; bottom: 2px; background-color: white; -webkit-transition: .4s; transition: .4s; } input:checked + .slider { background-color: #2196F3; } input:focus + .slider { box-shadow: 0 0 1px #2196F3; } input:checked + .slider:before { -webkit-transform: translateX(30px); -ms-transform: translateX(30px); transform: translateX(30px); } /* Rounded sliders */ .slider.round { border-radius: 18px; } .slider.round:before { border-radius: 50%; }</style><label class="switch"><input type="checkbox"><span class="slider round"></span></label>';
+            }
+            else {
+              return params.data.state;
+            }
+          },
+        }
+      ];
+
       let win = (window as any);
       console.log('dfdf->' + win.location.search);
-  
+      /*
       this.skuService.getPIPO().subscribe((response: any) => {
         this.pipo = response;
         console.log("Checking-----" + JSON.stringify(this.pipo));
@@ -418,6 +475,12 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         }
         
       });
+      */
+
+      this.skuService.getCVC().subscribe((response: any) => {
+        this.cvcData = response;
+        this.cvcDataAll = response;
+      });
   
       this.skuService.getmaxweek().subscribe((response: any) => {
         this.maxweek = response;
@@ -431,7 +494,112 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     });
 
   }
+  
+  public fgshow() {
+    this.pressed = true;
+  }
 
+  public getCallbackFG() {
+    return this.filterSKUs.bind(this);
+  }
+
+  public filterSKUs(sku: string) {
+    if (!this.searchTextFG || !this.searchTextFG.trim()) {
+        return true;
+    }
+    const regex = new RegExp(this.searchTextFG && this.searchTextFG.trim(), 'ig');
+    return regex.test(sku);
+  }
+
+  public selectallFG_CVC() {
+    
+  }
+
+  public stateSwitch() {
+    this.switch = !this.switch;
+    if (this.switch) {
+      this.cvcData = [];
+      for (var key in this.cvcDataAll) {
+        if (this.cvcDataAll.hasOwnProperty(key)) {
+          if (this.cvcDataAll[key].state == 'active') {
+            this.cvcData.push(this.cvcDataAll[key]);
+          }
+        }
+      }
+      this.gridApi.redrawRows({ rowNodes: this.cvcData });
+    }
+    else {
+      this.cvcData = this.cvcDataAll;
+      this.gridApi.redrawRows({ rowNodes: this.cvcData });
+    }
+  }
+
+  public onCellClickedCVC(params) {
+    this.zzzcvcID = null;
+    this.zzzdateModified = null;
+    this.zzzstate = null;
+    if (params.colDef.field == "state") {
+      this.zzzcvcID = params.data.id;
+      var fulldate = new Date();
+      var year = fulldate.getFullYear();
+      var month = fulldate.getMonth() + 1;
+      var date = fulldate.getDate();
+      this.zzzdateModified = year.toString() + "-" + month.toString() + "-" + date.toString();
+      if (params.data.state == "active") {
+        this.zzzstate = "inactive";
+      }
+      else if(params.data.state == "inactive") {
+        this.zzzstate = "active";
+      }
+      else {
+        console.log("weird state encountered");
+      }
+      //var ask = confirm("CVC ID: " + this.zzzcvcID + "\nAre you sure you want to change the state to " + this.zzzstate + "?");
+      if (this.zzzcvcID && this.zzzdateModified && this.zzzstate) {
+        var data = {
+          "id":this.zzzcvcID,
+          "leadSku":null,
+          "leadSkuName":null,
+          "cpg":null,
+          "plant":null,
+          "dateModified":this.zzzdateModified,
+          "state":this.zzzstate 
+        }
+        this.skuService.updateCVCState(data).subscribe((response: String) => {
+          params.data.state = this.zzzstate;
+          //window.alert("CVC ID: " + this.zzzcvcID + "\nState changed to " + this.zzzstate);
+          this.hideSharedLinkCopyMessage = true;
+          setTimeout( () => {
+            this.hideSharedLinkCopyMessage = false;
+          }, 5000);
+        })
+      }
+    }
+  }
+
+  public onCellValueChangedCVC(params) {
+    if (params.node.id == "state") {
+      window.alert(params.data.state);
+    }
+  }
+
+  
+  public firstDataRenderedCVC(params) {
+    var threebars = Array.from(document.getElementsByClassName('ag-icon-menu') as HTMLCollectionOf<HTMLElement>);
+    threebars[0].style.display = 'none'; //remove ag-icon in first column
+    threebars[7].style.display = 'none'; //remove ag-icon in last column
+    var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
+    for (var i = 0; i < headercells.length; i++) {
+        headercells[i].style.paddingLeft = '0px';
+        headercells[i].style.paddingRight = '0px';
+    }
+    var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
+    for (var i = 0; i < agcells.length; i++) {
+        agcells[i].style.paddingLeft = '0px';
+        agcells[i].style.paddingRight = '0px';
+    }
+  }
+  
   public onCellClicked(params) {
 
     console.log("Checking123", params);
@@ -923,8 +1091,9 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
   public pipo_click() {
-    this.pipo_map = true;
     this.sku_map = false;
+    this.cvc_map = false;
+    this.pipo_map = true;
     //document.getElementById('pipo_bar').style.background = '#17b169';
     //document.getElementById('sku_bar').style.background = '#f4f5f9';
   }
@@ -932,12 +1101,17 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public sku_click() {
     this.pipo_map = false;
+    this.cvc_map = false;
     this.sku_map = true;
     document.getElementById('sku_bar').style.background = '#17b169';
     document.getElementById('pipo_bar').style.background = '#f4f5f9';
   }
 
-
+  public cvc_click() {
+    this.sku_map = false;
+    this.pipo_map = false;
+    this.cvc_map = true;
+  }
 
   public map_sku_1() {
     var data = {
