@@ -303,7 +303,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   }
   //table
   ngOnInit() {
-
     //document.body.style.zoom = "75%";
     this.switch = false;
 
@@ -411,7 +410,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
       let win = (window as any);
       console.log('dfdf->' + win.location.search);
-      /*
+      
       this.skuService.getPIPO().subscribe((response: any) => {
         this.pipo = response;
         console.log("Checking-----" + JSON.stringify(this.pipo));
@@ -475,7 +474,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         }
         
       });
-      */
+      
 
       this.skuService.getCVC().subscribe((response: any) => {
         this.cvcData = response;
