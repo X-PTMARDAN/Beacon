@@ -639,8 +639,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       });
 
       if (isLegit) {
-        var confirmationStr = "Change the segment to " + params.data.animal_FLAG2 + "?";
-        if (confirm(confirmationStr)) {
+        //var confirmationStr = "Change the segment to " + params.data.animal_FLAG2 + "?";
+        //if (confirm(confirmationStr)) {
 
           this.lead_sku = params.data.fgid;
           this.material_1 = params.data.material;
@@ -652,13 +652,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           }; 
           this.loading = true;
           this.skuService.mapFG_1(data).subscribe((res: any) => {
-            window.alert("Segment mapped");
+            window.alert("Segment mapped.\nChanges to the segment will reflect in the FGID " + this.lead_sku + " after page refresh.");
             this.loading = false;
           }, (error) => {
-            window.alert("Segment mapped");
+            window.alert("Segment mapped.\nChanges to the segment will reflect in the FGID " + this.lead_sku + " after page refresh.");
             this.loading = false;
           });
-        }
+        //}
       }
       else {
         window.alert("Segment cannot be edited to " + params.data.animal_FLAG2 + "\nPlease choose a valid segment.")
@@ -1465,6 +1465,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   }
 
   public from_date_table() {
+
     if (this.val_selected == 4) {
       this.to_date = "202020";
     }
@@ -1531,7 +1532,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             one: 100 - k,
             two: k,
             fromid: this.fromsku.split("-")[0],
-            toid: this.tosku
+            toid: this.tosku.split(" - ")[0]
           };
           console.log("Harshit - " + i);
 
@@ -1557,13 +1558,14 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           f = f * 100;
           f = Math.round(f);
 
+          window.alert(this.tosku);
 
           var a = {
             week: i,
             one: 100 - f,
             two: f,
             fromid: this.fromsku.split("-")[0],
-            toid: this.tosku
+            toid: this.tosku.split(" - ")[0]
           };
           console.log("Harshit - " + i);
 
@@ -1585,7 +1587,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           one: 0,
           two: 100,
           fromid: this.fromsku.split("-")[0],
-          toid: this.tosku
+          toid: this.tosku.split(" - ")[0]
         };
         console.log("Harshit - " + i);
 
@@ -1665,7 +1667,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           one: 100,
           two: 0,
           fromid: this.fromsku.split("-")[0],
-          toid: this.tosku
+          toid: this.tosku.split(" - ")[0]
         };
         console.log("Harshit - " + i);
 
@@ -1686,7 +1688,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             one: 10,
             two: 90,
             fromid: this.fromsku.split("-")[0],
-            toid: this.tosku
+            toid: this.tosku.split(" - ")[0]
           };
           console.log("Harshit - " + i);
 
@@ -1707,7 +1709,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
             one: 10,
             two: 0,
             fromid: this.fromsku.split("-")[0],
-            toid: this.tosku
+            toid: this.tosku.split(" - ")[0]
           };
           console.log("Harshit - " + i);
 
@@ -1833,7 +1835,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
     var data = {
       fromid: this.fromsku.split("-")[0],
-      toid: this.tosku,
+      toid: this.tosku.split(" - ")[0],
       state: state,
       fromweek: this.date,
       fgid: this.fromsku.split("-")[2]
