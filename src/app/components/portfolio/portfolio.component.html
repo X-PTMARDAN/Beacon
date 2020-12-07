@@ -27,9 +27,11 @@
             <div class="col-lg">
               <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)='pipo_click()'>PIPO Rules</p>
             </div>
+            <!--
             <div class="col-lg">
               <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)='cvc_click()'>CVC Rules</p>
             </div>
+            -->
           </div>
         </div>
         <div class="d-flex">
@@ -75,9 +77,11 @@
               <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;">PIPO Rules</p>
               <div style="width:100%;background:#17b169;height: 5px;"></div>
             </div>
+            <!--
             <div class="col-lg">
               <p style="margin-bottom: 0px !important;font-family: 'Montserrat', sans-serif !important;    font-size: 14px;font-weight: bold;cursor: pointer;" (click)=cvc_click()>CVC Rules</p>
             </div>
+            -->
           </div>
         </div>
 
@@ -108,6 +112,7 @@
     </div>
   </div>
 
+  <!--
   <div class="row content-col " id="middle" style="margin: 0 20px" *ngIf='cvc_map'>
     <div class="col-12 ">
       <div class="bg-white shadow mt-2" style="border-radius: 6px;">
@@ -131,54 +136,7 @@
               <div class="center-block fix-width scroll-inner">
                 <br><br>
                 <br>
-                <div> <!--three inputs
-
-                  <div class="input-group mt-2" style="width: 30%; border-radius: 10px; padding-left: 17px;
-                    margin-right: 15px; height: 41px; font-family: 'Montserrat', sans-serif !important;
-                    margin-bottom: 18px;" >
-                    <input type="text" class="form-control" [(ngModel)]="searchTextFG" (focus)='fgshow()'
-                      name="searchSKU" placeholder="Search Forecasting Group">
-                  </div>
-                  <div class="mb-2" style="height: 40%; overflow: auto;font-size: 12px;" data-simplebar *ngIf="pressed">
-                    <ul class="m-0 ">    
-                      <li class="d-flex li1">
-                        <div>
-                          <input class="mr-1" type="checkbox" (change)="selectallFG_CVC()">
-                        </div>
-                        <p class="m-0">All</p>
-                      </li>
-                      <hr>
-                      <ng-container *ngFor="let value of skus_search | filter: getCallbackFG(); let i=index">
-                        <li class="d-flex li1">
-                          <div>
-                            <input class="mr-1" type="checkbox" [(ngModel)]="value.isChecked"
-                              (change)="reactivate_filter(1);onFilterCheckBoxChange121_sku();brandsub('brand');">
-                          </div>
-                          <p class="m-0">{{ value.name }}</p>
-                        </li>
-                      </ng-container>
-                    </ul>
-                  </div>
-                  
-                    
-                  <input type="text" id="filter-text-box" style="width: 20%;
-                  border-radius: 10px;
-                  padding-left: 17px;
-                  margin-right: 15px;
-                  height: 41px;
-                  font-family: 'Montserrat', sans-serif !important;
-                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search CPG"
-                    (input)="onFilterTextBoxChanged()" />
-
-                  <input type="text" id="filter-text-box" style="width: 20%;
-                  border-radius: 10px;
-                  padding-left: 17px;
-                  margin-right: 15px;
-                  height: 41px;
-                  font-family: 'Montserrat', sans-serif !important;
-                  margin-bottom: 18px;" [(ngModel)]="searchfilter" placeholder="Search Plant"
-                    (input)="onFilterTextBoxChanged()" />
-                  -->
+                <div>
                   <p style="text-align: right; font-family: 'Montserrat', sans-serif !important; font-size: 14px;">Show Active State only
                   <label class="switch">
                     <input type="checkbox" (change) = "stateSwitch()">
@@ -207,6 +165,7 @@
       </div>
     </div>
   </div>
+  -->
 
   <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">

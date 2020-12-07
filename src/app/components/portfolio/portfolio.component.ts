@@ -475,11 +475,12 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         
       });
       
-
+      /*
       this.skuService.getCVC().subscribe((response: any) => {
         this.cvcData = response;
         this.cvcDataAll = response;
       });
+      */
   
       this.skuService.getmaxweek().subscribe((response: any) => {
         this.maxweek = response;
