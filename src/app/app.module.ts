@@ -45,6 +45,7 @@ import { FusionChartsModule } from "angular-fusioncharts";
 
 
 import 'ag-grid-enterprise';
+import { CurrentSkuPipe } from './pipe/currentsku.pipe';
 
 
 
@@ -57,6 +58,7 @@ import 'ag-grid-enterprise';
 
     PhaseComponent,
     FilterPipe,
+    CurrentSkuPipe,
     LoadFilter,
     BrandPipe,
     SearchPipe,
