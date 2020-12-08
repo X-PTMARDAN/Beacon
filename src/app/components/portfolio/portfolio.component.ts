@@ -180,7 +180,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   public od = 1;
 
-
+  public dropJSON = [];
 
 
   public second_type = false;
@@ -425,6 +425,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   
         this.material_len = this.drop.length;
         this.material_len = 932;
+        this.drop.forEach(element => {
+          var a = {
+            skuname: element,
+            isFiltered: true
+          }
+          this.dropJSON.push(a);
+        });
         console.log("Dfdfdfd---" + JSON.stringify(response));
       });
   
@@ -497,22 +504,28 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   
   public fgshow() {
     this.pressed = true;
+    console.log("p \n" + JSON.stringify(this.dropJSON) + "\n\n");
   }
 
-  public getCallbackFG() {
+  public getCallbackCurrentSku() {
     return this.filterSKUs.bind(this);
   }
 
+  public fromskuSearch;
+
   public filterSKUs(sku: string) {
-    if (!this.searchTextFG || !this.searchTextFG.trim()) {
+    if (!this.fromskuSearch || !this.fromskuSearch.trim()) {
         return true;
     }
-    const regex = new RegExp(this.searchTextFG && this.searchTextFG.trim(), 'ig');
+    const regex = new RegExp(this.fromskuSearch && this.fromskuSearch.trim(), 'ig');
     return regex.test(sku);
   }
 
-  public selectallFG_CVC() {
-    
+  public currentSkuSelected(sku: string) {
+    this.fromsku = sku;
+    this.pressed = false;
+    this.populate_drop2();
+    this.fromskuSearch = sku;
   }
 
   public stateSwitch() {
@@ -1558,8 +1571,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           f = f * 100;
           f = Math.round(f);
 
-          window.alert(this.tosku);
-
           var a = {
             week: i,
             one: 100 - f,
@@ -1829,7 +1840,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     }
 
     if (this.tosku == 'select') {
-      window.alert("in it");
       this.tosku = '0';
     }
 

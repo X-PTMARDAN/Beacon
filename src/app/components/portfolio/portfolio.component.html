@@ -356,19 +356,21 @@
         <div class="modal-body">
           <div class="row">
 
-
             <div class="form-group col-sm-12 " style="width:70%" align="center">
               <label style="font-family: 'Montserrat', sans-serif !important;">Current SKU</label>
-              <select id="select1" [(ngModel)]="fromsku" (change)="populate_drop2()" style="background-clip: padding-box;
-                border: 1px solid #ced4da;
-                font-family: 'Montserrat', sans-serif !important;
-                background-color: #fff;">
-                <option value="select" selected>Select current SKU</option>
-                <ng-container *ngFor="let filter of drop; let filterIndex=index">
-                  <option [value]="filter">{{filter}}</option>
-                </ng-container>
-              </select>
+              
+              <input type="text" style="background-clip: padding-box;
+              border: 1px solid #ced4da; width: 418px; height: 42px; padding: 8 56 8 16px;
+              font-family: 'Montserrat', sans-serif !important;
+              background-color: #fff;" class="form-control"
+              [(ngModel)]="fromskuSearch" (focus)='fgshow()' placeholder="Select Current SKU">
 
+              <div class="mb-2" style="max-height: 200px; width:410px; overflow: auto;" data-simplebar *ngIf="pressed">
+                <div class="bg-white mt-1 p-1 pl-2 d-flex" *ngFor="let sku of dropJSON | filter_currentsku : getCallbackCurrentSku() ;let i=index ">
+                    <p class="m-0 pcs" (click)="currentSkuSelected(sku.skuname)">{{sku.skuname}}</p>
+                </div>
+              </div>
+              
             </div>
 
             <script>
