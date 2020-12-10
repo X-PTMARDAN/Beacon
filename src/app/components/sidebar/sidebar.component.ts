@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   }
 
   public bgcolorChange() {
-    if(window.location.href=='http://'+window.location.hostname+'/portfolio' || window.location.href=='https://'+window.location.hostname+'/portfolio')
+    if(window.location.href==window.location.protocol+'//'+window.location.hostname+'/portfolio' || window.location.href=='https://'+window.location.hostname+'/portfolio')
     {
       document.getElementById("plan").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#797F87';
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?b=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?b=')
+    else if(window.location.href==window.location.protocol+'//'+window.location.hostname+'/comingsoon?b=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?b=')
     {
       document.getElementById("npd").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("planscene").style.background='#5A5F66';
     }
 
-    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?bcd=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?bcd=')
+    else if(window.location.href==window.location.protocol+'//'+window.location.hostname+'/comingsoon?bcd=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?bcd=')
     {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#797F87';
     }
-    else if(window.location.href=='http://'+window.location.hostname+'/comingsoon?a=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?a=')
+    else if(window.location.href==window.location.protocol+'//'+window.location.hostname+'/comingsoon?a=' || window.location.href=='https://'+window.location.hostname+'/comingsoon?a=')
     {
       document.getElementById("snop").style.background='#797F87';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -63,7 +63,7 @@ export class SidebarComponent implements OnInit {
       document.getElementById("npd").style.background='#5A5F66';
       document.getElementById("planscene").style.background='#5A5F66';
     }
-    else if(window.location.href=='http://'+window.location.hostname+'/setting' || window.location.href=='https://'+window.location.hostname+'/setting')
+    else if(window.location.href==window.location.protocol+'//'+window.location.hostname+'/setting' || window.location.href=='https://'+window.location.hostname+'/setting')
     {
       document.getElementById("snop").style.background='#5A5F66';
       document.getElementById("portfolio").style.background='#5A5F66';
@@ -86,9 +86,9 @@ export class SidebarComponent implements OnInit {
   public onClick(name: string) {
     console.log("Harshit-->"+name);
     console.log("YHYHY-->"+window.location.href);
-    if(window.location.href=='http://'+window.location.hostname+"/portfolio?%2F=")
+    if(window.location.href==window.location.protocol+'//'+window.location.hostname+"/portfolio?%2F=")
     {
-      window.location.href='http://'+window.location.hostname+"/dashboard";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/dashboard";
     }
     this.sidebarService.emit(name);
   }
@@ -176,34 +176,34 @@ export class SidebarComponent implements OnInit {
     if(pageName=='a')
     {
       this.num=1;
-      window.location.href='http://'+window.location.hostname+"/comingsoon?a";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/comingsoon?a";
       this.bgcolorChange();
      // this.router.navigate([`/portfolio`]);
     }
     else if(pageName=='b')
     {
       this.num=2;
-      window.location.href='http://'+window.location.hostname+"/comingsoon?b";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/comingsoon?b";
       this.bgcolorChange();
     }
 
     else if(pageName=='bcd')
     {
       this.num=56;
-      window.location.href='http://'+window.location.hostname+"/comingsoon?bcd";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/comingsoon?bcd";
       this.bgcolorChange();
     }
 
     else if(pageName=='ab')
     {
       this.num=2;
-      window.location.href='http://'+window.location.hostname+"/portfolio";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/portfolio";
       this.bgcolorChange();
     }
     else if(pageName=='c')
     {
       this.num=3;
-      window.location.href='http://'+window.location.hostname+"/dashboard";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/dashboard";
       this.bgcolorChange();
     }
     else if(pageName=='d')
@@ -216,7 +216,7 @@ export class SidebarComponent implements OnInit {
     else if(pageName=='e')
     {
       this.num=5;
-      window.location.href='http://'+window.location.hostname+"/setting";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/setting";
       this.bgcolorChange();
     }
 
@@ -225,7 +225,7 @@ export class SidebarComponent implements OnInit {
     {
       this.num=5;
       sessionStorage.removeItem('username');
-      window.location.href='http://'+window.location.hostname+"/login";
+      window.location.href=window.location.protocol+'//'+window.location.hostname+"/login";
     }
 
     
