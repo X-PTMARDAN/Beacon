@@ -222,6 +222,9 @@
                     </div>
                     <p class="m-0">All</p>
                   </li>
+                  <li>
+                    <button (click)="ullu()">ullu</button>
+                  </li>
                   <hr>
                   <ng-container *ngFor="let value of filter.values | filter_brand : getCallback_brands() ;let i=index ">
                     <li class="d-flex li1">
@@ -2361,7 +2364,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Load Filter</h5>
+          <h5 class="modal-title">Notes and Action</h5>
           <button type="button" class="close invisible" data-dismiss="modal" aria-label="Close" #lockModalCancel>
             <span aria-hidden="true">&times;</span>
           </button>

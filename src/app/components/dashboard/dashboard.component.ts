@@ -934,7 +934,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                                                 return item;
                                                             });
 
-
                                                             // this.endWeek = '2020-W04';
                                                             //this.prevactuals = '2019-W35';
                                                             this.createdata = {
@@ -1351,6 +1350,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
         */
 
+    
+    
     }
 
     public editModalBD() {
@@ -1403,6 +1404,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     
             (e || window.event).returnValue = confirmationMessage; //Gecko + IE
             return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+        });
+    }
+
+    public ullu() {
+        console.log(JSON.stringify(this.filters1_brands));
+        window.alert("lululululu");
+        this.filters1_brands.forEach(element => {
+            console.log(JSON.stringify(element));
         });
     }
 
@@ -3506,6 +3515,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                             legend: {
+                                
                                 cursor: 'pointer',
                                 itemclick: this.toggleDataSeries.bind(this)
                             },
@@ -7231,6 +7241,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             showInLegend: true,
                             backgroundColor: '#FFFFFF',
                             legend: {
+                                
                                 cursor: 'pointer',
                                 itemclick: this.toggleDataSeries.bind(this)
                             },
@@ -10937,7 +10948,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //here
                                 var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
                                 for (var i = 0; i < threebars.length; i++) {
-                                    threebars[i].style.display = 'none';
+                                  //  threebars[i].style.display = 'none';
                                 }
                                 var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
                                 for (var i = 0; i < headercells.length; i++) {
@@ -15956,7 +15967,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //here
         var threebars = Array.from(document.getElementsByClassName('ag-icon-menu') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < threebars.length; i++) {
-            threebars[i].style.display = 'none';
+         //   threebars[i].style.display = 'none';
         }
         var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < headercells.length; i++) {
@@ -18041,7 +18052,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                             }
-
                         });
                     }
 
@@ -18085,7 +18095,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         }
-
                     });
 
 
@@ -18594,6 +18603,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
             width: 105, //150
+            type: 'rightAligned',
         });
         for (const week of data) {
 
@@ -18609,6 +18619,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 105, //150
+                        type: 'rightAligned',
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -18638,6 +18649,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: {'border': '1px ridge'},
                         width: 105, //150
+                        type: 'rightAligned',
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -19364,6 +19376,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             field: JSON.stringify(data[0].calenderYearWeek),
             cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
+            type: 'rightAligned',
             width: 100, //150
         });
         for (const week of data) {
@@ -19380,6 +19393,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 100,
+                        type: 'rightAligned',
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -19409,6 +19423,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         field: JSON.stringify(week.calenderYearWeek),
                         cellStyle: {'border': '1px ridge'},
                         width: 100,
+                        type: 'rightAligned',
                         aggFunc: 'sum',
 
                         valueFormatter: function (params) {
@@ -20128,6 +20143,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
             width: 100, //130
+            type: 'rightAligned',
             cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
 
         });
@@ -20152,6 +20168,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             }
                         },
                         cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
+                        type: 'rightAligned',
                         width: 100,
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
@@ -20183,6 +20200,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 return true;
                             }
                         },
+                        type: 'rightAligned',
                         width: 100,
                         cellStyle: {'border': '1px ridge'},
                         valueFormatter: function (params) {
