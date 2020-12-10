@@ -723,13 +723,13 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   
         this.skuService.savePIPOsku(data).subscribe((res: any) => {
           this.loading = false;
-          window.alert("Delete PIPO rule request successfully added to queue!\nPlease check after 5 minutes.");          
+          window.alert("Delete PIPO rule request successfully added to queue!\nPlease check after 5 mins to see it applied.");          
         }, (error) => {
   
           var d = new Date();
           var n = d.getTime();
           
-          window.alert("Delete PIPO rule request successfully added to queue!\nPlease check after 5 minutes.");
+          window.alert("Delete PIPO rule request successfully added to queue!\nPlease check after 5 mins to see it applied.");
           this.loading = false;
         });
       }); 
@@ -1862,7 +1862,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.skuService.savePIPOsku(data).subscribe((res: any) => {
         //this.editCommentModalBtnCancel.nativeElement.click();
         this.loading = false;
-        window.alert("Save PIPO rule request successfully added to queue!\nPlease check after 5 minutes.");
+        window.alert("PIPO rule in FGID " + this.fromsku.split("-")[2] + " successfully added to queue.\nPlease check after 5 mins to see it applied.");
         /*
         this.skuService.getPIPO().subscribe((response1: any) => {
           this.pipo = response1;
@@ -1907,7 +1907,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         var d = new Date();
         var n = d.getTime();
         
-        window.alert("Save PIPO rule request successfully added to queue!\nPlease check after 5 minutes.");
+        window.alert("PIPO rule in FGID " + this.fromsku.split("-")[2] + " successfully added to queue.\nPlease check after 5 mins to see it applied.");
         this.loading = false;
         /*
         console.log("Check--------");
