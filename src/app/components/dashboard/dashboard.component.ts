@@ -524,15 +524,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         })
         */
 
-
-        this.skuService.getLoadWeek().subscribe((response: String) => {
-            this.DBloadWeek = response;
-            var z = this.DBloadWeek.toString();
-            var x = z.substring(0,4);
-            var y = z.substring(4,6);
-            this.theLoadWeek = " W" + y + ", " + x;
-        })
-
         this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
 
         console.log('Hhsdfh--' + JSON.stringify(this.update));
@@ -1093,7 +1084,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                                             //    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
                                                             // console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
                                                             // console.log('sdfshbr---' + JSON.stringify(this.createdata));
-                                                            this.createPlan(this.createdata);
+                                                            this.skuService.getLoadWeek().subscribe((response: String) => {
+                                                                this.DBloadWeek = response;
+                                                                var z = this.DBloadWeek.toString();
+                                                                var x = z.substring(0,4);
+                                                                var y = z.substring(4,6);
+                                                                this.theLoadWeek = " W" + y + ", " + x;
+                                                                this.createdata.startWeek = this.DBloadWeek;
+                                                                this.createPlan(this.createdata);
+                                                            })
                                                         });
 
                                                     });
@@ -10948,7 +10947,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 //here
                                 var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
                                 for (var i = 0; i < threebars.length; i++) {
-                                  //  threebars[i].style.display = 'none';
+                                    threebars[i].style.display = 'none';
                                 }
                                 var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
                                 for (var i = 0; i < headercells.length; i++) {
@@ -15967,7 +15966,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //here
         var threebars = Array.from(document.getElementsByClassName('ag-icon-menu') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < threebars.length; i++) {
-         //   threebars[i].style.display = 'none';
+            threebars[i].style.display = 'none';
         }
         var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < headercells.length; i++) {
