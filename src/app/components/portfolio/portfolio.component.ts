@@ -324,8 +324,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       var str = this.mappingdrop_1.toString();
       this.md_1 = str.split(",");
       this.md_1 = Object.values(this.md_1);
-      
-      
+
       this.columnDefs = [
         { headerName: 'FGID', field: 'fgid', sortable: true, filter: true, width: 90 },
         { headerName: 'Forecasting group Name', field: 'forecastinggroup', sortable: true, filter: true, width: 345 }, //300
@@ -357,6 +356,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         
       ];
 
+    });
+
       this.columnDefs3 = [
         { headerName: 'From ID', field: 'fromid', sortable: true, filter: true, width: 360 }, //260
         { headerName: 'To ID', field: 'toid', sortable: true, filter: true, width: 360 }, //260
@@ -380,16 +381,17 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       ];
 
       this.columnDefsCVC = [
-        { width: 10 },
-        { headerName: 'FGID', field: 'leadSku', sortable: true, filter: true, width: 110 }, //260
+        { width: 10, suppressSizeToFit: true },
+        { headerName: 'FGID', field: 'leadSku', sortable: true, filter: true, width: 120 }, //260
         { headerName: 'Forecasting Group', field: 'leadSkuName', sortable: true, filter: true, width: 360 }, //260
         { headerName: 'CPG', field: 'cpg', sortable: true, filter: true, width: 360 },  //260
         { headerName: 'Plant', field: 'plant', sortable: true, filter: true, width: 360 },  //260
-        { headerName: 'CVC ID', field: 'id', sortable: true, filter: true, width: 110 },  //260
+        { headerName: 'CVC ID', field: 'id', sortable: true, filter: true, width: 130 },  //260
         { headerName: 'Date Modified', field: 'dateModified', sortable: true, filter: true, width: 200 },  //150
         // { headerName: 'State', field: 'state', sortable: true, filter: true, width: 100 },  //110
         {
           headerName: 'State', field: 'state', 
+          suppressSizeToFit: true,
           width: 32,
           //width: 67,
           cellRenderer: function (params) {
@@ -482,12 +484,12 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         
       });
       
-      /*
+      
       this.skuService.getCVC().subscribe((response: any) => {
         this.cvcData = response;
         this.cvcDataAll = response;
       });
-      */
+      
   
       this.skuService.getmaxweek().subscribe((response: any) => {
         this.maxweek = response;
@@ -498,7 +500,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         this.mappingdrop = response;
         //this.fg_len=this.mappingdrop.length; 
       });
-    });
 
   }
   
@@ -598,6 +599,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   
   public firstDataRenderedCVC(params) {
+    this.gridApi.sizeColumnsToFit();
     var threebars = Array.from(document.getElementsByClassName('ag-icon-menu') as HTMLCollectionOf<HTMLElement>);
     threebars[0].style.display = 'none'; //remove ag-icon in first column
     threebars[7].style.display = 'none'; //remove ag-icon in last column
