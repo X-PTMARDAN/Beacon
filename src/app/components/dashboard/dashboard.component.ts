@@ -1406,14 +1406,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
-    public ullu() {
-        console.log(JSON.stringify(this.filters1_brands));
-        window.alert("lululululu");
-        this.filters1_brands.forEach(element => {
-            console.log(JSON.stringify(element));
-        });
-    }
-
     private static getCurrentWeek(date: Date) {
         const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
         const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
