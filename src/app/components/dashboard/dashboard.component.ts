@@ -1681,7 +1681,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -2266,7 +2266,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -2622,7 +2622,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -2958,7 +2958,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -3378,7 +3378,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -3543,7 +3543,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -3829,7 +3829,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -3932,7 +3932,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -4100,7 +4100,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -4417,7 +4417,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -4557,7 +4557,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -4662,7 +4662,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -4970,7 +4970,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -5113,7 +5113,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -5218,7 +5218,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -5524,7 +5524,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -5667,7 +5667,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -5772,7 +5772,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -6078,7 +6078,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -6221,7 +6221,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -6326,7 +6326,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -6631,7 +6631,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -6774,7 +6774,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -6879,7 +6879,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -7890,7 +7890,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -8446,7 +8446,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -9003,7 +9003,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -9558,7 +9558,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -10113,7 +10113,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -10672,7 +10672,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -11134,7 +11134,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -11285,7 +11285,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -11580,7 +11580,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -11723,7 +11723,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -11828,7 +11828,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -12293,7 +12293,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //           endValue: 202000
                     //         },
                     //         {
-                    //           startValue: 202052,
+                    //           startValue: 202053,
                     //           endValue: 202100
                     //         },
                     //         {
@@ -12398,7 +12398,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                         endValue: 202000
                                     },
                                     {
-                                        startValue: 202052,
+                                        startValue: 202053,
                                         endValue: 202100
                                     },
                                     {
@@ -12555,19 +12555,1138 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         else if (this.views == "Detailed View") {
 
-            if (this.granular1 == "week") {
-                if (this.UOM == "HL") {
+            var a =  this.fgssselected.length;
+            var b = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            var c = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            if (a*b*c > 200) {
+                this.views = "Aggregated";
+                window.alert("Error: combination count more than 200.");
+            }
+            else {
+
+
+                if (this.granular1 == "week") {
+                    if (this.UOM == "HL") {
+                        try {
+                            this.planningtable = 'Planning table (HL)';
+
+
+                            document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+                            document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+                            this.forecastinganalysis = 'Forecast Analysis (HL)';
+                            this.featureanalysis = 'Feature Analysis (HL)';
+                        } catch (err) {
+
+                        }
+                        //const data=this.createPlanRequestData;
+                        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                        this.createPlanRequestData = {
+                            startWeek: this.createPlanRequestData.startWeek,
+                            endWeek: this.createPlanRequestData.endWeek,
+                            prevactuals: this.createPlanRequestData.prevactuals,
+                            // forecastingGroups: data.forecastingGroups,
+                            forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+                            customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                            plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                            uom1: this.UOM
+                        };
+                        //this.test();
+                        this.loading = true;
+                        this.skuService.getGraphData1234(this.createPlanRequestData).subscribe((res: any) => {
+                            this.eventsSubject.next({
+                                page: null,
+                                reset: true,
+                            });
+                            this.loading = false;
+
+                            // if (res.res.length == 0) {
+                            //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                            //   window.alert('No Combination is available');
+                            //   this.loading = false;
+                            //   return;
+                            // }
+
+                            this.granular1 = 'week';
+                            if (this.UOM == 'HL' && this.granular1 == 'week') {
+                                this.enabled = 1;
+                            } else {
+                                this.enabled = 0;
+                            }
+
+
+                            this.allComments = res.combinedcomment;
+                            console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+
+                            this.allComments_harshit = [];
+                            for (const abc of this.allComments) {
+
+                                this.allComments_harshit.push({
+                                    name: abc,
+                                    isSelected: false,
+                                    isFiltered: false
+                                });
+                            }
+                            this.greystart = res.start;
+
+                            this.greystart = res.start;
+                            if (res.res.length > 20) {
+                                this.inter = (res.res.length / 13);
+                            } else {
+                                this.inter = 1;
+                            }
+                            console.log('GREYSTART--' + this.greystart);
+
+
+                            this.createPlanRequestData.brands = res.req.brands;
+                            this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+                            this.createPlanRequestData.subbrand = res.req.subbrand;
+
+                            this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+                            this.createPlanRequestData.Trade = res.req.trade;
+                            this.createPlanRequestData.Sales = res.req.sales;
+
+
+                            this.createPlanRequestData.globalBev = res.req.globalBev;
+                            this.createPlanRequestData.materialgroup = res.req.materialgroup;
+                            this.createPlanRequestData.baseunit = res.req.baseunit;
+                            this.createPlanRequestData.pack_type = res.req.pack_type;
+
+                            this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+                            this.createPlanRequestData.pack_size = res.req.pack_size;
+                            this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+                            this.processGraphData_1(res);
+                            //this.processgraphData(res);
+
+                            this.processFeatureGraphData(res);
+                            this.createFilterObject(res);
+                            //  this.skus=data.forecastingGroups;
+
+                            // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+                            //     item.isChecked = true;
+                            //     return item;
+                            //   });
+
+
+                            // this.skus = data.forecastingGroups.map((item) => {
+                            //   item.isChecked = true;
+                            //   return item;
+                            // });
+
+                            this.commentsall();
+                            console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+                            this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                                animationEnabled: true,
+                                showInLegend: true,
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            },
+                                            {
+                                                startValue: 202352,
+                                                endValue: 202401
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+                                    ]
+                                },
+                                axisY: {
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Baseline') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+
+                                // toolTip: {
+                                //   shared: true,
+                                //   contentFormatter: function(e) {
+                                //     var content = ' ';
+                                //     console.log(JSON.stringify(e));
+                                //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                                //     for (var i = 0; i < e.entries.length; i++) {
+                                //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                //       content += '<br/>';
+                                //     }
+                                //     return content;
+                                //   }
+                                // },
+
+                                data: [
+                                    {
+                                        name: 'Baseline',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: '#17b169',
+                                        lineColor: '#17b169',
+                                        dataPoints: this.property
+                                    },
+                                    {
+                                        name: 'Promo Effect',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: ' #46a6b9',
+                                        lineColor: '#46a6b9',
+                                        dataPoints: this.property3
+                                    }
+
+                                ]
+                            });
+
+                            this.secondgraph = 'Baseline';
+                            this.chart2.render();
+                            // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                            //   animationEnabled: true,
+
+                            //   backgroundColor: '#FFFFFF',
+                            //   legend: {
+                            //     cursor: 'pointer',
+                            //     itemclick: this.toggleDataSeries.bind(this)
+                            //   },
+                            //   axisX: {
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //     scaleBreaks: {
+                            //       type: 'blank',
+                            //       spacing: 0,
+                            //       customBreaks: [
+                            //         {
+                            //           startValue: 201952,
+                            //           endValue: 202000
+                            //         },
+                            //         {
+                            //           startValue: 202053,
+                            //           endValue: 202100
+                            //         },
+                            //         {
+                            //           startValue: 202152,
+                            //           endValue: 202200
+                            //         },
+                            //         {
+                            //           startValue: 202253,
+                            //           endValue: 202300
+                            //         }
+                            //       ]
+                            //     },
+                            //     stripLines: [
+                            //       {
+                            //         startValue: this.createPlanRequestData.startWeek,
+                            //         endValue: 201953,
+                            //         color: '#F2F3F5'
+                            //       },
+                            //       {
+                            //         startValue: 202000,
+                            //         endValue: this.createPlanRequestData.endWeek,
+                            //         color: '#F2F3F5'
+                            //       }
+                            //     ]
+                            //   },
+                            //   axisY: {
+
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //   },
+
+                            //   toolTip: {
+                            //     content: 'Value: {y}'
+                            //   },
+
+                            //   // toolTip: {
+                            //   //   shared: true,
+                            //   //   contentFormatter: function(e) {
+                            //   //     var content = ' ';
+                            //   //     console.log(JSON.stringify(e));
+                            //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                            //   //     for (var i = 0; i < e.entries.length; i++) {
+                            //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                            //   //       content += '<br/>';
+                            //   //     }
+                            //   //     return content;
+                            //   //   }
+                            //  // },
+
+                            //   data: [{
+                            //     type: 'line',
+                            //     gridColor: '#ffffff',
+                            //     labelFontColor: 'black',
+                            //    color: '#000',
+                            //     dataPoints: this.property
+                            //   }]
+                            // });
+                            // this.secondgraph='Open order';
+                            // this.chart2.render();
+
+
+                            console.log('132456->' + this.createPlanRequestData.startWeek);
+                            this.chart1 = new CanvasJS.Chart('chartContainer1', {
+                                title: { text: ' ', fontStyle: 'no', },
+                                animationEnabled: true,
+
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+
+                                    ]
+                                },
+
+                                axisY: {
+
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                // toolTip: {
+                                //   content: 'Week: {x} | {name}: {y}'
+                                // },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Actuals') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+                                data: [
+
+                                    {
+                                        name: 'Actual LY',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        visible: false,
+
+                                        color: this.lastyearDataPointColor,
+                                        lineColor: this.lastyearDataPointColor,
+                                        dataPoints: this.lastYearDataPoints
+                                    },
+                                    {
+                                        name: 'ML Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.mlDataPointColor,
+                                        lineColor: this.mlDataPointColor,
+                                        dataPoints: this.mlDataPoints
+                                    },
+                                    {
+                                        name: 'APO Forecast',
+                                        showInLegend: true,
+                                        visible: false,
+                                        type: 'line',
+
+                                        color: this.aopDataPointColor,
+                                        lineColor: this.aopDataPointColor,
+                                        dataPoints: this.aopDataPoints
+                                    },
+                                    {
+                                        name: 'Final Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.finalForecastPointColor,
+                                        lineColor: this.finalForecastPointColor,
+                                        dataPoints: this.finalForecastDataPoints
+                                    },
+                                    {
+                                        name: 'Actuals',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        color: this.actualDataPointColor,
+                                        lineColor: this.actualDataPointColor,
+                                        dataPoints: this.actualDataPoints
+                                    }
+                                ]
+                            });
+                            this.chart1.render();
+                            this.CanvasJSDataAsCSV();
+                            this.selectOptionsModalCancel.nativeElement.click();
+                        });
+
+                    }
+                    else if (this.UOM == "PC" || this.UOM == "BOT" || this.UOM == "PAL" || this.UOM == "L" || this.UOM == "CU" || this.UOM == "PPU") {
+                        try {
+                            this.planningtable = 'Planning table (' + this.UOM + ')';
+                            document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
+
+                            document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
+
+                            this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
+                            this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
+                        } catch (err) {
+
+                        }
+                        //const data=this.createPlanRequestData;
+                        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                        this.createPlanRequestData = {
+                            startWeek: this.createPlanRequestData.startWeek,
+                            endWeek: this.createPlanRequestData.endWeek,
+                            prevactuals: this.createPlanRequestData.prevactuals,
+                            uom1: this.UOM,
+                            // forecastingGroups: data.forecastingGroups,
+                            forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+                            customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                            plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                        };
+                        //this.test();
+                        this.loading = true;
+                        this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
+                            this.eventsSubject.next({
+                                page: null,
+                                reset: true,
+                            });
+                            this.loading = false;
+
+                            // if (res.res.length == 0) {
+                            //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                            //   window.alert('No Combination is available');
+                            //   this.loading = false;
+                            //   return;
+                            // }
+
+                            this.granular1 = 'week';
+                            if (this.UOM == 'HL' && this.granular1 == 'week') {
+                                this.enabled = 1;
+                            } else {
+                                this.enabled = 0;
+                            }
+
+
+                            this.allComments = res.combinedcomment;
+                            console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+
+                            this.allComments_harshit = [];
+                            for (const abc of this.allComments) {
+
+                                this.allComments_harshit.push({
+                                    name: abc,
+                                    isSelected: false,
+                                    isFiltered: false
+                                });
+                            }
+                            this.greystart = res.start;
+
+                            this.greystart = res.start;
+                            if (res.res.length > 20) {
+                                this.inter = (res.res.length / 13);
+                            } else {
+                                this.inter = 1;
+                            }
+                            console.log('GREYSTART--' + this.greystart);
+
+
+                            this.createPlanRequestData.brands = res.req.brands;
+                            this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+                            this.createPlanRequestData.subbrand = res.req.subbrand;
+
+                            this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+                            this.createPlanRequestData.Trade = res.req.trade;
+                            this.createPlanRequestData.Sales = res.req.sales;
+
+
+                            this.createPlanRequestData.globalBev = res.req.globalBev;
+                            this.createPlanRequestData.materialgroup = res.req.materialgroup;
+                            this.createPlanRequestData.baseunit = res.req.baseunit;
+                            this.createPlanRequestData.pack_type = res.req.pack_type;
+
+                            this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+                            this.createPlanRequestData.pack_size = res.req.pack_size;
+                            this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+                            this.processGraphData_1(res);
+                            //this.processgraphData(res);
+
+                            this.processFeatureGraphData(res);
+                            this.createFilterObject(res);
+                            //  this.skus=data.forecastingGroups;
+
+                            // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+                            //     item.isChecked = true;
+                            //     return item;
+                            //   });
+
+
+                            // this.skus = data.forecastingGroups.map((item) => {
+                            //   item.isChecked = true;
+                            //   return item;
+                            // });
+
+                            this.commentsall();
+                            console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+                            this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                                animationEnabled: true,
+                                showInLegend: true,
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            },
+                                            {
+                                                startValue: 202352,
+                                                endValue: 202401
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+                                    ]
+                                },
+                                axisY: {
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Baseline') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+
+                                // toolTip: {
+                                //   shared: true,
+                                //   contentFormatter: function(e) {
+                                //     var content = ' ';
+                                //     console.log(JSON.stringify(e));
+                                //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                                //     for (var i = 0; i < e.entries.length; i++) {
+                                //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                //       content += '<br/>';
+                                //     }
+                                //     return content;
+                                //   }
+                                // },
+
+                                data: [
+                                    {
+                                        name: 'Baseline',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: '#17b169',
+                                        lineColor: '#17b169',
+                                        dataPoints: this.property
+                                    },
+                                    {
+                                        name: 'Promo Effect',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: ' #46a6b9',
+                                        lineColor: '#46a6b9',
+                                        dataPoints: this.property3
+                                    }
+
+                                ]
+                            });
+
+                            this.secondgraph = 'Baseline';
+                            this.chart2.render();
+                            // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                            //   animationEnabled: true,
+
+                            //   backgroundColor: '#FFFFFF',
+                            //   legend: {
+                            //     cursor: 'pointer',
+                            //     itemclick: this.toggleDataSeries.bind(this)
+                            //   },
+                            //   axisX: {
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //     scaleBreaks: {
+                            //       type: 'blank',
+                            //       spacing: 0,
+                            //       customBreaks: [
+                            //         {
+                            //           startValue: 201952,
+                            //           endValue: 202000
+                            //         },
+                            //         {
+                            //           startValue: 202053,
+                            //           endValue: 202100
+                            //         },
+                            //         {
+                            //           startValue: 202152,
+                            //           endValue: 202200
+                            //         },
+                            //         {
+                            //           startValue: 202253,
+                            //           endValue: 202300
+                            //         }
+                            //       ]
+                            //     },
+                            //     stripLines: [
+                            //       {
+                            //         startValue: this.createPlanRequestData.startWeek,
+                            //         endValue: 201953,
+                            //         color: '#F2F3F5'
+                            //       },
+                            //       {
+                            //         startValue: 202000,
+                            //         endValue: this.createPlanRequestData.endWeek,
+                            //         color: '#F2F3F5'
+                            //       }
+                            //     ]
+                            //   },
+                            //   axisY: {
+
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //   },
+
+                            //   toolTip: {
+                            //     content: 'Value: {y}'
+                            //   },
+
+                            //   // toolTip: {
+                            //   //   shared: true,
+                            //   //   contentFormatter: function(e) {
+                            //   //     var content = ' ';
+                            //   //     console.log(JSON.stringify(e));
+                            //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                            //   //     for (var i = 0; i < e.entries.length; i++) {
+                            //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                            //   //       content += '<br/>';
+                            //   //     }
+                            //   //     return content;
+                            //   //   }
+                            //  // },
+
+                            //   data: [{
+                            //     type: 'line',
+                            //     gridColor: '#ffffff',
+                            //     labelFontColor: 'black',
+                            //    color: '#000',
+                            //     dataPoints: this.property
+                            //   }]
+                            // });
+                            // this.secondgraph='Open order';
+                            // this.chart2.render();
+
+
+                            console.log('132456->' + this.createPlanRequestData.startWeek);
+                            this.chart1 = new CanvasJS.Chart('chartContainer1', {
+                                title: { text: ' ', fontStyle: 'no', },
+                                animationEnabled: true,
+
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+
+                                    ]
+                                },
+
+                                axisY: {
+
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                // toolTip: {
+                                //   content: 'Week: {x} | {name}: {y}'
+                                // },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Actuals') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+                                data: [
+
+                                    {
+                                        name: 'Actual LY',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        visible: false,
+
+                                        color: this.lastyearDataPointColor,
+                                        lineColor: this.lastyearDataPointColor,
+                                        dataPoints: this.lastYearDataPoints
+                                    },
+                                    {
+                                        name: 'ML Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.mlDataPointColor,
+                                        lineColor: this.mlDataPointColor,
+                                        dataPoints: this.mlDataPoints
+                                    },
+                                    {
+                                        name: 'APO Forecast',
+                                        showInLegend: true,
+                                        visible: false,
+                                        type: 'line',
+
+                                        color: this.aopDataPointColor,
+                                        lineColor: this.aopDataPointColor,
+                                        dataPoints: this.aopDataPoints
+                                    },
+                                    {
+                                        name: 'Final Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.finalForecastPointColor,
+                                        lineColor: this.finalForecastPointColor,
+                                        dataPoints: this.finalForecastDataPoints
+                                    },
+                                    {
+                                        name: 'Actuals',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        color: this.actualDataPointColor,
+                                        lineColor: this.actualDataPointColor,
+                                        dataPoints: this.actualDataPoints
+                                    }
+                                ]
+                            });
+                            this.chart1.render();
+                            this.CanvasJSDataAsCSV();
+                            this.selectOptionsModalCancel.nativeElement.click();
+                        });
+
+                    }
+                    else {
+                        window.alert("Something went wrong. Please try again - detailed view - week");
+                    }
+                }
+                else if (this.granular1 == "month") {
                     try {
-                        this.planningtable = 'Planning table (HL)';
+                        this.planningtable = 'Planning table (' + this.UOM + ')';
 
 
-                        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+                        document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
 
-                        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+                        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
 
 
-                        this.forecastinganalysis = 'Forecast Analysis (HL)';
-                        this.featureanalysis = 'Feature Analysis (HL)';
+                        this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
+                        this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
                     } catch (err) {
 
                     }
@@ -12585,7 +13704,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     };
                     //this.test();
                     this.loading = true;
-                    this.skuService.getGraphData1234(this.createPlanRequestData).subscribe((res: any) => {
+                    this.skuService.getGraphData1234_detail_month(this.createPlanRequestData).subscribe((res: any) => {
                         this.eventsSubject.next({
                             page: null,
                             reset: true,
@@ -12599,7 +13718,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   return;
                         // }
 
-                        this.granular1 = 'week';
+
                         if (this.UOM == 'HL' && this.granular1 == 'week') {
                             this.enabled = 1;
                         } else {
@@ -12672,6 +13791,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
+
+
+
+
+
+
+
+
+
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
                             showInLegend: true,
@@ -12689,31 +13817,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     spacing: 0,
                                     customBreaks: [
                                         {
-                                            startValue: 201452,
+                                            startValue: 201413,
                                             endValue: 201501
                                         },
                                         {
-                                            startValue: 201552,
+                                            startValue: 201513,
                                             endValue: 201600
                                         },
                                         {
-                                            startValue: 201652,
+                                            startValue: 201613,
                                             endValue: 201700
                                         },
                                         {
-                                            startValue: 201752,
+                                            startValue: 201713,
                                             endValue: 201800
                                         },
                                         {
-                                            startValue: 201852,
+                                            startValue: 201813,
                                             endValue: 201900
                                         },
                                         {
-                                            startValue: 201952,
+                                            startValue: 201913,
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202013,
                                             endValue: 202100
                                         },
                                         {
@@ -12721,49 +13849,40 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202200
                                         },
                                         {
-                                            startValue: 202252,
-                                            endValue: 202301
-                                        },
-                                        {
-                                            startValue: 202352,
-                                            endValue: 202401
+                                            startValue: 202213,
+                                            endValue: 202300
                                         }
                                     ]
                                 },
                                 stripLines: [
                                     {
                                         startValue: 201400,
-                                        endValue: 201452,
+                                        endValue: 201413,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201500,
-                                        endValue: 201552,
+                                        endValue: 201513,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201600,
-                                        endValue: 201652,
+                                        endValue: 201613,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201700,
-                                        endValue: 201752,
+                                        endValue: 201713,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201800,
-                                        endValue: 201852,
+                                        endValue: 201813,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201900,
-                                        endValue: 201952,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 202000,
-                                        endValue: 202034,
+                                        endValue: 20202,
                                         color: '#F2F3F5'
                                     },
 
@@ -12808,7 +13927,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //     return content;
                             //   }
                             // },
-
                             data: [
                                 {
                                     name: 'Baseline',
@@ -12833,9 +13951,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                             ]
                         });
-
-                        this.secondgraph = 'Baseline';
                         this.chart2.render();
+                        this.secondgraph = 'Baseline';
+
+
+
+
+
+
                         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
                         //   animationEnabled: true,
 
@@ -12856,7 +13979,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -12961,558 +14084,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
-                                            endValue: 202100
-                                        },
-                                        {
-                                            startValue: 202152,
-                                            endValue: 202200
-                                        },
-                                        {
-                                            startValue: 202252,
-                                            endValue: 202301
-                                        }
-                                    ]
-                                },
-                                stripLines: [
-                                    {
-                                        startValue: 201400,
-                                        endValue: 201452,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201500,
-                                        endValue: 201552,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201600,
-                                        endValue: 201652,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201700,
-                                        endValue: 201752,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201800,
-                                        endValue: 201852,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201900,
-                                        endValue: 201952,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 202000,
-                                        endValue: 202034,
-                                        color: '#F2F3F5'
-                                    },
-
-
-                                ]
-                            },
-
-                            axisY: {
-
-
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                            },
-
-                            // toolTip: {
-                            //   content: 'Week: {x} | {name}: {y}'
-                            // },
-
-                            toolTip: {
-                                shared: true,
-                                contentFormatter: function (e) {
-                                    var content = ' ';
-                                    //console.log(e.dataPoint);
-                                    content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                    for (var i = 0; i < e.entries.length; i++) {
-                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'Actuals') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
-                                        }
-                                        content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                        content += '<br/>';
-                                    }
-                                    return content;
-                                }
-                            },
-                            data: [
-
-                                {
-                                    name: 'Actual LY',
-                                    showInLegend: true,
-                                    type: 'line',
-                                    visible: false,
-
-                                    color: this.lastyearDataPointColor,
-                                    lineColor: this.lastyearDataPointColor,
-                                    dataPoints: this.lastYearDataPoints
-                                },
-                                {
-                                    name: 'ML Forecast',
-                                    showInLegend: true,
-                                    type: 'line',
-
-                                    color: this.mlDataPointColor,
-                                    lineColor: this.mlDataPointColor,
-                                    dataPoints: this.mlDataPoints
-                                },
-                                {
-                                    name: 'APO Forecast',
-                                    showInLegend: true,
-                                    visible: false,
-                                    type: 'line',
-
-                                    color: this.aopDataPointColor,
-                                    lineColor: this.aopDataPointColor,
-                                    dataPoints: this.aopDataPoints
-                                },
-                                {
-                                    name: 'Final Forecast',
-                                    showInLegend: true,
-                                    type: 'line',
-
-                                    color: this.finalForecastPointColor,
-                                    lineColor: this.finalForecastPointColor,
-                                    dataPoints: this.finalForecastDataPoints
-                                },
-                                {
-                                    name: 'Actuals',
-                                    showInLegend: true,
-                                    type: 'line',
-                                    color: this.actualDataPointColor,
-                                    lineColor: this.actualDataPointColor,
-                                    dataPoints: this.actualDataPoints
-                                }
-                            ]
-                        });
-                        this.chart1.render();
-                        this.CanvasJSDataAsCSV();
-                        this.selectOptionsModalCancel.nativeElement.click();
-                    });
-
-                }
-                else if (this.UOM == "PC" || this.UOM == "BOT" || this.UOM == "PAL" || this.UOM == "L" || this.UOM == "CU" || this.UOM == "PPU") {
-                    try {
-                        this.planningtable = 'Planning table (' + this.UOM + ')';
-                        document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
-
-                        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
-
-                        this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
-                        this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
-                    } catch (err) {
-
-                    }
-                    //const data=this.createPlanRequestData;
-                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
-                    this.createPlanRequestData = {
-                        startWeek: this.createPlanRequestData.startWeek,
-                        endWeek: this.createPlanRequestData.endWeek,
-                        prevactuals: this.createPlanRequestData.prevactuals,
-                        uom1: this.UOM,
-                        // forecastingGroups: data.forecastingGroups,
-                        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
-                        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                    };
-                    //this.test();
-                    this.loading = true;
-                    this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
-                        this.eventsSubject.next({
-                            page: null,
-                            reset: true,
-                        });
-                        this.loading = false;
-
-                        // if (res.res.length == 0) {
-                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-                        //   window.alert('No Combination is available');
-                        //   this.loading = false;
-                        //   return;
-                        // }
-
-                        this.granular1 = 'week';
-                        if (this.UOM == 'HL' && this.granular1 == 'week') {
-                            this.enabled = 1;
-                        } else {
-                            this.enabled = 0;
-                        }
-
-
-                        this.allComments = res.combinedcomment;
-                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
-
-                        this.allComments_harshit = [];
-                        for (const abc of this.allComments) {
-
-                            this.allComments_harshit.push({
-                                name: abc,
-                                isSelected: false,
-                                isFiltered: false
-                            });
-                        }
-                        this.greystart = res.start;
-
-                        this.greystart = res.start;
-                        if (res.res.length > 20) {
-                            this.inter = (res.res.length / 13);
-                        } else {
-                            this.inter = 1;
-                        }
-                        console.log('GREYSTART--' + this.greystart);
-
-
-                        this.createPlanRequestData.brands = res.req.brands;
-                        this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-                        this.createPlanRequestData.subbrand = res.req.subbrand;
-
-                        this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-                        this.createPlanRequestData.Trade = res.req.trade;
-                        this.createPlanRequestData.Sales = res.req.sales;
-
-
-                        this.createPlanRequestData.globalBev = res.req.globalBev;
-                        this.createPlanRequestData.materialgroup = res.req.materialgroup;
-                        this.createPlanRequestData.baseunit = res.req.baseunit;
-                        this.createPlanRequestData.pack_type = res.req.pack_type;
-
-                        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-
-                        this.createPlanRequestData.pack_size = res.req.pack_size;
-                        this.createPlanRequestData.cpgname = res.req.cpgname;
-
-
-                        this.processGraphData_1(res);
-                        //this.processgraphData(res);
-
-                        this.processFeatureGraphData(res);
-                        this.createFilterObject(res);
-                        //  this.skus=data.forecastingGroups;
-
-                        // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
-                        //     item.isChecked = true;
-                        //     return item;
-                        //   });
-
-
-                        // this.skus = data.forecastingGroups.map((item) => {
-                        //   item.isChecked = true;
-                        //   return item;
-                        // });
-
-                        this.commentsall();
-                        console.log('thhh->' + this.createPlanRequestData.startWeek);
-
-
-                        this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                            animationEnabled: true,
-                            showInLegend: true,
-                            backgroundColor: '#FFFFFF',
-                            legend: {
-                                cursor: 'pointer',
-                                itemclick: this.toggleDataSeries.bind(this)
-                            },
-                            axisX: {
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                                interval: this.inter,
-                                scaleBreaks: {
-                                    type: 'blank',
-                                    spacing: 0,
-                                    customBreaks: [
-                                        {
-                                            startValue: 201452,
-                                            endValue: 201501
-                                        },
-                                        {
-                                            startValue: 201552,
-                                            endValue: 201600
-                                        },
-                                        {
-                                            startValue: 201652,
-                                            endValue: 201700
-                                        },
-                                        {
-                                            startValue: 201752,
-                                            endValue: 201800
-                                        },
-                                        {
-                                            startValue: 201852,
-                                            endValue: 201900
-                                        },
-                                        {
-                                            startValue: 201952,
-                                            endValue: 202000
-                                        },
-                                        {
-                                            startValue: 202052,
-                                            endValue: 202100
-                                        },
-                                        {
-                                            startValue: 202152,
-                                            endValue: 202200
-                                        },
-                                        {
-                                            startValue: 202252,
-                                            endValue: 202301
-                                        },
-                                        {
-                                            startValue: 202352,
-                                            endValue: 202401
-                                        }
-                                    ]
-                                },
-                                stripLines: [
-                                    {
-                                        startValue: 201400,
-                                        endValue: 201452,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201500,
-                                        endValue: 201552,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201600,
-                                        endValue: 201652,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201700,
-                                        endValue: 201752,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201800,
-                                        endValue: 201852,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201900,
-                                        endValue: 201952,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 202000,
-                                        endValue: 202034,
-                                        color: '#F2F3F5'
-                                    },
-
-                                ]
-                            },
-                            axisY: {
-
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                            },
-
-                            toolTip: {
-                                shared: true,
-                                contentFormatter: function (e) {
-                                    var content = ' ';
-                                    //console.log(e.dataPoint);
-                                    content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                    for (var i = 0; i < e.entries.length; i++) {
-                                        if (e.entries[i].dataSeries.name == 'Baseline') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
-                                        }
-                                        content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                        content += '<br/>';
-                                    }
-                                    return content;
-                                }
-                            },
-
-                            // toolTip: {
-                            //   shared: true,
-                            //   contentFormatter: function(e) {
-                            //     var content = ' ';
-                            //     console.log(JSON.stringify(e));
-                            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                            //     for (var i = 0; i < e.entries.length; i++) {
-                            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                            //       content += '<br/>';
-                            //     }
-                            //     return content;
-                            //   }
-                            // },
-
-                            data: [
-                                {
-                                    name: 'Baseline',
-                                    type: 'stackedArea',
-                                    gridColor: '#ffffff',
-
-                                    showInLegend: true,
-                                    color: '#17b169',
-                                    lineColor: '#17b169',
-                                    dataPoints: this.property
-                                },
-                                {
-                                    name: 'Promo Effect',
-                                    type: 'stackedArea',
-                                    gridColor: '#ffffff',
-
-                                    showInLegend: true,
-                                    color: ' #46a6b9',
-                                    lineColor: '#46a6b9',
-                                    dataPoints: this.property3
-                                }
-
-                            ]
-                        });
-
-                        this.secondgraph = 'Baseline';
-                        this.chart2.render();
-                        // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                        //   animationEnabled: true,
-
-                        //   backgroundColor: '#FFFFFF',
-                        //   legend: {
-                        //     cursor: 'pointer',
-                        //     itemclick: this.toggleDataSeries.bind(this)
-                        //   },
-                        //   axisX: {
-                        //     valueFormatString: '######',
-                        //     gridColor: '#ffffff',
-                        //     scaleBreaks: {
-                        //       type: 'blank',
-                        //       spacing: 0,
-                        //       customBreaks: [
-                        //         {
-                        //           startValue: 201952,
-                        //           endValue: 202000
-                        //         },
-                        //         {
-                        //           startValue: 202052,
-                        //           endValue: 202100
-                        //         },
-                        //         {
-                        //           startValue: 202152,
-                        //           endValue: 202200
-                        //         },
-                        //         {
-                        //           startValue: 202253,
-                        //           endValue: 202300
-                        //         }
-                        //       ]
-                        //     },
-                        //     stripLines: [
-                        //       {
-                        //         startValue: this.createPlanRequestData.startWeek,
-                        //         endValue: 201953,
-                        //         color: '#F2F3F5'
-                        //       },
-                        //       {
-                        //         startValue: 202000,
-                        //         endValue: this.createPlanRequestData.endWeek,
-                        //         color: '#F2F3F5'
-                        //       }
-                        //     ]
-                        //   },
-                        //   axisY: {
-
-                        //     valueFormatString: '######',
-                        //     gridColor: '#ffffff',
-                        //   },
-
-                        //   toolTip: {
-                        //     content: 'Value: {y}'
-                        //   },
-
-                        //   // toolTip: {
-                        //   //   shared: true,
-                        //   //   contentFormatter: function(e) {
-                        //   //     var content = ' ';
-                        //   //     console.log(JSON.stringify(e));
-                        //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                        //   //     for (var i = 0; i < e.entries.length; i++) {
-                        //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                        //   //       content += '<br/>';
-                        //   //     }
-                        //   //     return content;
-                        //   //   }
-                        //  // },
-
-                        //   data: [{
-                        //     type: 'line',
-                        //     gridColor: '#ffffff',
-                        //     labelFontColor: 'black',
-                        //    color: '#000',
-                        //     dataPoints: this.property
-                        //   }]
-                        // });
-                        // this.secondgraph='Open order';
-                        // this.chart2.render();
-
-
-                        console.log('132456->' + this.createPlanRequestData.startWeek);
-                        this.chart1 = new CanvasJS.Chart('chartContainer1', {
-                            title: { text: ' ', fontStyle: 'no', },
-                            animationEnabled: true,
-
-                            backgroundColor: '#FFFFFF',
-                            legend: {
-                                cursor: 'pointer',
-                                itemclick: this.toggleDataSeries.bind(this)
-                            },
-                            axisX: {
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                                interval: this.inter,
-                                scaleBreaks: {
-                                    type: 'blank',
-                                    spacing: 0,
-                                    customBreaks: [
-                                        {
-                                            startValue: 201452,
-                                            endValue: 201501
-                                        },
-                                        {
-                                            startValue: 201552,
-                                            endValue: 201600
-                                        },
-                                        {
-                                            startValue: 201652,
-                                            endValue: 201700
-                                        },
-                                        {
-                                            startValue: 201752,
-                                            endValue: 201800
-                                        },
-                                        {
-                                            startValue: 201852,
-                                            endValue: 201900
-                                        },
-                                        {
-                                            startValue: 201952,
-                                            endValue: 202000
-                                        },
-                                        {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -13662,593 +14234,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 }
                 else {
-                    window.alert("Something went wrong. Please try again - detailed view - week");
+                    window.alert("Something went wrong. Please try again - detailed view");
                 }
-            }
-            else if (this.granular1 == "month") {
-                try {
-                    this.planningtable = 'Planning table (' + this.UOM + ')';
-
-
-                    document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
-
-                    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
-
-
-                    this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
-                    this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
-                } catch (err) {
-
-                }
-                //const data=this.createPlanRequestData;
-                console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
-                this.createPlanRequestData = {
-                    startWeek: this.createPlanRequestData.startWeek,
-                    endWeek: this.createPlanRequestData.endWeek,
-                    prevactuals: this.createPlanRequestData.prevactuals,
-                    // forecastingGroups: data.forecastingGroups,
-                    forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
-                    customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                    plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                    uom1: this.UOM
-                };
-                //this.test();
-                this.loading = true;
-                this.skuService.getGraphData1234_detail_month(this.createPlanRequestData).subscribe((res: any) => {
-                    this.eventsSubject.next({
-                        page: null,
-                        reset: true,
-                    });
-                    this.loading = false;
-
-                    // if (res.res.length == 0) {
-                    //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-                    //   window.alert('No Combination is available');
-                    //   this.loading = false;
-                    //   return;
-                    // }
-
-
-                    if (this.UOM == 'HL' && this.granular1 == 'week') {
-                        this.enabled = 1;
-                    } else {
-                        this.enabled = 0;
-                    }
-
-
-                    this.allComments = res.combinedcomment;
-                    console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
-
-                    this.allComments_harshit = [];
-                    for (const abc of this.allComments) {
-
-                        this.allComments_harshit.push({
-                            name: abc,
-                            isSelected: false,
-                            isFiltered: false
-                        });
-                    }
-                    this.greystart = res.start;
-
-                    this.greystart = res.start;
-                    if (res.res.length > 20) {
-                        this.inter = (res.res.length / 13);
-                    } else {
-                        this.inter = 1;
-                    }
-                    console.log('GREYSTART--' + this.greystart);
-
-
-                    this.createPlanRequestData.brands = res.req.brands;
-                    this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-                    this.createPlanRequestData.subbrand = res.req.subbrand;
-
-                    this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-                    this.createPlanRequestData.Trade = res.req.trade;
-                    this.createPlanRequestData.Sales = res.req.sales;
-
-
-                    this.createPlanRequestData.globalBev = res.req.globalBev;
-                    this.createPlanRequestData.materialgroup = res.req.materialgroup;
-                    this.createPlanRequestData.baseunit = res.req.baseunit;
-                    this.createPlanRequestData.pack_type = res.req.pack_type;
-
-                    this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-
-                    this.createPlanRequestData.pack_size = res.req.pack_size;
-                    this.createPlanRequestData.cpgname = res.req.cpgname;
-
-
-                    this.processGraphData_1(res);
-                    //this.processgraphData(res);
-
-                    this.processFeatureGraphData(res);
-                    this.createFilterObject(res);
-                    //  this.skus=data.forecastingGroups;
-
-                    // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
-                    //     item.isChecked = true;
-                    //     return item;
-                    //   });
-
-
-                    // this.skus = data.forecastingGroups.map((item) => {
-                    //   item.isChecked = true;
-                    //   return item;
-                    // });
-
-                    this.commentsall();
-                    console.log('thhh->' + this.createPlanRequestData.startWeek);
-
-
-
-
-
-
-
-
-
-
-
-                    this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                        animationEnabled: true,
-                        showInLegend: true,
-                        backgroundColor: '#FFFFFF',
-                        legend: {
-                            cursor: 'pointer',
-                            itemclick: this.toggleDataSeries.bind(this)
-                        },
-                        axisX: {
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                            interval: this.inter,
-                            scaleBreaks: {
-                                type: 'blank',
-                                spacing: 0,
-                                customBreaks: [
-                                    {
-                                        startValue: 201413,
-                                        endValue: 201501
-                                    },
-                                    {
-                                        startValue: 201513,
-                                        endValue: 201600
-                                    },
-                                    {
-                                        startValue: 201613,
-                                        endValue: 201700
-                                    },
-                                    {
-                                        startValue: 201713,
-                                        endValue: 201800
-                                    },
-                                    {
-                                        startValue: 201813,
-                                        endValue: 201900
-                                    },
-                                    {
-                                        startValue: 201913,
-                                        endValue: 202000
-                                    },
-                                    {
-                                        startValue: 202013,
-                                        endValue: 202100
-                                    },
-                                    {
-                                        startValue: 202152,
-                                        endValue: 202200
-                                    },
-                                    {
-                                        startValue: 202213,
-                                        endValue: 202300
-                                    }
-                                ]
-                            },
-                            stripLines: [
-                                {
-                                    startValue: 201400,
-                                    endValue: 201413,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201500,
-                                    endValue: 201513,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201600,
-                                    endValue: 201613,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201700,
-                                    endValue: 201713,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201800,
-                                    endValue: 201813,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201900,
-                                    endValue: 20202,
-                                    color: '#F2F3F5'
-                                },
-
-                            ]
-                        },
-                        axisY: {
-
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                        },
-
-                        toolTip: {
-                            shared: true,
-                            contentFormatter: function (e) {
-                                var content = ' ';
-                                //console.log(e.dataPoint);
-                                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                for (var i = 0; i < e.entries.length; i++) {
-                                    if (e.entries[i].dataSeries.name == 'Baseline') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'Promo Effect') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
-                                    }
-                                    content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                    content += '<br/>';
-                                }
-                                return content;
-                            }
-                        },
-
-                        // toolTip: {
-                        //   shared: true,
-                        //   contentFormatter: function(e) {
-                        //     var content = ' ';
-                        //     console.log(JSON.stringify(e));
-                        //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                        //     for (var i = 0; i < e.entries.length; i++) {
-                        //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                        //       content += '<br/>';
-                        //     }
-                        //     return content;
-                        //   }
-                        // },
-                        data: [
-                            {
-                                name: 'Baseline',
-                                type: 'stackedArea',
-                                gridColor: '#ffffff',
-
-                                showInLegend: true,
-                                color: '#17b169',
-                                lineColor: '#17b169',
-                                dataPoints: this.property
-                            },
-                            {
-                                name: 'Promo Effect',
-                                type: 'stackedArea',
-                                gridColor: '#ffffff',
-
-                                showInLegend: true,
-                                color: ' #46a6b9',
-                                lineColor: '#46a6b9',
-                                dataPoints: this.property3
-                            }
-
-                        ]
-                    });
-                    this.chart2.render();
-                    this.secondgraph = 'Baseline';
-
-
-
-
-
-
-                    // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                    //   animationEnabled: true,
-
-                    //   backgroundColor: '#FFFFFF',
-                    //   legend: {
-                    //     cursor: 'pointer',
-                    //     itemclick: this.toggleDataSeries.bind(this)
-                    //   },
-                    //   axisX: {
-                    //     valueFormatString: '######',
-                    //     gridColor: '#ffffff',
-                    //     scaleBreaks: {
-                    //       type: 'blank',
-                    //       spacing: 0,
-                    //       customBreaks: [
-                    //         {
-                    //           startValue: 201952,
-                    //           endValue: 202000
-                    //         },
-                    //         {
-                    //           startValue: 202052,
-                    //           endValue: 202100
-                    //         },
-                    //         {
-                    //           startValue: 202152,
-                    //           endValue: 202200
-                    //         },
-                    //         {
-                    //           startValue: 202253,
-                    //           endValue: 202300
-                    //         }
-                    //       ]
-                    //     },
-                    //     stripLines: [
-                    //       {
-                    //         startValue: this.createPlanRequestData.startWeek,
-                    //         endValue: 201953,
-                    //         color: '#F2F3F5'
-                    //       },
-                    //       {
-                    //         startValue: 202000,
-                    //         endValue: this.createPlanRequestData.endWeek,
-                    //         color: '#F2F3F5'
-                    //       }
-                    //     ]
-                    //   },
-                    //   axisY: {
-
-                    //     valueFormatString: '######',
-                    //     gridColor: '#ffffff',
-                    //   },
-
-                    //   toolTip: {
-                    //     content: 'Value: {y}'
-                    //   },
-
-                    //   // toolTip: {
-                    //   //   shared: true,
-                    //   //   contentFormatter: function(e) {
-                    //   //     var content = ' ';
-                    //   //     console.log(JSON.stringify(e));
-                    //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                    //   //     for (var i = 0; i < e.entries.length; i++) {
-                    //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                    //   //       content += '<br/>';
-                    //   //     }
-                    //   //     return content;
-                    //   //   }
-                    //  // },
-
-                    //   data: [{
-                    //     type: 'line',
-                    //     gridColor: '#ffffff',
-                    //     labelFontColor: 'black',
-                    //    color: '#000',
-                    //     dataPoints: this.property
-                    //   }]
-                    // });
-                    // this.secondgraph='Open order';
-                    // this.chart2.render();
-
-
-                    console.log('132456->' + this.createPlanRequestData.startWeek);
-                    this.chart1 = new CanvasJS.Chart('chartContainer1', {
-                        title: { text: ' ', fontStyle: 'no', },
-                        animationEnabled: true,
-
-                        backgroundColor: '#FFFFFF',
-                        legend: {
-                            cursor: 'pointer',
-                            itemclick: this.toggleDataSeries.bind(this)
-                        },
-                        axisX: {
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                            interval: this.inter,
-                            scaleBreaks: {
-                                type: 'blank',
-                                spacing: 0,
-                                customBreaks: [
-                                    {
-                                        startValue: 201452,
-                                        endValue: 201501
-                                    },
-                                    {
-                                        startValue: 201552,
-                                        endValue: 201600
-                                    },
-                                    {
-                                        startValue: 201652,
-                                        endValue: 201700
-                                    },
-                                    {
-                                        startValue: 201752,
-                                        endValue: 201800
-                                    },
-                                    {
-                                        startValue: 201852,
-                                        endValue: 201900
-                                    },
-                                    {
-                                        startValue: 201952,
-                                        endValue: 202000
-                                    },
-                                    {
-                                        startValue: 202052,
-                                        endValue: 202100
-                                    },
-                                    {
-                                        startValue: 202152,
-                                        endValue: 202200
-                                    },
-                                    {
-                                        startValue: 202252,
-                                        endValue: 202301
-                                    }
-                                ]
-                            },
-                            stripLines: [
-                                {
-                                    startValue: 201400,
-                                    endValue: 201452,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201500,
-                                    endValue: 201552,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201600,
-                                    endValue: 201652,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201700,
-                                    endValue: 201752,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201800,
-                                    endValue: 201852,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201900,
-                                    endValue: 201952,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 202000,
-                                    endValue: 202034,
-                                    color: '#F2F3F5'
-                                },
-
-
-                            ]
-                        },
-
-                        axisY: {
-
-
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                        },
-
-                        // toolTip: {
-                        //   content: 'Week: {x} | {name}: {y}'
-                        // },
-
-                        toolTip: {
-                            shared: true,
-                            contentFormatter: function (e) {
-                                var content = ' ';
-                                //console.log(e.dataPoint);
-                                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                for (var i = 0; i < e.entries.length; i++) {
-                                    if (e.entries[i].dataSeries.name == 'Actual LY') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'ML Forecast') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'APO Forecast') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'Final Forecast') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'Actuals') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
-                                    }
-                                    content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                    content += '<br/>';
-                                }
-                                return content;
-                            }
-                        },
-                        data: [
-
-                            {
-                                name: 'Actual LY',
-                                showInLegend: true,
-                                type: 'line',
-                                visible: false,
-
-                                color: this.lastyearDataPointColor,
-                                lineColor: this.lastyearDataPointColor,
-                                dataPoints: this.lastYearDataPoints
-                            },
-                            {
-                                name: 'ML Forecast',
-                                showInLegend: true,
-                                type: 'line',
-
-                                color: this.mlDataPointColor,
-                                lineColor: this.mlDataPointColor,
-                                dataPoints: this.mlDataPoints
-                            },
-                            {
-                                name: 'APO Forecast',
-                                showInLegend: true,
-                                visible: false,
-                                type: 'line',
-
-                                color: this.aopDataPointColor,
-                                lineColor: this.aopDataPointColor,
-                                dataPoints: this.aopDataPoints
-                            },
-                            {
-                                name: 'Final Forecast',
-                                showInLegend: true,
-                                type: 'line',
-
-                                color: this.finalForecastPointColor,
-                                lineColor: this.finalForecastPointColor,
-                                dataPoints: this.finalForecastDataPoints
-                            },
-                            {
-                                name: 'Actuals',
-                                showInLegend: true,
-                                type: 'line',
-                                color: this.actualDataPointColor,
-                                lineColor: this.actualDataPointColor,
-                                dataPoints: this.actualDataPoints
-                            }
-                        ]
-                    });
-                    this.chart1.render();
-                    this.CanvasJSDataAsCSV();
-                    this.selectOptionsModalCancel.nativeElement.click();
-                });
-
-            }
-            else {
-                window.alert("Something went wrong. Please try again - detailed view");
-            }
-            //here2
-            var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < headercells.length; i++) {
-                headercells[i].style.paddingLeft = '0px';
-                headercells[i].style.paddingRight = '0px';
-            }
-            var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < agcells.length; i++) {
-                agcells[i].style.paddingLeft = '0px';
-                agcells[i].style.paddingRight = '5px';
-                agcells[i].style.fontSize = '12px';
-            }
-            var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < agcells2.length; i++) {
-                agcells2[i].style.paddingLeft = '5px';
-            }
-            var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < threebars.length; i++) {
-                threebars[i].style.zoom = '133%';
             }
         }
 
         else if (this.views == "Detailed View_material") {
+
+            var a =  this.fgssselected.length;
+            var b = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            var c = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            if (a*b*c > 200) {
+                this.views = "Aggregated";
+                window.alert("Error: combination count more than 200.");
+                return;
+            }
 
             if (this.granular1 == "week") {
 
@@ -14409,7 +14409,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -14552,7 +14552,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -14657,7 +14657,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -14960,7 +14960,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -15103,7 +15103,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //           endValue: 202000
                         //         },
                         //         {
-                        //           startValue: 202052,
+                        //           startValue: 202053,
                         //           endValue: 202100
                         //         },
                         //         {
@@ -15208,7 +15208,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202052,
+                                            startValue: 202053,
                                             endValue: 202100
                                         },
                                         {
@@ -15665,7 +15665,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //           endValue: 202000
                     //         },
                     //         {
-                    //           startValue: 202052,
+                    //           startValue: 202053,
                     //           endValue: 202100
                     //         },
                     //         {
@@ -15770,7 +15770,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                         endValue: 202000
                                     },
                                     {
-                                        startValue: 202052,
+                                        startValue: 202053,
                                         endValue: 202100
                                     },
                                     {
@@ -15921,26 +15921,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
             else {
                 window.alert("Something went wrong. Please try again - detailed view material");
-            }
-            //here2
-            var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < headercells.length; i++) {
-                headercells[i].style.paddingLeft = '0px';
-                headercells[i].style.paddingRight = '0px';
-            }
-            var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < agcells.length; i++) {
-                agcells[i].style.paddingLeft = '0px';
-                agcells[i].style.paddingRight = '5px';
-                agcells[i].style.fontSize = '12px';
-            }
-            var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < agcells2.length; i++) {
-                agcells2[i].style.paddingLeft = '5px';
-            }
-            var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal') as HTMLCollectionOf<HTMLElement>);
-            for (var i = 0; i < threebars.length; i++) {
-                threebars[i].style.zoom = '133%';
             }
         }
 
@@ -16588,7 +16568,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -17024,7 +17004,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -17188,7 +17168,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     endValue: 202000
                                 },
                                 {
-                                    startValue: 202052,
+                                    startValue: 202053,
                                     endValue: 202100
                                 },
                                 {
@@ -17512,7 +17492,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 endValue: 202000
                             },
                             {
-                                startValue: 202052,
+                                startValue: 202053,
                                 endValue: 202100
                             },
                             {
@@ -22981,377 +22961,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // }
 
         console.log('CHECKKKK---' + JSON.stringify(data));
-
-
         this.createPlan(data);
-
-        //  this.skuService.getGraphData(data).subscribe((res: any) => {
-        //   this.eventsSubject.next({
-        //     page: null,
-        //     reset: true,
-        //   });
-        //   this.processGraphData(res);
-        //   this.loading=false;
-        //   this.chart1.render();
-
-
-        //   this.loading=false;
-        // });
-
-
-        // if(this.granular1=='month')
-        // {
-        //   console.log("MONTH->"+JSON.stringify(this.hh));
-        //   //  const data=this.createPlanRequestData;
-
-
-        //     console.log("Create_Plan1234->"+JSON.stringify(this.hh));
-
-
-        //     this.createPlanRequestData = {
-        //       startWeek: this.createPlanRequestData.startWeek,
-        //       endWeek: this.createPlanRequestData.endWeek,
-        //       prevactuals:this.createPlanRequestData.prevactuals,
-        //       forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
-        //       customerPlanningGroup: this.createPlanRequestData.customerPlanningGroup,
-        //       plants: this.createPlanRequestData.plants,
-        //     };
-        //     //this.test();
-
-        //     console.log("WOW->"+JSON.stringify(this.createPlanRequestData));
-        // this.loading=true;
-        //     this.skuService.getGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
-        //       this.eventsSubject.next({
-        //         page: null,
-        //         reset: true,
-        //       });
-        //       this.loading=false;
-        //       this.createPlanRequestData.brands = res.req.brands;
-        //       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-        //       this.createPlanRequestData.subbrand = res.req.subbrand;
-        //       this.createPlanRequestData.Trade = res.req.trade;
-        //       this.createPlanRequestData.Sales = res.req.sales;
-
-
-        //       this.createPlanRequestData.globalBev = res.req.globalBev;
-        //       this.createPlanRequestData.materialgroup = res.req.materialgroup;
-        //       this.createPlanRequestData.baseunit = res.req.baseunit;
-        //       this.createPlanRequestData.pack_type = res.req.pack_type;
-
-        //       this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-
-
-        //       this.createPlanRequestData.pack_size = res.req.pack_size;
-        //       this.createPlanRequestData.cpgname = res.req.cpgname;
-
-
-        //       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-        //       this.processGraphData(res);
-
-        //       this.processFeatureGraphData(res);
-        //       this.createFilterObject(res);
-        //    //   this.skus = this.createPlanRequestData.forecastingGroups;
-
-        //   //  this.skus = JSON.parse(JSON.stringify(this.hh)).map(item => item.name).map((item) => {
-        //   //   item.isChecked = true;
-        //   //   return item;
-        //   // });
-
-        //       console.log('thhh->' + this.createPlanRequestData.startWeek);
-        //       // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-        //       //   animationEnabled: true,
-
-        //       //   backgroundColor: '#FFFFFF',
-        //       //   legend: {
-        //       //     cursor: 'pointer',
-        //       //     itemclick: this.toggleDataSeries.bind(this)
-        //       //   },
-        //       //   axisX: {
-        //       //     valueFormatString: '######',
-        //       //     gridColor: '#ffffff',
-        //       //     scaleBreaks: {
-        //       //       type: 'blank',
-        //       //       spacing: 0,
-        //       //       customBreaks: [
-        //       //         {
-        //       //           startValue: 201913,
-        //       //           endValue: 202000
-        //       //         },
-        //       //         {
-        //       //           startValue: 202013,
-        //       //           endValue: 202100
-        //       //         },
-        //       //         {
-        //       //           startValue: 202152,
-        //       //           endValue: 202200
-        //       //         },
-        //       //         {
-        //       //           startValue: 202253,
-        //       //           endValue: 202300
-        //       //         }
-        //       //       ]
-        //       //     },
-        //       //     // stripLines: [
-        //       //     //   {
-        //       //     //     startValue: 201909,
-        //       //     //     endValue: 201912,
-        //       //     //     color: '#F2F3F5'
-        //       //     //   },
-        //       //     //   {
-        //       //     //     startValue: 202000,
-        //       //     //     endValue: 202003,
-        //       //     //     color: '#F2F3F5'
-        //       //     //   }
-        //       //     // ]
-        //       //   },
-        //       //   axisY: {
-        //       //
-        //       //     valueFormatString: '######',
-        //       //     gridColor: '#ffffff',
-        //       //   },
-
-        //       //   toolTip: {
-        //       //     content: 'Value: {y}'
-        //       //   },
-
-        //       //   // toolTip: {
-        //       //   //   shared: true,
-        //       //   //   contentFormatter: function(e) {
-        //       //   //     var content = ' ';
-        //       //   //     console.log(JSON.stringify(e));
-        //       //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-        //       //   //     for (var i = 0; i < e.entries.length; i++) {
-        //       //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-        //       //   //       content += '<br/>';
-        //       //   //     }
-        //       //   //     return content;
-        //       //   //   }
-        //       //  // },
-
-        //       //   data: [{
-        //       //     type: 'line',
-        //       //     gridColor: '#ffffff',
-        //       //     labelFontColor: 'black',
-        //       //    color: '#000',
-        //       //     dataPoints: this.property
-        //       //   }]
-        //       // });
-        //       // this.chart2.render();
-
-        //       this.chart2 = new CanvasJS.Chart('chartContainer2', {
-        //         animationEnabled: true,
-        //         showInLegend: true,
-        //         backgroundColor: '#FFFFFF',
-        //         legend: {
-        //           cursor: 'pointer',
-        //           fontSize: 10,
-        //           itemclick: this.toggleDataSeries1.bind(this)
-        //         },
-        //         axisX: {
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //           theme: "light2",
-        //           scaleBreaks: {
-        //             type: 'blank',
-        //             spacing: 0,
-        //             customBreaks: [
-        //               {
-        //                 startValue: 201813,
-        //                 endValue: 201900
-        //               },
-        //               {
-        //                 startValue: 201913,
-        //                 endValue: 202000
-        //               },
-        //               {
-        //                 startValue: 202052,
-        //                 endValue: 202100
-        //               },
-        //               {
-        //                 startValue: 202152,
-        //                 endValue: 202200
-        //               },
-        //               {
-        //                 startValue: 202253,
-        //                 endValue: 202300
-        //               }
-        //             ]
-        //           },
-        //           stripLines: [
-        //             {
-        //               startValue: this.createPlanRequestData.startWeek,
-        //               endValue: 201953,
-        //               color: '#F2F3F5'
-        //             },
-        //             {
-        //               startValue: 202000,
-        //               endValue: this.createPlanRequestData.endWeek,
-        //               color: '#F2F3F5'
-        //             }
-        //           ]
-        //         },
-        //         axisY: {
-        //           title: " ",
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //         },
-
-        //         toolTip: {
-        //           content: '{y}'
-        //         },
-
-        //         // toolTip: {
-        //         //   shared: true,
-        //         //   contentFormatter: function(e) {
-        //         //     var content = ' ';
-        //         //     console.log(JSON.stringify(e));
-        //         //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-        //         //     for (var i = 0; i < e.entries.length; i++) {
-        //         //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-        //         //       content += '<br/>';
-        //         //     }
-        //         //     return content;
-        //         //   }
-        //        // },
-
-        //         data: [
-        //         {
-        //           name: 'Average ',
-        //           showInLegend: true,
-        //           type: 'line',
-        //          color: "#46a5b9",
-        //           lineColor: '#46a5b9',
-        //           dataPoints: this.property3
-        //         }
-
-
-        //       ]
-        //       });
-        //       this.chart2.render();
-        //       console.log('132456->' + this.createPlanRequestData.startWeek);
-        //       this.chart1 = new CanvasJS.Chart('chartContainer1', {            title:{             text: " ",             fontStyle: "no",                },
-        //         animationEnabled: true,
-        //
-        //         backgroundColor: '#FFFFFF',
-        //         legend: {
-        //           cursor: 'pointer',
-        //           itemclick: this.toggleDataSeries.bind(this)
-        //         },
-        //         axisX: {
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //           interval: 1,
-        //           scaleBreaks: {
-        //             type: 'blank',
-        //             spacing: 0,
-        //             customBreaks: [
-        //               {
-        //                 startValue: 201913,
-        //                 endValue: 201999
-        //               },
-        //               {
-        //                 startValue: 202052,
-        //                 endValue: 202100
-        //               },
-        //               {
-        //                 startValue: 202152,
-        //                 endValue: 202200
-        //               },
-        //               {
-        //                 startValue: 202253,
-        //                 endValue: 202300
-        //               }
-        //             ]
-        //           },
-        //         },
-
-        //         axisY: {
-        //           title: " ",
-
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //         },
-
-        //         // toolTip: {
-        //         //   content: 'Week: {x} | {name}: {y}'
-        //         // },
-
-        //         toolTip: {
-        //           shared: true,
-        //           contentFormatter: function(e) {
-        //             var content = ' ';
-        //             //console.log(e.dataPoint);
-        //             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-        //             for (var i = 0; i < e.entries.length; i++) {
-        //               content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-        //               content += '<br/>';
-        //             }
-        //             return content;
-        //           }
-        //         },
-        //         data: [
-        //           {
-        //             name: 'Actuals',
-        //             showInLegend: true,
-        //             type: 'line',
-        //            color: this.actualDataPointColor,
-        //             lineColor: this.actualDataPointColor,
-        //             dataPoints: this.actualDataPoints
-        //           },
-        //           {
-        //             name: 'Actual LY',
-        //             showInLegend: true,
-
-        //             type: 'line',
-        //             
-        //            color: this.lastyearDataPointColor,
-        //             lineColor: this.lastyearDataPointColor,
-        //             dataPoints: this.lastYearDataPoints
-        //           },
-        //           {
-        //             name: 'ML Forecast',
-        //             showInLegend: true,
-        //             type: 'line',
-        //             
-        //            color: this.mlDataPointColor,
-        //             lineColor: this.mlDataPointColor,
-        //             dataPoints: this.mlDataPoints
-        //           },
-        //           {
-        //             name: 'APO Forecast',
-        //             showInLegend: true,
-        //             type: 'line',
-        //             
-        //            color: this.aopDataPointColor,
-        //             lineColor: this.aopDataPointColor,
-        //             dataPoints: this.aopDataPoints
-        //           },
-        //           {
-        //             name: 'Final Forecast',
-        //             showInLegend: true,
-        //             type: 'line',
-        //             
-        //            color: this.finalForecastPointColor,
-        //             lineColor: this.finalForecastPointColor,
-        //             dataPoints: this.finalForecastDataPoints
-        //           }
-        //         ]
-        //       });
-        //       this.chart1.render();
-        //       this.CanvasJSDataAsCSV();
-        //       this.selectOptionsModalCancel.nativeElement.click();
-        //     });
-
-
-        //     this.chart1.render();
-        //     this.chart1.render();
-        // }
-        // else{
-
-
-        // }
-
-
     }
 
 
