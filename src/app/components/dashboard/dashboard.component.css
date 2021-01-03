@@ -7,7 +7,8 @@ a:focus, a:hover {
 /* Content  Styling*/
 #content {
   min-height: 100vh;
-  background-color: #E5E6EA;
+  /*background-color: #E5E6EA;*/
+  background-color: #F8F9FA;
 }
 
 td, th {
@@ -16,7 +17,139 @@ td, th {
   
 }
 
+.ag-row-hover{
 
+  background-color: #ECF0F1;
+}
+
+.ag-column-hover{
+
+  background-color: #ECF0F1;
+}
+
+.heading {
+  display:flex; 
+  flex-direction: row;
+}
+
+.headingtitle {
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 24px; 
+  font-style: normal;
+  font-weight: 900; 
+  line-height: 28px; 
+  color: #212833;
+  margin-left: 1%;
+  margin-top: 1.5%;
+}
+
+.headingicon {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-right: 1%;
+  color: #000;
+  height: 37px;
+}
+
+/*if fixing the filtercomb position uncomment this below */
+/* 
+#maincontent {
+  padding-right: 30px;
+}
+*/
+
+.ffitem h6 {
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  margin-top: 10px !important;
+}
+
+.filter-column .ffbox ul {
+  background-color: white;
+}
+
+.filter-column .ffitem {
+  width: 45%;
+}
+
+.filter-column .ffitem .panel {
+  width: 100%;
+}
+
+.filter-column .ffitem .panel-heading {
+  width: 100%;
+}
+
+.filter-column .ffitem .panel-heading i {
+  padding-left: 10px;
+}
+
+.filter-column .panel {
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: inherit;
+  border: 1px solid !important;
+  border-right: 1px solid !important;
+  border-radius: 0 !important;
+}
+
+#upper_middle .ffitem input {
+  width: 12vw; 
+  height: 50px; 
+  font-family: 'Montserrat', sans-serif !important; 
+  padding: 0 0 0 12px !important; 
+  background-color: inherit;
+  border: 1px solid !important;
+  border-radius: 0 !important;
+}
+
+.ffitem p {
+  margin-top: 12px; 
+  color: #848A92;
+  padding-left: 0.4vw;  
+  font-size: 12px;
+}
+
+.ffitem select {
+  height: 50px; 
+  padding: 0 0 0 12px !important; 
+  font-size: 12px !important; 
+  font-weight: normal !important; 
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: inherit;
+  border: 1px solid !important;
+  border-radius: 0 !important;
+}
+
+.ffitem button {
+  height: 50px; 
+  padding: 0 12 0 12px !important; 
+  font-size: 12px !important; 
+  font-weight: normal !important; 
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: inherit;
+  border: 1px solid !important;
+  border-radius: 0 !important;
+  z-index: 0 !important;
+}
+
+.ffitem i.fa.fa-save.fa-2x.square-icon {
+  color: black; 
+  background-color: #D5DBE2;
+}
+
+.ffitem i.fa.fa-save.fa-2x::before {
+  margin-left: 8px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.combination-column input {
+  border-radius: 6px !important;
+}
+
+.combination-column .extrafgs {
+  font-size: 14px !important;
+}
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -42,15 +175,12 @@ td, th {
 .filter-col {
   background-color: #F4F5F9;
   height: 200vh;
-  left: 80px;
-  width: 200px; /*200px*/
-  position: fixed;
   overflow: hidden;
   z-index: 1;
 }
 
 .content-col {
-  margin: 0 200px; 
+  margin-left: 0.5%; 
 }
 
 .canvasjs-chart-toolbar {
@@ -85,11 +215,6 @@ td, th {
 
 
 .events-col {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0px;
-  width: 200px; /*200px*/
   z-index: 1;
 }
 
@@ -104,50 +229,81 @@ td, th {
   vertical-align: center;
 }
 
+.filtercomb {
+  height: 112vh;
+  max-height: 112vh;
+  /* for fixing filtercomb position uncommment this below and search for "#maincontent" and uncomment that too */
+  /*
+  position: fixed;
+  right: 0;
+  */
+}
+
+.horborder {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.combination-column .oprow {
+  margin-bottom: 4px;
+}
+
+.combination-column .oprow:hover {
+  background-color: rgba(33, 150, 243, 0.2) !important;
+}
+
+.filter-col .panel a, .filtercomb .panel a {
+  color: #33373C;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.filter-col .panel a:hover, .filtercomb .panel a:hover {
+  text-decoration: none;
+}
+
 .text-muted {
   font-size: 12px;
   font-family: 'Montserrat', sans-serif !important;
 }
 
-.filter-col .panel .panel-title {
+.filter-col .panel .panel-title, .filtercomb .panel .panel-title {
   font-size: 0.75rem;
   font-family: 'Roboto', sans-serif !important;
 }
 
-.filter-col .panel {
+.filter-col .panel, .filtercomb .panel {
 
   min-height: 32px;
   width: 94%;
   border: 0;
   margin-bottom: 6px;
 }
+
+.filter-column h6 {
+  font-weight: 700 !important;
+  font-size: 12px !important;
+}
+
 h6{
   font-family: 'Montserrat', sans-serif;
   font-weight: 500 !important;
 }
 
-.filter-col .panel a {
-  color: #33373C;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.filter-col .panel a:hover {
-  text-decoration: none;
-}
-
-.filter-col .panel .panel-body {
+.filter-col .panel .panel-body, .filtercomb .panel .panel-body {
   background-color: white;
 }
 
 
 
-.filter-col .panel .panel-heading {
+.filter-col .panel .panel-heading, .filtercomb .panel .panel-heading {
   background-color: white;
   padding : 5px;
 }
 
 
-.filter-col .panel .panel-body ul {
+.filter-col .panel .panel-body ul, .filtercomb .panel .panel-body ul {
   list-style: none;
   font-size: 0.75rem;
   
@@ -162,7 +318,7 @@ h6{
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
   border-radius: 5px;
-  height: 100%;
+  height: 120vh;
   
 }
 .ag-cell {
@@ -318,6 +474,10 @@ input[type="week"]::-webkit-calendar-picker-indicator {
   border-radius: 50%;
 }
 
+.square-icon {
+  height: 48px;
+  width: 48px;
+}
 
 
 .circle-icon1 {
