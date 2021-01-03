@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: 'https://norway-springboot.azurewebsites.net/v1/',  //norway backend
+  apiGatewayUrl: 'https://aurora-springboot.azurewebsites.net/v1/',  //norway backend
 };
 
 
