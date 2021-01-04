@@ -15,7 +15,7 @@ a:focus, a:hover {
   position: fixed;
   width: 80px; /*80px*/
   height: 100%; /*135vh*/
-  background-color: #212933;
+  background-color: #5A5F66;
   color: white;
   z-index: 1;
 }
@@ -42,5 +42,5 @@ a:focus, a:hover {
 }
 
 #sidebar .item:hover {
-  background-color: #516074 !important;
+  background-color: #797F87 !important;
 }
