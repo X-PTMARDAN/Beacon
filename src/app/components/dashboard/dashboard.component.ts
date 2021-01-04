@@ -3198,12 +3198,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             uom: this.UOM
         };
 
+        this.loading = true;
+
         this.skuService.checkratio(ratiodata).subscribe((res: any) => {
+            this.loading = false;
             if (res == true) {
                 this.updateTheTable();
             }
             else {
                 window.alert("Error: UOM ratio for the materials doesn't match");
+                this.UOM = 'HL';
+                this.updateTheTable();
             }
         });
     }
