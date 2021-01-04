@@ -916,4 +916,8 @@ export class SKUService {
   public updateCVCState(data={}) {
     return this.http.post(`${this.apiGatewayUrl}updateCVCState`, data);
   }
+
+  public checkratio(data={}) {
+    return this.http.post(`${this.apiGatewayUrl}getRatio`, data);
+  }
 }
