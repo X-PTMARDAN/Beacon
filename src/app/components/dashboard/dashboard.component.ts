@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import * as CanvasJS from './../../../assets/js/canvasjs.min';
 import { SKUService } from '../../services/sku.service';
 import { NgForm } from '@angular/forms';
@@ -102,7 +102,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public suballbrand = 0;
     public allbrand = 0;
 
-    public bothYes = true;
+
     public rowGroupPanelShow;
 
     public allComments_harshit;
@@ -485,8 +485,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public thi = 0;
 
-    public filters1_list: any = [];
-
     // Events
     public weathers: any = [];
     public events: any = [];
@@ -508,13 +506,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     }
 
-    public showcombinationcolumn = false;
-
-    @HostListener('document:click', ['$event'])
-
-    clickout() {
-     this.pressed = false;
-    }
 
     ngOnInit() {
 
@@ -535,7 +526,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
 
-        //console.log('Hhsdfh--' + JSON.stringify(this.update));
+        console.log('Hhsdfh--' + JSON.stringify(this.update));
 
 
         this.role = sessionStorage.getItem('role');
@@ -557,15 +548,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.usertext = sessionStorage.getItem('username');
 
 
-        //console.log('TYTMANANANAAN' + this.role);
+        console.log('TYTMANANANAAN' + this.role);
         this.skuService.getPlants().subscribe((response: any) => {
             this.plants = response;
             // this.filters_plant=response;
 
 
-            //console.log('Dfsfg---' + JSON.stringify(response));
+            console.log('Dfsfg---' + JSON.stringify(response));
             const plant = this.plants;
-            //console.log('HAHA---' + JSON.stringify(plant));
+            console.log('HAHA---' + JSON.stringify(plant));
             this.filters_plant.push({
                 name: 'Plants',
                 key: 'plant',
@@ -577,7 +568,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
             for (const b of this.filters_plant[0].values) {
-                //console.log('fgsfg12345-' + JSON.stringify(b));
+                console.log('fgsfg12345-' + JSON.stringify(b));
                 if (b.name.name == 'G001') {
                     b.isChecked = true;
                 }
@@ -624,20 +615,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             //         temp_cpg=JSON.parse(JSON.stringify(abc.cpg));
 
-            //         //console.log("3454555555-----"+JSON.stringify(abc));
-            //         //console.log("DSfs23456fs-----"+JSON.stringify(abc.cpg));
+            //         console.log("3454555555-----"+JSON.stringify(abc));
+            //         console.log("DSfs23456fs-----"+JSON.stringify(abc.cpg));
 
             //         temp_plant=JSON.parse(JSON.stringify(abc.plant));
             //     }
             // }
 
 
-            //   //console.log("DSfsfs-----"+JSON.stringify(temp_fg));
+            //   console.log("DSfsfs-----"+JSON.stringify(temp_fg));
 
-            //   //console.log("DSfs23456fs-----"+JSON.stringify(temp_plant));
+            //   console.log("DSfs23456fs-----"+JSON.stringify(temp_plant));
 
 
-            //   //console.log("DSfs23456fs2345-----"+JSON.stringify(temp_cpg));
+            //   console.log("DSfs23456fs2345-----"+JSON.stringify(temp_cpg));
             //   if(temp_cpg.length>0)
             //   {
             //     var a :any=[];
@@ -655,15 +646,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             //  }
 
 
-            //     //console.log("DSfsfs123456-----"+JSON.stringify(a));
+            //     console.log("DSfsfs123456-----"+JSON.stringify(a));
             //     this.createdata.forecastingGroups=JSON.parse(JSON.stringify(a));
             //     this.createdata.plants=JSON.parse(JSON.stringify(temp_plant));
 
-            //     //console.log("DSfs23456fs345-----"+JSON.stringify(this.createdata.plants));
+            //     console.log("DSfs23456fs345-----"+JSON.stringify(this.createdata.plants));
             //     this.createdata.customerPlanningGroup=JSON.parse(JSON.stringify(temp_cpg));
 
 
-            //   //console.log("DSfs23456fs234534-----"+JSON.stringify(this.createdata.customerPlanningGroup));
+            //   console.log("DSfs23456fs234534-----"+JSON.stringify(this.createdata.customerPlanningGroup));
             //   }
 
             // this.cpgss=JSON.parse(JSON.stringify(this.createdata.customerPlanningGroup));
@@ -680,7 +671,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             // //       return item;
             // //     });
 
-            //   //console.log("sdfshbr---"+JSON.stringify(this.createdata));
+            //   console.log("sdfshbr---"+JSON.stringify(this.createdata));
             //    this.createPlan(this.createdata);
 
 
@@ -699,9 +690,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 return { name: item, isChecked: false, isFiltered: true };
             });
 
-            //console.log('JKHFRR---' + JSON.stringify(response));
+            console.log('JKHFRR---' + JSON.stringify(response));
 
-            //console.log('shbfsh--');
+            console.log('shbfsh--');
             this.filters.push({
                 name: 'CPG',
                 key: 'customerPlanningGroup',
@@ -710,10 +701,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             });
 
 
-            //console.log('khguyg-' + JSON.stringify(this.filters));
+            console.log('khguyg-' + JSON.stringify(this.filters));
 
             for (const b of this.filters[0].values) {
-                //console.log('fgsfg12345-' + JSON.stringify(b));
+                console.log('fgsfg12345-' + JSON.stringify(b));
 
             }
         });
@@ -727,7 +718,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             // this.filters_plant=response;
 
 
-            //console.log('shbfsh--');
+            console.log('shbfsh--');
             this.filters2.push({
                 name: 'Sales Office',
                 key: 'salesoffice',
@@ -772,31 +763,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             this.skuService.fetchHorizon().subscribe((response: any) => {
 
 
-                //console.log('DEBUG0909---' + response);
+                console.log('DEBUG0909---' + response);
 
-                //console.log('DEBUG09091---' + response);
+                console.log('DEBUG09091---' + response);
                 this.prevactuals_val = parseInt(response.horizon);
-                //console.log('DEBUG0909---' + this.prevactuals);
+                console.log('DEBUG0909---' + this.prevactuals);
 
-                //console.log('DEBUG09091---' + this.plan);
+                console.log('DEBUG09091---' + this.plan);
 
                 this.plan_val = parseInt(response.plan);
-                //console.log('DEBUG0909---' + this.prevactuals);
+                console.log('DEBUG0909---' + this.prevactuals);
 
-                //console.log('DEBUG09091---' + this.plan);
-                //console.log('DEBUG0909---' + this.prevactuals);
+                console.log('DEBUG09091---' + this.plan);
+                console.log('DEBUG0909---' + this.prevactuals);
 
-                //console.log('DEBUG09091---' + this.plan);
+                console.log('DEBUG09091---' + this.plan);
 
                 this.prevactuals = response.horizon.toString().substr(0, 4) + '-W' + response.horizon.toString().substr(4, 6);
-                //console.log('Kalia12---' + this.prevactuals);
+                console.log('Kalia12---' + this.prevactuals);
 
                 this.endWeek = response.plan.toString().substr(0, 4) + '-W' + response.plan.toString().substr(4, 6);
 
-                //console.log('Kalia123---' + this.plan);
+                console.log('Kalia123---' + this.plan);
 
 
-                //   //console.log("DEBUG0909121---"+this.prevactuals);
+                //   console.log("DEBUG0909121---"+this.prevactuals);
 
 
                 this.loading = true;
@@ -864,7 +855,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     this.skuService.getbaseunit().subscribe((response: any) => {
 
 
-                                        //console.log('9889989--' + JSON.stringify(response));
+                                        console.log('9889989--' + JSON.stringify(response));
                                         this.filters1.push({
                                             name: 'Primary Unit',
                                             key: 'baseunit',
@@ -912,18 +903,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                                             values: response
                                                         });
 
-                                                        var ier = 0;
-                                                        for (var key in this.filters1) {
-                                                            if (this.filters1.hasOwnProperty(key)) {
-                                                                this.filters1_list[ier] = [];
-                                                                this.filters1_list[ier].push(this.filters1[key]);
-                                                                ier = ier + 1;
-                                                            }
-                                                        }
 
                                                         this.skuService.getForecastingGroup().subscribe((res: any) => {
                                                             //  this.plants = response;
-                                                            //console.log('767868675-' + JSON.stringify(res));
+                                                            console.log('767868675-' + JSON.stringify(res));
                                                             this.skus_search = res;
 
                                                             this.skus_search.push({
@@ -966,7 +949,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                                                 }
                                                             }
 
-                                                            //console.log('DEFAULT--------' + JSON.stringify(temp_cpg));
+                                                            console.log('DEFAULT--------' + JSON.stringify(temp_cpg));
                                                             //  this.skuService.skuname(temp_fg).subscribe((res: any) => {
 
 
@@ -976,7 +959,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                                                                 // var a=temp_fg.filter(item => item.isChecked).map(item => item.name);
 
-                                                                //console.log('INSIDE IF--------' + JSON.stringify(temp_cpg));
+                                                                console.log('INSIDE IF--------' + JSON.stringify(temp_cpg));
 
 
                                                                 var a: any = [];
@@ -1021,11 +1004,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                                                 this.createdata.forecastingGroups = JSON.parse(JSON.stringify(a));
                                                                 this.createdata.plants = JSON.parse(JSON.stringify(temp_plant));
                                                                 this.createdata.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
-                                                                //console.log('dfsdfhdf-------' + JSON.stringify(this.createdata.customerPlanningGroup));
+                                                                console.log('dfsdfhdf-------' + JSON.stringify(this.createdata.customerPlanningGroup));
 
                                                                 for (const b of this.filters[0].values) {
                                                                     for (const c of temp_cpg) {
-                                                                        //console.log('fgsfg12345-' + JSON.stringify(b));
+                                                                        console.log('fgsfg12345-' + JSON.stringify(b));
                                                                         if (b.name.name == c) {
                                                                             b.isChecked = true;
                                                                         }
@@ -1035,7 +1018,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                                                                 for (const b of this.filters_plant[0].values) {
                                                                     for (const c of temp_plant) {
-                                                                        //console.log('fgsfg12345-' + JSON.stringify(b));
+                                                                        console.log('fgsfg12345-' + JSON.stringify(b));
                                                                         if (b.name.name == c) {
                                                                             b.isChecked = true;
                                                                         }
@@ -1044,7 +1027,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                                                                 // for (const b of this.filters_plant[0].values) {
-                                                                //   //console.log('fgsfg12345-' + JSON.stringify(b));
+                                                                //   console.log('fgsfg12345-' + JSON.stringify(b));
                                                                 //   if (b.name.name == 'G001') {
                                                                 //     b.isChecked = true;
                                                                 //   }
@@ -1057,7 +1040,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                                                             this.plantss = JSON.parse(JSON.stringify(this.createdata.plants));
 
-                                                            //console.log('1121212-----qe1212' + JSON.stringify(this.createdata.forecastingGroups));
+                                                            console.log('1121212-----qe1212' + JSON.stringify(this.createdata.forecastingGroups));
 
 
                                                             this.fgssselected = this.createdata.forecastingGroups;
@@ -1072,35 +1055,35 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                                                             for (const abc in this.createdata.customerPlanningGroup) {
-                                                                //console.log('00000----' + abc);
+                                                                console.log('00000----' + abc);
                                                                 this.createdata.customerPlanningGroup[abc] = this.createdata.customerPlanningGroup[abc].split('-')[0];
                                                             }
 
 
                                                             for (const abc in this.createdata.plants) {
-                                                                //console.log('00000----' + abc);
+                                                                console.log('00000----' + abc);
                                                                 this.createdata.plants[abc] = this.createdata.plants[abc].split('-')[0];
                                                             }
 
 
                                                             for (const abc in this.createdata.forecastingGroups) {
-                                                                //console.log('00000----' + abc);
+                                                                console.log('00000----' + abc);
                                                                 this.createdata.forecastingGroups[abc].name = this.createdata.forecastingGroups[abc].name.split('-')[0];
                                                             }
 
 
                                                             // for(const abc of this.createdata.forecastingGroups)
                                                             // {
-                                                            //   //console.log("00000----"+abc);
+                                                            //   console.log("00000----"+abc);
                                                             //   abc.name=abc.name.split('-')[0];
                                                             //   //this.createdata.forecastingGroups[abc]=this.createdata.forecastingGroups[abc].split('-')[0];
                                                             // }
 
 
-                                                            //console.log('dfdfd12345678---' + JSON.stringify(this.createdata));
+                                                            console.log('dfdfd12345678---' + JSON.stringify(this.createdata));
                                                             //    this.createdata.customerPlanningGroup[0]= this.createdata.customerPlanningGroup[0].split('-')[0];
-                                                            // //console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
-                                                            // //console.log('sdfshbr---' + JSON.stringify(this.createdata));
+                                                            // console.log('sdfshbr234---' + JSON.stringify(this.createdata.customerPlanningGroup[0].split("-")));
+                                                            // console.log('sdfshbr---' + JSON.stringify(this.createdata));
                                                             this.skuService.getLoadWeek().subscribe((response: String) => {
                                                                 this.DBloadWeek = response;
                                                                 var z = this.DBloadWeek.toString();
@@ -1224,7 +1207,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   //       return item;
         //   //     });
 
-        //     //console.log("sdfshbr---"+JSON.stringify(this.createdata));
+        //     console.log("sdfshbr---"+JSON.stringify(this.createdata));
         //      this.createPlan(this.createdata);
 
 
@@ -1281,7 +1264,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.skuService.getForecastingGroup().subscribe((res: any) => {
             //  this.plants = response;
-            //console.log('767868675-' + JSON.stringify(res));
+            console.log('767868675-' + JSON.stringify(res));
             this.skus_search = res;
 
             this.skus_search.push({
@@ -1298,7 +1281,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             filterBrands: []
         }).subscribe((res: any) => {
 
-            //console.log('909090==' + JSON.stringify(res));
+            console.log('909090==' + JSON.stringify(res));
             this.skus_search = JSON.parse(JSON.stringify(res)).map(item => item.name),
                 this.skus = res;
         });
@@ -1408,31 +1391,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     }
 
-
-
-    public filterorcomb_harshit()
-    {
-
-        this.onFilterCheckBoxChange121_sku();
-        this.filterorcomb();
-    }
-
-
-    public filterorcomb() {
-       this.showcombinationcolumn = !this.showcombinationcolumn;
-       if (this.reactivate_filter_button == 1) {
-        document.getElementById('apply_filter').style.background = '#17b169';
-       }
-    }
-
-    public aggrid2excel() {
-        var params = {
-            sheetName: 'Planning Table',
-            exportMode: undefined,
-        };
-        this.gridApi.exportDataAsExcel(params);
-    }
-
     public showAreusure() {
         var tt = this.willusave;
         window.addEventListener("beforeunload", function (e) {
@@ -1448,14 +1406,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
-    public ullu() {
-        //console.log(JSON.stringify(this.filters1_brands));
-        window.alert("lululululu");
-        this.filters1_brands.forEach(element => {
-            //console.log(JSON.stringify(element));
-        });
-    }
-
     private static getCurrentWeek(date: Date) {
         const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
         const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
@@ -1467,32 +1417,25 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     public download_graph() {
-        //console.log('567898uytghjn----');
+        console.log('567898uytghjn----');
         this.chart1.title.set('text', 'Forecasting Group - ' + this.createPlanRequestData.forecastingGroups + '\n' + 'Customer Planning Group- ' + this.createPlanRequestData.customerPlanningGroup + '\n' + 'Plants- ' + this.createPlanRequestData.plants);
+
         this.chart1.title.set('fontSize', 20);
         this.chart1.exportChart({ format: 'jpg' });
+
         this.chart1.title.set('text', ' ');
         this.chart1.title.set('fontSize', 1);
-    }
-
-    public download_graph2() {
-        //console.log('567898uytghjn----');
-        this.chart2.title.set('text', 'Forecasting Group - ' + this.createPlanRequestData.forecastingGroups + '\n' + 'Customer Planning Group- ' + this.createPlanRequestData.customerPlanningGroup + '\n' + 'Plants- ' + this.createPlanRequestData.plants);
-        this.chart2.title.set('fontSize', 20);
-        this.chart2.exportChart({ format: 'jpg' });
-        this.chart2.title.set('text', ' ');
-        this.chart2.title.set('fontSize', 1);
     }
 
 
     public reactivate_filter(a: number) {
 
 
-        //console.log('Graph - ' + JSON.stringify(this.graphData));
+        console.log('Graph - ' + JSON.stringify(this.graphData));
 
 
         this.reactivate_filter_button = 1;
-        //console.log('FGSSSSS2345ytujhnbv_initial---' + JSON.stringify(this.fgssselected));
+        console.log('FGSSSSS2345ytujhnbv_initial---' + JSON.stringify(this.fgssselected));
         document.getElementById('apply_filter').style.background = '#17b169';
 
 
@@ -1517,10 +1460,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 
-        //console.log('FGSSSSS2345ytujhnbv---' + JSON.stringify(this.fgssselected));
+        console.log('FGSSSSS2345ytujhnbv---' + JSON.stringify(this.fgssselected));
 
         //this.fgssselected
-        //console.log('DSfsdfsd234----' + JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)));
+        console.log('DSfsdfsd234----' + JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)));
         //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
 
@@ -1529,7 +1472,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public brandsub(feature: any) {
         var t = this.getFiltersObject_brands();
-        //console.log('dgcfhj----' + feature);
+        console.log('dgcfhj----' + feature);
         if (feature == 'brand') {
 
 
@@ -1539,7 +1482,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 brandssub: t
             };
 
-            //console.log('gfhjh--' + JSON.stringify(h));
+            console.log('gfhjh--' + JSON.stringify(h));
             this.skuService.brandssub(h).subscribe((res: any) => {
 
                 this.filters1_subbrand = [];
@@ -1614,7 +1557,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //  document.getElementById('apply_filter').style.background='#003228';
         //document.getElementById("apply_filter").disabled=true;
         this.reactivate_filter_button = 0;
-        //console.log('dfsdfsdfsdf----');
+        console.log('dfsdfsdfsdf----');
         document.getElementById('apply_filter').style.background = '#808080';
 
 
@@ -1643,9 +1586,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public test(feature: any) {
 
+        console.log('Harsh134->' + feature);
         this.createPlanRequestData.uom = this.UOM;
 
+        // if(feature == "Baseline")
+        // {
+
+        // }
+        // else if(feature == "Promo")
+
+        // console.log("Harshit--->"+JSON.stringify(this.createPlanRequestData.startWeek));
+        // this.createPlanRequestData_featurechange.startWeek=this.createPlanRequestData.startWeek;
+
+        // this.createPlanRequestData_featurechange.endWeek=this.createPlanRequestData.endWeek;
+
+        // this.createPlanRequestData_featurechange.plants=this.createPlanRequestData.plants;
+
+        // this.createPlanRequestData_featurechange.customerPlanningGroup=this.createPlanRequestData.customerPlanningGroup;
+
+        // this.createPlanRequestData_featurechange.forecastingGroups=this.createPlanRequestData.forecastingGroups;
+
+        // this.createPlanRequestData_featurechange.property=feature;
+
+
         if (feature == 'Open' && this.granular1 == 'week') {
+
 
             if (this.UOM == 'HL') {
                 this.featureanalysis = 'Feature Analysis (HL)';
@@ -1665,10 +1630,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             this.createPlanRequestData.which_feature = 'Open';
 
+
+            //   kjsfhksjhgsfhgdfsg
             this.skuService.getFeatureGraphData(this.createPlanRequestData).subscribe((res: any) => {
                 this.valuestring = 'Open Order';
                 this.processFeatureGraphData(res);
 
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('ISSE PTA--' + this.greystart);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -1779,7 +1748,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -1849,8 +1818,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 }
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
-                //console.log('ISSE PTA--' + this.greystart);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('ISSE PTA--' + this.greystart);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -1968,7 +1937,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -2048,7 +2017,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //  this.createFilterObject(res);
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -2164,7 +2133,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -2255,7 +2224,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //  this.createFilterObject(res);
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -2364,7 +2333,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -2443,7 +2412,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //  this.createFilterObject(res);
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -2547,7 +2516,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -2611,7 +2580,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //  this.createFilterObject(res);
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -2716,7 +2685,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -2781,7 +2750,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //  this.createFilterObject(res);
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -2886,7 +2855,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -2947,7 +2916,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //  this.createFilterObject(res);
 
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -3052,7 +3021,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -3100,7 +3069,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     public bigImg(s) {
-        //console.log('fs--' + s);
+        console.log('fs--' + s);
 
         var a = {
             material: s
@@ -3109,7 +3078,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.skuService.fetchmaterialname(a).subscribe((res: any) => {
 
 
-            //console.log('sjkhfgksfgrg---' + JSON.stringify(res[0]));
+            console.log('sjkhfgksfgrg---' + JSON.stringify(res[0]));
             this.skuname_down = res[0];
 
 
@@ -3128,7 +3097,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public addItems(itemId: number) {
 
-        //console.log('TESTIGN^&*IH---' + JSON.stringify(this.fgssselected));
+        console.log('TESTIGN^&*IH---' + JSON.stringify(this.fgssselected));
         const itemIndex = this.skus_search.findIndex((item) => item.id === itemId);
         var item1 = this.skus_search[itemIndex];
 
@@ -3138,32 +3107,32 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         item1.name = fin_item;
 
-        //console.log('sdfjs---' + JSON.stringify(item1));
+        console.log('sdfjs---' + JSON.stringify(item1));
 
-        //console.log('sdfjs---' + JSON.stringify(this.skus));
+        console.log('sdfjs---' + JSON.stringify(this.skus));
         item1.isFiltered = false;
         this.selectedskus.push(item1);
         this.skus_search.splice(itemIndex, 1);
         var flag = 0;
         for (const ab of this.skus) {
-            //console.log('ITEM -' + item1.name);
-            //console.log('ITEM_SKU -' + ab.name);
+            console.log('ITEM -' + item1.name);
+            console.log('ITEM_SKU -' + ab.name);
 
             if (item1.name === ab.name) {
                 flag = 1;
 
             }
         }
-        //console.log('FLAGGER--' + flag);
+        console.log('FLAGGER--' + flag);
         if (flag == 0) {
             document.getElementById('apply_filter').style.background = '#17b169';
             this.second_sku.push(item1);
         } else if (flag == 1) {
-            //console.log('nhi ha');
+            console.log('nhi ha');
         }
 
 
-        //console.log('TESTIGN^&*IH_END---' + JSON.stringify(this.fgssselected));
+        console.log('TESTIGN^&*IH_END---' + JSON.stringify(this.fgssselected));
 
     }
 
@@ -3202,7 +3171,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   return item;
         // });
 
-        //console.log('dsfkhsdkhfsd---' + JSON.stringify(this.allselectedweek));
+        console.log('dsfkhsdkhfsd---' + JSON.stringify(this.allselectedweek));
 
 
         this.allselectedweek = JSON.parse(JSON.stringify(this.allComments));
@@ -3217,9 +3186,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     }
         // }
 
-        // //console.log("Comments Test---"+JSON.stringify(this.commentsall_combination));
+        // console.log("Comments Test---"+JSON.stringify(this.commentsall_combination));
 
 
+    }
+
+    public checkratio() {
+
+        var ratiodata = {
+            leadsku: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+            uom: this.UOM
+        };
+
+        this.skuService.checkratio(ratiodata).subscribe((res: any) => {
+            if (res == true) {
+                this.updateTheTable();
+            }
+            else {
+                window.alert("Error: UOM ratio for the materials doesn't match");
+            }
+        });
     }
 
     public updateTheTable() {
@@ -3269,7 +3255,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                     // this.skus=JSON.parse(JSON.stringify(this.fgssselected))
 
-                    // //console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
+                    // console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
                     //this.test();
 
 
@@ -3285,7 +3271,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         });
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -3297,7 +3283,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             this.enabled = 0;
                         }
 
-                        this.allComments = res.combinedcomment;////console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        this.allComments = res.combinedcomment;//console.log("SAVEPLAN---"+JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -3320,7 +3306,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //  //console.log('GREYSTART--' + this.greystart);
+                        //  console.log('GREYSTART--' + this.greystart);
                         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
                         this.createPlanRequestData.subbrand = res.req.subbrand;
                         this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
@@ -3340,19 +3326,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                         this.loading = false;
 
-                        //  //console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
+                        //  console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
 
 
                         this.processGraphData(res);
                         //this.processgraphData(res);
-
-
-                        try{
                         document.getElementById('arrow').style.color = 'grey';
-                        }catch(err)
-                        {
-
-                        }
 
                         this.processFeatureGraphData(res);
                         this.valuestring = 'Promo';
@@ -3363,8 +3342,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
                         this.commentsall();
 
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
-                        //console.log('ISSE PTA--' + this.greystart);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('ISSE PTA--' + this.greystart);
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
                             showInLegend: true,
@@ -3380,7 +3359,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                                 // labelFormatter: function(e){
 
-                                //   //console.log("Checking--1212-"+e);
+                                //   console.log("Checking--1212-"+e);
                                 //  // return e.value.slice(4, 6);
                                 // },
                                 valueFormatString: '######',
@@ -3478,7 +3457,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -3498,7 +3477,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -3535,7 +3514,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.chart2.render();
                         this.secondgraph = 'Baseline';
                         this.loading = false;
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -3654,7 +3633,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -3753,7 +3732,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -3773,7 +3752,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -3787,7 +3766,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         }
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -3806,7 +3785,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
                         this.createPlanRequestData.brands = res.req.brands;
                         this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
                         this.createPlanRequestData.subbrand = res.req.subbrand;
@@ -3846,7 +3825,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
 
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
                         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
                         //   animationEnabled: true,
 
@@ -3907,7 +3886,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -4036,7 +4015,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -4056,7 +4035,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -4095,7 +4074,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -4215,7 +4194,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -4315,7 +4294,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -4335,7 +4314,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -4350,7 +4329,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -4369,7 +4348,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -4411,7 +4390,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -4517,7 +4496,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -4537,7 +4516,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -4635,7 +4614,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -4657,7 +4636,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -4772,7 +4751,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -4868,7 +4847,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
 
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -4888,7 +4867,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -4903,7 +4882,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -4922,7 +4901,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -4964,7 +4943,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -5074,7 +5053,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -5094,7 +5073,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -5191,7 +5170,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -5213,7 +5192,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -5325,7 +5304,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -5422,7 +5401,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
 
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -5442,7 +5421,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -5457,7 +5436,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -5476,7 +5455,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -5518,7 +5497,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -5628,7 +5607,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -5648,7 +5627,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -5745,7 +5724,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -5767,7 +5746,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -5879,7 +5858,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -5976,7 +5955,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
 
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -5996,7 +5975,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -6011,7 +5990,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -6030,7 +6009,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -6072,7 +6051,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -6182,7 +6161,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -6202,7 +6181,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -6299,7 +6278,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -6321,7 +6300,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -6432,7 +6411,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -6529,7 +6508,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
 
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -6549,7 +6528,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -6564,7 +6543,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -6583,7 +6562,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -6625,7 +6604,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -6735,7 +6714,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -6755,7 +6734,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -6852,7 +6831,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -6874,7 +6853,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -6986,7 +6965,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -7074,7 +7053,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 if (this.UOM == "HL") {
                     this.featureanalysis = 'Feature Analysis (HL)';
-                    //console.log('MONTH->' + JSON.stringify(this.hh));
+                    console.log('MONTH->' + JSON.stringify(this.hh));
                     //  const data=this.createPlanRequestData;
 
                     this.type123 = "month";
@@ -7094,7 +7073,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
 
 
-                    //console.log('Create_Plan1234->' + JSON.stringify(this.hh));
+                    console.log('Create_Plan1234->' + JSON.stringify(this.hh));
 
 
                     this.createPlanRequestData = {
@@ -7108,7 +7087,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //this.test();
 
                     //  this.skus=JSON.parse(JSON.stringify(this.fgssselected));
-                    //console.log('WOW->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('WOW->' + JSON.stringify(this.createPlanRequestData));
                     this.loading = true;
                     this.skuService.getGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
                         this.eventsSubject.next({
@@ -7118,7 +7097,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -7136,9 +7115,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             this.inter = 1;
                         }
 
-                        //console.log('GREYSTART--' + this.inter);
+                        console.log('GREYSTART--' + this.inter);
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -7183,7 +7162,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   return item;
                         // });
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
                         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
                         //   animationEnabled: true,
 
@@ -7244,7 +7223,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -7264,7 +7243,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
                         // this.chart2.render();
 
-                        //console.log('ISSE PTA--' + this.greystart);
+                        console.log('ISSE PTA--' + this.greystart);
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
                             showInLegend: true,
@@ -7373,7 +7352,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -7393,7 +7372,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -7429,7 +7408,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.chart2.render();
                         this.secondgraph = 'Baseline';
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -7543,7 +7522,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -7646,7 +7625,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -7666,7 +7645,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -7680,7 +7659,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -7699,7 +7678,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -7741,7 +7720,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -7851,7 +7830,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -7871,7 +7850,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -7968,7 +7947,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -7990,7 +7969,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -8105,7 +8084,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -8206,7 +8185,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -8226,7 +8205,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -8241,7 +8220,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -8261,7 +8240,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -8303,7 +8282,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
@@ -8407,7 +8386,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -8427,7 +8406,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -8524,7 +8503,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -8546,7 +8525,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -8661,7 +8640,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -8763,7 +8742,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -8783,7 +8762,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -8798,7 +8777,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -8818,7 +8797,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -8860,7 +8839,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
@@ -8964,7 +8943,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -8984,7 +8963,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -9081,7 +9060,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -9103,7 +9082,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -9218,7 +9197,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -9318,7 +9297,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -9338,7 +9317,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -9353,7 +9332,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -9373,7 +9352,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -9415,7 +9394,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
@@ -9519,7 +9498,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -9539,7 +9518,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -9636,7 +9615,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -9658,7 +9637,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -9772,7 +9751,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -9873,7 +9852,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -9893,7 +9872,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -9908,7 +9887,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -9928,7 +9907,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -9970,7 +9949,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
@@ -10074,7 +10053,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -10094,7 +10073,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -10191,7 +10170,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -10213,7 +10192,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -10328,7 +10307,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -10432,7 +10411,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.prevactuals = '2019-W01';
                     // this.endWeek = '2019-W52';
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -10452,7 +10431,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -10467,7 +10446,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -10487,7 +10466,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -10529,7 +10508,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
                             animationEnabled: true,
@@ -10633,7 +10612,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -10653,7 +10632,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -10750,7 +10729,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -10772,7 +10751,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -10887,7 +10866,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -10973,7 +10952,27 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
             else {
                 window.alert("Something went wrong. Please try again - aggregated");
-            }            
+            }     
+                                //here
+                                var threebars = Array.from(document.getElementsByClassName('ag-icon') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < threebars.length; i++) {
+                                    threebars[i].style.display = 'none';
+                                }
+                                var headercells = Array.from(document.getElementsByClassName('ag-header-cell') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < headercells.length; i++) {
+                                    headercells[i].style.paddingLeft = '0px';
+                                    headercells[i].style.paddingRight = '0px';
+                                }
+                                var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < agcells.length; i++) {
+                                    agcells[i].style.paddingLeft = '0px';
+                                    agcells[i].style.paddingRight = '5px';
+                                    agcells[i].style.fontSize = '12px';
+                                }
+                                var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
+                                for (var i = 0; i < agcells2.length; i++) {
+                                    agcells2[i].style.paddingLeft = '5px';
+                                }       
         }
 
         else if (this.views == "Sku View") {
@@ -10982,18 +10981,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 if (this.UOM == "HL") {
 
-                    //console.log('GRANUALLLL---' + JSON.stringify(this.fgssselected));
+                    console.log('GRANUALLLL---' + JSON.stringify(this.fgssselected));
 
-                    //console.log('GRANUALLLL121---' + JSON.stringify(this.createdata));
+                    console.log('GRANUALLLL121---' + JSON.stringify(this.createdata));
 
 
 
 
                     //  this.type123="week";
-                    //console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
+                    console.log('dsfsdffgsf--' + document.getElementById('granular').innerHTML);
 
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -11017,7 +11016,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -11026,7 +11025,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.UOM = 'HL';
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -11110,7 +11109,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
                         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
                         //   animationEnabled: true,
 
@@ -11222,7 +11221,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -11260,7 +11259,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        // //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        // console.log('132456->' + this.createPlanRequestData.startWeek);
                         // this.chart1 = new CanvasJS.Chart('chartContainer1', {
                         //   title: {text: ' ', fontStyle: 'no',},
                         //   animationEnabled: true,
@@ -11375,7 +11374,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //     shared: true,
                         //     contentFormatter: function(e) {
                         //       var content = ' ';
-                        //       ////console.log(e.dataPoint);
+                        //       //console.log(e.dataPoint);
                         //       content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                         //       for (var i = 0; i < e.entries.length; i++) {
                         //         content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -11457,7 +11456,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
 
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -11478,7 +11477,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -11493,7 +11492,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -11512,7 +11511,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -11554,7 +11553,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -11664,7 +11663,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -11684,7 +11683,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -11781,7 +11780,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -11803,7 +11802,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -11915,7 +11914,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -12018,7 +12017,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
 
                 //const data=this.createPlanRequestData;
-                //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                 this.createPlanRequestData = {
                     startWeek: this.createPlanRequestData.startWeek,
                     endWeek: this.createPlanRequestData.endWeek,
@@ -12039,7 +12038,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     this.loading = false;
 
                     // if (res.res.length == 0) {
-                    //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                    //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                     //   window.alert('No Combination is available');
                     //   this.loading = false;
                     //   return;
@@ -12054,7 +12053,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                     this.allComments = res.combinedcomment;
-                    //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                    console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                     this.allComments_harshit = [];
                     for (const abc of this.allComments) {
@@ -12073,7 +12072,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     } else {
                         this.inter = 1;
                     }
-                    //console.log('GREYSTART--' + this.greystart);
+                    console.log('GREYSTART--' + this.greystart);
 
 
                     this.createPlanRequestData.brands = res.req.brands;
@@ -12115,7 +12114,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // });
 
                     this.commentsall();
-                    //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                    console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
 
@@ -12227,7 +12226,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             shared: true,
                             contentFormatter: function (e) {
                                 var content = ' ';
-                                ////console.log(e.dataPoint);
+                                //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
                                     if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -12247,7 +12246,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   shared: true,
                         //   contentFormatter: function(e) {
                         //     var content = ' ';
-                        //     //console.log(JSON.stringify(e));
+                        //     console.log(JSON.stringify(e));
                         //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //     for (var i = 0; i < e.entries.length; i++) {
                         //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -12351,7 +12350,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //   //   shared: true,
                     //   //   contentFormatter: function(e) {
                     //   //     var content = ' ';
-                    //   //     //console.log(JSON.stringify(e));
+                    //   //     console.log(JSON.stringify(e));
                     //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                     //   //     for (var i = 0; i < e.entries.length; i++) {
                     //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -12373,7 +12372,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.chart2.render();
 
 
-                    //console.log('132456->' + this.createPlanRequestData.startWeek);
+                    console.log('132456->' + this.createPlanRequestData.startWeek);
                     this.chart1 = new CanvasJS.Chart('chartContainer1', {
                         title: { text: ' ', fontStyle: 'no', },
                         animationEnabled: true,
@@ -12485,7 +12484,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             shared: true,
                             contentFormatter: function (e) {
                                 var content = ' ';
-                                ////console.log(e.dataPoint);
+                                //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
                                     if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -12573,24 +12572,1143 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         else if (this.views == "Detailed View") {
 
-            if (this.granular1 == "week") {
-                if (this.UOM == "HL") {
+            var a =  this.fgssselected.length;
+            var b = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            var c = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            if (a*b*c > 200) {
+                this.views = "Aggregated";
+                window.alert("Error: combination count more than 200.");
+            }
+            else {
+
+
+                if (this.granular1 == "week") {
+                    if (this.UOM == "HL") {
+                        try {
+                            this.planningtable = 'Planning table (HL)';
+
+
+                            document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+
+                            document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+
+
+                            this.forecastinganalysis = 'Forecast Analysis (HL)';
+                            this.featureanalysis = 'Feature Analysis (HL)';
+                        } catch (err) {
+
+                        }
+                        //const data=this.createPlanRequestData;
+                        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                        this.createPlanRequestData = {
+                            startWeek: this.createPlanRequestData.startWeek,
+                            endWeek: this.createPlanRequestData.endWeek,
+                            prevactuals: this.createPlanRequestData.prevactuals,
+                            // forecastingGroups: data.forecastingGroups,
+                            forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+                            customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                            plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                            uom1: this.UOM
+                        };
+                        //this.test();
+                        this.loading = true;
+                        this.skuService.getGraphData1234(this.createPlanRequestData).subscribe((res: any) => {
+                            this.eventsSubject.next({
+                                page: null,
+                                reset: true,
+                            });
+                            this.loading = false;
+
+                            // if (res.res.length == 0) {
+                            //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                            //   window.alert('No Combination is available');
+                            //   this.loading = false;
+                            //   return;
+                            // }
+
+                            this.granular1 = 'week';
+                            if (this.UOM == 'HL' && this.granular1 == 'week') {
+                                this.enabled = 1;
+                            } else {
+                                this.enabled = 0;
+                            }
+
+
+                            this.allComments = res.combinedcomment;
+                            console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+
+                            this.allComments_harshit = [];
+                            for (const abc of this.allComments) {
+
+                                this.allComments_harshit.push({
+                                    name: abc,
+                                    isSelected: false,
+                                    isFiltered: false
+                                });
+                            }
+                            this.greystart = res.start;
+
+                            this.greystart = res.start;
+                            if (res.res.length > 20) {
+                                this.inter = (res.res.length / 13);
+                            } else {
+                                this.inter = 1;
+                            }
+                            console.log('GREYSTART--' + this.greystart);
+
+
+                            this.createPlanRequestData.brands = res.req.brands;
+                            this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+                            this.createPlanRequestData.subbrand = res.req.subbrand;
+
+                            this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+                            this.createPlanRequestData.Trade = res.req.trade;
+                            this.createPlanRequestData.Sales = res.req.sales;
+
+
+                            this.createPlanRequestData.globalBev = res.req.globalBev;
+                            this.createPlanRequestData.materialgroup = res.req.materialgroup;
+                            this.createPlanRequestData.baseunit = res.req.baseunit;
+                            this.createPlanRequestData.pack_type = res.req.pack_type;
+
+                            this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+                            this.createPlanRequestData.pack_size = res.req.pack_size;
+                            this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+                            this.processGraphData_1(res);
+                            //this.processgraphData(res);
+
+                            this.processFeatureGraphData(res);
+                            this.createFilterObject(res);
+                            //  this.skus=data.forecastingGroups;
+
+                            // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+                            //     item.isChecked = true;
+                            //     return item;
+                            //   });
+
+
+                            // this.skus = data.forecastingGroups.map((item) => {
+                            //   item.isChecked = true;
+                            //   return item;
+                            // });
+
+                            this.commentsall();
+                            console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+                            this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                                animationEnabled: true,
+                                showInLegend: true,
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            },
+                                            {
+                                                startValue: 202352,
+                                                endValue: 202401
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+                                    ]
+                                },
+                                axisY: {
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Baseline') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+
+                                // toolTip: {
+                                //   shared: true,
+                                //   contentFormatter: function(e) {
+                                //     var content = ' ';
+                                //     console.log(JSON.stringify(e));
+                                //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                                //     for (var i = 0; i < e.entries.length; i++) {
+                                //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                //       content += '<br/>';
+                                //     }
+                                //     return content;
+                                //   }
+                                // },
+
+                                data: [
+                                    {
+                                        name: 'Baseline',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: '#17b169',
+                                        lineColor: '#17b169',
+                                        dataPoints: this.property
+                                    },
+                                    {
+                                        name: 'Promo Effect',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: ' #46a6b9',
+                                        lineColor: '#46a6b9',
+                                        dataPoints: this.property3
+                                    }
+
+                                ]
+                            });
+
+                            this.secondgraph = 'Baseline';
+                            this.chart2.render();
+                            // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                            //   animationEnabled: true,
+
+                            //   backgroundColor: '#FFFFFF',
+                            //   legend: {
+                            //     cursor: 'pointer',
+                            //     itemclick: this.toggleDataSeries.bind(this)
+                            //   },
+                            //   axisX: {
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //     scaleBreaks: {
+                            //       type: 'blank',
+                            //       spacing: 0,
+                            //       customBreaks: [
+                            //         {
+                            //           startValue: 201952,
+                            //           endValue: 202000
+                            //         },
+                            //         {
+                            //           startValue: 202053,
+                            //           endValue: 202100
+                            //         },
+                            //         {
+                            //           startValue: 202152,
+                            //           endValue: 202200
+                            //         },
+                            //         {
+                            //           startValue: 202253,
+                            //           endValue: 202300
+                            //         }
+                            //       ]
+                            //     },
+                            //     stripLines: [
+                            //       {
+                            //         startValue: this.createPlanRequestData.startWeek,
+                            //         endValue: 201953,
+                            //         color: '#F2F3F5'
+                            //       },
+                            //       {
+                            //         startValue: 202000,
+                            //         endValue: this.createPlanRequestData.endWeek,
+                            //         color: '#F2F3F5'
+                            //       }
+                            //     ]
+                            //   },
+                            //   axisY: {
+
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //   },
+
+                            //   toolTip: {
+                            //     content: 'Value: {y}'
+                            //   },
+
+                            //   // toolTip: {
+                            //   //   shared: true,
+                            //   //   contentFormatter: function(e) {
+                            //   //     var content = ' ';
+                            //   //     console.log(JSON.stringify(e));
+                            //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                            //   //     for (var i = 0; i < e.entries.length; i++) {
+                            //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                            //   //       content += '<br/>';
+                            //   //     }
+                            //   //     return content;
+                            //   //   }
+                            //  // },
+
+                            //   data: [{
+                            //     type: 'line',
+                            //     gridColor: '#ffffff',
+                            //     labelFontColor: 'black',
+                            //    color: '#000',
+                            //     dataPoints: this.property
+                            //   }]
+                            // });
+                            // this.secondgraph='Open order';
+                            // this.chart2.render();
+
+
+                            console.log('132456->' + this.createPlanRequestData.startWeek);
+                            this.chart1 = new CanvasJS.Chart('chartContainer1', {
+                                title: { text: ' ', fontStyle: 'no', },
+                                animationEnabled: true,
+
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+
+                                    ]
+                                },
+
+                                axisY: {
+
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                // toolTip: {
+                                //   content: 'Week: {x} | {name}: {y}'
+                                // },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Actuals') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+                                data: [
+
+                                    {
+                                        name: 'Actual LY',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        visible: false,
+
+                                        color: this.lastyearDataPointColor,
+                                        lineColor: this.lastyearDataPointColor,
+                                        dataPoints: this.lastYearDataPoints
+                                    },
+                                    {
+                                        name: 'ML Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.mlDataPointColor,
+                                        lineColor: this.mlDataPointColor,
+                                        dataPoints: this.mlDataPoints
+                                    },
+                                    {
+                                        name: 'APO Forecast',
+                                        showInLegend: true,
+                                        visible: false,
+                                        type: 'line',
+
+                                        color: this.aopDataPointColor,
+                                        lineColor: this.aopDataPointColor,
+                                        dataPoints: this.aopDataPoints
+                                    },
+                                    {
+                                        name: 'Final Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.finalForecastPointColor,
+                                        lineColor: this.finalForecastPointColor,
+                                        dataPoints: this.finalForecastDataPoints
+                                    },
+                                    {
+                                        name: 'Actuals',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        color: this.actualDataPointColor,
+                                        lineColor: this.actualDataPointColor,
+                                        dataPoints: this.actualDataPoints
+                                    }
+                                ]
+                            });
+                            this.chart1.render();
+                            this.CanvasJSDataAsCSV();
+                            this.selectOptionsModalCancel.nativeElement.click();
+                        });
+
+                    }
+                    else if (this.UOM == "PC" || this.UOM == "BOT" || this.UOM == "PAL" || this.UOM == "L" || this.UOM == "CU" || this.UOM == "PPU") {
+                        try {
+                            this.planningtable = 'Planning table (' + this.UOM + ')';
+                            document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
+
+                            document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
+
+                            this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
+                            this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
+                        } catch (err) {
+
+                        }
+                        //const data=this.createPlanRequestData;
+                        console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                        this.createPlanRequestData = {
+                            startWeek: this.createPlanRequestData.startWeek,
+                            endWeek: this.createPlanRequestData.endWeek,
+                            prevactuals: this.createPlanRequestData.prevactuals,
+                            uom1: this.UOM,
+                            // forecastingGroups: data.forecastingGroups,
+                            forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
+                            customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                            plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
+                        };
+                        //this.test();
+                        this.loading = true;
+                        this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
+                            this.eventsSubject.next({
+                                page: null,
+                                reset: true,
+                            });
+                            this.loading = false;
+
+                            // if (res.res.length == 0) {
+                            //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                            //   window.alert('No Combination is available');
+                            //   this.loading = false;
+                            //   return;
+                            // }
+
+                            this.granular1 = 'week';
+                            if (this.UOM == 'HL' && this.granular1 == 'week') {
+                                this.enabled = 1;
+                            } else {
+                                this.enabled = 0;
+                            }
+
+
+                            this.allComments = res.combinedcomment;
+                            console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+
+                            this.allComments_harshit = [];
+                            for (const abc of this.allComments) {
+
+                                this.allComments_harshit.push({
+                                    name: abc,
+                                    isSelected: false,
+                                    isFiltered: false
+                                });
+                            }
+                            this.greystart = res.start;
+
+                            this.greystart = res.start;
+                            if (res.res.length > 20) {
+                                this.inter = (res.res.length / 13);
+                            } else {
+                                this.inter = 1;
+                            }
+                            console.log('GREYSTART--' + this.greystart);
+
+
+                            this.createPlanRequestData.brands = res.req.brands;
+                            this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
+                            this.createPlanRequestData.subbrand = res.req.subbrand;
+
+                            this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
+                            this.createPlanRequestData.Trade = res.req.trade;
+                            this.createPlanRequestData.Sales = res.req.sales;
+
+
+                            this.createPlanRequestData.globalBev = res.req.globalBev;
+                            this.createPlanRequestData.materialgroup = res.req.materialgroup;
+                            this.createPlanRequestData.baseunit = res.req.baseunit;
+                            this.createPlanRequestData.pack_type = res.req.pack_type;
+
+                            this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
+
+                            this.createPlanRequestData.pack_size = res.req.pack_size;
+                            this.createPlanRequestData.cpgname = res.req.cpgname;
+
+
+                            this.processGraphData_1(res);
+                            //this.processgraphData(res);
+
+                            this.processFeatureGraphData(res);
+                            this.createFilterObject(res);
+                            //  this.skus=data.forecastingGroups;
+
+                            // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
+                            //     item.isChecked = true;
+                            //     return item;
+                            //   });
+
+
+                            // this.skus = data.forecastingGroups.map((item) => {
+                            //   item.isChecked = true;
+                            //   return item;
+                            // });
+
+                            this.commentsall();
+                            console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+                            this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                                animationEnabled: true,
+                                showInLegend: true,
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            },
+                                            {
+                                                startValue: 202352,
+                                                endValue: 202401
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+                                    ]
+                                },
+                                axisY: {
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Baseline') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Promo Effect') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+
+                                // toolTip: {
+                                //   shared: true,
+                                //   contentFormatter: function(e) {
+                                //     var content = ' ';
+                                //     console.log(JSON.stringify(e));
+                                //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                                //     for (var i = 0; i < e.entries.length; i++) {
+                                //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                //       content += '<br/>';
+                                //     }
+                                //     return content;
+                                //   }
+                                // },
+
+                                data: [
+                                    {
+                                        name: 'Baseline',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: '#17b169',
+                                        lineColor: '#17b169',
+                                        dataPoints: this.property
+                                    },
+                                    {
+                                        name: 'Promo Effect',
+                                        type: 'stackedArea',
+                                        gridColor: '#ffffff',
+
+                                        showInLegend: true,
+                                        color: ' #46a6b9',
+                                        lineColor: '#46a6b9',
+                                        dataPoints: this.property3
+                                    }
+
+                                ]
+                            });
+
+                            this.secondgraph = 'Baseline';
+                            this.chart2.render();
+                            // this.chart2 = new CanvasJS.Chart('chartContainer2', {
+                            //   animationEnabled: true,
+
+                            //   backgroundColor: '#FFFFFF',
+                            //   legend: {
+                            //     cursor: 'pointer',
+                            //     itemclick: this.toggleDataSeries.bind(this)
+                            //   },
+                            //   axisX: {
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //     scaleBreaks: {
+                            //       type: 'blank',
+                            //       spacing: 0,
+                            //       customBreaks: [
+                            //         {
+                            //           startValue: 201952,
+                            //           endValue: 202000
+                            //         },
+                            //         {
+                            //           startValue: 202053,
+                            //           endValue: 202100
+                            //         },
+                            //         {
+                            //           startValue: 202152,
+                            //           endValue: 202200
+                            //         },
+                            //         {
+                            //           startValue: 202253,
+                            //           endValue: 202300
+                            //         }
+                            //       ]
+                            //     },
+                            //     stripLines: [
+                            //       {
+                            //         startValue: this.createPlanRequestData.startWeek,
+                            //         endValue: 201953,
+                            //         color: '#F2F3F5'
+                            //       },
+                            //       {
+                            //         startValue: 202000,
+                            //         endValue: this.createPlanRequestData.endWeek,
+                            //         color: '#F2F3F5'
+                            //       }
+                            //     ]
+                            //   },
+                            //   axisY: {
+
+                            //     valueFormatString: '######',
+                            //     gridColor: '#ffffff',
+                            //   },
+
+                            //   toolTip: {
+                            //     content: 'Value: {y}'
+                            //   },
+
+                            //   // toolTip: {
+                            //   //   shared: true,
+                            //   //   contentFormatter: function(e) {
+                            //   //     var content = ' ';
+                            //   //     console.log(JSON.stringify(e));
+                            //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
+                            //   //     for (var i = 0; i < e.entries.length; i++) {
+                            //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                            //   //       content += '<br/>';
+                            //   //     }
+                            //   //     return content;
+                            //   //   }
+                            //  // },
+
+                            //   data: [{
+                            //     type: 'line',
+                            //     gridColor: '#ffffff',
+                            //     labelFontColor: 'black',
+                            //    color: '#000',
+                            //     dataPoints: this.property
+                            //   }]
+                            // });
+                            // this.secondgraph='Open order';
+                            // this.chart2.render();
+
+
+                            console.log('132456->' + this.createPlanRequestData.startWeek);
+                            this.chart1 = new CanvasJS.Chart('chartContainer1', {
+                                title: { text: ' ', fontStyle: 'no', },
+                                animationEnabled: true,
+
+                                backgroundColor: '#FFFFFF',
+                                legend: {
+                                    cursor: 'pointer',
+                                    itemclick: this.toggleDataSeries.bind(this)
+                                },
+                                axisX: {
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                    interval: this.inter,
+                                    scaleBreaks: {
+                                        type: 'blank',
+                                        spacing: 0,
+                                        customBreaks: [
+                                            {
+                                                startValue: 201452,
+                                                endValue: 201501
+                                            },
+                                            {
+                                                startValue: 201552,
+                                                endValue: 201600
+                                            },
+                                            {
+                                                startValue: 201652,
+                                                endValue: 201700
+                                            },
+                                            {
+                                                startValue: 201752,
+                                                endValue: 201800
+                                            },
+                                            {
+                                                startValue: 201852,
+                                                endValue: 201900
+                                            },
+                                            {
+                                                startValue: 201952,
+                                                endValue: 202000
+                                            },
+                                            {
+                                                startValue: 202053,
+                                                endValue: 202100
+                                            },
+                                            {
+                                                startValue: 202152,
+                                                endValue: 202200
+                                            },
+                                            {
+                                                startValue: 202252,
+                                                endValue: 202301
+                                            }
+                                        ]
+                                    },
+                                    stripLines: [
+                                        {
+                                            startValue: 201400,
+                                            endValue: 201452,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201500,
+                                            endValue: 201552,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201600,
+                                            endValue: 201652,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201700,
+                                            endValue: 201752,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201800,
+                                            endValue: 201852,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 201900,
+                                            endValue: 201952,
+                                            color: '#F2F3F5'
+                                        },
+                                        {
+                                            startValue: 202000,
+                                            endValue: 202034,
+                                            color: '#F2F3F5'
+                                        },
+
+
+                                    ]
+                                },
+
+                                axisY: {
+
+
+                                    valueFormatString: '######',
+                                    gridColor: '#ffffff',
+                                },
+
+                                // toolTip: {
+                                //   content: 'Week: {x} | {name}: {y}'
+                                // },
+
+                                toolTip: {
+                                    shared: true,
+                                    contentFormatter: function (e) {
+                                        var content = ' ';
+                                        //console.log(e.dataPoint);
+                                        content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
+                                        for (var i = 0; i < e.entries.length; i++) {
+                                            if (e.entries[i].dataSeries.name == 'Actual LY') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'ML Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'APO Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Final Forecast') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
+                                            }
+                                            if (e.entries[i].dataSeries.name == 'Actuals') {
+                                                content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
+                                            }
+                                            content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
+                                            content += '<br/>';
+                                        }
+                                        return content;
+                                    }
+                                },
+                                data: [
+
+                                    {
+                                        name: 'Actual LY',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        visible: false,
+
+                                        color: this.lastyearDataPointColor,
+                                        lineColor: this.lastyearDataPointColor,
+                                        dataPoints: this.lastYearDataPoints
+                                    },
+                                    {
+                                        name: 'ML Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.mlDataPointColor,
+                                        lineColor: this.mlDataPointColor,
+                                        dataPoints: this.mlDataPoints
+                                    },
+                                    {
+                                        name: 'APO Forecast',
+                                        showInLegend: true,
+                                        visible: false,
+                                        type: 'line',
+
+                                        color: this.aopDataPointColor,
+                                        lineColor: this.aopDataPointColor,
+                                        dataPoints: this.aopDataPoints
+                                    },
+                                    {
+                                        name: 'Final Forecast',
+                                        showInLegend: true,
+                                        type: 'line',
+
+                                        color: this.finalForecastPointColor,
+                                        lineColor: this.finalForecastPointColor,
+                                        dataPoints: this.finalForecastDataPoints
+                                    },
+                                    {
+                                        name: 'Actuals',
+                                        showInLegend: true,
+                                        type: 'line',
+                                        color: this.actualDataPointColor,
+                                        lineColor: this.actualDataPointColor,
+                                        dataPoints: this.actualDataPoints
+                                    }
+                                ]
+                            });
+                            this.chart1.render();
+                            this.CanvasJSDataAsCSV();
+                            this.selectOptionsModalCancel.nativeElement.click();
+                        });
+
+                    }
+                    else {
+                        window.alert("Something went wrong. Please try again - detailed view - week");
+                    }
+                }
+                else if (this.granular1 == "month") {
                     try {
-                        this.planningtable = 'Planning table (HL)';
+                        this.planningtable = 'Planning table (' + this.UOM + ')';
 
 
-                        document.getElementById('planningtable').innerHTML = 'Planning table (HL)';
+                        document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
 
-                        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (HL)';
+                        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
 
 
-                        this.forecastinganalysis = 'Forecast Analysis (HL)';
-                        this.featureanalysis = 'Feature Analysis (HL)';
+                        this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
+                        this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
                     } catch (err) {
 
                     }
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -12603,7 +13721,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     };
                     //this.test();
                     this.loading = true;
-                    this.skuService.getGraphData1234(this.createPlanRequestData).subscribe((res: any) => {
+                    this.skuService.getGraphData1234_detail_month(this.createPlanRequestData).subscribe((res: any) => {
                         this.eventsSubject.next({
                             page: null,
                             reset: true,
@@ -12611,13 +13729,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
                         // }
 
-                        this.granular1 = 'week';
+
                         if (this.UOM == 'HL' && this.granular1 == 'week') {
                             this.enabled = 1;
                         } else {
@@ -12626,7 +13744,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -12645,7 +13763,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -12687,7 +13805,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
+
+
+
+
+
+
+
+
+
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -12707,31 +13834,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                     spacing: 0,
                                     customBreaks: [
                                         {
-                                            startValue: 201452,
+                                            startValue: 201413,
                                             endValue: 201501
                                         },
                                         {
-                                            startValue: 201552,
+                                            startValue: 201513,
                                             endValue: 201600
                                         },
                                         {
-                                            startValue: 201652,
+                                            startValue: 201613,
                                             endValue: 201700
                                         },
                                         {
-                                            startValue: 201752,
+                                            startValue: 201713,
                                             endValue: 201800
                                         },
                                         {
-                                            startValue: 201852,
+                                            startValue: 201813,
                                             endValue: 201900
                                         },
                                         {
-                                            startValue: 201952,
+                                            startValue: 201913,
                                             endValue: 202000
                                         },
                                         {
-                                            startValue: 202053,
+                                            startValue: 202013,
                                             endValue: 202100
                                         },
                                         {
@@ -12739,49 +13866,40 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                             endValue: 202200
                                         },
                                         {
-                                            startValue: 202252,
-                                            endValue: 202301
-                                        },
-                                        {
-                                            startValue: 202352,
-                                            endValue: 202401
+                                            startValue: 202213,
+                                            endValue: 202300
                                         }
                                     ]
                                 },
                                 stripLines: [
                                     {
                                         startValue: 201400,
-                                        endValue: 201452,
+                                        endValue: 201413,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201500,
-                                        endValue: 201552,
+                                        endValue: 201513,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201600,
-                                        endValue: 201652,
+                                        endValue: 201613,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201700,
-                                        endValue: 201752,
+                                        endValue: 201713,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201800,
-                                        endValue: 201852,
+                                        endValue: 201813,
                                         color: '#F2F3F5'
                                     },
                                     {
                                         startValue: 201900,
-                                        endValue: 201952,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 202000,
-                                        endValue: 202034,
+                                        endValue: 20202,
                                         color: '#F2F3F5'
                                     },
 
@@ -12797,7 +13915,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -12817,7 +13935,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -12826,7 +13944,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //     return content;
                             //   }
                             // },
-
                             data: [
                                 {
                                     name: 'Baseline',
@@ -12851,9 +13968,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                             ]
                         });
-
-                        this.secondgraph = 'Baseline';
                         this.chart2.render();
+                        this.secondgraph = 'Baseline';
+
+
+
+
+
+
                         // this.chart2 = new CanvasJS.Chart('chartContainer2', {
                         //   animationEnabled: true,
 
@@ -12914,7 +14036,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -12936,7 +14058,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -13048,558 +14170,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
-                                    content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                    for (var i = 0; i < e.entries.length; i++) {
-                                        if (e.entries[i].dataSeries.name == 'Actual LY') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'ML Forecast') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'APO Forecast') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'Final Forecast') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'Actuals') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
-                                        }
-                                        content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                        content += '<br/>';
-                                    }
-                                    return content;
-                                }
-                            },
-                            data: [
-
-                                {
-                                    name: 'Actual LY',
-                                    showInLegend: true,
-                                    type: 'line',
-                                    visible: false,
-
-                                    color: this.lastyearDataPointColor,
-                                    lineColor: this.lastyearDataPointColor,
-                                    dataPoints: this.lastYearDataPoints
-                                },
-                                {
-                                    name: 'ML Forecast',
-                                    showInLegend: true,
-                                    type: 'line',
-
-                                    color: this.mlDataPointColor,
-                                    lineColor: this.mlDataPointColor,
-                                    dataPoints: this.mlDataPoints
-                                },
-                                {
-                                    name: 'APO Forecast',
-                                    showInLegend: true,
-                                    visible: false,
-                                    type: 'line',
-
-                                    color: this.aopDataPointColor,
-                                    lineColor: this.aopDataPointColor,
-                                    dataPoints: this.aopDataPoints
-                                },
-                                {
-                                    name: 'Final Forecast',
-                                    showInLegend: true,
-                                    type: 'line',
-
-                                    color: this.finalForecastPointColor,
-                                    lineColor: this.finalForecastPointColor,
-                                    dataPoints: this.finalForecastDataPoints
-                                },
-                                {
-                                    name: 'Actuals',
-                                    showInLegend: true,
-                                    type: 'line',
-                                    color: this.actualDataPointColor,
-                                    lineColor: this.actualDataPointColor,
-                                    dataPoints: this.actualDataPoints
-                                }
-                            ]
-                        });
-                        this.chart1.render();
-                        this.CanvasJSDataAsCSV();
-                        this.selectOptionsModalCancel.nativeElement.click();
-                    });
-
-                }
-                else if (this.UOM == "PC" || this.UOM == "BOT" || this.UOM == "PAL" || this.UOM == "L" || this.UOM == "CU" || this.UOM == "PPU") {
-                    try {
-                        this.planningtable = 'Planning table (' + this.UOM + ')';
-                        document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
-
-                        document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
-
-                        this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
-                        this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
-                    } catch (err) {
-
-                    }
-                    //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
-                    this.createPlanRequestData = {
-                        startWeek: this.createPlanRequestData.startWeek,
-                        endWeek: this.createPlanRequestData.endWeek,
-                        prevactuals: this.createPlanRequestData.prevactuals,
-                        uom1: this.UOM,
-                        // forecastingGroups: data.forecastingGroups,
-                        forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
-                        customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                        plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                    };
-                    //this.test();
-                    this.loading = true;
-                    this.skuService.getGraphData_week_uom3(this.createPlanRequestData).subscribe((res: any) => {
-                        this.eventsSubject.next({
-                            page: null,
-                            reset: true,
-                        });
-                        this.loading = false;
-
-                        // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-                        //   window.alert('No Combination is available');
-                        //   this.loading = false;
-                        //   return;
-                        // }
-
-                        this.granular1 = 'week';
-                        if (this.UOM == 'HL' && this.granular1 == 'week') {
-                            this.enabled = 1;
-                        } else {
-                            this.enabled = 0;
-                        }
-
-
-                        this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
-
-                        this.allComments_harshit = [];
-                        for (const abc of this.allComments) {
-
-                            this.allComments_harshit.push({
-                                name: abc,
-                                isSelected: false,
-                                isFiltered: false
-                            });
-                        }
-                        this.greystart = res.start;
-
-                        this.greystart = res.start;
-                        if (res.res.length > 20) {
-                            this.inter = (res.res.length / 13);
-                        } else {
-                            this.inter = 1;
-                        }
-                        //console.log('GREYSTART--' + this.greystart);
-
-
-                        this.createPlanRequestData.brands = res.req.brands;
-                        this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-                        this.createPlanRequestData.subbrand = res.req.subbrand;
-
-                        this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-                        this.createPlanRequestData.Trade = res.req.trade;
-                        this.createPlanRequestData.Sales = res.req.sales;
-
-
-                        this.createPlanRequestData.globalBev = res.req.globalBev;
-                        this.createPlanRequestData.materialgroup = res.req.materialgroup;
-                        this.createPlanRequestData.baseunit = res.req.baseunit;
-                        this.createPlanRequestData.pack_type = res.req.pack_type;
-
-                        this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-
-                        this.createPlanRequestData.pack_size = res.req.pack_size;
-                        this.createPlanRequestData.cpgname = res.req.cpgname;
-
-
-                        this.processGraphData_1(res);
-                        //this.processgraphData(res);
-
-                        this.processFeatureGraphData(res);
-                        this.createFilterObject(res);
-                        //  this.skus=data.forecastingGroups;
-
-                        // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
-                        //     item.isChecked = true;
-                        //     return item;
-                        //   });
-
-
-                        // this.skus = data.forecastingGroups.map((item) => {
-                        //   item.isChecked = true;
-                        //   return item;
-                        // });
-
-                        this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
-
-
-                        this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                            animationEnabled: true,
-                            showInLegend: true,
-                            backgroundColor: '#FFFFFF',
-                            legend: {
-                                cursor: 'pointer',
-                                itemclick: this.toggleDataSeries.bind(this)
-                            },
-                            axisX: {
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                                interval: this.inter,
-                                scaleBreaks: {
-                                    type: 'blank',
-                                    spacing: 0,
-                                    customBreaks: [
-                                        {
-                                            startValue: 201452,
-                                            endValue: 201501
-                                        },
-                                        {
-                                            startValue: 201552,
-                                            endValue: 201600
-                                        },
-                                        {
-                                            startValue: 201652,
-                                            endValue: 201700
-                                        },
-                                        {
-                                            startValue: 201752,
-                                            endValue: 201800
-                                        },
-                                        {
-                                            startValue: 201852,
-                                            endValue: 201900
-                                        },
-                                        {
-                                            startValue: 201952,
-                                            endValue: 202000
-                                        },
-                                        {
-                                            startValue: 202053,
-                                            endValue: 202100
-                                        },
-                                        {
-                                            startValue: 202152,
-                                            endValue: 202200
-                                        },
-                                        {
-                                            startValue: 202252,
-                                            endValue: 202301
-                                        },
-                                        {
-                                            startValue: 202352,
-                                            endValue: 202401
-                                        }
-                                    ]
-                                },
-                                stripLines: [
-                                    {
-                                        startValue: 201400,
-                                        endValue: 201452,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201500,
-                                        endValue: 201552,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201600,
-                                        endValue: 201652,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201700,
-                                        endValue: 201752,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201800,
-                                        endValue: 201852,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201900,
-                                        endValue: 201952,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 202000,
-                                        endValue: 202034,
-                                        color: '#F2F3F5'
-                                    },
-
-                                ]
-                            },
-                            axisY: {
-
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                            },
-
-                            toolTip: {
-                                shared: true,
-                                contentFormatter: function (e) {
-                                    var content = ' ';
-                                    ////console.log(e.dataPoint);
-                                    content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                    for (var i = 0; i < e.entries.length; i++) {
-                                        if (e.entries[i].dataSeries.name == 'Baseline') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
-                                        }
-                                        if (e.entries[i].dataSeries.name == 'Promo Effect') {
-                                            content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
-                                        }
-                                        content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                        content += '<br/>';
-                                    }
-                                    return content;
-                                }
-                            },
-
-                            // toolTip: {
-                            //   shared: true,
-                            //   contentFormatter: function(e) {
-                            //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
-                            //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                            //     for (var i = 0; i < e.entries.length; i++) {
-                            //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                            //       content += '<br/>';
-                            //     }
-                            //     return content;
-                            //   }
-                            // },
-
-                            data: [
-                                {
-                                    name: 'Baseline',
-                                    type: 'stackedArea',
-                                    gridColor: '#ffffff',
-
-                                    showInLegend: true,
-                                    color: '#17b169',
-                                    lineColor: '#17b169',
-                                    dataPoints: this.property
-                                },
-                                {
-                                    name: 'Promo Effect',
-                                    type: 'stackedArea',
-                                    gridColor: '#ffffff',
-
-                                    showInLegend: true,
-                                    color: ' #46a6b9',
-                                    lineColor: '#46a6b9',
-                                    dataPoints: this.property3
-                                }
-
-                            ]
-                        });
-
-                        this.secondgraph = 'Baseline';
-                        this.chart2.render();
-                        // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                        //   animationEnabled: true,
-
-                        //   backgroundColor: '#FFFFFF',
-                        //   legend: {
-                        //     cursor: 'pointer',
-                        //     itemclick: this.toggleDataSeries.bind(this)
-                        //   },
-                        //   axisX: {
-                        //     valueFormatString: '######',
-                        //     gridColor: '#ffffff',
-                        //     scaleBreaks: {
-                        //       type: 'blank',
-                        //       spacing: 0,
-                        //       customBreaks: [
-                        //         {
-                        //           startValue: 201952,
-                        //           endValue: 202000
-                        //         },
-                        //         {
-                        //           startValue: 202053,
-                        //           endValue: 202100
-                        //         },
-                        //         {
-                        //           startValue: 202152,
-                        //           endValue: 202200
-                        //         },
-                        //         {
-                        //           startValue: 202253,
-                        //           endValue: 202300
-                        //         }
-                        //       ]
-                        //     },
-                        //     stripLines: [
-                        //       {
-                        //         startValue: this.createPlanRequestData.startWeek,
-                        //         endValue: 201953,
-                        //         color: '#F2F3F5'
-                        //       },
-                        //       {
-                        //         startValue: 202000,
-                        //         endValue: this.createPlanRequestData.endWeek,
-                        //         color: '#F2F3F5'
-                        //       }
-                        //     ]
-                        //   },
-                        //   axisY: {
-
-                        //     valueFormatString: '######',
-                        //     gridColor: '#ffffff',
-                        //   },
-
-                        //   toolTip: {
-                        //     content: 'Value: {y}'
-                        //   },
-
-                        //   // toolTip: {
-                        //   //   shared: true,
-                        //   //   contentFormatter: function(e) {
-                        //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
-                        //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                        //   //     for (var i = 0; i < e.entries.length; i++) {
-                        //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                        //   //       content += '<br/>';
-                        //   //     }
-                        //   //     return content;
-                        //   //   }
-                        //  // },
-
-                        //   data: [{
-                        //     type: 'line',
-                        //     gridColor: '#ffffff',
-                        //     labelFontColor: 'black',
-                        //    color: '#000',
-                        //     dataPoints: this.property
-                        //   }]
-                        // });
-                        // this.secondgraph='Open order';
-                        // this.chart2.render();
-
-
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
-                        this.chart1 = new CanvasJS.Chart('chartContainer1', {
-                            title: { text: ' ', fontStyle: 'no', },
-                            animationEnabled: true,
-
-                            backgroundColor: '#FFFFFF',
-                            legend: {
-                                cursor: 'pointer',
-                                itemclick: this.toggleDataSeries.bind(this)
-                            },
-                            axisX: {
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                                interval: this.inter,
-                                scaleBreaks: {
-                                    type: 'blank',
-                                    spacing: 0,
-                                    customBreaks: [
-                                        {
-                                            startValue: 201452,
-                                            endValue: 201501
-                                        },
-                                        {
-                                            startValue: 201552,
-                                            endValue: 201600
-                                        },
-                                        {
-                                            startValue: 201652,
-                                            endValue: 201700
-                                        },
-                                        {
-                                            startValue: 201752,
-                                            endValue: 201800
-                                        },
-                                        {
-                                            startValue: 201852,
-                                            endValue: 201900
-                                        },
-                                        {
-                                            startValue: 201952,
-                                            endValue: 202000
-                                        },
-                                        {
-                                            startValue: 202053,
-                                            endValue: 202100
-                                        },
-                                        {
-                                            startValue: 202152,
-                                            endValue: 202200
-                                        },
-                                        {
-                                            startValue: 202252,
-                                            endValue: 202301
-                                        }
-                                    ]
-                                },
-                                stripLines: [
-                                    {
-                                        startValue: 201400,
-                                        endValue: 201452,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201500,
-                                        endValue: 201552,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201600,
-                                        endValue: 201652,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201700,
-                                        endValue: 201752,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201800,
-                                        endValue: 201852,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 201900,
-                                        endValue: 201952,
-                                        color: '#F2F3F5'
-                                    },
-                                    {
-                                        startValue: 202000,
-                                        endValue: 202034,
-                                        color: '#F2F3F5'
-                                    },
-
-
-                                ]
-                            },
-
-                            axisY: {
-
-
-                                valueFormatString: '######',
-                                gridColor: '#ffffff',
-                            },
-
-                            // toolTip: {
-                            //   content: 'Week: {x} | {name}: {y}'
-                            // },
-
-                            toolTip: {
-                                shared: true,
-                                contentFormatter: function (e) {
-                                    var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -13680,573 +14251,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 }
                 else {
-                    window.alert("Something went wrong. Please try again - detailed view - week");
+                    window.alert("Something went wrong. Please try again - detailed view");
                 }
-            }
-            else if (this.granular1 == "month") {
-                try {
-                    this.planningtable = 'Planning table (' + this.UOM + ')';
-
-
-                    document.getElementById('planningtable').innerHTML = 'Planning table (' + this.UOM + ')';
-
-                    document.getElementById('forecastinganalysis').innerHTML = 'Forecast Analysis (' + this.UOM + ')';
-
-
-                    this.forecastinganalysis = 'Forecast Analysis (' + this.UOM + ')';
-                    this.featureanalysis = 'Feature Analysis (' + this.UOM + ')';
-                } catch (err) {
-
-                }
-                //const data=this.createPlanRequestData;
-                //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
-                this.createPlanRequestData = {
-                    startWeek: this.createPlanRequestData.startWeek,
-                    endWeek: this.createPlanRequestData.endWeek,
-                    prevactuals: this.createPlanRequestData.prevactuals,
-                    // forecastingGroups: data.forecastingGroups,
-                    forecastingGroups: JSON.parse(JSON.stringify(this.fgssselected)).map(item => item.name),
-                    customerPlanningGroup: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                    plants: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
-                    uom1: this.UOM
-                };
-                //this.test();
-                this.loading = true;
-                this.skuService.getGraphData1234_detail_month(this.createPlanRequestData).subscribe((res: any) => {
-                    this.eventsSubject.next({
-                        page: null,
-                        reset: true,
-                    });
-                    this.loading = false;
-
-                    // if (res.res.length == 0) {
-                    //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
-                    //   window.alert('No Combination is available');
-                    //   this.loading = false;
-                    //   return;
-                    // }
-
-
-                    if (this.UOM == 'HL' && this.granular1 == 'week') {
-                        this.enabled = 1;
-                    } else {
-                        this.enabled = 0;
-                    }
-
-
-                    this.allComments = res.combinedcomment;
-                    //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
-
-                    this.allComments_harshit = [];
-                    for (const abc of this.allComments) {
-
-                        this.allComments_harshit.push({
-                            name: abc,
-                            isSelected: false,
-                            isFiltered: false
-                        });
-                    }
-                    this.greystart = res.start;
-
-                    this.greystart = res.start;
-                    if (res.res.length > 20) {
-                        this.inter = (res.res.length / 13);
-                    } else {
-                        this.inter = 1;
-                    }
-                    //console.log('GREYSTART--' + this.greystart);
-
-
-                    this.createPlanRequestData.brands = res.req.brands;
-                    this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-                    this.createPlanRequestData.subbrand = res.req.subbrand;
-
-                    this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-                    this.createPlanRequestData.Trade = res.req.trade;
-                    this.createPlanRequestData.Sales = res.req.sales;
-
-
-                    this.createPlanRequestData.globalBev = res.req.globalBev;
-                    this.createPlanRequestData.materialgroup = res.req.materialgroup;
-                    this.createPlanRequestData.baseunit = res.req.baseunit;
-                    this.createPlanRequestData.pack_type = res.req.pack_type;
-
-                    this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-
-                    this.createPlanRequestData.pack_size = res.req.pack_size;
-                    this.createPlanRequestData.cpgname = res.req.cpgname;
-
-
-                    this.processGraphData_1(res);
-                    //this.processgraphData(res);
-
-                    this.processFeatureGraphData(res);
-                    this.createFilterObject(res);
-                    //  this.skus=data.forecastingGroups;
-
-                    // this.skus = this.createPlanRequestData.forecastingGroups.map((item) => {
-                    //     item.isChecked = true;
-                    //     return item;
-                    //   });
-
-
-                    // this.skus = data.forecastingGroups.map((item) => {
-                    //   item.isChecked = true;
-                    //   return item;
-                    // });
-
-                    this.commentsall();
-                    //console.log('thhh->' + this.createPlanRequestData.startWeek);
-
-
-
-
-
-
-
-
-
-
-
-                    this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                        animationEnabled: true,
-                        showInLegend: true,
-                        backgroundColor: '#FFFFFF',
-                        legend: {
-                            cursor: 'pointer',
-                            itemclick: this.toggleDataSeries.bind(this)
-                        },
-                        axisX: {
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                            interval: this.inter,
-                            scaleBreaks: {
-                                type: 'blank',
-                                spacing: 0,
-                                customBreaks: [
-                                    {
-                                        startValue: 201413,
-                                        endValue: 201501
-                                    },
-                                    {
-                                        startValue: 201513,
-                                        endValue: 201600
-                                    },
-                                    {
-                                        startValue: 201613,
-                                        endValue: 201700
-                                    },
-                                    {
-                                        startValue: 201713,
-                                        endValue: 201800
-                                    },
-                                    {
-                                        startValue: 201813,
-                                        endValue: 201900
-                                    },
-                                    {
-                                        startValue: 201913,
-                                        endValue: 202000
-                                    },
-                                    {
-                                        startValue: 202013,
-                                        endValue: 202100
-                                    },
-                                    {
-                                        startValue: 202152,
-                                        endValue: 202200
-                                    },
-                                    {
-                                        startValue: 202213,
-                                        endValue: 202300
-                                    }
-                                ]
-                            },
-                            stripLines: [
-                                {
-                                    startValue: 201400,
-                                    endValue: 201413,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201500,
-                                    endValue: 201513,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201600,
-                                    endValue: 201613,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201700,
-                                    endValue: 201713,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201800,
-                                    endValue: 201813,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201900,
-                                    endValue: 20202,
-                                    color: '#F2F3F5'
-                                },
-
-                            ]
-                        },
-                        axisY: {
-
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                        },
-
-                        toolTip: {
-                            shared: true,
-                            contentFormatter: function (e) {
-                                var content = ' ';
-                                ////console.log(e.dataPoint);
-                                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                for (var i = 0; i < e.entries.length; i++) {
-                                    if (e.entries[i].dataSeries.name == 'Baseline') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #17b169"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'Promo Effect') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #46a6b9"></i>' + ' ';
-                                    }
-                                    content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                    content += '<br/>';
-                                }
-                                return content;
-                            }
-                        },
-
-                        // toolTip: {
-                        //   shared: true,
-                        //   contentFormatter: function(e) {
-                        //     var content = ' ';
-                        //     //console.log(JSON.stringify(e));
-                        //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                        //     for (var i = 0; i < e.entries.length; i++) {
-                        //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                        //       content += '<br/>';
-                        //     }
-                        //     return content;
-                        //   }
-                        // },
-                        data: [
-                            {
-                                name: 'Baseline',
-                                type: 'stackedArea',
-                                gridColor: '#ffffff',
-
-                                showInLegend: true,
-                                color: '#17b169',
-                                lineColor: '#17b169',
-                                dataPoints: this.property
-                            },
-                            {
-                                name: 'Promo Effect',
-                                type: 'stackedArea',
-                                gridColor: '#ffffff',
-
-                                showInLegend: true,
-                                color: ' #46a6b9',
-                                lineColor: '#46a6b9',
-                                dataPoints: this.property3
-                            }
-
-                        ]
-                    });
-                    this.chart2.render();
-                    this.secondgraph = 'Baseline';
-
-
-
-
-
-
-                    // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-                    //   animationEnabled: true,
-
-                    //   backgroundColor: '#FFFFFF',
-                    //   legend: {
-                    //     cursor: 'pointer',
-                    //     itemclick: this.toggleDataSeries.bind(this)
-                    //   },
-                    //   axisX: {
-                    //     valueFormatString: '######',
-                    //     gridColor: '#ffffff',
-                    //     scaleBreaks: {
-                    //       type: 'blank',
-                    //       spacing: 0,
-                    //       customBreaks: [
-                    //         {
-                    //           startValue: 201952,
-                    //           endValue: 202000
-                    //         },
-                    //         {
-                    //           startValue: 202053,
-                    //           endValue: 202100
-                    //         },
-                    //         {
-                    //           startValue: 202152,
-                    //           endValue: 202200
-                    //         },
-                    //         {
-                    //           startValue: 202253,
-                    //           endValue: 202300
-                    //         }
-                    //       ]
-                    //     },
-                    //     stripLines: [
-                    //       {
-                    //         startValue: this.createPlanRequestData.startWeek,
-                    //         endValue: 201953,
-                    //         color: '#F2F3F5'
-                    //       },
-                    //       {
-                    //         startValue: 202000,
-                    //         endValue: this.createPlanRequestData.endWeek,
-                    //         color: '#F2F3F5'
-                    //       }
-                    //     ]
-                    //   },
-                    //   axisY: {
-
-                    //     valueFormatString: '######',
-                    //     gridColor: '#ffffff',
-                    //   },
-
-                    //   toolTip: {
-                    //     content: 'Value: {y}'
-                    //   },
-
-                    //   // toolTip: {
-                    //   //   shared: true,
-                    //   //   contentFormatter: function(e) {
-                    //   //     var content = ' ';
-                    //   //     //console.log(JSON.stringify(e));
-                    //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-                    //   //     for (var i = 0; i < e.entries.length; i++) {
-                    //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                    //   //       content += '<br/>';
-                    //   //     }
-                    //   //     return content;
-                    //   //   }
-                    //  // },
-
-                    //   data: [{
-                    //     type: 'line',
-                    //     gridColor: '#ffffff',
-                    //     labelFontColor: 'black',
-                    //    color: '#000',
-                    //     dataPoints: this.property
-                    //   }]
-                    // });
-                    // this.secondgraph='Open order';
-                    // this.chart2.render();
-
-
-                    //console.log('132456->' + this.createPlanRequestData.startWeek);
-                    this.chart1 = new CanvasJS.Chart('chartContainer1', {
-                        title: { text: ' ', fontStyle: 'no', },
-                        animationEnabled: true,
-
-                        backgroundColor: '#FFFFFF',
-                        legend: {
-                            cursor: 'pointer',
-                            itemclick: this.toggleDataSeries.bind(this)
-                        },
-                        axisX: {
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                            interval: this.inter,
-                            scaleBreaks: {
-                                type: 'blank',
-                                spacing: 0,
-                                customBreaks: [
-                                    {
-                                        startValue: 201452,
-                                        endValue: 201501
-                                    },
-                                    {
-                                        startValue: 201552,
-                                        endValue: 201600
-                                    },
-                                    {
-                                        startValue: 201652,
-                                        endValue: 201700
-                                    },
-                                    {
-                                        startValue: 201752,
-                                        endValue: 201800
-                                    },
-                                    {
-                                        startValue: 201852,
-                                        endValue: 201900
-                                    },
-                                    {
-                                        startValue: 201952,
-                                        endValue: 202000
-                                    },
-                                    {
-                                        startValue: 202053,
-                                        endValue: 202100
-                                    },
-                                    {
-                                        startValue: 202152,
-                                        endValue: 202200
-                                    },
-                                    {
-                                        startValue: 202252,
-                                        endValue: 202301
-                                    }
-                                ]
-                            },
-                            stripLines: [
-                                {
-                                    startValue: 201400,
-                                    endValue: 201452,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201500,
-                                    endValue: 201552,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201600,
-                                    endValue: 201652,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201700,
-                                    endValue: 201752,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201800,
-                                    endValue: 201852,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 201900,
-                                    endValue: 201952,
-                                    color: '#F2F3F5'
-                                },
-                                {
-                                    startValue: 202000,
-                                    endValue: 202034,
-                                    color: '#F2F3F5'
-                                },
-
-
-                            ]
-                        },
-
-                        axisY: {
-
-
-                            valueFormatString: '######',
-                            gridColor: '#ffffff',
-                        },
-
-                        // toolTip: {
-                        //   content: 'Week: {x} | {name}: {y}'
-                        // },
-
-                        toolTip: {
-                            shared: true,
-                            contentFormatter: function (e) {
-                                var content = ' ';
-                                ////console.log(e.dataPoint);
-                                content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-                                for (var i = 0; i < e.entries.length; i++) {
-                                    if (e.entries[i].dataSeries.name == 'Actual LY') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #F5A495"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'ML Forecast') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #B49131"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'APO Forecast') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #1E63AA"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'Final Forecast') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #782839"></i>' + ' ';
-                                    }
-                                    if (e.entries[i].dataSeries.name == 'Actuals') {
-                                        content += '<i class="fa fa-circle" aria-hidden="true" style="color: #0AC29B"></i>' + ' ';
-                                    }
-                                    content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-                                    content += '<br/>';
-                                }
-                                return content;
-                            }
-                        },
-                        data: [
-
-                            {
-                                name: 'Actual LY',
-                                showInLegend: true,
-                                type: 'line',
-                                visible: false,
-
-                                color: this.lastyearDataPointColor,
-                                lineColor: this.lastyearDataPointColor,
-                                dataPoints: this.lastYearDataPoints
-                            },
-                            {
-                                name: 'ML Forecast',
-                                showInLegend: true,
-                                type: 'line',
-
-                                color: this.mlDataPointColor,
-                                lineColor: this.mlDataPointColor,
-                                dataPoints: this.mlDataPoints
-                            },
-                            {
-                                name: 'APO Forecast',
-                                showInLegend: true,
-                                visible: false,
-                                type: 'line',
-
-                                color: this.aopDataPointColor,
-                                lineColor: this.aopDataPointColor,
-                                dataPoints: this.aopDataPoints
-                            },
-                            {
-                                name: 'Final Forecast',
-                                showInLegend: true,
-                                type: 'line',
-
-                                color: this.finalForecastPointColor,
-                                lineColor: this.finalForecastPointColor,
-                                dataPoints: this.finalForecastDataPoints
-                            },
-                            {
-                                name: 'Actuals',
-                                showInLegend: true,
-                                type: 'line',
-                                color: this.actualDataPointColor,
-                                lineColor: this.actualDataPointColor,
-                                dataPoints: this.actualDataPoints
-                            }
-                        ]
-                    });
-                    this.chart1.render();
-                    this.CanvasJSDataAsCSV();
-                    this.selectOptionsModalCancel.nativeElement.click();
-                });
-
-            }
-            else {
-                window.alert("Something went wrong. Please try again - detailed view");
             }
         }
 
         else if (this.views == "Detailed View_material") {
+
+            var a =  this.fgssselected.length;
+            var b = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            var c = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]).length;
+            if (a*b*c > 200) {
+                this.views = "Aggregated";
+                window.alert("Error: combination count more than 200.");
+                return;
+            }
 
             if (this.granular1 == "week") {
 
@@ -14266,7 +14285,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                     }
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -14287,7 +14306,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -14302,7 +14321,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -14321,7 +14340,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -14363,7 +14382,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -14473,7 +14492,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -14493,7 +14512,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -14590,7 +14609,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -14612,7 +14631,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -14724,7 +14743,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -14817,7 +14836,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                     }
                     //const data=this.createPlanRequestData;
-                    //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                    console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                     this.createPlanRequestData = {
                         startWeek: this.createPlanRequestData.startWeek,
                         endWeek: this.createPlanRequestData.endWeek,
@@ -14838,7 +14857,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         this.loading = false;
 
                         // if (res.res.length == 0) {
-                        //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                        //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                         //   window.alert('No Combination is available');
                         //   this.loading = false;
                         //   return;
@@ -14853,7 +14872,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         this.allComments = res.combinedcomment;
-                        //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                        console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                         this.allComments_harshit = [];
                         for (const abc of this.allComments) {
@@ -14872,7 +14891,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         } else {
                             this.inter = 1;
                         }
-                        //console.log('GREYSTART--' + this.greystart);
+                        console.log('GREYSTART--' + this.greystart);
 
 
                         this.createPlanRequestData.brands = res.req.brands;
@@ -14914,7 +14933,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // });
 
                         this.commentsall();
-                        //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                        console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
                         this.chart2 = new CanvasJS.Chart('chartContainer2', {
@@ -15024,7 +15043,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -15044,7 +15063,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   shared: true,
                             //   contentFormatter: function(e) {
                             //     var content = ' ';
-                            //     //console.log(JSON.stringify(e));
+                            //     console.log(JSON.stringify(e));
                             //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                             //     for (var i = 0; i < e.entries.length; i++) {
                             //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -15141,7 +15160,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   //   shared: true,
                         //   //   contentFormatter: function(e) {
                         //   //     var content = ' ';
-                        //   //     //console.log(JSON.stringify(e));
+                        //   //     console.log(JSON.stringify(e));
                         //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //   //     for (var i = 0; i < e.entries.length; i++) {
                         //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -15163,7 +15182,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         // this.chart2.render();
 
 
-                        //console.log('132456->' + this.createPlanRequestData.startWeek);
+                        console.log('132456->' + this.createPlanRequestData.startWeek);
                         this.chart1 = new CanvasJS.Chart('chartContainer1', {
                             title: { text: ' ', fontStyle: 'no', },
                             animationEnabled: true,
@@ -15275,7 +15294,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                                 shared: true,
                                 contentFormatter: function (e) {
                                     var content = ' ';
-                                    ////console.log(e.dataPoint);
+                                    //console.log(e.dataPoint);
                                     content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                     for (var i = 0; i < e.entries.length; i++) {
                                         if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -15375,7 +15394,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 }
                 //const data=this.createPlanRequestData;
-                //console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
+                console.log('Create_Plan->' + JSON.stringify(this.createPlanRequestData));
                 this.createPlanRequestData = {
                     startWeek: this.createPlanRequestData.startWeek,
                     endWeek: this.createPlanRequestData.endWeek,
@@ -15396,7 +15415,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     this.loading = false;
 
                     // if (res.res.length == 0) {
-                    //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                    //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                     //   window.alert('No Combination is available');
                     //   this.loading = false;
                     //   return;
@@ -15411,7 +15430,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                     this.allComments = res.combinedcomment;
-                    //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                    console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                     this.allComments_harshit = [];
                     for (const abc of this.allComments) {
@@ -15430,7 +15449,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     } else {
                         this.inter = 1;
                     }
-                    //console.log('GREYSTART--' + this.greystart);
+                    console.log('GREYSTART--' + this.greystart);
 
 
                     this.createPlanRequestData.brands = res.req.brands;
@@ -15472,7 +15491,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // });
 
                     this.commentsall();
-                    //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                    console.log('thhh->' + this.createPlanRequestData.startWeek);
 
 
 
@@ -15582,7 +15601,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             shared: true,
                             contentFormatter: function (e) {
                                 var content = ' ';
-                                ////console.log(e.dataPoint);
+                                //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
                                     if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -15602,7 +15621,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         //   shared: true,
                         //   contentFormatter: function(e) {
                         //     var content = ' ';
-                        //     //console.log(JSON.stringify(e));
+                        //     console.log(JSON.stringify(e));
                         //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         //     for (var i = 0; i < e.entries.length; i++) {
                         //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -15703,7 +15722,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //   //   shared: true,
                     //   //   contentFormatter: function(e) {
                     //   //     var content = ' ';
-                    //   //     //console.log(JSON.stringify(e));
+                    //   //     console.log(JSON.stringify(e));
                     //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                     //   //     for (var i = 0; i < e.entries.length; i++) {
                     //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -15725,7 +15744,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // this.chart2.render();
 
 
-                    //console.log('132456->' + this.createPlanRequestData.startWeek);
+                    console.log('132456->' + this.createPlanRequestData.startWeek);
                     this.chart1 = new CanvasJS.Chart('chartContainer1', {
                         title: { text: ' ', fontStyle: 'no', },
                         animationEnabled: true,
@@ -15837,7 +15856,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             shared: true,
                             contentFormatter: function (e) {
                                 var content = ' ';
-                                ////console.log(e.dataPoint);
+                                //console.log(e.dataPoint);
                                 content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                                 for (var i = 0; i < e.entries.length; i++) {
                                     if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -15942,28 +15961,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         for (var i = 0; i < headercells.length; i++) {
             headercells[i].style.paddingLeft = '0px';
             headercells[i].style.paddingRight = '0px';
-            headercells[i].style.backgroundColor = 'white';
         }
         var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells.length; i++) {
             agcells[i].style.paddingLeft = '0px';
             agcells[i].style.paddingRight = '5px';
+            agcells[i].style.fontSize = '12px';
         }
-        var agcells2 = Array.from(document.getElementsByClassName('ag-header-cell-text') as HTMLCollectionOf<HTMLElement>);
-        for (var i = 0; i < agcells2.length; i++) {
-            agcells2[i].style.color = '#8BA0B9';
-        } 
         var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells2.length; i++) {
             agcells2[i].style.paddingLeft = '5px';
-        } /*
-        var agcells2 = Array.from(document.getElementsByClassName('ag-row') as HTMLCollectionOf<HTMLElement>);
-        for (var i = 0; i < agcells2.length; i++) {
-            agcells2[i].style.borderTop = '0';
-        } */
-        var agcells2 = Array.from(document.getElementsByClassName('ag-root-wrapper') as HTMLCollectionOf<HTMLElement>);
-        for (var i = 0; i < agcells2.length; i++) {
-            agcells2[i].style.border = '0';
         }
     }
 
@@ -15976,12 +15983,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         for (var i = 0; i < headercells.length; i++) {
             headercells[i].style.paddingLeft = '0px';
             headercells[i].style.paddingRight = '0px';
-            headercells[i].style.backgroundColor = 'white';
         }
         var agcells = Array.from(document.getElementsByClassName('ag-cell') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells.length; i++) {
             agcells[i].style.paddingLeft = '0px';
             agcells[i].style.paddingRight = '5px';
+            agcells[i].style.fontSize = '12px';
         }
         var agcells2 = Array.from(document.getElementsByClassName('ag-cell-last-left-pinned') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < agcells2.length; i++) {
@@ -15990,19 +15997,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal') as HTMLCollectionOf<HTMLElement>);
         for (var i = 0; i < threebars.length; i++) {
             threebars[i].style.zoom = '133%';
-            threebars[i].style.backgroundColor = 'white';
-        }
-        var threebars = Array.from(document.getElementsByClassName('ag-column-drop-horizontal-cell') as HTMLCollectionOf<HTMLElement>);
-        for (var i = 0; i < threebars.length; i++) {
-            threebars[i].style.backgroundColor = 'white';
-        } /*
-        var agcells2 = Array.from(document.getElementsByClassName('ag-row') as HTMLCollectionOf<HTMLElement>);
-        for (var i = 0; i < agcells2.length; i++) {
-            agcells2[i].style.borderTop = '0';
-        } */
-        var agcells2 = Array.from(document.getElementsByClassName('ag-root-wrapper') as HTMLCollectionOf<HTMLElement>);
-        for (var i = 0; i < agcells2.length; i++) {
-            agcells2[i].style.border = '0';
         }
     }
 
@@ -16028,7 +16022,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
 
-        //console.log('Hhsdfh--' + JSON.stringify(this.update));
+        console.log('Hhsdfh--' + JSON.stringify(this.update));
         this.main = false;
         this.comment12 = true;
         this.weeklycomment = false;
@@ -16037,11 +16031,69 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public unexpanded1() {
+
+
         this.pressed = false;
+        // document.getElementById('salesofficefilter').className = 'panel-collapse collapse';
+
+        // document.getElementById('tradetypefilter').className = 'panel-collapse collapse';
+
+        // this.filters2[0].isExpanded = false;
+        // this.filters2[1].isExpanded = false;
     }
 
     public unexpanded() {
+
         this.pressed = false;
+
+
+        //     this.filters1[0].isExpanded = false;
+        //     this.filters1[1].isExpanded = false;
+        //     this.filters1[2].isExpanded = false;
+        //     this.filters1[3].isExpanded = false;
+        //     this.filters1[4].isExpanded = false;
+        //     this.filters1[6].isExpanded = false;
+        //     this.filters1[7].isExpanded = false;
+        //     this.filters1[8].isExpanded = false;
+
+        //     this.filters1_subbrand[0].isExpanded = false;
+        // //    this.filters1[9].isExpanded = false;
+
+
+        //     this.filters1[5].isExpanded = false;
+        //     this.filters1_brands[0].isExpanded = false;
+        //     // this.filters1_brands_1[0].isExpanded = false;
+        //     // this.filters1[7].isExpanded=false;
+        //     //this.filters1[6].isExpanded=false;
+
+
+        //     document.getElementById('brandsfilter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('globalbevfilter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('brands_1filter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('localcatfilter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('subbrandfilter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('materialgroupfilter').className = 'panel-collapse collapse';
+        //     document.getElementById('baseunitfilter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('packtypefilter').className = 'panel-collapse collapse';
+
+
+        //     document.getElementById('packsizefilter').className = 'panel-collapse collapse';
+
+
+        //     document.getElementById('alcoholperfilter').className = 'panel-collapse collapse';
+
+        //     document.getElementById('Animal_Flagsfilter').className = 'panel-collapse collapse';
+
+
+        //document.getElementById('subbrand').className = 'panel-collapse collapse';
+
+
     }
 
 
@@ -16051,8 +16103,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         document.getElementById('l').style.background = '#fff';
         document.getElementById('c').style.background = '';
         document.getElementById('w').style.background = '';
+
+
         this.update = new Date().toJSON('yyyy/MM/dd HH:mm');
-        //console.log('Hhsdfh--' + JSON.stringify(this.update));
+
+        console.log('Hhsdfh--' + JSON.stringify(this.update));
         this.main = false;
         this.comment12 = false;
         this.weeklycomment = false;
@@ -16061,10 +16116,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public main1() {
+
         document.getElementById('m').style.background = '#fff';
         document.getElementById('l').style.background = '';
         document.getElementById('c').style.background = '';
         document.getElementById('w').style.background = '';
+
+
         this.main = true;
         this.comment12 = false;
         this.weeklycomment = false;
@@ -16073,8 +16131,31 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public weeklycomment1() {
 
+
         this.up_table = false;
         this.down_table = true;
+
+        // if (this.up_table == false) {
+        //   this.up_table = true;
+        //   this.down_table = false;
+        // } else if (this.up_table == true) {
+        //   this.up_table = false;
+        //   this.down_table = true;
+        // }
+
+
+        // document.getElementById('m').style.background='';
+        // document.getElementById('l').style.background='';
+        // document.getElementById('w').style.background='#fff';
+        // document.getElementById('c').style.background='';
+
+        // this.update = new Date().toJSON("yyyy/MM/dd HH:mm");
+
+        // console.log("Hhsdfh--"+JSON.stringify(this.update));
+        // this.main=false;
+        // this.comment12=false;
+        // this.weeklycomment=true;
+        // this.log=false;
     }
 
 
@@ -16107,28 +16188,24 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.abc123 == true) {
             this.abc123 = false;
             this.second = false;
-
-            this.bothYes = false;
-            document.getElementById('maincontent').classList.remove("col-8");
-            document.getElementById('maincontent').classList.add("col-12");
-
             document.getElementById('middle').style.margin = '0 20px';
+
             document.getElementById('upper_middle').style.margin = '0 20px';
             this.chart1.render();
             this.chart2.render();
             this.compress = true;
             this.expand = false;
 
+
         } else {
             this.abc123 = true;
             this.second = true;
+            document.getElementById('middle').style.margin = '0 200px';
 
-            document.getElementById('maincontent').classList.remove("col-12");
-            document.getElementById('maincontent').classList.add("col-8");
-            this.bothYes = true;
-
+            document.getElementById('upper_middle').style.margin = '0 200px';
             this.chart1.render();
             this.chart2.render();
+
             this.compress = false;
             this.expand = true;
         }
@@ -16160,7 +16237,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public tick() {
 
-        //console.log('THIS Prev--' + this.endWeek);
+        console.log('THIS Prev--' + this.endWeek);
 
         if (this.color_tick == 0) {
             //return;
@@ -16188,9 +16265,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.createPlanRequestData.prevactuals = DashboardComponent.transformWeek(this.prevactuals);
 
 
-        //console.log('FINALLLLLLLTCK--' + JSON.stringify(this.createPlanRequestData));
+        console.log('FINALLLLLLLTCK--' + JSON.stringify(this.createPlanRequestData));
 
-        //console.log('SDfsfgsdg--' + JSON.stringify(this.createPlanRequestData));
+        console.log('SDfsfgsdg--' + JSON.stringify(this.createPlanRequestData));
 
         if (this.reactivate_filter_button == 0) {
             this.createPlanRequestData.forecastingGroups = JSON.parse(JSON.stringify(this.fgssselected));
@@ -16229,11 +16306,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //  }
         //  this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
-        //console.log('Harshit12121-----' + this.reactivate_filter_button);
+        console.log('Harshit12121-----' + this.reactivate_filter_button);
         if (this.reactivate_filter_button == 0) {
             this.createPlanRequestData.forecastingGroups = JSON.parse(JSON.stringify(this.fgssselected));
 
-            //console.log('TICKKK---' + JSON.stringify(this.fgssselected));
+            console.log('TICKKK---' + JSON.stringify(this.fgssselected));
             this.createPlan(this.createPlanRequestData);
 
         } else {
@@ -16246,7 +16323,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public createPlan(data: any) {
 
 
-        //  //console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
+        //  console.log('GFSECELE---' + JSON.stringify(this.fgssselected));
         this.main_graph = true;
 
         var login = {
@@ -16256,7 +16333,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         };
 
         this.skuService.sendLog(login).subscribe((res: any) => {
-            //console.log('fdfdf--' + res);
+            console.log('fdfdf--' + res);
         });
 
 
@@ -16297,7 +16374,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         // this.skus=JSON.parse(JSON.stringify(this.fgssselected))
 
-        // //console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
+        // console.log('hhhh---' + JSON.stringify(this.createPlanRequestData));
         //this.test();
 
 
@@ -16311,12 +16388,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
 
 
-                //     //console.log('CHCHHCHCHC-----' + JSON.stringify(res));
+                //     console.log('CHCHHCHCHC-----' + JSON.stringify(res));
                 this.loading = false;
 
 
                 // if (res.res.length == 0) {
-                //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                 //   window.alert('No Combination is available');
                 //   this.loading = false;
                 //   return;
@@ -16330,7 +16407,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 }
 
                 this.allComments = res.combinedcomment;
-                //console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                console.log('SAVEPLAN---' + JSON.stringify(this.allComments));        // this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                 this.allComments_harshit = [];
                 for (const abc of this.allComments) {
@@ -16348,7 +16425,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 } else {
                     this.inter = 1;
                 }
-                //console.log('GREYSTART--' + this.greystart);
+                console.log('GREYSTART--' + this.greystart);
 
                 this.createPlanRequestData.brands = res.req.brands;
                 this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
@@ -16382,7 +16459,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //   return item;
                 // });
                 this.commentsall();
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
                 // this.chart2 = new CanvasJS.Chart('chartContainer2', {
                 //   animationEnabled: true,
 
@@ -16443,7 +16520,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //   //   shared: true,
                 //   //   contentFormatter: function(e) {
                 //   //     var content = ' ';
-                //   //     //console.log(JSON.stringify(e));
+                //   //     console.log(JSON.stringify(e));
                 //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                 //   //     for (var i = 0; i < e.entries.length; i++) {
                 //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -16464,7 +16541,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 // this.chart2.render();
 
 
-                //console.log('ISSE PTA--' + this.greystart);
+                console.log('ISSE PTA--' + this.greystart);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -16570,7 +16647,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -16590,7 +16667,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //   shared: true,
                     //   contentFormatter: function(e) {
                     //     var content = ' ';
-                    //     //console.log(JSON.stringify(e));
+                    //     console.log(JSON.stringify(e));
                     //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                     //     for (var i = 0; i < e.entries.length; i++) {
                     //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -16626,7 +16703,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
                 this.chart2.render(); //herere
                 this.secondgraph = 'Baseline';
-                //console.log('132456->' + this.createPlanRequestData.startWeek);
+                console.log('132456->' + this.createPlanRequestData.startWeek);
                 this.chart1 = new CanvasJS.Chart('chartContainer1', {
                     title: { text: ' ', fontStyle: 'no', },
                     animationEnabled: true,
@@ -16724,7 +16801,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -16817,7 +16894,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                 if (res.res.length == 0) {
-                    //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+                    console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
                     window.alert('No Combination is available');
                     this.loading = false;
                     this.reactivate_filter(1);
@@ -16832,7 +16909,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 this.allComments = res.combinedcomment;
 
-                //console.log("SAVEPLAN---" + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
+                console.log("SAVEPLAN---" + JSON.stringify(this.allComments));       //  this.allComments_harshit = this.allComments.map((item) => {       item.isSelected = false;       item.isFiltered=false;       return item;     });
 
                 this.allComments_harshit = [];
                 for (const abc of this.allComments) {
@@ -16855,7 +16932,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 } else {
                     this.inter = 1;
                 }
-                //  //console.log('GREYSTART--' + this.greystart);
+                //  console.log('GREYSTART--' + this.greystart);
                 this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
                 this.createPlanRequestData.subbrand = res.req.subbrand;
                 this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
@@ -16875,18 +16952,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 this.loading = false;
 
-                //  //console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
+                //  console.log('FIIFIFIIF---' + JSON.stringify(this.createPlanRequestData));
 
 
                 this.processGraphData(res);
                 //this.processgraphData(res);
-           
-                        try{
-                        document.getElementById('arrow').style.color = 'grey';
-                        }catch(err)
-                        {
-                            
-                        }
+                document.getElementById('arrow').style.color = 'grey';
 
                 this.processFeatureGraphData(res);
                 this.valuestring = 'Promo';
@@ -16897,8 +16968,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 // });
                 this.commentsall();
 
-                //console.log('thhh->' + this.createPlanRequestData.startWeek);
-                //console.log('ISSE PTA--' + this.greystart);
+                console.log('thhh->' + this.createPlanRequestData.startWeek);
+                console.log('ISSE PTA--' + this.greystart);
                 this.chart2 = new CanvasJS.Chart('chartContainer2', {
                     animationEnabled: true,
                     showInLegend: true,
@@ -16914,7 +16985,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                         // labelFormatter: function(e){
 
-                        //   //console.log("Checking--1212-"+e);
+                        //   console.log("Checking--1212-"+e);
                         //  // return e.value.slice(4, 6);
                         // },
                         valueFormatString: '######',
@@ -17012,7 +17083,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Baseline') {
@@ -17032,7 +17103,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     //   shared: true,
                     //   contentFormatter: function(e) {
                     //     var content = ' ';
-                    //     //console.log(JSON.stringify(e));
+                    //     console.log(JSON.stringify(e));
                     //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                     //     for (var i = 0; i < e.entries.length; i++) {
                     //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
@@ -17069,7 +17140,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 this.chart2.render();  //herere
                 this.secondgraph = 'Baseline';
                 this.loading = false;
-                //console.log('132456->' + this.createPlanRequestData.startWeek);
+                console.log('132456->' + this.createPlanRequestData.startWeek);
                 this.chart1 = new CanvasJS.Chart('chartContainer1', {
                     title: { text: ' ', fontStyle: 'no', },
                     animationEnabled: true,
@@ -17187,7 +17258,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         shared: true,
                         contentFormatter: function (e) {
                             var content = ' ';
-                            ////console.log(e.dataPoint);
+                            //console.log(e.dataPoint);
                             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
                             for (var i = 0; i < e.entries.length; i++) {
                                 if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -17272,13 +17343,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.skuService.getlogs().subscribe((res: any) => {
             this.allLogs = res;
 
-            //console.log('sjkhfgksfgrg---' + JSON.stringify(this.allLogs));
+            console.log('sjkhfgksfgrg---' + JSON.stringify(this.allLogs));
 
         });
 
         // this.skuService.getCommnents().subscribe((res: any) => {
 
-        //   //console.log("Ffgfgfg----");
+        //   console.log("Ffgfgfg----");
 
 
         this.skuService.getCommnents().subscribe((res: any) => {
@@ -17301,7 +17372,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             //   item.isFiltered=false;
             //   return item;
             // });
-            // //console.log("fgfgfgfg-----"+this.allComments);
+            // console.log("fgfgfgfg-----"+this.allComments);
         });
     }
 
@@ -17348,7 +17419,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             this.loading = false;
 
             // if (res.res.length == 0) {
-            //   //console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
+            //   console.log('CHCHHCHCHC-----' + JSON.stringify(res.res));
             //   window.alert('No Combination is available');
             //   this.loading = false;
             //   return;
@@ -17396,7 +17467,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 };
             });
             this.commentsall();
-            //console.log('hsfgerbe->' + this.currentWeek);
+            console.log('hsfgerbe->' + this.currentWeek);
             this.chart1 = new CanvasJS.Chart('chartContainer1', {
                 title: { text: ' ', fontStyle: 'no', },
                 animationEnabled: true,
@@ -17508,7 +17579,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     shared: true,
                     contentFormatter: function (e) {
                         var content = ' ';
-                        //console.log(JSON.stringify(e));
+                        console.log(JSON.stringify(e));
                         content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
                         for (var i = 0; i < e.entries.length; i++) {
                             if (e.entries[i].dataSeries.name == 'Actual LY') {
@@ -17591,7 +17662,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public down() {
-        //console.log('Fsgfsg');
+        console.log('Fsgfsg');
 
         const wb: XLSX.WorkBook = XLSX.utils.book_new();
         //var workSheet = XLSX.utils.json_to_sheet(records);
@@ -17600,7 +17671,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // XLSX.utils.book_append_sheet(wb, ws1, "Sheet2");
         const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.table.nativeElement);
 
-        //console.log('CHECKK--' + JSON.stringify(ws));
+        console.log('CHECKK--' + JSON.stringify(ws));
 
         XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
@@ -17639,7 +17710,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     public downloadCSV(args) {
-        //console.log('CHECKING----' + JSON.stringify(this.graphData));
+        console.log('CHECKING----' + JSON.stringify(this.graphData));
         let data, filename, link;
         let csv = '';
 
@@ -17685,7 +17756,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         csv += weeks.join(',');
         csv += '\n';
 
-        //console.log('JHGJDGFBVV-----' + JSON.stringify(this.totalData));
+        console.log('JHGJDGFBVV-----' + JSON.stringify(this.totalData));
         var ml = [];
         ml.push('ML');
         for (const point of this.graphData) {
@@ -17843,10 +17914,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.third_ag = false;
         // const abc12;
-        //   //console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+        //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
         // this.skus = res.req.forecastingGroups;
 
-        //console.log('JOKER12345678-?' + JSON.stringify(this.skus));
+        console.log('JOKER12345678-?' + JSON.stringify(this.skus));
         const data = res.res;
 
 
@@ -17860,7 +17931,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-        //console.log('Testing_BHU->' + JSON.stringify(res));
+        console.log('Testing_BHU->' + JSON.stringify(res));
         const newData = [];
 
         this.aopDataPoints.length = 0;
@@ -17895,21 +17966,24 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         columndef_clone.push(
-            { headerName: "", field: 'key', enableRowGroup: true, pinned: 'left', filter: true, width: 120, cellStyle: { 'font-weight': 'bold', 'position-left': '5px'} },
+            { headerName: "Key Figure", field: 'key', enableRowGroup: true, pinned: 'left', filter: true, width: 110, cellStyle: { 'font-weight': 'bold', 'position-left': '5px', 'border': '1px ridge' } },
         );
+
+
 
         for (const week of data) {
             if (week.calenderYearWeek <= res.start) {
                 columndef_clone.push({
                     field: JSON.stringify(week.calenderYearWeek),
                     enableRowGroup: true,
-                    cellStyle: { 'background-color': '#BEBEBE' },
-                    width: 64,
+                    cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
+                    width: 62,
                     type: 'rightAligned',
                     valueFormatter: function (params) {
 
+
                         if (params.data.key != 'Comments') {
-                            //console.log("fpfjsrhfkerf", params);
+                            console.log("fpfjsrhfkerf", params);
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
 
                         }
@@ -17933,16 +18007,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         columndef_clone.push({
                             field: JSON.stringify(week.calenderYearWeek),
                             enableRowGroup: true,
-                            width: 64,
+                            cellStyle: { 'border': '1px ridge'},
+                            width: 62,
                             type: 'rightAligned',
-                            cellStyle: function(params) {
-                                if (params.data.key == 'FVA') {
-                                    return { 'border': '1px solid', 'border-color': '#CFD9E7'};
-                                }
-                                else {
-                                    return {};
-                                }
-                            },
                             //editable: true, /*
                             editable: function(params) {
                                 if (params.data.key != 'FVA' && params.data.key != 'Comments') {
@@ -17966,7 +18033,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                                 if (params.data.key != 'Comments') {
-                                    //console.log("fpfjsrhfkerf", params);
+                                    console.log("fpfjsrhfkerf", params);
                                     return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
 
                                 }
@@ -17983,16 +18050,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
                         enableRowGroup: true,
-                        width: 64,
+                        cellStyle: {'border': '1px ridge'},
+                        width: 62,
                         type: 'rightAligned',
-                        cellStyle: function(params) {
-                            if (params.data.key == 'FVA') {
-                                return { 'border': '1px solid', 'border-color': '#CFD9E7'};
-                            }
-                            else {
-                                return {};
-                            }
-                        },
                         //editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
@@ -18016,7 +18076,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                             if (params.data.key != 'Comments') {
-                                //console.log("fpfjsrhfkerf", params);
+                                console.log("fpfjsrhfkerf", params);
                                 return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
                             }
@@ -18088,7 +18148,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log("Harshititit----" + JSON.stringify(fv));
+        console.log("Harshititit----" + JSON.stringify(fv));
 
 
 
@@ -18105,7 +18165,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   return item;
         // });
 
-        //console.log('dsfkhsdkhfsd---' + JSON.stringify(this.allselectedweek));
+        console.log('dsfkhsdkhfsd---' + JSON.stringify(this.allselectedweek));
 
 
 
@@ -18143,9 +18203,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 }
             }
             catch (err) {
-                //var ll = '<img src = "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/plus-512.png">';
-                //f12[week.calenderYearWeek].html(ll);
-                //f12[week.calenderYearWeek] = ll;
                 f12[week.calenderYearWeek] = "";
             }
 
@@ -18237,7 +18294,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-        //console.log("popop----" + row_clone);
+        console.log("popop----" + row_clone);
 
 
 
@@ -18256,18 +18313,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.columnDefs = columndef_clone;
 
 
-        //console.log("0!@!yhryfhf", this.gridApi);
+        console.log("0!@!yhryfhf", this.gridApi);
 
-        //console.log("7764567676$%^^&&---", this.gridApi.getRowNode('Final Forecast'));
+        console.log("7764567676$%^^&&---", this.gridApi.getRowNode('Final Forecast'));
 
-        //console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
-
-
+        console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
 
 
 
 
-        //console.log("THIRD----" + JSON.stringify(row_clone));
+
+
+        console.log("THIRD----" + JSON.stringify(row_clone));
 
         var params = {
             force: false,
@@ -18306,7 +18363,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
                 this.totalData.mlTotal += newPoint.ml;
 
-                //  //console.log("RANG--->"+this.totalData.mlTotal);
+                //  console.log("RANG--->"+this.totalData.mlTotal);
             }
 
             if (week.ml !== undefined) {
@@ -18314,7 +18371,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 //newPoint.finalForecast = newData;
                 newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
-                //console.log('Debug -' + newPoint.finalForecast);
+                console.log('Debug -' + newPoint.finalForecast);
 
                 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
@@ -18348,7 +18405,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 if (newPoint.promovalue == null || newPoint.promovalue === null || newPoint.promovalue == undefined || newPoint.promovalue === undefined) {
                     newPoint.promovalue = 0;
                 }
-                //console.log('324trgfde----' + newPoint.promovalue);
+                console.log('324trgfde----' + newPoint.promovalue);
                 this.promovalue.push({
                     x: key,
                     y: newPoint.promovalue,
@@ -18360,34 +18417,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
 
-            //console.log('tyt!@#$%^&-------' + JSON.stringify(week));
+            console.log('tyt!@#$%^&-------' + JSON.stringify(week));
             if (week.fva !== undefined) {
 
 
                 const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
                 // newPoint.fcstValueAdd = value ? '' : value.toString();
-                // //console.log('MAN RAMTA->' + value);
+                // console.log('MAN RAMTA->' + value);
                 if (value !== undefined) {
-                    // //console.log("343"+JSON.stringify(newPoint));
+                    // console.log("343"+JSON.stringify(newPoint));
 
-                    //console.log('34567890--->' + newPoint.initialFinalForecast.toString());
+                    console.log('34567890--->' + newPoint.initialFinalForecast.toString());
 
-                    //console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
+                    console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
 
 
-                    //console.log('dfghjk1-->' + this.forecastadd);
+                    console.log('dfghjk1-->' + this.forecastadd);
 
                     this.forecastadd = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
-                    //console.log('dfghjk345-->' + this.forecastadd);
+                    console.log('dfghjk345-->' + this.forecastadd);
                     //  this.totalData.fcstValueAdd += newPoint.ml;
                     this.totalData.fsvtValueAdd = this.totalData.fsvtValueAdd + newPoint.initialFinalForecast;
                     this.totalData.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
-                    //console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
+                    console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
                     newPoint.fcstValueAdd = value;
                     this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
-                    //console.log('3545%^&->' + this.totalData.fcstValueAdd);
+                    console.log('3545%^&->' + this.totalData.fcstValueAdd);
                 }
 
             }
@@ -18424,14 +18481,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             if (week.comment) {
 
-                //console.log('Weeks comment -- ' + week.comment);
+                console.log('Weeks comment -- ' + week.comment);
                 newPoint.comments = week.comment;
             }
 
 
             if (week.lockcell) {
 
-                //console.log('Suit-------' + week.lockcell);
+                console.log('Suit-------' + week.lockcell);
                 newPoint.lockcell = week.lockcell;
             }
 
@@ -18468,10 +18525,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.views = "Detailed View";
         // const abc12;
-        //   //console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+        //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
         // this.skus = res.req.forecastingGroups;
 
-        //console.log('JOKER12345678-?' + JSON.stringify(this.skus));
+        console.log('JOKER12345678-?' + JSON.stringify(this.skus));
         const data = res.res;
 
 
@@ -18487,7 +18544,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-        //console.log('Testing->' + JSON.stringify(data));
+        console.log('Testing->' + JSON.stringify(data));
         const newData = [];
 
         this.aopDataPoints.length = 0;
@@ -18521,17 +18578,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.forecastadd = 0;
 
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
-            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
-            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
-            { headerName: "Forecasting Group", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
+            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Forecasting Group", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
         );
 
 
         var temp_date = data[0].calenderYearWeek;
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
-            cellStyle: { 'background-color': '#BEBEBE' },
+            cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
             width: 105, //150
             type: 'rightAligned',
@@ -18548,7 +18605,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        cellStyle: { 'background-color': '#BEBEBE' },
+                        cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 105, //150
                         type: 'rightAligned',
                         aggFunc: 'sum',
@@ -18578,9 +18635,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
+                        cellStyle: {'border': '1px ridge'},
                         width: 105, //150
                         type: 'rightAligned',
                         aggFunc: 'sum',
+
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
@@ -18839,7 +18898,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log("JSON ROW CLONE---" + JSON.stringify(row_clone5));
+        console.log("JSON ROW CLONE---" + JSON.stringify(row_clone5));
 
         // for(let yh of data){
         //   var f123={key:'Actual'};
@@ -18858,7 +18917,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // }
 
 
-        //console.log("dfsdsd666--" + JSON.stringify(f123));
+        console.log("dfsdsd666--" + JSON.stringify(f123));
 
 
 
@@ -18892,7 +18951,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log("Harshititit----" + JSON.stringify(fv));
+        console.log("Harshititit----" + JSON.stringify(fv));
 
 
         var f123 = { key: 'ML' };
@@ -18913,7 +18972,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         row_clone.push(f123);
 
 
-        //console.log("popop----" + row_clone);
+        console.log("popop----" + row_clone);
 
 
         var f123 = { key: 'Actual' };
@@ -19026,14 +19085,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.rowData = row_clone;
         this.columnDefs5 = columndef_clone;
 
-        //console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
+        console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
 
 
 
 
 
 
-        //console.log("THIRD----" + JSON.stringify(row_clone));
+        console.log("THIRD----" + JSON.stringify(row_clone));
 
 
 
@@ -19068,7 +19127,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
                 this.totalData.mlTotal += newPoint.ml;
 
-                //  //console.log("RANG--->"+this.totalData.mlTotal);
+                //  console.log("RANG--->"+this.totalData.mlTotal);
             }
 
             if (week.ml !== undefined) {
@@ -19076,7 +19135,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 //newPoint.finalForecast = newData;
                 newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
-                //console.log('Debug -' + newPoint.finalForecast);
+                console.log('Debug -' + newPoint.finalForecast);
 
                 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
@@ -19110,7 +19169,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 if (newPoint.promovalue == null || newPoint.promovalue === null || newPoint.promovalue == undefined || newPoint.promovalue === undefined) {
                     newPoint.promovalue = 0;
                 }
-                //console.log('324trgfde----' + newPoint.promovalue);
+                console.log('324trgfde----' + newPoint.promovalue);
                 this.promovalue.push({
                     x: key,
                     y: newPoint.promovalue,
@@ -19122,34 +19181,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
 
-            //console.log('tyt!@#$%^&-------' + JSON.stringify(week));
+            console.log('tyt!@#$%^&-------' + JSON.stringify(week));
             if (week.fva !== undefined) {
 
 
                 const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
                 // newPoint.fcstValueAdd = value ? '' : value.toString();
-                // //console.log('MAN RAMTA->' + value);
+                // console.log('MAN RAMTA->' + value);
                 if (value !== undefined) {
-                    // //console.log("343"+JSON.stringify(newPoint));
+                    // console.log("343"+JSON.stringify(newPoint));
 
-                    //console.log('34567890--->' + newPoint.initialFinalForecast.toString());
+                    console.log('34567890--->' + newPoint.initialFinalForecast.toString());
 
-                    //console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
+                    console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
 
 
-                    //console.log('dfghjk1-->' + this.forecastadd);
+                    console.log('dfghjk1-->' + this.forecastadd);
 
                     this.forecastadd = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
-                    //console.log('dfghjk345-->' + this.forecastadd);
+                    console.log('dfghjk345-->' + this.forecastadd);
                     //  this.totalData.fcstValueAdd += newPoint.ml;
                     this.totalData.fsvtValueAdd = this.totalData.fsvtValueAdd + newPoint.initialFinalForecast;
                     this.totalData.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
-                    //console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
+                    console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
                     newPoint.fcstValueAdd = value;
                     this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
-                    //console.log('3545%^&->' + this.totalData.fcstValueAdd);
+                    console.log('3545%^&->' + this.totalData.fcstValueAdd);
                 }
 
             }
@@ -19186,14 +19245,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             if (week.comment) {
 
-                //console.log('Weeks comment -- ' + week.comment);
+                console.log('Weeks comment -- ' + week.comment);
                 newPoint.comments = week.comment;
             }
 
 
             if (week.lockcell) {
 
-                //console.log('Suit-------' + week.lockcell);
+                console.log('Suit-------' + week.lockcell);
                 newPoint.lockcell = week.lockcell;
             }
 
@@ -19239,10 +19298,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.views = "Detailed View_material";
         // const abc12;
-        //   //console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+        //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
         // this.skus = res.req.forecastingGroups;
 
-        //console.log('JOKER12345678-?' + JSON.stringify(this.skus));
+        console.log('JOKER12345678-?' + JSON.stringify(this.skus));
         const data = res.res;
 
 
@@ -19258,7 +19317,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-        //console.log('Testing->' + JSON.stringify(data));
+        console.log('Testing->' + JSON.stringify(data));
         const newData = [];
 
         this.aopDataPoints.length = 0;
@@ -19293,17 +19352,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
-            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
-            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
-            { headerName: "Material", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold',  } },
+            { headerName: "Key Figure", field: 'key', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "CPG", field: 'cpg', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Plant", field: 'plant', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
+            { headerName: "Material", field: 'sku', rowGroup: true, filter: true, width: 100, hide: true, cellStyle: { 'font-weight': 'bold', 'border': '1px ridge' } },
         );
 
 
         var temp_date = data[0].calenderYearWeek;
         columndef_clone.push({
             field: JSON.stringify(data[0].calenderYearWeek),
-            cellStyle: { 'background-color': '#BEBEBE' },
+            cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
             aggFunc: 'sum',
             type: 'rightAligned',
             width: 100, //150
@@ -19320,7 +19379,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        cellStyle: { 'background-color': '#BEBEBE' },
+                        cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         width: 100,
                         type: 'rightAligned',
                         aggFunc: 'sum',
@@ -19350,9 +19409,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
+                        cellStyle: {'border': '1px ridge'},
                         width: 100,
                         type: 'rightAligned',
                         aggFunc: 'sum',
+
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
@@ -19613,7 +19674,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log("JSON ROW CLONE---" + JSON.stringify(row_clone5));
+        console.log("JSON ROW CLONE---" + JSON.stringify(row_clone5));
 
         // for(let yh of data){
         //   var f123={key:'Actual'};
@@ -19632,7 +19693,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // }
 
 
-        //console.log("dfsdsd666--" + JSON.stringify(f123));
+        console.log("dfsdsd666--" + JSON.stringify(f123));
 
 
 
@@ -19666,7 +19727,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log("Harshititit----" + JSON.stringify(fv));
+        console.log("Harshititit----" + JSON.stringify(fv));
 
 
         var f123 = { key: 'ML' };
@@ -19687,7 +19748,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         row_clone.push(f123);
 
 
-        //console.log("popop----" + row_clone);
+        console.log("popop----" + row_clone);
 
 
         var f123 = { key: 'Actual' };
@@ -19800,14 +19861,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.rowData = row_clone;
         this.columnDefs5 = columndef_clone;
 
-        //console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
+        console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
 
 
 
 
 
 
-        //console.log("THIRD----" + JSON.stringify(row_clone));
+        console.log("THIRD----" + JSON.stringify(row_clone));
 
 
 
@@ -19842,7 +19903,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
                 this.totalData.mlTotal += newPoint.ml;
 
-                //  //console.log("RANG--->"+this.totalData.mlTotal);
+                //  console.log("RANG--->"+this.totalData.mlTotal);
             }
 
             if (week.ml !== undefined) {
@@ -19850,7 +19911,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 //newPoint.finalForecast = newData;
                 newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
-                //console.log('Debug -' + newPoint.finalForecast);
+                console.log('Debug -' + newPoint.finalForecast);
 
                 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
@@ -19884,7 +19945,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 if (newPoint.promovalue == null || newPoint.promovalue === null || newPoint.promovalue == undefined || newPoint.promovalue === undefined) {
                     newPoint.promovalue = 0;
                 }
-                //console.log('324trgfde----' + newPoint.promovalue);
+                console.log('324trgfde----' + newPoint.promovalue);
                 this.promovalue.push({
                     x: key,
                     y: newPoint.promovalue,
@@ -19896,34 +19957,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
 
-            //console.log('tyt!@#$%^&-------' + JSON.stringify(week));
+            console.log('tyt!@#$%^&-------' + JSON.stringify(week));
             if (week.fva !== undefined) {
 
 
                 const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
                 // newPoint.fcstValueAdd = value ? '' : value.toString();
-                // //console.log('MAN RAMTA->' + value);
+                // console.log('MAN RAMTA->' + value);
                 if (value !== undefined) {
-                    // //console.log("343"+JSON.stringify(newPoint));
+                    // console.log("343"+JSON.stringify(newPoint));
 
-                    //console.log('34567890--->' + newPoint.initialFinalForecast.toString());
+                    console.log('34567890--->' + newPoint.initialFinalForecast.toString());
 
-                    //console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
+                    console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
 
 
-                    //console.log('dfghjk1-->' + this.forecastadd);
+                    console.log('dfghjk1-->' + this.forecastadd);
 
                     this.forecastadd = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
-                    //console.log('dfghjk345-->' + this.forecastadd);
+                    console.log('dfghjk345-->' + this.forecastadd);
                     //  this.totalData.fcstValueAdd += newPoint.ml;
                     this.totalData.fsvtValueAdd = this.totalData.fsvtValueAdd + newPoint.initialFinalForecast;
                     this.totalData.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
-                    //console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
+                    console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
                     newPoint.fcstValueAdd = value;
                     this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
-                    //console.log('3545%^&->' + this.totalData.fcstValueAdd);
+                    console.log('3545%^&->' + this.totalData.fcstValueAdd);
                 }
 
             }
@@ -19960,14 +20021,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             if (week.comment) {
 
-                //console.log('Weeks comment -- ' + week.comment);
+                console.log('Weeks comment -- ' + week.comment);
                 newPoint.comments = week.comment;
             }
 
 
             if (week.lockcell) {
 
-                //console.log('Suit-------' + week.lockcell);
+                console.log('Suit-------' + week.lockcell);
                 newPoint.lockcell = week.lockcell;
             }
 
@@ -20004,10 +20065,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.views = "Sku View";
         this.first_ag = false;
         // const abc12;
-        //   //console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+        //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
         // this.skus = res.req.forecastingGroups;
 
-        //console.log('JOKER12345678-?' + JSON.stringify(this.skus));
+        console.log('JOKER12345678-?' + JSON.stringify(this.skus));
         const data = res.res;
 
 
@@ -20023,7 +20084,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-        //console.log('Testing->' + JSON.stringify(data));
+        console.log('Testing->' + JSON.stringify(data));
         const newData = [];
 
         this.aopDataPoints.length = 0;
@@ -20061,8 +20122,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 //kimheehee
         columndef_clone.push(
-            { headerName: "Key Figure", field: 'key', filter: true, width: 150, sortable: true, pinned: "left", cellStyle: { 'font-weight': 'bold', 'position-left': '5px',  } },
-            { headerName: "FG", field: 'sku', filter: true, width: 90, sortable: true, pinned: "left", cellStyle: { 'font-weight': 'bold', 'position-left': '5px',  } },
+            { headerName: "Key Figure", field: 'key', filter: true, width: 150, sortable: true, pinned: "left", cellStyle: { 'font-weight': 'bold', 'position-left': '5px', 'border': '1px ridge' } },
+            { headerName: "FG", field: 'sku', filter: true, width: 90, sortable: true, pinned: "left", cellStyle: { 'font-weight': 'bold', 'position-left': '5px', 'border': '1px ridge' } },
         );
 
 
@@ -20071,7 +20132,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             field: JSON.stringify(data[0].calenderYearWeek),
             width: 100, //130
             type: 'rightAligned',
-            cellStyle: { 'background-color': '#BEBEBE' },
+            cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
 
         });
 
@@ -20085,7 +20146,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        cellStyle: { 'background-color': '#BEBEBE' },
+                        //editable: true, /*
+                        editable: function(params) {
+                            if (params.data.key != 'FVA' && params.data.key != 'Comments') {
+                                return false;
+                            }
+                            else {
+                                return true;
+                            }
+                        },
+                        cellStyle: { 'background-color': '#BEBEBE', 'border': '1px ridge' },
                         type: 'rightAligned',
                         width: 100,
                         valueFormatter: function (params) {
@@ -20109,14 +20179,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     // window.alert("fdfsdf"+temp_date);
                     columndef_clone.push({
                         field: JSON.stringify(week.calenderYearWeek),
-                        cellStyle: function(params) {
-                            if (params.data.key == 'FVA') {
-                                return { 'border': '1px solid', 'border-color': '#CFD9E7'};
-                            }
-                            else {
-                                return {};
-                            }
-                        },
                         //editable: true, /*
                         editable: function(params) {
                             if (params.data.key != 'FVA' && params.data.key != 'Comments') {
@@ -20128,6 +20190,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                         },
                         type: 'rightAligned',
                         width: 100,
+                        cellStyle: {'border': '1px ridge'},
                         valueFormatter: function (params) {
                             return Math.floor(params.value).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 
@@ -20168,12 +20231,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     valueGetter: function(params) {
         //       var f=0;
         //       var g=0;
-        //       //console.log("Pragya",params);
+        //       console.log("Pragya",params);
 
         //       var keys = [];
         //       for(var k in params.data)
         //       {
-        //         //console.log
+        //         console.log
         //         keys.push(k);
         //       }
 
@@ -20193,7 +20256,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         else{
         //           if(params.data.sku=="21781" && params.data.key=="ML-21781")
         //           {
-        //             //console.log("Value--"+f+"---"+params.data.sku+"--Key-"+params.data.key +"-----Week--"+week.calenderYearWeek);
+        //             console.log("Value--"+f+"---"+params.data.sku+"--Key-"+params.data.key +"-----Week--"+week.calenderYearWeek);
 
         //           }
 
@@ -20408,7 +20471,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-        //console.log("JSON ROW CLONE---" + JSON.stringify(row_clone5));
+        console.log("JSON ROW CLONE---" + JSON.stringify(row_clone5));
 
         // for(let yh of data){
         //   var f123={key:'Actual'};
@@ -20427,7 +20490,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // }
 
 
-        //console.log("dfsdsd666--" + JSON.stringify(f123));
+        console.log("dfsdsd666--" + JSON.stringify(f123));
 
 
 
@@ -20461,7 +20524,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log("Harshititit----" + JSON.stringify(fv));
+        console.log("Harshititit----" + JSON.stringify(fv));
 
 
         var f123 = { key: 'ML' };
@@ -20482,7 +20545,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         row_clone.push(f123);
 
 
-        //console.log("popop----" + row_clone);
+        console.log("popop----" + row_clone);
 
 
         var f123 = { key: 'Actual' };
@@ -20595,7 +20658,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.rowData = row_clone;
         this.columnDefs6 = columndef_clone;
 
-        //console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
+        console.log("FIRSTTT----" + JSON.stringify(columndef_clone));
 
 
 
@@ -20607,7 +20670,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.gridApi1.refreshCells(params);
 
 
-        //console.log("THIRD----" + JSON.stringify(row_clone));
+        console.log("THIRD----" + JSON.stringify(row_clone));
 
 
 
@@ -20642,7 +20705,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
                 this.totalData.mlTotal += newPoint.ml;
 
-                //  //console.log("RANG--->"+this.totalData.mlTotal);
+                //  console.log("RANG--->"+this.totalData.mlTotal);
             }
 
             if (week.ml !== undefined) {
@@ -20650,7 +20713,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 //newPoint.finalForecast = newData;
                 newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
-                //console.log('Debug -' + newPoint.finalForecast);
+                console.log('Debug -' + newPoint.finalForecast);
 
                 //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
@@ -20684,7 +20747,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 if (newPoint.promovalue == null || newPoint.promovalue === null || newPoint.promovalue == undefined || newPoint.promovalue === undefined) {
                     newPoint.promovalue = 0;
                 }
-                //console.log('324trgfde----' + newPoint.promovalue);
+                console.log('324trgfde----' + newPoint.promovalue);
                 this.promovalue.push({
                     x: key,
                     y: newPoint.promovalue,
@@ -20696,34 +20759,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
 
-            //console.log('tyt!@#$%^&-------' + JSON.stringify(week));
+            console.log('tyt!@#$%^&-------' + JSON.stringify(week));
             if (week.fva !== undefined) {
 
 
                 const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
                 // newPoint.fcstValueAdd = value ? '' : value.toString();
-                // //console.log('MAN RAMTA->' + value);
+                // console.log('MAN RAMTA->' + value);
                 if (value !== undefined) {
-                    // //console.log("343"+JSON.stringify(newPoint));
+                    // console.log("343"+JSON.stringify(newPoint));
 
-                    //console.log('34567890--->' + newPoint.initialFinalForecast.toString());
+                    console.log('34567890--->' + newPoint.initialFinalForecast.toString());
 
-                    //console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
+                    console.log('dfghjk-->' + this.totalData.fsvtValueAdd);
 
 
-                    //console.log('dfghjk1-->' + this.forecastadd);
+                    console.log('dfghjk1-->' + this.forecastadd);
 
                     this.forecastadd = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
-                    //console.log('dfghjk345-->' + this.forecastadd);
+                    console.log('dfghjk345-->' + this.forecastadd);
                     //  this.totalData.fcstValueAdd += newPoint.ml;
                     this.totalData.fsvtValueAdd = this.totalData.fsvtValueAdd + newPoint.initialFinalForecast;
                     this.totalData.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
-                    //console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
+                    console.log('TEs23%^&->' + this.totalData.fcstValueAdd);
                     newPoint.fcstValueAdd = value;
                     this.totalData.fsvtValueAdd += newPoint.fcstValueAdd;
-                    //console.log('3545%^&->' + this.totalData.fcstValueAdd);
+                    console.log('3545%^&->' + this.totalData.fcstValueAdd);
                 }
 
             }
@@ -20760,14 +20823,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             if (week.comment) {
 
-                //console.log('Weeks comment -- ' + week.comment);
+                console.log('Weeks comment -- ' + week.comment);
                 newPoint.comments = week.comment;
             }
 
 
             if (week.lockcell) {
 
-                //console.log('Suit-------' + week.lockcell);
+                console.log('Suit-------' + week.lockcell);
                 newPoint.lockcell = week.lockcell;
             }
 
@@ -20803,17 +20866,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     //     // const abc12;
-    //     //   //console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
+    //     //   console.log("JOKER12-?"+JSON.stringify(res.req.forecastingGroups));
     //     // this.skus = res.req.forecastingGroups;
 
-    //     //console.log('JOKER12345678344343-?' + JSON.stringify(this.skus));
+    //     console.log('JOKER12345678344343-?' + JSON.stringify(this.skus));
     //     const data = res.res_table;
 
 
     //     //  this.filters2=[];
 
 
-    //     //console.log('Testing_TABLE__Dfd->' + JSON.stringify(data));
+    //     console.log('Testing_TABLE__Dfd->' + JSON.stringify(data));
     //     const newData = [];
 
     //     this.aopDataPoints_table.length = 0;
@@ -20870,7 +20933,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //         });
     //         this.totalData_table.mlTotal += newPoint.ml;
 
-    //         //  //console.log("RANG--->"+this.totalData.mlTotal);
+    //         //  console.log("RANG--->"+this.totalData.mlTotal);
     //       }
 
     //       if (week.ml !== undefined) {
@@ -20878,7 +20941,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     //         //newPoint.finalForecast = newData;
     //         newPoint.finalForecast = parseFloat(DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast).toFixed(0));
-    //         //console.log('Debug -' + newPoint.finalForecast);
+    //         console.log('Debug -' + newPoint.finalForecast);
 
     // //        newPoint.fva = week.finalforecast === undefined ? newPoint.ml : DashboardComponent.parseStringToFloat(week.fva);
 
@@ -20907,34 +20970,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //       }
 
 
-    //       //console.log('tyt!@#$%^&-------' + JSON.stringify(week));
+    //       console.log('tyt!@#$%^&-------' + JSON.stringify(week));
     //       if (week.fva !== undefined) {
 
 
     //         const value = parseFloat(DashboardComponent.parseStringToFloat(week.fva).toFixed(0));
     //         // newPoint.fcstValueAdd = value ? '' : value.toString();
-    //         // //console.log('MAN RAMTA->' + value);
+    //         // console.log('MAN RAMTA->' + value);
     //         if (value !== undefined) {
-    //           // //console.log("343"+JSON.stringify(newPoint));
+    //           // console.log("343"+JSON.stringify(newPoint));
 
-    //           //console.log('34567890--->' + newPoint.initialFinalForecast.toString());
+    //           console.log('34567890--->' + newPoint.initialFinalForecast.toString());
 
-    //           //console.log('dfghjk-->' + this.totalData_table.fsvtValueAdd);
+    //           console.log('dfghjk-->' + this.totalData_table.fsvtValueAdd);
 
 
-    //           //console.log('dfghjk1-->' + this.forecastadd_table);
+    //           console.log('dfghjk1-->' + this.forecastadd_table);
 
     //           this.forecastadd_table = parseFloat(this.forecastadd.toFixed(0)) + parseFloat(value.toFixed(0));
 
 
-    //           //console.log('dfghjk345-->' + this.forecastadd_table);
+    //           console.log('dfghjk345-->' + this.forecastadd_table);
     //           //  this.totalData.fcstValueAdd += newPoint.ml;
     //           this.totalData_table.fsvtValueAdd = this.totalData_table.fsvtValueAdd + newPoint.initialFinalForecast;
     //           this.totalData_table.fsvtValueAdd += DashboardComponent.parseStringToFloat(newPoint.initialFinalForecast);
-    //           //console.log('TEs23%^&->' + this.totalData_table.fcstValueAdd);
+    //           console.log('TEs23%^&->' + this.totalData_table.fcstValueAdd);
     //           newPoint.fcstValueAdd = value;
     //           this.totalData_table.fsvtValueAdd += newPoint.fcstValueAdd;
-    //           //console.log('3545%^&->' + this.totalData_table.fcstValueAdd);
+    //           console.log('3545%^&->' + this.totalData_table.fcstValueAdd);
     //         }
 
     //       }
@@ -20971,14 +21034,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     //       if (week.comment) {
 
-    //         //console.log('Weeks comment -- ' + week.comment);
+    //         console.log('Weeks comment -- ' + week.comment);
     //         newPoint.comments = week.comment;
     //       }
 
 
     //       if (week.lockcell) {
 
-    //         //console.log('Suit-------' + week.lockcell);
+    //         console.log('Suit-------' + week.lockcell);
     //         newPoint.lockcell = week.lockcell;
     //       }
 
@@ -21004,7 +21067,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         const data1 = res.secondGraphRes;
 
         var a = document.getElementById('checking').innerHTML;
-        //console.log('KCUH AUR PANGAA HAI');
+        console.log('KCUH AUR PANGAA HAI');
         this.property.length = 0;
 
         this.property2.length = 0;
@@ -21050,13 +21113,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //this.totalData.actuals += newPoint.actuals;
             }
 
-            //console.log('3456789--->' + JSON.stringify(this.property));
+            console.log('3456789--->' + JSON.stringify(this.property));
 
-            //console.log('TEST12--->' + week1.apo);
-            //console.log('TEST12--->' + week1.calendarWeek);
+            console.log('TEST12--->' + week1.apo);
+            console.log('TEST12--->' + week1.calendarWeek);
 
 
-            // //console.log("HARHS^&->"+week.apo);
+            // console.log("HARHS^&->"+week.apo);
             // const newPoint: any = {
             //   comments: [],
             //   userComment: []
@@ -21091,7 +21154,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         const data1 = res.secondGraphRes;
 
         var a = document.getElementById('checking').innerHTML;
-        //console.log('CHECK-->' + a);
+        console.log('CHECK-->' + a);
         this.property.length = 0;
         this.property2.length = 0;
         this.property3.length = 0;
@@ -21146,13 +21209,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //this.totalData.actuals += newPoint.actuals;
             }
 
-            //console.log('3456789--->' + JSON.stringify(this.property));
+            console.log('3456789--->' + JSON.stringify(this.property));
 
-            //console.log('TEST12--->' + week1.apo);
-            //console.log('TEST12--->' + week1.calendarWeek);
+            console.log('TEST12--->' + week1.apo);
+            console.log('TEST12--->' + week1.calendarWeek);
 
 
-            // //console.log("HARHS^&->"+week.apo);
+            // console.log("HARHS^&->"+week.apo);
             // const newPoint: any = {
             //   comments: [],
             //   userComment: []
@@ -21187,7 +21250,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         const data1 = res.secondGraphRes;
 
         var a = document.getElementById('checking').innerHTML;
-        //console.log('CHECK-->' + a);
+        console.log('CHECK-->' + a);
         this.property.length = 0;
         this.property2.length = 0;
         this.property3.length = 0;
@@ -21232,13 +21295,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 //this.totalData.actuals += newPoint.actuals;
             }
 
-            //console.log('3456789--->' + JSON.stringify(this.property));
+            console.log('3456789--->' + JSON.stringify(this.property));
 
-            //console.log('TEST12--->' + week1.apo);
-            //console.log('TEST12--->' + week1.calendarWeek);
+            console.log('TEST12--->' + week1.apo);
+            console.log('TEST12--->' + week1.calendarWeek);
 
 
-            // //console.log("HARHS^&->"+week.apo);
+            // console.log("HARHS^&->"+week.apo);
             // const newPoint: any = {
             //   comments: [],
             //   userComment: []
@@ -21280,18 +21343,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.color_tick = 1;
         this.prev_year = 0;
-
-
-
-        try{
-            document.getElementById('arrow').style.color = 'green';
-            }catch(err)
-            {
-                
-            }
-
-
-       
+        document.getElementById('arrow').style.color = 'green';
     }
 
 
@@ -21301,7 +21353,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // Push customer Planning Group
 
 
-        // //console.log("32454--"+JSON.stringify(customerPlanningGroup));
+        // console.log("32454--"+JSON.stringify(customerPlanningGroup));
 
         // // Push plant
 
@@ -21448,22 +21500,22 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public changeListener(files: FileList) {
-        //console.log(files);
+        console.log(files);
         if (files && files.length > 0) {
             let file: File = files.item(0);
-            // //console.log(file.name);
-            // //console.log(file.size);
-            // //console.log(file.type);
+            // console.log(file.name);
+            // console.log(file.size);
+            // console.log(file.type);
             let reader: FileReader = new FileReader();
             reader.readAsText(file);
             reader.onload = (e) => {
                 let csv: string = reader.result as string;
-                ////console.log('harshit---' + csv);
-                ////console.log('harshit1212----' + csv.split('\n').length);
+                //console.log('harshit---' + csv);
+                //console.log('harshit1212----' + csv.split('\n').length);
                 var g = csv.split('\n');
-                ////console.log('popop---' + g);
+                //console.log('popop---' + g);
                 var g = csv.split('\n').splice(1);
-                // //console.log('popop121---' + g);
+                // console.log('popop121---' + g);
                 var g1 = [];
 
 
@@ -21473,26 +21525,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     } else {
                         this.second_sku = [];
                         this.skus = [];
-                        //  //console.log('SFsgfg---' + ab);
+                        //  console.log('SFsgfg---' + ab);
                         var flag = 0;
                         for (var i = 0; i < ab.length; i++) {
-                            //  //console.log("OWO4567WOWO"+ab.charAt(i));
+                            //  console.log("OWO4567WOWO"+ab.charAt(i));
                             if (ab.charAt(i) == '\r') {
-                                // //console.log("OWOWOWO");
+                                // console.log("OWOWOWO");
                                 flag = 1;
                             }
                         }
 
                         if (ab.substring(ab.length - 1, ab.length) == '\r') {
-                            //  //console.log("2121212----");
+                            //  console.log("2121212----");
                         }
 
                         if (ab.length < 3) {
-                            //  //console.log("return121---");
+                            //  console.log("return121---");
                             continue;
                         }
                         if (flag == 0 && ab != null) {
-                            //  //console.log("without cuttt---");
+                            //  console.log("without cuttt---");
                             g1.push(ab);
 
 
@@ -21502,7 +21554,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                         } else if (ab != null && flag == 1) {
-                            ////console.log("cutttt---"+ab.substring(0, ab.length - 1));
+                            //console.log("cutttt---"+ab.substring(0, ab.length - 1));
                             g1.push(ab.substring(0, ab.length - 1));
 
 
@@ -21516,8 +21568,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //     for(const abc1 in this.skus)
                             //     {
 
-                            //       //console.log("Testing--"+JSON.stringify(this.skus[abc1]));
-                            //       //console.log("Testing121--"+JSON.stringify(this.skus[abc1]));
+                            //       console.log("Testing--"+JSON.stringify(this.skus[abc1]));
+                            //       console.log("Testing121--"+JSON.stringify(this.skus[abc1]));
                             //         if(this.skus[abc1].name==a.material)
                             //         {
                             //           this.skus[abc1].name= this.skus[abc1].name+"-"+res[0];
@@ -21527,7 +21579,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                             //   //g1[abc]=g[abc]+"-"+res[0];
 
 
-                            //  // //console.log('sjkhfgksfgrg12------ '+abc+'--' + JSON.stringify(g1));
+                            //  // console.log('sjkhfgksfgrg12------ '+abc+'--' + JSON.stringify(g1));
                             //  // this.skuname_down=res[0];
 
 
@@ -21545,7 +21597,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 this.skuService.skuname(g1).subscribe((res: any) => {
 
-                    //console.log('Fdfdfd' + JSON.stringify(res));
+                    console.log('Fdfdfd' + JSON.stringify(res));
 
                     this.reactivate_filter(1);
                     this.skus = res.map(item => {
@@ -21561,7 +21613,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
 
 
-                //console.log('harshit1212----' + csv.split('\n')[1]);
+                console.log('harshit1212----' + csv.split('\n')[1]);
             };
         }
     }
@@ -21569,12 +21621,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public start_drag_ml(cell: any) {
         this.selected_array = [];
-        //console.log('Start Drag--');
+        console.log('Start Drag--');
         var num1 = this.graphData[cell].ml;
         this.sumselected = 0;
         this.avgselected = 0;
 
-        //console.log('fdfd----' + JSON.stringify(this.tables));
+        console.log('fdfd----' + JSON.stringify(this.tables));
 
 
         //   this.avgselected=num1
@@ -21592,7 +21644,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public start_drag_final(cell: any) {
 
         this.selected_array = [];
-        //console.log('Start Drag--');
+        console.log('Start Drag--');
         var num1 = this.graphData[cell].ml;
         this.sumselected = 0;
         this.avgselected = 0;
@@ -21609,7 +21661,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public start_drag_apo(cell: any) {
 
         this.selected_array = [];
-        //console.log('Start Drag--');
+        console.log('Start Drag--');
         var num1 = this.graphData[cell].apo;
         this.sumselected = 0;
         this.avgselected = 0;
@@ -21626,7 +21678,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public start_drag_actuals(cell: any) {
 
         this.selected_array = [];
-        //console.log('Start Drag--');
+        console.log('Start Drag--');
         var num1 = this.graphData[cell].actuals;
         this.sumselected = 0;
         this.avgselected = 0;
@@ -21644,7 +21696,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         this.selected_array = [];
-        //console.log('Start Drag--');
+        console.log('Start Drag--');
         var num1 = this.graphData[cell].actualslastyear;
         this.sumselected = 0;
         this.avgselected = 0;
@@ -21662,7 +21714,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         this.selected_array = [];
-        //console.log('Start Drag--');
+        console.log('Start Drag--');
         var num1 = this.graphData[cell].harshit;
         this.sumselected = 0;
         this.avgselected = 0;
@@ -21677,11 +21729,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public end_drag() {
-        //console.log('End Drag--');
+        console.log('End Drag--');
         this.up = 0;
 
 
-        //console.log('DFdfd--' + JSON.stringify(this.selected_array));
+        console.log('DFdfd--' + JSON.stringify(this.selected_array));
         // this.selected_array;
         this.sumselected = this.selected_array.reduce((a, b) => a + b);
         this.maxselected = this.selected_array.reduce((a, b) => Math.max(a, b));
@@ -21700,19 +21752,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         if (params.node.id == 'FVA') {
             var rowNode = this.gridApi.getRowNode('ML');
-            //console.log("Check3eing---" + this.copy_ml_week);
-            //console.log("Paste end--", params);
-            //console.log("\n\n hehehehehe arr12 is " + this.arr12);
+            console.log("Check3eing---" + this.copy_ml_week);
+            console.log("Paste end--", params);
+            console.log("\n\n hehehehehe arr12 is " + this.arr12);
             for (const abr of this.arr12) {
                 this.lotCompleted = 1;
                 var f = abr.week;
                 var th = abr.value;
-                //console.log("First array--" + f);
-                //console.log("Week--" + th);
+                console.log("First array--" + f);
+                console.log("Week--" + th);
                 for (var y = 0; y < this.finalForecastDataPoints.length; y++) {
                     if (this.finalForecastDataPoints[y].x == f) {
                         this.finalForecastDataPoints[y].y = parseInt(this.finalForecastDataPoints[y].y) + parseInt(th);
-                        //console.log("\n\n finalforecast[y].y is " + this.finalForecastDataPoints[y].y);
+                        console.log("\n\n finalforecast[y].y is " + this.finalForecastDataPoints[y].y);
                     }
                 }
                 this.chart1.render();
@@ -21720,7 +21772,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 this.change1(f, th, this.change_extra);
             }
             this.final_one = this.arr12.length;
-            //console.log("Final Step---" + this.final_one);
+            console.log("Final Step---" + this.final_one);
             // this.final_one=1;
             // this.main_1_cal=0;
             // this.arr12=[];
@@ -21744,14 +21796,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             var gk = this.gridApi.getCellRanges();
             this.copy_ml_week = params[0].startColumn.colId;
             var rowNode1 = this.gridApi.getRowNode('ML');
-            //console.log("aa!@#$4", rowNode1.data[params.startColumn.colId]);
+            console.log("aa!@#$4", rowNode1.data[params.startColumn.colId]);
             this.copy_ml = rowNode1.data[params.startColumn.colId];
         }
     }
 
     public onPasteEnd1(params) {
 
-        //console.log("End game--", this.arr12_sku);
+        console.log("End game--", this.arr12_sku);
         this.lotCompleted = 1;
         for (const ab1 of this.arr12_sku) {
             this.change123(ab1.week, ab1.value, ab1.sku);
@@ -21800,7 +21852,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         var rowNode1 = this.gridApi.getRowNode('ML');
 
-        //console.log("aa!@#$4", rowNode1.data[a]);
+        console.log("aa!@#$4", rowNode1.data[a]);
 
 
 
@@ -21845,7 +21897,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         if(final_1[i].key=="ML")
         //         {
 
-        //             //console.log("999----"+JSON.stringify(final_1[i]))
+        //             console.log("999----"+JSON.stringify(final_1[i]))
         //         //     if(b.charAt(b.length-1)=='%')
         //         //   {
 
@@ -21877,7 +21929,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         if(final_1[i].key=="Total FVA")
         //         {
 
-        //             //console.log("999----"+JSON.stringify(final_1[i]))
+        //             console.log("999----"+JSON.stringify(final_1[i]))
         //             if(b.charAt(b.length-1)=='%')
         //             {
 
@@ -21915,11 +21967,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         y2=y2/100;
 
 
-        //     //console.log("88--"+JSON.stringify(final_1));
+        //     console.log("88--"+JSON.stringify(final_1));
 
         //     var rowNode = this.gridApi.getRowNode('Total FVA');
 
-        //     //console.log("aa",rowNode);
+        //     console.log("aa",rowNode);
         //  // var newPrice = Math.floor(Math.random() * 100000);
         //   rowNode.setDataValue(a, g);
 
@@ -21928,7 +21980,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   {
         //          var rowNode = this.gridApi.getRowNode('FVA');
 
-        //     //console.log("aa",rowNode);
+        //     console.log("aa",rowNode);
         //  // var newPrice = Math.floor(Math.random() * 100000);
         //   rowNode.setDataValue(a, u1*y2);
         //   }
@@ -21941,7 +21993,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public change12(a, b) {
-        //console.log("aad", this.gridApi.getSelectedRows());
+        console.log("aad", this.gridApi.getSelectedRows());
         var final_1 = JSON.parse(JSON.stringify(this.rowData));
         var g = 0;
         let f = 0;
@@ -21954,7 +22006,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         var rowNode1 = this.gridApi.getRowNode('ML');
 
-        //console.log("aa!@#$4", rowNode1);
+        console.log("aa!@#$4", rowNode1);
 
 
 
@@ -21970,7 +22022,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         if(final_1[i].key=="ML")
         //         {
 
-        //             //console.log("999----"+JSON.stringify(final_1[i]))
+        //             console.log("999----"+JSON.stringify(final_1[i]))
         //         //     if(b.charAt(b.length-1)=='%')
         //         //   {
 
@@ -22002,7 +22054,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         if(final_1[i].key=="Total FVA")
         //         {
 
-        //             //console.log("999----"+JSON.stringify(final_1[i]))
+        //             console.log("999----"+JSON.stringify(final_1[i]))
         //             if(b.charAt(b.length-1)=='%')
         //             {
 
@@ -22040,11 +22092,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //         y2=y2/100;
 
 
-        //     //console.log("88--"+JSON.stringify(final_1));
+        //     console.log("88--"+JSON.stringify(final_1));
 
         //     var rowNode = this.gridApi.getRowNode('Total FVA');
 
-        //     //console.log("aa",rowNode);
+        //     console.log("aa",rowNode);
         //  // var newPrice = Math.floor(Math.random() * 100000);
         //   rowNode.setDataValue(a, g);
 
@@ -22053,7 +22105,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   {
         //          var rowNode = this.gridApi.getRowNode('FVA');
 
-        //     //console.log("aa",rowNode);
+        //     console.log("aa",rowNode);
         //  // var newPrice = Math.floor(Math.random() * 100000);
         //   rowNode.setDataValue(a, u1*y2);
         //   }
@@ -22065,7 +22117,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public onCellClicked(params) {
 
-        //console.log("eleye---", params);
+        console.log("eleye---", params);
         if (params.node.id == "Comments") {
 
 
@@ -22096,7 +22148,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.willusave = true;
         this.showAreusure();
 
-        //console.log("Changed--", params);
+        console.log("Changed--", params);
         if (/^\d+$/.test(params.newValue)) {
 
         }
@@ -22136,7 +22188,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.change_extra = '';
 
-        //console.log("dfjhkvdgv12---", params.column.userProvidedColDef.field);
+        console.log("dfjhkvdgv12---", params.column.userProvidedColDef.field);
 
         var ban = params.column.userProvidedColDef.field;
 
@@ -22151,9 +22203,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         this.change_extra = extra;
-        //console.log("Cell Value Changed with Lot Completed--" + this.lotCompleted);
+        console.log("Cell Value Changed with Lot Completed--" + this.lotCompleted);
 
-        //  //console.log("090121----", params.newValue.charAt(params.newValue.length-1));
+        //  console.log("090121----", params.newValue.charAt(params.newValue.length-1));
 
         try {
             bnm = params.newValue.charAt(params.newValue.length - 1);
@@ -22178,7 +22230,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         }
         else if (this.lotCompleted == 1) {
-            //console.log("Lot Compleyed==", ban);
+            console.log("Lot Compleyed==", ban);
         }
         else if (this.main_1_cal == 1) {
 
@@ -22192,7 +22244,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 }
             }
             if (to == 1) {
-                //console.log("Entry");
+                console.log("Entry");
 
 
 
@@ -22206,7 +22258,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
                 this.changed_weeks.push(parseInt(ban));
 
-                //console.log("CPcihel--" + this.changed_weeks);
+                console.log("CPcihel--" + this.changed_weeks);
 
             }
 
@@ -22216,7 +22268,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         else if (bnm == "%") {
             var f = params.colDef.field;
 
-            //console.log("%%%%");
+            console.log("%%%%");
 
             this.thi = 2;
             var rowNode1 = this.gridApi.getRowNode('ML');
@@ -22245,13 +22297,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         }
         else {
-            //console.log("bab", params);
+            console.log("bab", params);
             var f = params.colDef.field;
 
 
             var rowNode1 = this.gridApi.getRowNode('ML');
 
-            //console.log("aa!@#$4", rowNode1.data[f]);
+            console.log("aa!@#$4", rowNode1.data[f]);
 
 
 
@@ -22260,9 +22312,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-            //console.log("CPcihel--" + this.changed_weeks);
+            console.log("CPcihel--" + this.changed_weeks);
 
-            //console.log("Checking123P--" + params.column.colId);
+            console.log("Checking123P--" + params.column.colId);
             if (this.main_1 == 1) {
 
                 this.main_1 = 0;
@@ -22295,21 +22347,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.lotCompleted == 1) {
             this.main_1_cal_sku = 0;
             this.lotCompleted = 0;
-            //console.log("lot_completed");
+            console.log("lot_completed");
         }
 
         else if (this.main_1_cal_sku == 1) {
             var to = 0;
             for (const ag of this.arr12_sku) {
-                //console.log("First loop ---" + ag.week + '---' + ban);
+                console.log("First loop ---" + ag.week + '---' + ban);
                 if (ag.week == ban && ag.sku == th1) {
                     to = 1;
-                    //console.log("to -1 ");
+                    console.log("to -1 ");
                     this.lotCompleted = 1;
                 }
             }
             if (to == 1) {
-                //console.log("Entry----" + JSON.stringify(this.arr12_sku));
+                console.log("Entry----" + JSON.stringify(this.arr12_sku));
 
 
 
@@ -22323,11 +22375,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     sku: params.data.sku
                 });
 
-                //console.log("Arryyy--" + JSON.stringify(this.arr12_sku));
+                console.log("Arryyy--" + JSON.stringify(this.arr12_sku));
 
                 // this.changed_weeks.push(parseInt(ban));
 
-                //console.log("CPcihel--" + this.changed_weeks);
+                console.log("CPcihel--" + this.changed_weeks);
 
             }
         }
@@ -22337,7 +22389,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 return;
             }
 
-            //console.log("bab123", params);
+            console.log("bab123", params);
 
 
             var h = params.data.sku;
@@ -22360,7 +22412,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         var rowNode1 = this.gridApi1.getRowNode('ML-' + sku);
 
-        //console.log("Checking--", rowNode1);
+        console.log("Checking--", rowNode1);
 
 
 
@@ -22447,7 +22499,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //         if(this.rowData[i].KeyFigure=="ML")
     //         {
 
-    //             //console.log("999----"+JSON.stringify(this.rowData[i]))
+    //             console.log("999----"+JSON.stringify(this.rowData[i]))
     //         //     if(b.charAt(b.length-1)=='%')
     //         //   {
 
@@ -22478,7 +22530,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //         if(this.rowData[i].KeyFigure=="Total FVA")
     //         {
 
-    //             //console.log("999----"+JSON.stringify(this.rowData[i]))
+    //             console.log("999----"+JSON.stringify(this.rowData[i]))
     //             if(b.charAt(b.length-1)=='%')
     //           {
 
@@ -22516,11 +22568,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //         y2=y2/100;
 
 
-    //     //console.log("88--"+JSON.stringify(this.rowData));
+    //     console.log("88--"+JSON.stringify(this.rowData));
 
     //     var rowNode = gridOptions.api.getRowNode('Final Forecast');
 
-    //     //console.log("aa",rowNode);
+    //     console.log("aa",rowNode);
     //  // var newPrice = Math.floor(Math.random() * 100000);
     //   rowNode.setDataValue(a, g);
 
@@ -22529,7 +22581,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   {
     //          var rowNode = gridOptions.api.getRowNode('FVA');
 
-    //     //console.log("aa",rowNode);
+    //     console.log("aa",rowNode);
     //  // var newPrice = Math.floor(Math.random() * 100000);
     //   rowNode.setDataValue(a, parseInt(u1*y2));
     //   }
@@ -22540,9 +22592,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public addvalues(cell: any) {
         if (this.up == 1) {
-            //console.log('Cell_addd----' + cell);
+            console.log('Cell_addd----' + cell);
             var num1 = this.graphData[cell].ml;
-            //  //console.log("Graph----"+JSON.stringify(this.graphData));
+            //  console.log("Graph----"+JSON.stringify(this.graphData));
             // this.avgselected= (this.sumselected+num1)/2;
             //   this.sumselected=this.sumselected+num1;
 
@@ -22554,7 +22606,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             this.selected_array.push(num1);
             // (this.avgselected).toFixed(0);
             //this.avgselected=
-            //console.log('Checkiiigg--' + this.sumselected);
+            console.log('Checkiiigg--' + this.sumselected);
             //  this.sumselected=this.fetch_values.bind(this);
 
         }
@@ -22563,13 +22615,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public addvalues_actuals(cell: any) {
         if (this.up == 1) {
-            //console.log('Cell----' + cell);
+            console.log('Cell----' + cell);
             var num1 = this.graphData[cell].actuals;
-            //  //console.log("Graph----"+JSON.stringify(this.graphData));
+            //  console.log("Graph----"+JSON.stringify(this.graphData));
             this.selected_array.push(num1);
             // (this.avgselected).toFixed(0);
             //this.avgselected=
-            //console.log('Checkiiigg--' + this.sumselected);
+            console.log('Checkiiigg--' + this.sumselected);
             //  this.sumselected=this.fetch_values.bind(this);
 
         }
@@ -22578,13 +22630,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public addvalues_harshit(cell: any) {
         if (this.up == 1) {
-            //console.log('Cell----' + cell);
+            console.log('Cell----' + cell);
             var num1 = this.graphData[cell].harshit;
-            //  //console.log("Graph----"+JSON.stringify(this.graphData));
+            //  console.log("Graph----"+JSON.stringify(this.graphData));
             this.selected_array.push(num1);
             // (this.avgselected).toFixed(0);
             //this.avgselected=
-            //console.log('Checkiiigg--' + this.sumselected);
+            console.log('Checkiiigg--' + this.sumselected);
             //  this.sumselected=this.fetch_values.bind(this);
 
         }
@@ -22592,13 +22644,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public addvalues_actualslastyear(cell: any) {
         if (this.up == 1) {
-            //console.log('Cell----' + cell);
+            console.log('Cell----' + cell);
             var num1 = this.graphData[cell].actualslastyear;
-            //  //console.log("Graph----"+JSON.stringify(this.graphData));
+            //  console.log("Graph----"+JSON.stringify(this.graphData));
             this.selected_array.push(num1);
             // (this.avgselected).toFixed(0);
             //this.avgselected=
-            //console.log('Checkiiigg--' + this.sumselected);
+            console.log('Checkiiigg--' + this.sumselected);
             //  this.sumselected=this.fetch_values.bind(this);
 
         }
@@ -22609,14 +22661,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.up == 1) {
 
 
-            //console.log('Cell1212----' + cell);
-            //  //console.log("Graph----"+JSON.stringify(this.graphData));
+            console.log('Cell1212----' + cell);
+            //  console.log("Graph----"+JSON.stringify(this.graphData));
             var num1 = this.graphData[cell].apo;
 
             this.selected_array.push(num1);
             // (this.avgselected).toFixed(0);
             //this.avgselected=
-            //console.log('Checkiiigg--' + this.sumselected);
+            console.log('Checkiiigg--' + this.sumselected);
             //  this.sumselected=this.fetch_values.bind(this);
 
         }
@@ -22625,13 +22677,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public addvalues_finaldforecast(cell: any) {
         if (this.up == 1) {
-            //console.log('Cell----' + cell);
+            console.log('Cell----' + cell);
             var num1 = this.graphData[cell].ml;
-            //  //console.log("Graph----"+JSON.stringify(this.graphData));
+            //  console.log("Graph----"+JSON.stringify(this.graphData));
             this.selected_array.push(num1);
             // (this.avgselected).toFixed(0);
             //this.avgselected=
-            //console.log('Checkiiigg--' + this.sumselected);
+            console.log('Checkiiigg--' + this.sumselected);
             //  this.sumselected=this.fetch_values.bind(this);
 
         }
@@ -22639,12 +22691,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public fetch_values(num) {
-        //console.log('FetchValues_num--' + num);
+        console.log('FetchValues_num--' + num);
         var num1 = this.graphData.ml[num];
-        //console.log('num1 values--' + num1);
+        console.log('num1 values--' + num1);
         this.sumselected = this.sumselected + num1;
 
-        //console.log('Final Selection--' + num1);
+        console.log('Final Selection--' + num1);
     }
 
 
@@ -22714,7 +22766,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         }
         const data = Object.assign({ leadSkus: [] }, this.createPlanRequestData);
-        //console.log('Sfsgf34sg---' + JSON.stringify(this.createPlanRequestData));
+        console.log('Sfsgf34sg---' + JSON.stringify(this.createPlanRequestData));
         this.cpgss = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
         this.plantss = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
         // var fgssselected1 =
@@ -22748,18 +22800,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
         this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
-        //console.log('All Previous SKUs-----' + JSON.stringify(fgssss));
+        console.log('All Previous SKUs-----' + JSON.stringify(fgssss));
 
         if (this.selectallskus == 1) {
-            //console.log('5678908765----');
+            console.log('5678908765----');
         } else {
 
 
             for (const abc of this.second_sku) {
                 for (const abc1 of this.fgssselected) {
-                    ////console.log("Fdfd--"+abc1);
+                    //console.log("Fdfd--"+abc1);
                     if (abc.name === abc1 || abc.name == abc1.toString()) {
-                        //console.log('Delete krna hai');
+                        console.log('Delete krna hai');
                         const index: number = this.second_sku.indexOf(abc);
                         this.second_sku.splice(index, 1);
                     }
@@ -22772,19 +22824,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.second_sku = [];
 
-        // //console.log("FIRST THING1---"+fgssss.length);
+        // console.log("FIRST THING1---"+fgssss.length);
 
-        // //console.log("ALL---"+JSON.stringify(fgssss));
+        // console.log("ALL---"+JSON.stringify(fgssss));
 
 
-        // //console.log("ALL---"+JSON.stringify(this.fgssselected));
+        // console.log("ALL---"+JSON.stringify(this.fgssselected));
 
         var temp1 = JSON.parse(JSON.stringify(fgssss));
 
         var temp2 = JSON.parse(JSON.stringify(this.fgssselected));
 
 
-        //console.log('Harshit -- ' + temp2.length);
+        console.log('Harshit -- ' + temp2.length);
 
         if (temp2.length == 2221) {
 
@@ -22795,11 +22847,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             // {
             //   for(const abc1 of temp2)
             //   {
-            //     //console.log("all--"+abc);
-            //     //console.log("selected--"+abc1);
+            //     console.log("all--"+abc);
+            //     console.log("selected--"+abc1);
             //     if(abc===abc1 || abc==abc1.toString())
             //     {
-            //       //console.log("Delete krna hai");
+            //       console.log("Delete krna hai");
             //       const index: number = fgssss.indexOf(abc);
             //       fgssss.splice(index, 1);
             //     }
@@ -22814,7 +22866,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         });
 
 
-        // //console.log("FIRST THING2---"+fgssss.length);
+        // console.log("FIRST THING2---"+fgssss.length);
         this.sku_semi = this.fgssselected.map(item => {
             return { name: item, isChecked: true, isFiltered: true };
         });
@@ -22846,10 +22898,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         //  this.sku_semi=JSON.parse(JSON.stringify(this.fgssselected))+JSON.parse(JSON.stringify(fgssss));
 
-        //console.log('Checkkkk---' + JSON.stringify(this.sku_semi));
+        console.log('Checkkkk---' + JSON.stringify(this.sku_semi));
         //this.skus=JSON.parse(JSON.stringify(this.skus));
 
-        // //console.log("skusskusskusskus----"+JSON.stringify(fgssss));
+        // console.log("skusskusskusskus----"+JSON.stringify(fgssss));
 
         if (this.cpgss.length == 0 || this.plantss.length == 0 || this.fgssselected.length == 0) {
             window.alert('Please choose atleast one plant, Customer planning Group and Forecasting Group');
@@ -22858,15 +22910,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
         data.forecastingGroups = JSON.parse(JSON.stringify(this.fgssselected));
-        //console.log('Data structure --- ' + JSON.stringify(this.fgssselected));
+        console.log('Data structure --- ' + JSON.stringify(this.fgssselected));
         for (const abc in this.fgssselected) {
 
             this.fgssselected[abc].name = this.fgssselected[abc].name.split('-')[0];
-            ////console.log("SUCIDDDDDD----"+data.forecastingGroups[abc].split('-')[0]);
+            //console.log("SUCIDDDDDD----"+data.forecastingGroups[abc].split('-')[0]);
         }
 
         this.hh = JSON.parse(JSON.stringify(this.sku_semi));
-        //console.log('Data structure12 --- ' + JSON.stringify(this.fgssselected));
+        console.log('Data structure12 --- ' + JSON.stringify(this.fgssselected));
 
 
         // this.fgssselected = data.forecastingGroups.map(item => {
@@ -22878,10 +22930,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   return {name: item, isChecked: true};
         // });
 
-        //console.log('FGSSSSS---' + JSON.stringify(this.fgssselected));
+        console.log('FGSSSSS---' + JSON.stringify(this.fgssselected));
 
         //this.fgssselected
-        //console.log('DSfsdfsd234----' + JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)));
+        console.log('DSfsdfsd234----' + JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name)));
         //   data.forecastingGroups = this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
         // for(const a of this.fgssselected)
@@ -22890,7 +22942,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // }
 
 
-        //console.log('HARSHITTTTT1211----' + JSON.stringify(data.forecastingGroups));
+        console.log('HARSHITTTTT1211----' + JSON.stringify(data.forecastingGroups));
 
         data.customerPlanningGroup = this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
         data.plants = this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]);
@@ -22921,382 +22973,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         // for(const abc in data.forecastingGroups)
         // {
-        //   //console.log("SUCIDDDDDD----"+abc);
+        //   console.log("SUCIDDDDDD----"+abc);
         //   data.forecastingGroups[abc]=data.forecastingGroups[abc].split('-')[0];
         // }
 
-        //console.log('CHECKKKK---' + JSON.stringify(data));
-
-
+        console.log('CHECKKKK---' + JSON.stringify(data));
         this.createPlan(data);
-
-        //  this.skuService.getGraphData(data).subscribe((res: any) => {
-        //   this.eventsSubject.next({
-        //     page: null,
-        //     reset: true,
-        //   });
-        //   this.processGraphData(res);
-        //   this.loading=false;
-        //   this.chart1.render();
-
-
-        //   this.loading=false;
-        // });
-
-
-        // if(this.granular1=='month')
-        // {
-        //   //console.log("MONTH->"+JSON.stringify(this.hh));
-        //   //  const data=this.createPlanRequestData;
-
-
-        //     //console.log("Create_Plan1234->"+JSON.stringify(this.hh));
-
-
-        //     this.createPlanRequestData = {
-        //       startWeek: this.createPlanRequestData.startWeek,
-        //       endWeek: this.createPlanRequestData.endWeek,
-        //       prevactuals:this.createPlanRequestData.prevactuals,
-        //       forecastingGroups: JSON.parse(JSON.stringify(this.hh)).map(item => item.name),
-        //       customerPlanningGroup: this.createPlanRequestData.customerPlanningGroup,
-        //       plants: this.createPlanRequestData.plants,
-        //     };
-        //     //this.test();
-
-        //     //console.log("WOW->"+JSON.stringify(this.createPlanRequestData));
-        // this.loading=true;
-        //     this.skuService.getGraphData_monthly(this.createPlanRequestData).subscribe((res: any) => {
-        //       this.eventsSubject.next({
-        //         page: null,
-        //         reset: true,
-        //       });
-        //       this.loading=false;
-        //       this.createPlanRequestData.brands = res.req.brands;
-        //       this.createPlanRequestData.Alcohol_percentage = res.req.alcoholper;
-        //       this.createPlanRequestData.subbrand = res.req.subbrand;
-        //       this.createPlanRequestData.Trade = res.req.trade;
-        //       this.createPlanRequestData.Sales = res.req.sales;
-
-
-        //       this.createPlanRequestData.globalBev = res.req.globalBev;
-        //       this.createPlanRequestData.materialgroup = res.req.materialgroup;
-        //       this.createPlanRequestData.baseunit = res.req.baseunit;
-        //       this.createPlanRequestData.pack_type = res.req.pack_type;
-
-        //       this.createPlanRequestData.animal_Flags = res.req.animal_Flags;
-
-
-        //       this.createPlanRequestData.pack_size = res.req.pack_size;
-        //       this.createPlanRequestData.cpgname = res.req.cpgname;
-
-
-        //       this.createPlanRequestData.forecastingGroups = res.req.forecastingGroups;
-        //       this.processGraphData(res);
-
-        //       this.processFeatureGraphData(res);
-        //       this.createFilterObject(res);
-        //    //   this.skus = this.createPlanRequestData.forecastingGroups;
-
-        //   //  this.skus = JSON.parse(JSON.stringify(this.hh)).map(item => item.name).map((item) => {
-        //   //   item.isChecked = true;
-        //   //   return item;
-        //   // });
-
-        //       //console.log('thhh->' + this.createPlanRequestData.startWeek);
-        //       // this.chart2 = new CanvasJS.Chart('chartContainer2', {
-        //       //   animationEnabled: true,
-
-        //       //   backgroundColor: '#FFFFFF',
-        //       //   legend: {
-        //       //     cursor: 'pointer',
-        //       //     itemclick: this.toggleDataSeries.bind(this)
-        //       //   },
-        //       //   axisX: {
-        //       //     valueFormatString: '######',
-        //       //     gridColor: '#ffffff',
-        //       //     scaleBreaks: {
-        //       //       type: 'blank',
-        //       //       spacing: 0,
-        //       //       customBreaks: [
-        //       //         {
-        //       //           startValue: 201913,
-        //       //           endValue: 202000
-        //       //         },
-        //       //         {
-        //       //           startValue: 202013,
-        //       //           endValue: 202100
-        //       //         },
-        //       //         {
-        //       //           startValue: 202152,
-        //       //           endValue: 202200
-        //       //         },
-        //       //         {
-        //       //           startValue: 202253,
-        //       //           endValue: 202300
-        //       //         }
-        //       //       ]
-        //       //     },
-        //       //     // stripLines: [
-        //       //     //   {
-        //       //     //     startValue: 201909,
-        //       //     //     endValue: 201912,
-        //       //     //     color: '#F2F3F5'
-        //       //     //   },
-        //       //     //   {
-        //       //     //     startValue: 202000,
-        //       //     //     endValue: 202003,
-        //       //     //     color: '#F2F3F5'
-        //       //     //   }
-        //       //     // ]
-        //       //   },
-        //       //   axisY: {
-        //       //
-        //       //     valueFormatString: '######',
-        //       //     gridColor: '#ffffff',
-        //       //   },
-
-        //       //   toolTip: {
-        //       //     content: 'Value: {y}'
-        //       //   },
-
-        //       //   // toolTip: {
-        //       //   //   shared: true,
-        //       //   //   contentFormatter: function(e) {
-        //       //   //     var content = ' ';
-        //       //   //     //console.log(JSON.stringify(e));
-        //       //   //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-        //       //   //     for (var i = 0; i < e.entries.length; i++) {
-        //       //   //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-        //       //   //       content += '<br/>';
-        //       //   //     }
-        //       //   //     return content;
-        //       //   //   }
-        //       //  // },
-
-        //       //   data: [{
-        //       //     type: 'line',
-        //       //     gridColor: '#ffffff',
-        //       //     labelFontColor: 'black',
-        //       //    color: '#000',
-        //       //     dataPoints: this.property
-        //       //   }]
-        //       // });
-        //       // this.chart2.render();
-
-        //       this.chart2 = new CanvasJS.Chart('chartContainer2', {
-        //         animationEnabled: true,
-        //         showInLegend: true,
-        //         backgroundColor: '#FFFFFF',
-        //         legend: {
-        //           cursor: 'pointer',
-        //           fontSize: 10,
-        //           itemclick: this.toggleDataSeries1.bind(this)
-        //         },
-        //         axisX: {
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //           theme: "light2",
-        //           scaleBreaks: {
-        //             type: 'blank',
-        //             spacing: 0,
-        //             customBreaks: [
-        //               {
-        //                 startValue: 201813,
-        //                 endValue: 201900
-        //               },
-        //               {
-        //                 startValue: 201913,
-        //                 endValue: 202000
-        //               },
-        //               {
-        //                 startValue: 202053,
-        //                 endValue: 202100
-        //               },
-        //               {
-        //                 startValue: 202152,
-        //                 endValue: 202200
-        //               },
-        //               {
-        //                 startValue: 202253,
-        //                 endValue: 202300
-        //               }
-        //             ]
-        //           },
-        //           stripLines: [
-        //             {
-        //               startValue: this.createPlanRequestData.startWeek,
-        //               endValue: 201953,
-        //               color: '#F2F3F5'
-        //             },
-        //             {
-        //               startValue: 202000,
-        //               endValue: this.createPlanRequestData.endWeek,
-        //               color: '#F2F3F5'
-        //             }
-        //           ]
-        //         },
-        //         axisY: {
-        //           title: " ",
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //         },
-
-        //         toolTip: {
-        //           content: '{y}'
-        //         },
-
-        //         // toolTip: {
-        //         //   shared: true,
-        //         //   contentFormatter: function(e) {
-        //         //     var content = ' ';
-        //         //     //console.log(JSON.stringify(e));
-        //         //     content = e.entries.dataPoint.x.toString.slice(4, 6) + '-' + e.entries.dataPoint.x.toString.slice(0, 4);
-        //         //     for (var i = 0; i < e.entries.length; i++) {
-        //         //       content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-        //         //       content += '<br/>';
-        //         //     }
-        //         //     return content;
-        //         //   }
-        //        // },
-
-        //         data: [
-        //         {
-        //           name: 'Average ',
-        //           showInLegend: true,
-        //           type: 'line',
-        //          color: "#46a5b9",
-        //           lineColor: '#46a5b9',
-        //           dataPoints: this.property3
-        //         }
-
-
-        //       ]
-        //       });
-        //       this.chart2.render();
-        //       //console.log('132456->' + this.createPlanRequestData.startWeek);
-        //       this.chart1 = new CanvasJS.Chart('chartContainer1', {            title:{             text: " ",             fontStyle: "no",                },
-        //         animationEnabled: true,
-        //
-        //         backgroundColor: '#FFFFFF',
-        //         legend: {
-        //           cursor: 'pointer',
-        //           itemclick: this.toggleDataSeries.bind(this)
-        //         },
-        //         axisX: {
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //           interval: 1,
-        //           scaleBreaks: {
-        //             type: 'blank',
-        //             spacing: 0,
-        //             customBreaks: [
-        //               {
-        //                 startValue: 201913,
-        //                 endValue: 201999
-        //               },
-        //               {
-        //                 startValue: 202053,
-        //                 endValue: 202100
-        //               },
-        //               {
-        //                 startValue: 202152,
-        //                 endValue: 202200
-        //               },
-        //               {
-        //                 startValue: 202253,
-        //                 endValue: 202300
-        //               }
-        //             ]
-        //           },
-        //         },
-
-        //         axisY: {
-        //           title: " ",
-
-        //           valueFormatString: '######',
-        //           gridColor: '#ffffff',
-        //         },
-
-        //         // toolTip: {
-        //         //   content: 'Week: {x} | {name}: {y}'
-        //         // },
-
-        //         toolTip: {
-        //           shared: true,
-        //           contentFormatter: function(e) {
-        //             var content = ' ';
-        //             ////console.log(e.dataPoint);
-        //             content = e.entries[0].dataPoint.x.toString().slice(4, 6) + '-' + e.entries[0].dataPoint.x.toString().slice(0, 4) + '<br/>';
-        //             for (var i = 0; i < e.entries.length; i++) {
-        //               content += e.entries[i].dataSeries.name + ' ' + '<strong>' + e.entries[i].dataPoint.y + '</strong>';
-        //               content += '<br/>';
-        //             }
-        //             return content;
-        //           }
-        //         },
-        //         data: [
-        //           {
-        //             name: 'Actuals',
-        //             showInLegend: true,
-        //             type: 'line',
-        //            color: this.actualDataPointColor,
-        //             lineColor: this.actualDataPointColor,
-        //             dataPoints: this.actualDataPoints
-        //           },
-        //           {
-        //             name: 'Actual LY',
-        //             showInLegend: true,
-
-        //             type: 'line',
-        //             
-        //            color: this.lastyearDataPointColor,
-        //             lineColor: this.lastyearDataPointColor,
-        //             dataPoints: this.lastYearDataPoints
-        //           },
-        //           {
-        //             name: 'ML Forecast',
-        //             showInLegend: true,
-        //             type: 'line',
-        //             
-        //            color: this.mlDataPointColor,
-        //             lineColor: this.mlDataPointColor,
-        //             dataPoints: this.mlDataPoints
-        //           },
-        //           {
-        //             name: 'APO Forecast',
-        //             showInLegend: true,
-        //             type: 'line',
-        //             
-        //            color: this.aopDataPointColor,
-        //             lineColor: this.aopDataPointColor,
-        //             dataPoints: this.aopDataPoints
-        //           },
-        //           {
-        //             name: 'Final Forecast',
-        //             showInLegend: true,
-        //             type: 'line',
-        //             
-        //            color: this.finalForecastPointColor,
-        //             lineColor: this.finalForecastPointColor,
-        //             dataPoints: this.finalForecastDataPoints
-        //           }
-        //         ]
-        //       });
-        //       this.chart1.render();
-        //       this.CanvasJSDataAsCSV();
-        //       this.selectOptionsModalCancel.nativeElement.click();
-        //     });
-
-
-        //     this.chart1.render();
-        //     this.chart1.render();
-        // }
-        // else{
-
-
-        // }
-
-
     }
 
 
@@ -23305,7 +22987,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         const reqBody = this.getFiltersObject1();
 
-        //console.log('WOW-->' + JSON.stringify(reqBody));
+        console.log('WOW-->' + JSON.stringify(reqBody));
         //  const data = Object.assign({leadSkus: []}, this.createPlanRequestData);
         /*
            Customer Planning Group 0
@@ -23337,13 +23019,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 return { name: item, isChecked: true, isFiltered: true };
             });
 
-            //console.log('REsss--' + JSON.stringify(response));
+            console.log('REsss--' + JSON.stringify(response));
             for (const abc of this.filters) {
-                //console.log('HH--' + JSON.stringify(abc));
+                console.log('HH--' + JSON.stringify(abc));
                 if (abc.key == 'customerPlanningGroup') {
-                    //console.log('RIGHT NOW' + JSON.stringify(abc.values));
+                    console.log('RIGHT NOW' + JSON.stringify(abc.values));
 
-                    //console.log('AFTER NOW' + JSON.stringify(response));
+                    console.log('AFTER NOW' + JSON.stringify(response));
                     abc.values = JSON.parse(JSON.stringify(response));
                 }
             }
@@ -23392,14 +23074,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         const localcat = [];
 
-        //console.log('TESTTT-----' + JSON.stringify(this.filters1));
+        console.log('TESTTT-----' + JSON.stringify(this.filters1));
         for (const brand of this.filters1) {
 
             if (brand.key == 'brands') {
                 var flag = 1;
                 for (const aa of brand.values) {
                     if (aa.isChecked) {
-                        //console.log('JKNFBJHBFHJBHJFBVHFF');
+                        console.log('JKNFBJHBFHJBHJFBVHFF');
                         flag = 0;
                     }
                 }
@@ -23542,7 +23224,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 var flag = 1;
                 for (const aa of brand.values) {
                     if (aa.isChecked) {
-                        //console.log('JKNFBJHBFHJBHJFBVHFF');
+                        console.log('JKNFBJHBFHJBHJFBVHFF');
                         flag = 0;
                     }
                 }
@@ -23564,7 +23246,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 var flag = 1;
                 for (const aa of brand.values) {
                     if (aa.isChecked) {
-                        //console.log('JKNFBJHBFHJBHJFBVHFF');
+                        console.log('JKNFBJHBFHJBHJFBVHFF');
                         flag = 0;
                     }
                 }
@@ -23727,7 +23409,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         const leadsku = [];
 
 
-        //console.log('TESTTT-----' + JSON.stringify(this.filters1));
+        console.log('TESTTT-----' + JSON.stringify(this.filters1));
         for (const brand of this.filters1) {
 
             if (brand.key == 'brands') {
@@ -23884,7 +23566,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // const Unitperpack = [];
 
 
-        //console.log('TESTTT-----' + JSON.stringify(this.filters1));
+        console.log('TESTTT-----' + JSON.stringify(this.filters1));
         for (const brand of this.filters2) {
 
             if (brand.key == 'tradetype') {
@@ -23938,7 +23620,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // const Unitperpack = [];
 
 
-        //console.log('TESTTT-----' + JSON.stringify(this.filters1));
+        console.log('TESTTT-----' + JSON.stringify(this.filters1));
         for (const brand of this.filters2) {
 
             if (brand.key == 'tradetype') {
@@ -23976,20 +23658,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     //SKU
         //     const reqBody = this.getFiltersObject();
 
-        //     //console.log("BODyyyy---"+JSON.stringify(reqBody));
+        //     console.log("BODyyyy---"+JSON.stringify(reqBody));
 
         // //CPG
         //     const reqBody1 = this.getFiltersObject1();
 
 
-        //     //console.log("tftuf76---"+JSON.stringify(reqBody1));
+        //     console.log("tftuf76---"+JSON.stringify(reqBody1));
 
         //      if(reqBody1.salesOffice.length>0)
         //      {
         //        document.getElementById('salesoffice').style.background='#05d7be';
         //      }
         //      else{
-        //        //console.log("34567iuhjk");
+        //        console.log("34567iuhjk");
         //       document.getElementById('salesoffice').style.background='#f4f5f9';
         //      }
         //      if(reqBody1.tradeType.length>0)
@@ -23997,7 +23679,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //        document.getElementById('tradetype').style.background='#05d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24006,7 +23688,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('alcoholper').style.background='#05d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24016,7 +23698,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('Animal_Flags').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24026,7 +23708,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('baseunit').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24036,7 +23718,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('brands').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24045,7 +23727,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('materialgroup').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24055,7 +23737,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('packtype').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24065,7 +23747,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('subbrand').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24098,7 +23780,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         // this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
 
-        //   //console.log("JSss--"+JSON.stringify(this.skus));
+        //   console.log("JSss--"+JSON.stringify(this.skus));
         //   this.skus = response;
 
         this.loading = true;
@@ -24106,7 +23788,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.skuService.getCPGlist2(reqBody1).subscribe((response1: any) => {
 
             this.loading = false;
-            //console.log('jkdsfks----' + JSON.stringify(response1));
+            console.log('jkdsfks----' + JSON.stringify(response1));
             let response2 = response1.map(item => {
                 return { name: { name: item }, isChecked: false, isFiltered: true };
             });
@@ -24120,15 +23802,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             //   return {name: {name:item,id:}, isChecked: false};
             // })
             let g = response1.map(item => item.name);
-            //console.log('REsss--' + JSON.stringify(response2));
-            //console.log('REs3456ss--' + JSON.stringify(g));
+            console.log('REsss--' + JSON.stringify(response2));
+            console.log('REs3456ss--' + JSON.stringify(g));
             for (const abc of this.filters) {
-                //console.log('HH--' + JSON.stringify(abc));
+                console.log('HH--' + JSON.stringify(abc));
                 if (abc.key == 'customerPlanningGroup') {
-                    //console.log('REsss123456--' + JSON.stringify(abc.values));
+                    console.log('REsss123456--' + JSON.stringify(abc.values));
                     abc.values = JSON.parse(JSON.stringify(response2));
 
-                    //console.log('REsss12345678767876--' + JSON.stringify(abc.values));
+                    console.log('REsss12345678767876--' + JSON.stringify(abc.values));
                 }
 
 
@@ -24136,7 +23818,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
             // this.createPlanRequestData.forecastingGroups= response;
-            // //console.log("sdfsfsfgsfgsfgsfgsfg---"+JSON.stringify(this.createPlanRequestData.forecastingGroups));
+            // console.log("sdfsfsfgsfgsfgsfgsfg---"+JSON.stringify(this.createPlanRequestData.forecastingGroups));
             // this.createPlanRequestData.customerPlanningGroup=response1.map(item => item.name);
 
 
@@ -24164,20 +23846,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //     //SKU
         //     const reqBody = this.getFiltersObject();
 
-        //     //console.log("BODyyyy---"+JSON.stringify(reqBody));
+        //     console.log("BODyyyy---"+JSON.stringify(reqBody));
 
         // //CPG
         //     const reqBody1 = this.getFiltersObject1();
 
 
-        //     //console.log("tftuf76---"+JSON.stringify(reqBody1));
+        //     console.log("tftuf76---"+JSON.stringify(reqBody1));
 
         //      if(reqBody1.salesOffice.length>0)
         //      {
         //        document.getElementById('salesoffice').style.background='#05d7be';
         //      }
         //      else{
-        //        //console.log("34567iuhjk");
+        //        console.log("34567iuhjk");
         //       document.getElementById('salesoffice').style.background='#f4f5f9';
         //      }
         //      if(reqBody1.tradeType.length>0)
@@ -24185,7 +23867,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //        document.getElementById('tradetype').style.background='#05d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24194,7 +23876,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('alcoholper').style.background='#05d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24204,7 +23886,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('Animal_Flags').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24214,7 +23896,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('baseunit').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24224,7 +23906,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('brands').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24233,7 +23915,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('materialgroup').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24243,7 +23925,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('packtype').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24253,7 +23935,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //       document.getElementById('subbrand').style.background='#b5d7be';
         //      }
         //      else{
-        //       //console.log("34567iuhjk");
+        //       console.log("34567iuhjk");
         //      document.getElementById('salesoffice').style.background='#f4f5f9';
         //     }
 
@@ -24289,7 +23971,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
 
-            //console.log('JSss--' + JSON.stringify(this.skus));
+            console.log('JSss--' + JSON.stringify(this.skus));
             this.skus = response;
             this.loading = false;
             this.fgssselected = [];
@@ -24333,29 +24015,29 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.skuService.getSkUList1(reqBody).subscribe((response: any) => {
 
-            //console.log('JSss--' + JSON.stringify(this.skus));
+            console.log('JSss--' + JSON.stringify(this.skus));
             this.skus = response;
 
             this.skuService.getCPGlist2(reqBody1).subscribe((response1: any) => {
 
 
-                //console.log('jkdsfks----' + JSON.stringify(response1));
+                console.log('jkdsfks----' + JSON.stringify(response1));
                 response1 = response1.map(item => {
                     return { name: item, isChecked: true, isFiltered: true };
                 });
 
-                //console.log('REsss--' + JSON.stringify(response1));
+                console.log('REsss--' + JSON.stringify(response1));
                 for (const abc of this.filters) {
-                    //console.log('HH--' + JSON.stringify(abc));
+                    console.log('HH--' + JSON.stringify(abc));
                     if (abc.key == 'customerPlanningGroup') {
-                        //console.log('REsss123456--' + JSON.stringify(abc.values));
+                        console.log('REsss123456--' + JSON.stringify(abc.values));
                         abc.values = JSON.parse(JSON.stringify(response1));
                     }
                 }
 
 
                 this.createPlanRequestData.forecastingGroups = response;
-                //console.log('sdfsfsfgsfgsfgsfgsfg---' + JSON.stringify(this.createPlanRequestData.forecastingGroups));
+                console.log('sdfsfsfgsfgsfgsfgsfg---' + JSON.stringify(this.createPlanRequestData.forecastingGroups));
                 this.createPlanRequestData.customerPlanningGroup = response1.map(item => item.name);
 
 
@@ -24375,7 +24057,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public clearAllSKUs() {
 
         if (this.selectallskus == 0) {
-            //console.log('ffddghd--' + this.selectallskus);
+            console.log('ffddghd--' + this.selectallskus);
             this.selectallskus = 1;
             let requestData = false;
 
@@ -24422,7 +24104,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.selectallplant == 0) {
             let requestData = false;
             this.selectallplant = 1;
-            //console.log('dfsdf12--' + JSON.stringify(this.filters_plant[0]));
+            console.log('dfsdf12--' + JSON.stringify(this.filters_plant[0]));
             for (const sku of this.filters_plant[0].values) {
                 sku.isChecked = true;
             }
@@ -24432,7 +24114,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         } else if (this.selectallplant == 1) {
             let requestData = false;
             this.selectallplant = 0;
-            //console.log('dfsdf12--' + JSON.stringify(this.filters_plant[0]));
+            console.log('dfsdf12--' + JSON.stringify(this.filters_plant[0]));
 
             for (const sku of this.filters_plant[0].values) {
                 sku.isChecked = false;
@@ -24464,7 +24146,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
         this.reactivate_filter(1);
-    //    this.onFilterCheckBoxChange121_sku();
+        this.onFilterCheckBoxChange121_sku();
 
 
     }
@@ -24536,7 +24218,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             let requestData = false;
             this.selectallcpg = 1;
-            //console.log('dfsdf1244--' + JSON.stringify(this.filters[0]));
+            console.log('dfsdf1244--' + JSON.stringify(this.filters[0]));
 
             // for (const sku of this.) {
             //   sku.name.isChecked=true;
@@ -24555,7 +24237,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         } else if (this.selectallcpg == 1) {
             let requestData = false;
             this.selectallcpg = 0;
-            //console.log('dfsdf1244--' + JSON.stringify(this.filters[0]));
+            console.log('dfsdf1244--' + JSON.stringify(this.filters[0]));
 
             // for (const sku of this.) {
             //   sku.name.isChecked=true;
@@ -24596,7 +24278,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         for (const i in s) {
             var ch = s.charAt(i);
-            //console.log('Checking--' + ch);
+            console.log('Checking--' + ch);
             if (ch >= '0' && ch <= '9' || ch == '%') {
                 continue;
             }
@@ -24618,43 +24300,43 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public onValueInput(calenderYearWeek: string, index: number) {
 
 
-        //console.log('FDfd12---' + index);
+        console.log('FDfd12---' + index);
 
         const dpIndex = this.finalForecastDataPoints.findIndex(item => item.calenderYear === calenderYearWeek);
         if (dpIndex > -1) {
 
 
-            //  //console.log("Check"+(this.graphData);
+            //  console.log("Check"+(this.graphData);
 
 
             var value = parseFloat(this.graphData[index].fcstValueAdd);
-            //console.log('FDfd123---' + value);
+            console.log('FDfd123---' + value);
             var decimal = /^[-+]?[0-9]+\.[0-9]+$/;
             //   if(value===undefined || value==undefined)
             // {
-            //   //console.log("dfdf12");
+            //   console.log("dfdf12");
             //   this.graphData[index].fcstValueAdd=0;
             //   // window.alert("These values are not allowed, please enter any float value")
             //   return;
             // }
             // var a=document.getElementById(''+index+'').innerHTML;
-            //console.log('43retwf234567---' + this.graphData[dpIndex].fcstValueAdd);
+            console.log('43retwf234567---' + this.graphData[dpIndex].fcstValueAdd);
 
 
             var s = this.graphData[index].fcstValueAdd;
             var r = this.how(s);
 
             if (s.substr(s.length - 1, s.length) == '%') {
-                //console.log('Ho gya12------');
+                console.log('Ho gya12------');
                 var jk = this.graphData[index].fcstValueAdd.substr(0, this.graphData[index].fcstValueAdd.length - 1);
 
-                //console.log('ffgfgfgfg--' + jk);
+                console.log('ffgfgfgfg--' + jk);
                 var ml1 = this.graphData[index].ml;
-                //console.log('ffgfgfgfg123--' + ml1);
+                console.log('ffgfgfgfg123--' + ml1);
 
                 var h = (jk / 100) * ml1;
 
-                //console.log('ffgfgfgfg12--' + h);
+                console.log('ffgfgfgfg12--' + h);
 
                 h = parseFloat(h.toFixed(0));
 
@@ -24662,20 +24344,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 value = h;
 
             }
-            ////console.log('Hbhbgt---' + r);
+            //console.log('Hbhbgt---' + r);
             if (r == false) {
                 this.graphData[index].fcstValueAdd = 0;
 
                 //this.graphData[index].fcstValueAdd = 1;
                 window.alert('You have added a wrong number or empty string, it will be treated as 0');
-                // //console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
+                // console.log('Really---' + this.graphData[tableindex].fcstValueAdd);
                 return;
 
             }
-            //console.log('check---' + this.graphData[index].fcstValueAdd);
+            console.log('check---' + this.graphData[index].fcstValueAdd);
 
             if (!isNaN(value)) {
-                //console.log('43retwf---' + this.graphData[index].fcstValueAdd);
+                console.log('43retwf---' + this.graphData[index].fcstValueAdd);
                 if (this.graphData[index].initialFinalForecast + value < 0) {
                     this.finalForecastDataPoints[dpIndex].y = 0;
                     this.graphData[index].finalForecast = 0;
@@ -24685,19 +24367,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     this.graphData[index].finalForecast = 0;
                 } else {
                     this.finalForecastDataPoints[dpIndex].y = this.graphData[index].initialFinalForecast + value;
-                    // //console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
-                    //   //console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(0));
+                    // console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
+                    //   console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(0));
                     this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(0));
 
 
                     this.finalForecastDataPoints[index].y = this.graphData[index].initialFinalForecast + value;
-                    //  //console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
-                    ////console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(0));
+                    //  console.log('Check0--' + this.graphData[index].initialFinalForecast + value);
+                    //console.log('Check0345--' + (this.graphData[index].initialFinalForecast + value).toFixed(0));
                     this.graphData[index].finalForecast = parseFloat((this.graphData[index].initialFinalForecast + value).toFixed(0));
                 }
             } else {
 
-                //  //console.log('YFTGHJBKUIYGVHJKH---' + this.graphData[index].fcstValueAdd);
+                //  console.log('YFTGHJBKUIYGVHJKH---' + this.graphData[index].fcstValueAdd);
                 //this.graphData[index].fcstValueAdd=null;
                 //  this.graphData[index].fcstValueAdd=0;
                 //window.alert("You have added a wrong number or empty string, please add integer or decimal value");
@@ -24710,18 +24392,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
 
-            //  //console.log('CH!@--' + JSON.stringify(this.graphData));
+            //  console.log('CH!@--' + JSON.stringify(this.graphData));
             this.totalData.finalCastTotal = 0;
             for (const data of this.graphData) {
                 if (data.finalForecast) {
-                    ////console.log("Mush->"+this.totalData.finalCastTotal);
+                    //console.log("Mush->"+this.totalData.finalCastTotal);
                     this.totalData.finalCastTotal += parseFloat(data.finalForecast);
                 }
             }
             this.totalData.finalCastTotal = 0;
             for (const data of this.graphData) {
                 if (data.finalForecast) {
-                    ////console.log("Mush->"+this.totalData.finalCastTotal);
+                    //console.log("Mush->"+this.totalData.finalCastTotal);
                     this.totalData.finalCastTotal += parseFloat(data.finalForecast);
                 }
             }
@@ -24730,7 +24412,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
                 if (data.fcstValueAdd) {
-                    ////console.log("Mush->"+JSON.stringify(data));
+                    //console.log("Mush->"+JSON.stringify(data));
                     this.forecastadd += parseFloat(data.fcstValueAdd);
                 }
             }
@@ -24740,7 +24422,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
             //   if (data.fcstValueAdd) {
-            //     ////console.log("Mush->"+JSON.stringify(data));
+            //     //console.log("Mush->"+JSON.stringify(data));
             //     this.forecastadd += parseFloat(data.fcstValueAdd);
             //   }
             // }
@@ -24776,10 +24458,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             // }
             // this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
-            // //console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
+            // console.log("FGSSSSS---"+JSON.stringify(this.fgssselected));
 
 
-            //console.log('DEBUG1->' + value);
+            console.log('DEBUG1->' + value);
 
             const reqBody = {
                 cpg: this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
@@ -24794,7 +24476,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             };
 
             // this.skuService.savePlan(reqBody).subscribe((res: any) => {
-            //   //console.log(res);
+            //   console.log(res);
             // });
             //  window.alert("Harshit Sharma is the best guy in the world and sdue to ")
             //  window.alert("FVA - "+value+" \nFinal Forecast for "+week+" becomes "+finalValue+", Please click on save button if you want to save the plan");
@@ -24819,7 +24501,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public onDblClickInput(selectedWeekIndex: number, week) {
 
-        //console.log('Sgsfgsfgsg1234');
+        console.log('Sgsfgsfgsg1234');
 
         if (this.granular1 == 'month') {
 
@@ -24837,7 +24519,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public Dbledit(selectedWeekIndex: number) {
 
-        //console.log('HHHH---' + selectedWeekIndex);
+        console.log('HHHH---' + selectedWeekIndex);
         this.selectedWeekIndex = selectedWeekIndex;
         this.editCommentModalBtn.nativeElement.click();
 
@@ -24854,18 +24536,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.finn = [];
 
 
-        //console.log('previouscheck---' + JSON.stringify(this.graphData));
+        console.log('previouscheck---' + JSON.stringify(this.graphData));
         this.selectedWeekComments = this.graphData[i].userComment;
         let thyh = this.graphData[i].newweek;
-        //console.log('Pyar--' + JSON.stringify(this.selectedWeekComments));
-        //console.log('Check01234567---' + JSON.stringify(this.selectedWeekComments));
+        console.log('Pyar--' + JSON.stringify(this.selectedWeekComments));
+        console.log('Check01234567---' + JSON.stringify(this.selectedWeekComments));
         for (var p = 0; p < this.selectedWeekComments.length; p++) {
-            //console.log('yj-:' + p);
+            console.log('yj-:' + p);
             this.comm1 = this.selectedWeekComments[p].split('|');
 
-            //console.log('KJKHU---' + JSON.stringify(this.comm1));
+            console.log('KJKHU---' + JSON.stringify(this.comm1));
             if (this.comm1[1] == undefined || this.comm1 == null) {
-                //console.log('@$#%^&*');
+                console.log('@$#%^&*');
 
                 this.comm1[1] = 'All SKU';
             }
@@ -24901,12 +24583,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-            //console.log('Test13334567896789678--' + JSON.stringify(this.plantss));
+            console.log('Test13334567896789678--' + JSON.stringify(this.plantss));
 
             for (const pl of this.plantss) {
                 for (const cpg of this.cpgss) {
                     for (const ab of tgh) {
-                        //console.log('Chefking---' + JSON.stringify(ab));
+                        console.log('Chefking---' + JSON.stringify(ab));
                         if (ab.isChecked) {
                             this.finn.push({
                                 week: thyh,
@@ -24923,16 +24605,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
 
 
-            //console.log('CHECKING_LAST---' + this.finn);
+            console.log('CHECKING_LAST---' + this.finn);
         }
 
 
         // var  = this.graphData[i].comments;
-        //console.log('CHECKING_LAST---' + JSON.stringify(this.graphData[i].comments));
+        console.log('CHECKING_LAST---' + JSON.stringify(this.graphData[i].comments));
 
         if (this.graphData[i].comments[0].split('|')[1] != null) {
             for (const fg of this.graphData[i].comments) {
-                //console.log('ewewe--' + fg);
+                console.log('ewewe--' + fg);
                 this.finn.push({
                     week: thyh,
                     sku: fg.split('|')[1],
@@ -24945,7 +24627,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log('Check000000---' + JSON.stringify(this.finn));
+        console.log('Check000000---' + JSON.stringify(this.finn));
 
         //  this.down_table = true;
         this.weeklycomment1();
@@ -24988,9 +24670,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     public locking_final() {
         if (this.selectedWeekIndex) {
 
-            //console.log('TYUFHRF---' + this.selecteddblclick);
+            console.log('TYUFHRF---' + this.selecteddblclick);
 
-            //console.log('TYertyUFHRF---' + JSON.stringify(this.graphData[this.selecteddblclick]));
+            console.log('TYertyUFHRF---' + JSON.stringify(this.graphData[this.selecteddblclick]));
             this.graphData[this.selecteddblclick].lockcell = '12';
             // this.graphData[this.selectedWeekIndex].userComment.push(data.comment);
 
@@ -25004,12 +24686,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.finn[pk_com].comment = data.comment;
 
-        //console.log('764rt3g8uihr--' + JSON.stringify(this.comm1));
+        console.log('764rt3g8uihr--' + JSON.stringify(this.comm1));
 
-        //console.log('CHECK---' + JSON.stringify(data));
+        console.log('CHECK---' + JSON.stringify(data));
 
 
-        //console.log('CHECK1234565---' + JSON.stringify(this.finn));
+        console.log('CHECK1234565---' + JSON.stringify(this.finn));
         //  pk_com="admin"+pk_com;
 
         const finaldata = {
@@ -25041,7 +24723,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public deletecomment(selectedWeekIndex: number) {
 
-        //console.log('HHHH---' + selectedWeekIndex);
+        console.log('HHHH---' + selectedWeekIndex);
         this.selectedWeekIndex = selectedWeekIndex;
         //this.editCommentModalBtn.nativeElement.click();
 
@@ -25141,7 +24823,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         for (const data of this.graphData) {
 
-            //console.log("Dfsadfasdfdsfsdf324---" + JSON.stringify(data.comments));
+            console.log("Dfsadfasdfdsfsdf324---" + JSON.stringify(data.comments));
             if (data.comments.length > 0) {
                 com.push({
                     calendarWeek: data.calenderYearWeek,
@@ -25155,7 +24837,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
         }
 
-        //console.log('9oioi09---' + JSON.stringify(com));
+        console.log('9oioi09---' + JSON.stringify(com));
 
 
         for (const data of this.graphData) {
@@ -25200,23 +24882,23 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         for (const data of this.graphData) {
 
-            //console.log("fcstValueAdd is " + data.fcstValueAdd + " 2nd one is " + this.changed_weeks.indexOf(data.week));
+            console.log("fcstValueAdd is " + data.fcstValueAdd + " 2nd one is " + this.changed_weeks.indexOf(data.week));
 
             if (typeof data.fcstValueAdd !== 'undefined' && (this.changed_weeks.indexOf(data.week) > -1)) {
 
 
-                //console.log("dsfsdfs---" + JSON.stringify(this.changed_weeks));
+                console.log("dsfsdfs---" + JSON.stringify(this.changed_weeks));
 
-                //console.log("PQPQPDF---" + data.week);
+                console.log("PQPQPDF---" + data.week);
 
-                //console.log("titotpn111111&&&&&" + this.changed_weeks.indexOf(data.week));
+                console.log("titotpn111111&&&&&" + this.changed_weeks.indexOf(data.week));
 
                 // for(const ah of this.changed_weeks)
                 // {
-                //   //console.log("YHYH---"+ah);
+                //   console.log("YHYH---"+ah);
                 //   if(ah.week==data.week)
                 //   {
-                //     //console.log("titotpn111111"+this.changed_weeks.indexOf(data.week));
+                //     console.log("titotpn111111"+this.changed_weeks.indexOf(data.week));
                 //   }
                 // }
 
@@ -25240,7 +24922,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                     calendarWeek: data.week
                 };
 
-                //console.log("\n\n ullu fva is " + data.fcstValueAdd);
+                console.log("\n\n ullu fva is " + data.fcstValueAdd);
 
 
                 abc.push(reqBody);
@@ -25259,7 +24941,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
             };
             reqBody.data.push(Object.assign(obj, null));
-            //console.log('Debug -->' + reqBody.data);
+            console.log('Debug -->' + reqBody.data);
             //   this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
             //   this.savePlanLoader = false;
             //   this.PlanNameModalBtn.nativeElement.click();
@@ -25278,7 +24960,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         this.skuService.sendLog(login1).subscribe((res: any) => {
-            //console.log('fdfdf--' + res);
+            console.log('fdfdf--' + res);
         });
 
         this.fgssselected = this.fgssselected.map(item => {
@@ -25288,7 +24970,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.views == "Sku View") {
 
             this.skuService.savePlan(this.skuview_save).subscribe((res: any) => {
-                //console.log(res);
+                console.log(res);
                 // this.skuService.confirmPlan(com).subscribe((res: any) => {
                 this.savePlanLoader = false;
                 this.PlanNameModalBtn.nativeElement.click();
@@ -25304,10 +24986,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-            //console.log("ABABABA----" + JSON.stringify(abc));
+            console.log("ABABABA----" + JSON.stringify(abc));
 
             this.skuService.savePlan(abc).subscribe((res: any) => {
-                //console.log(res);
+                console.log(res);
                 this.skuService.confirmPlan(com).subscribe((res: any) => {
                     this.savePlanLoader = false;
                     this.PlanNameModalBtn.nativeElement.click();
@@ -25352,7 +25034,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
 
-            //console.log('hahha---' + JSON.stringify(this.graphData));
+            console.log('hahha---' + JSON.stringify(this.graphData));
             var abc: any = [];
             for (const g of this.graphData) {
 
@@ -25394,7 +25076,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 plant: this.filters_plant[0].values.filter(item => item.isChecked).map(item => item.name.name.split('-')[0]),
             };
             reqBody.data.push(Object.assign(obj, null));
-            //console.log('Debug -->' + reqBody.data);
+            console.log('Debug -->' + reqBody.data);
             //   this.skuService.confirmPlan(reqBody.data).subscribe((res: any) => {
             //   this.savePlanLoader = false;
             //   this.PlanNameModalBtn.nativeElement.click();
@@ -25453,7 +25135,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             this.saveViewLoader = false;
             this.ViewNameModalBtn.nativeElement.click();
         }, (error) => {
-            //console.log(error);
+            console.log(error);
             this.saveViewLoader = false;
             this.ViewNameModalBtn.nativeElement.click();
         });
@@ -25470,21 +25152,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         };
 
         this.skuService.sendLog(login).subscribe((res: any) => {
-            //console.log('fdfdf2134--' + res);
+            console.log('fdfdf2134--' + res);
         });
 
         var fgssselected1 = this.skus.filter(item => item.isChecked).map(item => item.name);
 
-        //console.log('First 1--' + fgssselected1);
+        console.log('First 1--' + fgssselected1);
 
 
         var fgssselected2 = this.second_sku.filter(item => item.isChecked).map(item => item.name);
 
-        //console.log('Second 2--' + JSON.stringify(fgssselected2));
+        console.log('Second 2--' + JSON.stringify(fgssselected2));
 
         var fgssselected3 = this.sku_semi.filter(item => item.isChecked).map(item => item.name);
 
-        //console.log('Third 3--' + JSON.stringify(fgssselected3));
+        console.log('Third 3--' + JSON.stringify(fgssselected3));
 
 
         for (const abc of fgssselected2) {
@@ -25498,9 +25180,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.fgssselected = JSON.parse(JSON.stringify(fgssselected1));
 
-        //console.log('Fourth 4--' + JSON.stringify(this.fgssselected));
+        console.log('Fourth 4--' + JSON.stringify(this.fgssselected));
 
-        ////console.log('SUfdf--' + JSON.stringify(this.filters[0].values));
+        //console.log('SUfdf--' + JSON.stringify(this.filters[0].values));
 
 
         var data12 = {
@@ -25514,17 +25196,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         if (this.skus.filter(item => item.isChecked).map(item => item.name.length == 0)) {
-            //console.log('0990909----');
+            console.log('0990909----');
             data12.sku = data12.sku.substr(1);
         }
 
         if (this.second_sku.filter(item => item.isChecked).map(item => item.name.length == 0)) {
-            //console.log('0990909----');
+            console.log('0990909----');
             data12.sku = data12.sku.substr(1);
         }
 
 
-        //console.log('00000----' + JSON.stringify(data12));
+        console.log('00000----' + JSON.stringify(data12));
 
         // for(const abc in data12)
         // {
@@ -25538,7 +25220,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //   cpg: this.createFilterString(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])),
         //   sku: this.createFilterString(this.fgssselected.filter(item => item.isChecked).map(item => item.name))
         // }).subscribe((res: any) => {
-        //   //console.log('SUBSCRIBE');
+        //   console.log('SUBSCRIBE');
 
         //   //this.loadFilters();
         //   this.filterService.getFilters({
@@ -25554,7 +25236,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
         for (const ab of this.loadedFilters) {
-            ////console.log("fdfdfd--"+JSON.stringify(ab));
+            //console.log("fdfdfd--"+JSON.stringify(ab));
             if (ab.name === filterName) {
                 window.alert('Please choose a different name');
                 //  this.sameName=true;
@@ -25611,7 +25293,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     public delfilter(i) {
-        //console.log('dsdfdfd=----' + this.loadedFilters[i].name);
+        console.log('dsdfdfd=----' + this.loadedFilters[i].name);
 
         var t = confirm("Are you sure you want to delete this filter?");
         if (t == false) {
@@ -25748,7 +25430,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         };
 
         this.skuService.sendLog(login).subscribe((res: any) => {
-            //console.log('fdfdf--' + res);
+            console.log('fdfdf--' + res);
         });
 
         this.second_sku = [];
@@ -25777,7 +25459,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
 
-        //console.log('Tftdfwfvc46v675gg7uuubjy---' + JSON.stringify(selectedFilter));
+        console.log('Tftdfwfvc46v675gg7uuubjy---' + JSON.stringify(selectedFilter));
         // Todo: Change keys
         // this.filters_plant[0].values = selectedFilter.plant.map(item => {
         //   return {
@@ -25836,12 +25518,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.sku_semi = [];
 
 
-        //console.log('TOCKKKK--' + JSON.stringify(this.skus));
+        console.log('TOCKKKK--' + JSON.stringify(this.skus));
 
         //this.fgssselected = JSON.parse(JSON.stringify(this.skus));
 
 
-        //console.log('TJHGHYKJH---' + JSON.stringify(this.fgssselected));
+        console.log('TJHGHYKJH---' + JSON.stringify(this.fgssselected));
 
 
         this.UOM = 'HL';
@@ -25949,12 +25631,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // for (const brand of this.filters1_brands) {
 
         //   if (brand.key == 'brands') {
-        //     //console.log("poopoo");
+        //     console.log("poopoo");
         //     var flag = 1;
         //     for (const aa of brand.values) {
-        //       //console.log("poopoo12121");
+        //       console.log("poopoo12121");
         //       if (aa.isChecked) {
-        //         //console.log("fgetgte");
+        //         console.log("fgetgte");
         //         aa.isChecked = false;
         //       }
         //     }
@@ -25968,12 +25650,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // for (const brand of this.filters1_brands_1) {
 
         //   if (brand.key == 'brands_1') {
-        //     //console.log("poopoo");
+        //     console.log("poopoo");
         //     var flag = 1;
         //     for (const aa of brand.values) {
-        //       //console.log("poopoo12121");
+        //       console.log("poopoo12121");
         //       if (aa.isChecked) {
-        //         //console.log("fgetgte");
+        //         console.log("fgetgte");
         //         aa.isChecked = false;
         //       }
         //     }
@@ -25988,9 +25670,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             // this.filters_plant=response;
 
             this.filters_plant = [];
-            //console.log('Dfsfg---' + JSON.stringify(response));
+            console.log('Dfsfg---' + JSON.stringify(response));
             const plant = this.plants;
-            //console.log('HAHA---' + JSON.stringify(plant));
+            console.log('HAHA---' + JSON.stringify(plant));
             this.filters_plant.push({
                 name: 'Plants',
                 key: 'plant',
@@ -26002,7 +25684,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
             for (const b of this.filters_plant[0].values) {
                 for (const c of temp_plant) {
-                    //console.log('fgsfg12345-' + JSON.stringify(b));
+                    console.log('fgsfg12345-' + JSON.stringify(b));
                     if (b.name.name == c) {
                         b.isChecked = true;
                     }
@@ -26011,7 +25693,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
             // for (const b of this.filters_plant[0].values) {
-            //   //console.log('fgsfg12345-' + JSON.stringify(b));
+            //   console.log('fgsfg12345-' + JSON.stringify(b));
             //   if (b.name.name == 'G001') {
             //     b.isChecked = true;
             //   }
@@ -26036,9 +25718,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.cpgss = JSON.parse(JSON.stringify(selectedFilter.cpg));
         this.plantss = selectedFilter.plant;
 
-        //console.log('CPG-----' + JSON.stringify(this.cpgss));
+        console.log('CPG-----' + JSON.stringify(this.cpgss));
 
-        //console.log('PLANTETERT-----' + JSON.stringify(this.plantss[0]));
+        console.log('PLANTETERT-----' + JSON.stringify(this.plantss[0]));
 
         var fgfh = JSON.parse(JSON.stringify(this.plantss));
         // this.filters = [];
@@ -26048,10 +25730,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         // for(const b of this.filters[0].values)
         // {
         //      for(const a of this.cpgss) {
-        //       //console.log("fgsfg12345-"+JSON.stringify(b));
+        //       console.log("fgsfg12345-"+JSON.stringify(b));
         //             if(b.name.name==a)
         //             {
-        //               //console.log("Kuch aur");
+        //               console.log("Kuch aur");
         //               b.isChecked=true;
         //             }
         //           }
@@ -26118,9 +25800,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
                 return { name: item, isChecked: false, isFiltered: true };
             });
 
-            //console.log('JKHFRR---' + JSON.stringify(response));
+            console.log('JKHFRR---' + JSON.stringify(response));
 
-            //console.log('shbfsh--');
+            console.log('shbfsh--');
             this.filters.push({
                 name: 'CPG',
                 key: 'customerPlanningGroup',
@@ -26129,12 +25811,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             });
 
 
-            //console.log('khguyg-' + JSON.stringify(this.filters));
+            console.log('khguyg-' + JSON.stringify(this.filters));
 
             for (const b of this.filters[0].values) {
-                //console.log('fgsfg12345-' + JSON.stringify(b));
+                console.log('fgsfg12345-' + JSON.stringify(b));
                 for (const c of temp_cpg) {
-                    //console.log('fgsfg12345-' + JSON.stringify(b));
+                    console.log('fgsfg12345-' + JSON.stringify(b));
                     if (b.name.name == c) {
                         b.isChecked = true;
                     }
@@ -26158,7 +25840,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.createdata.forecastingGroups = JSON.parse(JSON.stringify(a));
         this.createdata.plants = JSON.parse(JSON.stringify(temp_plant));
         this.createdata.customerPlanningGroup = JSON.parse(JSON.stringify(temp_cpg));
-        //  //console.log("dfsdfhdf-------"+JSON.stringify(this.filters[0].values));
+        //  console.log("dfsdfhdf-------"+JSON.stringify(this.filters[0].values));
 
         //   for (const b of this.filters[0].values) {
 
@@ -26168,7 +25850,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         //this.fgssselected=this.skus.filter(item => item.isChecked).map(item => item.name.split('-')[0]);
 
 
-        // //console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])));
+        // console.log("DSfsdfsd234----"+JSON.stringify(this.filters[0].values.filter(item => item.isChecked).map(item => item.name.name.split("-")[0])));
         // data.forecastingGroups = selectedFilter.sku;
         //data.customerPlanningGroup = selectedFilter.cpg;
         // data.plants = selectedFilter.plant;
@@ -26192,34 +25874,34 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.loading = true;
 
-        //console.log('sfsgfs--' + JSON.stringify(data.forecastingGroups));
+        console.log('sfsgfs--' + JSON.stringify(data.forecastingGroups));
 
 
         // data.forecastingGroups = data.forecastingGroups.map(item => {
         //   return {name: item, isChecked: true, isFiltered:true};
         // });
-        //console.log('sfsgf435tyhgns--' + JSON.stringify(data));
+        console.log('sfsgf435tyhgns--' + JSON.stringify(data));
 
 
         for (const a in data.customerPlanningGroup) {
-            //console.log('Loadingggggggg---' + a);
+            console.log('Loadingggggggg---' + a);
             data.customerPlanningGroup[a] = data.customerPlanningGroup[a].split('-')[0];
 
         }
 
         for (const a in data.plants) {
-            //console.log('Loadingggggggg---' + a);
+            console.log('Loadingggggggg---' + a);
             data.plants[a] = data.plants[a].split('-')[0];
 
         }
-        //console.log('!@#$asdfgh12---' + JSON.stringify(data.forecastingGroups));
+        console.log('!@#$asdfgh12---' + JSON.stringify(data.forecastingGroups));
         for (const a in this.fgssselected) {
-            //console.log('Loadingggggggg---' + a);
-            //console.log('Loadingggggggg121121---' + data.forecastingGroups[a]);
+            console.log('Loadingggggggg---' + a);
+            console.log('Loadingggggggg121121---' + data.forecastingGroups[a]);
             this.fgssselected[a].name = this.fgssselected[a].name.split('-')[0];
 
         }
-        //console.log('!@#$asdfgh12---' + JSON.stringify(data.forecastingGroups));
+        console.log('!@#$asdfgh12---' + JSON.stringify(data.forecastingGroups));
 
 
         // this.fgssselected=JSON.parse(JSON.stringify(data.forecastingGroups));
@@ -26235,7 +25917,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         data.endWeek = this.createPlanRequestData.endWeek;
 
 
-        //console.log('FINAL_LOADING_DDD--' + JSON.stringify(data));
+        console.log('FINAL_LOADING_DDD--' + JSON.stringify(data));
         this.createPlan(data);
 
         // this.skuService.getGraphData(data).subscribe((res: any) => {
